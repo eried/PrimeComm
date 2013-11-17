@@ -51,14 +51,15 @@ namespace PrimeComm
                 fullData.Add(0x00);
 
             var allBytes = fullData.ToArray();
- 
-            // Save into Chunks
-            for (var i = 0; i < allBytes.Length; i += chunkSize)
+            int position = 0, chunk = 0;
+
+            do
             {
-                var tmp = new byte[chunkSize];
-                Buffer.BlockCopy(allBytes, i, tmp, 0, chunkSize);
-                Chunks.Add(tmp);
-            }
+                IEnumerable<byte> tmp = new[] { (byte)0x00, (byte)(chunk++ % byte.MaxValue) };
+                Chunks.Add(tmp.Concat(allBytes.SubArray(position==0?2:position, Math.Min(chunkSize-2, allBytes.Length - position))).ToArray());
+                position += chunkSize-2;
+
+            } while (position < allBytes.Length);
         }
 
         public bool IsValid { get; private set; }

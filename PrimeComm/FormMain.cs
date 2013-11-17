@@ -69,7 +69,7 @@ namespace PrimeComm
                         {
                             _receivedFile.Save(saveFileDialogProgram.FileName);
                             
-                            IEnumerable<byte> b = null;
+                            /*IEnumerable<byte> b = null;
                             foreach (var c in _receivedFile.Chunks)
                             {
                                 if (b == null)
@@ -77,7 +77,7 @@ namespace PrimeComm
                                 else
                                     b = b.Concat(c);
                             }
-                            File.WriteAllBytes(saveFileDialogProgram.FileName + ".received", b.ToArray());
+                            File.WriteAllBytes(saveFileDialogProgram.FileName + ".received", b.ToArray());*/
                         }
 
                         ResetProgram();
