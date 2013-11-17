@@ -89,9 +89,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.ico" />
     <None Include="img\connected.png" />
     <None Include="img\disconnected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

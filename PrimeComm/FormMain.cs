@@ -1,10 +1,9 @@
-﻿using PrimeComm.Properties;
+﻿using System.Reflection;
+using PrimeComm.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using DataReceivedEventArgs = UsbLibrary.DataReceivedEventArgs;
@@ -21,8 +20,12 @@ namespace PrimeComm
 
         public FormMain()
         {
-            Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            var p = Assembly.GetExecutingAssembly();
+            Environment.CurrentDirectory = Path.GetDirectoryName(p.Location);
             InitializeComponent();
+
+            var name = p.GetName();
+            Text = String.Format("{0} v{1}", name.Name, name.Version.ToString(2));
         }
 
         private void FormMain_Load(object sender, EventArgs e)
