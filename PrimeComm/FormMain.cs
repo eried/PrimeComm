@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using PrimeComm.Properties;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,10 @@ namespace PrimeComm
 
         public FormMain()
         {
-            var p = Assembly.GetExecutingAssembly();
-            Environment.CurrentDirectory = Path.GetDirectoryName(p.Location);
+            Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
 
-            var name = p.GetName();
-            Text = String.Format("{0} v{1}", name.Name, name.Version.ToString(2));
+            Text = String.Format("{0} v{1}", Application.ProductName, Assembly.GetExecutingAssembly().GetName().Version.ToString(2));
         }
 
         private void FormMain_Load(object sender, EventArgs e)
