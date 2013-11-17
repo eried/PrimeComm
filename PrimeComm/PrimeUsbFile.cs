@@ -57,7 +57,7 @@ namespace PrimeComm
             {
                 IEnumerable<byte> tmp = new[] { (byte)0x00, (byte)(chunk++ % byte.MaxValue) };
                 Chunks.Add(tmp.Concat(allBytes.SubArray(position==0?2:position, Math.Min(chunkSize-2, allBytes.Length - position))).ToArray());
-                position += chunkSize-2;
+                position += chunkSize-(position==0?0:2);
 
             } while (position < allBytes.Length);
         }
