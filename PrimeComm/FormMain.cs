@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using PrimeComm.Properties;
 using System;
@@ -14,12 +15,13 @@ namespace PrimeComm
 {
     public partial class FormMain : Form
     {
-        private bool _calculatorExists, _working, _receivingData, _checkingData;
+        private bool _calculatorExists, _working, _receivingData, _checkingData, _sending;
         private Queue<byte[]> _receivedData = new Queue<byte[]>();
         private PrimeUsbFile _receivedFile;
         private Timer _checker;
         private int _uiCycles = 0;
         private IniParser _config;
+        private string _sendingStatus;
 
         public FormMain()
         {
@@ -57,7 +59,11 @@ namespace PrimeComm
                     _receivingData = false;
 
                 pictureBoxStatus.Image = _calculatorExists ? Resources.connected : Resources.disconnected;
-                labelStatusSubtitle.Text = _calculatorExists ? Resources.StatusConnected + (_receivingData ? Environment.NewLine + Environment.NewLine + (_receivedData.Count > 0 ? String.Format(Resources.StatusReceived, GetKilobytes(_receivedData.Count), 1) : Resources.StatusWaiting) : "") : Resources.StatusNotConnected;
+
+                if (_sending)
+                    labelStatusSubtitle.Text = String.IsNullOrEmpty(_sendingStatus)? "Sending files...": _sendingStatus;
+                else
+                    labelStatusSubtitle.Text = _calculatorExists ? Resources.StatusConnected + (_receivingData ? Environment.NewLine + Environment.NewLine + (_receivedData.Count > 0 ? String.Format(Resources.StatusReceived, GetKilobytes(_receivedData.Count), 1) : Resources.StatusWaiting) : "") : Resources.StatusNotConnected;
 
                 if (!_working)
                     _working = _receivedData.Count > 0;
@@ -183,36 +189,16 @@ namespace PrimeComm
             UpdateGui();
 
             if (openFileDialogProgram.ShowDialog() == DialogResult.OK)
-                SendToCalculator(openFileDialogProgram.FileName);
+                SendToCalculator(openFileDialogProgram.FileNames);
         }
 
-        private void SendToCalculator(string path)
+        private void SendToCalculator(string[] fileNames)
         {
-            try
-            {
-                var b = new PrimeProgramFile(path, _config.GetSettingAsBoolean("input","ignore_internal_name",true));
-
-                if (b.IsValid)
-                {
-                    _working = true;
-                    backgroundWorkerSend.RunWorkerAsync(b);
-                    UpdateGui();
-                }
-                else
-                {
-                    ShowError(Resources.SendNotSupported);
-                }
-            }
-            catch
-            {
-                ShowError(Resources.SendError);
-            }
-
-        }
-
-        private void ShowError(string msg)
-        {
-            MessageBox.Show(msg, Resources.MsgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            _working = true;
+            _sending = true;
+            backgroundWorkerSend.RunWorkerAsync(new FileSet(fileNames,
+                new ParseSettings{IgnoreInternalName = _config.GetSettingAsBoolean("input", "ignore_internal_name", true)}));
+            UpdateGui();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -230,14 +216,128 @@ namespace PrimeComm
 
         private void backgroundWorkerSend_DoWork(object sender, DoWorkEventArgs e)
         {
-            var b = (PrimeProgramFile)e.Argument;
-            new PrimeUsbFile(b.Name, b.Data, hidDevice.SpecifiedDevice.OutputReportLength).Send(hidDevice.SpecifiedDevice);
+            var fs = (FileSet)e.Argument;
+            var res = new SendResults(fs.Files.Length);
+            foreach (var file in fs.Files)
+            {
+                try
+                {
+                    var b = new PrimeProgramFile(file, fs.Settings.IgnoreInternalName);
+
+                    try
+                    {
+                        if (b.IsValid)
+                        {
+                            new PrimeUsbFile(b.Name, b.Data, hidDevice.SpecifiedDevice.OutputReportLength).Send(
+                                hidDevice.SpecifiedDevice);
+                            res.Add(SendResult.Success);
+                        }
+                        else
+                            res.Add(SendResult.ErrorInvalidFile);
+                    }
+                    catch
+                    {
+                        res.Add(SendResult.ErrorSend);
+                    }
+                }
+                catch
+                {
+                    res.Add(SendResult.ErrorReading);
+                }
+
+                backgroundWorkerSend.ReportProgress(0, res);
+            }
+
+            e.Result = res;
         }
 
         private void backgroundWorkerSend_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             _working = false;
+            _sending = false;
+            UpdateGui();
+
+            if (e.Result != null)
+                ((SendResults) e.Result).ShowMsg();
+        }
+
+        private void backgroundWorkerSend_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            var r = (SendResults) e.UserState;
+            _sendingStatus = r.GetSendMessage();
             UpdateGui();
         }
+    }
+
+    internal enum SendResult
+    {
+        Success,
+        ErrorReading,
+        ErrorSend,
+        ErrorInvalidFile
+    }
+
+    internal class SendResults
+    {
+        private readonly int _totalFiles;
+        private readonly Dictionary<SendResult, int> _results;
+
+        public SendResults(int totalFiles)
+        {
+            _totalFiles = totalFiles;
+            _results = new Dictionary<SendResult, int>();
+
+            foreach (SendResult k in Enum.GetValues(typeof (SendResult)))
+                _results.Add(k, 0);
+        }
+
+        internal void ShowMsg()
+        {
+            var ok = _results[SendResult.Success];
+
+            if (_totalFiles > 0 && ok == _totalFiles)
+                ShowMsg(_totalFiles > 1 ? "All the files were sucessfully sent!" : "File sucessfully sent!");
+            else
+                ShowError(_totalFiles == 1
+                    ? Resources.SendError
+                    : (ok == 0 ? "Can't send files" : "Some files failed. Check the device"));
+        }
+
+        private static void ShowMsg(string msg)
+        {
+            MessageBox.Show(msg, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private static void ShowError(string msg)
+        {
+            MessageBox.Show(msg, Resources.MsgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void Add(SendResult r)
+        {
+            _results[r]++;
+        }
+
+        public string GetSendMessage()
+        {
+            return String.Format("Sending ({0} of {1})...",_results.Sum(v => v.Value), _totalFiles);
+        }
+    }
+
+    internal class FileSet
+    {
+        public string[] Files { get; set; }
+        public ParseSettings Settings { get; set; }
+
+        public FileSet(string[] fileNames, ParseSettings parseSettings)
+        {
+            Files = fileNames;
+            Settings = parseSettings;
+        }
+    }
+
+    internal class ParseSettings
+    {
+        public bool IgnoreInternalName { get; set; }
     }
 }
