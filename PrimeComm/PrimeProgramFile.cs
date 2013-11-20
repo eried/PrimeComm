@@ -33,7 +33,7 @@ namespace PrimeComm
                     break; 
 
                 default:
-                    if (b.Length >= 20)
+                    if (b.Length >= 19)
                     {
                         for (var i = 1; i <= 7; i++)
                             if (b[i] != 0x00)
@@ -56,7 +56,6 @@ namespace PrimeComm
                             case 0x01:
                                 if (b[16] == 0x31)
                                 {
-                                    var pivot = -1;
                                     for(var i=18;i<b.Length;i++)
                                         if (b[i - 1] == b[i] && b[i] == 0x00)
                                         {

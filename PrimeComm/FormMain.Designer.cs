@@ -95,6 +95,7 @@
             // openFileDialogProgram
             // 
             resources.ApplyResources(this.openFileDialogProgram, "openFileDialogProgram");
+            this.openFileDialogProgram.Multiselect = true;
             // 
             // saveFileDialogProgram
             // 
@@ -102,7 +103,9 @@
             // 
             // backgroundWorkerSend
             // 
+            this.backgroundWorkerSend.WorkerReportsProgress = true;
             this.backgroundWorkerSend.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerSend_DoWork);
+            this.backgroundWorkerSend.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerSend_ProgressChanged);
             this.backgroundWorkerSend.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerSend_RunWorkerCompleted);
             // 
             // FormMain

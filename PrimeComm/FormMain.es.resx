@@ -183,7 +183,7 @@
     <value>Archivos compatibles (*.hpprgm;*.txt)|*.hpprgm;*.txt|Programa de HP Prime (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|Todos los archivos (*.*)|*.*</value>
   </data>
   <data name="openFileDialogProgram.Title" xml:space="preserve">
-    <value>Enviar archivo</value>
+    <value>Seleccione uno o más archivos para enviar</value>
   </data>
   <data name="saveFileDialogProgram.Filter" xml:space="preserve">
     <value>Programa de HP Prime (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|Todos los archivos (*.*)|*.*</value>
@@ -487,9 +487,5 @@
         Vv/hpVb/4aVW/+GlVv/hpVb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 </value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>
