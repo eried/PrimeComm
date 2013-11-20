@@ -46,9 +46,9 @@ namespace PrimeComm
             fullData.AddRange(data);
 
             // Padding for chunks
-            var l = fullData.Count;
+            /*var l = fullData.Count;
             for (int i = 0;i<chunkSize-(l%chunkSize); i++)
-                fullData.Add(0x00);
+                fullData.Add(0x00);*/
 
             var allBytes = fullData.ToArray();
             int position = 0, chunk = 0;
@@ -133,9 +133,20 @@ namespace PrimeComm
 
         public void Save(string destinationFilename)
         {
-            // Convert to hpprgm file
-            IEnumerable<byte> f = new byte[] { 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-            File.WriteAllBytes(destinationFilename, f.Concat(BitConverter.GetBytes(Data.Length)).Concat(Data).ToArray());
+            switch (Path.GetExtension(destinationFilename))
+            {
+                case ".txt":
+                    File.WriteAllBytes(destinationFilename, Encoding.Convert(Encoding.Unicode, Encoding.Default, Data.SubArray(0,Data.Length-2)));
+                    break;
+
+                default:
+                    // Convert to hpprgm file
+                    IEnumerable<byte> f = new byte[]
+                    {0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                    File.WriteAllBytes(destinationFilename,
+                        f.Concat(BitConverter.GetBytes(Data.Length)).Concat(Data).ToArray());
+                    break;
+            }
         }
     }
 }
