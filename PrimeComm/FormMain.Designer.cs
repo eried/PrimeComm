@@ -116,12 +116,13 @@
             // 
             // openFileDialogProgram
             // 
-            this.openFileDialogProgram.Filter = "HP Prime Program (*.hpprgm)|*.hpprgm|All files (*.*)|*.*";
+            this.openFileDialogProgram.Filter = "All supported files (*.hpprgm;*.txt)|*.hpprgm;*.txt|HP Prime Program (*.hpprgm)|*" +
+    ".hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*";
             this.openFileDialogProgram.Title = "Select file to send";
             // 
             // saveFileDialogProgram
             // 
-            this.saveFileDialogProgram.Filter = "HP Prime Program (*.hpprgm)|*.hpprgm|All files (*.*)|*.*";
+            this.saveFileDialogProgram.Filter = "HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*";
             this.saveFileDialogProgram.Title = "Save received file";
             // 
             // backgroundWorkerSend
