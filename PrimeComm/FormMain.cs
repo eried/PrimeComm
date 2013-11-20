@@ -23,7 +23,6 @@ namespace PrimeComm
         {
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
-
             Text = String.Format("{0} v{1}", Application.ProductName, Assembly.GetExecutingAssembly().GetName().Version.ToString(2));
         }
 
@@ -53,8 +52,7 @@ namespace PrimeComm
                     _receivingData = false;
 
                 pictureBoxStatus.Image = _calculatorExists ? Resources.connected : Resources.disconnected;
-                //labelStatusTitle.Text = "---";
-                labelStatusSubtitle.Text = _calculatorExists ? "Connected to USB" + (_receivingData ? Environment.NewLine + (_receivedData.Count > 0 ? String.Format("Receiving ({0} KB received)...",GetKilobytes(_receivedData.Count),1) : "Waiting, tap Send in the Prime") : "") : "Not connected";
+                labelStatusSubtitle.Text = _calculatorExists ? Resources.StatusConnected + (_receivingData ? Environment.NewLine + Environment.NewLine + (_receivedData.Count > 0 ? String.Format(Resources.StatusReceived, GetKilobytes(_receivedData.Count), 1) : Resources.StatusWaiting) : "") : Resources.StatusNotConnected;
 
                 if (!_working)
                     _working = _receivedData.Count > 0;
@@ -68,19 +66,7 @@ namespace PrimeComm
                     {
                         saveFileDialogProgram.FileName = _receivedFile.Name + ".hpprgm";
                         if (saveFileDialogProgram.ShowDialog() == DialogResult.OK)
-                        {
                             _receivedFile.Save(saveFileDialogProgram.FileName);
-                            
-                            /*IEnumerable<byte> b = null;
-                            foreach (var c in _receivedFile.Chunks)
-                            {
-                                if (b == null)
-                                    b = c;
-                                else
-                                    b = b.Concat(c);
-                            }
-                            File.WriteAllBytes(saveFileDialogProgram.FileName + ".received", b.ToArray());*/
-                        }
 
                         ResetProgram();
                     }
@@ -211,19 +197,19 @@ namespace PrimeComm
                 }
                 else
                 {
-                    ShowError("Not supported file");
+                    ShowError(Resources.SendNotSupported);
                 }
             }
             catch
             {
-                ShowError("Error sending the file");
+                ShowError(Resources.SendError);
             }
 
         }
 
         private void ShowError(string msg)
         {
-            MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(msg, Resources.MsgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

@@ -79,5 +79,68 @@ namespace PrimeComm.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string MsgErrorTitle {
+            get {
+                return ResourceManager.GetString("MsgErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error sending the file.
+        /// </summary>
+        internal static string SendError {
+            get {
+                return ResourceManager.GetString("SendError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not supported file.
+        /// </summary>
+        internal static string SendNotSupported {
+            get {
+                return ResourceManager.GetString("SendNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connected to USB.
+        /// </summary>
+        internal static string StatusConnected {
+            get {
+                return ResourceManager.GetString("StatusConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not connected.
+        /// </summary>
+        internal static string StatusNotConnected {
+            get {
+                return ResourceManager.GetString("StatusNotConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Receiving ({0} KB received)....
+        /// </summary>
+        internal static string StatusReceived {
+            get {
+                return ResourceManager.GetString("StatusReceived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting file, select a program and tap Send in your calculator.
+        /// </summary>
+        internal static string StatusWaiting {
+            get {
+                return ResourceManager.GetString("StatusWaiting", resourceCulture);
+            }
+        }
     }
 }

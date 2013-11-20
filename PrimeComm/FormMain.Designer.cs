@@ -46,63 +46,41 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.labelStatusSubtitle);
             this.groupBox1.Controls.Add(this.pictureBoxStatus);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(277, 93);
-            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Status";
             // 
             // labelStatusSubtitle
             // 
-            this.labelStatusSubtitle.Location = new System.Drawing.Point(80, 29);
+            resources.ApplyResources(this.labelStatusSubtitle, "labelStatusSubtitle");
             this.labelStatusSubtitle.Name = "labelStatusSubtitle";
-            this.labelStatusSubtitle.Size = new System.Drawing.Size(192, 43);
-            this.labelStatusSubtitle.TabIndex = 1;
-            this.labelStatusSubtitle.Text = "Unknown";
-            this.labelStatusSubtitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBoxStatus
             // 
-            this.pictureBoxStatus.Image = global::PrimeComm.Properties.Resources.disconnected;
-            this.pictureBoxStatus.Location = new System.Drawing.Point(26, 24);
+            resources.ApplyResources(this.pictureBoxStatus, "pictureBoxStatus");
             this.pictureBoxStatus.Name = "pictureBoxStatus";
-            this.pictureBoxStatus.Size = new System.Drawing.Size(48, 48);
-            this.pictureBoxStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxStatus.TabIndex = 0;
             this.pictureBoxStatus.TabStop = false;
             // 
             // buttonReceive
             // 
-            this.buttonReceive.Location = new System.Drawing.Point(12, 111);
+            resources.ApplyResources(this.buttonReceive, "buttonReceive");
             this.buttonReceive.Name = "buttonReceive";
-            this.buttonReceive.Size = new System.Drawing.Size(79, 23);
-            this.buttonReceive.TabIndex = 1;
-            this.buttonReceive.Text = "&Receive";
             this.buttonReceive.UseVisualStyleBackColor = true;
             this.buttonReceive.Click += new System.EventHandler(this.buttonReceive_Click);
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(97, 111);
+            resources.ApplyResources(this.buttonSend, "buttonSend");
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(79, 23);
-            this.buttonSend.TabIndex = 1;
-            this.buttonSend.Text = "&Send";
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(210, 111);
+            resources.ApplyResources(this.buttonClose, "buttonClose");
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(79, 23);
-            this.buttonClose.TabIndex = 1;
-            this.buttonClose.Text = "&Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
@@ -116,14 +94,11 @@
             // 
             // openFileDialogProgram
             // 
-            this.openFileDialogProgram.Filter = "All supported files (*.hpprgm;*.txt)|*.hpprgm;*.txt|HP Prime Program (*.hpprgm)|*" +
-    ".hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*";
-            this.openFileDialogProgram.Title = "Select file to send";
+            resources.ApplyResources(this.openFileDialogProgram, "openFileDialogProgram");
             // 
             // saveFileDialogProgram
             // 
-            this.saveFileDialogProgram.Filter = "HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*";
-            this.saveFileDialogProgram.Title = "Save received file";
+            resources.ApplyResources(this.saveFileDialogProgram, "saveFileDialogProgram");
             // 
             // backgroundWorkerSend
             // 
@@ -132,22 +107,17 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 146);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.buttonReceive);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).EndInit();
             this.ResumeLayout(false);
 
