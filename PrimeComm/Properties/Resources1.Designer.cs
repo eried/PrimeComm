@@ -108,6 +108,24 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t send files.
+        /// </summary>
+        internal static string StatusAllFailed {
+            get {
+                return ResourceManager.GetString("StatusAllFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All the files were sucessfully sent!.
+        /// </summary>
+        internal static string StatusAllSent {
+            get {
+                return ResourceManager.GetString("StatusAllSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connected to USB.
         /// </summary>
         internal static string StatusConnected {
@@ -135,7 +153,43 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Waiting file, select a program and tap Send in your calculator.
+        ///   Looks up a localized string similar to Sending files....
+        /// </summary>
+        internal static string StatusSending {
+            get {
+                return ResourceManager.GetString("StatusSending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sending ({0} of {1})....
+        /// </summary>
+        internal static string StatusSendingProgress {
+            get {
+                return ResourceManager.GetString("StatusSendingProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File sucessfully sent!.
+        /// </summary>
+        internal static string StatusSent {
+            get {
+                return ResourceManager.GetString("StatusSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some files failed. Check the device.
+        /// </summary>
+        internal static string StatusSomeFailed {
+            get {
+                return ResourceManager.GetString("StatusSomeFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting, select a program and tap Send in your calculator....
         /// </summary>
         internal static string StatusWaiting {
             get {

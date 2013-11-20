@@ -145,4 +145,22 @@
   <data name="MsgErrorTitle" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="StatusSending" xml:space="preserve">
+    <value>Sending files...</value>
+  </data>
+  <data name="StatusAllSent" xml:space="preserve">
+    <value>All the files were sucessfully sent!</value>
+  </data>
+  <data name="StatusSent" xml:space="preserve">
+    <value>File sucessfully sent!</value>
+  </data>
+  <data name="StatusSomeFailed" xml:space="preserve">
+    <value>Some files failed. Check the device</value>
+  </data>
+  <data name="StatusAllFailed" xml:space="preserve">
+    <value>Can't send files</value>
+  </data>
+  <data name="StatusSendingProgress" xml:space="preserve">
+    <value>Sending ({0} of {1})...</value>
+  </data>
 </root>

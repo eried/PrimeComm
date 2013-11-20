@@ -126,6 +126,12 @@
   <data name="SendNotSupported" xml:space="preserve">
     <value>Archivo inválido</value>
   </data>
+  <data name="StatusAllFailed" xml:space="preserve">
+    <value>No se puede enviar ningún archivo</value>
+  </data>
+  <data name="StatusAllSent" xml:space="preserve">
+    <value>Todos los archivos fueron enviados correctamente</value>
+  </data>
   <data name="StatusConnected" xml:space="preserve">
     <value>Conectado por USB</value>
   </data>
@@ -134,6 +140,18 @@
   </data>
   <data name="StatusReceived" xml:space="preserve">
     <value>Recibiendo ({0} KB)...</value>
+  </data>
+  <data name="StatusSending" xml:space="preserve">
+    <value>Enviando...</value>
+  </data>
+  <data name="StatusSendingProgress" xml:space="preserve">
+    <value>Enviando ({0} de {1})...</value>
+  </data>
+  <data name="StatusSent" xml:space="preserve">
+    <value>El archivo se envió correctamente</value>
+  </data>
+  <data name="StatusSomeFailed" xml:space="preserve">
+    <value>Algunos archivos han fallado al intentar enviarlos. Revise la calculadora</value>
   </data>
   <data name="StatusWaiting" xml:space="preserve">
     <value>Seleccione un programa y toque Enviar en la calculadora...</value>

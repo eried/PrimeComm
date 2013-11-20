@@ -61,7 +61,7 @@ namespace PrimeComm
                 pictureBoxStatus.Image = _calculatorExists ? Resources.connected : Resources.disconnected;
 
                 if (_sending)
-                    labelStatusSubtitle.Text = String.IsNullOrEmpty(_sendingStatus)? "Sending files...": _sendingStatus;
+                    labelStatusSubtitle.Text = String.IsNullOrEmpty(_sendingStatus) ? Resources.StatusSending : _sendingStatus;
                 else
                     labelStatusSubtitle.Text = _calculatorExists ? Resources.StatusConnected + (_receivingData ? Environment.NewLine + Environment.NewLine + (_receivedData.Count > 0 ? String.Format(Resources.StatusReceived, GetKilobytes(_receivedData.Count), 1) : Resources.StatusWaiting) : "") : Resources.StatusNotConnected;
 
@@ -296,11 +296,11 @@ namespace PrimeComm
             var ok = _results[SendResult.Success];
 
             if (_totalFiles > 0 && ok == _totalFiles)
-                ShowMsg(_totalFiles > 1 ? "All the files were sucessfully sent!" : "File sucessfully sent!");
+                ShowMsg(_totalFiles > 1 ? Resources.StatusAllSent : Resources.StatusSent);
             else
                 ShowError(_totalFiles == 1
                     ? Resources.SendError
-                    : (ok == 0 ? "Can't send files" : "Some files failed. Check the device"));
+                    : (ok == 0 ? Resources.StatusAllFailed : Resources.StatusSomeFailed));
         }
 
         private static void ShowMsg(string msg)
@@ -320,7 +320,7 @@ namespace PrimeComm
 
         public string GetSendMessage()
         {
-            return String.Format("Sending ({0} of {1})...",_results.Sum(v => v.Value), _totalFiles);
+            return String.Format(Resources.StatusSendingProgress,_results.Sum(v => v.Value), _totalFiles);
         }
     }
 
