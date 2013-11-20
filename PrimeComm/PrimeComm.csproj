@@ -53,15 +53,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="IniParser.cs" />
     <Compile Include="PrimeProgramFile.cs" />
     <Compile Include="PrimeUsbFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.en.resx</DependentUpon>
-    </Compile>
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="FormMain.en.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -72,14 +68,13 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.en.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+    <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.en.resx</DependentUpon>
+      <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.es.resx" />

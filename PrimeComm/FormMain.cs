@@ -18,9 +18,14 @@ namespace PrimeComm
         private Queue<byte[]> _receivedData = new Queue<byte[]>();
         private PrimeUsbFile _receivedFile;
         private Timer _checker;
+        private int _uiCycles = 0;
+        private IniParser _config;
 
         public FormMain()
         {
+            var ini = Path.ChangeExtension(Application.ExecutablePath, "ini");
+            _config = File.Exists(ini) ? new IniParser(ini) : new IniParser();
+
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
             Text = String.Format("{0} v{1}", Application.ProductName, Assembly.GetExecutingAssembly().GetName().Version.ToString(2));
@@ -107,8 +112,6 @@ namespace PrimeComm
             }
         }
 
-        private int _uiCycles = 0;
-
         private void ScheduleCheck(Boolean stop = false)
         {
             if(_checker == null)
@@ -187,7 +190,7 @@ namespace PrimeComm
         {
             try
             {
-                var b = new PrimeProgramFile(path);
+                var b = new PrimeProgramFile(path, _config.GetSettingAsBoolean("input","ignore_internal_name",true));
 
                 if (b.IsValid)
                 {

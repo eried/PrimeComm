@@ -157,10 +157,6 @@
   <data name="&gt;&gt;pictureBoxStatus.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBoxStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="buttonClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>210, 111</value>
   </data>
@@ -179,6 +175,7 @@
   <data name="&gt;&gt;labelStatusSubtitle.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonReceive.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -186,8 +183,8 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
-  <data name="pictureBoxStatus.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="labelStatusSubtitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 19</value>
   </data>
   <data name="&gt;&gt;buttonClose.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -504,11 +501,14 @@
   <data name="&gt;&gt;buttonReceive.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="pictureBoxStatus.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
   <data name="pictureBoxStatus.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
   </data>
-  <data name="labelStatusSubtitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 19</value>
+  <data name="pictureBoxStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;buttonReceive.Name" xml:space="preserve">
     <value>buttonReceive</value>
@@ -571,8 +571,11 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
+  <data name="labelStatusSubtitle.Text" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
   <data name="&gt;&gt;hidDevice.Type" xml:space="preserve">
-    <value>UsbLibrary.UsbHidPort, UsbLibrary, Version=1.0.5063.8837, Culture=neutral, PublicKeyToken=null</value>
+    <value>UsbLibrary.UsbHidPort, UsbLibrary, Version=1.0.5072.21507, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="labelStatusSubtitle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -588,9 +591,6 @@
   </data>
   <data name="buttonReceive.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 111</value>
-  </data>
-  <data name="&gt;&gt;buttonClose.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>277, 93</value>
@@ -619,11 +619,14 @@
   <data name="openFileDialogProgram.Filter" xml:space="preserve">
     <value>All supported files (*.hpprgm;*.txt)|*.hpprgm;*.txt|HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*</value>
   </data>
-  <data name="labelStatusSubtitle.Text" xml:space="preserve">
-    <value>Unknown</value>
+  <data name="buttonClose.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="labelStatusSubtitle.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;buttonClose.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="saveFileDialogProgram.Filter" xml:space="preserve">
     <value>HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*</value>
@@ -663,9 +666,6 @@
   </data>
   <data name="pictureBoxStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 71</value>
-  </data>
-  <data name="buttonClose.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <metadata name="saveFileDialogProgram.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>323, 17</value>
