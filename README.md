@@ -2,13 +2,8 @@ PrimeComm
 =========
 
 Simple Windows version to send and receive HP Prime Calculator programs.
-
-
-_PrimeComm v0.2_<br>
 Requires .Net Framework 4.0
 
-Changelog:<br>
-- Implements basic send/receive of 1 kind of hpprgm format (unnamed)<br>
 
 Related
 -------
