@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using FolderSelect;
 using PrimeComm.Properties;
 using System;
 using System.Collections.Generic;
@@ -70,7 +71,8 @@ namespace PrimeComm
 
                 buttonReceive.Enabled = !_receivingData && _calculatorExists && !_working;
                 buttonSend.Enabled = _calculatorExists && !_working;
-                buttonClose.Enabled = !_working;
+                buttonCaptureScreen.Enabled = _calculatorExists && !_working;
+                
 
                 if(_receivingData==false)
                     if (_receivedFile != null && _receivedFile.IsComplete)
@@ -185,19 +187,41 @@ namespace PrimeComm
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
+            SendDataTo(Destinations.Calculator);
+        }
+
+        private void SendDataTo(Destinations destination)
+        {
             _receivingData = false;
             UpdateGui();
 
             if (openFileDialogProgram.ShowDialog() == DialogResult.OK)
-                SendToCalculator(openFileDialogProgram.FileNames);
+            {
+                var fileSet = new FileSet(openFileDialogProgram.FileNames,
+                    new ParseSettings
+                    {
+                        Destination = destination,
+                        IgnoreInternalName = _config.GetSettingAsBoolean("input", "ignore_internal_name", true)
+                    });
+
+                if (destination == Destinations.Custom)
+                {
+                    var fs = new FolderSelectDialog {Title = "Select the destination folder"};
+                    if (!fs.ShowDialog())
+                        return; // Conversion was cancel
+
+                    fileSet.Settings.CustomDestination = fs.FileName;
+                }
+
+                SendDataTo(fileSet);
+            }
         }
 
-        private void SendToCalculator(string[] fileNames)
+        private void SendDataTo(FileSet files)
         {
             _working = true;
             _sending = true;
-            backgroundWorkerSend.RunWorkerAsync(new FileSet(fileNames,
-                new ParseSettings{IgnoreInternalName = _config.GetSettingAsBoolean("input", "ignore_internal_name", true)}));
+            backgroundWorkerSend.RunWorkerAsync(files);
             UpdateGui();
         }
 
@@ -218,6 +242,7 @@ namespace PrimeComm
         {
             var fs = (FileSet)e.Argument;
             var res = new SendResults(fs.Files.Length);
+            var nullFile = new PrimeUsbFile(new byte[] {0x00});
             foreach (var file in fs.Files)
             {
                 try
@@ -228,9 +253,19 @@ namespace PrimeComm
                     {
                         if (b.IsValid)
                         {
-                            new PrimeUsbFile(b.Name, b.Data, hidDevice.SpecifiedDevice.OutputReportLength).Send(
-                                hidDevice.SpecifiedDevice);
-                            res.Add(SendResult.Success);
+                            switch (fs.Settings.Destination)
+                            {
+                                case Destinations.Calculator:
+                                    nullFile.Send(hidDevice.SpecifiedDevice);
+                                    new PrimeUsbFile(b.Name, b.Data, hidDevice.SpecifiedDevice.OutputReportLength).Send(hidDevice.SpecifiedDevice);
+                                    nullFile.Send(hidDevice.SpecifiedDevice);
+                                    res.Add(SendResult.Success);
+                                    break;
+                                case Destinations.UserFolder:
+                                    break;
+                                case Destinations.Custom:
+                                    break;
+                            }
                         }
                         else
                             res.Add(SendResult.ErrorInvalidFile);
@@ -255,6 +290,7 @@ namespace PrimeComm
         {
             _working = false;
             _sending = false;
+            _sendingStatus = null;
             UpdateGui();
 
             if (e.Result != null)
@@ -267,6 +303,74 @@ namespace PrimeComm
             _sendingStatus = r.GetSendMessage();
             UpdateGui();
         }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void convertFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogProgram.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var b = new PrimeProgramFile(openFileDialogProgram.FileName);
+
+                    if (b.IsValid)
+                        if (saveFileDialogProgram.ShowDialog() == DialogResult.OK)
+                        {
+                            new PrimeUsbFile(b.Data).Save(saveFileDialogProgram.FileName);
+                        }
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new Form
+            {
+                Text = "About " + Text,
+                Icon = Icon,
+                FormBorderStyle = FormBorderStyle.FixedSingle,
+                StartPosition = FormStartPosition.CenterParent,
+                MinimizeBox = false,
+                MaximizeBox = false,
+                Font = Font,
+                Height = 150,
+                Width = 300
+            };
+
+            var fl = new FlowLayoutPanel {Dock = DockStyle.Top};
+
+            fl.Controls.Add(new Label {Text = "Erwin Ried"});
+
+            const string p = "http://ried.cl";
+            var l = new LinkLabel {Text = p};
+            l.Click += (o, args) => Process.Start(p);
+            fl.Controls.Add(l);
+            f.Controls.Add(fl);
+
+            f.ShowDialog();
+        }
+
+        private void sendToConnKitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendDataTo(Destinations.UserFolder);
+        }
+
+        private void sendToCustomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendDataTo(Destinations.Custom);
+        }
+    }
+
+    internal enum Destinations
+    {
+        Calculator, UserFolder, Custom
     }
 
     internal enum SendResult
@@ -339,5 +443,9 @@ namespace PrimeComm
     internal class ParseSettings
     {
         public bool IgnoreInternalName { get; set; }
+
+        public Destinations Destination { get; set; }
+
+        public string CustomDestination { get; set; }
     }
 }
