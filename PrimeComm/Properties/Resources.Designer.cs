@@ -81,6 +81,24 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All supported files (*.hpprgm;*.txt)|*.hpprgm;*.txt|HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*.
+        /// </summary>
+        internal static string FilterInput {
+            get {
+                return ResourceManager.GetString("FilterInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*.
+        /// </summary>
+        internal static string FilterOutput {
+            get {
+                return ResourceManager.GetString("FilterOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string MsgErrorTitle {

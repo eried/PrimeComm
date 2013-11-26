@@ -163,4 +163,10 @@
   <data name="StatusSendingProgress" xml:space="preserve">
     <value>Sending ({0} of {1})...</value>
   </data>
+  <data name="FilterInput" xml:space="preserve">
+    <value>All supported files (*.hpprgm;*.txt)|*.hpprgm;*.txt|HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*</value>
+  </data>
+  <data name="FilterOutput" xml:space="preserve">
+    <value>HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*</value>
+  </data>
 </root>

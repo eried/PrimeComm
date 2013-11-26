@@ -1,7 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
 using FolderSelect;
+using Microsoft.Win32;
 using PrimeComm.Properties;
 using System;
 using System.Collections.Generic;
@@ -22,7 +25,8 @@ namespace PrimeComm
         private Timer _checker;
         private int _uiCycles = 0;
         private IniParser _config;
-        private string _sendingStatus;
+        private string _sendingStatus, _emulatorFolder;
+        private Random _random = new Random();
 
         public FormMain()
         {
@@ -31,7 +35,22 @@ namespace PrimeComm
 
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
-            Text = String.Format("{0} v{1}", Application.ProductName, Assembly.GetExecutingAssembly().GetName().Version.ToString(2));
+            InitializeGui();
+        }
+
+        private void InitializeGui()
+        {
+            var v = Assembly.GetExecutingAssembly().GetName().Version;
+            Text = String.Format("{0} v{1} b{2}", Application.ProductName, v.ToString(2), v.Build);
+
+            // Save
+            openFilesDialogProgram.Filter = Resources.FilterInput;
+            openFileDialogProgram.Filter = Resources.FilterInput;
+            saveFileDialogProgram.Filter = Resources.FilterOutput;
+
+            //_workFolder = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Hewlett-Packard\HP Connectivity Kit", "WorkFolder", null) as string;
+            _emulatorFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HP_Prime");
+            sendToEmulatorKitToolStripMenuItem.Enabled = Directory.Exists(_emulatorFolder);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -70,7 +89,13 @@ namespace PrimeComm
                     _working = _receivedData.Count > 0;
 
                 buttonReceive.Enabled = !_receivingData && _calculatorExists && !_working;
+                receiveToolStripMenuItem.Enabled = buttonReceive.Enabled;
+                cancelReceiveToolStripMenuItem.Enabled = _receivingData;
+
                 buttonSend.Enabled = _calculatorExists && !_working;
+                sendFilesToolStripMenuItem.Enabled = buttonSend.Enabled;
+                sendClipboardToolStripMenuItem.Enabled = buttonSend.Enabled;
+
                 buttonCaptureScreen.Enabled = _calculatorExists && !_working;
                 
 
@@ -195,15 +220,11 @@ namespace PrimeComm
             _receivingData = false;
             UpdateGui();
 
-            if (openFileDialogProgram.ShowDialog() == DialogResult.OK)
+            if (openFilesDialogProgram.ShowDialog() == DialogResult.OK)
             {
-                var fileSet = new FileSet(openFileDialogProgram.FileNames,
-                    new ParseSettings
-                    {
-                        Destination = destination,
-                        IgnoreInternalName = _config.GetSettingAsBoolean("input", "ignore_internal_name", true)
-                    });
+                var fileSet = FileSet.Create(openFilesDialogProgram.FileNames, _config);
 
+                fileSet.Settings.Destination = destination;
                 if (destination == Destinations.Custom)
                 {
                     var fs = new FolderSelectDialog {Title = "Select the destination folder"};
@@ -212,6 +233,8 @@ namespace PrimeComm
 
                     fileSet.Settings.CustomDestination = fs.FileName;
                 }
+                else
+                    fileSet.Settings.CustomDestination = _emulatorFolder;
 
                 SendDataTo(fileSet);
             }
@@ -231,6 +254,11 @@ namespace PrimeComm
         }
 
         private void buttonReceive_Click(object sender, EventArgs e)
+        {
+            ReceiveData();
+        }
+
+        private void ReceiveData()
         {
             _receivedData = new Queue<byte[]>();
             _receivingData = true;
@@ -253,17 +281,21 @@ namespace PrimeComm
                     {
                         if (b.IsValid)
                         {
+                            var primeFile = new PrimeUsbFile(b.Name, b.Data,
+                                fs.Settings.Destination== Destinations.Calculator?hidDevice.SpecifiedDevice.OutputReportLength:0);
+
                             switch (fs.Settings.Destination)
                             {
                                 case Destinations.Calculator:
                                     nullFile.Send(hidDevice.SpecifiedDevice);
-                                    new PrimeUsbFile(b.Name, b.Data, hidDevice.SpecifiedDevice.OutputReportLength).Send(hidDevice.SpecifiedDevice);
+                                    primeFile.Send(hidDevice.SpecifiedDevice);
                                     nullFile.Send(hidDevice.SpecifiedDevice);
                                     res.Add(SendResult.Success);
                                     break;
                                 case Destinations.UserFolder:
-                                    break;
                                 case Destinations.Custom:
+                                    primeFile.Save(Path.Combine(fs.Settings.CustomDestination,primeFile.Name+".hpprgm"));
+                                    res.Add(SendResult.Success);
                                     break;
                             }
                         }
@@ -331,30 +363,7 @@ namespace PrimeComm
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var f = new Form
-            {
-                Text = "About " + Text,
-                Icon = Icon,
-                FormBorderStyle = FormBorderStyle.FixedSingle,
-                StartPosition = FormStartPosition.CenterParent,
-                MinimizeBox = false,
-                MaximizeBox = false,
-                Font = Font,
-                Height = 150,
-                Width = 300
-            };
-
-            var fl = new FlowLayoutPanel {Dock = DockStyle.Top};
-
-            fl.Controls.Add(new Label {Text = "Erwin Ried"});
-
-            const string p = "http://ried.cl";
-            var l = new LinkLabel {Text = p};
-            l.Click += (o, args) => Process.Start(p);
-            fl.Controls.Add(l);
-            f.Controls.Add(fl);
-
-            f.ShowDialog();
+            Utilities.ShowAbout(this);
         }
 
         private void sendToConnKitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -365,6 +374,102 @@ namespace PrimeComm
         private void sendToCustomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SendDataTo(Destinations.Custom);
+        }
+
+        private void receiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReceiveData();
+        }
+
+        private void cancelReceiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _receivingData = false;
+            UpdateGui();
+        }
+
+        private void emulatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendClipboardTo(Destinations.UserFolder);
+        }
+
+        private void SendClipboardTo(Destinations destination)
+        {
+            var f = CreateTemporalFileFromClipboard();
+            var res = new SendResults(1);
+
+            if (f != null)
+            {
+                var fs = FileSet.Create(new[] {f}, _config);
+                fs.Settings.Destination = destination;
+                if (destination == Destinations.Custom)
+                {
+                    openFileDialogProgram.FileName = Path.GetFileNameWithoutExtension(f)+".hpprgm";
+                    if (openFileDialogProgram.ShowDialog()!= DialogResult.OK)
+                        return; // Conversion was cancel
+
+                    fs.Settings.CustomDestination = openFileDialogProgram.FileName;
+                }
+                else
+                    fs.Settings.CustomDestination = _emulatorFolder;
+
+                SendDataTo(fs);
+                res.Add(SendResult.Success);
+            }
+            else
+            {
+                res.Add(SendResult.ErrorInvalidInput);
+                res.ShowMsg();
+            }
+        }
+
+        private string CreateTemporalFileFromClipboard()
+        {
+            var t = Path.GetTempFileName();
+            File.Delete(t);
+            Directory.CreateDirectory(t);
+
+            // Get name
+            try
+            {
+                var clipb = Clipboard.GetText(TextDataFormat.UnicodeText).Trim();
+
+                if (clipb.Length > 0)
+                {
+                    var m = new Regex(@"export (?<name>.*?)\(", RegexOptions.IgnoreCase).Match(clipb);
+                    var name = "program_" + ((char) _random.Next('a', 'z' + 1)) + _random.Next(10, 99);
+
+                    if (m.Success)
+                        name = m.Groups["name"].Value;
+
+                    t = Path.Combine(t, name + ".txt");
+                    File.WriteAllText(t, clipb, Encoding.Default);
+                    return t;
+                }
+            }
+            catch
+            {
+            }
+            return null;
+        }
+
+        private void browseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendClipboardTo(Destinations.Custom);
+        }
+
+        private void sendToEmulatorKitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendDataTo(Destinations.UserFolder);
+        }
+
+        private void sendToCustomToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            SendDataTo(Destinations.Custom);
+        }
+
+        private void sendClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendClipboardTo(Destinations.Calculator);
         }
     }
 
@@ -378,7 +483,8 @@ namespace PrimeComm
         Success,
         ErrorReading,
         ErrorSend,
-        ErrorInvalidFile
+        ErrorInvalidFile,
+        ErrorInvalidInput
     }
 
     internal class SendResults
@@ -437,6 +543,15 @@ namespace PrimeComm
         {
             Files = fileNames;
             Settings = parseSettings;
+        }
+
+        internal static FileSet Create(string[] p, IniParser _config)
+        {
+            return new FileSet(p,
+                    new ParseSettings
+                    {
+                        IgnoreInternalName = _config.GetSettingAsBoolean("input", "ignore_internal_name", true)
+                    });
         }
     }
 
