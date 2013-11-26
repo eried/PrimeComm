@@ -53,13 +53,14 @@ namespace PrimeComm
             var allBytes = fullData.ToArray();
             int position = 0, chunk = 0;
 
-            do
-            {
-                IEnumerable<byte> tmp = new[] { (byte)0x00, (byte)(chunk++ % byte.MaxValue) };
-                Chunks.Add(tmp.Concat(allBytes.SubArray(position==0?2:position, Math.Min(chunkSize-2, allBytes.Length - position))).ToArray());
-                position += chunkSize-(position==0?0:2);
+            if(chunkSize>0)
+                do
+                {
+                    IEnumerable<byte> tmp = new[] { (byte)0x00, (byte)(chunk++ % byte.MaxValue) };
+                    Chunks.Add(tmp.Concat(allBytes.SubArray(position==0?2:position, Math.Min(chunkSize-2, allBytes.Length - position))).ToArray());
+                    position += chunkSize-(position==0?0:2);
 
-            } while (position < allBytes.Length);
+                } while (position < allBytes.Length);
         }
 
         public bool IsValid { get; private set; }
