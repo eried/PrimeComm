@@ -97,7 +97,7 @@ namespace UsbLibrary
         ///     Initialises the device
         /// </summary>
         /// <param name="strPath">Path to the device</param>
-        private void Initialise(string strPath)
+        private void Initialize(string strPath)
         {
             // Create the file from the device path
             m_hHandle = CreateFile(strPath, GENERIC_READ | GENERIC_WRITE, 0, IntPtr.Zero, OPEN_EXISTING,
@@ -203,7 +203,7 @@ namespace UsbLibrary
             {
                 //Console.WriteLine(ex.ToString());
                 // The device was removed!
-                throw new HIDDeviceException("Probbaly the device was removed");
+                throw new HIDDeviceException("Probaly the device was removed");
             }
             catch (Exception exx)
             {
@@ -288,7 +288,7 @@ namespace UsbLibrary
                     {
                         var oNewDevice = (HIDDevice) Activator.CreateInstance(oType);
                             // create an instance of the class for this device
-                        oNewDevice.Initialise(strDevicePath); // initialise it with the device path
+                        oNewDevice.Initialize(strDevicePath); // initialise it with the device path
                         return oNewDevice; // and return it
                     }
                     nIndex++; // if we get here, we didn't find our device. So move on to the next one.
