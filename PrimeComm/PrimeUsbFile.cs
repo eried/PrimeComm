@@ -45,11 +45,6 @@ namespace PrimeComm
             fullData.AddRange(nameBytes);
             fullData.AddRange(data);
 
-            // Padding for chunks
-            /*var l = fullData.Count;
-            for (int i = 0;i<chunkSize-(l%chunkSize); i++)
-                fullData.Add(0x00);*/
-
             var allBytes = fullData.ToArray();
             int position = 0, chunk = 0;
 

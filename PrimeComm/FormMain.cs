@@ -36,6 +36,10 @@ namespace PrimeComm
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
             InitializeGui();
+
+            // Check running processes
+            if (new[] {"ConnectivityKit", "HPPrime"}.Any(p => Process.GetProcessesByName(p).Length > 0))
+                SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your calculator.");
         }
 
         private void InitializeGui()
@@ -352,7 +356,7 @@ namespace PrimeComm
                     if (b.IsValid)
                         if (saveFileDialogProgram.ShowDialog() == DialogResult.OK)
                         {
-                            new PrimeUsbFile(b.Data).Save(saveFileDialogProgram.FileName);
+                            new PrimeUsbFile(b.Name, b.Data, 0).Save(saveFileDialogProgram.FileName);
                         }
                 }
                 catch
@@ -513,12 +517,12 @@ namespace PrimeComm
                     : (ok == 0 ? Resources.StatusAllFailed : Resources.StatusSomeFailed));
         }
 
-        private static void ShowMsg(string msg)
+        public static void ShowMsg(string msg)
         {
             MessageBox.Show(msg, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private static void ShowError(string msg)
+        public static void ShowError(string msg)
         {
             MessageBox.Show(msg, Resources.MsgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
