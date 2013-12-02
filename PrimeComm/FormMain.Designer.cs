@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelStatusSubtitle = new System.Windows.Forms.Label();
@@ -36,7 +35,6 @@
             this.buttonReceive = new System.Windows.Forms.Button();
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonCaptureScreen = new System.Windows.Forms.Button();
-            this.hidDevice = new UsbLibrary.UsbHidPort(this.components);
             this.openFilesDialogProgram = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogProgram = new System.Windows.Forms.SaveFileDialog();
             this.backgroundWorkerSend = new System.ComponentModel.BackgroundWorker();
@@ -137,14 +135,6 @@
             this.buttonCaptureScreen.Visible = false;
             this.buttonCaptureScreen.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // hidDevice
-            // 
-            this.hidDevice.ProductId = 1089;
-            this.hidDevice.VendorId = 1008;
-            this.hidDevice.OnSpecifiedDeviceArrived += new System.EventHandler(this.usbCalculator_OnSpecifiedDeviceArrived);
-            this.hidDevice.OnSpecifiedDeviceRemoved += new System.EventHandler(this.usbCalculator_OnSpecifiedDeviceRemoved);
-            this.hidDevice.OnDataReceived += new UsbLibrary.DataReceivedEventHandler(this.usbCalculator_OnDataReceived);
-            // 
             // openFilesDialogProgram
             // 
             this.openFilesDialogProgram.Multiselect = true;
@@ -207,7 +197,7 @@
             // sendToCustomToolStripMenuItem
             // 
             this.sendToCustomToolStripMenuItem.Name = "sendToCustomToolStripMenuItem";
-            this.sendToCustomToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.sendToCustomToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
             this.sendToCustomToolStripMenuItem.Text = "&Browse...";
             this.sendToCustomToolStripMenuItem.Click += new System.EventHandler(this.sendToCustomToolStripMenuItem_Click_1);
             // 
@@ -231,7 +221,7 @@
             // browseToolStripMenuItem
             // 
             this.browseToolStripMenuItem.Name = "browseToolStripMenuItem";
-            this.browseToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.browseToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
             this.browseToolStripMenuItem.Text = "&Browse...";
             this.browseToolStripMenuItem.Click += new System.EventHandler(this.browseToolStripMenuItem_Click);
             // 
@@ -400,7 +390,6 @@
 
         #endregion
 
-        private UsbLibrary.UsbHidPort hidDevice;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxStatus;
         private System.Windows.Forms.Label labelStatusSubtitle;
