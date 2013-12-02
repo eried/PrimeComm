@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace PrimeComm
+namespace PrimeCmd
 {
     /// <summary>
     /// Source: http://bytes.com/topic/net/insights/797169-reading-parsing-ini-file-c

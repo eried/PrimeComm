@@ -2,6 +2,9 @@
 
 namespace PrimeLib
 {
+    /// <summary>
+    /// Generic utilities
+    /// </summary>
     public static class Utilities
     {
         /// <summary>
@@ -12,7 +15,7 @@ namespace PrimeLib
         /// <param name="index">Start from</param>
         /// <param name="length">Lenght</param>
         /// <returns>Subarray</returns>
-        /// <see cref="http://stackoverflow.com/questions/943635/c-sharp-arrays-getting-a-sub-array-from-an-existing-array"/>
+        /// <seealso cref="http://stackoverflow.com/questions/943635/c-sharp-arrays-getting-a-sub-array-from-an-existing-array"/>
         public static T[] SubArray<T>(this T[] data, int index, int length)
         {
             var result = new T[length];

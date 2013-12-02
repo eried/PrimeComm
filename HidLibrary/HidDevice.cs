@@ -186,8 +186,8 @@ namespace HidLibrary
 			var buffer = CreateFeatureOutputBuffer();
 			buffer[0] = reportId;
 
-			IntPtr hidHandle = IntPtr.Zero;
-			bool success = false;
+			var hidHandle = IntPtr.Zero;
+			bool success;
 			try
 			{
 				hidHandle = OpenDeviceIO(_devicePath, NativeMethods.ACCESS_NONE);
@@ -272,8 +272,8 @@ namespace HidLibrary
             Array.Copy(data, 0, buffer, 0, Math.Min(data.Length, _deviceCapabilities.FeatureReportByteLength));
 
 
-            IntPtr hidHandle = IntPtr.Zero;
-            bool success = false;
+            var hidHandle = IntPtr.Zero;
+            bool success;
             try
             {
                 hidHandle = OpenDeviceIO(_devicePath, NativeMethods.ACCESS_NONE);
@@ -381,7 +381,7 @@ namespace HidLibrary
             if (_deviceCapabilities.OutputReportByteLength <= 0) return false;
 
             var buffer = CreateOutputBuffer();
-            uint bytesWritten = 0;
+            uint bytesWritten;
 
             Array.Copy(data, 0, buffer, 0, Math.Min(data.Length, _deviceCapabilities.OutputReportByteLength));
 
@@ -420,15 +420,13 @@ namespace HidLibrary
                         return false;
                 }
             }
-            else
+            
+            try
             {
-                try
-                {
-                    var overlapped = new NativeOverlapped();
-                    return NativeMethods.WriteFile(WriteHandle, buffer, (uint)buffer.Length, out bytesWritten, ref overlapped);
-                }
-                catch { return false; }
+                var overlapped = new NativeOverlapped();
+                return NativeMethods.WriteFile(WriteHandle, buffer, (uint)buffer.Length, out bytesWritten, ref overlapped);
             }
+            catch { return false; }
         }
 
         private HidDeviceData ReadData(int timeout)
@@ -438,7 +436,7 @@ namespace HidLibrary
 
             if (_deviceCapabilities.InputReportByteLength > 0)
             {
-                uint bytesRead = 0;
+                uint bytesRead;
 
                 buffer = CreateInputBuffer();
 

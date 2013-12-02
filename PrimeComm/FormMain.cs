@@ -10,12 +10,12 @@ using System.ComponentModel;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using PrimeComm.Properties;
+using PrimeCmd.Properties;
 using PrimeLib;
 using DataReceivedEventArgs = PrimeLib.DataReceivedEventArgs;
 using Timer = System.Threading.Timer;
 
-namespace PrimeComm
+namespace PrimeCmd
 {
     public partial class FormMain : Form
     {

@@ -5,9 +5,8 @@ using System.Text;
 using CommandLine;
 using CommandLine.Text;
 
-namespace PrimeComm
+namespace PrimeCmd
 {
-
     sealed class Options
     {
         [Option('i', "input", MetaValue="FILE", HelpText = "File to be sent to the device or folder (output).")]

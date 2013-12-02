@@ -136,6 +136,9 @@ namespace PrimeLib
         }
     }
 
+    /// <summary>
+    /// Happens when data is received
+    /// </summary>
     public class DataReceivedEventArgs : EventArgs
     {
         /// <summary>
