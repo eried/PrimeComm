@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using HidLibrary;
 
 namespace PrimeLib
@@ -10,7 +11,7 @@ namespace PrimeLib
     public class PrimeCalculator
     {
         private HidDevice _calculator;
-        private bool _isConnected;
+        private bool _isConnected,_continue;
         public event EventHandler<EventArgs> Connected, Disconnected;
         public event EventHandler<DataReceivedEventArgs> DataReceived;
 
@@ -55,12 +56,15 @@ namespace PrimeLib
 
         public void Send(PrimeUsbFile file)
         {
-            if (_isConnected && _calculator != null)
-                foreach(var c in file.Chunks)
-                    _calculator.Write(c);
-                /*
-                _calculator.WriteReport(new HidReport(file.Data.Length,
-                    new HidDeviceData(file.Data, HidDeviceData.ReadStatus.NoDataRead)));*/
+            if (IsNotReady()) return;
+
+            foreach(var c in file.Chunks)
+                _calculator.Write(c);
+        }
+
+        private bool IsNotReady()
+        {
+            return !(_isConnected && _calculator != null);
         }
 
         protected virtual void OnDataReceived(DataReceivedEventArgs e)
@@ -72,6 +76,41 @@ namespace PrimeLib
         public int OutputChunkSize
         {
             get { return _calculator.Capabilities.OutputReportByteLength; }
+        }
+
+        public void StartReceiving()
+        {
+            // Flush contents
+            _calculator.CloseDevice();
+
+            _continue = true;
+            _calculator.ReadReport(OnReport);
+        }
+
+        public void StopReceiving()
+        {
+            _continue = false;
+            _calculator.CloseDevice();
+        }
+
+        private void OnReport(HidReport report)
+        {
+            if(_continue)
+                _calculator.ReadReport(OnReport);
+
+            if (IsNotReady()) return;
+
+            OnDataReceived(new DataReceivedEventArgs(report.Data));
+        }
+    }
+
+    public class DataReceivedEventArgs : EventArgs
+    {
+        public readonly byte[] data;
+
+        public DataReceivedEventArgs(byte[] data)
+        {
+            this.data = data;
         }
     }
 }
