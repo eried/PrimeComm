@@ -74,7 +74,8 @@ namespace PrimeLib
         public PrimeUsbFile(byte[] data)
         {
             Name = null;
-            Chunks = new List<byte[]>(new[] {data});
+            var b = new byte[] {0x00};
+            Chunks = new List<byte[]>(new []{b.Concat(data).ToArray()});
             CheckForValidity();
         }
 
