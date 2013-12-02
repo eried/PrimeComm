@@ -24,11 +24,9 @@ namespace PrimeComm
         private Queue<byte[]> _receivedData = new Queue<byte[]>();
         private PrimeUsbFile _receivedFile;
         private Timer _checker;
-        private int _uiCycles;
         private readonly IniParser _config;
         private string _sendingStatus, _emulatorFolder;
         private readonly Random _random = new Random();
-        private bool p;
         private PrimeCalculator _calculator;
 
         public FormMain(bool silent=false)
@@ -161,7 +159,7 @@ namespace PrimeComm
                     lock (scheduleLock)
                     {
                         Debug.WriteLine("recibido:" + DateTime.Now.Ticks);
-                        _receivedData.Enqueue(args.data);
+                        _receivedData.Enqueue(args.Data);
                         ScheduleCheck();
                     }
                 }

@@ -16,9 +16,22 @@ namespace PrimeLib
         private readonly byte[] _header = {0x00, 0x00, 0xf7, 0x01};
         private bool _isComplete;
 
-        public string Name { get; set; }
+        /// <summary>
+        /// Name of the script represented by this data
+        /// </summary>
+        public string Name { get; private set; }
+        
+        /// <summary>
+        /// Contents of the script in UTF-16, without any header 
+        /// </summary>
         public byte[] Data { get; private set; }
 
+        /// <summary>
+        /// Initializes a usb file ready to send to the Prime
+        /// </summary>
+        /// <param name="name">Name of the script</param>
+        /// <param name="data">Contents of the script in UTF-16, without any header</param>
+        /// <param name="chunkSize">Chunk size to split the data</param>
         public PrimeUsbFile(string name, byte[] data, int chunkSize)
         {
             Name = name;
@@ -58,8 +71,14 @@ namespace PrimeLib
                 } while (position < allBytes.Length);
         }
 
+        /// <summary>
+        /// Returns the file validity (first Chunk header matches with expected header)
+        /// </summary>
         public bool IsValid { get; private set; }
 
+        /// <summary>
+        /// Checks (only until completion, then only returns true) if the file is valid and complete, isValid is true and all chunks matches with the parameters defined in the header
+        /// </summary>
         public bool IsComplete
         {
             get 
@@ -71,11 +90,15 @@ namespace PrimeLib
             private set { _isComplete = value; }
         }
 
-        public PrimeUsbFile(byte[] data)
+        /// <summary>
+        /// Initializes a usb file ready to send to the Prime, with the first chunk already defined, and checks the validity and completioness
+        /// </summary>
+        /// <param name="chunkData">Chunk data without the first byte (as is received from the USB)</param>
+        public PrimeUsbFile(IEnumerable<byte> chunkData)
         {
             Name = null;
             var b = new byte[] {0x00};
-            Chunks = new List<byte[]>(new []{b.Concat(data).ToArray()});
+            Chunks = new List<byte[]>(new []{b.Concat(chunkData).ToArray()});
             CheckForValidity();
         }
 
@@ -120,14 +143,15 @@ namespace PrimeLib
             }
         }
 
-        public List<byte[]> Chunks { get; set; }
+        /// <summary>
+        /// Segmented data ready to send
+        /// </summary>
+        public List<byte[]> Chunks { get; private set; }
 
-        /*public void Send(SpecifiedDevice hidDevice)
-        {
-            foreach (var chunk in Chunks)
-                hidDevice.SendData(chunk);
-        }*/
-
+        /// <summary>
+        /// Saves this script to the filesystem
+        /// </summary>
+        /// <param name="destinationFilename">File including the extension to specify the format of the output (use .txt for plain text)</param>
         public void Save(string destinationFilename)
         {
             switch (Path.GetExtension(destinationFilename))

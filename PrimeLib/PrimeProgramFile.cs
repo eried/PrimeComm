@@ -14,8 +14,8 @@ namespace PrimeLib
         /// <summary>
         /// Parses the data inside a file to be used later
         /// </summary>
-        /// <param name="path">Input file</param>
-        /// <param name="ignoreInternal">Ignore the internal name for the file</param>
+        /// <param name="path">Input file, including the extension to detect the format</param>
+        /// <param name="ignoreInternal">Ignore the internal name for the file, i.e. use filename</param>
         public PrimeProgramFile(string path, bool ignoreInternal = true)
         {
             IsValid = false;
@@ -77,10 +77,19 @@ namespace PrimeLib
             }
         }
 
-        public byte[] Data { get; set; }
+        /// <summary>
+        /// Contains the data of this Script (UTF-16, without headers)
+        /// </summary>
+        public byte[] Data { get; private set; }
 
-        public string Name { get; set; }
+        /// <summary>
+        /// Name of the script
+        /// </summary>
+        public string Name { get; private set; }
 
+        /// <summary>
+        /// Returns if the data looks valid (header and sizes match)
+        /// </summary>
         public bool IsValid { get; set; }
     }
 }

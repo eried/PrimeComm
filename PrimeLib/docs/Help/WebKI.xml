@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="CheckForChanges method" Url="html/572c533b-b249-2f7e-70e7-36f1e5f80f8d.htm" />
+  <HelpKINode Title="Chunks property" Url="html/50d1f0be-232a-5e0d-453e-7d92e40f1982.htm" />
+  <HelpKINode Title="Connected event" Url="html/23117a2f-1793-7a19-12d9-bbf030d8652a.htm" />
+  <HelpKINode Title="Data field" Url="html/aba5a4da-a7e9-820b-707a-1bb5f899be87.htm" />
+  <HelpKINode Title="Data property">
+    <HelpKINode Title="PrimeProgramFile.Data Property " Url="html/da6e277c-f1c3-f69d-322e-5f65a99702e6.htm" />
+    <HelpKINode Title="PrimeUsbFile.Data Property " Url="html/1f46c134-dfd1-eb1e-7de7-df384db5c3a8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataReceived event" Url="html/edd1dd1a-a1b0-4d42-2c83-3717f0701d1f.htm" />
+  <HelpKINode Title="DataReceivedEventArgs class">
+    <HelpKINode Title="DataReceivedEventArgs Class" Url="html/49100f90-ab8b-3225-dfa2-f851c1d9f33b.htm" />
+    <HelpKINode Title="DataReceivedEventArgs Members" Url="html/b7e4841f-4d44-004f-97b4-3c0758227e0e.htm" />
+    <HelpKINode Title="about DataReceivedEventArgs class" Url="html/49100f90-ab8b-3225-dfa2-f851c1d9f33b.htm" />
+    <HelpKINode Title="all members" Url="html/b7e4841f-4d44-004f-97b4-3c0758227e0e.htm" />
+    <HelpKINode Title="constructor" Url="html/1b1676f3-4c78-f66f-3b7f-274ee04b9496.htm" />
+    <HelpKINode Title="fields" Url="html/eebe9cb3-bb89-8ed2-09c6-d51c7a5f6b99.htm" />
+    <HelpKINode Title="methods" Url="html/d90a33dd-4661-9de4-06e3-b6920aa22589.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataReceivedEventArgs.Data field" Url="html/aba5a4da-a7e9-820b-707a-1bb5f899be87.htm" />
+  <HelpKINode Title="DataReceivedEventArgs.DataReceivedEventArgs constructor" Url="html/1b1676f3-4c78-f66f-3b7f-274ee04b9496.htm" />
+  <HelpKINode Title="Disconnected event" Url="html/cd9980ca-d9b0-fc3b-abfc-3b7b8109c57e.htm" />
+  <HelpKINode Title="IsComplete property" Url="html/c4fd3299-2d90-3680-540b-117276e4161d.htm" />
+  <HelpKINode Title="IsConnected property" Url="html/e5450e38-6646-30d6-f63b-93bfe7f307b6.htm" />
+  <HelpKINode Title="IsValid property">
+    <HelpKINode Title="PrimeProgramFile.IsValid Property " Url="html/657f0df5-e672-4b5c-a0ce-89d3daa6f7e2.htm" />
+    <HelpKINode Title="PrimeUsbFile.IsValid Property " Url="html/4da23333-f6b1-1975-029c-81e28ad60b3e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Name property">
+    <HelpKINode Title="PrimeProgramFile.Name Property " Url="html/d7ccbe64-e6c9-378b-3273-b6ee5eb6cf90.htm" />
+    <HelpKINode Title="PrimeUsbFile.Name Property " Url="html/f4df8ec6-b183-a7a9-aede-a560e1628a4c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OnConnected method" Url="html/37298d5d-5f51-8a2f-fc5b-70ecd57d04d1.htm" />
+  <HelpKINode Title="OnDataReceived method" Url="html/7a36207f-9316-04c6-28a3-c0171a0bf1a4.htm" />
+  <HelpKINode Title="OnDisconnected method" Url="html/3db4c562-fc9d-d15b-8aab-ec646c0a1a49.htm" />
+  <HelpKINode Title="OutputChunkSize property" Url="html/02c35e20-0faa-a420-6282-4e5e89fa7304.htm" />
+  <HelpKINode Title="PrimeCalculator class">
+    <HelpKINode Title="PrimeCalculator Class" Url="html/d677cdee-c3cc-90bf-289a-7960ca5d450e.htm" />
+    <HelpKINode Title="PrimeCalculator Members" Url="html/16c6b169-4fd4-f561-c526-a84c321c4a69.htm" />
+    <HelpKINode Title="about PrimeCalculator class" Url="html/d677cdee-c3cc-90bf-289a-7960ca5d450e.htm" />
+    <HelpKINode Title="all members" Url="html/16c6b169-4fd4-f561-c526-a84c321c4a69.htm" />
+    <HelpKINode Title="constructor" Url="html/03c4a88e-d7ae-5eae-1ed0-05e6df60d977.htm" />
+    <HelpKINode Title="events" Url="html/56bea0da-06fa-f6eb-b760-9bd2ec5d3657.htm" />
+    <HelpKINode Title="methods" Url="html/b88d9ec3-5f7c-97a4-ded5-dedc88ff8992.htm" />
+    <HelpKINode Title="properties" Url="html/d4a3a297-7fb3-9081-09dc-b8e2fc45b532.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PrimeCalculator.CheckForChanges method" Url="html/572c533b-b249-2f7e-70e7-36f1e5f80f8d.htm" />
+  <HelpKINode Title="PrimeCalculator.Connected event" Url="html/23117a2f-1793-7a19-12d9-bbf030d8652a.htm" />
+  <HelpKINode Title="PrimeCalculator.DataReceived event" Url="html/edd1dd1a-a1b0-4d42-2c83-3717f0701d1f.htm" />
+  <HelpKINode Title="PrimeCalculator.Disconnected event" Url="html/cd9980ca-d9b0-fc3b-abfc-3b7b8109c57e.htm" />
+  <HelpKINode Title="PrimeCalculator.IsConnected property" Url="html/e5450e38-6646-30d6-f63b-93bfe7f307b6.htm" />
+  <HelpKINode Title="PrimeCalculator.OnConnected method" Url="html/37298d5d-5f51-8a2f-fc5b-70ecd57d04d1.htm" />
+  <HelpKINode Title="PrimeCalculator.OnDataReceived method" Url="html/7a36207f-9316-04c6-28a3-c0171a0bf1a4.htm" />
+  <HelpKINode Title="PrimeCalculator.OnDisconnected method" Url="html/3db4c562-fc9d-d15b-8aab-ec646c0a1a49.htm" />
+  <HelpKINode Title="PrimeCalculator.OutputChunkSize property" Url="html/02c35e20-0faa-a420-6282-4e5e89fa7304.htm" />
+  <HelpKINode Title="PrimeCalculator.PrimeCalculator constructor" Url="html/03c4a88e-d7ae-5eae-1ed0-05e6df60d977.htm" />
+  <HelpKINode Title="PrimeCalculator.Send method" Url="html/38213e06-6517-d8fd-8ee9-01a968083a22.htm" />
+  <HelpKINode Title="PrimeCalculator.StartReceiving method" Url="html/97294656-da7d-6063-d62d-e7eb1f21e55d.htm" />
+  <HelpKINode Title="PrimeCalculator.StopReceiving method" Url="html/6971d5f8-f19f-b2a3-dc0b-3115fb49b3fc.htm" />
+  <HelpKINode Title="PrimeLib namespace" Url="html/4c2db46f-2e91-7461-ee2e-68962685662e.htm" />
+  <HelpKINode Title="PrimeLib.DataReceivedEventArgs class">
+    <HelpKINode Title="DataReceivedEventArgs Class" Url="html/49100f90-ab8b-3225-dfa2-f851c1d9f33b.htm" />
+    <HelpKINode Title="DataReceivedEventArgs Members" Url="html/b7e4841f-4d44-004f-97b4-3c0758227e0e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PrimeLib.PrimeCalculator class">
+    <HelpKINode Title="PrimeCalculator Class" Url="html/d677cdee-c3cc-90bf-289a-7960ca5d450e.htm" />
+    <HelpKINode Title="PrimeCalculator Members" Url="html/16c6b169-4fd4-f561-c526-a84c321c4a69.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PrimeLib.PrimeProgramFile class">
+    <HelpKINode Title="PrimeProgramFile Class" Url="html/660555c0-9361-0046-36c9-f86cb1512a8a.htm" />
+    <HelpKINode Title="PrimeProgramFile Members" Url="html/9f3a558b-9122-266e-380f-6cf48f10b359.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PrimeLib.PrimeUsbFile class">
+    <HelpKINode Title="PrimeUsbFile Class" Url="html/d078b539-bb54-1bec-a927-55aaac805961.htm" />
+    <HelpKINode Title="PrimeUsbFile Members" Url="html/59487f71-e8bf-5ec4-71ee-5a3a9b3bf9fa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PrimeLib.Utilities class">
+    <HelpKINode Title="Utilities Class" Url="html/71793a03-896c-acfe-fb5e-56d8a8492a31.htm" />
+    <HelpKINode Title="Utilities Members" Url="html/a1e30095-53c1-4f88-8be9-1650b7619df0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PrimeProgramFile class">
+    <HelpKINode Title="PrimeProgramFile Class" Url="html/660555c0-9361-0046-36c9-f86cb1512a8a.htm" />
+    <HelpKINode Title="PrimeProgramFile Members" Url="html/9f3a558b-9122-266e-380f-6cf48f10b359.htm" />
+    <HelpKINode Title="about PrimeProgramFile class" Url="html/660555c0-9361-0046-36c9-f86cb1512a8a.htm" />
+    <HelpKINode Title="all members" Url="html/9f3a558b-9122-266e-380f-6cf48f10b359.htm" />
+    <HelpKINode Title="constructor" Url="html/0259a6eb-e4ec-ad22-fa0b-e9fe345983cd.htm" />
+    <HelpKINode Title="methods" Url="html/187197fe-874a-c99f-44a1-ca62eed7be56.htm" />
+    <HelpKINode Title="properties" Url="html/62cc8faf-eb1c-759b-1813-a8a428d3f26c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PrimeProgramFile.Data property" Url="html/da6e277c-f1c3-f69d-322e-5f65a99702e6.htm" />
+  <HelpKINode Title="PrimeProgramFile.IsValid property" Url="html/657f0df5-e672-4b5c-a0ce-89d3daa6f7e2.htm" />
+  <HelpKINode Title="PrimeProgramFile.Name property" Url="html/d7ccbe64-e6c9-378b-3273-b6ee5eb6cf90.htm" />
+  <HelpKINode Title="PrimeProgramFile.PrimeProgramFile constructor" Url="html/0259a6eb-e4ec-ad22-fa0b-e9fe345983cd.htm" />
+  <HelpKINode Title="PrimeUsbFile class">
+    <HelpKINode Title="PrimeUsbFile Class" Url="html/d078b539-bb54-1bec-a927-55aaac805961.htm" />
+    <HelpKINode Title="PrimeUsbFile Members" Url="html/59487f71-e8bf-5ec4-71ee-5a3a9b3bf9fa.htm" />
+    <HelpKINode Title="about PrimeUsbFile class" Url="html/d078b539-bb54-1bec-a927-55aaac805961.htm" />
+    <HelpKINode Title="all members" Url="html/59487f71-e8bf-5ec4-71ee-5a3a9b3bf9fa.htm" />
+    <HelpKINode Title="constructor" Url="html/493bdbb0-9e11-2161-f77a-d5235e52b92d.htm" />
+    <HelpKINode Title="methods" Url="html/1e8c4e42-5737-c2ff-f363-f4eabff5d27c.htm" />
+    <HelpKINode Title="properties" Url="html/3aee829c-3f28-c3e8-a185-7da69701c620.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PrimeUsbFile.Chunks property" Url="html/50d1f0be-232a-5e0d-453e-7d92e40f1982.htm" />
+  <HelpKINode Title="PrimeUsbFile.Data property" Url="html/1f46c134-dfd1-eb1e-7de7-df384db5c3a8.htm" />
+  <HelpKINode Title="PrimeUsbFile.IsComplete property" Url="html/c4fd3299-2d90-3680-540b-117276e4161d.htm" />
+  <HelpKINode Title="PrimeUsbFile.IsValid property" Url="html/4da23333-f6b1-1975-029c-81e28ad60b3e.htm" />
+  <HelpKINode Title="PrimeUsbFile.Name property" Url="html/f4df8ec6-b183-a7a9-aede-a560e1628a4c.htm" />
+  <HelpKINode Title="PrimeUsbFile.PrimeUsbFile constructor" Url="html/493bdbb0-9e11-2161-f77a-d5235e52b92d.htm" />
+  <HelpKINode Title="PrimeUsbFile.Save method" Url="html/f2816c85-efae-681e-4378-bd60ba76b98e.htm" />
+  <HelpKINode Title="Save method" Url="html/f2816c85-efae-681e-4378-bd60ba76b98e.htm" />
+  <HelpKINode Title="Send method" Url="html/38213e06-6517-d8fd-8ee9-01a968083a22.htm" />
+  <HelpKINode Title="StartReceiving method" Url="html/97294656-da7d-6063-d62d-e7eb1f21e55d.htm" />
+  <HelpKINode Title="StopReceiving method" Url="html/6971d5f8-f19f-b2a3-dc0b-3115fb49b3fc.htm" />
+  <HelpKINode Title="SubArray(Of T) method" Url="html/5c4643f5-349f-c1e1-1909-3dead4a6fc82.htm" />
+  <HelpKINode Title="SubArray&lt;T&gt; method" Url="html/5c4643f5-349f-c1e1-1909-3dead4a6fc82.htm" />
+  <HelpKINode Title="Utilities class">
+    <HelpKINode Title="Utilities Class" Url="html/71793a03-896c-acfe-fb5e-56d8a8492a31.htm" />
+    <HelpKINode Title="Utilities Members" Url="html/a1e30095-53c1-4f88-8be9-1650b7619df0.htm" />
+    <HelpKINode Title="about Utilities class" Url="html/71793a03-896c-acfe-fb5e-56d8a8492a31.htm" />
+    <HelpKINode Title="all members" Url="html/a1e30095-53c1-4f88-8be9-1650b7619df0.htm" />
+    <HelpKINode Title="methods" Url="html/af9f8a4f-aba4-7919-b427-d42a7e798dd9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Utilities.SubArray(Of T) method" Url="html/5c4643f5-349f-c1e1-1909-3dead4a6fc82.htm" />
+  <HelpKINode Title="Utilities.SubArray&lt;T&gt; method" Url="html/5c4643f5-349f-c1e1-1909-3dead4a6fc82.htm" />
+</HelpKI>
