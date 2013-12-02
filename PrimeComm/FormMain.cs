@@ -12,6 +12,7 @@ using System.Threading;
 using System.Windows.Forms;
 using PrimeComm.Properties;
 using PrimeLib;
+using DataReceivedEventArgs = PrimeLib.DataReceivedEventArgs;
 using Timer = System.Threading.Timer;
 
 namespace PrimeComm
@@ -119,7 +120,7 @@ namespace PrimeComm
                 buttonCaptureScreen.Enabled = IsDeviceConnected && !IsBusy;
                 
 
-                /*if(_receivingData==false)
+                if(_receivingData==false)
                     if (_receivedFile != null && _receivedFile.IsComplete)
                     {
                         saveFileDialogProgram.FileName = _receivedFile.Name + ".hpprgm";
@@ -127,12 +128,13 @@ namespace PrimeComm
                             _receivedFile.Save(saveFileDialogProgram.FileName);
 
                         ResetProgram();
-                    }*/
+                    }
             });
         }
 
         private void ResetProgram()
         {
+            _calculator.StopReceiving();
             _receivedFile = null;
             IsBusy = false;
             _receivedData.Clear();
@@ -141,7 +143,7 @@ namespace PrimeComm
 
         private int GetKilobytes(int p)
         {
-            return 0;//p*hidDevice.SpecifiedDevice.OutputReportLength/1024;
+            return p * _calculator.OutputChunkSize / 1024;
         }
 
         private void usbCalculator_OnSpecifiedDeviceRemoved(object sender, EventArgs e)
@@ -156,8 +158,12 @@ namespace PrimeComm
             {
                 try
                 {
-                    //_receivedData.Enqueue(args.data);
-                    ScheduleCheck();
+                    lock (scheduleLock)
+                    {
+                        Debug.WriteLine("recibido:" + DateTime.Now.Ticks);
+                        _receivedData.Enqueue(args.data);
+                        ScheduleCheck();
+                    }
                 }
                 catch
                 {
@@ -165,16 +171,15 @@ namespace PrimeComm
             }
         }
 
+        private static readonly Object scheduleLock = new Object();
+
+
         private void ScheduleCheck(Boolean stop = false)
         {
             if(_checker == null)
                 _checker = new Timer(CheckData, null, Timeout.Infinite, Timeout.Infinite);
 
-            if (_uiCycles++ > 40)
-            {
-                _uiCycles = 0;
-                UpdateGui();
-            }
+            UpdateGui();
 
             if (!stop)
                 _checker.Change(100, Timeout.Infinite);
@@ -184,10 +189,12 @@ namespace PrimeComm
         {
             if (_checkingData)
             {
+                Debug.WriteLine("programando sig:" + DateTime.Now.Ticks);
                 ScheduleCheck();
             }
             else
             {
+                Debug.WriteLine("ejecutando:" + DateTime.Now.Ticks);
                 _checkingData = true;
                 ScheduleCheck(true);
                 CheckForDataToSave();
@@ -197,6 +204,7 @@ namespace PrimeComm
 
         private void CheckForDataToSave()
         {
+            Debug.WriteLine("Checking for save");
             if (!_receivingData || _receivedData.Count == 0)
                 return;
 
@@ -215,10 +223,7 @@ namespace PrimeComm
                 }
 
                 if (_receivedFile.IsComplete)
-                {
-                    _receivingData = false;
-                    UpdateGui();
-                }
+                    StopReceiving();
                 else
                     ScheduleCheck();
             }
@@ -237,8 +242,7 @@ namespace PrimeComm
 
         private void SendDataTo(Destinations destination)
         {
-            _receivingData = false;
-            UpdateGui();
+            StopReceiving();
 
             if (openFilesDialogProgram.ShowDialog() == DialogResult.OK)
             {
@@ -275,14 +279,23 @@ namespace PrimeComm
 
         private void buttonReceive_Click(object sender, EventArgs e)
         {
-            ReceiveData();
+            StartReceiving();
         }
 
-        private void ReceiveData()
+        private void StartReceiving()
         {
             _receivedData = new Queue<byte[]>();
             _receivingData = true;
             _receivedFile = null;
+            _calculator.StartReceiving();
+            UpdateGui();
+        }
+
+        private void StopReceiving()
+        {
+            _receivingData = false;
+            _calculator.StopReceiving();
+            _checker = null;
             UpdateGui();
         }
 
@@ -301,15 +314,14 @@ namespace PrimeComm
                     {
                         if (b.IsValid)
                         {
-                            var primeFile = new PrimeUsbFile(b.Name, b.Data, _calculator.OutputChunkSize);
-                             //   fs.Settings.Destination== Destinations.Calculator?hidDevice.SpecifiedDevice.OutputReportLength:0);
+                            var primeFile = new PrimeUsbFile(b.Name, b.Data,fs.Settings.Destination== Destinations.Calculator?_calculator.OutputChunkSize:0);
 
                             switch (fs.Settings.Destination)
                             {
                                 case Destinations.Calculator:
                                     _calculator.Send(nullFile);
                                     _calculator.Send(primeFile);
-                                    _calculator.Send(nullFile);<
+                                    _calculator.Send(nullFile);
                                     res.Add(SendResult.Success);
                                     break;
                                 case Destinations.UserFolder:
@@ -388,13 +400,12 @@ namespace PrimeComm
 
         private void receiveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReceiveData();
+            StartReceiving();
         }
 
         private void cancelReceiveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _receivingData = false;
-            UpdateGui();
+            StopReceiving();
         }
 
         private void emulatorToolStripMenuItem_Click(object sender, EventArgs e)
