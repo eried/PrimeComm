@@ -15,7 +15,37 @@ Provides commandline access for PrimeComm operations.
 
 PrimeLib
 --------
-Library to include HP Prime calculator functions from PrimeComm on your application. Documentation available here: http://services.ried.cl/primecomm/primelib/
+Library to include HP Prime calculator functions from PrimeComm on your application. Documentation available here: http://services.ried.cl/primecomm/Help/?topic=html/4c2db46f-2e91-7461-ee2e-68962685662e.htm
+
+__Example:__
+Small example showing how to send and convert files:
+    
+    
+    using PrimeLib;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+             // Instantiate the first connected calculator
+             var myCalculator = new PrimeCalculator();
+             
+             // This checks for hardware changes, there are events available too, 
+             // to stay notified from Insertions and Removals as PrimeComm main app uses
+             calculator.CheckForChanges();
+             
+             // Creates a ready to send data object, with a new name for the script, reading an existent program backup
+             var myProgram = new PrimeUsbData("my program", new PrimeProgramFile(@"d:\my_program.hpprgm", false).Data, 
+                 myCalculator.OutputChunkSize);
+             
+             // Check if my calculator is connected, and send the program
+             if(myCalculator.IsConnected)
+                 mycalculator.Send(myProgram);
+             
+             // Save and convert the program to plain text
+             myProgram.Save(@"d:\my_program_backup.txt"); 
+        }
+    }
 
 
 Related
