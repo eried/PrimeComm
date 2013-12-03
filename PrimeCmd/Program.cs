@@ -132,7 +132,7 @@ namespace PrimeCmd
 
                             // Parse the file
                             var b = new PrimeProgramFile(options.SendFile, options.IgnoreInternalName);
-
+                            
                             if (destination == Destinations.Calculator)
                             {
                                 //f.Show();

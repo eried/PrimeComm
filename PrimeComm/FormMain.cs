@@ -22,7 +22,7 @@ namespace PrimeCmd
         public bool Silent { get; set; }
         private bool _receivingData, _checkingData, _sending;
         private Queue<byte[]> _receivedData = new Queue<byte[]>();
-        private PrimeUsbFile _receivedFile;
+        private PrimeUsbData _receivedFile;
         private Timer _checker;
         private readonly IniParser _config;
         private string _sendingStatus, _emulatorFolder;
@@ -208,7 +208,7 @@ namespace PrimeCmd
 
             // Check for valid structure
             if(_receivedFile==null)
-                _receivedFile = new PrimeUsbFile(_receivedData.Peek());
+                _receivedFile = new PrimeUsbData(_receivedData.Peek());
 
             if (_receivedFile.IsValid)
             {
@@ -217,7 +217,7 @@ namespace PrimeCmd
                 while (_receivedData.Count > 0)
                 {
                     var tmp = _receivedData.Dequeue();
-                    _receivedFile.Chunks.Add(tmp.SubArray(2, tmp.Length-2));
+                    _receivedFile.Chunks.Add(tmp.SubArray(1, tmp.Length-1));
                 }
 
                 if (_receivedFile.IsComplete)
@@ -301,7 +301,7 @@ namespace PrimeCmd
         {
             var fs = (FileSet)e.Argument;
             var res = new SendResults(fs.Files.Length);
-            var nullFile = new PrimeUsbFile(new byte[] {0x00});
+            var nullFile = new PrimeUsbData(new byte[] {0x00});
             foreach (var file in fs.Files)
             {
                 try
@@ -312,7 +312,7 @@ namespace PrimeCmd
                     {
                         if (b.IsValid)
                         {
-                            var primeFile = new PrimeUsbFile(b.Name, b.Data,fs.Settings.Destination== Destinations.Calculator?_calculator.OutputChunkSize:0);
+                            var primeFile = new PrimeUsbData(b.Name, b.Data,fs.Settings.Destination== Destinations.Calculator?_calculator.OutputChunkSize:0);
 
                             switch (fs.Settings.Destination)
                             {
@@ -382,7 +382,7 @@ namespace PrimeCmd
                     if (b.IsValid)
                         if (saveFileDialogProgram.ShowDialog() == DialogResult.OK)
                         {
-                            new PrimeUsbFile(b.Name, b.Data, 0).Save(saveFileDialogProgram.FileName);
+                            new PrimeUsbData(b.Name, b.Data, 0).Save(saveFileDialogProgram.FileName);
                         }
                 }
                 catch
@@ -489,77 +489,6 @@ namespace PrimeCmd
         private void sendClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SendClipboardTo(Destinations.Calculator);
-        }
-    }
-
-    public enum Destinations
-    {
-        Calculator, UserFolder, Custom
-    }
-
-    internal enum SendResult
-    {
-        Success,
-        ErrorReading,
-        ErrorSend,
-        ErrorInvalidFile,
-        ErrorInvalidInput
-    }
-
-    internal class SendResults
-    {
-        private readonly int _totalFiles;
-        private readonly Dictionary<SendResult, int> _results;
-
-        public SendResults(int totalFiles)
-        {
-            _totalFiles = totalFiles;
-            _results = new Dictionary<SendResult, int>();
-
-            foreach (SendResult k in Enum.GetValues(typeof (SendResult)))
-                _results.Add(k, 0);
-        }
-
-        internal void ShowMsg(bool console)
-        {
-            var ok = _results[SendResult.Success];
-
-            if (_totalFiles > 0 && ok == _totalFiles)
-            {
-                var m = _totalFiles > 1 ? Resources.StatusAllSent : Resources.StatusSent;
-
-                if (console) Console.WriteLine(m);
-                else ShowMsg(m);
-            }
-            else
-            {
-                var m = _totalFiles == 1
-                    ? Resources.SendError
-                    : (ok == 0 ? Resources.StatusAllFailed : Resources.StatusSomeFailed);
-
-                if (console) Console.WriteLine(m);
-                else ShowError(m);
-            }
-        }
-
-        public static void ShowMsg(string msg)
-        {
-            MessageBox.Show(msg, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        public static void ShowError(string msg)
-        {
-            MessageBox.Show(msg, Resources.MsgErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        public void Add(SendResult r)
-        {
-            _results[r]++;
-        }
-
-        public string GetSendMessage()
-        {
-            return String.Format(Resources.StatusSendingProgress,_results.Sum(v => v.Value), _totalFiles);
         }
     }
 
