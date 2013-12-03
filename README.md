@@ -48,11 +48,20 @@ Small example showing how to send and convert files:
     }
 
 
+>_Note: The current version 0.7 don't implement yet the Command Server mode arguments and since this was a major change to a library based applications, there are some small glitches yet when Receiving and then doing something else._
+
+
+Demos
+=====
+Version 0.1: https://www.youtube.com/watch?v=4QGBjOD3LHo (Send and receive)<br>
+Version 0.5: https://www.youtube.com/watch?v=FxG-R0QZ-qI (Conversion to plain text)<br>
+Version 0.7: https://www.youtube.com/watch?v=UVALe40TPkc (Command server mode)<br>
+
+
 Related
 =======
 HID/USB Library: https://github.com/mikeobrien/HidLibrary <br>
 USB Library: https://bitbucket.org/adamfettig/usb (early version) <br>
-Video: https://www.youtube.com/watch?v=4QGBjOD3LHo <br>
 Source: https://github.com/eried/PrimeComm <br>
 Download: http://ried.cl/wp-content/uploads/2013/11/PrimeComm.zip <br> 
 Details: http://ried.cl/proyecto/utilidad-para-intercambiar-archivos-con-la-hp-prime-primecomm/
