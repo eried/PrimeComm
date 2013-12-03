@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataReceivedEventArgs.cs" />
+    <Compile Include="Destinations.cs" />
     <Compile Include="PrimeCalculator.cs" />
     <Compile Include="PrimeProgramFile.cs" />
-    <Compile Include="PrimeUsbFile.cs" />
+    <Compile Include="PrimeUsbData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>

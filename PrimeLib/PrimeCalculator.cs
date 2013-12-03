@@ -73,7 +73,7 @@ namespace PrimeLib
         /// Sends data to the calculator
         /// </summary>
         /// <param name="file">Data to send</param>
-        public void Send(PrimeUsbFile file)
+        public void Send(PrimeUsbData file)
         {
             if (IsNotReady()) return;
 
@@ -133,22 +133,6 @@ namespace PrimeLib
             if (IsNotReady()) return;
 
             OnDataReceived(new DataReceivedEventArgs(report.Data));
-        }
-    }
-
-    /// <summary>
-    /// Happens when data is received
-    /// </summary>
-    public class DataReceivedEventArgs : EventArgs
-    {
-        /// <summary>
-        /// Received data
-        /// </summary>
-        public readonly byte[] Data;
-
-        public DataReceivedEventArgs(byte[] data)
-        {
-            Data = data;
         }
     }
 }
