@@ -30,28 +30,35 @@ namespace PrimeLib
 
         internal static string GenerateProgramFromImage(string path, string name)
         {
-            var p = new StringBuilder("EXPORT " + name + "()");
-            p.AppendLine();
-            p.AppendLine("BEGIN");
-            p.AppendLine("RECT(#000000);");
-
-            const int width = 320, height = 240;
+            const int width = 320, height = 240, totalBytes = width * height * 3;
+            const string defaultColor = "000000"; // RRGGBB
             var img = ResizeImage(Image.FromFile(path), width, height);
+            var bmpData = img.LockBits(new Rectangle(0, 0, img.Width, img.Height), System.Drawing.Imaging.ImageLockMode.ReadOnly,
+                System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            var p = new StringBuilder("EXPORT " + name + "()");
+            p.Append("\nBEGIN\nRECT(#"+defaultColor+"h);\n");
+            var rgbValues = new byte[totalBytes];
+
+            // Copy the RGB values into the array.
+            System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, rgbValues, 0, totalBytes);
 
             for (int x = 0; x < width; x++)
-            {
                 for (int y = 0; y < height; y++)
                 {
-                    var c = img.GetPixel(x, y);
+                    var c = GetColor(ref rgbValues, x, y, width);
 
-                    if (c.R==0&&c.G==0&&c.B==0)
-                        continue;
-                    
-                    p.AppendLine(String.Format("PIXON_P({0},{1},{2});", x, y, ColorTranslator.ToHtml(c)));
+                    if(c!=defaultColor)
+                        p.Append(String.Format("PIXON_P({0},{1},#{2}h);\n", x, y, c));
                 }
-            }
 
-            return p.AppendLine("WAIT;END;").ToString();
+            img.UnlockBits(bmpData);
+            return p.Append("WAIT;END;").ToString();
+        }
+
+        private static string GetColor(ref byte[] rgbValues, int x, int y, int width)
+        {
+            var pos = x*3 + (y*width*3);
+            return String.Format("{0:X2}{1:X2}{2:X2}",rgbValues[pos+2],rgbValues[pos + 1],rgbValues[pos]);
         }
 
         // http://stackoverflow.com/questions/1940581/c-sharp-image-resizing-to-different-size-while-preserving-aspect-ratio
