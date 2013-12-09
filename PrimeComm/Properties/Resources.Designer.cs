@@ -81,7 +81,7 @@ namespace PrimeCmd.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All supported files (*.hpprgm;*.txt)|*.hpprgm;*.txt|HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*.
+        ///   Looks up a localized string similar to All supported files|*.hpprgm;*.txt;*.bmp;*.gif;*.jpeg;*.jpg;*.png|HP Prime Program (*.hpprgm)|*.hpprgm|Text files (*.txt)|*.txt|Images|*.bmp;*.gif;*.jpeg;*.jpg;*.png|All files (*.*)|*.*.
         /// </summary>
         internal static string FilterInput {
             get {
@@ -90,7 +90,7 @@ namespace PrimeCmd.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HP Prime Program (*.hpprgm)|*.hpprgm|Text file (*.txt)|*.txt|All files (*.*)|*.*.
+        ///   Looks up a localized string similar to HP Prime Program (*.hpprgm)|*.hpprgm|Text files (*.txt)|*.txt|All files (*.*)|*.*.
         /// </summary>
         internal static string FilterOutput {
             get {

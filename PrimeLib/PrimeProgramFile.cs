@@ -11,6 +11,8 @@ namespace PrimeLib
     /// </summary>
     public class PrimeProgramFile
     {
+        private string _name;
+
         /// <summary>
         /// Parses the data inside a file to be used later
         /// </summary>
@@ -21,19 +23,35 @@ namespace PrimeLib
             IsValid = false;
             Name = Path.GetFileNameWithoutExtension(path);
             Data = new byte[0];
-            var b = File.ReadAllBytes(path);
 
             switch (Path.GetExtension(path))
             {
                 case ".txt":
-                    Data = Encoding.Convert(Encoding.Default, Encoding.Unicode, b);
+                    Data = Encoding.Convert(Encoding.Default, Encoding.Unicode, File.ReadAllBytes(path));
                     IsValid = true;
                     break;
                   
+                case ".bmp":
+                case ".jpg":
+                case ".jpeg":
+                case ".png":
+                case ".gif":
+                    try
+                    {
+                        // Generate a script that displays the image
+                        Data = Encoding.Unicode.GetBytes(Utilities.GenerateProgramFromImage(path, SafeName));
+                        IsValid = true;
+                    }
+                    catch
+                    {
+                    }
+                    break;
+
                 case null:
                     break; 
 
                 default:
+                    var b = File.ReadAllBytes(path);
                     if (b.Length >= 19)
                     {
                         for (var i = 1; i <= 7; i++)
@@ -85,7 +103,26 @@ namespace PrimeLib
         /// <summary>
         /// Name of the script
         /// </summary>
-        public string Name { get; private set; }
+        public string Name
+        {
+            get { return _name; }
+            private set 
+            { 
+                // Check name rules
+                if (value.Length > 0)
+                {
+                    if (value[0] >= '0' && value[0] <= '9')
+                        value = Utilities.GetRandomChar() + value;
+
+                    _name = value.Substring(0, value.Length > 64 ? 64 : value.Length); 
+                }
+            }
+        }
+
+        public string SafeName
+        {
+            get { return _name.Replace(" ","_"); }
+        }
 
         /// <summary>
         /// Returns if the data looks valid (header and sizes match)

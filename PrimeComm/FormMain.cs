@@ -461,7 +461,7 @@ namespace PrimeCmd
                 if (clipb.Length > 0)
                 {
                     var m = new Regex(@"export (?<name>.*?)\(", RegexOptions.IgnoreCase).Match(clipb);
-                    var name = "program_" + ((char) _random.Next('a', 'z' + 1)) + _random.Next(10, 99);
+                    var name = PrimeLib.Utilities.GetRandomProgramName();
 
                     if (m.Success)
                         name = m.Groups["name"].Value;
