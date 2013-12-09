@@ -71,6 +71,9 @@ namespace PrimeLib
 
         private void GenerateChunks(List<byte> data, int chunkSize)
         {
+            if (chunkSize <= 2)
+                return;
+
             int position = 0, chunk = 0;
 
             // Add missing padding zeros
@@ -168,7 +171,7 @@ namespace PrimeLib
             Type = PrimeUsbDataType.Unknown;
             foreach (var _header in _headers)
             {
-                if (_header.Value.Header.Where((t, i) => tmp[i] != t).Any())
+                if (tmp.Length < _header.Value.Header.Length || _header.Value.Header.Where((t, i) => tmp[i] != t).Any())
                     continue;
 
                 Type = _header.Value.Type; // Valid type
