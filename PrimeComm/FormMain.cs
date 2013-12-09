@@ -380,10 +380,16 @@ namespace PrimeCmd
                     var b = new PrimeProgramFile(openFileDialogProgram.FileName);
 
                     if (b.IsValid)
+                    {
+                        saveFileDialogProgram.FileName = b.Name;
+
+                        // Select the oposite filetype
+                        saveFileDialogProgram.FilterIndex = openFileDialogProgram.FileName.EndsWith(".hpprgm",
+                            StringComparison.OrdinalIgnoreCase)? 2: 1;
+
                         if (saveFileDialogProgram.ShowDialog() == DialogResult.OK)
-                        {
                             new PrimeUsbData(b.Name, b.Data, 0).Save(saveFileDialogProgram.FileName);
-                        }
+                    }
                 }
                 catch
                 {
@@ -418,20 +424,20 @@ namespace PrimeCmd
 
             if (f != null)
             {
-                var fs = FileSet.Create(new[] {f}, _config);
-                fs.Settings.Destination = destination;
+                var fileSet = FileSet.Create(new[] { f }, _config);
+                fileSet.Settings.Destination = destination;
                 if (destination == Destinations.Custom)
                 {
-                    openFileDialogProgram.FileName = Path.GetFileNameWithoutExtension(f)+".hpprgm";
-                    if (openFileDialogProgram.ShowDialog()!= DialogResult.OK)
+                    var fs = new FolderSelectDialog { Title = "Select the destination folder" };
+                    if (!fs.ShowDialog())
                         return; // Conversion was cancel
 
-                    fs.Settings.CustomDestination = openFileDialogProgram.FileName;
+                    fileSet.Settings.CustomDestination = fs.FileName;
                 }
                 else
-                    fs.Settings.CustomDestination = _emulatorFolder;
+                    fileSet.Settings.CustomDestination = _emulatorFolder;
 
-                SendDataTo(fs);
+                SendDataTo(fileSet);
                 res.Add(SendResult.Success);
             }
             else
