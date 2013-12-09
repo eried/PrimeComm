@@ -110,10 +110,12 @@ namespace PrimeLib
         public void StartReceiving()
         {
             // Flush contents
-            _calculator.CloseDevice();
+            StopReceiving();
 
             _continue = true;
-            _calculator.ReadReport(OnReport);
+
+            if (_calculator != null)
+                _calculator.ReadReport(OnReport);
         }
 
         /// <summary>
@@ -122,7 +124,9 @@ namespace PrimeLib
         public void StopReceiving()
         {
             _continue = false;
-            _calculator.CloseDevice();
+
+            if(_calculator != null)
+                _calculator.CloseDevice();
         }
 
         private void OnReport(HidReport report)
