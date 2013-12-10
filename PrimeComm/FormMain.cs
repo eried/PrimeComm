@@ -26,7 +26,6 @@ namespace PrimeCmd
         private Timer _checker;
         private readonly IniParser _config;
         private string _sendingStatus, _emulatorFolder;
-        private readonly Random _random = new Random();
         private PrimeCalculator _calculator;
 
         public FormMain(bool silent=false)

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using PrimeLib;
 
 namespace PrimeLib
 {
@@ -13,7 +11,7 @@ namespace PrimeLib
     /// </summary>
     public class PrimeUsbData
     {
-        private Dictionary<PrimeUsbDataType, PrimeUsbDataHeader> _headers = GetHeaders();
+        private readonly Dictionary<PrimeUsbDataType, PrimeUsbDataHeader> _headers = GetHeaders();
 
         private static Dictionary<PrimeUsbDataType, PrimeUsbDataHeader> GetHeaders()
         {
@@ -178,7 +176,7 @@ namespace PrimeLib
                 break;
             }
 
-            int size=0;
+            var size=0;
             switch (Type)
             {
                 case PrimeUsbDataType.Message:
@@ -259,6 +257,13 @@ namespace PrimeLib
             }
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>
+        /// A string that represents the current object.
+        /// </returns>
+        /// <filterpriority>2</filterpriority>
         public override string ToString()
         {
             if (Data !=null && Data.Length > 0)
@@ -278,8 +283,17 @@ namespace PrimeLib
     /// </summary>
     public enum PrimeUsbDataType
     {
+        /// <summary>
+        /// Data without known format header
+        /// </summary>
         Unknown,
+        /// <summary>
+        /// Data uses a file header
+        /// </summary>
         File,
+        /// <summary>
+        /// Data uses a message header
+        /// </summary>
         Message
     }
 }

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 using CommandLine;
 using PrimeLib;
+using DataReceivedEventArgs = PrimeLib.DataReceivedEventArgs;
 
 namespace PrimeCmd
 {
@@ -77,7 +76,7 @@ namespace PrimeCmd
 
                                 if (d != null && d.Type == PrimeUsbDataType.Message)
                                 {
-                                    String cmd = d.ToString();
+                                    var cmd = d.ToString();
                                     Console.WriteLine("[{0}] Executing: '{1}'", DateTime.Now.ToShortTimeString(), cmd);
 
                                     if (cmd.ToLower() == "exit")
@@ -263,7 +262,7 @@ namespace PrimeCmd
             primeFile.Save(f);
         }
 
-        static void calculator_DataReceived(object sender, PrimeLib.DataReceivedEventArgs e)
+        static void calculator_DataReceived(object sender, DataReceivedEventArgs e)
         {
             ReceivedBytes.Enqueue(e.Data);
         }

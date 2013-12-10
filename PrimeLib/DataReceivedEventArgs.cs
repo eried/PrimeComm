@@ -12,6 +12,10 @@ namespace PrimeLib
         /// </summary>
         public readonly byte[] Data;
 
+        /// <summary>
+        /// Received data event
+        /// </summary>
+        /// <param name="data">Received data</param>
         public DataReceivedEventArgs(byte[] data)
         {
             Data = data;

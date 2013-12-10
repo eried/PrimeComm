@@ -49,8 +49,8 @@ namespace CommandLine.Infrastructure
 
         public override int GetHashCode()
         {
-            int leftHash = _left == null ? 0 : _left.GetHashCode();
-            int rightHash = _right == null ? 0 : _right.GetHashCode();
+            var leftHash = _left == null ? 0 : _left.GetHashCode();
+            var rightHash = _right == null ? 0 : _right.GetHashCode();
 
             return leftHash ^ rightHash;
         }
@@ -64,7 +64,7 @@ namespace CommandLine.Infrastructure
                 return false;
             }
 
-            return object.Equals(_left, other._left) && object.Equals(_right, other._right);
+            return Equals(_left, other._left) && Equals(_right, other._right);
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
 using System.IO;
 using System.Text;
-using PrimeLib;
 
 namespace PrimeLib
 {
@@ -65,7 +63,7 @@ namespace PrimeLib
                                 Data = new byte[size];
 
                                 const int offset = 20;
-                                for (int i = offset; i < offset + size && i < b.Length; i++)
+                                for (var i = offset; i < offset + size && i < b.Length; i++)
                                     Data[i - offset] = b[i];
 
                                 IsValid = true;
@@ -119,9 +117,12 @@ namespace PrimeLib
             }
         }
 
+        /// <summary>
+        /// Safe program name, or a random one if no one is available
+        /// </summary>
         public string SafeName
         {
-            get { return _name.Replace(" ","_"); }
+            get { return String.IsNullOrEmpty(_name)?Utilities.GetRandomProgramName() : _name.Replace(" ","_"); }
         }
 
         /// <summary>

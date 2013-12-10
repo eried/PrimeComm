@@ -45,13 +45,12 @@ namespace CommandLine.Parsing
 
             option.IsDefined = true;
 
-            ArgumentParser.EnsureOptionArrayAttributeIsNotBoundToScalar(option);
-
+            EnsureOptionArrayAttributeIsNotBoundToScalar(option);
             bool valueSetting;
 
             if (!option.IsBoolean)
             {
-                if (parts.Length == 1 && (argumentEnumerator.IsLast || !ArgumentParser.IsInputValue(argumentEnumerator.Next)))
+                if (parts.Length == 1 && (argumentEnumerator.IsLast || !IsInputValue(argumentEnumerator.Next)))
                 {
                     return PresentParserState.Failure;
                 }
@@ -66,12 +65,12 @@ namespace CommandLine.Parsing
                             DefineOptionThatViolatesFormat(option);
                         }
 
-                        return ArgumentParser.BooleanToParserState(valueSetting);
+                        return BooleanToParserState(valueSetting);
                     }
 
-                    ArgumentParser.EnsureOptionAttributeIsArrayCompatible(option);
+                    EnsureOptionAttributeIsArrayCompatible(option);
 
-                    var items = ArgumentParser.GetNextInputValues(argumentEnumerator);
+                    var items = GetNextInputValues(argumentEnumerator);
                     items.Insert(0, parts[1]);
 
                     valueSetting = option.SetValue(items, options);
@@ -80,7 +79,7 @@ namespace CommandLine.Parsing
                         DefineOptionThatViolatesFormat(option);
                     }
 
-                    return ArgumentParser.BooleanToParserState(valueSetting);
+                    return BooleanToParserState(valueSetting);
                 }
                 else
                 {
@@ -92,12 +91,12 @@ namespace CommandLine.Parsing
                             DefineOptionThatViolatesFormat(option);
                         }
 
-                        return ArgumentParser.BooleanToParserState(valueSetting, true);
+                        return BooleanToParserState(valueSetting, true);
                     }
 
-                    ArgumentParser.EnsureOptionAttributeIsArrayCompatible(option);
+                    EnsureOptionAttributeIsArrayCompatible(option);
 
-                    var items = ArgumentParser.GetNextInputValues(argumentEnumerator);
+                    var items = GetNextInputValues(argumentEnumerator);
 
                     valueSetting = option.SetValue(items, options);
                     if (!valueSetting)
@@ -105,7 +104,7 @@ namespace CommandLine.Parsing
                         DefineOptionThatViolatesFormat(option);
                     }
 
-                    return ArgumentParser.BooleanToParserState(valueSetting);
+                    return BooleanToParserState(valueSetting);
                 }
             }
 
@@ -120,7 +119,7 @@ namespace CommandLine.Parsing
                 DefineOptionThatViolatesFormat(option);
             }
 
-            return ArgumentParser.BooleanToParserState(valueSetting);
+            return BooleanToParserState(valueSetting);
         }
     }
 }

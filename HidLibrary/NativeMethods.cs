@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace HidLibrary
 {
@@ -55,13 +56,13 @@ namespace HidLibrary
 	    static internal extern IntPtr CreateFile(string lpFileName, uint dwDesiredAccess, int dwShareMode, ref SECURITY_ATTRIBUTES lpSecurityAttributes, int dwCreationDisposition, int dwFlagsAndAttributes, int hTemplateFile);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        static internal extern bool ReadFile(IntPtr hFile, [Out] byte[] lpBuffer, uint nNumberOfBytesToRead, out uint lpNumberOfBytesRead, [In] ref System.Threading.NativeOverlapped lpOverlapped);
+        static internal extern bool ReadFile(IntPtr hFile, [Out] byte[] lpBuffer, uint nNumberOfBytesToRead, out uint lpNumberOfBytesRead, [In] ref NativeOverlapped lpOverlapped);
 
 	    [DllImport("kernel32.dll")]
 	    static internal extern uint WaitForSingleObject(IntPtr hHandle, int dwMilliseconds);
 
         [DllImport("kernel32.dll")]
-        static internal extern bool WriteFile(IntPtr hFile, byte[] lpBuffer, uint nNumberOfBytesToWrite, out uint lpNumberOfBytesWritten, [In] ref System.Threading.NativeOverlapped lpOverlapped);
+        static internal extern bool WriteFile(IntPtr hFile, byte[] lpBuffer, uint nNumberOfBytesToWrite, out uint lpNumberOfBytesWritten, [In] ref NativeOverlapped lpOverlapped);
 
 	    internal const int DBT_DEVICEARRIVAL = 0x8000;
 	    internal const int DBT_DEVICEREMOVECOMPLETE = 0x8004;
@@ -153,7 +154,7 @@ namespace HidLibrary
 	    internal struct SP_DEVICE_INTERFACE_DATA
 	    {
 		    internal int cbSize;
-		    internal System.Guid InterfaceClassGuid;
+		    internal Guid InterfaceClassGuid;
 		    internal int Flags;
 		    internal IntPtr Reserved;
 	    }
@@ -207,7 +208,7 @@ namespace HidLibrary
         static internal extern bool SetupDiEnumDeviceInterfaces(IntPtr deviceInfoSet, ref SP_DEVINFO_DATA deviceInfoData, ref Guid interfaceClassGuid, int memberIndex, ref SP_DEVICE_INTERFACE_DATA deviceInterfaceData);
 
 	    [DllImport("setupapi.dll", CharSet = CharSet.Auto)]
-        static internal extern IntPtr SetupDiGetClassDevs(ref System.Guid classGuid, string enumerator, int hwndParent, int flags);
+        static internal extern IntPtr SetupDiGetClassDevs(ref Guid classGuid, string enumerator, int hwndParent, int flags);
 
         [DllImport("setupapi.dll", CharSet = CharSet.Auto, EntryPoint = "SetupDiGetDeviceInterfaceDetail")]
         static internal extern bool SetupDiGetDeviceInterfaceDetailBuffer(IntPtr deviceInfoSet, ref SP_DEVICE_INTERFACE_DATA deviceInterfaceData, IntPtr deviceInterfaceDetailData, int deviceInterfaceDetailDataSize, ref int requiredSize, IntPtr deviceInfoData);

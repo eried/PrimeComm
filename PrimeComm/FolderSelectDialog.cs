@@ -296,7 +296,7 @@ public class Reflector
     /// <returns>The result of the function invocation</returns>
     public object CallAs2(Type type, object obj, string func, object[] parameters)
     {
-        MethodInfo methInfo = type.GetMethod(func, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        var methInfo = type.GetMethod(func, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         return methInfo.Invoke(obj, parameters);
     }
 

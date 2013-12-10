@@ -278,7 +278,7 @@ namespace HidLibrary
             {
                 hidHandle = OpenDeviceIO(_devicePath, NativeMethods.ACCESS_NONE);
 
-                var overlapped = new NativeOverlapped();
+                new NativeOverlapped();
                 success = NativeMethods.HidD_SetFeature(hidHandle, buffer, buffer.Length);
             }
             catch (Exception exception)

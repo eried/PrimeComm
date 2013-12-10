@@ -166,7 +166,7 @@ namespace CommandLine.Parsing
 
         public void SetDefaults()
         {
-            foreach (OptionInfo option in _map.Values)
+            foreach (var option in _map.Values)
             {
                 option.SetDefault(RawOptions);
             }
@@ -185,7 +185,7 @@ namespace CommandLine.Parsing
             // This method can be called when parser state is still not intialized
             if (property.GetValue(options, null) == null)
             {
-                property.SetValue(options, new CommandLine.ParserState(), null);
+                property.SetValue(options, new ParserState(), null);
             }
 
             var parserState = (IParserState)property.GetValue(options, null);
@@ -283,12 +283,12 @@ namespace CommandLine.Parsing
 
             public int Occurrence
             {
-                get { return this._count; }
+                get { return _count; }
             }
 
             public void IncrementOccurrence()
             {
-                ++this._count;
+                ++_count;
             }
         }
     }

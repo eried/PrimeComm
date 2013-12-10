@@ -428,14 +428,9 @@ namespace CommandLine
                 return false;
             }
 
-            verbInstance = verbOption.GetValue(options);
-            if (verbInstance == null)
-            {
-                // Developer has not provided a default value and did not assign an instance
-                verbInstance = verbOption.CreateInstance(options);
-            }
-
+            verbInstance = verbOption.GetValue(options) ?? verbOption.CreateInstance(options);
             var verbResult = DoParseArgumentsCore(args.Skip(1).ToArray(), verbInstance);
+
             if (!verbResult && helpInfo != null)
             {
                 // Particular verb parsing failed, we try to print its help
@@ -445,7 +440,7 @@ namespace CommandLine
             return verbResult;
         }
 
-        private bool ParseHelp(string[] args, HelpOptionAttribute helpOption)
+        private bool ParseHelp(IEnumerable<string> args, HelpOptionAttribute helpOption)
         {
             var caseSensitive = _settings.CaseSensitive;
             foreach (var arg in args)

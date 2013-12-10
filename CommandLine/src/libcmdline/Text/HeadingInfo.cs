@@ -80,11 +80,11 @@ namespace CommandLine.Text
             get
             {
                 var titleAttribute = ReflectionHelper.GetAttribute<AssemblyTitleAttribute>();
-                string title = titleAttribute == null
+                var title = titleAttribute == null
                     ? ReflectionHelper.AssemblyFromWhichToPullInformation.GetName().Name
                     : Path.GetFileNameWithoutExtension(titleAttribute.Title);
                 var versionAttribute = ReflectionHelper.GetAttribute<AssemblyInformationalVersionAttribute>();
-                string version = versionAttribute == null
+                var version = versionAttribute == null
                     ? ReflectionHelper.AssemblyFromWhichToPullInformation.GetName().Version.ToString()
                     : versionAttribute.InformationalVersion;
                 return new HeadingInfo(title, version);
@@ -107,7 +107,7 @@ namespace CommandLine.Text
         /// <returns>The <see cref="System.String"/> that contains the heading.</returns>
         public override string ToString()
         {
-            bool isVersionNull = string.IsNullOrEmpty(_version);
+            var isVersionNull = string.IsNullOrEmpty(_version);
             var builder = new StringBuilder(_programName.Length +
                 (!isVersionNull ? _version.Length + 1 : 0));
             builder.Append(_programName);

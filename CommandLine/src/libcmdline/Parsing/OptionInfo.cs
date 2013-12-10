@@ -147,12 +147,11 @@ namespace CommandLine.Parsing
 
         public object CreateInstance(object target)
         {
-            object instance = null;
+            object instance;
 
             try
             {
                 instance = Activator.CreateInstance(_property.PropertyType);
-
                 _property.SetValue(target, instance, null);
             }
             catch (Exception e)
@@ -183,7 +182,7 @@ namespace CommandLine.Parsing
             var elementType = _property.PropertyType.GetElementType();
             var array = Array.CreateInstance(elementType, values.Count);
 
-            for (int i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length; i++)
             {
                 try
                 {

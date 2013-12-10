@@ -161,21 +161,15 @@ namespace CommandLine.Infrastructure
                 foreach (var property in info)
                 {
                     if (property == null || (!property.CanRead || !property.CanWrite))
-                    {
                         continue;
-                    }
 
                     var setMethod = property.GetSetMethod();
                     if (setMethod == null || setMethod.IsStatic)
-                    {
                         continue;
-                    }
 
                     var attribute = Attribute.GetCustomAttribute(property, typeof(TAttribute), false);
                     if (attribute != null)
-                    {
                         list.Add((TAttribute)attribute);
-                    }
                 }
 
                 ReflectionCache.Instance[key] = list;

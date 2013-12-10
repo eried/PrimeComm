@@ -26,16 +26,14 @@ namespace PrimeCmd
         /// <param name="iniPath">Full path to INI file.</param>
         public IniParser(String iniPath)
         {
-            TextReader iniFile = null;
-            String strLine = null;
+            TextReader iniFile;
             String currentRoot = null;
-            String[] keyPair = null;
 
             _iniFilePath = iniPath;
 
             if (!File.Exists(iniPath))
             {
-                iniFile = new StringReader((String)iniPath.Clone());
+                iniFile = new StringReader((String) iniPath.Clone());
                 iniPath = Path.GetTempFileName();
                 ConfigurationFile = iniPath;
             }
@@ -47,7 +45,7 @@ namespace PrimeCmd
 
             try
             {
-                strLine = iniFile.ReadLine();
+                var strLine = iniFile.ReadLine();
 
                 while (strLine != null)
                 {
@@ -61,7 +59,7 @@ namespace PrimeCmd
                         }
                         else
                         {
-                            keyPair = strLine.Split(new char[] { '=' }, 2);
+                            var keyPair = strLine.Split(new char[] {'='}, 2);
 
                             SectionPair sectionPair;
                             String value = null;
@@ -78,7 +76,6 @@ namespace PrimeCmd
 
                     strLine = iniFile.ReadLine();
                 }
-
             }
             catch (Exception ex)
             {
@@ -86,8 +83,7 @@ namespace PrimeCmd
             }
             finally
             {
-                if (iniFile != null)
-                    iniFile.Close();
+                iniFile.Close();
             }
             /*}
             else
@@ -128,9 +124,9 @@ namespace PrimeCmd
         /// <param name="sectionName">Section to enum.</param>
         public String[] EnumSection(String sectionName)
         {
-            ArrayList tmpArray = new ArrayList();
+            var tmpArray = new ArrayList();
 
-            foreach (SectionPair pair in _keyPairs.Keys)
+            foreach (var pair in _keyPairs.Keys)
             {
                 if (pair.Section == sectionName)
                     tmpArray.Add(pair.Key);
@@ -188,25 +184,24 @@ namespace PrimeCmd
         /// <param name="newFilePath">New file path.</param>
         public void SaveSettings(String newFilePath)
         {
-            ArrayList sections = new ArrayList();
-            String tmpValue = "";
-            String strToSave = "";
+            var sections = new ArrayList();
+            var strToSave = "";
 
-            foreach (SectionPair sectionPair in _keyPairs.Keys)
+            foreach (var sectionPair in _keyPairs.Keys)
             {
                 if (!sections.Contains(sectionPair.Section))
                     sections.Add(sectionPair.Section);
             }
 
-            foreach (String section in sections)
+            foreach (var section in sections)
             {
                 strToSave += ("[" + section + "]\r\n");
 
-                foreach (SectionPair sectionPair in _keyPairs.Keys)
+                foreach (var sectionPair in _keyPairs.Keys)
                 {
-                    if (sectionPair.Section == section)
+                    if (sectionPair.Section == (string) section)
                     {
-                        tmpValue = (String)_keyPairs[sectionPair];
+                        var tmpValue = _keyPairs[sectionPair];
 
                         if (tmpValue != null)
                             tmpValue = "=" + tmpValue;

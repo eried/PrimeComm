@@ -127,7 +127,7 @@ namespace CommandLine
                 var value = new StringBuilder(string.Empty);
                 var strArray = new[] { _line1, _line2, _line3, _line4, _line5 };
 
-                for (int i = 0; i < GetLastLineWithText(strArray); i++)
+                for (var i = 0; i < GetLastLineWithText(strArray); i++)
                 {
                     value.AppendLine(strArray[i]);
                 }
@@ -212,7 +212,7 @@ namespace CommandLine
         /// <param name='value'>The string array to process.</param>
         protected virtual int GetLastLineWithText(string[] value)
         {
-            int index = Array.FindLastIndex(value, str => !string.IsNullOrEmpty(str));
+            var index = Array.FindLastIndex(value, str => !string.IsNullOrEmpty(str));
 
             // remember FindLastIndex returns zero-based index
             return index + 1;

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using HidLibrary;
 
 namespace PrimeLib
@@ -15,7 +10,13 @@ namespace PrimeLib
     {
         private HidDevice _calculator;
         private bool _isConnected,_continue;
+        /// <summary>
+        /// Reports physical device events
+        /// </summary>
         public event EventHandler<EventArgs> Connected, Disconnected;
+        /// <summary>
+        /// Reports data received from the USB
+        /// </summary>
         public event EventHandler<DataReceivedEventArgs> DataReceived;
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace PrimeLib
         /// </summary>
         protected virtual void OnConnected()
         {
-            EventHandler<EventArgs> handler = Connected;
+            var handler = Connected;
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
@@ -65,7 +66,7 @@ namespace PrimeLib
         /// </summary>
         protected virtual void OnDisconnected()
         {
-            EventHandler<EventArgs> handler = Disconnected;
+            var handler = Disconnected;
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
@@ -92,7 +93,7 @@ namespace PrimeLib
         /// <param name="e">Data received</param>
         protected virtual void OnDataReceived(DataReceivedEventArgs e)
         {
-            EventHandler<DataReceivedEventArgs> handler = DataReceived;
+            var handler = DataReceived;
             if (handler != null) handler(this, e);
         }
 

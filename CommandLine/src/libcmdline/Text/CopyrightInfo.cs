@@ -86,11 +86,11 @@ namespace CommandLine.Text
             Assumes.NotNullOrEmpty(author, "author");
             Assumes.NotZeroLength(copyrightYears, "copyrightYears");
 
-            const int ExtraLength = 10;
+            const int extraLength = 10;
             _isSymbolUpper = isSymbolUpper;
             _author = author;
             _copyrightYears = copyrightYears;
-            _builderSize = 12 + author.Length + (4 * copyrightYears.Length) + ExtraLength;
+            _builderSize = 12 + author.Length + (4 * copyrightYears.Length) + extraLength;
         }
 
         /// <summary>
@@ -192,10 +192,10 @@ namespace CommandLine.Text
             }
 
             var yearsPart = new StringBuilder(years.Length * 6);
-            for (int i = 0; i < years.Length; i++)
+            for (var i = 0; i < years.Length; i++)
             {
                 yearsPart.Append(years[i].ToString(CultureInfo.InvariantCulture));
-                int next = i + 1;
+                var next = i + 1;
                 if (next < years.Length)
                 {
                     yearsPart.Append(years[next] - years[i] > 1 ? " - " : ", ");

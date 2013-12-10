@@ -50,17 +50,7 @@ namespace CommandLine.Parsing
         {
             try
             {
-                object propertyValue = null;
-                if (Property.PropertyType.IsEnum)
-                {
-                    propertyValue = Enum.Parse(Property.PropertyType, value, true);
-                }
-                else
-                {
-                    propertyValue = Convert.ChangeType(value, Property.PropertyType, _parsingCulture);
-                }
-
-                Property.SetValue(target, propertyValue, null);
+                Property.SetValue(target, Property.PropertyType.IsEnum ? Enum.Parse(Property.PropertyType, value, true) : Convert.ChangeType(value, Property.PropertyType, _parsingCulture), null);
             }
             catch (InvalidCastException)
             {
