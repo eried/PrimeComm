@@ -1,4 +1,4 @@
-﻿namespace PrimeCmd
+﻿namespace PrimeComm
 {
     partial class FormMain
     {

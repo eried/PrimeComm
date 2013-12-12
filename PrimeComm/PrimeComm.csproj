@@ -7,7 +7,7 @@
     <ProjectGuid>{F29C218B-2E56-48F5-8370-8200A42135B8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrimeCmd</RootNamespace>
+    <RootNamespace>PrimeComm</RootNamespace>
     <AssemblyName>PrimeComm</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="DataReceivedEventArgs.cs" />
     <Compile Include="Destinations.cs" />
     <Compile Include="PrimeCalculator.cs" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace PrimeCmd
+namespace PrimeComm
 {
     static class Program
     {

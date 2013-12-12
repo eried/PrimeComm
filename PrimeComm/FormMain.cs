@@ -1,21 +1,22 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using FolderSelect;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using PrimeCmd.Properties;
+using FolderSelect;
+using PrimeComm.Properties;
 using PrimeLib;
 using DataReceivedEventArgs = PrimeLib.DataReceivedEventArgs;
 using Timer = System.Threading.Timer;
+using Utilities = PrimeComm.Utilities;
 
-namespace PrimeCmd
+namespace PrimeComm
 {
     public partial class FormMain : Form
     {
@@ -27,6 +28,7 @@ namespace PrimeCmd
         private readonly IniParser _config;
         private string _sendingStatus, _emulatorFolder;
         private PrimeCalculator _calculator;
+        private static readonly Object scheduleLock = new Object();
 
         public FormMain(bool silent=false)
         {
@@ -39,7 +41,7 @@ namespace PrimeCmd
             InitializeGui();
 
             // Check running processes
-            if (new[] {"ConnectivityKit", "HPPrime"}.Any(p => Process.GetProcessesByName(p).Length > 0))
+            if (new[] {Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName}.Any(p => Process.GetProcessesByName(p).Length > 0))
                 SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your calculator.");
         }
 
@@ -115,7 +117,6 @@ namespace PrimeCmd
                 sendClipboardToolStripMenuItem.Enabled = buttonSend.Enabled;
 
                 buttonCaptureScreen.Enabled = IsDeviceConnected && !IsBusy;
-                
 
                 if(_receivingData==false)
                     if (_receivedFile != null && _receivedFile.IsComplete)
@@ -167,9 +168,6 @@ namespace PrimeCmd
                 }
             }
         }
-
-        private static readonly Object scheduleLock = new Object();
-
 
         private void ScheduleCheck(Boolean stop = false)
         {
@@ -299,7 +297,7 @@ namespace PrimeCmd
         private void backgroundWorkerSend_DoWork(object sender, DoWorkEventArgs e)
         {
             var fs = (FileSet)e.Argument;
-            var res = new SendResults(fs.Files.Length);
+            var res = new SendResults(fs.Files.Length, fs.Settings.Destination);
             var nullFile = new PrimeUsbData(new byte[] {0x00});
             foreach (var file in fs.Files)
             {
@@ -419,7 +417,7 @@ namespace PrimeCmd
         private void SendClipboardTo(Destinations destination)
         {
             var f = CreateTemporalFileFromClipboard();
-            var res = new SendResults(1);
+            var res = new SendResults(1, destination);
 
             if (f != null)
             {
