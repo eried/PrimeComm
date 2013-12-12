@@ -1,8 +1,18 @@
 ﻿namespace PrimeLib
 {
+    /// <summary>
+    /// Some global constants
+    /// </summary>
     public class Constants
     {
-        public const string EmulatorProcessName = "HPPrime", 
-            ConnectivityKitProcessName = "ConnectivityKit";
+        /// <summary>
+        /// Virtual prime
+        /// </summary>
+        public const string EmulatorProcessName = "HPPrime";
+
+        /// <summary>
+        /// Connectivity Kit
+        /// </summary>
+        public const string ConnectivityKitProcessName = "ConnectivityKit";
     }
 }
