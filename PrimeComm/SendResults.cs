@@ -59,13 +59,12 @@ namespace PrimeComm
         public static void ShowMsg(string msg)
         {
             var m = true;
-            if (_destination != Destinations.Calculator)
+            if (_destination == Destinations.UserFolder)
                 foreach (var p in Process.GetProcessesByName(Constants.EmulatorProcessName))
                 {
                     m = false;
 
-                    if (MessageBox.Show(
-                        msg + Environment.NewLine + Environment.NewLine +
+                    if (MessageBox.Show(msg + Environment.NewLine + Environment.NewLine +
                         "Do you want to reload the HP Prime Virtual Calculator?", Application.ProductName,
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
