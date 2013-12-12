@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using PrimeCmd.Properties;
+using PrimeComm.Properties;
+using PrimeLib;
 
-namespace PrimeCmd
+namespace PrimeComm
 {
     internal enum SendResult
     {
@@ -18,11 +20,13 @@ namespace PrimeCmd
     internal class SendResults
     {
         private readonly int _totalFiles;
+        private static Destinations _destination;
         private readonly Dictionary<SendResult, int> _results;
 
-        public SendResults(int totalFiles)
+        public SendResults(int totalFiles, Destinations destination)
         {
             _totalFiles = totalFiles;
+            _destination = destination;
             _results = new Dictionary<SendResult, int>();
 
             foreach (SendResult k in Enum.GetValues(typeof (SendResult)))
@@ -53,7 +57,33 @@ namespace PrimeCmd
 
         public static void ShowMsg(string msg)
         {
-            MessageBox.Show(msg, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var m = true;
+            if (_destination != Destinations.Calculator)
+                foreach (var p in Process.GetProcessesByName(Constants.EmulatorProcessName))
+                {
+                    m = false;
+
+                    if (MessageBox.Show(
+                        msg + Environment.NewLine + Environment.NewLine +
+                        "Do you want to reload the HP Prime Virtual Calculator?", Application.ProductName,
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        var image = p.MainModule.FileName;
+                        try
+                        {
+                            p.Kill();
+                            Process.Start(image);
+                        }
+                        catch
+                        {
+                        }
+                    }
+
+                    break;
+                }
+
+            if(m)
+                MessageBox.Show(msg, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static void ShowError(string msg)
