@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using PrimeComm.Properties;
 using PrimeLib;
@@ -71,7 +72,8 @@ namespace PrimeComm
                         var image = p.MainModule.FileName;
                         try
                         {
-                            p.Kill();
+                            if(!p.CloseMainWindow())
+                                p.Kill();
                             Process.Start(image);
                         }
                         catch
