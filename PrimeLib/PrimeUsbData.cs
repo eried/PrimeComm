@@ -243,8 +243,7 @@ namespace PrimeLib
             switch (Path.GetExtension(destinationFilename))
             {
                 case ".txt":
-                    File.WriteAllBytes(destinationFilename,
-                        Encoding.Convert(Encoding.Unicode, Encoding.Default, Data.SubArray(0, Data.Length - 2)));
+                    File.WriteAllBytes(destinationFilename,Data.SubArray(0,Data.Length>1?(Data[Data.Length-1]==0&&Data[Data.Length-2]==0?Data.Length-2:Data.Length):Data.Length));
                     break;
 
                 default:

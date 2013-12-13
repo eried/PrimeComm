@@ -25,8 +25,14 @@ namespace PrimeLib
             switch (Path.GetExtension(path))
             {
                 case ".txt":
-                    Data = Encoding.Convert(Encoding.Default, Encoding.Unicode, File.ReadAllBytes(path));
-                    IsValid = true;
+                    // Find "begin"
+                    var tmp = File.ReadAllBytes(path);
+                    foreach (var encoding in new[] {Encoding.BigEndianUnicode, Encoding.Unicode, Encoding.Default})
+                        if (CheckEncodingAndSetData(tmp, encoding))
+                        {
+                            IsValid = true;
+                            break;
+                        }
                     break;
                   
                 case ".bmp":
@@ -59,7 +65,7 @@ namespace PrimeLib
                         switch (b[8])
                         {
                             case 0x00:
-                                var size = b[16] + b[17]*0xff + b[18]*0xff*0xff;
+                                var size = BitConverter.ToUInt32(b, 16);
                                 Data = new byte[size];
 
                                 const int offset = 20;
@@ -91,6 +97,17 @@ namespace PrimeLib
                     }
                     break;
             }
+        }
+
+        private bool CheckEncodingAndSetData(byte[] tmp, Encoding encoding)
+        {
+            var s = encoding.GetString(tmp);
+            if (s.IndexOf("begin", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                Data = encoding.GetBytes(s);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
