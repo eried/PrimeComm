@@ -34,7 +34,7 @@ namespace PrimeComm
                 _results.Add(k, 0);
         }
 
-        internal void ShowMsg(bool console)
+        internal void ShowMsg(bool console, IWin32Window owner)
         {
             var ok = _results[SendResult.Success];
 
@@ -43,7 +43,7 @@ namespace PrimeComm
                 var m = _totalFiles > 1 ? Resources.StatusAllSent : Resources.StatusSent;
 
                 if (console) Console.WriteLine(m);
-                else ShowMsg(m);
+                else ShowMsg(m, owner);
             }
             else
             {
@@ -56,7 +56,7 @@ namespace PrimeComm
             }
         }
 
-        public static void ShowMsg(string msg)
+        public static void ShowMsg(string msg, IWin32Window owner)
         {
             var m = true;
             if (_destination == Destinations.UserFolder)
@@ -64,7 +64,7 @@ namespace PrimeComm
                 {
                     m = false;
 
-                    if (MessageBox.Show(msg + Environment.NewLine + Environment.NewLine +
+                    if (MessageBox.Show(owner, msg + Environment.NewLine + Environment.NewLine +
                         "Do you want to reload the HP Prime Virtual Calculator?", Application.ProductName,
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {

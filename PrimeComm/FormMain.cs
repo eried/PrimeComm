@@ -39,10 +39,6 @@ namespace PrimeComm
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
             InitializeGui();
-
-            // Check running processes
-            if (new[] {Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName}.Any(p => Process.GetProcessesByName(p).Length > 0))
-                SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.");
         }
 
         public bool IsDeviceConnected { get; private set; }
@@ -353,7 +349,7 @@ namespace PrimeComm
             UpdateGui();
 
             if (e.Result != null)
-                ((SendResults) e.Result).ShowMsg(Silent);
+                ((SendResults) e.Result).ShowMsg(Silent, this);
         }
 
         private void backgroundWorkerSend_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -440,7 +436,7 @@ namespace PrimeComm
             else
             {
                 res.Add(SendResult.ErrorInvalidInput);
-                res.ShowMsg(Silent);
+                res.ShowMsg(Silent, this);
             }
         }
 
@@ -464,7 +460,7 @@ namespace PrimeComm
                         name = m.Groups["name"].Value;
 
                     t = Path.Combine(t, name + ".txt");
-                    File.WriteAllText(t, clipb, Encoding.Default);
+                    File.WriteAllText(t, clipb, Encoding.BigEndianUnicode);
                     return t;
                 }
             }
@@ -492,6 +488,13 @@ namespace PrimeComm
         private void sendClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SendClipboardTo(Destinations.Calculator);
+        }
+
+        private void FormMain_Shown(object sender, EventArgs e)
+        {
+            // Check running processes
+            if (new[] { Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName }.Any(p => Process.GetProcessesByName(p).Length > 0))
+                SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.", this);
         }
     }
 
