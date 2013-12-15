@@ -14,7 +14,6 @@ using PrimeComm.Properties;
 using PrimeLib;
 using DataReceivedEventArgs = PrimeLib.DataReceivedEventArgs;
 using Timer = System.Threading.Timer;
-using Utilities = PrimeComm.Utilities;
 
 namespace PrimeComm
 {
@@ -58,6 +57,8 @@ namespace PrimeComm
             //_workFolder = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Hewlett-Packard\HP Connectivity Kit", "WorkFolder", null) as string;
             _emulatorFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HP_Prime");
             sendToEmulatorKitToolStripMenuItem.Enabled = Directory.Exists(_emulatorFolder);
+            emulatorToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
+            exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
 
             //UpdateDevices();
             _calculator = new PrimeCalculator();
@@ -495,6 +496,11 @@ namespace PrimeComm
             // Check running processes
             if (new[] { Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName }.Any(p => Process.GetProcessesByName(p).Length > 0))
                 SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.", this);
+        }
+
+        private void exploreVirtualHPPrimeWorkingFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(_emulatorFolder);
         }
     }
 
