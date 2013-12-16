@@ -38,8 +38,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ScintillaNET">
+      <HintPath>dll\ScintillaNET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FolderSelectDialog.cs" />
+    <Compile Include="FormEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditor.Designer.cs">
+      <DependentUpon>FormEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +77,9 @@
     </Compile>
     <Compile Include="SendResults.cs" />
     <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="FormEditor.resx">
+      <DependentUpon>FormEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,13 +105,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\connected.png" />
-    <None Include="img\disconnected.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="app.ico" />
-    <None Include="img\new\disconnected.png" />
-    <None Include="img\new\connected.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

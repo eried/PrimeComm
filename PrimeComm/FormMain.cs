@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using FolderSelect;
+using Microsoft.Win32;
 using PrimeComm.Properties;
 using PrimeLib;
 using DataReceivedEventArgs = PrimeLib.DataReceivedEventArgs;
@@ -25,7 +26,7 @@ namespace PrimeComm
         private PrimeUsbData _receivedFile;
         private Timer _checker;
         private readonly IniParser _config;
-        private string _sendingStatus, _emulatorFolder;
+        private string _sendingStatus, _emulatorFolder, _userFilesFolder;
         private PrimeCalculator _calculator;
         private static readonly Object scheduleLock = new Object();
 
@@ -54,7 +55,9 @@ namespace PrimeComm
             openFileDialogProgram.Filter = Resources.FilterInput;
             saveFileDialogProgram.Filter = Resources.FilterOutput;
 
-            //_workFolder = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Hewlett-Packard\HP Connectivity Kit", "WorkFolder", null) as string;
+            _userFilesFolder = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Hewlett-Packard\HP Connectivity Kit", "WorkFolder", null) as string;
+            connectivityKitUserFolderToolStripMenuItem.Enabled = _userFilesFolder != null && Directory.Exists(_userFilesFolder);
+            
             _emulatorFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HP_Prime");
             sendToEmulatorKitToolStripMenuItem.Enabled = Directory.Exists(_emulatorFolder);
             emulatorToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
@@ -450,18 +453,28 @@ namespace PrimeComm
             // Get name
             try
             {
-                var clipb = Clipboard.GetText(TextDataFormat.UnicodeText).Trim();
-
-                if (clipb.Length > 0)
+                if (Clipboard.ContainsText())
                 {
-                    var m = new Regex(@"export (?<name>.*?)\(", RegexOptions.IgnoreCase).Match(clipb);
-                    var name = PrimeLib.Utilities.GetRandomProgramName();
+                    var clipb = Clipboard.GetText(TextDataFormat.UnicodeText).Trim();
 
-                    if (m.Success)
-                        name = m.Groups["name"].Value;
+                    if (clipb.Length > 0)
+                    {
+                        var m = new Regex(@"export (?<name>.*?)\(", RegexOptions.IgnoreCase).Match(clipb);
+                        var name = PrimeLib.Utilities.GetRandomProgramName();
 
-                    t = Path.Combine(t, name + ".txt");
-                    File.WriteAllText(t, clipb, Encoding.BigEndianUnicode);
+                        if (m.Success)
+                            name = m.Groups["name"].Value;
+
+                        t = Path.Combine(t, name + ".txt");
+                        File.WriteAllText(t, clipb, Encoding.BigEndianUnicode);
+                        return t;
+                    }
+                }
+                else if (Clipboard.ContainsImage())
+                {
+                    t = Path.Combine(t, PrimeLib.Utilities.GetRandomImageName()+".png");
+                    Clipboard.GetImage().Save(t);
+
                     return t;
                 }
             }
@@ -496,6 +509,16 @@ namespace PrimeComm
             // Check running processes
             if (new[] { Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName }.Any(p => Process.GetProcessesByName(p).Length > 0))
                 SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.", this);
+        }
+
+        private void newProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormEditor().Show();
+        }
+
+        private void connectivityKitUserFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(_userFilesFolder);
         }
 
         private void exploreVirtualHPPrimeWorkingFolderToolStripMenuItem_Click(object sender, EventArgs e)
