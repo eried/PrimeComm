@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using Encoder = System.Drawing.Imaging.Encoder;
 
 namespace PrimeLib
 {
@@ -28,33 +32,136 @@ namespace PrimeLib
             return result;
         }
 
-        internal static string GenerateProgramFromImage(string path, string name)
+        internal static string GenerateProgramFromImage(string path, string name, ImageProcessingMode mode= ImageProcessingMode.DimgrobPieces)
         {
-            const int width = 320, height = 240, totalBytes = width * height * 3;
+            const int width = 320, height = 240;
+            var img = ResizeImage(Image.FromFile(path, true), width, height, mode == ImageProcessingMode.Pixels || mode == ImageProcessingMode.DimgrobPieces);
             const string defaultColor = "000000"; // RRGGBB
-            var img = ResizeImage(Image.FromFile(path), width, height);
-            var bmpData = img.LockBits(new Rectangle(0, 0, img.Width, img.Height),
-                ImageLockMode.ReadOnly,
-                PixelFormat.Format24bppRgb);
+
             var p = new StringBuilder("EXPORT " + name + "()");
             p.Append("\nBEGIN\n");
-            var rgbValues = new byte[totalBytes];
-
-            // Copy the RGB values into the array.
-            Marshal.Copy(bmpData.Scan0, rgbValues, 0, totalBytes);
-
             p.Append("RECT(#" + defaultColor + "h);\n");
-            for (var x = 0; x < width; x++)
-                for (var y = 0; y < height; y++)
-                {
-                    var c = GetColor(ref rgbValues, x, y, width);
 
-                    if (c != defaultColor)
-                        p.Append(String.Format("PIXON_P({0},{1},#{2}h);\n", x, y, c));
-                }
+            switch (mode)
+            {
+                case ImageProcessingMode.Pixels:
+                    const int totalBytesPixels = width*height*3;
+                    var bmpDataPixels = img.LockBits(new Rectangle(0, 0, img.Width, img.Height),
+                        ImageLockMode.ReadOnly,
+                        PixelFormat.Format24bppRgb);
 
-            img.UnlockBits(bmpData);
-            return p.Append("WAIT;END;").ToString();
+
+                    var rgbValuesPixels = new byte[totalBytesPixels];
+
+                    // Copy the RGB values into the array.
+                    Marshal.Copy(bmpDataPixels.Scan0, rgbValuesPixels, 0, totalBytesPixels);
+
+
+                    for (var x = 0; x < width; x++)
+                        for (var y = 0; y < height; y++)
+                        {
+                            var c = GetColor(ref rgbValuesPixels, x, y, width);
+
+                            if (c != defaultColor)
+                                p.Append(String.Format("PIXON_P({0},{1},#{2}h);\n", x, y, c));
+                        }
+
+                    img.UnlockBits(bmpDataPixels);
+                    p.Append("WAIT;END;");
+                    break;
+
+                case ImageProcessingMode.DimgrobPieces:
+                    const int totalBytes = width*height*2;
+                    var bmpData = img.LockBits(new Rectangle(0, 0, img.Width, img.Height),
+                        ImageLockMode.ReadOnly,
+                        PixelFormat.Format16bppArgb1555);
+
+                    var rgbValues = new byte[totalBytes];
+
+                    // Copy the RGB values into the array.
+                    Marshal.Copy(bmpData.Scan0, rgbValues, 0, totalBytes);
+
+                    var dimGrobParts = new List<String>();
+                    for (var y = 0; y < height; y++)
+                    {
+                        for (var x = 0; x <= (width*2)-8; x+=8)
+                        {
+                            var r = (y*640)+x;
+
+                            dimGrobParts.Add(GetDimGrobPiece(ref rgbValues, r));
+
+                            //dimGrobParts.Add("#"+BitConverter.ToString(new[] { rgbValues[r + 7], rgbValues[r + 6], rgbValues[r + 5], rgbValues[r + 4], rgbValues[r + 3], rgbValues[r + 2], rgbValues[r + 1], rgbValues[r + 0] }).Replace("-", String.Empty)+":64h");
+                        }
+                    }
+                    img.UnlockBits(bmpData);
+
+                    // Create the definitions
+                    var rows = 4;
+                    var arr = dimGrobParts.ToArray();
+
+                    try
+                    {
+                        for (int i = 0; i <= height-rows; i += rows)
+                        {
+                            p.Append("DIMGROB_P(G1, 320, " + rows + ", {");
+                            p.Append(String.Join(",", arr, i*80, 320));
+                            p.Append("});\n");
+                            p.Append("BLIT_P(G0, 0, " + i + ", " + 320 + ", " + (i + rows) + ", G1, 0, 0, 320, " + rows +
+                                     ");\n");
+                        }
+                    }
+                    catch
+                    {
+                    }
+
+                    p.Append("WAIT;END;");
+                    break;
+
+                case ImageProcessingMode.Icon:
+                    p.Append("blit_p(" + (width - img.Width/2) + "," + (height - img.Height/2) +
+                             ",\"img\");\nWAIT;END;\nICON img ");
+                    var tmp = Path.GetTempFileName();
+
+                    var pngCodec = ImageCodecInfo.GetImageEncoders().FirstOrDefault(codec => codec.FormatID.Equals(ImageFormat.Png.Guid));
+                    
+
+                    //
+                    //Bitmap bitmap1 = new Bitmap(1, 1);
+    //EncoderParameters paramList = bitmap1.GetEncoderParameterList(pngCodec.Clsid);
+                    //
+
+                    if (pngCodec != null)
+                    {
+                        var parameters = new EncoderParameters();
+                        parameters.Param[0] = new EncoderParameter(Encoder.ColorDepth, 4L);
+                        //parameters.Param[1] = new EncoderParameter(Encoder., 1);
+                        img.Save(tmp, pngCodec, parameters);
+                    }
+                    else
+                        img.Save(tmp, ImageFormat.Png);
+
+                    p.Append(BitConverter.ToString(File.ReadAllBytes(tmp)).Replace("-", string.Empty) + ";");
+                    break;
+            }
+
+            return p.ToString();
+        }
+
+        private static string GetDimGrobPiece(ref byte[] rgbValues, int r)
+        {
+            var tmp = BitConverter.ToString(new[]
+            {
+                (byte) (rgbValues[r + 7] & 127), rgbValues[r + 6],
+                (byte) (rgbValues[r + 5] & 127), rgbValues[r + 4],
+                (byte) (rgbValues[r + 3] & 127), rgbValues[r + 2],
+                (byte) (rgbValues[r + 1] & 127), rgbValues[r + 0]
+            }).Replace("-", String.Empty);
+
+            var hexZeros = new String('0', 4);
+            while (tmp.StartsWith(hexZeros))
+                tmp = tmp.Substring(hexZeros.Length, tmp.Length - hexZeros.Length);
+
+            return "#" + (String.IsNullOrEmpty(tmp)?"0":tmp) + ":64h";
         }
 
         private static string GetColor(ref byte[] rgbValues, int x, int y, int width)
@@ -108,7 +215,17 @@ namespace PrimeLib
         /// <returns>Random program name</returns>
         public static String GetRandomProgramName()
         {
-            return "program_" + GetRandomChar() + Rnd.Next(10, 99);
+            return GetRandomName("program");
+        }
+
+        public static String GetRandomImageName()
+        {
+            return GetRandomName("image");
+        }
+
+        private static string GetRandomName(string prefix)
+        {
+            return prefix+"_" + GetRandomChar() + Rnd.Next(10, 99);
         }
 
         /// <summary>
@@ -119,5 +236,12 @@ namespace PrimeLib
         {
             return (char) Rnd.Next('a', 'z' + 1);
         }
+    }
+
+    internal enum ImageProcessingMode
+    {
+        Pixels,
+        DimgrobPieces,
+        Icon
     }
 }
