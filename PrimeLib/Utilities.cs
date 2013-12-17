@@ -40,11 +40,11 @@ namespace PrimeLib
 
             var p = new StringBuilder("EXPORT " + name + "()");
             p.Append("\nBEGIN\n");
-            p.Append("RECT(#" + defaultColor + "h);\n");
 
             switch (mode)
             {
                 case ImageProcessingMode.Pixels:
+                    p.Append("RECT(#" + defaultColor + "h);\n");
                     const int totalBytesPixels = width*height*3;
                     var bmpDataPixels = img.LockBits(new Rectangle(0, 0, img.Width, img.Height),
                         ImageLockMode.ReadOnly,
@@ -96,18 +96,29 @@ namespace PrimeLib
                     img.UnlockBits(bmpData);
 
                     // Create the definitions
-                    var rows = 4;
+                    const int rows = 4;
                     var arr = dimGrobParts.ToArray();
 
                     try
                     {
-                        for (int i = 0; i <= height-rows; i += rows)
+                        var lines = new Dictionary<String, List<String>>();
+
+                        for (var i = 0; i <= height - rows; i += rows)
                         {
-                            p.Append("DIMGROB_P(G1, 320, " + rows + ", {");
-                            p.Append(String.Join(",", arr, i*80, 320));
-                            p.Append("});\n");
-                            p.Append("BLIT_P(G0, 0, " + i + ", " + 320 + ", " + (i + rows) + ", G1, 0, 0, 320, " + rows +
-                                     ");\n");
+                            var c = "DIMGROB_P(G1,320," + rows + ",{" + String.Join(",", arr, i*80, 320) + "});";
+
+                            if(!lines.ContainsKey(c))
+                                lines.Add(c, new List<String>());
+
+                            lines[c].Add("BLIT_P(G0,0," + i + "," + 320 + "," + (i + rows) + ",G1,0,0,320," + rows + ");");
+                        }
+
+                        foreach (var t in lines)
+                        {
+                            p.AppendLine(t.Key);
+
+                            foreach(var l in t.Value)
+                                p.AppendLine(l);
                         }
                     }
                     catch
