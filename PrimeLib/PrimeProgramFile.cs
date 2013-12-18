@@ -27,9 +27,19 @@ namespace PrimeLib
                 case ".txt":
                     // Find "begin"
                     var tmp = File.ReadAllBytes(path);
-                    foreach (var encoding in new[] {Encoding.BigEndianUnicode, Encoding.Unicode, Encoding.Default})
+                    foreach (var encoding in new[] {  Encoding.Unicode, Encoding.BigEndianUnicode, Encoding.Default })
                         if (CheckEncodingAndSetData(tmp, encoding))
                         {
+                            // Remove signature
+                            if (Data.Length > 1 && Data[0] == 0xff && Data[1] == 0xfe)
+                            {
+                                for (int i = 0; i < Data.Length - 2; i++)
+                                    Data[i] = Data[i + 2];
+
+                                Data[Data.Length - 2] = 0x00;
+                                Data[Data.Length - 1] = 0x00;
+                            }
+
                             IsValid = true;
                             break;
                         }
@@ -59,7 +69,7 @@ namespace PrimeLib
                     if (b.Length >= 19)
                     {
                         for (var i = 1; i <= 7; i++)
-                            if (b[i] != 0x00)
+                            if (b[i] != 0x00) // Special case where b[4]==0x01
                                 goto case null;
 
                         switch (b[8])
@@ -77,7 +87,7 @@ namespace PrimeLib
                                 break;
 
                             case 0x01:
-                                if (b[16] == 0x31)
+                                if (b[16] == 0x31) // Special case where b[16]==0x30
                                 {
                                     for(var i=18;i<b.Length;i++)
                                         if (b[i - 1] == b[i] && b[i] == 0x00)
@@ -104,7 +114,7 @@ namespace PrimeLib
             var s = encoding.GetString(tmp);
             if (s.IndexOf("begin", StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                Data = encoding.GetBytes(s);
+                Data = Encoding.Unicode.GetBytes(s);
                 return true;
             }
             return false;
