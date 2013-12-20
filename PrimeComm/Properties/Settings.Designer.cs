@@ -22,5 +22,53 @@ namespace PrimeComm.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IgnoreInternalNames {
+            get {
+                return ((bool)(this["IgnoreInternalNames"]));
+            }
+            set {
+                this["IgnoreInternalNames"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ObfuscateVariables {
+            get {
+                return ((bool)(this["ObfuscateVariables"]));
+            }
+            set {
+                this["ObfuscateVariables"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RemoveComments {
+            get {
+                return ((bool)(this["RemoveComments"]));
+            }
+            set {
+                this["RemoveComments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CompressSpaces {
+            get {
+                return ((bool)(this["CompressSpaces"]));
+            }
+            set {
+                this["CompressSpaces"] = value;
+            }
+        }
     }
 }

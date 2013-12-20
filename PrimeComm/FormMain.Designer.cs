@@ -40,7 +40,11 @@
             this.backgroundWorkerSend = new System.ComponentModel.BackgroundWorker();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.browseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectivityKitUserFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.sendToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToEmulatorKitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,10 +71,6 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogProgram = new System.Windows.Forms.OpenFileDialog();
-            this.newProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.browseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectivityKitUserFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             this.menuStripMain.SuspendLayout();
@@ -187,6 +187,15 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // newProgramToolStripMenuItem
+            // 
+            this.newProgramToolStripMenuItem.Name = "newProgramToolStripMenuItem";
+            this.newProgramToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newProgramToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.newProgramToolStripMenuItem.Text = "&New program...";
+            this.newProgramToolStripMenuItem.Visible = false;
+            this.newProgramToolStripMenuItem.Click += new System.EventHandler(this.newProgramToolStripMenuItem_Click);
+            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
@@ -195,10 +204,33 @@
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Visible = false;
             // 
+            // browseToolStripMenuItem1
+            // 
+            this.browseToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem,
+            this.connectivityKitUserFolderToolStripMenuItem});
+            this.browseToolStripMenuItem1.Name = "browseToolStripMenuItem1";
+            this.browseToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
+            this.browseToolStripMenuItem1.Text = "&Browse";
+            // 
+            // exploreVirtualHPPrimeWorkingFolderToolStripMenuItem
+            // 
+            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Name = "exploreVirtualHPPrimeWorkingFolderToolStripMenuItem";
+            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Text = "&Virtual HP Prime working folder";
+            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Click += new System.EventHandler(this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem_Click);
+            // 
+            // connectivityKitUserFolderToolStripMenuItem
+            // 
+            this.connectivityKitUserFolderToolStripMenuItem.Name = "connectivityKitUserFolderToolStripMenuItem";
+            this.connectivityKitUserFolderToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.connectivityKitUserFolderToolStripMenuItem.Text = "&Connectivity Kit Working folder";
+            this.connectivityKitUserFolderToolStripMenuItem.Click += new System.EventHandler(this.connectivityKitUserFolderToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(164, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(196, 6);
             // 
             // sendToToolStripMenuItem
             // 
@@ -206,7 +238,7 @@
             this.sendToEmulatorKitToolStripMenuItem,
             this.sendToCustomToolStripMenuItem});
             this.sendToToolStripMenuItem.Name = "sendToToolStripMenuItem";
-            this.sendToToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.sendToToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.sendToToolStripMenuItem.Text = "Send files to";
             // 
             // sendToEmulatorKitToolStripMenuItem
@@ -230,7 +262,7 @@
             this.emulatorToolStripMenuItem,
             this.browseToolStripMenuItem});
             this.saveFromClipboardToolStripMenuItem.Name = "saveFromClipboardToolStripMenuItem";
-            this.saveFromClipboardToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.saveFromClipboardToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.saveFromClipboardToolStripMenuItem.Text = "Send clipboard to";
             // 
             // emulatorToolStripMenuItem
@@ -251,33 +283,32 @@
             // convertFileToolStripMenuItem
             // 
             this.convertFileToolStripMenuItem.Name = "convertFileToolStripMenuItem";
-            this.convertFileToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.convertFileToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.convertFileToolStripMenuItem.Text = "&Convert file...";
             this.convertFileToolStripMenuItem.Click += new System.EventHandler(this.convertFileToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(164, 6);
-            this.toolStripMenuItem5.Visible = false;
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(196, 6);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences...";
-            this.preferencesToolStripMenuItem.Visible = false;
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(164, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(196, 6);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.quitToolStripMenuItem.Text = "&Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -383,38 +414,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // newProgramToolStripMenuItem
-            // 
-            this.newProgramToolStripMenuItem.Name = "newProgramToolStripMenuItem";
-            this.newProgramToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newProgramToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.newProgramToolStripMenuItem.Text = "&New program...";
-            this.newProgramToolStripMenuItem.Visible = false;
-            this.newProgramToolStripMenuItem.Click += new System.EventHandler(this.newProgramToolStripMenuItem_Click);
-            // 
-            // browseToolStripMenuItem1
-            // 
-            this.browseToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem,
-            this.connectivityKitUserFolderToolStripMenuItem});
-            this.browseToolStripMenuItem1.Name = "browseToolStripMenuItem1";
-            this.browseToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
-            this.browseToolStripMenuItem1.Text = "&Browse";
-            // 
-            // exploreVirtualHPPrimeWorkingFolderToolStripMenuItem
-            // 
-            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Name = "exploreVirtualHPPrimeWorkingFolderToolStripMenuItem";
-            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
-            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Text = "&Virtual HP Prime working folder";
-            this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Click += new System.EventHandler(this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem_Click);
-            // 
-            // connectivityKitUserFolderToolStripMenuItem
-            // 
-            this.connectivityKitUserFolderToolStripMenuItem.Name = "connectivityKitUserFolderToolStripMenuItem";
-            this.connectivityKitUserFolderToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
-            this.connectivityKitUserFolderToolStripMenuItem.Text = "&Connectivity Kit Working folder";
-            this.connectivityKitUserFolderToolStripMenuItem.Click += new System.EventHandler(this.connectivityKitUserFolderToolStripMenuItem_Click);
             // 
             // FormMain
             // 

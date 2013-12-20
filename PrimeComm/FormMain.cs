@@ -25,17 +25,13 @@ namespace PrimeComm
         private Queue<byte[]> _receivedData = new Queue<byte[]>();
         private PrimeUsbData _receivedFile;
         private Timer _checker;
-        private readonly IniParser _config;
         private string _sendingStatus, _emulatorFolder, _userFilesFolder;
         private PrimeCalculator _calculator;
         private static readonly Object scheduleLock = new Object();
 
         public FormMain(bool silent=false)
         {
-            var ini = Path.ChangeExtension(Application.ExecutablePath, "ini");
-            _config = File.Exists(ini) ? new IniParser(ini) : new IniParser();
             Silent = silent;
-
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
             InitializeGui();
@@ -241,7 +237,7 @@ namespace PrimeComm
 
             if (openFilesDialogProgram.ShowDialog() == DialogResult.OK)
             {
-                var fileSet = FileSet.Create(openFilesDialogProgram.FileNames, _config);
+                var fileSet = FileSet.Create(openFilesDialogProgram.FileNames, Settings.Default.IgnoreInternalNames);
 
                 fileSet.Settings.Destination = destination;
                 if (destination == Destinations.Custom)
@@ -421,7 +417,7 @@ namespace PrimeComm
 
             if (f != null)
             {
-                var fileSet = FileSet.Create(new[] { f }, _config);
+                var fileSet = FileSet.Create(new[] { f }, Settings.Default.IgnoreInternalNames);
                 fileSet.Settings.Destination = destination;
                 if (destination == Destinations.Custom)
                 {
@@ -525,6 +521,11 @@ namespace PrimeComm
         {
             Process.Start(_emulatorFolder);
         }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormSettings().ShowDialog();
+        }
     }
 
     public class FileSet
@@ -538,12 +539,12 @@ namespace PrimeComm
             Settings = parseSettings;
         }
 
-        internal static FileSet Create(string[] p, IniParser _config)
+        internal static FileSet Create(string[] p, Boolean ignoreInternalName)
         {
             return new FileSet(p,
                     new ParseSettings
                     {
-                        IgnoreInternalName = _config.GetSettingAsBoolean("input", "ignore_internal_name", true)
+                        IgnoreInternalName = ignoreInternalName
                     });
         }
     }
