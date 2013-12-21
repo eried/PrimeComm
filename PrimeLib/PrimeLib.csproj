@@ -46,6 +46,7 @@
     <Compile Include="DataReceivedEventArgs.cs" />
     <Compile Include="Destinations.cs" />
     <Compile Include="PrimeCalculator.cs" />
+    <Compile Include="PrimeParameters.cs" />
     <Compile Include="PrimeProgramFile.cs" />
     <Compile Include="PrimeUsbData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

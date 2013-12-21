@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileSet.cs" />
     <Compile Include="FolderSelectDialog.cs" />
     <Compile Include="FormEditor.cs">
       <SubType>Form</SubType>

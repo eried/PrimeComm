@@ -233,25 +233,25 @@ namespace PrimeComm
 
             if (openFilesDialogProgram.ShowDialog() == DialogResult.OK)
             {
-                var fileSet = FileSet.Create(openFilesDialogProgram.FileNames, Settings.Default.IgnoreInternalNames);
+                var fileSet = PrimeFileSet.Create(openFilesDialogProgram.FileNames, new PrimeParameters(Settings.Default));
 
-                fileSet.Settings.Destination = destination;
+                fileSet.Destination = destination;
                 if (destination == Destinations.Custom)
                 {
                     var fs = new FolderSelectDialog {Title = "Select the destination folder"};
                     if (!fs.ShowDialog())
                         return; // Conversion was cancel
 
-                    fileSet.Settings.CustomDestination = fs.FileName;
+                    fileSet.CustomDestination = fs.FileName;
                 }
                 else
-                    fileSet.Settings.CustomDestination = _emulatorFolder;
+                    fileSet.CustomDestination = _emulatorFolder;
 
                 SendDataTo(fileSet);
             }
         }
 
-        public void SendDataTo(FileSet files)
+        public void SendDataTo(PrimeFileSet files)
         {
             IsBusy = true;
             _sending = true;
@@ -288,22 +288,22 @@ namespace PrimeComm
 
         private void backgroundWorkerSend_DoWork(object sender, DoWorkEventArgs e)
         {
-            var fs = (FileSet)e.Argument;
-            var res = new SendResults(fs.Files.Length, fs.Settings.Destination);
+            var fs = (PrimeFileSet)e.Argument;
+            var res = new SendResults(fs.Files.Length, fs.Destination);
             var nullFile = new PrimeUsbData(new byte[] {0x00});
             foreach (var file in fs.Files)
             {
                 try
                 {
-                    var b = new PrimeProgramFile(file, fs.Settings.IgnoreInternalName);
+                    var b = new PrimeProgramFile(file, Settings.Default);
 
                     try
                     {
                         if (b.IsValid)
                         {
-                            var primeFile = new PrimeUsbData(b.Name, b.Data,fs.Settings.Destination== Destinations.Calculator?_calculator.OutputChunkSize:0);
+                            var primeFile = new PrimeUsbData(b.Name, b.Data,fs.Destination== Destinations.Calculator?_calculator.OutputChunkSize:0);
 
-                            switch (fs.Settings.Destination)
+                            switch (fs.Destination)
                             {
                                 case Destinations.Calculator:
                                     _calculator.Send(nullFile);
@@ -313,7 +313,7 @@ namespace PrimeComm
                                     break;
                                 case Destinations.UserFolder:
                                 case Destinations.Custom:
-                                    primeFile.Save(Path.Combine(fs.Settings.CustomDestination,primeFile.Name+".hpprgm"));
+                                    primeFile.Save(Path.Combine(fs.CustomDestination,primeFile.Name+".hpprgm"));
                                     res.Add(SendResult.Success);
                                     break;
                             }
@@ -366,7 +366,7 @@ namespace PrimeComm
             {
                 try
                 {
-                    var b = new PrimeProgramFile(openFileDialogProgram.FileName);
+                    var b = new PrimeProgramFile(openFileDialogProgram.FileName, Settings.Default);
 
                     if (b.IsValid)
                     {
@@ -413,18 +413,18 @@ namespace PrimeComm
 
             if (f != null)
             {
-                var fileSet = FileSet.Create(new[] { f }, Settings.Default.IgnoreInternalNames);
-                fileSet.Settings.Destination = destination;
+                var fileSet = PrimeFileSet.Create(new[] { f }, new PrimeParameters(Settings.Default));
+                fileSet.Destination = destination;
                 if (destination == Destinations.Custom)
                 {
                     var fs = new FolderSelectDialog { Title = "Select the destination folder" };
                     if (!fs.ShowDialog())
                         return; // Conversion was cancel
 
-                    fileSet.Settings.CustomDestination = fs.FileName;
+                    fileSet.CustomDestination = fs.FileName;
                 }
                 else
-                    fileSet.Settings.CustomDestination = _emulatorFolder;
+                    fileSet.CustomDestination = _emulatorFolder;
 
                 SendDataTo(fileSet);
                 res.Add(SendResult.Success);
@@ -525,35 +525,5 @@ namespace PrimeComm
         {
             new FormSettings().ShowDialog();
         }
-    }
-
-    public class FileSet
-    {
-        public string[] Files { get; set; }
-        public ParseSettings Settings { get; set; }
-
-        public FileSet(string[] fileNames, ParseSettings parseSettings)
-        {
-            Files = fileNames;
-            Settings = parseSettings;
-        }
-
-        internal static FileSet Create(string[] p, Boolean ignoreInternalName)
-        {
-            return new FileSet(p,
-                    new ParseSettings
-                    {
-                        IgnoreInternalName = ignoreInternalName
-                    });
-        }
-    }
-
-    public class ParseSettings
-    {
-        public bool IgnoreInternalName { get; set; }
-
-        public Destinations Destination { get; set; }
-
-        public string CustomDestination { get; set; }
     }
 }

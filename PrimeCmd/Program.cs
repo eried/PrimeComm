@@ -130,7 +130,7 @@ namespace PrimeCmd
                                 : Destinations.Custom;
 
                             // Parse the file
-                            var b = new PrimeProgramFile(options.SendFile, options.IgnoreInternalName);
+                            var b = new PrimeProgramFile(options.SendFile, new PrimeParameters(new[] { new KeyValuePair<String, object>("IgnoreInternalName", options.IgnoreInternalName) }));
                             
                             if (destination == Destinations.Calculator)
                             {

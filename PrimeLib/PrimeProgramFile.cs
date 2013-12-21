@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Text;
 
@@ -15,8 +16,8 @@ namespace PrimeLib
         /// Parses the data inside a file to be used later
         /// </summary>
         /// <param name="path">Input file, including the extension to detect the format</param>
-        /// <param name="ignoreInternal">Ignore the internal name for the file, i.e. use filename</param>
-        public PrimeProgramFile(string path, bool ignoreInternal = true)
+        /// <param name="settings">Parameters</param>
+        public PrimeProgramFile(string path, PrimeParameters settings)
         {
             IsValid = false;
             Name = Path.GetFileNameWithoutExtension(path);
@@ -53,7 +54,7 @@ namespace PrimeLib
                     try
                     {
                         // Generate a script that displays the image
-                        Data = Encoding.Unicode.GetBytes(Utilities.GenerateProgramFromImage(path, SafeName));
+                        Data = Encoding.Unicode.GetBytes(Utilities.GenerateProgramFromImage(path, SafeName, settings));
                         IsValid = true;
                     }
                     catch
@@ -92,7 +93,7 @@ namespace PrimeLib
                                     for(var i=18;i<b.Length;i++)
                                         if (b[i - 1] == b[i] && b[i] == 0x00)
                                         {
-                                            if (!ignoreInternal)
+                                            if (!settings.GetFlag("IgnoreInternalName"))
                                                 Name = Encoding.Unicode.GetString(b.SubArray(18, i-18));
 
                                             i += 8;
@@ -107,6 +108,15 @@ namespace PrimeLib
                     }
                     break;
             }
+        }
+
+        /// <summary>
+        /// Parses the data inside a file to be used later
+        /// </summary>
+        /// <param name="path">Input file, including the extension to detect the format</param>
+        /// <param name="settings">Parameters</param>
+        public PrimeProgramFile(string path, ApplicationSettingsBase settings) : this(path, new PrimeParameters(settings))
+        {
         }
 
         private bool CheckEncodingAndSetData(byte[] tmp, Encoding encoding)

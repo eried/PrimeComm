@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PrimeComm.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="IgnoreInternalNames" Type="System.Boolean" Scope="User">
+    <Setting Name="IgnoreInternalName" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ObfuscateVariables" Type="System.Boolean" Scope="User">

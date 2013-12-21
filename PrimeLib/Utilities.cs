@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -32,9 +33,10 @@ namespace PrimeLib
             return result;
         }
 
-        internal static string GenerateProgramFromImage(string path, string name, ImageProcessingMode mode= ImageProcessingMode.DimgrobPieces)
+        internal static string GenerateProgramFromImage(string path, string name, PrimeParameters settings)
         {
             const int width = 320, height = 240;
+            var mode = settings.GetSetting("ImageMethod", ImageProcessingMode.DimgrobPieces);
             var img = ResizeImage(Image.FromFile(path, true), width, height, mode == ImageProcessingMode.Pixels || mode == ImageProcessingMode.DimgrobPieces);
             const string defaultColor = "000000"; // RRGGBB
 
@@ -82,13 +84,14 @@ namespace PrimeLib
                     Marshal.Copy(bmpData.Scan0, rgbValues, 0, totalBytes);
 
                     var dimGrobParts = new List<String>();
+                    var optimizeBlack = settings.GetFlag("ImageMethodDimgrobOptimizeBlacks");
                     for (var y = 0; y < height; y++)
                     {
                         for (var x = 0; x <= (width*2)-8; x+=8)
                         {
                             var r = (y*640)+x;
 
-                            dimGrobParts.Add(GetDimGrobPiece(ref rgbValues, r));
+                            dimGrobParts.Add(GetDimGrobPiece(ref rgbValues, r, optimizeBlack));
 
                             //dimGrobParts.Add("#"+BitConverter.ToString(new[] { rgbValues[r + 7], rgbValues[r + 6], rgbValues[r + 5], rgbValues[r + 4], rgbValues[r + 3], rgbValues[r + 2], rgbValues[r + 1], rgbValues[r + 0] }).Replace("-", String.Empty)+":64h");
                         }
@@ -106,19 +109,23 @@ namespace PrimeLib
                         for (var i = 0; i <= height - rows; i += rows)
                         {
                             var c = "DIMGROB_P(G1,320," + rows + ",{" + String.Join(",", arr, i*80, 320) + "});";
-
                             if(!lines.ContainsKey(c))
                                 lines.Add(c, new List<String>());
 
                             lines[c].Add("BLIT_P(G0,0," + i + "," + 320 + "," + (i + rows) + ",G1,0,0,320," + rows + ");");
                         }
 
+                        var optimizeSimilar = settings.GetFlag("ImageMethodDimgrobOptimizeSimilar");
                         foreach (var t in lines)
                         {
-                            p.AppendLine(t.Key);
-
-                            foreach(var l in t.Value)
+                            if(optimizeSimilar)
+                                p.AppendLine(t.Key);
+                            foreach (var l in t.Value)
+                            {
+                                if(!optimizeSimilar)
+                                    p.AppendLine(t.Key);
                                 p.AppendLine(l);
+                            }
                         }
                     }
                     catch
@@ -158,7 +165,7 @@ namespace PrimeLib
             return p.ToString();
         }
 
-        private static string GetDimGrobPiece(ref byte[] rgbValues, int r)
+        private static string GetDimGrobPiece(ref byte[] rgbValues, int r, bool optimizeBlack)
         {
             var tmp = BitConverter.ToString(new[]
             {
@@ -168,9 +175,12 @@ namespace PrimeLib
                 (byte) (rgbValues[r + 1] & 127), rgbValues[r + 0]
             }).Replace("-", String.Empty);
 
-            var hexZeros = new String('0', 4);
-            while (tmp.StartsWith(hexZeros))
-                tmp = tmp.Substring(hexZeros.Length, tmp.Length - hexZeros.Length);
+            if (optimizeBlack)
+            {
+                var hexZeros = new String('0', 4);
+                while (tmp.StartsWith(hexZeros))
+                    tmp = tmp.Substring(hexZeros.Length, tmp.Length - hexZeros.Length);
+            }
 
             return "#" + (String.IsNullOrEmpty(tmp)?"0":tmp) + ":64h";
         }
@@ -229,6 +239,10 @@ namespace PrimeLib
             return GetRandomName("program");
         }
 
+        /// <summary>
+        /// Generates a random image name
+        /// </summary>
+        /// <returns>Random image name</returns>
         public static String GetRandomImageName()
         {
             return GetRandomName("image");
@@ -249,10 +263,24 @@ namespace PrimeLib
         }
     }
 
+    /// <summary>
+    /// Enumeration of methods available to process the images and generate the output script
+    /// </summary>
     public enum ImageProcessingMode
     {
+        /// <summary>
+        /// Using PIXON_P
+        /// </summary>
         Pixels,
+
+        /// <summary>
+        /// Using DIMGROB_P pieces
+        /// </summary>
         DimgrobPieces,
+
+        /// <summary>
+        /// Using ICON (png)
+        /// </summary>
         Icon
     }
 }

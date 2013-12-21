@@ -168,8 +168,8 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = global::PrimeComm.Properties.Settings.Default.IgnoreInternalNames;
-            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "IgnoreInternalNames", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBox2.Checked = global::PrimeComm.Properties.Settings.Default.IgnoreInternalName;
+            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "IgnoreInternalName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBox2.Location = new System.Drawing.Point(15, 22);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(205, 19);
