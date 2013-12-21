@@ -90,10 +90,7 @@ namespace PrimeLib
                         for (var x = 0; x <= (width*2)-8; x+=8)
                         {
                             var r = (y*640)+x;
-
                             dimGrobParts.Add(GetDimGrobPiece(ref rgbValues, r, optimizeBlack));
-
-                            //dimGrobParts.Add("#"+BitConverter.ToString(new[] { rgbValues[r + 7], rgbValues[r + 6], rgbValues[r + 5], rgbValues[r + 4], rgbValues[r + 3], rgbValues[r + 2], rgbValues[r + 1], rgbValues[r + 0] }).Replace("-", String.Empty)+":64h");
                         }
                     }
                     img.UnlockBits(bmpData);
