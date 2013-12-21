@@ -62,7 +62,7 @@ namespace PrimeCmd
                             var assembly = Assembly.GetExecutingAssembly();
                             calculator.Send(new PrimeUsbData(String.Format("{1} v{2}{0}{3}{0}", Environment.NewLine,
                                 assembly.GetName().Name, assembly.GetName().Version.ToString(3),
-                                ((AssemblyCopyrightAttribute)assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false)[0]).Copyright), calculator.OutputChunkSize));
+                                ((AssemblyCopyrightAttribute)assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false)[0]).Copyright), calculator.OutputChunkSize),null);
 
                             calculator.DataReceived += calculator_DataReceived;
                             calculator.StartReceiving();

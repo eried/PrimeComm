@@ -13,7 +13,7 @@ namespace PrimeComm.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
-    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -140,6 +140,42 @@ namespace PrimeComm.Properties {
             }
             set {
                 this["ImageMethod"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"[^\"\"\\\\]*(?:\\\\.[^\"\"\\\\]*)*\"")]
+        public string RegexStrings {
+            get {
+                return ((string)(this["RegexStrings"]));
+            }
+            set {
+                this["RegexStrings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("//.*")]
+        public string RegexComments {
+            get {
+                return ((string)(this["RegexComments"]));
+            }
+            set {
+                this["RegexComments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?")]
+        public string RegexBase64 {
+            get {
+                return ((string)(this["RegexBase64"]));
+            }
+            set {
+                this["RegexBase64"] = value;
             }
         }
     }

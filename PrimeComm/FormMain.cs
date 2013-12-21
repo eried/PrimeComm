@@ -27,6 +27,7 @@ namespace PrimeComm
         private Timer _checker;
         private string _sendingStatus, _emulatorFolder, _userFilesFolder;
         private PrimeCalculator _calculator;
+        private PrimeParameters _parameters;
         private static readonly Object scheduleLock = new Object();
 
         public FormMain(bool silent=false)
@@ -197,7 +198,7 @@ namespace PrimeComm
 
             // Check for valid structure
             if(_receivedFile==null)
-                _receivedFile = new PrimeUsbData(_receivedData.Peek());
+                _receivedFile = new PrimeUsbData(_receivedData.Peek(), Parameters);
 
             if (_receivedFile.IsValid)
             {
@@ -220,6 +221,12 @@ namespace PrimeComm
                 _receivedData.Dequeue();
                 _receivedFile = null;
             }
+        }
+
+        private PrimeParameters Parameters
+        {
+            get { return _parameters ?? new PrimeParameters(Settings.Default); }
+            set { _parameters = value; }
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
@@ -301,7 +308,7 @@ namespace PrimeComm
                     {
                         if (b.IsValid)
                         {
-                            var primeFile = new PrimeUsbData(b.Name, b.Data,fs.Destination== Destinations.Calculator?_calculator.OutputChunkSize:0);
+                            var primeFile = new PrimeUsbData(b.Name, b.Data,fs.Destination== Destinations.Calculator?_calculator.OutputChunkSize:0, Parameters);
 
                             switch (fs.Destination)
                             {
@@ -377,7 +384,7 @@ namespace PrimeComm
                             StringComparison.OrdinalIgnoreCase)? 2: 1;
 
                         if (saveFileDialogProgram.ShowDialog() == DialogResult.OK)
-                            new PrimeUsbData(b.Name, b.Data, 0).Save(saveFileDialogProgram.FileName);
+                            new PrimeUsbData(b.Name, b.Data, 0, Parameters).Save(saveFileDialogProgram.FileName);
                     }
                 }
                 catch

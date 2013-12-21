@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace PrimeLib
 {
     /// <summary>
-    /// Class that represents a data ready to be sent to the calculator thru the USB
+    /// Class that represents a data ready to be sent to the calculator thru the USB or saved
     /// </summary>
     public class PrimeUsbData
     {
+        private readonly PrimeParameters _settings;
         private readonly Dictionary<PrimeUsbDataType, PrimeUsbDataHeader> _headers = GetHeaders();
+        private bool _isComplete;
+        private byte[] _data;
+        private const string EncodePrefix = "____[", EncodePostfix = "]____";
 
         private static Dictionary<PrimeUsbDataType, PrimeUsbDataHeader> GetHeaders()
         {
@@ -22,8 +27,6 @@ namespace PrimeLib
             return t.ToDictionary(header => header.Type);
         }
 
-        private bool _isComplete;
-
         /// <summary>
         /// Type of the data
         /// </summary>
@@ -33,19 +36,86 @@ namespace PrimeLib
         /// Name of the script represented by this data
         /// </summary>
         public string Name { get; private set; }
-        
+
         /// <summary>
         /// Contents of the script in UTF-16, without any header 
         /// </summary>
-        public byte[] Data { get; private set; }
+        public byte[] Data
+        {
+            get { return _data; }
+            private set 
+            { 
+                // Special data processing
+                if (_settings != null && _settings.GetFlag("EnableAdditionalProgramProcessing"))
+                {
+                    var regexStrings = new Regex(_settings.GetValue("RegexStrings"));
+                    var regexComments = new Regex(_settings.GetValue("RegexComments"));
+
+                    var tmp = Encoding.Unicode.GetString(value);
+
+                    // Encode strings and comments
+                    tmp = regexStrings.Replace(tmp, EncodeElement);
+                    tmp = regexComments.Replace(tmp, _settings.GetFlag("RemoveComments") ? (m => String.Empty) : (MatchEvaluator)EncodeElement);
+
+                    if (_settings.GetFlag("CompressSpaces"))
+                    {
+                        var o = new StringBuilder();
+                        foreach (var l in tmp.Replace(Environment.NewLine,"\n").Replace("\r",String.Empty).Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries))
+                        {
+                            var line = l.Trim(new [] {' ', '\t'});
+
+                            // Spaces near operators
+                            foreach (var c in " \"'+/*-^@!:;,.?%=(){}[]|")
+                            {
+                                var nline = line;
+                                do
+                                {
+                                    line = nline;
+                                    nline = line.Replace(" " + c, String.Empty+c).Replace(c + " ", String.Empty+c);
+                                } while (line.CompareTo(nline) != 0);
+                            }
+
+                            o.Append(line);
+
+                            if (!String.IsNullOrEmpty (line) && !line.EndsWith(";"))
+                                o.Append('\n');
+                        }
+                        tmp = o.ToString();
+                    }
+
+                    if (_settings.GetFlag("ObfuscateVariables"))
+                    {
+
+                    }
+
+                    // Restore string and comments again
+                    tmp = Regex.Replace(tmp,Regex.Escape(EncodePrefix) + "(?<data>" + _settings.GetValue("RegexBase64") + ")" + Regex.Escape(EncodePostfix),DecodeElement);
+                    _data = Encoding.Unicode.GetBytes(tmp);
+                }
+                else
+                    _data = value; 
+            }
+        }
+
+        private static string DecodeElement(Match match)
+        {
+            return Encoding.Unicode.GetString(Convert.FromBase64String(match.Groups["data"].Value));
+        }
+
+        private static string EncodeElement(Match match)
+        {
+            return EncodePrefix + Convert.ToBase64String(Encoding.Unicode.GetBytes(match.Value)) + EncodePostfix;
+        }
 
         /// <summary>
         /// Initializes a usb file that represents a message
         /// </summary>
         /// <param name="message">Text message</param>
         /// <param name="chunkSize">Chunk size to split the data</param>
-        public PrimeUsbData(String message, int chunkSize)
+        /// <param name="settings">Settings for handling the data</param>
+        public PrimeUsbData(String message, int chunkSize, PrimeParameters settings)
         {
+            _settings = settings;
             Name = null;
             Data = Encoding.Unicode.GetBytes(message);
             Type = PrimeUsbDataType.Message;
@@ -92,8 +162,10 @@ namespace PrimeLib
         /// <param name="name">Name of the script</param>
         /// <param name="data">Contents of the script in UTF-16, without any header</param>
         /// <param name="chunkSize">Chunk size to split the data</param>
-        public PrimeUsbData(string name, byte[] data, int chunkSize)
+        /// <param name="settings">Settings for handling the data</param>
+        public PrimeUsbData(string name, byte[] data, int chunkSize, PrimeParameters settings)
         {
+            _settings = settings;
             Name = name;
             Data = data;
             IsValid = true;
@@ -145,8 +217,10 @@ namespace PrimeLib
         /// Initializes a usb data received or ready to send, with the first chunk already defined, and checks the validity and completioness
         /// </summary>
         /// <param name="chunkData">Chunk data without the first byte (as is received from the USB)</param>
-        public PrimeUsbData(IEnumerable<byte> chunkData)
+        /// <param name="settings">Settings for handling the data</param>
+        public PrimeUsbData(IEnumerable<byte> chunkData, PrimeParameters settings = null)
         {
+            _settings = settings;
             Name = null;
             Type = PrimeUsbDataType.Unknown;
             var b = new byte[] {0x00};
@@ -215,8 +289,7 @@ namespace PrimeLib
 
                         if (_isComplete)
                             Data = tmp.SubArray(nameOffset + nameLength, size - nameLength - 4)
-                                    .Concat(new byte[] {0x00, 0x00})
-                                    .ToArray();
+                                    .Concat(new byte[] {0x00, 0x00}).ToArray();
                     }
                     break;
             }

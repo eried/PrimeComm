@@ -57,12 +57,13 @@ namespace PrimeLib
         /// Get a setting as True/False
         /// </summary>
         /// <param name="name"></param>
+        /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public bool GetFlag(string name)
+        public bool GetFlag(string name, bool defaultValue=false)
         {
             if (_properties.ContainsKey(name))
-                return bool.Parse(_properties[name] as string ?? string.Empty);
-            return false;
+                return (bool) _properties[name];
+            return defaultValue;
         }
 
         /// <summary>
