@@ -154,7 +154,6 @@ namespace PrimeComm
                 {
                     lock (scheduleLock)
                     {
-                        Debug.WriteLine("recibido:" + DateTime.Now.Ticks);
                         _receivedData.Enqueue(args.Data);
                         ScheduleCheck();
                     }
@@ -180,12 +179,10 @@ namespace PrimeComm
         {
             if (_checkingData)
             {
-                Debug.WriteLine("programando sig:" + DateTime.Now.Ticks);
                 ScheduleCheck();
             }
             else
             {
-                Debug.WriteLine("ejecutando:" + DateTime.Now.Ticks);
                 _checkingData = true;
                 ScheduleCheck(true);
                 CheckForDataToSave();
@@ -195,7 +192,6 @@ namespace PrimeComm
 
         private void CheckForDataToSave()
         {
-            Debug.WriteLine("Checking for save");
             if (!_receivingData || _receivedData.Count == 0)
                 return;
 
@@ -455,7 +451,7 @@ namespace PrimeComm
 
                     if (clipb.Length > 0)
                     {
-                        var m = new Regex(@"export (?<name>.*?)\(", RegexOptions.IgnoreCase).Match(clipb);
+                        var m = new Regex(Settings.Default.RegexProgramName, RegexOptions.IgnoreCase).Match(clipb);
                         var name = PrimeLib.Utilities.GetRandomProgramName();
 
                         if (m.Success)
@@ -502,9 +498,12 @@ namespace PrimeComm
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
-            // Check running processes
-            if (new[] { Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName }.Any(p => Process.GetProcessesByName(p).Length > 0))
-                SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.", this);
+            if (!Settings.Default.SkipConflictingProcessChecking)
+            {
+                // Check running processes
+                if (new[] {Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName}.Any(p => Process.GetProcessesByName(p).Length > 0))
+                    SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.",this);
+            }
         }
 
         private void newProgramToolStripMenuItem_Click(object sender, EventArgs e)

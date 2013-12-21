@@ -249,7 +249,7 @@ namespace PrimeLib
         }
     }
 
-    internal enum ImageProcessingMode
+    public enum ImageProcessingMode
     {
         Pixels,
         DimgrobPieces,

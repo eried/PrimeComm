@@ -14,5 +14,23 @@
     <Setting Name="CompressSpaces" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="RegexProgramName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">export (?&lt;name&gt;.*?)\(</Value>
+    </Setting>
+    <Setting Name="EnableAdditionalProgramProcessing" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SkipConflictingProcessChecking" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ImageMethodDimgrobOptimizeSimilar" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ImageMethodDimgrobOptimizeBlacks" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ImageMethod" Type="PrimeLib.ImageProcessingMode" Scope="User">
+      <Value Profile="(Default)">DimgrobPieces</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

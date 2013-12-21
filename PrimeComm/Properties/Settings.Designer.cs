@@ -70,5 +70,77 @@ namespace PrimeComm.Properties {
                 this["CompressSpaces"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("export (?<name>.*?)\\(")]
+        public string RegexProgramName {
+            get {
+                return ((string)(this["RegexProgramName"]));
+            }
+            set {
+                this["RegexProgramName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EnableAdditionalProgramProcessing {
+            get {
+                return ((bool)(this["EnableAdditionalProgramProcessing"]));
+            }
+            set {
+                this["EnableAdditionalProgramProcessing"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SkipConflictingProcessChecking {
+            get {
+                return ((bool)(this["SkipConflictingProcessChecking"]));
+            }
+            set {
+                this["SkipConflictingProcessChecking"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ImageMethodDimgrobOptimizeSimilar {
+            get {
+                return ((bool)(this["ImageMethodDimgrobOptimizeSimilar"]));
+            }
+            set {
+                this["ImageMethodDimgrobOptimizeSimilar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ImageMethodDimgrobOptimizeBlacks {
+            get {
+                return ((bool)(this["ImageMethodDimgrobOptimizeBlacks"]));
+            }
+            set {
+                this["ImageMethodDimgrobOptimizeBlacks"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DimgrobPieces")]
+        public global::PrimeLib.ImageProcessingMode ImageMethod {
+            get {
+                return ((global::PrimeLib.ImageProcessingMode)(this["ImageMethod"]));
+            }
+            set {
+                this["ImageMethod"] = value;
+            }
+        }
     }
 }
