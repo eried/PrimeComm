@@ -180,9 +180,9 @@
             this.checkBoxCompressSpaces.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "CompressSpaces", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxCompressSpaces.Location = new System.Drawing.Point(35, 122);
             this.checkBoxCompressSpaces.Name = "checkBoxCompressSpaces";
-            this.checkBoxCompressSpaces.Size = new System.Drawing.Size(118, 19);
+            this.checkBoxCompressSpaces.Size = new System.Drawing.Size(117, 19);
             this.checkBoxCompressSpaces.TabIndex = 0;
-            this.checkBoxCompressSpaces.Text = "Compress Spaces";
+            this.checkBoxCompressSpaces.Text = "Compress spaces";
             this.checkBoxCompressSpaces.UseVisualStyleBackColor = true;
             // 
             // checkBoxEnableAdditionalProgramProcessing
