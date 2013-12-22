@@ -16,7 +16,6 @@ namespace PrimeLib
         private readonly Dictionary<PrimeUsbDataType, PrimeUsbDataHeader> _headers = GetHeaders();
         private bool _isComplete;
         private byte[] _data;
-        private const string EncodePrefix = "____[", EncodePostfix = "]____";
 
         private static Dictionary<PrimeUsbDataType, PrimeUsbDataHeader> GetHeaders()
         {
@@ -48,63 +47,11 @@ namespace PrimeLib
                 // Special data processing
                 if (_settings != null && _settings.GetFlag("EnableAdditionalProgramProcessing"))
                 {
-                    var regexStrings = new Regex(_settings.GetValue("RegexStrings"));
-                    var regexComments = new Regex(_settings.GetValue("RegexComments"));
-
-                    var tmp = Encoding.Unicode.GetString(value);
-
-                    // Encode strings and comments
-                    tmp = regexStrings.Replace(tmp, EncodeElement);
-                    tmp = regexComments.Replace(tmp, _settings.GetFlag("RemoveComments") ? (m => String.Empty) : (MatchEvaluator)EncodeElement);
-
-                    if (_settings.GetFlag("CompressSpaces"))
-                    {
-                        var o = new StringBuilder();
-                        foreach (var l in tmp.Replace(Environment.NewLine,"\n").Replace("\r",String.Empty).Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries))
-                        {
-                            var line = l.Trim(new [] {' ', '\t'});
-
-                            // Spaces near operators
-                            foreach (var c in " \"'+/*-^@!:;,.?%=(){}[]|")
-                            {
-                                var nline = line;
-                                do
-                                {
-                                    line = nline;
-                                    nline = line.Replace(" " + c, String.Empty+c).Replace(c + " ", String.Empty+c);
-                                } while (line.CompareTo(nline) != 0);
-                            }
-
-                            o.Append(line);
-
-                            if (!String.IsNullOrEmpty (line) && !line.EndsWith(";"))
-                                o.Append('\n');
-                        }
-                        tmp = o.ToString();
-                    }
-
-                    if (_settings.GetFlag("ObfuscateVariables"))
-                    {
-
-                    }
-
-                    // Restore string and comments again
-                    tmp = Regex.Replace(tmp,Regex.Escape(EncodePrefix) + "(?<data>" + _settings.GetValue("RegexBase64") + ")" + Regex.Escape(EncodePostfix),DecodeElement);
-                    _data = Encoding.Unicode.GetBytes(tmp);
+                    _data = Encoding.Unicode.GetBytes(Refactoring.ApplyCodeRefactoring(Encoding.Unicode.GetString(value), _settings));
                 }
                 else
                     _data = value; 
             }
-        }
-
-        private static string DecodeElement(Match match)
-        {
-            return Encoding.Unicode.GetString(Convert.FromBase64String(match.Groups["data"].Value));
-        }
-
-        private static string EncodeElement(Match match)
-        {
-            return EncodePrefix + Convert.ToBase64String(Encoding.Unicode.GetBytes(match.Value)) + EncodePostfix;
         }
 
         /// <summary>
@@ -218,7 +165,7 @@ namespace PrimeLib
         /// </summary>
         /// <param name="chunkData">Chunk data without the first byte (as is received from the USB)</param>
         /// <param name="settings">Settings for handling the data</param>
-        public PrimeUsbData(IEnumerable<byte> chunkData, PrimeParameters settings = null)
+        public PrimeUsbData(IEnumerable<byte> chunkData, PrimeParameters settings)
         {
             _settings = settings;
             Name = null;
