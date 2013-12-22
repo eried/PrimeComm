@@ -50,6 +50,7 @@
     <Compile Include="PrimeProgramFile.cs" />
     <Compile Include="PrimeUsbData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Refactoring.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -297,7 +297,7 @@ namespace PrimeComm
         {
             var fs = (PrimeFileSet)e.Argument;
             var res = new SendResults(fs.Files.Length, fs.Destination);
-            var nullFile = new PrimeUsbData(new byte[] {0x00});
+            var nullFile = new PrimeUsbData(new byte[] {0x00}, null);
             foreach (var file in fs.Files)
             {
                 try

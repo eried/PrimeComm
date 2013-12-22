@@ -178,5 +178,41 @@ namespace PrimeComm.Properties {
                 this["RegexBase64"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("([\"\'+/*-\\^@!:;,.?%=)(}{\\][|\\s])")]
+        public string RegexOperators {
+            get {
+                return ((string)(this["RegexOperators"]));
+            }
+            set {
+                this["RegexOperators"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("local (?<vars>.*?);")]
+        public string RegexLocalVariables {
+            get {
+                return ((string)(this["RegexLocalVariables"]));
+            }
+            set {
+                this["RegexLocalVariables"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("aa0")]
+        public string VariableRefactoringStartingSeed {
+            get {
+                return ((string)(this["VariableRefactoringStartingSeed"]));
+            }
+            set {
+                this["VariableRefactoringStartingSeed"] = value;
+            }
+        }
     }
 }
