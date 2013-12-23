@@ -6,7 +6,9 @@ Small application/library suite to send and receive HP Prime Calculator programs
 PrimeComm
 ---------
 <img src=http://content.screencast.com/users/erwinried/folders/Jing/media/e488be73-c0ed-4e80-ba96-43c48aaecd35/2013-12-03_0232.png /><br>
-Windows application to send, receive, convert programs and do other operations with the HP Prime Calculator.
+Windows application to send, receive, convert programs and do other operations with the HP Prime Calculator. Is able to do some code refactoring, convert formats like images to something the HP Prime can display, etc:
+
+<img src=http://f.cl.ly/items/0H243P273M1g073a0N3C/Image%202013-12-22%20at%205.15.00%20PM.png /><br>
 
 PrimeCmd
 --------
