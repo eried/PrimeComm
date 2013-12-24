@@ -2,11 +2,7 @@ PrimeComm
 =========
 
 Small application/library suite to send and receive HP Prime Calculator files. Built reverse engineering the device. Calculator Hacking needs Pepsi, wanna help? :D<br>
-<script src="paypal-button.min.js?merchant=LTJTUX8WPHPNW"
-    data-button="donate"
-    data-name="PrimeComm"
-    data-amount="2.70"
-></script>
+[<img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LTJTUX8WPHPNW)
 
 PrimeComm
 ---------
