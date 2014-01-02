@@ -395,7 +395,7 @@ namespace PrimeComm
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Utilities.ShowAbout(this);
+            new FormAbout().ShowDialog();
         }
 
         private void receiveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -531,6 +531,11 @@ namespace PrimeComm
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FormSettings().ShowDialog();
+        }
+
+        private void captureScreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormScreen().ShowDialog();
         }
     }
 }
