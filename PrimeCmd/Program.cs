@@ -88,7 +88,7 @@ namespace PrimeCmd
                                         Console.WriteLine("{1}{2}{0}{1}{2}", response, separator, Environment.NewLine);
 
                                         // Echo the response to the HP
-                                        calculator.Send(new PrimeUsbData(response, calculator.OutputChunkSize));
+                                        calculator.Send(new PrimeUsbData(response, calculator.OutputChunkSize, null));
                                     }
 
                                 }
@@ -142,7 +142,7 @@ namespace PrimeCmd
                                     var primeFile = new PrimeUsbData(b.Name, b.Data, calculator.OutputChunkSize, null);
 
                                     Console.WriteLine("... connected. Sending file");
-                                    var nullFile = new PrimeUsbData(new byte[] {0x00});
+                                    var nullFile = new PrimeUsbData(new byte[] {0x00}, null);
                                     calculator.Send(nullFile);
                                     calculator.Send(primeFile);
                                     calculator.Send(nullFile);
@@ -156,7 +156,7 @@ namespace PrimeCmd
                             else
                             {
                                 // Save 
-                                SaveFile(new PrimeUsbData(b.Name, b.Data, 0), options.OutputFolder ?? options.ReceiveFile, options.OutputFolder != null);
+                                SaveFile(new PrimeUsbData(b.Name, b.Data, 0, null), options.OutputFolder ?? options.ReceiveFile, options.OutputFolder != null);
                             }
                         }
                 }
@@ -215,7 +215,7 @@ namespace PrimeCmd
                     {
                         if (calculator != null)
                             Console.WriteLine("Receiving data...");
-                        d = new PrimeUsbData(ReceivedBytes.Peek());
+                        d = new PrimeUsbData(ReceivedBytes.Peek(),null);
                     }
 
                     if (d.IsValid)
