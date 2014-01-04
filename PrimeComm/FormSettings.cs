@@ -41,7 +41,8 @@ namespace PrimeComm
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 Settings.Default.Reset();
-                SaveAndExit();
+                LoadSettings();
+                //SaveAndExit();
             }
         }
 
@@ -70,6 +71,11 @@ namespace PrimeComm
         }
 
         private void FormSettings_Load(object sender, EventArgs e)
+        {
+            LoadSettings();
+        }
+
+        private void LoadSettings()
         {
             // Load settings
             switch (Settings.Default.ImageMethod)

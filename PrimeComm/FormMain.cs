@@ -20,7 +20,6 @@ namespace PrimeComm
 {
     public partial class FormMain : Form
     {
-        public bool Silent { get; set; }
         private bool _receivingData, _checkingData, _sending;
         private Queue<byte[]> _receivedData = new Queue<byte[]>();
         private PrimeUsbData _receivedFile;
@@ -30,12 +29,17 @@ namespace PrimeComm
         private PrimeParameters _parameters;
         private static readonly Object scheduleLock = new Object();
 
-        public FormMain(bool silent=false)
+        public FormMain()
         {
-            Silent = silent;
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
             InitializeGui();
+        }
+
+
+        public bool IsEmulatorAvailable
+        {
+            get { return Directory.Exists(_emulatorFolder); }
         }
 
         public bool IsDeviceConnected { get; private set; }
@@ -56,7 +60,7 @@ namespace PrimeComm
             connectivityKitUserFolderToolStripMenuItem.Enabled = _userFilesFolder != null && Directory.Exists(_userFilesFolder);
             
             _emulatorFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HP_Prime");
-            sendToEmulatorKitToolStripMenuItem.Enabled = Directory.Exists(_emulatorFolder);
+            sendToEmulatorKitToolStripMenuItem.Enabled = IsEmulatorAvailable;
             emulatorToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
             exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
 
@@ -352,7 +356,7 @@ namespace PrimeComm
             UpdateGui();
 
             if (e.Result != null)
-                ((SendResults) e.Result).ShowMsg(Silent, this);
+                ((SendResults) e.Result).ShowMsg(false, this);
         }
 
         private void backgroundWorkerSend_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -410,12 +414,12 @@ namespace PrimeComm
 
         private void emulatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SendClipboardTo(Destinations.UserFolder);
+            SendTextTo(Destinations.UserFolder);
         }
 
-        private void SendClipboardTo(Destinations destination)
+        public void SendTextTo(Destinations destination, String text=null)
         {
-            var f = CreateTemporalFileFromClipboard();
+            var f = Utilities.CreateTemporalFileFromText(text);
             var res = new SendResults(1, destination);
 
             if (f != null)
@@ -439,53 +443,13 @@ namespace PrimeComm
             else
             {
                 res.Add(SendResult.ErrorInvalidInput);
-                res.ShowMsg(Silent, this);
+                res.ShowMsg(false, this);
             }
-        }
-
-        private string CreateTemporalFileFromClipboard()
-        {
-            var t = Path.GetTempFileName();
-            File.Delete(t);
-            Directory.CreateDirectory(t);
-
-            // Get name
-            try
-            {
-                if (Clipboard.ContainsText())
-                {
-                    var clipb = Clipboard.GetText(TextDataFormat.UnicodeText).Trim();
-
-                    if (clipb.Length > 0)
-                    {
-                        var m = new Regex(Settings.Default.RegexProgramName, RegexOptions.IgnoreCase).Match(clipb);
-                        var name = PrimeLib.Utilities.GetRandomProgramName();
-
-                        if (m.Success)
-                            name = m.Groups["name"].Value;
-
-                        t = Path.Combine(t, name + ".txt");
-                        File.WriteAllText(t, clipb, Encoding.BigEndianUnicode);
-                        return t;
-                    }
-                }
-                else if (Clipboard.ContainsImage())
-                {
-                    t = Path.Combine(t, PrimeLib.Utilities.GetRandomImageName()+".png");
-                    Clipboard.GetImage().Save(t);
-
-                    return t;
-                }
-            }
-            catch
-            {
-            }
-            return null;
         }
 
         private void browseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SendClipboardTo(Destinations.Custom);
+            SendTextTo(Destinations.Custom);
         }
 
         private void sendToEmulatorKitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -500,7 +464,7 @@ namespace PrimeComm
 
         private void sendClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SendClipboardTo(Destinations.Calculator);
+            SendTextTo(Destinations.Calculator);
         }
 
         private void FormMain_Shown(object sender, EventArgs e)
@@ -515,7 +479,7 @@ namespace PrimeComm
 
         private void newProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormEditor().Show();
+            new FormEditor(this).Show();
         }
 
         private void connectivityKitUserFolderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -536,6 +500,21 @@ namespace PrimeComm
         private void captureScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FormScreen().ShowDialog();
+        }
+
+        private void virtualHPPrimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void connectivityKitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void commandLineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("cmd.exe", "/K title PrimeCmd&color 0A&cls&primecmd");
         }
     }
 }
