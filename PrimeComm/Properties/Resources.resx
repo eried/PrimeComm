@@ -117,56 +117,89 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="connected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\new\connected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="disconnected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\new\disconnected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StatusConnected" xml:space="preserve">
-    <value>Connected to USB</value>
-  </data>
-  <data name="StatusReceived" xml:space="preserve">
-    <value>Receiving ({0} KB received)...</value>
+  <data name="SendError" xml:space="preserve">
+    <value>Error sending the file</value>
   </data>
   <data name="StatusWaiting" xml:space="preserve">
     <value>Waiting, select a program and tap Send in your calculator...</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="redo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\redo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stream" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\stream.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusReceived" xml:space="preserve">
+    <value>Receiving ({0} KB received)...</value>
+  </data>
   <data name="StatusNotConnected" xml:space="preserve">
     <value>Not connected</value>
   </data>
-  <data name="SendNotSupported" xml:space="preserve">
-    <value>Not supported file</value>
+  <data name="StatusConnected" xml:space="preserve">
+    <value>Connected to USB</value>
   </data>
-  <data name="SendError" xml:space="preserve">
-    <value>Error sending the file</value>
+  <data name="disconnected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\disconnected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MsgErrorTitle" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="StatusSending" xml:space="preserve">
-    <value>Sending files...</value>
-  </data>
-  <data name="StatusAllSent" xml:space="preserve">
-    <value>All the files were sucessfully sent!</value>
-  </data>
-  <data name="StatusSent" xml:space="preserve">
-    <value>File sucessfully sent!</value>
-  </data>
-  <data name="StatusSomeFailed" xml:space="preserve">
-    <value>Some files failed. Check the device</value>
-  </data>
-  <data name="StatusAllFailed" xml:space="preserve">
-    <value>Can't send files</value>
+  <data name="undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StatusSendingProgress" xml:space="preserve">
     <value>Sending ({0} of {1})...</value>
   </data>
-  <data name="FilterInput" xml:space="preserve">
-    <value>All supported files|*.hpprgm;*.txt;*.bmp;*.gif;*.jpeg;*.jpg;*.png|HP Prime Program (*.hpprgm)|*.hpprgm|Text files (*.txt)|*.txt|Images|*.bmp;*.gif;*.jpeg;*.jpg;*.png|All files (*.*)|*.*</value>
+  <data name="connected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\connected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusSending" xml:space="preserve">
+    <value>Sending files...</value>
+  </data>
+  <data name="editor_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusAllSent" xml:space="preserve">
+    <value>All the files were sucessfully sent!</value>
+  </data>
+  <data name="StatusAllFailed" xml:space="preserve">
+    <value>Can't send files</value>
+  </data>
+  <data name="StatusSent" xml:space="preserve">
+    <value>File sucessfully sent!</value>
+  </data>
+  <data name="SendNotSupported" xml:space="preserve">
+    <value>Not supported file</value>
+  </data>
+  <data name="editor_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editor_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FilterOutput" xml:space="preserve">
     <value>HP Prime Program (*.hpprgm)|*.hpprgm|Text files (*.txt)|*.txt|All files (*.*)|*.*</value>
+  </data>
+  <data name="MsgErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="editor_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editor_paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusSomeFailed" xml:space="preserve">
+    <value>Some files failed. Check the device</value>
+  </data>
+  <data name="frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FilterInput" xml:space="preserve">
+    <value>All supported files|*.hpprgm;*.txt;*.bmp;*.gif;*.jpeg;*.jpg;*.png|HP Prime Program (*.hpprgm)|*.hpprgm|Text files (*.txt)|*.txt|Images|*.bmp;*.gif;*.jpeg;*.jpg;*.png|All files (*.*)|*.*</value>
+  </data>
+  <data name="editor_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
