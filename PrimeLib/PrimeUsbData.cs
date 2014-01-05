@@ -60,7 +60,7 @@ namespace PrimeLib
         /// <param name="message">Text message</param>
         /// <param name="chunkSize">Chunk size to split the data</param>
         /// <param name="settings">Settings for handling the data</param>
-        public PrimeUsbData(String message, int chunkSize, PrimeParameters settings)
+        public PrimeUsbData(String message, int chunkSize=0, PrimeParameters settings=null)
         {
             _settings = settings;
             Name = null;
@@ -110,7 +110,7 @@ namespace PrimeLib
         /// <param name="data">Contents of the script in UTF-16, without any header</param>
         /// <param name="chunkSize">Chunk size to split the data</param>
         /// <param name="settings">Settings for handling the data</param>
-        public PrimeUsbData(string name, byte[] data, int chunkSize, PrimeParameters settings)
+        public PrimeUsbData(string name, byte[] data, int chunkSize=0, PrimeParameters settings=null)
         {
             _settings = settings;
             Name = name;
@@ -163,9 +163,9 @@ namespace PrimeLib
         /// <summary>
         /// Initializes a usb data received or ready to send, with the first chunk already defined, and checks the validity and completioness
         /// </summary>
-        /// <param name="chunkData">Chunk data without the first byte (as is received from the USB)</param>
+        /// <param name="chunkData">Chunk data without the first byte (as is received from the USB, NOT the internal File Data)</param>
         /// <param name="settings">Settings for handling the data</param>
-        public PrimeUsbData(IEnumerable<byte> chunkData, PrimeParameters settings)
+        public PrimeUsbData(IEnumerable<byte> chunkData, PrimeParameters settings = null)
         {
             _settings = settings;
             Name = null;
