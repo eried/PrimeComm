@@ -82,7 +82,6 @@
             // 
             this.scintillaEditor.AutoComplete.IsCaseSensitive = false;
             this.scintillaEditor.AutoComplete.ListString = "";
-            this.scintillaEditor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.scintillaEditor.ConfigurationManager.Language = "pascal";
             this.scintillaEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintillaEditor.Indentation.TabWidth = 4;

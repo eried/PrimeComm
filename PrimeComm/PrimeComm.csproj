@@ -38,9 +38,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ScintillaNET">
-      <HintPath>dll\ScintillaNET.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -130,6 +127,10 @@
     <ProjectReference Include="..\PrimeLib\PrimeLib.csproj">
       <Project>{7bf31f37-800f-4465-975f-7d1bd9636f05}</Project>
       <Name>PrimeLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScintillaNet\2.5\ScintillaNET\ScintillaNET.csproj">
+      <Project>{f9b6dabd-bbc1-4638-8ce6-a5c9506bfdcb}</Project>
+      <Name>ScintillaNET</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

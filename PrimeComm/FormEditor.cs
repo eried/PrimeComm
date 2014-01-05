@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using PrimeLib;
+using ScintillaNET.Configuration;
 
 namespace PrimeComm
 {
@@ -23,8 +24,9 @@ namespace PrimeComm
         public FormEditor(FormMain p, string fileName="")
         {
             InitializeComponent();
-            var config = new ScintillaNET.Configuration.Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
+            var config = new Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
             scintillaEditor.ConfigurationManager.Configure(config);
+            
             _parent = p;
 
             if (!String.IsNullOrEmpty(fileName) && File.Exists(fileName))
@@ -59,7 +61,7 @@ namespace PrimeComm
             if (_dirty)
             {
                 switch (
-                    MessageBox.Show(String.Format("Save the changes to '{0}'?", CurrentName), "Save changes", MessageBoxButtons.YesNoCancel,
+                    MessageBox.Show(String.Format("Save the changes to '{0}'?", CurrentProgramName), "Save changes", MessageBoxButtons.YesNoCancel,
                         MessageBoxIcon.Exclamation))
                 {
                     case DialogResult.Yes:
@@ -104,10 +106,10 @@ namespace PrimeComm
             toolStripButtonPaste.Enabled = scintillaEditor.Clipboard.CanPaste;
 
             sendToDeviceToolStripMenuItem.Enabled = _parent.IsDeviceConnected && !_parent.IsBusy;
-            Text = String.Format("{2}{0}: {1}",CurrentName, _editorName, _dirty ? "* ":string.Empty);
+            Text = String.Format("{2}{0}: {1}",CurrentProgramName, _editorName, _dirty ? "* ":string.Empty);
         }
 
-        public String CurrentName
+        public String CurrentProgramName
         {
             get { return String.IsNullOrEmpty(_currentName) ? "Untitled" : _currentName; }
             set { _currentName = value; }
@@ -154,11 +156,19 @@ namespace PrimeComm
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            PreparePrint();
             scintillaEditor.Printing.Print(true);
+        }
+
+        private void PreparePrint()
+        {
+            scintillaEditor.Printing.PrintDocument.DocumentName = CurrentProgramName;
+            //scintillaEditor
         }
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            PreparePrint();
             scintillaEditor.Printing.PrintPreview();
         }
 
