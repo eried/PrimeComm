@@ -20,6 +20,7 @@ namespace PrimeLib
         public PrimeProgramFile(string path, PrimeParameters settings = null)
         {
             IsValid = false;
+            IsConversion = false;
             Name = Path.GetFileNameWithoutExtension(path);
             Data = new byte[0];
 
@@ -56,6 +57,7 @@ namespace PrimeLib
                         // Generate a script that displays the image
                         Data = Encoding.Unicode.GetBytes(Utilities.GenerateProgramFromImage(path, SafeName, settings));
                         IsValid = true;
+                        IsConversion = true;
                     }
                     catch
                     {
@@ -105,7 +107,10 @@ namespace PrimeLib
                             }
 
                             if (IsValid)
+                            {
                                 Data = b.SubArray(start, finish - start);
+                                IsConversion = true;
+                            }
                         }
                         else
                             switch (b[8])
@@ -134,6 +139,7 @@ namespace PrimeLib
                                                 i += 8;
                                                 Data = b.SubArray(i, b.Length - i);
                                                 IsValid = true;
+                                                IsConversion = true; // This file will be saved as unnamed
                                                 break;
                                             }
                                     }
@@ -146,6 +152,11 @@ namespace PrimeLib
         }
 
         /// <summary>
+        /// If the original file was converted and the current data is an interpretation
+        /// </summary>
+        public bool IsConversion { get; private set; }
+
+        /// <summary>
         /// Parses the data inside a file to be used later
         /// </summary>
         /// <param name="path">Input file, including the extension to detect the format</param>
@@ -156,12 +167,23 @@ namespace PrimeLib
         {
             // If encoding is null, we will just use the Default encoding since no valid one was found
             var s = encoding == null ? Encoding.Default.GetString(tmp): encoding.GetString(tmp);
-            if (encoding == null || s.IndexOf("begin", StringComparison.OrdinalIgnoreCase) >= 0)
+            if (encoding == null || s.IndexOf("begin", StringComparison.OrdinalIgnoreCase) >= 0 || OnlyValidChars(s))
             {
                 Data = Encoding.Unicode.GetBytes(s);
                 return true;
             }
             return false;
+        }
+
+        private bool OnlyValidChars(string s)
+        {
+            foreach (var c in s)
+            {
+                if (c > 65279 || (c < 65279 && c > 1000)) // Allow "safe" chars like euro and others, and Unicode null
+                    return false;
+            }
+
+            return true;
         }
 
         /// <summary>
