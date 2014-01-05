@@ -15,8 +15,7 @@ namespace PrimeComm
         public FormScreen()
         {
             InitializeComponent();
-            IsFullscreen = false;
-            LastWindowState = WindowState;
+            SetFullscreen(false);
         }
 
         private void buttonFullscreen_Click(object sender, EventArgs e)
@@ -35,19 +34,26 @@ namespace PrimeComm
         private void SetFullscreen(bool p)
         {
             IsFullscreen = p;
-            pictureBoxScreen.Dock = p ? DockStyle.Fill: DockStyle.None;
             panelOptions.Visible = !p;
             statusStripMain.Visible = !p;
             FormBorderStyle = !p ? FormBorderStyle.Sizable: FormBorderStyle.None;
             TopMost = p;
-
+            
             if (p)
             {
                 LastWindowState = WindowState;
                 WindowState = FormWindowState.Maximized;
             }
             else
+            {
                 WindowState = LastWindowState;
+                pictureBoxScreen.Width = Width - 40;
+                pictureBoxScreen.Height = Height - 110;
+                pictureBoxScreen.Location = new Point(12, 12);
+                pictureBoxScreen.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            }
+
+            pictureBoxScreen.Dock = p ? DockStyle.Fill : DockStyle.None;
         }
 
         public FormWindowState LastWindowState { get; set; }
