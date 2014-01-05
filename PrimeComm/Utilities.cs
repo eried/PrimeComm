@@ -25,27 +25,15 @@ namespace PrimeComm
             // Get name
             try
             {
+                if (!String.IsNullOrEmpty(text))
+                    return SaveText(text, t);
+
                 if (Clipboard.ContainsText())
+                    return SaveText(Clipboard.GetText(TextDataFormat.UnicodeText).Trim(), t);
+                
+                if (Clipboard.ContainsImage())
                 {
-                    if(String.IsNullOrEmpty(text))
-                        text = Clipboard.GetText(TextDataFormat.UnicodeText).Trim();
-
-                    if (!String.IsNullOrEmpty(text))
-                    {
-                        var m = new Regex(Settings.Default.RegexProgramName, RegexOptions.IgnoreCase).Match(text);
-                        var name = PrimeLib.Utilities.GetRandomProgramName();
-
-                        if (m.Success)
-                            name = m.Groups["name"].Value;
-
-                        t = Path.Combine(t, name + ".txt");
-                        File.WriteAllText(t, text, Encoding.BigEndianUnicode);
-                        return t;
-                    }
-                }
-                else if (Clipboard.ContainsImage())
-                {
-                    t = Path.Combine(t, PrimeLib.Utilities.GetRandomImageName()+".png");
+                    t = Path.Combine(t, PrimeLib.Utilities.GetRandomImageName() + ".png");
                     Clipboard.GetImage().Save(t);
 
                     return t;
@@ -55,6 +43,24 @@ namespace PrimeComm
             {
             }
             return null;
+        }
+
+        private static string SaveText(string text, string t)
+        {
+            if (!String.IsNullOrEmpty(text))
+            {
+                var m = new Regex(Settings.Default.RegexProgramName, RegexOptions.IgnoreCase).Match(text);
+                var name = PrimeLib.Utilities.GetRandomProgramName();
+
+                if (m.Success)
+                    name = m.Groups["name"].Value;
+
+                t = Path.Combine(t, name + ".txt");
+                File.WriteAllText(t, text, Encoding.BigEndianUnicode);
+                return t;
+            }
+            else
+                throw new Exception("Nothing to save");
         }
     }
 }
