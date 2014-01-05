@@ -16,7 +16,6 @@ namespace PrimeComm
     public partial class FormEditor : Form
     {
         private bool _dirty;
-        private string _filepath;
         private readonly FormMain _parent;
         private string _currentFile, _currentName;
         private const string _editorName = "PrimePad";
@@ -32,7 +31,6 @@ namespace PrimeComm
             if (!String.IsNullOrEmpty(fileName) && File.Exists(fileName))
                 OpenFile(fileName);
 
-            _dirty = false;
             UpdateGui();
         }
 
@@ -42,11 +40,17 @@ namespace PrimeComm
             {
                 try
                 {
-                    var tmp = new PrimeProgramFile(fileName);
+                    var tmp = new PrimeProgramFile(fileName, _parent.Parameters);
                     _currentName = tmp.SafeName;
-                    scintillaEditor.Text = new PrimeUsbData(_currentName,tmp.Data).ToString();
+                    _currentFile = String.Empty;
+                    scintillaEditor.Text = new PrimeUsbData(_currentName, tmp.Data).ToString();
+
+                    if (tmp.IsConversion)
+                        scintillaEditor.InsertText(0, "// Converted by PrimeComm from "+ fileName + Environment.NewLine);
+                    else
+                        _currentFile = fileName;
+                    _dirty = false;
                     scintillaEditor.UndoRedo.EmptyUndoBuffer();
-                    _currentFile = fileName;
                 }
                 catch
                 {
@@ -78,9 +82,37 @@ namespace PrimeComm
             return true;
         }
 
-        private bool Save()
+        private bool Save(bool forceNewName = false)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (String.IsNullOrEmpty(_currentFile) || forceNewName)
+                {
+                    if (_parent.saveFileDialogProgram.ShowDialog() == DialogResult.OK)
+                    {
+                        _currentFile = _parent.saveFileDialogProgram.FileName;
+                        _currentName = String.Empty;
+                    }
+                    else
+                        return false; // Cancel
+                }
+
+                if (!String.IsNullOrEmpty(_currentFile))
+                {
+                    new PrimeUsbData(CurrentProgramName, Encoding.Unicode.GetBytes(scintillaEditor.Text)).Save(
+                        _currentFile);
+                    _dirty = false;
+                    UpdateGui();
+
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error saving the program", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+            }
+            return false;
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,7 +143,12 @@ namespace PrimeComm
 
         public String CurrentProgramName
         {
-            get { return String.IsNullOrEmpty(_currentName) ? "Untitled" : _currentName; }
+            get
+            {
+                _currentName = (String.IsNullOrEmpty(_currentName) ? (String.IsNullOrEmpty(_currentFile)
+                            ? "Untitled" : Path.GetFileNameWithoutExtension(_currentFile)): _currentName).Trim();
+                return _currentName;
+            }
             set { _currentName = value; }
         }
 
@@ -169,7 +206,7 @@ namespace PrimeComm
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PreparePrint();
-            scintillaEditor.Printing.PrintPreview();
+            scintillaEditor.Printing.PrintPreview(this);
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,15 +226,9 @@ namespace PrimeComm
 
         private void SendCodeTo(Destinations destination)
         {
-            if (!String.IsNullOrEmpty(_filepath))
-            {
-
-            }
-            else
-            {
-                // Temporal file
-                _parent.SendTextTo(destination, scintillaEditor.Text);
-            }
+            if (String.IsNullOrEmpty(scintillaEditor.Text))
+                MessageBox.Show("Nothing to send!", "Program is empty", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else _parent.SendTextTo(destination, scintillaEditor.Text);
         }
 
         private void scintillaEditor_TextChanged(object sender, EventArgs e)
@@ -234,6 +265,38 @@ namespace PrimeComm
         {
             if (!AskForSave())
                 e.Cancel = true;
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save(true);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AskForSave())
+            {
+                _currentName = String.Empty;
+                _currentFile = String.Empty;
+                scintillaEditor.Text = String.Empty;
+                scintillaEditor.UndoRedo.EmptyUndoBuffer();
+                _dirty = false;
+            }
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormSettings().ShowDialog();
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            scintillaEditor.Selection.SelectAll();
         }
     }
 }
