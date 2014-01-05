@@ -56,6 +56,12 @@
   <ItemGroup>
     <Compile Include="FileSet.cs" />
     <Compile Include="FolderSelectDialog.cs" />
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,12 @@
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormScreen.Designer.cs">
+      <DependentUpon>FormScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSettings.cs">
       <SubType>Form</SubType>
@@ -83,11 +95,17 @@
     </Compile>
     <Compile Include="SendResults.cs" />
     <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditor.resx">
       <DependentUpon>FormEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormScreen.resx">
+      <DependentUpon>FormScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
@@ -116,6 +134,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
+    <None Include="img\new\print.png" />
+    <None Include="img\new\redo.png" />
+    <None Include="img\new\editor_paste.png" />
+    <None Include="img\new\editor_copy.png" />
+    <None Include="img\new\editor_cut.png" />
+    <None Include="img\new\undo.png" />
+    <None Include="img\new\editor_save.png" />
+    <None Include="img\new\editor_open.png" />
+    <None Include="img\new\editor_new.png" />
+    <None Include="img\new\frame.png" />
+    <None Include="img\new\stream.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

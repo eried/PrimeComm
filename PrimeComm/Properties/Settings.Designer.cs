@@ -214,5 +214,17 @@ namespace PrimeComm.Properties {
                 this["VariableRefactoringStartingSeed"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SkipFullscreenWarning {
+            get {
+                return ((bool)(this["SkipFullscreenWarning"]));
+            }
+            set {
+                this["SkipFullscreenWarning"] = value;
+            }
+        }
     }
 }
