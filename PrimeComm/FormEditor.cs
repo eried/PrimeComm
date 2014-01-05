@@ -17,14 +17,68 @@ namespace PrimeComm
         private bool _dirty;
         private string _filepath;
         private readonly FormMain _parent;
+        private string _currentFile, _currentName;
+        private const string _editorName = "PrimePad";
 
-        public FormEditor(FormMain p)
+        public FormEditor(FormMain p, string fileName="")
         {
             InitializeComponent();
             var config = new ScintillaNET.Configuration.Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
             scintillaEditor.ConfigurationManager.Configure(config);
-
             _parent = p;
+
+            if (!String.IsNullOrEmpty(fileName) && File.Exists(fileName))
+                OpenFile(fileName);
+
+            _dirty = false;
+            UpdateGui();
+        }
+
+        private void OpenFile(string fileName)
+        {
+            if (AskForSave())
+            {
+                try
+                {
+                    var tmp = new PrimeProgramFile(fileName);
+                    _currentName = tmp.SafeName;
+                    scintillaEditor.Text = new PrimeUsbData(_currentName,tmp.Data).ToString();
+                    scintillaEditor.UndoRedo.EmptyUndoBuffer();
+                    _currentFile = fileName;
+                }
+                catch
+                {
+                    MessageBox.Show("Error loading '" + fileName + "'", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private bool AskForSave()
+        {
+            if (_dirty)
+            {
+                switch (
+                    MessageBox.Show(String.Format("Save the changes to '{0}'?", CurrentName), "Save changes", MessageBoxButtons.YesNoCancel,
+                        MessageBoxIcon.Exclamation))
+                {
+                    case DialogResult.Yes:
+                        if (Save())
+                            _dirty = false;
+                        break;
+                    case DialogResult.No:
+                        _dirty = false;
+                        break;
+                    default:
+                        return false; // Cancel 
+                }
+            }
+            return true;
+        }
+
+        private bool Save()
+        {
+            throw new NotImplementedException();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,7 +104,13 @@ namespace PrimeComm
             toolStripButtonPaste.Enabled = scintillaEditor.Clipboard.CanPaste;
 
             sendToDeviceToolStripMenuItem.Enabled = _parent.IsDeviceConnected && !_parent.IsBusy;
-            
+            Text = String.Format("{2}{0}: {1}",CurrentName, _editorName, _dirty ? "* ":string.Empty);
+        }
+
+        public String CurrentName
+        {
+            get { return String.IsNullOrEmpty(_currentName) ? "Untitled" : _currentName; }
+            set { _currentName = value; }
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,7 +192,7 @@ namespace PrimeComm
 
         private void scintillaEditor_TextChanged(object sender, EventArgs e)
         {
-            _dirty = true;
+            _dirty = scintillaEditor.UndoRedo.CanUndo;
             UpdateGui();
         }
 
@@ -149,6 +209,21 @@ namespace PrimeComm
         private void actionsToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
             UpdateGui();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AskForSave())
+            {
+                if (_parent.openFileDialogProgram.ShowDialog() == DialogResult.OK)
+                    OpenFile(_parent.openFileDialogProgram.FileName);
+            }
+        }
+
+        private void FormEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!AskForSave())
+                e.Cancel = true;
         }
     }
 }
