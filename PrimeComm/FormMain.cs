@@ -516,5 +516,11 @@ namespace PrimeComm
         {
             Process.Start("cmd.exe", "/K title PrimeCmd&color 0A&cls&primecmd");
         }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(openFileDialogProgram.ShowDialog()== DialogResult.OK)
+                new FormEditor(this, openFileDialogProgram.FileName).Show();
+        }
     }
 }
