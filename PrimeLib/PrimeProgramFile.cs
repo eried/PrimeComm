@@ -17,7 +17,7 @@ namespace PrimeLib
         /// </summary>
         /// <param name="path">Input file, including the extension to detect the format</param>
         /// <param name="settings">Parameters</param>
-        public PrimeProgramFile(string path, PrimeParameters settings)
+        public PrimeProgramFile(string path, PrimeParameters settings = null)
         {
             IsValid = false;
             Name = Path.GetFileNameWithoutExtension(path);
@@ -28,7 +28,7 @@ namespace PrimeLib
                 case ".txt":
                     // Find "begin"
                     var tmp = File.ReadAllBytes(path);
-                    foreach (var encoding in new[] {  Encoding.Unicode, Encoding.BigEndianUnicode, Encoding.Default })
+                    foreach (var encoding in new[] {Encoding.Unicode, Encoding.BigEndianUnicode, null})
                         if (CheckEncodingAndSetData(tmp, encoding))
                         {
                             // Remove signature
@@ -45,7 +45,7 @@ namespace PrimeLib
                             break;
                         }
                     break;
-                  
+
                 case ".bmp":
                 case ".jpg":
                 case ".jpeg":
@@ -63,48 +63,83 @@ namespace PrimeLib
                     break;
 
                 case null:
-                    break; 
+                    break;
 
                 default:
                     var b = File.ReadAllBytes(path);
                     if (b.Length >= 19)
                     {
+                        var universalMode = false;
+
                         for (var i = 1; i <= 7; i++)
                             if (b[i] != 0x00) // Special case where b[4]==0x01
-                                goto case null;
+                            {
+                                universalMode = true;
+                                break;
+                            }
 
-                        switch (b[8])
+                        if (universalMode) // Reads from the last byte. This will ignore any header
                         {
-                            case 0x00:
-                                var size = BitConverter.ToUInt32(b, 16);
-                                Data = new byte[size];
+                            var finish = b.Length - 1;
 
-                                const int offset = 20;
-                                for (var i = offset; i < offset + size && i < b.Length; i++)
-                                    Data[i - offset] = b[i];
-
-                                IsValid = true;
-
-                                break;
-
-                            case 0x01:
-                                if (b[16] == 0x31) // Special case where b[16]==0x30
+                            // Look for the finish
+                            for (; finish > 2; finish -= 2)
+                            {
+                                if (b[finish] == 0x00 && b[finish - 1] == 0x00)
                                 {
-                                    for(var i=18;i<b.Length;i++)
-                                        if (b[i - 1] == b[i] && b[i] == 0x00)
-                                        {
-                                            if (!settings.GetFlag("IgnoreInternalName"))
-                                                Name = Encoding.Unicode.GetString(b.SubArray(18, i-18));
-
-                                            i += 8;
-                                            Data = b.SubArray(i, b.Length - i);
-                                            IsValid = true;
-                                            break;
-                                        }
+                                    finish--;
+                                    break;
                                 }
+                            }
+                            var start = finish-1;
 
-                                break;
+                            // Look for the start
+                            for (; start > 2; start -= 2)
+                            {
+                                if (b[start] == 0x00 && b[start - 1] == 0x00)
+                                {
+                                    start++;
+                                    IsValid = true;
+                                    break;
+                                }
+                            }
+
+                            if (IsValid)
+                                Data = b.SubArray(start, finish - start);
                         }
+                        else
+                            switch (b[8])
+                            {
+                                case 0x00:
+                                    var size = BitConverter.ToUInt32(b, 16);
+                                    Data = new byte[size];
+
+                                    const int offset = 20;
+                                    for (var i = offset; i < offset + size && i < b.Length; i++)
+                                        Data[i - offset] = b[i];
+
+                                    IsValid = true;
+
+                                    break;
+
+                                case 0x01:
+                                    if (b[16] == 0x31) // Special case where b[16]==0x30
+                                    {
+                                        for (var i = 18; i < b.Length; i++)
+                                            if (b[i - 1] == b[i] && b[i] == 0x00)
+                                            {
+                                                if (!settings.GetFlag("IgnoreInternalName"))
+                                                    Name = Encoding.Unicode.GetString(b.SubArray(18, i - 18));
+
+                                                i += 8;
+                                                Data = b.SubArray(i, b.Length - i);
+                                                IsValid = true;
+                                                break;
+                                            }
+                                    }
+
+                                    break;
+                            }
                     }
                     break;
             }
@@ -115,14 +150,13 @@ namespace PrimeLib
         /// </summary>
         /// <param name="path">Input file, including the extension to detect the format</param>
         /// <param name="settings">Parameters</param>
-        public PrimeProgramFile(string path, ApplicationSettingsBase settings) : this(path, new PrimeParameters(settings))
-        {
-        }
+        public PrimeProgramFile(string path, ApplicationSettingsBase settings) : this(path, new PrimeParameters(settings)) { }
 
         private bool CheckEncodingAndSetData(byte[] tmp, Encoding encoding)
         {
-            var s = encoding.GetString(tmp);
-            if (s.IndexOf("begin", StringComparison.OrdinalIgnoreCase) >= 0)
+            // If encoding is null, we will just use the Default encoding since no valid one was found
+            var s = encoding == null ? Encoding.Default.GetString(tmp): encoding.GetString(tmp);
+            if (encoding == null || s.IndexOf("begin", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 Data = Encoding.Unicode.GetBytes(s);
                 return true;
