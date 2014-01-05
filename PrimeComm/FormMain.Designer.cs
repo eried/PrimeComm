@@ -474,7 +474,7 @@
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.Button buttonCaptureScreen;
         private System.Windows.Forms.OpenFileDialog openFilesDialogProgram;
-        private System.Windows.Forms.SaveFileDialog saveFileDialogProgram;
+        internal System.Windows.Forms.SaveFileDialog saveFileDialogProgram;
         private System.ComponentModel.BackgroundWorker backgroundWorkerSend;
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;

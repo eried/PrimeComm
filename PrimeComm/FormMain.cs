@@ -32,10 +32,15 @@ namespace PrimeComm
         public FormMain()
         {
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            Settings.Default.SettingsSaving += Default_SettingsSaving;
             InitializeComponent();
             InitializeGui();
         }
 
+        void Default_SettingsSaving(object sender, CancelEventArgs e)
+        {
+            _parameters = null; // Invalidate parameters
+        }
 
         public bool IsEmulatorAvailable
         {
@@ -227,7 +232,7 @@ namespace PrimeComm
             }
         }
 
-        private PrimeParameters Parameters
+        public PrimeParameters Parameters
         {
             get { return _parameters ?? new PrimeParameters(Settings.Default); }
             set { _parameters = value; }
