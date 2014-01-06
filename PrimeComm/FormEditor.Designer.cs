@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditor));
-            this.scintillaEditor = new ScintillaNET.Scintilla();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.scintillaEditor = new ScintillaNET.Scintilla();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newFromtemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +42,8 @@
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,14 +53,15 @@
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.virtualHPPrimeWorkingFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendToVirtualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
@@ -69,17 +73,37 @@
             this.toolStripButtonCut = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPaste = new System.Windows.Forms.ToolStripButton();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
-            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newFromtemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.scintillaEditor)).BeginInit();
+            this.toolStripSendTo = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonSendToDevice = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSendToVirtual = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scintillaEditor)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
+            this.toolStripSendTo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.scintillaEditor);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(712, 510);
+            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.Size = new System.Drawing.Size(712, 559);
+            this.toolStripContainer1.TabIndex = 2;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripMain);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripSendTo);
             // 
             // scintillaEditor
             // 
@@ -92,29 +116,10 @@
             this.scintillaEditor.Margins.Margin0.Width = 20;
             this.scintillaEditor.Name = "scintillaEditor";
             this.scintillaEditor.Scrolling.HorizontalWidth = 400;
-            this.scintillaEditor.Size = new System.Drawing.Size(712, 512);
+            this.scintillaEditor.Size = new System.Drawing.Size(712, 510);
             this.scintillaEditor.TabIndex = 0;
             this.scintillaEditor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
             this.scintillaEditor.TextChanged += new System.EventHandler(this.scintillaEditor_TextChanged);
-            // 
-            // toolStripContainer1
-            // 
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.scintillaEditor);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(712, 512);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(712, 559);
-            this.toolStripContainer1.TabIndex = 2;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // menuStrip1
             // 
@@ -158,13 +163,20 @@
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
+            // newFromtemplateToolStripMenuItem
+            // 
+            this.newFromtemplateToolStripMenuItem.Name = "newFromtemplateToolStripMenuItem";
+            this.newFromtemplateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.newFromtemplateToolStripMenuItem.Text = "New from &template";
+            this.newFromtemplateToolStripMenuItem.Click += new System.EventHandler(this.newFromtemplateToolStripMenuItem_Click);
+            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_open;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.openToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.Text = "&Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
@@ -201,13 +213,25 @@
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.printToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.printToolStripMenuItem.Text = "&Print";
+            this.printToolStripMenuItem.Text = "&Print...";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(174, 6);
+            // 
+            // preferencesToolStripMenuItem
+            // 
+            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.preferencesToolStripMenuItem.Text = "Preferences...";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(174, 6);
             // 
             // closeToolStripMenuItem
             // 
@@ -291,11 +315,19 @@
             this.deleteToolStripMenuItem.Text = "C&lear";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // selectAllToolStripMenuItem
+            // 
+            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
+            this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.selectAllToolStripMenuItem.Text = "Select &All";
+            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
+            // 
             // actionsToolStripMenuItem
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sendToDeviceToolStripMenuItem,
-            this.virtualHPPrimeWorkingFolderToolStripMenuItem,
+            this.sendToVirtualToolStripMenuItem,
             this.toolStripMenuItem5,
             this.browseToolStripMenuItem});
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
@@ -311,13 +343,13 @@
             this.sendToDeviceToolStripMenuItem.Text = "&Device";
             this.sendToDeviceToolStripMenuItem.Click += new System.EventHandler(this.sendToDeviceToolStripMenuItem_Click);
             // 
-            // virtualHPPrimeWorkingFolderToolStripMenuItem
+            // sendToVirtualToolStripMenuItem
             // 
-            this.virtualHPPrimeWorkingFolderToolStripMenuItem.Name = "virtualHPPrimeWorkingFolderToolStripMenuItem";
-            this.virtualHPPrimeWorkingFolderToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.virtualHPPrimeWorkingFolderToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.virtualHPPrimeWorkingFolderToolStripMenuItem.Text = "&Virtual HP Prime working folder";
-            this.virtualHPPrimeWorkingFolderToolStripMenuItem.Click += new System.EventHandler(this.virtualHPPrimeWorkingFolderToolStripMenuItem_Click);
+            this.sendToVirtualToolStripMenuItem.Name = "sendToVirtualToolStripMenuItem";
+            this.sendToVirtualToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.sendToVirtualToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.sendToVirtualToolStripMenuItem.Text = "&Virtual HP Prime working folder";
+            this.sendToVirtualToolStripMenuItem.Click += new System.EventHandler(this.sendToVirtualToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
@@ -347,11 +379,11 @@
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // toolStrip1
+            // toolStripMain
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMain.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNew,
             this.toolStripButtonOpen,
             this.toolStripButtonSave,
@@ -363,13 +395,13 @@
             this.toolStripButtonCut,
             this.toolStripButtonCopy,
             this.toolStripButtonPaste});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.toolStrip1.Location = new System.Drawing.Point(3, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.ShowItemToolTips = false;
-            this.toolStrip1.Size = new System.Drawing.Size(220, 23);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.toolStripMain.Location = new System.Drawing.Point(3, 24);
+            this.toolStripMain.Name = "toolStripMain";
+            this.toolStripMain.ShowItemToolTips = false;
+            this.toolStripMain.Size = new System.Drawing.Size(220, 23);
+            this.toolStripMain.TabIndex = 2;
+            this.toolStripMain.Text = "toolStrip1";
             // 
             // toolStripButtonNew
             // 
@@ -471,32 +503,37 @@
             this.toolStripButtonPaste.Text = "toolStripButton8";
             this.toolStripButtonPaste.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem6
+            // toolStripSendTo
             // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(174, 6);
+            this.toolStripSendTo.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripSendTo.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripSendTo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonSendToDevice,
+            this.toolStripButtonSendToVirtual});
+            this.toolStripSendTo.Location = new System.Drawing.Point(223, 24);
+            this.toolStripSendTo.Name = "toolStripSendTo";
+            this.toolStripSendTo.Size = new System.Drawing.Size(49, 25);
+            this.toolStripSendTo.TabIndex = 4;
             // 
-            // preferencesToolStripMenuItem
+            // toolStripButtonSendToDevice
             // 
-            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.preferencesToolStripMenuItem.Text = "Preferences...";
-            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
+            this.toolStripButtonSendToDevice.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSendToDevice.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
+            this.toolStripButtonSendToDevice.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSendToDevice.Name = "toolStripButtonSendToDevice";
+            this.toolStripButtonSendToDevice.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSendToDevice.Text = "Send to Device (F12)";
+            this.toolStripButtonSendToDevice.Click += new System.EventHandler(this.sendToDeviceToolStripMenuItem_Click);
             // 
-            // selectAllToolStripMenuItem
+            // toolStripButtonSendToVirtual
             // 
-            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.selectAllToolStripMenuItem.Text = "Select &All";
-            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
-            // 
-            // newFromtemplateToolStripMenuItem
-            // 
-            this.newFromtemplateToolStripMenuItem.Name = "newFromtemplateToolStripMenuItem";
-            this.newFromtemplateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.newFromtemplateToolStripMenuItem.Text = "New from &template";
-            this.newFromtemplateToolStripMenuItem.Click += new System.EventHandler(this.newFromtemplateToolStripMenuItem_Click);
+            this.toolStripButtonSendToVirtual.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSendToVirtual.Image = global::PrimeComm.Properties.Resources.editor_send_to_virtual;
+            this.toolStripButtonSendToVirtual.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSendToVirtual.Name = "toolStripButtonSendToVirtual";
+            this.toolStripButtonSendToVirtual.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSendToVirtual.Text = "Send to Virtual HP Prime working folder (F10)";
+            this.toolStripButtonSendToVirtual.Click += new System.EventHandler(this.sendToVirtualToolStripMenuItem_Click);
             // 
             // FormEditor
             // 
@@ -508,16 +545,18 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormEditor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditor_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.scintillaEditor)).EndInit();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scintillaEditor)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
+            this.toolStripSendTo.ResumeLayout(false);
+            this.toolStripSendTo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -526,7 +565,7 @@
 
         private ScintillaNET.Scintilla scintillaEditor;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripButton toolStripButtonNew;
         private System.Windows.Forms.ToolStripButton toolStripButtonOpen;
         private System.Windows.Forms.ToolStripButton toolStripButtonSave;
@@ -538,7 +577,7 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendToDeviceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem virtualHPPrimeWorkingFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendToVirtualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
@@ -568,5 +607,8 @@
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newFromtemplateToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStripSendTo;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSendToDevice;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSendToVirtual;
     }
 }

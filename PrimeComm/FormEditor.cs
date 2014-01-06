@@ -19,7 +19,7 @@ namespace PrimeComm
         private bool _dirty;
         private readonly FormMain _parent;
         private string _currentFile, _currentName;
-        private const string _editorName = "PrimePad";
+        private const string EditorName = "PrimePad";
 
         /// <summary>
         /// Creates a new editor window
@@ -59,9 +59,13 @@ namespace PrimeComm
                     scintillaEditor.Text = new PrimeUsbData(_currentName, tmp.Data).ToString();
 
                     if (tmp.IsConversion)
-                        scintillaEditor.InsertText(0, "// Converted by PrimeComm from "+ fileName + Environment.NewLine);
+                    {
+                        if (Settings.Default.AddCommentOnConversion)
+                            scintillaEditor.InsertText(0,"// Converted by PrimeComm from " + fileName + Environment.NewLine);
+                    }
                     else
                         _currentFile = fileName;
+
                     _dirty = false;
                     scintillaEditor.UndoRedo.EmptyUndoBuffer();
                 }
@@ -112,11 +116,9 @@ namespace PrimeComm
 
                 if (!String.IsNullOrEmpty(_currentFile))
                 {
-                    new PrimeUsbData(CurrentProgramName, Encoding.Unicode.GetBytes(scintillaEditor.Text)).Save(
-                        _currentFile);
+                    new PrimeUsbData(CurrentProgramName, Encoding.Unicode.GetBytes(scintillaEditor.Text)).Save(_currentFile);
                     _dirty = false;
                     UpdateGui();
-
                     return true;
                 }
             }
@@ -151,7 +153,12 @@ namespace PrimeComm
             toolStripButtonPaste.Enabled = scintillaEditor.Clipboard.CanPaste;
 
             sendToDeviceToolStripMenuItem.Enabled = _parent.IsDeviceConnected && !_parent.IsBusy;
-            Text = String.Format("{2}{0}: {1}",CurrentProgramName, _editorName, _dirty ? "* ":string.Empty);
+            toolStripButtonSendToDevice.Enabled = sendToDeviceToolStripMenuItem.Enabled;
+
+            sendToVirtualToolStripMenuItem.Enabled = _parent.IsEmulatorAvailable && !_parent.IsBusy;
+            toolStripButtonSendToVirtual.Enabled = sendToVirtualToolStripMenuItem.Enabled;
+
+            Text = String.Format("{2}{0}: {1}",CurrentProgramName, EditorName, _dirty ? "* ":string.Empty);
         }
 
         public String CurrentProgramName
@@ -255,7 +262,7 @@ namespace PrimeComm
             SendCodeTo(Destinations.Custom);
         }
 
-        private void virtualHPPrimeWorkingFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sendToVirtualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SendCodeTo(Destinations.UserFolder);
         }
