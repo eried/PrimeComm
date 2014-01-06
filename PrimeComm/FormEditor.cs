@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using PrimeComm.Properties;
 using PrimeLib;
 using ScintillaNET.Configuration;
 
@@ -20,19 +21,31 @@ namespace PrimeComm
         private string _currentFile, _currentName;
         private const string _editorName = "PrimePad";
 
-        public FormEditor(FormMain p, string fileName="")
+        /// <summary>
+        /// Creates a new editor window
+        /// </summary>
+        /// <param name="p">Parent window</param>
+        /// <param name="openFile">File to open, null if template should be used, empty if blank should be used</param>
+        public FormEditor(FormMain p, string openFile = "")
         {
             InitializeComponent();
             var config = new Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
             scintillaEditor.ConfigurationManager.Configure(config);
-            
+
             _parent = p;
 
-            if (!String.IsNullOrEmpty(fileName) && File.Exists(fileName))
-                OpenFile(fileName);
+            if (openFile == null)
+                New(true);
+            else
+            {
+                if (!String.IsNullOrEmpty(openFile) && File.Exists(openFile))
+                    OpenFile(openFile);
+            }
 
             UpdateGui();
         }
+
+        
 
         private void OpenFile(string fileName)
         {
@@ -279,14 +292,21 @@ namespace PrimeComm
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            New();
+        }
+
+        private void New(bool template=false)
+        {
             if (AskForSave())
             {
                 _currentName = String.Empty;
                 _currentFile = String.Empty;
-                scintillaEditor.Text = String.Empty;
+                scintillaEditor.Text = template? Settings.Default.ProgramTemplate: String.Empty;
                 scintillaEditor.UndoRedo.EmptyUndoBuffer();
                 _dirty = false;
             }
+
+            UpdateGui();
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -297,6 +317,11 @@ namespace PrimeComm
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             scintillaEditor.Selection.SelectAll();
+        }
+
+        private void newFromtemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            New(true);
         }
     }
 }

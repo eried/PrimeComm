@@ -73,6 +73,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogProgram = new System.Windows.Forms.OpenFileDialog();
+            this.newFromTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             this.menuStripMain.SuspendLayout();
@@ -176,6 +177,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProgramToolStripMenuItem,
+            this.newFromTemplateToolStripMenuItem,
             this.openToolStripMenuItem,
             this.browseToolStripMenuItem1,
             this.toolStripMenuItem8,
@@ -437,6 +439,13 @@
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // newFromTemplateToolStripMenuItem
+            // 
+            this.newFromTemplateToolStripMenuItem.Name = "newFromTemplateToolStripMenuItem";
+            this.newFromTemplateToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.newFromTemplateToolStripMenuItem.Text = "New from &template";
+            this.newFromTemplateToolStripMenuItem.Click += new System.EventHandler(this.newFromTemplateToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -454,6 +463,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Shown += new System.EventHandler(this.FormMain_Shown);
             this.groupBox1.ResumeLayout(false);
@@ -511,6 +521,7 @@
         private System.Windows.Forms.ToolStripMenuItem connectivityKitToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem commandLineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newFromTemplateToolStripMenuItem;
     }
 }
 

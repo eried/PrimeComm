@@ -33,9 +33,12 @@ namespace PrimeComm
         {
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             Settings.Default.SettingsSaving += Default_SettingsSaving;
+            Editors = new List<FormEditor>();
             InitializeComponent();
             InitializeGui();
         }
+
+        public List<FormEditor> Editors { get; private  set; }
 
         void Default_SettingsSaving(object sender, CancelEventArgs e)
         {
@@ -484,7 +487,9 @@ namespace PrimeComm
 
         private void newProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormEditor(this).Show();
+            var n = new FormEditor(this);
+            Editors.Add(n);
+            n.Show();
         }
 
         private void connectivityKitUserFolderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -524,8 +529,28 @@ namespace PrimeComm
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(openFileDialogProgram.ShowDialog()== DialogResult.OK)
-                new FormEditor(this, openFileDialogProgram.FileName).Show();
+            if (openFileDialogProgram.ShowDialog() == DialogResult.OK)
+            {
+                var n = new FormEditor(this, openFileDialogProgram.FileName);
+                Editors.Add(n);
+                n.Show();
+            }
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Editors.Any(n => n != null && !n.IsDisposed))
+            {
+                if (MessageBox.Show("There are active editors. Do you want to exit and lose all the changes?", "Close " + Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
+                    e.Cancel = true;
+            }
+        }
+
+        private void newFromTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var n = new FormEditor(this, null);
+            Editors.Add(n);
+            n.Show();
         }
     }
 }
