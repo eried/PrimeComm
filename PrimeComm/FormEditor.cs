@@ -137,7 +137,7 @@ namespace PrimeComm
             (new FormAbout()).ShowDialog();
         }
 
-        private void UpdateGui()
+        internal void UpdateGui()
         {
             undoToolStripMenuItem.Enabled = scintillaEditor.UndoRedo.CanUndo;
             toolStripButtonUndo.Enabled = scintillaEditor.UndoRedo.CanUndo;

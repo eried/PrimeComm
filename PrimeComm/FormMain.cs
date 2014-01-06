@@ -90,6 +90,10 @@ namespace PrimeComm
             if (m.Msg == 0x0219 && _calculator!=null)
             {
                 _calculator.CheckForChanges();
+
+                if(Editors != null)
+                    foreach (var n in Editors.Where(ed => !ed.IsDisposed))
+                        n.UpdateGui();
             }
             base.WndProc(ref m);	// Pass message on to base form
         }
