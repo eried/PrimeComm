@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml;
 using PrimeComm.Properties;
 using PrimeLib;
+using ScintillaNET;
 using ScintillaNET.Configuration;
 
 namespace PrimeComm
@@ -29,10 +31,9 @@ namespace PrimeComm
         public FormEditor(FormMain p, string openFile = "")
         {
             InitializeComponent();
-            var config = new Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
-            scintillaEditor.ConfigurationManager.Configure(config);
-
             _parent = p;
+
+            LoadEditorSettings();
 
             if (openFile == null)
                 New(true);
@@ -47,6 +48,37 @@ namespace PrimeComm
             // Sorting the toolstrips
             toolStripMain.Location = new Point(0, menuStrip1.Height);
             toolStripSendTo.Location = new Point(toolStripMain.Width + 3, menuStrip1.Height);
+        }
+
+        private void LoadEditorSettings()
+        {
+            // Editor configuration
+            if (File.Exists("hpppl.xml"))
+            {
+                var config = new Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
+                scintillaEditor.ConfigurationManager.Configure(config);
+            }
+
+            // Editor font
+            foreach (var f in Directory.GetFiles(".", "*.ttf"))
+            {
+                try
+                {
+                    var fontCollection = new PrivateFontCollection();
+                    fontCollection.AddFontFile(f);
+                    scintillaEditor.Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize);
+
+                    //foreach (StylesCommon s in Enum.GetValues(typeof (StylesCommon)))
+                    foreach (var s in scintillaEditor.Lexing.StyleNameMap.Keys)
+                    {
+                        scintillaEditor.Styles[s].Font = scintillaEditor.Font;
+                    }
+                    break;
+                }
+                catch
+                {
+                }
+            }
         }
 
         private void OpenFile(string fileName)
@@ -83,8 +115,7 @@ namespace PrimeComm
         {
             if (_dirty)
             {
-                switch (
-                    MessageBox.Show(String.Format("Save the changes to '{0}'?", CurrentProgramName), "Save changes", MessageBoxButtons.YesNoCancel,
+                switch (MessageBox.Show(String.Format("Save the changes to '{0}'?", CurrentProgramName), "Save changes", MessageBoxButtons.YesNoCancel,
                         MessageBoxIcon.Exclamation))
                 {
                     case DialogResult.Yes:
@@ -322,7 +353,17 @@ namespace PrimeComm
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormSettings().ShowDialog();
+            OpenSettings();
+        }
+
+        private void OpenSettings(int p=0)
+        {
+            if (new FormSettings(p).ShowDialog() == DialogResult.OK)
+            {
+                LoadEditorSettings();
+                scintillaEditor.Lexing.Colorize();
+                UpdateGui();
+            }
         }
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -337,7 +378,7 @@ namespace PrimeComm
 
         private void programPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormSettings(1).ShowDialog();
+            OpenSettings(1);
         }
     }
 }
