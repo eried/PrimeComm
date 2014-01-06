@@ -53,5 +53,12 @@
     <Setting Name="SkipFullscreenWarning" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ProgramTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EXPORT programName()
+BEGIN
+
+END;
+</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

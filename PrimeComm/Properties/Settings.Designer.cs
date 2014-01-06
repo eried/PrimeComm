@@ -226,5 +226,17 @@ namespace PrimeComm.Properties {
                 this["SkipFullscreenWarning"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("EXPORT programName()\r\nBEGIN\r\n\r\nEND;\r\n")]
+        public string ProgramTemplate {
+            get {
+                return ((string)(this["ProgramTemplate"]));
+            }
+            set {
+                this["ProgramTemplate"] = value;
+            }
+        }
     }
 }

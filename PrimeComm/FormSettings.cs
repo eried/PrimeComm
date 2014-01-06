@@ -96,7 +96,7 @@ namespace PrimeComm
 
         private void CreateAdvancedSettings(TabPage tabPage)
         {
-            var advancedSettings = new List<String>(new[] { "VariableRefactoringStartingSeed" });
+            var advancedSettings = new List<String>(new[] { "VariableRefactoringStartingSeed", "ProgramTemplate" });
             foreach (SettingsProperty r in Settings.Default.Properties)
                 if (r.Name.StartsWith("Regex"))
                     advancedSettings.Add(r.Name);
@@ -113,7 +113,7 @@ namespace PrimeComm
                 table.SetRow(l, row);
                 table.SetColumn(l, 0);
 
-                var t = new TextBox { Dock = DockStyle.Fill };
+                var t = new TextBox { Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Vertical, Height=40 };
                 t.DataBindings.Add(new Binding("Text", Settings.Default, s, true,DataSourceUpdateMode.OnPropertyChanged));
                 table.Controls.Add(t);
                 table.SetRow(t, row++);
