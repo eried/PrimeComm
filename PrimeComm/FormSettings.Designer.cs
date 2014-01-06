@@ -36,24 +36,27 @@
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.linkLabelClearWarnings = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageProgram = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabPageImages = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButtonIcon = new System.Windows.Forms.RadioButton();
+            this.radioButtonDimgrob = new System.Windows.Forms.RadioButton();
+            this.radioButtonPixel = new System.Windows.Forms.RadioButton();
+            this.tabPageAdvanced = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBoxCompressSpaces = new System.Windows.Forms.CheckBox();
             this.checkBoxConversionComment = new System.Windows.Forms.CheckBox();
             this.checkBoxEnableAdditionalProgramProcessing = new System.Windows.Forms.CheckBox();
             this.checkBoxRemoveComments = new System.Windows.Forms.CheckBox();
             this.checkBoxObfuscateVariables = new System.Windows.Forms.CheckBox();
-            this.tabPageImages = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonIcon = new System.Windows.Forms.RadioButton();
-            this.radioButtonDimgrob = new System.Windows.Forms.RadioButton();
             this.checkBoxImageMethodDimgrobOptimizeBlacks = new System.Windows.Forms.CheckBox();
-            this.radioButtonPixel = new System.Windows.Forms.RadioButton();
             this.checkBoxImageMethodDimgrobOptimizeSimilar = new System.Windows.Forms.CheckBox();
-            this.tabPageAdvanced = new System.Windows.Forms.TabPage();
             this.tabControlPreferences.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -61,6 +64,8 @@
             this.groupBox2.SuspendLayout();
             this.tabPageImages.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -140,18 +145,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Startup";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = global::PrimeComm.Properties.Settings.Default.SkipConflictingProcessChecking;
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "SkipConflictingProcessChecking", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBox1.Location = new System.Drawing.Point(15, 22);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(320, 19);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Hide warning about conflicting processes when starting";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(18, 334);
@@ -162,6 +155,7 @@
             // 
             // tabPageProgram
             // 
+            this.tabPageProgram.Controls.Add(this.groupBox4);
             this.tabPageProgram.Controls.Add(this.groupBox2);
             this.tabPageProgram.Location = new System.Drawing.Point(4, 24);
             this.tabPageProgram.Name = "tabPageProgram";
@@ -185,6 +179,129 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Program code";
+            // 
+            // tabPageImages
+            // 
+            this.tabPageImages.Controls.Add(this.groupBox1);
+            this.tabPageImages.Location = new System.Drawing.Point(4, 24);
+            this.tabPageImages.Name = "tabPageImages";
+            this.tabPageImages.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageImages.Size = new System.Drawing.Size(379, 380);
+            this.tabPageImages.TabIndex = 3;
+            this.tabPageImages.Text = "Images";
+            this.tabPageImages.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButtonIcon);
+            this.groupBox1.Controls.Add(this.radioButtonDimgrob);
+            this.groupBox1.Controls.Add(this.checkBoxImageMethodDimgrobOptimizeBlacks);
+            this.groupBox1.Controls.Add(this.radioButtonPixel);
+            this.groupBox1.Controls.Add(this.checkBoxImageMethodDimgrobOptimizeSimilar);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(367, 156);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Image processing method";
+            // 
+            // radioButtonIcon
+            // 
+            this.radioButtonIcon.AutoSize = true;
+            this.radioButtonIcon.Enabled = false;
+            this.radioButtonIcon.Location = new System.Drawing.Point(15, 122);
+            this.radioButtonIcon.Name = "radioButtonIcon";
+            this.radioButtonIcon.Size = new System.Drawing.Size(150, 19);
+            this.radioButtonIcon.TabIndex = 0;
+            this.radioButtonIcon.TabStop = true;
+            this.radioButtonIcon.Text = "ICON and BLIT_P (PNG)";
+            this.radioButtonIcon.UseVisualStyleBackColor = true;
+            this.radioButtonIcon.CheckedChanged += new System.EventHandler(this.something_Changed);
+            // 
+            // radioButtonDimgrob
+            // 
+            this.radioButtonDimgrob.AutoSize = true;
+            this.radioButtonDimgrob.Location = new System.Drawing.Point(15, 47);
+            this.radioButtonDimgrob.Name = "radioButtonDimgrob";
+            this.radioButtonDimgrob.Size = new System.Drawing.Size(151, 19);
+            this.radioButtonDimgrob.TabIndex = 0;
+            this.radioButtonDimgrob.TabStop = true;
+            this.radioButtonDimgrob.Text = "DIMGROB_P and BLIT_P";
+            this.radioButtonDimgrob.UseVisualStyleBackColor = true;
+            this.radioButtonDimgrob.CheckedChanged += new System.EventHandler(this.something_Changed);
+            // 
+            // radioButtonPixel
+            // 
+            this.radioButtonPixel.AutoSize = true;
+            this.radioButtonPixel.Location = new System.Drawing.Point(15, 22);
+            this.radioButtonPixel.Name = "radioButtonPixel";
+            this.radioButtonPixel.Size = new System.Drawing.Size(72, 19);
+            this.radioButtonPixel.TabIndex = 0;
+            this.radioButtonPixel.TabStop = true;
+            this.radioButtonPixel.Text = "PIXON_P";
+            this.radioButtonPixel.UseVisualStyleBackColor = true;
+            this.radioButtonPixel.CheckedChanged += new System.EventHandler(this.something_Changed);
+            // 
+            // tabPageAdvanced
+            // 
+            this.tabPageAdvanced.Location = new System.Drawing.Point(4, 24);
+            this.tabPageAdvanced.Name = "tabPageAdvanced";
+            this.tabPageAdvanced.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdvanced.Size = new System.Drawing.Size(379, 380);
+            this.tabPageAdvanced.TabIndex = 2;
+            this.tabPageAdvanced.Text = "Advanced";
+            this.tabPageAdvanced.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.numericUpDownFontSize);
+            this.groupBox4.Location = new System.Drawing.Point(6, 191);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(367, 69);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Editor";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Default font size:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = global::PrimeComm.Properties.Settings.Default.SkipConflictingProcessChecking;
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "SkipConflictingProcessChecking", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBox1.Location = new System.Drawing.Point(15, 22);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(320, 19);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Hide warning about conflicting processes when starting";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownFontSize
+            // 
+            this.numericUpDownFontSize.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "EditorFontSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownFontSize.Location = new System.Drawing.Point(113, 26);
+            this.numericUpDownFontSize.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.numericUpDownFontSize.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericUpDownFontSize.Name = "numericUpDownFontSize";
+            this.numericUpDownFontSize.Size = new System.Drawing.Size(48, 23);
+            this.numericUpDownFontSize.TabIndex = 0;
+            this.numericUpDownFontSize.Value = global::PrimeComm.Properties.Settings.Default.EditorFontSize;
             // 
             // checkBox2
             // 
@@ -261,56 +378,6 @@
             this.checkBoxObfuscateVariables.Text = "Obfuscate variable names";
             this.checkBoxObfuscateVariables.UseVisualStyleBackColor = true;
             // 
-            // tabPageImages
-            // 
-            this.tabPageImages.Controls.Add(this.groupBox1);
-            this.tabPageImages.Location = new System.Drawing.Point(4, 24);
-            this.tabPageImages.Name = "tabPageImages";
-            this.tabPageImages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageImages.Size = new System.Drawing.Size(379, 380);
-            this.tabPageImages.TabIndex = 3;
-            this.tabPageImages.Text = "Images";
-            this.tabPageImages.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButtonIcon);
-            this.groupBox1.Controls.Add(this.radioButtonDimgrob);
-            this.groupBox1.Controls.Add(this.checkBoxImageMethodDimgrobOptimizeBlacks);
-            this.groupBox1.Controls.Add(this.radioButtonPixel);
-            this.groupBox1.Controls.Add(this.checkBoxImageMethodDimgrobOptimizeSimilar);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 156);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Image processing method";
-            // 
-            // radioButtonIcon
-            // 
-            this.radioButtonIcon.AutoSize = true;
-            this.radioButtonIcon.Enabled = false;
-            this.radioButtonIcon.Location = new System.Drawing.Point(15, 122);
-            this.radioButtonIcon.Name = "radioButtonIcon";
-            this.radioButtonIcon.Size = new System.Drawing.Size(150, 19);
-            this.radioButtonIcon.TabIndex = 0;
-            this.radioButtonIcon.TabStop = true;
-            this.radioButtonIcon.Text = "ICON and BLIT_P (PNG)";
-            this.radioButtonIcon.UseVisualStyleBackColor = true;
-            this.radioButtonIcon.CheckedChanged += new System.EventHandler(this.something_Changed);
-            // 
-            // radioButtonDimgrob
-            // 
-            this.radioButtonDimgrob.AutoSize = true;
-            this.radioButtonDimgrob.Location = new System.Drawing.Point(15, 47);
-            this.radioButtonDimgrob.Name = "radioButtonDimgrob";
-            this.radioButtonDimgrob.Size = new System.Drawing.Size(151, 19);
-            this.radioButtonDimgrob.TabIndex = 0;
-            this.radioButtonDimgrob.TabStop = true;
-            this.radioButtonDimgrob.Text = "DIMGROB_P and BLIT_P";
-            this.radioButtonDimgrob.UseVisualStyleBackColor = true;
-            this.radioButtonDimgrob.CheckedChanged += new System.EventHandler(this.something_Changed);
-            // 
             // checkBoxImageMethodDimgrobOptimizeBlacks
             // 
             this.checkBoxImageMethodDimgrobOptimizeBlacks.AutoSize = true;
@@ -324,18 +391,6 @@
             this.checkBoxImageMethodDimgrobOptimizeBlacks.Text = "Use short form for black color";
             this.checkBoxImageMethodDimgrobOptimizeBlacks.UseVisualStyleBackColor = true;
             // 
-            // radioButtonPixel
-            // 
-            this.radioButtonPixel.AutoSize = true;
-            this.radioButtonPixel.Location = new System.Drawing.Point(15, 22);
-            this.radioButtonPixel.Name = "radioButtonPixel";
-            this.radioButtonPixel.Size = new System.Drawing.Size(72, 19);
-            this.radioButtonPixel.TabIndex = 0;
-            this.radioButtonPixel.TabStop = true;
-            this.radioButtonPixel.Text = "PIXON_P";
-            this.radioButtonPixel.UseVisualStyleBackColor = true;
-            this.radioButtonPixel.CheckedChanged += new System.EventHandler(this.something_Changed);
-            // 
             // checkBoxImageMethodDimgrobOptimizeSimilar
             // 
             this.checkBoxImageMethodDimgrobOptimizeSimilar.AutoSize = true;
@@ -348,16 +403,6 @@
             this.checkBoxImageMethodDimgrobOptimizeSimilar.TabIndex = 1;
             this.checkBoxImageMethodDimgrobOptimizeSimilar.Text = "Optimize similar blocks if possible";
             this.checkBoxImageMethodDimgrobOptimizeSimilar.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAdvanced
-            // 
-            this.tabPageAdvanced.Location = new System.Drawing.Point(4, 24);
-            this.tabPageAdvanced.Name = "tabPageAdvanced";
-            this.tabPageAdvanced.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdvanced.Size = new System.Drawing.Size(379, 380);
-            this.tabPageAdvanced.TabIndex = 2;
-            this.tabPageAdvanced.Text = "Advanced";
-            this.tabPageAdvanced.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
@@ -388,6 +433,9 @@
             this.tabPageImages.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -419,5 +467,8 @@
         private System.Windows.Forms.LinkLabel linkLabelClearWarnings;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxConversionComment;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numericUpDownFontSize;
     }
 }
