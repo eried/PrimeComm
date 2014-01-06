@@ -34,9 +34,10 @@
             this.buttonReset = new System.Windows.Forms.Button();
             this.tabControlPreferences = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelClearWarnings = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPageProgram = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -52,7 +53,6 @@
             this.radioButtonPixel = new System.Windows.Forms.RadioButton();
             this.checkBoxImageMethodDimgrobOptimizeSimilar = new System.Windows.Forms.CheckBox();
             this.tabPageAdvanced = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControlPreferences.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -107,7 +107,7 @@
             // 
             // tabPageGeneral
             // 
-            this.tabPageGeneral.Controls.Add(this.linkLabel1);
+            this.tabPageGeneral.Controls.Add(this.linkLabelClearWarnings);
             this.tabPageGeneral.Controls.Add(this.groupBox3);
             this.tabPageGeneral.Controls.Add(this.label1);
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 24);
@@ -118,15 +118,16 @@
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // linkLabelClearWarnings
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(88, 349);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(74, 15);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "clicking here";
+            this.linkLabelClearWarnings.AutoSize = true;
+            this.linkLabelClearWarnings.Location = new System.Drawing.Point(88, 349);
+            this.linkLabelClearWarnings.Name = "linkLabelClearWarnings";
+            this.linkLabelClearWarnings.Size = new System.Drawing.Size(74, 15);
+            this.linkLabelClearWarnings.TabIndex = 2;
+            this.linkLabelClearWarnings.TabStop = true;
+            this.linkLabelClearWarnings.Text = "clicking here";
+            this.linkLabelClearWarnings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelClearWarnings_LinkClicked);
             // 
             // groupBox3
             // 
@@ -149,6 +150,14 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Hide warning about conflicting processes when starting";
             this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(18, 334);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(355, 30);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Some notes and warning messages appear only once. You can restore them";
             // 
             // tabPageProgram
             // 
@@ -334,14 +343,6 @@
             this.tabPageAdvanced.Text = "Advanced";
             this.tabPageAdvanced.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(18, 334);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(355, 30);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Some notes and warning messages appear only once. You can restore them";
-            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -399,7 +400,7 @@
         private System.Windows.Forms.RadioButton radioButtonIcon;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelClearWarnings;
         private System.Windows.Forms.Label label1;
     }
 }

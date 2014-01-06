@@ -113,7 +113,7 @@ namespace PrimeComm
                 table.SetRow(l, row);
                 table.SetColumn(l, 0);
 
-                var t = new TextBox { Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Vertical, Height=40 };
+                var t = new TextBox { Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Vertical, Height=38 };
                 t.DataBindings.Add(new Binding("Text", Settings.Default, s, true,DataSourceUpdateMode.OnPropertyChanged));
                 table.Controls.Add(t);
                 table.SetRow(t, row++);
@@ -134,6 +134,12 @@ namespace PrimeComm
         {
             if (e.TabPage == tabPageAdvanced && tabPageAdvanced.Controls.Count == 0)
                 CreateAdvancedSettings(e.TabPage);
+        }
+
+        private void linkLabelClearWarnings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Settings.Default.SkipFullscreenWarning = false;
+            linkLabelClearWarnings.Enabled = false;
         }
     }
 }
