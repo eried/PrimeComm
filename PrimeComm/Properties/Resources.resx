@@ -145,6 +145,9 @@
   <data name="undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\new\undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="editor_send_to_device" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_send_to_device.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="StatusSendingProgress" xml:space="preserve">
     <value>Sending ({0} of {1})...</value>
   </data>
@@ -168,6 +171,9 @@
   </data>
   <data name="SendNotSupported" xml:space="preserve">
     <value>Not supported file</value>
+  </data>
+  <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="editor_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\new\editor_open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,7 +205,7 @@
   <data name="editor_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\new\editor_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\new\print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="editor_send_to_virtual" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_send_to_virtual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

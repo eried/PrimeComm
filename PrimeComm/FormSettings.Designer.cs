@@ -53,6 +53,7 @@
             this.radioButtonPixel = new System.Windows.Forms.RadioButton();
             this.checkBoxImageMethodDimgrobOptimizeSimilar = new System.Windows.Forms.CheckBox();
             this.tabPageAdvanced = new System.Windows.Forms.TabPage();
+            this.checkBoxConversionComment = new System.Windows.Forms.CheckBox();
             this.tabControlPreferences.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -174,12 +175,13 @@
             // 
             this.groupBox2.Controls.Add(this.checkBox2);
             this.groupBox2.Controls.Add(this.checkBoxCompressSpaces);
+            this.groupBox2.Controls.Add(this.checkBoxConversionComment);
             this.groupBox2.Controls.Add(this.checkBoxEnableAdditionalProgramProcessing);
             this.groupBox2.Controls.Add(this.checkBoxRemoveComments);
             this.groupBox2.Controls.Add(this.checkBoxObfuscateVariables);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(367, 172);
+            this.groupBox2.Size = new System.Drawing.Size(367, 179);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Program code";
@@ -343,6 +345,20 @@
             this.tabPageAdvanced.Text = "Advanced";
             this.tabPageAdvanced.UseVisualStyleBackColor = true;
             // 
+            // checkBoxConversionComment
+            // 
+            this.checkBoxConversionComment.AutoSize = true;
+            this.checkBoxConversionComment.Checked = global::PrimeComm.Properties.Settings.Default.AddCommentOnConversion;
+            this.checkBoxConversionComment.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxConversionComment.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "AddCommentOnConversion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxConversionComment.Location = new System.Drawing.Point(15, 147);
+            this.checkBoxConversionComment.Name = "checkBoxConversionComment";
+            this.checkBoxConversionComment.Size = new System.Drawing.Size(337, 19);
+            this.checkBoxConversionComment.TabIndex = 0;
+            this.checkBoxConversionComment.Text = "Add a comment when the file was automatically converted";
+            this.checkBoxConversionComment.UseVisualStyleBackColor = true;
+            this.checkBoxConversionComment.CheckedChanged += new System.EventHandler(this.something_Changed);
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -402,5 +418,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.LinkLabel linkLabelClearWarnings;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxConversionComment;
     }
 }

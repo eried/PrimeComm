@@ -141,6 +141,26 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editor_send_to_device {
+            get {
+                object obj = ResourceManager.GetObject("editor_send_to_device", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editor_send_to_virtual {
+            get {
+                object obj = ResourceManager.GetObject("editor_send_to_virtual", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All supported files|*.hpprgm;*.txt;*.bmp;*.gif;*.jpeg;*.jpg;*.png|HP Prime Program (*.hpprgm)|*.hpprgm|Text files (*.txt)|*.txt|Images|*.bmp;*.gif;*.jpeg;*.jpg;*.png|All files (*.*)|*.*.
         /// </summary>
         internal static string FilterInput {

@@ -60,5 +60,8 @@ BEGIN
 END;
 </Value>
     </Setting>
+    <Setting Name="AddCommentOnConversion" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -238,5 +238,17 @@ namespace PrimeComm.Properties {
                 this["ProgramTemplate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AddCommentOnConversion {
+            get {
+                return ((bool)(this["AddCommentOnConversion"]));
+            }
+            set {
+                this["AddCommentOnConversion"] = value;
+            }
+        }
     }
 }
