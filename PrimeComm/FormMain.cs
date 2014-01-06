@@ -487,7 +487,7 @@ namespace PrimeComm
 
         private void newProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var n = new FormEditor(this);
+            var n = new FormEditor(this, null);
             Editors.Add(n);
             n.Show();
         }
@@ -548,7 +548,7 @@ namespace PrimeComm
 
         private void newFromTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var n = new FormEditor(this, null);
+            var n = new FormEditor(this);
             Editors.Add(n);
             n.Show();
         }

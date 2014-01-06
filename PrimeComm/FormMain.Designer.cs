@@ -41,6 +41,7 @@
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newFromTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.browseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exploreVirtualHPPrimeWorkingFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +74,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogProgram = new System.Windows.Forms.OpenFileDialog();
-            this.newFromTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             this.menuStripMain.SuspendLayout();
@@ -201,6 +201,13 @@
             this.newProgramToolStripMenuItem.Text = "&New program...";
             this.newProgramToolStripMenuItem.Click += new System.EventHandler(this.newProgramToolStripMenuItem_Click);
             // 
+            // newFromTemplateToolStripMenuItem
+            // 
+            this.newFromTemplateToolStripMenuItem.Name = "newFromTemplateToolStripMenuItem";
+            this.newFromTemplateToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.newFromTemplateToolStripMenuItem.Text = "New blank program...";
+            this.newFromTemplateToolStripMenuItem.Click += new System.EventHandler(this.newFromTemplateToolStripMenuItem_Click);
+            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_open;
@@ -260,7 +267,7 @@
             // 
             this.sendToCustomToolStripMenuItem.Name = "sendToCustomToolStripMenuItem";
             this.sendToCustomToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
-            this.sendToCustomToolStripMenuItem.Text = "&Browse...";
+            this.sendToCustomToolStripMenuItem.Text = "&Browse destination...";
             this.sendToCustomToolStripMenuItem.Click += new System.EventHandler(this.sendToCustomToolStripMenuItem_Click_1);
             // 
             // saveFromClipboardToolStripMenuItem
@@ -284,7 +291,7 @@
             // 
             this.browseToolStripMenuItem.Name = "browseToolStripMenuItem";
             this.browseToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
-            this.browseToolStripMenuItem.Text = "&Browse...";
+            this.browseToolStripMenuItem.Text = "&Browse destination...";
             this.browseToolStripMenuItem.Click += new System.EventHandler(this.browseToolStripMenuItem_Click);
             // 
             // convertFileToolStripMenuItem
@@ -438,13 +445,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // newFromTemplateToolStripMenuItem
-            // 
-            this.newFromTemplateToolStripMenuItem.Name = "newFromTemplateToolStripMenuItem";
-            this.newFromTemplateToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.newFromTemplateToolStripMenuItem.Text = "New from &template...";
-            this.newFromTemplateToolStripMenuItem.Click += new System.EventHandler(this.newFromTemplateToolStripMenuItem_Click);
             // 
             // FormMain
             // 

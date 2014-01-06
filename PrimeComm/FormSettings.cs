@@ -14,9 +14,12 @@ namespace PrimeComm
 {
     public partial class FormSettings : Form
     {
-        public FormSettings()
+        public FormSettings(int startTab = 0)
         {
             InitializeComponent();
+
+            if (startTab < tabControlPreferences.TabCount)
+                tabControlPreferences.SelectedIndex = startTab;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

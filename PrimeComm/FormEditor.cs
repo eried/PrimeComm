@@ -43,9 +43,11 @@ namespace PrimeComm
             }
 
             UpdateGui();
-        }
 
-        
+            // Sorting the toolstrips
+            toolStripMain.Location = new Point(0, menuStrip1.Height);
+            toolStripSendTo.Location = new Point(toolStripMain.Width + 3, menuStrip1.Height);
+        }
 
         private void OpenFile(string fileName)
         {
@@ -151,6 +153,8 @@ namespace PrimeComm
 
             pasteToolStripMenuItem.Enabled = scintillaEditor.Clipboard.CanPaste;
             toolStripButtonPaste.Enabled = scintillaEditor.Clipboard.CanPaste;
+
+            deleteToolStripMenuItem.Enabled = scintillaEditor.Selection.Length > 0;
 
             sendToDeviceToolStripMenuItem.Enabled = _parent.IsDeviceConnected && !_parent.IsBusy;
             toolStripButtonSendToDevice.Enabled = sendToDeviceToolStripMenuItem.Enabled;
@@ -299,7 +303,7 @@ namespace PrimeComm
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            New();
+            New(true);
         }
 
         private void New(bool template=false)
@@ -328,7 +332,12 @@ namespace PrimeComm
 
         private void newFromtemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            New(true);
+            New();
+        }
+
+        private void programPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormSettings(1).ShowDialog();
         }
     }
 }
