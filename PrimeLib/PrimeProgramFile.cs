@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Text;
@@ -108,6 +109,19 @@ namespace PrimeLib
 
                             if (IsValid)
                             {
+                                // Clean headers
+                                foreach (var h in new[] {new[] {0xfe, 0xa9, 0x1, 0x0}})
+                                {
+                                    var f = start + h.Length;
+                                    var m = 0;
+                                    for(var t=start;t<f;t++)
+                                        if (b[t] == h[t - start])
+                                            m++;
+
+                                    if (m == h.Length)
+                                        start += h.Length;
+                                }
+
                                 Data = b.SubArray(start, finish - start);
                                 IsConversion = true;
                             }
