@@ -53,12 +53,14 @@
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToVirtualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.programPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
@@ -76,8 +78,6 @@
             this.toolStripSendTo = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSendToDevice = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSendToVirtual = new System.Windows.Forms.ToolStripButton();
-            this.programPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -318,6 +318,11 @@
             this.deleteToolStripMenuItem.Text = "&Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(161, 6);
+            // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
@@ -341,6 +346,7 @@
             // 
             // sendToDeviceToolStripMenuItem
             // 
+            this.sendToDeviceToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
             this.sendToDeviceToolStripMenuItem.Name = "sendToDeviceToolStripMenuItem";
             this.sendToDeviceToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
             this.sendToDeviceToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
@@ -349,16 +355,12 @@
             // 
             // sendToVirtualToolStripMenuItem
             // 
+            this.sendToVirtualToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_send_to_virtual;
             this.sendToVirtualToolStripMenuItem.Name = "sendToVirtualToolStripMenuItem";
             this.sendToVirtualToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
             this.sendToVirtualToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.sendToVirtualToolStripMenuItem.Text = "&Virtual HP Prime working folder";
             this.sendToVirtualToolStripMenuItem.Click += new System.EventHandler(this.sendToVirtualToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(263, 6);
             // 
             // browseToolStripMenuItem
             // 
@@ -366,6 +368,18 @@
             this.browseToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.browseToolStripMenuItem.Text = "Browse destination...";
             this.browseToolStripMenuItem.Click += new System.EventHandler(this.browseToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(263, 6);
+            // 
+            // programPreferencesToolStripMenuItem
+            // 
+            this.programPreferencesToolStripMenuItem.Name = "programPreferencesToolStripMenuItem";
+            this.programPreferencesToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.programPreferencesToolStripMenuItem.Text = "&Program code preferences...";
+            this.programPreferencesToolStripMenuItem.Click += new System.EventHandler(this.programPreferencesToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -377,9 +391,10 @@
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -538,18 +553,6 @@
             this.toolStripButtonSendToVirtual.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSendToVirtual.Text = "Send to Virtual HP Prime working folder (F10)";
             this.toolStripButtonSendToVirtual.Click += new System.EventHandler(this.sendToVirtualToolStripMenuItem_Click);
-            // 
-            // programPreferencesToolStripMenuItem
-            // 
-            this.programPreferencesToolStripMenuItem.Name = "programPreferencesToolStripMenuItem";
-            this.programPreferencesToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.programPreferencesToolStripMenuItem.Text = "&Program code preferences...";
-            this.programPreferencesToolStripMenuItem.Click += new System.EventHandler(this.programPreferencesToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(161, 6);
             // 
             // FormEditor
             // 

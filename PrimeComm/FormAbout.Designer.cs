@@ -50,9 +50,9 @@
             // buttonClose
             // 
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonClose.Location = new System.Drawing.Point(400, 356);
+            this.buttonClose.Location = new System.Drawing.Point(400, 355);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(75, 24);
             this.buttonClose.TabIndex = 2;
             this.buttonClose.Text = "&Close";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -170,7 +170,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(455, 140);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Components";
+            this.tabPage2.Text = "Third party";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FormAbout

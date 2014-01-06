@@ -22,9 +22,13 @@ namespace PrimeComm
 
             // Fill details 
             //textBoxAbout.AppendText(String.Format("{0} version {1} build {2}{3}{3}", Application.ProductName, v.ToString(2), v.Build, Environment.NewLine));
-            textBoxAbout.AppendText(String.Join(Environment.NewLine,new[]{"Projects used by this application:","Scintilla","http://scintilla.org/","",
-                "Scintilla.Net","http://scintillanet.codeplex.com/","",
-                "HidLibrary","https://github.com/mikeobrien/HidLibrary/"}));
+            textBoxAbout.AppendText(String.Join(Environment.NewLine, new[]{
+                "Main icon by dAKirby309","http://dakirby309.deviantart.com","",
+                "About image effects by Maurizio Pigliacampi","https://www.facebook.com/pigliacampi","",
+                "Scintilla","http://scintilla.org","",
+                "Scintilla.Net","http://scintillanet.codeplex.com","",
+                "HidLibrary","https://github.com/mikeobrien/HidLibrary","",
+                "Other icons from VisualPharm","http://www.visualpharm.com"}));
         }
 
         private void linkLabelOpenLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

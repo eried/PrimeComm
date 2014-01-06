@@ -135,6 +135,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
+    <None Include="img\new\info.png" />
+    <None Include="img\new\help.png" />
     <None Include="img\new\editor_send_to_virtual.png" />
     <None Include="img\new\editor_send_to_device.png" />
     <None Include="img\new\print.png" />

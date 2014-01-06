@@ -105,7 +105,7 @@
             // pictureBoxStatus
             // 
             this.pictureBoxStatus.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxStatus.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxStatus.Image")));
+            this.pictureBoxStatus.Image = global::PrimeComm.Properties.Resources.disconnected;
             this.pictureBoxStatus.Location = new System.Drawing.Point(3, 19);
             this.pictureBoxStatus.Name = "pictureBoxStatus";
             this.pictureBoxStatus.Size = new System.Drawing.Size(76, 71);
@@ -115,9 +115,9 @@
             // 
             // buttonReceive
             // 
-            this.buttonReceive.Location = new System.Drawing.Point(12, 135);
+            this.buttonReceive.Location = new System.Drawing.Point(12, 138);
             this.buttonReceive.Name = "buttonReceive";
-            this.buttonReceive.Size = new System.Drawing.Size(79, 23);
+            this.buttonReceive.Size = new System.Drawing.Size(79, 24);
             this.buttonReceive.TabIndex = 1;
             this.buttonReceive.Text = "&Receive";
             this.buttonReceive.UseVisualStyleBackColor = true;
@@ -125,19 +125,22 @@
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(97, 135);
+            this.buttonSend.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
+            this.buttonSend.Location = new System.Drawing.Point(97, 138);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(79, 23);
+            this.buttonSend.Size = new System.Drawing.Size(79, 24);
             this.buttonSend.TabIndex = 1;
             this.buttonSend.Text = "&Send";
+            this.buttonSend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // buttonCaptureScreen
             // 
-            this.buttonCaptureScreen.Location = new System.Drawing.Point(182, 135);
+            this.buttonCaptureScreen.Location = new System.Drawing.Point(182, 138);
             this.buttonCaptureScreen.Name = "buttonCaptureScreen";
-            this.buttonCaptureScreen.Size = new System.Drawing.Size(107, 23);
+            this.buttonCaptureScreen.Size = new System.Drawing.Size(107, 24);
             this.buttonCaptureScreen.TabIndex = 1;
             this.buttonCaptureScreen.Text = "&Screen capture";
             this.buttonCaptureScreen.UseVisualStyleBackColor = true;
@@ -257,6 +260,7 @@
             // 
             // sendToEmulatorKitToolStripMenuItem
             // 
+            this.sendToEmulatorKitToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_send_to_virtual;
             this.sendToEmulatorKitToolStripMenuItem.Name = "sendToEmulatorKitToolStripMenuItem";
             this.sendToEmulatorKitToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
             this.sendToEmulatorKitToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
@@ -281,6 +285,7 @@
             // 
             // emulatorToolStripMenuItem
             // 
+            this.emulatorToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_send_to_virtual;
             this.emulatorToolStripMenuItem.Name = "emulatorToolStripMenuItem";
             this.emulatorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F10)));
             this.emulatorToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
@@ -370,6 +375,7 @@
             // 
             // sendFilesToolStripMenuItem
             // 
+            this.sendFilesToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
             this.sendFilesToolStripMenuItem.Name = "sendFilesToolStripMenuItem";
             this.sendFilesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
             this.sendFilesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
@@ -440,9 +446,10 @@
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -450,7 +457,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 170);
+            this.ClientSize = new System.Drawing.Size(301, 174);
             this.Controls.Add(this.buttonCaptureScreen);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.buttonReceive);

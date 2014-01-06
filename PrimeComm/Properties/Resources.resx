@@ -154,6 +154,9 @@
   <data name="connected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\new\connected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="editor_send_to_virtual" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\editor_send_to_virtual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="StatusSending" xml:space="preserve">
     <value>Sending files...</value>
   </data>
@@ -187,6 +190,9 @@
   <data name="MsgErrorTitle" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="editor_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\new\editor_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,7 +211,7 @@
   <data name="editor_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\new\editor_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="editor_send_to_virtual" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\new\editor_send_to_virtual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\new\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

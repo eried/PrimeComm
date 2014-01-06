@@ -110,7 +110,7 @@
             this.buttonCaptureFrame.Image = global::PrimeComm.Properties.Resources.frame;
             this.buttonCaptureFrame.Location = new System.Drawing.Point(93, 3);
             this.buttonCaptureFrame.Name = "buttonCaptureFrame";
-            this.buttonCaptureFrame.Size = new System.Drawing.Size(75, 23);
+            this.buttonCaptureFrame.Size = new System.Drawing.Size(75, 24);
             this.buttonCaptureFrame.TabIndex = 2;
             this.buttonCaptureFrame.Text = "&Frame";
             this.buttonCaptureFrame.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -122,7 +122,7 @@
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonClose.Location = new System.Drawing.Point(379, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(75, 24);
             this.buttonClose.TabIndex = 0;
             this.buttonClose.Text = "&Close";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             this.buttonCaptureStream.Image = global::PrimeComm.Properties.Resources.stream;
             this.buttonCaptureStream.Location = new System.Drawing.Point(174, 3);
             this.buttonCaptureStream.Name = "buttonCaptureStream";
-            this.buttonCaptureStream.Size = new System.Drawing.Size(75, 23);
+            this.buttonCaptureStream.Size = new System.Drawing.Size(75, 24);
             this.buttonCaptureStream.TabIndex = 3;
             this.buttonCaptureStream.Text = "&Stream";
             this.buttonCaptureStream.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -143,7 +143,7 @@
             this.buttonFullscreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFullscreen.Location = new System.Drawing.Point(298, 3);
             this.buttonFullscreen.Name = "buttonFullscreen";
-            this.buttonFullscreen.Size = new System.Drawing.Size(75, 23);
+            this.buttonFullscreen.Size = new System.Drawing.Size(75, 24);
             this.buttonFullscreen.TabIndex = 4;
             this.buttonFullscreen.Text = "F&ullscreen";
             this.buttonFullscreen.UseVisualStyleBackColor = true;
@@ -153,7 +153,7 @@
             // 
             this.buttonBrowse.Location = new System.Drawing.Point(12, 3);
             this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowse.Size = new System.Drawing.Size(75, 24);
             this.buttonBrowse.TabIndex = 1;
             this.buttonBrowse.Text = "Save &to...";
             this.buttonBrowse.UseVisualStyleBackColor = true;
