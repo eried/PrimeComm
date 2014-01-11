@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -37,7 +39,7 @@ namespace PrimeLib
         {
             const int width = 320, height = 240;
             var mode = settings.GetSetting("ImageMethod", ImageProcessingMode.DimgrobPieces);
-            var img = ResizeImage(Image.FromFile(path, true), width, height, mode == ImageProcessingMode.Pixels || mode == ImageProcessingMode.DimgrobPieces);
+            var img = ResizeImage(Image.FromFile(path, true), width, height, mode == ImageProcessingMode.Pixels || mode == ImageProcessingMode.DimgrobPieces, settings);
             const string defaultColor = "000000"; // RRGGBB
 
             var p = new StringBuilder("EXPORT " + name + "()");
@@ -55,7 +57,7 @@ namespace PrimeLib
 
                     var rgbValuesPixels = new byte[totalBytesPixels];
 
-                    // Copy the RGB values into the array.
+                    // Copy the RGB values into the array
                     Marshal.Copy(bmpDataPixels.Scan0, rgbValuesPixels, 0, totalBytesPixels);
 
 
@@ -198,7 +200,7 @@ namespace PrimeLib
         /// <param name="maxHeight">Canvas height</param>
         /// <param name="returnIncludesCanvas">If the returned image should include the canvas padding</param>
         /// <returns>Resized image</returns>
-        public static Bitmap ResizeImage(Image image, int maxWidth, int maxHeight, bool returnIncludesCanvas=true)
+        public static Bitmap ResizeImage(Image image, int maxWidth, int maxHeight, bool returnIncludesCanvas=true, PrimeParameters settings = null)
         {
             var newWidth = image.Width;
             var newHeight = image.Height;
@@ -213,18 +215,40 @@ namespace PrimeLib
                 newHeight = (int) (image.Height*ratio);
             }
 
+            Bitmap newImage;
             if (returnIncludesCanvas)
             {
-                var newImage = new Bitmap(maxWidth, maxHeight);
+                newImage = new Bitmap(maxWidth, maxHeight);
                 Graphics.FromImage(newImage).DrawImage(image, (maxWidth - newWidth)/2, (maxHeight - newHeight)/2, newWidth, newHeight);
-                return newImage;
             }
             else
             {
-                var newImage = new Bitmap(newWidth, newHeight);
+                newImage = new Bitmap(newWidth, newHeight);
                 Graphics.FromImage(newImage).DrawImage(image, 0,0, newWidth, newHeight);
-                return newImage;
             }
+
+            // Dithering
+            //targetImage = 
+             
+            try
+            {
+                if (settings != null)
+                {
+                    if (Environment.OSVersion.Version.Major >= 6)
+                    {
+                        var ditherMethod = settings.GetSetting("ImageDitheringMethod", DitherType.DitherTypeNone);
+
+                        // Dithering only works with Windows Vista or newer due GDI+ 1.1
+                        if (ditherMethod != DitherType.DitherTypeNone)
+                            newImage.ChangeTo16bppRgb555(ditherMethod);
+                            //newImage.ChangeToSpecialIndexed(PaletteType.PaletteTypeOptimal, ditherMethod);
+                    }
+                }
+            }
+            catch
+            {
+            }
+            return newImage;
         }
 
         /// <summary>
