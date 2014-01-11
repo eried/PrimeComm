@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,14 @@ namespace PrimeComm
         public FormSettings(int startTab = 0)
         {
             InitializeComponent();
+
+            if (Environment.OSVersion.Version.Major < 6)
+                groupBoxDithering.Visible = false;
+
+            foreach (var d in Enum.GetValues(typeof(DitherType)))
+                comboBoxImageDitheringMethod.Items.Add(d);
+
+            comboBoxImageDitheringMethod.SelectedItem = Settings.Default.ImageDitheringMethod;
 
             if (startTab < tabControlPreferences.TabCount)
                 tabControlPreferences.SelectedIndex = startTab;
@@ -61,7 +70,7 @@ namespace PrimeComm
             checkBoxObfuscateVariables.Enabled = checkBoxEnableAdditionalProgramProcessing.Checked;
             checkBoxRemoveComments.Enabled = checkBoxEnableAdditionalProgramProcessing.Checked;
 
-            // Image options
+            // Image output
             if (radioButtonPixel.Checked)
                 Settings.Default.ImageMethod = ImageProcessingMode.Pixels;
             else if (radioButtonIcon.Checked)
@@ -80,7 +89,7 @@ namespace PrimeComm
 
         private void LoadSettings()
         {
-            // Load settings
+            // Output method
             switch (Settings.Default.ImageMethod)
             {
                 case ImageProcessingMode.Pixels:
@@ -95,6 +104,9 @@ namespace PrimeComm
                     radioButtonDimgrob.Checked = true;
                     break;
             }
+
+            // Image reduction
+            comboBoxImageDitheringMethod.SelectedItem = Settings.Default.ImageDitheringMethod;
         }
 
         private void CreateAdvancedSettings(TabPage tabPage)
@@ -143,6 +155,16 @@ namespace PrimeComm
         {
             Settings.Default.SkipFullscreenWarning = false;
             linkLabelClearWarnings.Enabled = false;
+        }
+
+        private void comboBoxImageDitheringMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Settings.Default.ImageDitheringMethod = (DitherType)comboBoxImageDitheringMethod.SelectedItem;
+        }
+
+        private void linkLabelDitheringInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://msdn.microsoft.com/en-us/library/windows/desktop/ms534106(v=vs.85).aspx");
         }
     }
 }

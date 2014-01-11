@@ -262,5 +262,17 @@ namespace PrimeComm.Properties {
                 this["EditorFontSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DitherTypeNone")]
+        public global::PrimeLib.DitherType ImageDitheringMethod {
+            get {
+                return ((global::PrimeLib.DitherType)(this["ImageDitheringMethod"]));
+            }
+            set {
+                this["ImageDitheringMethod"] = value;
+            }
+        }
     }
 }

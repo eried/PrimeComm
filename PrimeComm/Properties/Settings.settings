@@ -66,5 +66,8 @@ END;
     <Setting Name="EditorFontSize" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
+    <Setting Name="ImageDitheringMethod" Type="PrimeLib.DitherType" Scope="User">
+      <Value Profile="(Default)">DitherTypeNone</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
