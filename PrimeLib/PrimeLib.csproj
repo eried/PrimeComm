@@ -45,6 +45,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DataReceivedEventArgs.cs" />
     <Compile Include="Destinations.cs" />
+    <Compile Include="GdipEffect.cs" />
     <Compile Include="PrimeCalculator.cs" />
     <Compile Include="PrimeParameters.cs" />
     <Compile Include="PrimeProgramFile.cs" />
