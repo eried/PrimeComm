@@ -225,6 +225,7 @@
             // 
             // recentToolStripMenuItem
             // 
+            this.recentToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.recent;
             this.recentToolStripMenuItem.Name = "recentToolStripMenuItem";
             this.recentToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.recentToolStripMenuItem.Text = "&Recent";
