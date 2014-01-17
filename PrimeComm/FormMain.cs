@@ -36,6 +36,9 @@ namespace PrimeComm
             Editors = new List<FormEditor>();
             InitializeComponent();
             InitializeGui();
+
+            // Recent files
+            Utilities.UpdateRecentFiles();
         }
 
         public List<FormEditor> Editors { get; private  set; }
@@ -534,11 +537,17 @@ namespace PrimeComm
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialogProgram.ShowDialog() == DialogResult.OK)
-            {
-                var n = new FormEditor(this, openFileDialogProgram.FileName);
-                Editors.Add(n);
-                n.Show();
-            }
+                OpenFile(openFileDialogProgram.FileName);
+        }
+
+        private void OpenFile(string filename)
+        {
+            UseWaitCursor = true;
+            Application.DoEvents();
+            var n = new FormEditor(this, filename);
+            Editors.Add(n);
+            n.Show();
+            UseWaitCursor = false;
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -555,6 +564,18 @@ namespace PrimeComm
             var n = new FormEditor(this);
             Editors.Add(n);
             n.Show();
+        }
+
+        private void fileToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            recentToolStripMenuItem.DropDown = Utilities.RecentFiles;
+            recentToolStripMenuItem.Visible = recentToolStripMenuItem.HasDropDownItems;
+        }
+
+        private void recentToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            fileToolStripMenuItem.HideDropDown();
+            OpenFile(e.ClickedItem.Tag as string);
         }
     }
 }
