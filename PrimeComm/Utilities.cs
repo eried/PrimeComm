@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -74,7 +75,7 @@ namespace PrimeComm
 
         internal static void UpdateRecentFiles()
         {
-            RecentFiles = new ToolStripDropDown();
+            RecentFiles = new ToolStripDropDown() { LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow};
 
             if (Settings.Default.RecentOpenedFiles != null)
             {
@@ -83,10 +84,10 @@ namespace PrimeComm
                     Settings.Default.RecentOpenedFiles.RemoveAt(0);
 
                 var n = Settings.Default.RecentOpenedFiles.Count;
-                foreach (String m in Settings.Default.RecentOpenedFiles)
+                foreach (var m in from string m in Settings.Default.RecentOpenedFiles where File.Exists(m) select m)
                 {
-                    if (File.Exists(m))
-                        RecentFiles.Items.Insert(0, new ToolStripMenuItem("&"+(n--) + " "+ m) {Tag = m});
+                    RecentFiles.Items.Insert(0, new ToolStripMenuItem("&"+n-- + ": "+ m) {Tag = m,
+                        Alignment = ToolStripItemAlignment.Left,ShowShortcutKeys = true,TextAlign = ContentAlignment.MiddleLeft});
                 }
 
                 Settings.Default.Save();
