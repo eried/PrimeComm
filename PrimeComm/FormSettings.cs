@@ -38,6 +38,7 @@ namespace PrimeComm
 
         private void SaveAndExit()
         {
+            Utilities.UpdateRecentFiles();
             Settings.Default.Save();
             DialogResult = DialogResult.OK;
         }
@@ -165,6 +166,12 @@ namespace PrimeComm
         private void linkLabelDitheringInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("http://msdn.microsoft.com/en-us/library/windows/desktop/ms534106(v=vs.85).aspx");
+        }
+
+        private void linkLabelClearRecent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Settings.Default.RecentOpenedFiles.Clear();
+            linkLabelClearRecent.Enabled = false;
         }
     }
 }
