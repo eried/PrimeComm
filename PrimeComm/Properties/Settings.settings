@@ -69,5 +69,11 @@ END;
     <Setting Name="ImageDitheringMethod" Type="PrimeLib.DitherType" Scope="User">
       <Value Profile="(Default)">DitherTypeNone</Value>
     </Setting>
+    <Setting Name="RecentOpenedFiles" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RecentFilesMaximum" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

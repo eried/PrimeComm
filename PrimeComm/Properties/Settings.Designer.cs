@@ -274,5 +274,28 @@ namespace PrimeComm.Properties {
                 this["ImageDitheringMethod"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection RecentOpenedFiles {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["RecentOpenedFiles"]));
+            }
+            set {
+                this["RecentOpenedFiles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public decimal RecentFilesMaximum {
+            get {
+                return ((decimal)(this["RecentFilesMaximum"]));
+            }
+            set {
+                this["RecentFilesMaximum"] = value;
+            }
+        }
     }
 }
