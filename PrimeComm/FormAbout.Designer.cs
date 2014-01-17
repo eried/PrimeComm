@@ -129,6 +129,7 @@
             this.textBoxAbout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxAbout.Size = new System.Drawing.Size(449, 140);
             this.textBoxAbout.TabIndex = 4;
+            this.textBoxAbout.Text = resources.GetString("textBoxAbout.Text");
             // 
             // pictureBox1
             // 
