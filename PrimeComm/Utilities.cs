@@ -62,5 +62,39 @@ namespace PrimeComm
             else
                 throw new Exception("Nothing to save");
         }
+
+        internal static void AppendToRecentFiles(string fileName)
+        {
+            if (Settings.Default.RecentOpenedFiles.Contains(fileName))
+                Settings.Default.RecentOpenedFiles.Remove(fileName);
+
+            Settings.Default.RecentOpenedFiles.Add(fileName);
+            UpdateRecentFiles();
+        }
+
+        internal static void UpdateRecentFiles()
+        {
+            RecentFiles = new ToolStripDropDown();
+
+            if (Settings.Default.RecentOpenedFiles != null)
+            {
+                while (Settings.Default.RecentOpenedFiles.Count > Settings.Default.RecentFilesMaximum &&
+                       Settings.Default.RecentOpenedFiles.Count > 0)
+                    Settings.Default.RecentOpenedFiles.RemoveAt(0);
+
+                var n = Settings.Default.RecentOpenedFiles.Count;
+                foreach (String m in Settings.Default.RecentOpenedFiles)
+                {
+                    if (File.Exists(m))
+                        RecentFiles.Items.Insert(0, new ToolStripMenuItem("&"+(n--) + " "+ m) {Tag = m});
+                }
+
+                Settings.Default.Save();
+            }
+            else
+                Settings.Default.RecentOpenedFiles = new System.Collections.Specialized.StringCollection();
+        }
+
+        public static ToolStripDropDown RecentFiles { get; private set; }
     }
 }
