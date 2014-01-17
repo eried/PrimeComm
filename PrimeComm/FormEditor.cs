@@ -39,7 +39,7 @@ namespace PrimeComm
                 New(true);
             else
             {
-                if (!String.IsNullOrEmpty(openFile) && File.Exists(openFile))
+                if (!String.IsNullOrEmpty(openFile))
                     OpenFile(openFile);
             }
 
@@ -87,21 +87,34 @@ namespace PrimeComm
             {
                 try
                 {
-                    var tmp = new PrimeProgramFile(fileName, _parent.Parameters);
-                    _currentName = tmp.SafeName;
-                    _currentFile = String.Empty;
-                    scintillaEditor.Text = new PrimeUsbData(_currentName, tmp.Data).ToString();
-
-                    if (tmp.IsConversion)
+                    if (!File.Exists(fileName))
                     {
-                        if (Settings.Default.AddCommentOnConversion)
-                            scintillaEditor.InsertText(0,"// Converted by PrimeComm from " + fileName + Environment.NewLine);
+                        MessageBox.Show("Can't load '" + fileName + "'", "File does not exist", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                        Utilities.UpdateRecentFiles();
                     }
                     else
-                        _currentFile = fileName;
+                    {
+                        var tmp = new PrimeProgramFile(fileName, _parent.Parameters);
+                        _currentName = tmp.SafeName;
+                        _currentFile = String.Empty;
+                        scintillaEditor.Text = new PrimeUsbData(_currentName, tmp.Data).ToString();
 
-                    _dirty = false;
-                    scintillaEditor.UndoRedo.EmptyUndoBuffer();
+                        if (tmp.IsConversion)
+                        {
+                            if (Settings.Default.AddCommentOnConversion)
+                                scintillaEditor.InsertText(0,
+                                    "// Converted by PrimeComm from " + fileName + Environment.NewLine);
+                        }
+                        else
+                            _currentFile = fileName;
+
+                        _dirty = false;
+                        scintillaEditor.UndoRedo.EmptyUndoBuffer();
+
+                        // Recent files
+                        Utilities.AppendToRecentFiles(fileName);
+                    }
                 }
                 catch
                 {
@@ -150,6 +163,9 @@ namespace PrimeComm
                 if (!String.IsNullOrEmpty(_currentFile))
                 {
                     new PrimeUsbData(CurrentProgramName, Encoding.Unicode.GetBytes(scintillaEditor.Text)).Save(_currentFile);
+
+                    // Recent files
+                    Utilities.AppendToRecentFiles(_currentFile);
                     _dirty = false;
                     UpdateGui();
                     return true;
@@ -379,6 +395,29 @@ namespace PrimeComm
         private void programPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenSettings(1);
+        }
+
+        private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            scintillaEditor.FindReplace.ShowReplace();
+        }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            scintillaEditor.FindReplace.ShowFind();
+        }
+
+        private void programToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            recentToolStripMenuItem.DropDown = Utilities.RecentFiles;
+            recentToolStripMenuItem.Visible = recentToolStripMenuItem.HasDropDownItems;
+        }
+
+        private void recentToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            var f = e.ClickedItem.Tag as string;
+            if (f!=null)
+                OpenFile(f);
         }
     }
 }
