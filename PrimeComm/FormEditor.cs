@@ -71,7 +71,7 @@ namespace PrimeComm
                     //foreach (StylesCommon s in Enum.GetValues(typeof (StylesCommon)))
                     foreach (var s in scintillaEditor.Lexing.StyleNameMap.Keys)
                     {
-                        scintillaEditor.Styles[s].Font = scintillaEditor.Font;
+                        scintillaEditor.Styles[s].Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize, scintillaEditor.Styles[s].Font.Style);
                     }
                     break;
                 }
@@ -110,6 +110,7 @@ namespace PrimeComm
                             _currentFile = fileName;
 
                         _dirty = false;
+
                         scintillaEditor.UndoRedo.EmptyUndoBuffer();
 
                         // Recent files
@@ -210,6 +211,10 @@ namespace PrimeComm
             toolStripButtonSendToVirtual.Enabled = sendToVirtualToolStripMenuItem.Enabled;
 
             Text = String.Format("{2}{0}: {1}",CurrentProgramName, EditorName, _dirty ? "* ":string.Empty);
+
+            scintillaEditor.LineWrapping.Mode = Settings.Default.EditorWordWrap
+                ? LineWrappingMode.Word
+                : LineWrappingMode.None;
         }
 
         public String CurrentProgramName

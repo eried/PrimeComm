@@ -59,6 +59,23 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatselectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.commentSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uncommentSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+            this.insertBEGINENDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertIFTHENELSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertCASEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertFORSTEPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertWHILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertREPEATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.editInsertTemplatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToVirtualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +83,9 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.programPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hPPPLCheatSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.programmingTutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
@@ -82,24 +102,6 @@
             this.toolStripSendTo = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSendToDevice = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSendToVirtual = new System.Windows.Forms.ToolStripButton();
-            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formatDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formatselectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
-            this.commentSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uncommentSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
-            this.insertBEGINENDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertIFTHENELSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertCASEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertFORSTEPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertWHILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertREPEATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editInsertTemplatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
-            this.hPPPLCheatSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.programmingTutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -139,10 +141,15 @@
             this.scintillaEditor.Indentation.TabWidth = 4;
             this.scintillaEditor.Indentation.UseTabs = false;
             this.scintillaEditor.IsBraceMatching = true;
+            this.scintillaEditor.Lexing.Lexer = ScintillaNET.Lexer.Pascal;
+            this.scintillaEditor.Lexing.LexerName = "pascal";
+            this.scintillaEditor.Lexing.LineCommentPrefix = "//";
+            this.scintillaEditor.Lexing.StreamCommentPrefix = "";
+            this.scintillaEditor.Lexing.StreamCommentSufix = "";
             this.scintillaEditor.Location = new System.Drawing.Point(0, 0);
             this.scintillaEditor.Margins.Margin0.Width = 20;
             this.scintillaEditor.Name = "scintillaEditor";
-            this.scintillaEditor.Scrolling.HorizontalWidth = 400;
+            this.scintillaEditor.Scrolling.HorizontalWidth = 800;
             this.scintillaEditor.Size = new System.Drawing.Size(712, 487);
             this.scintillaEditor.TabIndex = 0;
             this.scintillaEditor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
@@ -154,6 +161,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.programToolStripMenuItem,
             this.editToolStripMenuItem,
+            this.viewToolStripMenuItem,
             this.languageToolStripMenuItem,
             this.actionsToolStripMenuItem,
             this.helpToolStripMenuItem});
@@ -391,6 +399,126 @@
             this.replaceToolStripMenuItem.Text = "&Replace...";
             this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wordWrapToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "&View";
+            this.viewToolStripMenuItem.Visible = false;
+            // 
+            // wordWrapToolStripMenuItem
+            // 
+            this.wordWrapToolStripMenuItem.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
+            this.wordWrapToolStripMenuItem.CheckOnClick = true;
+            this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.wordWrapToolStripMenuItem.Text = "&Word wrap";
+            // 
+            // languageToolStripMenuItem
+            // 
+            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formatDocumentToolStripMenuItem,
+            this.formatselectionToolStripMenuItem,
+            this.toolStripMenuItem8,
+            this.commentSelectionToolStripMenuItem,
+            this.uncommentSelectionToolStripMenuItem,
+            this.toolStripMenuItem9,
+            this.insertBEGINENDToolStripMenuItem,
+            this.insertIFTHENELSEToolStripMenuItem,
+            this.insertCASEToolStripMenuItem,
+            this.insertFORSTEPToolStripMenuItem,
+            this.insertWHILEToolStripMenuItem,
+            this.insertREPEATToolStripMenuItem,
+            this.toolStripMenuItem10,
+            this.editInsertTemplatesToolStripMenuItem});
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.languageToolStripMenuItem.Text = "&Language";
+            this.languageToolStripMenuItem.Visible = false;
+            // 
+            // formatDocumentToolStripMenuItem
+            // 
+            this.formatDocumentToolStripMenuItem.Name = "formatDocumentToolStripMenuItem";
+            this.formatDocumentToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.formatDocumentToolStripMenuItem.Text = "&Format document";
+            // 
+            // formatselectionToolStripMenuItem
+            // 
+            this.formatselectionToolStripMenuItem.Name = "formatselectionToolStripMenuItem";
+            this.formatselectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.formatselectionToolStripMenuItem.Text = "Format &selection";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(228, 6);
+            // 
+            // commentSelectionToolStripMenuItem
+            // 
+            this.commentSelectionToolStripMenuItem.Name = "commentSelectionToolStripMenuItem";
+            this.commentSelectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.commentSelectionToolStripMenuItem.Text = "&Comment selection";
+            // 
+            // uncommentSelectionToolStripMenuItem
+            // 
+            this.uncommentSelectionToolStripMenuItem.Name = "uncommentSelectionToolStripMenuItem";
+            this.uncommentSelectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.uncommentSelectionToolStripMenuItem.Text = "Uncomment selection";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(228, 6);
+            // 
+            // insertBEGINENDToolStripMenuItem
+            // 
+            this.insertBEGINENDToolStripMenuItem.Name = "insertBEGINENDToolStripMenuItem";
+            this.insertBEGINENDToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.insertBEGINENDToolStripMenuItem.Text = "Insert &BEGIN ... END";
+            // 
+            // insertIFTHENELSEToolStripMenuItem
+            // 
+            this.insertIFTHENELSEToolStripMenuItem.Name = "insertIFTHENELSEToolStripMenuItem";
+            this.insertIFTHENELSEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.insertIFTHENELSEToolStripMenuItem.Text = "Insert &IF ... THEN ... ELSE";
+            // 
+            // insertCASEToolStripMenuItem
+            // 
+            this.insertCASEToolStripMenuItem.Name = "insertCASEToolStripMenuItem";
+            this.insertCASEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.insertCASEToolStripMenuItem.Text = "Insert CASE";
+            // 
+            // insertFORSTEPToolStripMenuItem
+            // 
+            this.insertFORSTEPToolStripMenuItem.Name = "insertFORSTEPToolStripMenuItem";
+            this.insertFORSTEPToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.insertFORSTEPToolStripMenuItem.Text = "Insert FOR ... STEP";
+            // 
+            // insertWHILEToolStripMenuItem
+            // 
+            this.insertWHILEToolStripMenuItem.Name = "insertWHILEToolStripMenuItem";
+            this.insertWHILEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.insertWHILEToolStripMenuItem.Text = "Insert WHILE";
+            // 
+            // insertREPEATToolStripMenuItem
+            // 
+            this.insertREPEATToolStripMenuItem.Name = "insertREPEATToolStripMenuItem";
+            this.insertREPEATToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.insertREPEATToolStripMenuItem.Text = "Insert REPEAT";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(228, 6);
+            // 
+            // editInsertTemplatesToolStripMenuItem
+            // 
+            this.editInsertTemplatesToolStripMenuItem.Name = "editInsertTemplatesToolStripMenuItem";
+            this.editInsertTemplatesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.editInsertTemplatesToolStripMenuItem.Text = "&Insert templates preferences...";
+            // 
             // actionsToolStripMenuItem
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -451,6 +579,26 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // hPPPLCheatSheetToolStripMenuItem
+            // 
+            this.hPPPLCheatSheetToolStripMenuItem.Name = "hPPPLCheatSheetToolStripMenuItem";
+            this.hPPPLCheatSheetToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.hPPPLCheatSheetToolStripMenuItem.Text = "Language quick reference";
+            this.hPPPLCheatSheetToolStripMenuItem.Visible = false;
+            // 
+            // programmingTutorialToolStripMenuItem
+            // 
+            this.programmingTutorialToolStripMenuItem.Name = "programmingTutorialToolStripMenuItem";
+            this.programmingTutorialToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.programmingTutorialToolStripMenuItem.Text = "&Programming tutorial";
+            this.programmingTutorialToolStripMenuItem.Visible = false;
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(207, 6);
+            this.toolStripMenuItem11.Visible = false;
             // 
             // aboutToolStripMenuItem
             // 
@@ -617,129 +765,6 @@
             this.toolStripButtonSendToVirtual.Text = "Send to Virtual HP Prime working folder (F10)";
             this.toolStripButtonSendToVirtual.Click += new System.EventHandler(this.sendToVirtualToolStripMenuItem_Click);
             // 
-            // languageToolStripMenuItem
-            // 
-            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formatDocumentToolStripMenuItem,
-            this.formatselectionToolStripMenuItem,
-            this.toolStripMenuItem8,
-            this.commentSelectionToolStripMenuItem,
-            this.uncommentSelectionToolStripMenuItem,
-            this.toolStripMenuItem9,
-            this.insertBEGINENDToolStripMenuItem,
-            this.insertIFTHENELSEToolStripMenuItem,
-            this.insertCASEToolStripMenuItem,
-            this.insertFORSTEPToolStripMenuItem,
-            this.insertWHILEToolStripMenuItem,
-            this.insertREPEATToolStripMenuItem,
-            this.toolStripMenuItem10,
-            this.editInsertTemplatesToolStripMenuItem});
-            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.languageToolStripMenuItem.Text = "&Language";
-            this.languageToolStripMenuItem.Visible = false;
-            // 
-            // formatDocumentToolStripMenuItem
-            // 
-            this.formatDocumentToolStripMenuItem.Name = "formatDocumentToolStripMenuItem";
-            this.formatDocumentToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.formatDocumentToolStripMenuItem.Text = "&Format document";
-            // 
-            // formatselectionToolStripMenuItem
-            // 
-            this.formatselectionToolStripMenuItem.Name = "formatselectionToolStripMenuItem";
-            this.formatselectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.formatselectionToolStripMenuItem.Text = "Format &selection";
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(228, 6);
-            // 
-            // commentSelectionToolStripMenuItem
-            // 
-            this.commentSelectionToolStripMenuItem.Name = "commentSelectionToolStripMenuItem";
-            this.commentSelectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.commentSelectionToolStripMenuItem.Text = "&Comment selection";
-            // 
-            // uncommentSelectionToolStripMenuItem
-            // 
-            this.uncommentSelectionToolStripMenuItem.Name = "uncommentSelectionToolStripMenuItem";
-            this.uncommentSelectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.uncommentSelectionToolStripMenuItem.Text = "Uncomment selection";
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(228, 6);
-            // 
-            // insertBEGINENDToolStripMenuItem
-            // 
-            this.insertBEGINENDToolStripMenuItem.Name = "insertBEGINENDToolStripMenuItem";
-            this.insertBEGINENDToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertBEGINENDToolStripMenuItem.Text = "Insert &BEGIN ... END";
-            // 
-            // insertIFTHENELSEToolStripMenuItem
-            // 
-            this.insertIFTHENELSEToolStripMenuItem.Name = "insertIFTHENELSEToolStripMenuItem";
-            this.insertIFTHENELSEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertIFTHENELSEToolStripMenuItem.Text = "Insert &IF ... THEN ... ELSE";
-            // 
-            // insertCASEToolStripMenuItem
-            // 
-            this.insertCASEToolStripMenuItem.Name = "insertCASEToolStripMenuItem";
-            this.insertCASEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertCASEToolStripMenuItem.Text = "Insert CASE";
-            // 
-            // insertFORSTEPToolStripMenuItem
-            // 
-            this.insertFORSTEPToolStripMenuItem.Name = "insertFORSTEPToolStripMenuItem";
-            this.insertFORSTEPToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertFORSTEPToolStripMenuItem.Text = "Insert FOR ... STEP";
-            // 
-            // insertWHILEToolStripMenuItem
-            // 
-            this.insertWHILEToolStripMenuItem.Name = "insertWHILEToolStripMenuItem";
-            this.insertWHILEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertWHILEToolStripMenuItem.Text = "Insert WHILE";
-            // 
-            // insertREPEATToolStripMenuItem
-            // 
-            this.insertREPEATToolStripMenuItem.Name = "insertREPEATToolStripMenuItem";
-            this.insertREPEATToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertREPEATToolStripMenuItem.Text = "Insert REPEAT";
-            // 
-            // editInsertTemplatesToolStripMenuItem
-            // 
-            this.editInsertTemplatesToolStripMenuItem.Name = "editInsertTemplatesToolStripMenuItem";
-            this.editInsertTemplatesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.editInsertTemplatesToolStripMenuItem.Text = "&Insert templates preferences...";
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(228, 6);
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(207, 6);
-            this.toolStripMenuItem11.Visible = false;
-            // 
-            // hPPPLCheatSheetToolStripMenuItem
-            // 
-            this.hPPPLCheatSheetToolStripMenuItem.Name = "hPPPLCheatSheetToolStripMenuItem";
-            this.hPPPLCheatSheetToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.hPPPLCheatSheetToolStripMenuItem.Text = "Language quick reference";
-            this.hPPPLCheatSheetToolStripMenuItem.Visible = false;
-            // 
-            // programmingTutorialToolStripMenuItem
-            // 
-            this.programmingTutorialToolStripMenuItem.Name = "programmingTutorialToolStripMenuItem";
-            this.programmingTutorialToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.programmingTutorialToolStripMenuItem.Text = "&Programming tutorial";
-            this.programmingTutorialToolStripMenuItem.Visible = false;
-            // 
             // FormEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -839,5 +864,7 @@
         private System.Windows.Forms.ToolStripMenuItem hPPPLCheatSheetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem programmingTutorialToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem;
     }
 }
