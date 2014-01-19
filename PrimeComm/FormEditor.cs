@@ -111,6 +111,8 @@ namespace PrimeComm
 
                         _dirty = false;
 
+                        // Check file length
+                        AdjustScrollbarWidth();
                         scintillaEditor.UndoRedo.EmptyUndoBuffer();
 
                         // Recent files
@@ -123,6 +125,22 @@ namespace PrimeComm
                         MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void AdjustScrollbarWidth()
+        {
+            var m = 200;
+            var line = -1;
+            foreach (Line l in scintillaEditor.Lines)
+                if (l.Length > m)
+                {
+                    m = l.Length;
+                    line = l.Number;
+                }
+
+            if (line >= 0)
+                m = TextRenderer.MeasureText(scintillaEditor.Lines[line].Text, scintillaEditor.Font).Width;
+            scintillaEditor.Scrolling.HorizontalWidth = m;
         }
 
         private bool AskForSave()
@@ -210,11 +228,8 @@ namespace PrimeComm
             sendToVirtualToolStripMenuItem.Enabled = _parent.IsEmulatorAvailable && !_parent.IsBusy;
             toolStripButtonSendToVirtual.Enabled = sendToVirtualToolStripMenuItem.Enabled;
 
+            scintillaEditor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
             Text = String.Format("{2}{0}: {1}",CurrentProgramName, EditorName, _dirty ? "* ":string.Empty);
-
-            scintillaEditor.LineWrapping.Mode = Settings.Default.EditorWordWrap
-                ? LineWrappingMode.Word
-                : LineWrappingMode.None;
         }
 
         public String CurrentProgramName

@@ -149,7 +149,7 @@
             this.scintillaEditor.Location = new System.Drawing.Point(0, 0);
             this.scintillaEditor.Margins.Margin0.Width = 20;
             this.scintillaEditor.Name = "scintillaEditor";
-            this.scintillaEditor.Scrolling.HorizontalWidth = 800;
+            this.scintillaEditor.Scrolling.HorizontalWidth = 200;
             this.scintillaEditor.Size = new System.Drawing.Size(712, 487);
             this.scintillaEditor.TabIndex = 0;
             this.scintillaEditor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
