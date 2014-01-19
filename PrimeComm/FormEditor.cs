@@ -53,11 +53,11 @@ namespace PrimeComm
         private void LoadEditorSettings()
         {
             // Editor configuration
-            if (File.Exists("hpppl.xml"))
+            /*if (File.Exists("hpppl.xml"))
             {
                 var config = new Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
                 scintillaEditor.ConfigurationManager.Configure(config);
-            }
+            }*/
 
             // Editor font
             foreach (var f in Directory.GetFiles(".", "*.ttf"))
@@ -360,6 +360,22 @@ namespace PrimeComm
                 _currentName = String.Empty;
                 _currentFile = String.Empty;
                 scintillaEditor.Text = template? Settings.Default.ProgramTemplate: String.Empty;
+
+                // Find cursor location
+                const string cursorToken = "%cursor%";
+                do
+                {
+                    var c = scintillaEditor.Text.IndexOf(cursorToken);
+
+                    if (c > 0)
+                    {
+                        scintillaEditor.Text = scintillaEditor.Text.Substring(0, c) + scintillaEditor.Text.Substring(c+cursorToken.Length);
+                        scintillaEditor.CurrentPos = c;
+                    }
+                    else
+                        break;
+                } while (true);
+
                 scintillaEditor.UndoRedo.EmptyUndoBuffer();
                 _dirty = false;
             }

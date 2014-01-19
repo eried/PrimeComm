@@ -56,7 +56,7 @@
     <Setting Name="ProgramTemplate" Type="System.String" Scope="User">
       <Value Profile="(Default)">EXPORT programName()
 BEGIN
-
+    %cursor%
 END;
 </Value>
     </Setting>
