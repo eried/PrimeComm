@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -15,6 +16,27 @@ namespace PrimeComm
         public static void InvokeIfRequired(this Control c, MethodInvoker action)
         {
             if (c.InvokeRequired) c.Invoke(action); else action();
+        }
+
+        /// <summary>
+        /// TrimStart with String 
+        /// http://stackoverflow.com/questions/4335878/c-sharp-trimstart-with-string-parameter
+        /// </summary>
+        /// <param name="target">Source string</param>
+        /// <param name="trimString">String to trim</param>
+        /// <param name="recursive">If the string should be processed again</param>
+        /// <returns>Trimmed string</returns>
+        public static string TrimStart(this string target, string trimString, bool recursive = true)
+        {
+            var result = target;
+            while (result.StartsWith(trimString))
+            {
+                result = result.Substring(trimString.Length);
+                if (!recursive)
+                    break;
+            }
+
+            return result;
         }
 
         public static string CreateTemporalFileFromText(string text=null)
@@ -83,17 +105,26 @@ namespace PrimeComm
                        Settings.Default.RecentOpenedFiles.Count > 0)
                     Settings.Default.RecentOpenedFiles.RemoveAt(0);
 
-                var n = Settings.Default.RecentOpenedFiles.Count;
-                foreach (var m in from string m in Settings.Default.RecentOpenedFiles where File.Exists(m) select m)
+                var n = 0;
+                for (var i = Settings.Default.RecentOpenedFiles.Count-1; i >=0 ; i--)
                 {
-                    RecentFiles.Items.Insert(0, new ToolStripMenuItem("&"+n-- + ": "+ m) {Tag = m,
-                        Alignment = ToolStripItemAlignment.Left,ShowShortcutKeys = true,TextAlign = ContentAlignment.MiddleLeft});
+                    var m = Settings.Default.RecentOpenedFiles[i];
+                    if (File.Exists(m))
+                    {
+                        RecentFiles.Items.Add(new ToolStripMenuItem("&" + ++n + ": " + m)
+                        {
+                            Tag = m,
+                            Alignment = ToolStripItemAlignment.Left,
+                            ShowShortcutKeys = true,
+                            TextAlign = ContentAlignment.MiddleLeft
+                        });
+                    }
                 }
 
                 Settings.Default.Save();
             }
             else
-                Settings.Default.RecentOpenedFiles = new System.Collections.Specialized.StringCollection();
+                Settings.Default.RecentOpenedFiles = new StringCollection();
         }
 
         public static ToolStripDropDown RecentFiles { get; private set; }

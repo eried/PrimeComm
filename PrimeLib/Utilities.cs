@@ -282,6 +282,11 @@ namespace PrimeLib
         {
             return (char) Rnd.Next('a', 'z' + 1);
         }
+
+        internal static string GenerateByteListFromFile(string path)
+        {
+            return "{"+String.Join(",", BitConverter.ToString(File.ReadAllBytes(path)).Split('-').Select(b => "#" + b + "h").ToList())+"}";
+        }
     }
 
     /// <summary>
