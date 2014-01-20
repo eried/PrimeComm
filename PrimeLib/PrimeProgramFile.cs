@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Text;
+using PrimeLib.Properties;
 
 namespace PrimeLib
 {
@@ -25,7 +26,7 @@ namespace PrimeLib
             Name = Path.GetFileNameWithoutExtension(path);
             Data = new byte[0];
 
-            switch (Path.GetExtension(path))
+            switch (Path.GetExtension(path).ToLower())
             {
                 case ".txt":
                     // Find "begin"
@@ -57,6 +58,19 @@ namespace PrimeLib
                     {
                         // Generate a script that displays the image
                         Data = Encoding.Unicode.GetBytes(Utilities.GenerateProgramFromImage(path, SafeName, settings));
+                        IsValid = true;
+                        IsConversion = true;
+                    }
+                    catch
+                    {
+                    }
+                    break;
+
+                case ".c8":
+                    try
+                    {
+                        // Generate a script that includes the chip8 emulator
+                        Data = Encoding.Unicode.GetBytes(Resources.chip8.Replace("%program%",Utilities.GenerateByteListFromFile(path)).Replace("%name%", Name));
                         IsValid = true;
                         IsConversion = true;
                     }
