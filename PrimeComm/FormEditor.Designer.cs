@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditor));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.scintillaEditor = new ScintillaNET.Scintilla();
+            this.editor = new ScintillaNET.Scintilla();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,20 +62,8 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formatDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formatselectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.commentSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uncommentSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
-            this.insertBEGINENDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertIFTHENELSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertCASEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertFORSTEPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertWHILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertREPEATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
-            this.editInsertTemplatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToVirtualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,7 +93,7 @@
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.scintillaEditor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editor)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.toolStripSendTo.SuspendLayout();
@@ -116,7 +104,7 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.scintillaEditor);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.editor);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(712, 487);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
@@ -131,32 +119,32 @@
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripMain);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripSendTo);
             // 
-            // scintillaEditor
+            // editor
             // 
-            this.scintillaEditor.AutoComplete.IsCaseSensitive = false;
-            this.scintillaEditor.AutoComplete.ListString = "";
-            this.scintillaEditor.ConfigurationManager.Language = "pascal";
-            this.scintillaEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaEditor.Folding.Flags = ScintillaNET.FoldFlag.Box;
-            this.scintillaEditor.Folding.UseCompactFolding = true;
-            this.scintillaEditor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
-            this.scintillaEditor.Indentation.TabWidth = 4;
-            this.scintillaEditor.Indentation.UseTabs = false;
-            this.scintillaEditor.IsBraceMatching = true;
-            this.scintillaEditor.Lexing.Lexer = ScintillaNET.Lexer.Pascal;
-            this.scintillaEditor.Lexing.LexerName = "pascal";
-            this.scintillaEditor.Lexing.LineCommentPrefix = "//";
-            this.scintillaEditor.Lexing.StreamCommentPrefix = "";
-            this.scintillaEditor.Lexing.StreamCommentSufix = "";
-            this.scintillaEditor.Location = new System.Drawing.Point(0, 0);
-            this.scintillaEditor.Margins.Margin0.Width = 30;
-            this.scintillaEditor.Name = "scintillaEditor";
-            this.scintillaEditor.Scrolling.HorizontalWidth = 200;
-            this.scintillaEditor.Size = new System.Drawing.Size(712, 487);
-            this.scintillaEditor.Snippets.IsOneKeySelectionEmbedEnabled = true;
-            this.scintillaEditor.TabIndex = 0;
-            this.scintillaEditor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
-            this.scintillaEditor.TextChanged += new System.EventHandler(this.scintillaEditor_TextChanged);
+            this.editor.AutoComplete.IsCaseSensitive = false;
+            this.editor.AutoComplete.ListString = "";
+            this.editor.ConfigurationManager.Language = "pascal";
+            this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editor.Folding.Flags = ScintillaNET.FoldFlag.Box;
+            this.editor.Folding.UseCompactFolding = true;
+            this.editor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
+            this.editor.Indentation.TabWidth = 4;
+            this.editor.Indentation.UseTabs = false;
+            this.editor.IsBraceMatching = true;
+            this.editor.Lexing.Lexer = ScintillaNET.Lexer.Pascal;
+            this.editor.Lexing.LexerName = "pascal";
+            this.editor.Lexing.LineCommentPrefix = "//";
+            this.editor.Lexing.StreamCommentPrefix = "";
+            this.editor.Lexing.StreamCommentSufix = "";
+            this.editor.Location = new System.Drawing.Point(0, 0);
+            this.editor.Margins.Margin0.Width = 30;
+            this.editor.Name = "editor";
+            this.editor.Scrolling.HorizontalWidth = 200;
+            this.editor.Size = new System.Drawing.Size(712, 487);
+            this.editor.Snippets.IsOneKeySelectionEmbedEnabled = true;
+            this.editor.TabIndex = 0;
+            this.editor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
+            this.editor.TextChanged += new System.EventHandler(this.scintillaEditor_TextChanged);
             // 
             // menuStrip1
             // 
@@ -416,111 +404,31 @@
             this.wordWrapToolStripMenuItem.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
             this.wordWrapToolStripMenuItem.CheckOnClick = true;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.wordWrapToolStripMenuItem.Text = "&Word wrap";
             // 
             // languageToolStripMenuItem
             // 
             this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formatDocumentToolStripMenuItem,
-            this.formatselectionToolStripMenuItem,
-            this.toolStripMenuItem8,
             this.commentSelectionToolStripMenuItem,
-            this.uncommentSelectionToolStripMenuItem,
-            this.toolStripMenuItem9,
-            this.insertBEGINENDToolStripMenuItem,
-            this.insertIFTHENELSEToolStripMenuItem,
-            this.insertCASEToolStripMenuItem,
-            this.insertFORSTEPToolStripMenuItem,
-            this.insertWHILEToolStripMenuItem,
-            this.insertREPEATToolStripMenuItem,
-            this.toolStripMenuItem10,
-            this.editInsertTemplatesToolStripMenuItem});
+            this.uncommentSelectionToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.languageToolStripMenuItem.Text = "&Language";
-            this.languageToolStripMenuItem.Visible = false;
-            // 
-            // formatDocumentToolStripMenuItem
-            // 
-            this.formatDocumentToolStripMenuItem.Name = "formatDocumentToolStripMenuItem";
-            this.formatDocumentToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.formatDocumentToolStripMenuItem.Text = "&Format document";
-            // 
-            // formatselectionToolStripMenuItem
-            // 
-            this.formatselectionToolStripMenuItem.Name = "formatselectionToolStripMenuItem";
-            this.formatselectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.formatselectionToolStripMenuItem.Text = "Format &selection";
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(228, 6);
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.languageToolStripMenuItem.Text = "&Format";
             // 
             // commentSelectionToolStripMenuItem
             // 
             this.commentSelectionToolStripMenuItem.Name = "commentSelectionToolStripMenuItem";
-            this.commentSelectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.commentSelectionToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.commentSelectionToolStripMenuItem.Text = "&Comment selection";
+            this.commentSelectionToolStripMenuItem.Click += new System.EventHandler(this.commentSelectionToolStripMenuItem_Click);
             // 
             // uncommentSelectionToolStripMenuItem
             // 
             this.uncommentSelectionToolStripMenuItem.Name = "uncommentSelectionToolStripMenuItem";
-            this.uncommentSelectionToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.uncommentSelectionToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.uncommentSelectionToolStripMenuItem.Text = "Uncomment selection";
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(228, 6);
-            // 
-            // insertBEGINENDToolStripMenuItem
-            // 
-            this.insertBEGINENDToolStripMenuItem.Name = "insertBEGINENDToolStripMenuItem";
-            this.insertBEGINENDToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertBEGINENDToolStripMenuItem.Text = "Insert &BEGIN ... END";
-            // 
-            // insertIFTHENELSEToolStripMenuItem
-            // 
-            this.insertIFTHENELSEToolStripMenuItem.Name = "insertIFTHENELSEToolStripMenuItem";
-            this.insertIFTHENELSEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertIFTHENELSEToolStripMenuItem.Text = "Insert &IF ... THEN ... ELSE";
-            // 
-            // insertCASEToolStripMenuItem
-            // 
-            this.insertCASEToolStripMenuItem.Name = "insertCASEToolStripMenuItem";
-            this.insertCASEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertCASEToolStripMenuItem.Text = "Insert CASE";
-            // 
-            // insertFORSTEPToolStripMenuItem
-            // 
-            this.insertFORSTEPToolStripMenuItem.Name = "insertFORSTEPToolStripMenuItem";
-            this.insertFORSTEPToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertFORSTEPToolStripMenuItem.Text = "Insert FOR ... STEP";
-            // 
-            // insertWHILEToolStripMenuItem
-            // 
-            this.insertWHILEToolStripMenuItem.Name = "insertWHILEToolStripMenuItem";
-            this.insertWHILEToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertWHILEToolStripMenuItem.Text = "Insert WHILE";
-            // 
-            // insertREPEATToolStripMenuItem
-            // 
-            this.insertREPEATToolStripMenuItem.Name = "insertREPEATToolStripMenuItem";
-            this.insertREPEATToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.insertREPEATToolStripMenuItem.Text = "Insert REPEAT";
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(228, 6);
-            // 
-            // editInsertTemplatesToolStripMenuItem
-            // 
-            this.editInsertTemplatesToolStripMenuItem.Name = "editInsertTemplatesToolStripMenuItem";
-            this.editInsertTemplatesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.editInsertTemplatesToolStripMenuItem.Text = "&Insert templates preferences...";
+            this.uncommentSelectionToolStripMenuItem.Click += new System.EventHandler(this.uncommentSelectionToolStripMenuItem_Click);
             // 
             // actionsToolStripMenuItem
             // 
@@ -783,7 +691,7 @@
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.scintillaEditor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editor)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
@@ -796,7 +704,7 @@
 
         #endregion
 
-        private ScintillaNET.Scintilla scintillaEditor;
+        private ScintillaNET.Scintilla editor;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripButton toolStripButtonNew;
@@ -850,20 +758,8 @@
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formatDocumentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formatselectionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem commentSelectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uncommentSelectionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
-        private System.Windows.Forms.ToolStripMenuItem insertBEGINENDToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertIFTHENELSEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertCASEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertFORSTEPToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertWHILEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertREPEATToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem10;
-        private System.Windows.Forms.ToolStripMenuItem editInsertTemplatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hPPPLCheatSheetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem programmingTutorialToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;

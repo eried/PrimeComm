@@ -69,12 +69,12 @@ namespace PrimeComm
                 {
                     var fontCollection = new PrivateFontCollection();
                     fontCollection.AddFontFile(f);
-                    scintillaEditor.Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize);
+                    editor.Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize);
 
                     //foreach (StylesCommon s in Enum.GetValues(typeof (StylesCommon)))
-                    foreach (var s in scintillaEditor.Lexing.StyleNameMap.Keys)
+                    foreach (var s in editor.Lexing.StyleNameMap.Keys)
                     {
-                        scintillaEditor.Styles[s].Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize, scintillaEditor.Styles[s].Font.Style);
+                        editor.Styles[s].Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize, editor.Styles[s].Font.Style);
                     }
                     break;
                 }
@@ -84,8 +84,7 @@ namespace PrimeComm
             }
 
             // Word wrap
-            scintillaEditor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
-            Text = String.Format("{2}{0}: {1}", CurrentProgramName, EditorName, _dirty ? "* " : string.Empty);
+            editor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
         }
 
         private void OpenFile(string fileName)
@@ -96,21 +95,22 @@ namespace PrimeComm
                 {
                     if (!File.Exists(fileName))
                     {
-                        MessageBox.Show("Can't load '" + fileName + "'", "File does not exist", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                        MessageBox.Show("Can't load '" + fileName + "'", "File does not exist", MessageBoxButtons.OK,MessageBoxIcon.Error);
                         Utilities.UpdateRecentFiles();
+                        Close();
                     }
                     else
                     {
                         var tmp = new PrimeProgramFile(fileName, _parent.Parameters);
                         _currentName = tmp.SafeName;
                         _currentFile = String.Empty;
-                        scintillaEditor.Text = new PrimeUsbData(_currentName, tmp.Data).ToString();
+                        editor.Text = new PrimeUsbData(_currentName, tmp.Data).ToString();
+                        
 
                         if (tmp.IsConversion)
                         {
                             if (Settings.Default.AddCommentOnConversion)
-                                scintillaEditor.InsertText(0,
+                                editor.InsertText(0,
                                     "// Converted by PrimeComm from " + fileName + Environment.NewLine);
                         }
                         else
@@ -120,7 +120,7 @@ namespace PrimeComm
 
                         // Check file length
                         AdjustScrollbarWidth();
-                        scintillaEditor.UndoRedo.EmptyUndoBuffer();
+                        editor.UndoRedo.EmptyUndoBuffer();
 
                         // Recent files
                         Utilities.AppendToRecentFiles(fileName);
@@ -138,7 +138,7 @@ namespace PrimeComm
         {
             var m = 200;
             var line = -1;
-            foreach (Line l in scintillaEditor.Lines)
+            foreach (Line l in editor.Lines)
                 if (l.Length > m)
                 {
                     m = l.Length;
@@ -146,8 +146,8 @@ namespace PrimeComm
                 }
 
             if (line >= 0)
-                m = TextRenderer.MeasureText(scintillaEditor.Lines[line].Text, scintillaEditor.Font).Width;
-            scintillaEditor.Scrolling.HorizontalWidth = m;
+                m = TextRenderer.MeasureText(editor.Lines[line].Text, editor.Font).Width;
+            editor.Scrolling.HorizontalWidth = m;
         }
 
         private bool AskForSave()
@@ -177,6 +177,7 @@ namespace PrimeComm
             {
                 if (String.IsNullOrEmpty(_currentFile) || forceNewName)
                 {
+                    _parent.saveFileDialogProgram.FileName = CurrentProgramName;
                     if (_parent.saveFileDialogProgram.ShowDialog() == DialogResult.OK)
                     {
                         _currentFile = _parent.saveFileDialogProgram.FileName;
@@ -188,7 +189,7 @@ namespace PrimeComm
 
                 if (!String.IsNullOrEmpty(_currentFile))
                 {
-                    new PrimeUsbData(CurrentProgramName, Encoding.Unicode.GetBytes(scintillaEditor.Text)).Save(_currentFile);
+                    new PrimeUsbData(CurrentProgramName, Encoding.Unicode.GetBytes(editor.Text)).Save(_currentFile);
 
                     // Recent files
                     Utilities.AppendToRecentFiles(_currentFile);
@@ -212,28 +213,34 @@ namespace PrimeComm
 
         internal void UpdateGui()
         {
-            undoToolStripMenuItem.Enabled = scintillaEditor.UndoRedo.CanUndo;
-            toolStripButtonUndo.Enabled = scintillaEditor.UndoRedo.CanUndo;
+            undoToolStripMenuItem.Enabled = editor.UndoRedo.CanUndo;
+            toolStripButtonUndo.Enabled = editor.UndoRedo.CanUndo;
 
-            redoToolStripMenuItem.Enabled = scintillaEditor.UndoRedo.CanRedo;
-            toolStripButtonRedo.Enabled = scintillaEditor.UndoRedo.CanRedo;
+            redoToolStripMenuItem.Enabled = editor.UndoRedo.CanRedo;
+            toolStripButtonRedo.Enabled = editor.UndoRedo.CanRedo;
 
-            copyToolStripMenuItem.Enabled = scintillaEditor.Clipboard.CanCopy;
-            toolStripButtonCopy.Enabled = scintillaEditor.Clipboard.CanCopy;
+            copyToolStripMenuItem.Enabled = editor.Clipboard.CanCopy;
+            toolStripButtonCopy.Enabled = editor.Clipboard.CanCopy;
 
-            cutToolStripMenuItem.Enabled = scintillaEditor.Clipboard.CanCut;
-            toolStripButtonCut.Enabled = scintillaEditor.Clipboard.CanCut;
+            cutToolStripMenuItem.Enabled = editor.Clipboard.CanCut;
+            toolStripButtonCut.Enabled = editor.Clipboard.CanCut;
 
-            pasteToolStripMenuItem.Enabled = scintillaEditor.Clipboard.CanPaste;
-            toolStripButtonPaste.Enabled = scintillaEditor.Clipboard.CanPaste;
+            pasteToolStripMenuItem.Enabled = editor.Clipboard.CanPaste;
+            toolStripButtonPaste.Enabled = editor.Clipboard.CanPaste;
 
-            deleteToolStripMenuItem.Enabled = scintillaEditor.Selection.Length > 0;
+            var textSelected = editor.Selection.Length > 0;
+            var textNotEmpty = editor.TextLength > 0;
+            deleteToolStripMenuItem.Enabled = textSelected;
+            commentSelectionToolStripMenuItem.Enabled = textNotEmpty;
+            uncommentSelectionToolStripMenuItem.Enabled = textNotEmpty;
 
             sendToDeviceToolStripMenuItem.Enabled = _parent.IsDeviceConnected && !_parent.IsBusy;
             toolStripButtonSendToDevice.Enabled = sendToDeviceToolStripMenuItem.Enabled;
 
             sendToVirtualToolStripMenuItem.Enabled = _parent.IsEmulatorAvailable && !_parent.IsBusy;
             toolStripButtonSendToVirtual.Enabled = sendToVirtualToolStripMenuItem.Enabled;
+
+            Text = String.Format("{2}{0}: {1}", CurrentProgramName, EditorName, _dirty ? "* " : string.Empty);
         }
 
         public String CurrentProgramName
@@ -249,25 +256,25 @@ namespace PrimeComm
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.UndoRedo.Undo();
+            editor.UndoRedo.Undo();
             UpdateGui();
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.UndoRedo.Redo();
+            editor.UndoRedo.Redo();
             UpdateGui();
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.Clipboard.Cut();
+            editor.Clipboard.Cut();
             UpdateGui();
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.Clipboard.Copy();
+            editor.Clipboard.Copy();
         }
 
         private void editToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
@@ -277,31 +284,31 @@ namespace PrimeComm
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.Clipboard.Paste();
+            editor.Clipboard.Paste();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.Selection.Text = "";
+            editor.Selection.Text = "";
             UpdateGui();
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PreparePrint();
-            scintillaEditor.Printing.Print(true);
+            editor.Printing.Print(true);
         }
 
         private void PreparePrint()
         {
-            scintillaEditor.Printing.PrintDocument.DocumentName = CurrentProgramName;
+            editor.Printing.PrintDocument.DocumentName = CurrentProgramName;
             //scintillaEditor
         }
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PreparePrint();
-            scintillaEditor.Printing.PrintPreview(this);
+            editor.Printing.PrintPreview(this);
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -321,14 +328,14 @@ namespace PrimeComm
 
         private void SendCodeTo(Destinations destination)
         {
-            if (String.IsNullOrEmpty(scintillaEditor.Text))
+            if (String.IsNullOrEmpty(editor.Text))
                 MessageBox.Show("Nothing to send!", "Program is empty", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else _parent.SendTextTo(destination, scintillaEditor.Text);
+            else _parent.SendTextTo(destination, editor.Text);
         }
 
         private void scintillaEditor_TextChanged(object sender, EventArgs e)
         {
-            _dirty = scintillaEditor.UndoRedo.CanUndo;
+            _dirty = editor.UndoRedo.CanUndo;
             UpdateGui();
         }
 
@@ -383,24 +390,24 @@ namespace PrimeComm
             {
                 _currentName = String.Empty;
                 _currentFile = String.Empty;
-                scintillaEditor.Text = template? Settings.Default.ProgramTemplate: String.Empty;
+                editor.Text = template? Settings.Default.ProgramTemplate: String.Empty;
 
                 // Find cursor location
                 const string cursorToken = "%cursor%";
                 do
                 {
-                    var c = scintillaEditor.Text.IndexOf(cursorToken);
+                    var c = editor.Text.IndexOf(cursorToken);
 
                     if (c > 0)
                     {
-                        scintillaEditor.Text = scintillaEditor.Text.Substring(0, c) + scintillaEditor.Text.Substring(c+cursorToken.Length);
-                        scintillaEditor.CurrentPos = c;
+                        editor.Text = editor.Text.Substring(0, c) + editor.Text.Substring(c+cursorToken.Length);
+                        editor.CurrentPos = c;
                     }
                     else
                         break;
                 } while (true);
 
-                scintillaEditor.UndoRedo.EmptyUndoBuffer();
+                editor.UndoRedo.EmptyUndoBuffer();
                 _dirty = false;
             }
 
@@ -417,14 +424,14 @@ namespace PrimeComm
             if (new FormSettings(p).ShowDialog() == DialogResult.OK)
             {
                 LoadEditorSettings();
-                scintillaEditor.Lexing.Colorize();
+                editor.Lexing.Colorize();
                 UpdateGui();
             }
         }
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.Selection.SelectAll();
+            editor.Selection.SelectAll();
         }
 
         private void newFromtemplateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -439,12 +446,12 @@ namespace PrimeComm
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.FindReplace.ShowReplace();
+            editor.FindReplace.ShowReplace();
         }
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scintillaEditor.FindReplace.ShowFind();
+            editor.FindReplace.ShowFind();
         }
 
         private void programToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
@@ -458,6 +465,40 @@ namespace PrimeComm
             var f = e.ClickedItem.Tag as string;
             if (f!=null)
                 OpenFile(f);
+        }
+
+        private void commentSelectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommentEditorLines(true);
+        }
+
+        private void CommentEditorLines(bool p)
+        {
+            const string commentsPrefix = "// ";
+            var range = editor.Selection.Range;
+            int f = range.StartingLine.Number, t = range.EndingLine.Number;
+
+            editor.UndoRedo.BeginUndoAction();
+
+            for (var i = f; i <= t; i++)
+            {
+                if (p)
+                    editor.InsertText(editor.Lines[i].StartPosition, commentsPrefix);
+                else
+                {
+                    editor.Lines[i].Text = editor.Lines[i].Text.TrimEnd(new []{'\r','\n'}).TrimStart(commentsPrefix, false);
+                }
+            }
+
+            editor.Selection.Start = editor.Lines[f].StartPosition;
+            editor.Selection.End = editor.Lines[t].EndPosition;
+
+            editor.UndoRedo.EndUndoAction();
+        }
+        
+        private void uncommentSelectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommentEditorLines(false);
         }
     }
 }
