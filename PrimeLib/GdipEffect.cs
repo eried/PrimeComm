@@ -9,6 +9,9 @@ using System.Runtime.InteropServices;
 
 namespace PrimeLib
 {
+    /// <summary>
+    /// Dither type
+    /// </summary>
     public enum DitherType
     {
         DitherTypeNone = 0,
@@ -23,6 +26,9 @@ namespace PrimeLib
         DitherTypeErrorDiffusion = 9,
         DitherTypeMax = 10
     }
+    /// <summary>
+    /// Palette type
+    /// </summary>
     public enum PaletteType
     {
         PaletteTypeCustom = 0,
