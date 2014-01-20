@@ -21,7 +21,7 @@ namespace PrimeComm
 {
     public partial class FormMain : Form
     {
-        private bool _receivingData, _checkingData, _sending;
+        private bool _receivingData, _checkingData, _sending, _notificationHintAlreadyShown;
         private Queue<byte[]> _receivedData = new Queue<byte[]>();
         private PrimeUsbData _receivedFile;
         private Timer _checker;
@@ -514,12 +514,8 @@ namespace PrimeComm
             if (!Settings.Default.SkipConflictingProcessChecking)
             {
                 // Check running processes
-                if (
-                    new[] {Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName}.Any(
-                        p => Process.GetProcessesByName(p).Length > 0))
-                    SendResults.ShowMsg(
-                        "It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.",
-                        this);
+                if (new[] {Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName}.Any(p => Process.GetProcessesByName(p).Length > 0))
+                    SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.",this);
             }
         }
 
@@ -527,7 +523,13 @@ namespace PrimeComm
         {
             var n = new FormEditor(this, null);
             Editors.Add(n);
-            n.Show();
+            try
+            {
+                n.Show();
+            }
+            catch
+            {
+            }
         }
 
         private void connectivityKitUserFolderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -618,13 +620,19 @@ namespace PrimeComm
 
         internal void CheckEditorStates()
         {
-            if (CheckIfThereIsActiveEditors())
+            try
             {
-                if (WindowState != FormWindowState.Minimized && Settings.Default.EditorMinimizesPrimeComm)
-                    WindowState = FormWindowState.Minimized;
+                if (CheckIfThereIsActiveEditors())
+                {
+                    if (WindowState != FormWindowState.Minimized && Settings.Default.EditorMinimizesPrimeComm)
+                        WindowState = FormWindowState.Minimized;
+                }
+                else if (WindowState == FormWindowState.Minimized && Settings.Default.EditorRestoresPrimeComm)
+                    RestoreWindow();
             }
-            else if (WindowState == FormWindowState.Minimized && Settings.Default.EditorRestoresPrimeComm)
-                RestoreWindow();
+            catch
+            {
+            }
         }
 
         private void notifyIconMain_DoubleClick(object sender, EventArgs e)
@@ -646,15 +654,24 @@ namespace PrimeComm
                     Visible = true;
 
                 notifyIconMain.Visible = false;
+                //ShowInTaskbar = true;
                 _lastWindowState = WindowState;
             }
             else if (Settings.Default.HideAsNotificationIcon)
             {
-                const string tip = "Double click this icon to restore";
+                const string tip = "Double click this icon to open";
                 Visible = false;
-                notifyIconMain.Text = Text + " (" + tip + ")";
+
                 notifyIconMain.Visible = true;
-                notifyIconMain.ShowBalloonTip(3, Text, tip, ToolTipIcon.Info);
+                notifyIconMain.Text = Text + " (" + tip + ")";
+                
+                //ShowInTaskbar = false;
+
+                if (!_notificationHintAlreadyShown)
+                {
+                    _notificationHintAlreadyShown = true;
+                    notifyIconMain.ShowBalloonTip(3, Text, tip, ToolTipIcon.Info);
+                }
             }
         }
 
