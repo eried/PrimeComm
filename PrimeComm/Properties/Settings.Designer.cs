@@ -309,5 +309,41 @@ namespace PrimeComm.Properties {
                 this["EditorWordWrap"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EditorMinimizesPrimeComm {
+            get {
+                return ((bool)(this["EditorMinimizesPrimeComm"]));
+            }
+            set {
+                this["EditorMinimizesPrimeComm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EditorRestoresPrimeComm {
+            get {
+                return ((bool)(this["EditorRestoresPrimeComm"]));
+            }
+            set {
+                this["EditorRestoresPrimeComm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HideAsNotificationIcon {
+            get {
+                return ((bool)(this["HideAsNotificationIcon"]));
+            }
+            set {
+                this["HideAsNotificationIcon"] = value;
+            }
+        }
     }
 }

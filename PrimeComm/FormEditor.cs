@@ -30,6 +30,7 @@ namespace PrimeComm
         /// <param name="openFile">File to open, null if template should be used, empty if blank should be used</param>
         public FormEditor(FormMain p, string openFile = "")
         {
+            IsClosed = false;
             InitializeComponent();
             _parent = p;
 
@@ -500,5 +501,18 @@ namespace PrimeComm
         {
             CommentEditorLines(false);
         }
+
+        private void FormEditor_Shown(object sender, EventArgs e)
+        {
+            _parent.CheckEditorStates();
+        }
+
+        private void FormEditor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            IsClosed = true;
+            _parent.CheckEditorStates();
+        }
+
+        public bool IsClosed { get; private set; }
     }
 }

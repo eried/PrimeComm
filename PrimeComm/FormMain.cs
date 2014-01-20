@@ -28,6 +28,7 @@ namespace PrimeComm
         private PrimeCalculator _calculator;
         private PrimeParameters _parameters;
         private static readonly Object scheduleLock = new Object();
+        private FormWindowState _lastWindowState;
 
         public FormMain()
         {
@@ -552,11 +553,16 @@ namespace PrimeComm
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Editors.Any(n => n != null && !n.IsDisposed))
+            if (CheckIfThereIsActiveEditors())
             {
                 if (MessageBox.Show("There are active editors. Do you want to exit and lose all the changes?", "Close " + Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
                     e.Cancel = true;
             }
+        }
+
+        private bool CheckIfThereIsActiveEditors()
+        {
+            return Editors != null && Editors.Any(n => n != null && !n.IsDisposed && !n.IsClosed);
         }
 
         private void newFromTemplateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -576,6 +582,48 @@ namespace PrimeComm
         {
             fileToolStripMenuItem.HideDropDown();
             OpenFile(e.ClickedItem.Tag as string);
+        }
+
+        internal void CheckEditorStates()
+        {
+            if (CheckIfThereIsActiveEditors())
+            {
+                if (WindowState != FormWindowState.Minimized && Settings.Default.EditorMinimizesPrimeComm)
+                    WindowState = FormWindowState.Minimized;
+            }
+            else if (WindowState == FormWindowState.Minimized && Settings.Default.EditorRestoresPrimeComm)
+                RestoreWindow();
+        }
+
+        private void notifyIconMain_DoubleClick(object sender, EventArgs e)
+        {
+            RestoreWindow();
+        }
+
+        private void RestoreWindow()
+        {
+            Visible = true;
+            WindowState = _lastWindowState;
+        }
+
+        private void FormMain_Resize(object sender, EventArgs e)
+        {
+            if (WindowState != FormWindowState.Minimized)
+            {
+                if (!Visible)
+                    Visible = true;
+
+                notifyIconMain.Visible = false;
+                _lastWindowState = WindowState;
+            }
+            else if (Settings.Default.HideAsNotificationIcon)
+            {
+                const string tip = "Double click this icon to restore";
+                Visible = false;
+                notifyIconMain.Text = Text + " ("+tip+")";
+                notifyIconMain.Visible = true;
+                notifyIconMain.ShowBalloonTip(3, Text, tip, ToolTipIcon.Info);
+            }
         }
     }
 }
