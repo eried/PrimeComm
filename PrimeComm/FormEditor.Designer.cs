@@ -137,6 +137,8 @@
             this.scintillaEditor.AutoComplete.ListString = "";
             this.scintillaEditor.ConfigurationManager.Language = "pascal";
             this.scintillaEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaEditor.Folding.Flags = ScintillaNET.FoldFlag.Box;
+            this.scintillaEditor.Folding.UseCompactFolding = true;
             this.scintillaEditor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
             this.scintillaEditor.Indentation.TabWidth = 4;
             this.scintillaEditor.Indentation.UseTabs = false;
@@ -147,10 +149,11 @@
             this.scintillaEditor.Lexing.StreamCommentPrefix = "";
             this.scintillaEditor.Lexing.StreamCommentSufix = "";
             this.scintillaEditor.Location = new System.Drawing.Point(0, 0);
-            this.scintillaEditor.Margins.Margin0.Width = 20;
+            this.scintillaEditor.Margins.Margin0.Width = 30;
             this.scintillaEditor.Name = "scintillaEditor";
             this.scintillaEditor.Scrolling.HorizontalWidth = 200;
             this.scintillaEditor.Size = new System.Drawing.Size(712, 487);
+            this.scintillaEditor.Snippets.IsOneKeySelectionEmbedEnabled = true;
             this.scintillaEditor.TabIndex = 0;
             this.scintillaEditor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
             this.scintillaEditor.TextChanged += new System.EventHandler(this.scintillaEditor_TextChanged);

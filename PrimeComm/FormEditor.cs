@@ -59,6 +59,9 @@ namespace PrimeComm
                 scintillaEditor.ConfigurationManager.Configure(config);
             }*/
 
+            //scintillaEditor.Snippets.List.Add(new Snippet("if", "IF THEN END"));
+            //scintillaEditor.Snippets.IsEnabled = true;
+
             // Editor font
             foreach (var f in Directory.GetFiles(".", "*.ttf"))
             {
@@ -79,6 +82,10 @@ namespace PrimeComm
                 {
                 }
             }
+
+            // Word wrap
+            scintillaEditor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
+            Text = String.Format("{2}{0}: {1}", CurrentProgramName, EditorName, _dirty ? "* " : string.Empty);
         }
 
         private void OpenFile(string fileName)
@@ -227,9 +234,6 @@ namespace PrimeComm
 
             sendToVirtualToolStripMenuItem.Enabled = _parent.IsEmulatorAvailable && !_parent.IsBusy;
             toolStripButtonSendToVirtual.Enabled = sendToVirtualToolStripMenuItem.Enabled;
-
-            scintillaEditor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
-            Text = String.Format("{2}{0}: {1}",CurrentProgramName, EditorName, _dirty ? "* ":string.Empty);
         }
 
         public String CurrentProgramName
