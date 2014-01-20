@@ -26,10 +26,11 @@ namespace PrimeLib
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">Source</param>
         /// <param name="index">Start from</param>
-        /// <param name="length">Lenght</param>
+        /// <param name="length">Length</param>
         /// <returns>Subarray</returns>
-        public static T[] SubArray<T>(this T[] data, int index, int length)
+        public static T[] SubArray<T>(this T[] data, int index, int length=-1)
         {
+            length = length >= 0 ? length : data.Length-index;
             var result = new T[length];
             Array.Copy(data, index, result, 0, length);
             return result;

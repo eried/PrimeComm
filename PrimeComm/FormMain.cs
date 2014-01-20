@@ -40,6 +40,10 @@ namespace PrimeComm
 
             // Recent files
             Utilities.UpdateRecentFiles();
+
+            // Open files from arguments
+            foreach(var f in Environment.GetCommandLineArgs().SubArray(1))
+                OpenFile(f);
         }
 
         public List<FormEditor> Editors { get; private  set; }
