@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -42,13 +43,16 @@ namespace PrimeComm
             Utilities.UpdateRecentFiles();
 
             // Open files from arguments
-            foreach(var f in Environment.GetCommandLineArgs().SubArray(1))
+            foreach (var f in Environment.GetCommandLineArgs().SubArray(1))
                 OpenFile(f);
+
+            // Pipe server
+            backgroundWorkerServer.RunWorkerAsync();
         }
 
-        public List<FormEditor> Editors { get; private  set; }
+        public List<FormEditor> Editors { get; private set; }
 
-        void Default_SettingsSaving(object sender, CancelEventArgs e)
+        private void Default_SettingsSaving(object sender, CancelEventArgs e)
         {
             _parameters = null; // Invalidate parameters
         }
@@ -72,10 +76,14 @@ namespace PrimeComm
             openFileDialogProgram.Filter = Resources.FilterInput;
             saveFileDialogProgram.Filter = Resources.FilterOutput;
 
-            _userFilesFolder = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Hewlett-Packard\HP Connectivity Kit", "WorkFolder", null) as string;
-            connectivityKitUserFolderToolStripMenuItem.Enabled = _userFilesFolder != null && Directory.Exists(_userFilesFolder);
-            
-            _emulatorFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HP_Prime");
+            _userFilesFolder =
+                Registry.GetValue(@"HKEY_CURRENT_USER\Software\Hewlett-Packard\HP Connectivity Kit", "WorkFolder", null)
+                    as string;
+            connectivityKitUserFolderToolStripMenuItem.Enabled = _userFilesFolder != null &&
+                                                                 Directory.Exists(_userFilesFolder);
+
+            _emulatorFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "HP_Prime");
             sendToEmulatorKitToolStripMenuItem.Enabled = IsEmulatorAvailable;
             emulatorToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
             exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
@@ -95,15 +103,15 @@ namespace PrimeComm
 
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == 0x0219 && _calculator!=null)
+            if (m.Msg == 0x0219 && _calculator != null)
             {
                 _calculator.CheckForChanges();
 
-                if(Editors != null)
+                if (Editors != null)
                     foreach (var n in Editors.Where(ed => !ed.IsDisposed))
                         n.UpdateGui();
             }
-            base.WndProc(ref m);	// Pass message on to base form
+            base.WndProc(ref m); // Pass message on to base form
         }
 
         private void usbCalculator_OnSpecifiedDeviceArrived(object sender, EventArgs e)
@@ -122,9 +130,19 @@ namespace PrimeComm
                 pictureBoxStatus.Image = IsDeviceConnected ? Resources.connected : Resources.disconnected;
 
                 if (_sending)
-                    labelStatusSubtitle.Text = String.IsNullOrEmpty(_sendingStatus) ? Resources.StatusSending : _sendingStatus;
+                    labelStatusSubtitle.Text = String.IsNullOrEmpty(_sendingStatus)
+                        ? Resources.StatusSending
+                        : _sendingStatus;
                 else
-                    labelStatusSubtitle.Text = IsDeviceConnected ? Resources.StatusConnected + (_receivingData ? Environment.NewLine + Environment.NewLine + (_receivedData.Count > 0 ? String.Format(Resources.StatusReceived, GetKilobytes(_receivedData.Count), 1) : Resources.StatusWaiting) : "") : Resources.StatusNotConnected;
+                    labelStatusSubtitle.Text = IsDeviceConnected
+                        ? Resources.StatusConnected +
+                          (_receivingData
+                              ? Environment.NewLine + Environment.NewLine +
+                                (_receivedData.Count > 0
+                                    ? String.Format(Resources.StatusReceived, GetKilobytes(_receivedData.Count), 1)
+                                    : Resources.StatusWaiting)
+                              : "")
+                        : Resources.StatusNotConnected;
 
                 if (!IsBusy)
                     IsBusy = _receivedData.Count > 0;
@@ -139,7 +157,7 @@ namespace PrimeComm
 
                 buttonCaptureScreen.Enabled = IsDeviceConnected && !IsBusy;
 
-                if(_receivingData==false)
+                if (_receivingData == false)
                     if (_receivedFile != null && _receivedFile.IsComplete)
                     {
                         saveFileDialogProgram.FileName = _receivedFile.Name + ".hpprgm";
@@ -162,7 +180,7 @@ namespace PrimeComm
 
         private int GetKilobytes(int p)
         {
-            return p * _calculator.OutputChunkSize / 1024;
+            return p*_calculator.OutputChunkSize/1024;
         }
 
         private void usbCalculator_OnSpecifiedDeviceRemoved(object sender, EventArgs e)
@@ -191,7 +209,7 @@ namespace PrimeComm
 
         private void ScheduleCheck(Boolean stop = false)
         {
-            if(_checker == null)
+            if (_checker == null)
                 _checker = new Timer(CheckData, null, Timeout.Infinite, Timeout.Infinite);
 
             UpdateGui();
@@ -221,7 +239,7 @@ namespace PrimeComm
                 return;
 
             // Check for valid structure
-            if(_receivedFile==null)
+            if (_receivedFile == null)
                 _receivedFile = new PrimeUsbData(_receivedData.Peek(), Parameters);
 
             if (_receivedFile.IsValid)
@@ -231,7 +249,7 @@ namespace PrimeComm
                 while (_receivedData.Count > 0)
                 {
                     var tmp = _receivedData.Dequeue();
-                    _receivedFile.Chunks.Add(tmp.SubArray(1, tmp.Length-1));
+                    _receivedFile.Chunks.Add(tmp.SubArray(1, tmp.Length - 1));
                 }
 
                 if (_receivedFile.IsComplete)
@@ -264,7 +282,8 @@ namespace PrimeComm
 
             if (openFilesDialogProgram.ShowDialog() == DialogResult.OK)
             {
-                var fileSet = PrimeFileSet.Create(openFilesDialogProgram.FileNames, new PrimeParameters(Settings.Default));
+                var fileSet = PrimeFileSet.Create(openFilesDialogProgram.FileNames,
+                    new PrimeParameters(Settings.Default));
 
                 fileSet.Destination = destination;
                 if (destination == Destinations.Custom)
@@ -319,7 +338,7 @@ namespace PrimeComm
 
         private void backgroundWorkerSend_DoWork(object sender, DoWorkEventArgs e)
         {
-            var fs = (PrimeFileSet)e.Argument;
+            var fs = (PrimeFileSet) e.Argument;
             var res = new SendResults(fs.Files.Length, fs.Destination);
             var nullFile = new PrimeUsbData(new byte[] {0x00}, null);
             foreach (var file in fs.Files)
@@ -332,7 +351,8 @@ namespace PrimeComm
                     {
                         if (b.IsValid)
                         {
-                            var primeFile = new PrimeUsbData(b.Name, b.Data,fs.Destination== Destinations.Calculator?_calculator.OutputChunkSize:0, Parameters);
+                            var primeFile = new PrimeUsbData(b.Name, b.Data,
+                                fs.Destination == Destinations.Calculator ? _calculator.OutputChunkSize : 0, Parameters);
 
                             switch (fs.Destination)
                             {
@@ -344,7 +364,7 @@ namespace PrimeComm
                                     break;
                                 case Destinations.UserFolder:
                                 case Destinations.Custom:
-                                    primeFile.Save(Path.Combine(fs.CustomDestination,primeFile.Name+".hpprgm"));
+                                    primeFile.Save(Path.Combine(fs.CustomDestination, primeFile.Name + ".hpprgm"));
                                     res.Add(SendResult.Success);
                                     break;
                             }
@@ -405,7 +425,9 @@ namespace PrimeComm
 
                         // Select the oposite filetype
                         saveFileDialogProgram.FilterIndex = openFileDialogProgram.FileName.EndsWith(".hpprgm",
-                            StringComparison.OrdinalIgnoreCase)? 2: 1;
+                            StringComparison.OrdinalIgnoreCase)
+                            ? 2
+                            : 1;
 
                         if (saveFileDialogProgram.ShowDialog() == DialogResult.OK)
                             new PrimeUsbData(b.Name, b.Data, 0, Parameters).Save(saveFileDialogProgram.FileName);
@@ -437,18 +459,18 @@ namespace PrimeComm
             SendTextTo(Destinations.UserFolder);
         }
 
-        public void SendTextTo(Destinations destination, String text=null)
+        public void SendTextTo(Destinations destination, String text = null)
         {
             var f = Utilities.CreateTemporalFileFromText(text);
             var res = new SendResults(1, destination);
 
             if (f != null)
             {
-                var fileSet = PrimeFileSet.Create(new[] { f }, new PrimeParameters(Settings.Default));
+                var fileSet = PrimeFileSet.Create(new[] {f}, new PrimeParameters(Settings.Default));
                 fileSet.Destination = destination;
                 if (destination == Destinations.Custom)
                 {
-                    var fs = new FolderSelectDialog { Title = "Select the destination folder" };
+                    var fs = new FolderSelectDialog {Title = "Select the destination folder"};
                     if (!fs.ShowDialog())
                         return; // Conversion was cancel
 
@@ -492,8 +514,12 @@ namespace PrimeComm
             if (!Settings.Default.SkipConflictingProcessChecking)
             {
                 // Check running processes
-                if (new[] {Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName}.Any(p => Process.GetProcessesByName(p).Length > 0))
-                    SendResults.ShowMsg("It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.",this);
+                if (
+                    new[] {Constants.ConnectivityKitProcessName, Constants.EmulatorProcessName}.Any(
+                        p => Process.GetProcessesByName(p).Length > 0))
+                    SendResults.ShowMsg(
+                        "It seems you have either the Connectivity Kit or HP Virtual Prime running, this may conflict with this app to detect your physical calculator.",
+                        this);
             }
         }
 
@@ -559,7 +585,9 @@ namespace PrimeComm
         {
             if (CheckIfThereIsActiveEditors())
             {
-                if (MessageBox.Show("There are active editors. Do you want to exit and lose all the changes?", "Close " + Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
+                if (
+                    MessageBox.Show("There are active editors. Do you want to exit and lose all the changes?",
+                        "Close " + Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
                     e.Cancel = true;
             }
         }
@@ -624,9 +652,53 @@ namespace PrimeComm
             {
                 const string tip = "Double click this icon to restore";
                 Visible = false;
-                notifyIconMain.Text = Text + " ("+tip+")";
+                notifyIconMain.Text = Text + " (" + tip + ")";
                 notifyIconMain.Visible = true;
                 notifyIconMain.ShowBalloonTip(3, Text, tip, ToolTipIcon.Info);
+            }
+        }
+
+        private void backgroundWorkerServer_DoWork(object sender, DoWorkEventArgs e)
+        {
+            do
+            {
+                // Create a name pipe
+                try
+                {
+                    using (var pipeStream = new NamedPipeServerStream(Application.ProductName, PipeDirection.In))
+                    {
+                        // Wait for a connection
+                        pipeStream.WaitForConnection();
+
+                        using (var sr = new StreamReader(pipeStream))
+                        {
+                            string temp;
+
+                            // We read a line from the pipe and print it together with the current time
+                            while ((temp = sr.ReadLine()) != null)
+                                if (temp.Contains(Utilities.CommandToken))
+                                    backgroundWorkerServer.ReportProgress(0, temp);
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            } while (true);
+        }
+
+        private void backgroundWorkerServer_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            var cmd = e.UserState as string;
+            if (String.IsNullOrEmpty(cmd)) return;
+
+            var args = cmd.Split(new[] {Utilities.CommandToken}, 2, StringSplitOptions.None);
+
+            switch (args[0])
+            {
+                case "open":
+                    OpenFile(args[1]);
+                    break;
             }
         }
     }

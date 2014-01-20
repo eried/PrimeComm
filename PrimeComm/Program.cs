@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.IO.Pipes;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using PrimeLib;
 
 namespace PrimeComm
 {
@@ -40,7 +43,28 @@ namespace PrimeComm
                             SetForegroundWindow(p.MainWindowHandle);
                         }
                         else
+                        {
                             p.Kill();
+                        }
+
+                // Connect to the running instance
+                try
+                {
+                    using (var pipeStream = new NamedPipeClientStream(".", Application.ProductName, PipeDirection.Out))
+                    {
+                        pipeStream.Connect(100);
+                        using (var sr = new StreamWriter(pipeStream))
+                        {
+                            sr.AutoFlush = true;
+
+                            foreach (var f in Environment.GetCommandLineArgs().SubArray(1))
+                                sr.WriteLine("open"+Utilities.CommandToken+f);
+                        }
+                    }
+                }
+                catch
+                {
+                }
             }
             else
             {

@@ -13,6 +13,8 @@ namespace PrimeComm
 {
     static internal class Utilities
     {
+        public static string CommandToken = "????";
+
         public static void InvokeIfRequired(this Control c, MethodInvoker action)
         {
             if (c.InvokeRequired) c.Invoke(action); else action();

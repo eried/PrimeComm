@@ -77,6 +77,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogProgram = new System.Windows.Forms.OpenFileDialog();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
+            this.backgroundWorkerServer = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             this.menuStripMain.SuspendLayout();
@@ -471,6 +472,12 @@
             this.notifyIconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconMain.Icon")));
             this.notifyIconMain.DoubleClick += new System.EventHandler(this.notifyIconMain_DoubleClick);
             // 
+            // backgroundWorkerServer
+            // 
+            this.backgroundWorkerServer.WorkerReportsProgress = true;
+            this.backgroundWorkerServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerServer_DoWork);
+            this.backgroundWorkerServer.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerServer_ProgressChanged);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -550,6 +557,7 @@
         private System.Windows.Forms.ToolStripMenuItem newFromTemplateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recentToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIconMain;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerServer;
     }
 }
 
