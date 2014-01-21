@@ -70,6 +70,7 @@ namespace PrimeComm
             checkBoxCompressSpaces.Enabled = checkBoxEnableAdditionalProgramProcessing.Checked;
             checkBoxObfuscateVariables.Enabled = checkBoxEnableAdditionalProgramProcessing.Checked;
             checkBoxRemoveComments.Enabled = checkBoxEnableAdditionalProgramProcessing.Checked;
+            checkBoxCompressSpacesMore.Enabled = checkBoxCompressSpaces.Enabled && checkBoxCompressSpaces.Checked;
 
             // Image output
             if (radioButtonPixel.Checked)

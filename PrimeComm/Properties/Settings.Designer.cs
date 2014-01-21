@@ -345,5 +345,17 @@ namespace PrimeComm.Properties {
                 this["HideAsNotificationIcon"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CompressSpacesMore {
+            get {
+                return ((bool)(this["CompressSpacesMore"]));
+            }
+            set {
+                this["CompressSpacesMore"] = value;
+            }
+        }
     }
 }
