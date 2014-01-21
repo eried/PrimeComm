@@ -39,6 +39,9 @@
             this.recentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importAndExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToASCII7BitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,9 +74,6 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.programPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hPPPLCheatSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.programmingTutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
@@ -171,6 +171,7 @@
             this.recentToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
+            this.importAndExportToolStripMenuItem,
             this.toolStripMenuItem3,
             this.printPreviewToolStripMenuItem,
             this.printToolStripMenuItem,
@@ -231,6 +232,27 @@
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.saveAsToolStripMenuItem.Text = "Save as...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
+            // importAndExportToolStripMenuItem
+            // 
+            this.importAndExportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importImageToolStripMenuItem,
+            this.exportToASCII7BitsToolStripMenuItem});
+            this.importAndExportToolStripMenuItem.Name = "importAndExportToolStripMenuItem";
+            this.importAndExportToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.importAndExportToolStripMenuItem.Text = "&Import and export";
+            // 
+            // importImageToolStripMenuItem
+            // 
+            this.importImageToolStripMenuItem.Name = "importImageToolStripMenuItem";
+            this.importImageToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.importImageToolStripMenuItem.Text = "Import &image...";
+            // 
+            // exportToASCII7BitsToolStripMenuItem
+            // 
+            this.exportToASCII7BitsToolStripMenuItem.Name = "exportToASCII7BitsToolStripMenuItem";
+            this.exportToASCII7BitsToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.exportToASCII7BitsToolStripMenuItem.Text = "&Export to ASCII 7 bits...";
             // 
             // toolStripMenuItem3
             // 
@@ -483,40 +505,17 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hPPPLCheatSheetToolStripMenuItem,
-            this.programmingTutorialToolStripMenuItem,
-            this.toolStripMenuItem11,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // hPPPLCheatSheetToolStripMenuItem
-            // 
-            this.hPPPLCheatSheetToolStripMenuItem.Name = "hPPPLCheatSheetToolStripMenuItem";
-            this.hPPPLCheatSheetToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.hPPPLCheatSheetToolStripMenuItem.Text = "Language quick reference";
-            this.hPPPLCheatSheetToolStripMenuItem.Visible = false;
-            // 
-            // programmingTutorialToolStripMenuItem
-            // 
-            this.programmingTutorialToolStripMenuItem.Name = "programmingTutorialToolStripMenuItem";
-            this.programmingTutorialToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.programmingTutorialToolStripMenuItem.Text = "&Programming tutorial";
-            this.programmingTutorialToolStripMenuItem.Visible = false;
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(207, 6);
-            this.toolStripMenuItem11.Visible = false;
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -762,10 +761,10 @@
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commentSelectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uncommentSelectionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hPPPLCheatSheetToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem programmingTutorialToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importAndExportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToASCII7BitsToolStripMenuItem;
     }
 }

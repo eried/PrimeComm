@@ -106,10 +106,6 @@ namespace PrimeComm
             if (m.Msg == 0x0219 && _calculator != null)
             {
                 _calculator.CheckForChanges();
-
-                if (Editors != null)
-                    foreach (var n in Editors.Where(ed => !ed.IsDisposed))
-                        n.UpdateGui();
             }
             base.WndProc(ref m); // Pass message on to base form
         }
@@ -156,6 +152,10 @@ namespace PrimeComm
                 sendClipboardToolStripMenuItem.Enabled = buttonSend.Enabled;
 
                 buttonCaptureScreen.Enabled = IsDeviceConnected && !IsBusy;
+
+                if (Editors != null)
+                    foreach (var n in Editors.Where(ed => !ed.IsDisposed))
+                        n.UpdateGui();
 
                 if (_receivingData == false)
                     if (_receivedFile != null && _receivedFile.IsComplete)
@@ -303,9 +303,12 @@ namespace PrimeComm
 
         public void SendDataTo(PrimeFileSet files)
         {
-            IsBusy = true;
-            _sending = true;
-            backgroundWorkerSend.RunWorkerAsync(files);
+            if (!backgroundWorkerSend.IsBusy)
+            {
+                IsBusy = true;
+                _sending = true;
+                backgroundWorkerSend.RunWorkerAsync(files);
+            }
             UpdateGui();
         }
 
@@ -654,23 +657,20 @@ namespace PrimeComm
                     Visible = true;
 
                 notifyIconMain.Visible = false;
-                //ShowInTaskbar = true;
                 _lastWindowState = WindowState;
             }
             else if (Settings.Default.HideAsNotificationIcon)
             {
-                const string tip = "Double click this icon to open";
+                const string tip = "Double click this icon to restore the main program window";
                 Visible = false;
 
                 notifyIconMain.Visible = true;
-                notifyIconMain.Text = Text + " (" + tip + ")";
-                
-                //ShowInTaskbar = false;
+                notifyIconMain.Text = Text;
 
                 if (!_notificationHintAlreadyShown)
                 {
                     _notificationHintAlreadyShown = true;
-                    notifyIconMain.ShowBalloonTip(3, Text, tip, ToolTipIcon.Info);
+                    notifyIconMain.ShowBalloonTip(3, Application.ProductName + " is running here", tip, ToolTipIcon.Info);
                 }
             }
         }
