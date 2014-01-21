@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditor));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.editor = new ScintillaNET.Scintilla();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +62,6 @@
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commentSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uncommentSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,13 +88,17 @@
             this.toolStripSendTo = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSendToDevice = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSendToVirtual = new System.Windows.Forms.ToolStripButton();
+            this.editor = new ScintillaNET.Scintilla();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.editorPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editor)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.toolStripSendTo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editor)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -118,33 +120,6 @@
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripMain);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripSendTo);
-            // 
-            // editor
-            // 
-            this.editor.AutoComplete.IsCaseSensitive = false;
-            this.editor.AutoComplete.ListString = "";
-            this.editor.ConfigurationManager.Language = "pascal";
-            this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editor.Folding.Flags = ScintillaNET.FoldFlag.Box;
-            this.editor.Folding.UseCompactFolding = true;
-            this.editor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
-            this.editor.Indentation.TabWidth = 4;
-            this.editor.Indentation.UseTabs = false;
-            this.editor.IsBraceMatching = true;
-            this.editor.Lexing.Lexer = ScintillaNET.Lexer.Pascal;
-            this.editor.Lexing.LexerName = "pascal";
-            this.editor.Lexing.LineCommentPrefix = "//";
-            this.editor.Lexing.StreamCommentPrefix = "";
-            this.editor.Lexing.StreamCommentSufix = "";
-            this.editor.Location = new System.Drawing.Point(0, 0);
-            this.editor.Margins.Margin0.Width = 30;
-            this.editor.Name = "editor";
-            this.editor.Scrolling.HorizontalWidth = 200;
-            this.editor.Size = new System.Drawing.Size(712, 487);
-            this.editor.Snippets.IsOneKeySelectionEmbedEnabled = true;
-            this.editor.TabIndex = 0;
-            this.editor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
-            this.editor.TextChanged += new System.EventHandler(this.scintillaEditor_TextChanged);
             // 
             // menuStrip1
             // 
@@ -241,6 +216,7 @@
             this.importAndExportToolStripMenuItem.Name = "importAndExportToolStripMenuItem";
             this.importAndExportToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.importAndExportToolStripMenuItem.Text = "&Import and export";
+            this.importAndExportToolStripMenuItem.Visible = false;
             // 
             // importImageToolStripMenuItem
             // 
@@ -421,19 +397,13 @@
             this.viewToolStripMenuItem.Text = "&View";
             this.viewToolStripMenuItem.Visible = false;
             // 
-            // wordWrapToolStripMenuItem
-            // 
-            this.wordWrapToolStripMenuItem.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
-            this.wordWrapToolStripMenuItem.CheckOnClick = true;
-            this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.wordWrapToolStripMenuItem.Text = "&Word wrap";
-            // 
             // languageToolStripMenuItem
             // 
             this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.commentSelectionToolStripMenuItem,
-            this.uncommentSelectionToolStripMenuItem});
+            this.uncommentSelectionToolStripMenuItem,
+            this.toolStripMenuItem8,
+            this.editorPreferencesToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
             this.languageToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.languageToolStripMenuItem.Text = "&Format";
@@ -515,7 +485,7 @@
             this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -675,6 +645,56 @@
             this.toolStripButtonSendToVirtual.Text = "Send to Virtual HP Prime working folder (F10)";
             this.toolStripButtonSendToVirtual.Click += new System.EventHandler(this.sendToVirtualToolStripMenuItem_Click);
             // 
+            // editor
+            // 
+            this.editor.AllowDrop = true;
+            this.editor.AutoComplete.IsCaseSensitive = false;
+            this.editor.AutoComplete.ListString = "";
+            this.editor.ConfigurationManager.Language = "pascal";
+            this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editor.Folding.Flags = ScintillaNET.FoldFlag.Box;
+            this.editor.Folding.UseCompactFolding = true;
+            this.editor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
+            this.editor.Indentation.TabWidth = 4;
+            this.editor.Indentation.UseTabs = false;
+            this.editor.IsBraceMatching = true;
+            this.editor.Lexing.Lexer = ScintillaNET.Lexer.Pascal;
+            this.editor.Lexing.LexerName = "pascal";
+            this.editor.Lexing.LineCommentPrefix = "//";
+            this.editor.Lexing.StreamCommentPrefix = "";
+            this.editor.Lexing.StreamCommentSufix = "";
+            this.editor.Location = new System.Drawing.Point(0, 0);
+            this.editor.Margins.Margin0.Width = 30;
+            this.editor.Name = "editor";
+            this.editor.Scrolling.HorizontalWidth = 200;
+            this.editor.Size = new System.Drawing.Size(712, 487);
+            this.editor.Snippets.IsOneKeySelectionEmbedEnabled = true;
+            this.editor.TabIndex = 0;
+            this.editor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
+            this.editor.TextChanged += new System.EventHandler(this.scintillaEditor_TextChanged);
+            this.editor.DragDrop += new System.Windows.Forms.DragEventHandler(this.editor_DragDrop);
+            this.editor.DragEnter += new System.Windows.Forms.DragEventHandler(this.editor_DragEnter);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(188, 6);
+            // 
+            // editorPreferencesToolStripMenuItem
+            // 
+            this.editorPreferencesToolStripMenuItem.Name = "editorPreferencesToolStripMenuItem";
+            this.editorPreferencesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.editorPreferencesToolStripMenuItem.Text = "&Editor preferences...";
+            this.editorPreferencesToolStripMenuItem.Click += new System.EventHandler(this.editorPreferencesToolStripMenuItem_Click);
+            // 
+            // wordWrapToolStripMenuItem
+            // 
+            this.wordWrapToolStripMenuItem.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
+            this.wordWrapToolStripMenuItem.CheckOnClick = true;
+            this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wordWrapToolStripMenuItem.Text = "&Word wrap";
+            // 
             // FormEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -692,13 +712,13 @@
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editor)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
             this.toolStripSendTo.ResumeLayout(false);
             this.toolStripSendTo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -766,5 +786,7 @@
         private System.Windows.Forms.ToolStripMenuItem importAndExportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToASCII7BitsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem editorPreferencesToolStripMenuItem;
     }
 }

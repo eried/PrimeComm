@@ -718,5 +718,23 @@ namespace PrimeComm
                     break;
             }
         }
+
+        private void FormMain_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetFormats().Any(f => f == "FileDrop"))
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void FormMain_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("FileDrop"))
+            {
+                var f = e.Data.GetData("FileDrop") as string[];
+
+                if (f != null)
+                    foreach(var file in f)
+                        OpenFile(file);
+            }
+        }
     }
 }

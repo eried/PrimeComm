@@ -442,7 +442,7 @@ namespace PrimeComm
 
         private void programPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenSettings(1);
+            OpenSettings(2);
         }
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -514,5 +514,27 @@ namespace PrimeComm
         }
 
         public bool IsClosed { get; private set; }
+
+        private void editorPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenSettings(1);
+        }
+
+        private void editor_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("FileName"))
+            {
+                var f = e.Data.GetData("FileName") as string[];
+
+                if (f != null && f.Any())
+                    OpenFile(f[0]);
+            }
+        }
+
+        private void editor_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetFormats().Any(f => f == "FileName"))
+                e.Effect = DragDropEffects.Copy;
+        }
     }
 }
