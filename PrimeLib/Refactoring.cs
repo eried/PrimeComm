@@ -24,11 +24,14 @@ static internal class Refactoring
         if (programParameters.GetFlag("CompressSpaces"))
         {
             var o = new StringBuilder();
+            var removeLineBreaks = programParameters.GetFlag("CompressSpacesMore");
             var extractedOperators = Regex.Unescape(operators.Replace(@"\s", "")
                 .Substring(0, operators.Length - (operators.EndsWith("])") ? 3 : 1))
                 .Substring(operators.StartsWith("([") ? 2 : 0));
-            foreach (var l in programCode.Replace(Environment.NewLine, "\n")
+            foreach (var l in programCode.Replace(Environment.NewLine, removeLineBreaks?" ":"\n")
                 .Replace("\r", String.Empty)
+                .Replace("   ", " ")
+                .Replace("   ", " ")
                 .Replace("  ", " ")
                 .Replace("  ", " ")
                 .Replace("  ", " ")
@@ -50,7 +53,7 @@ static internal class Refactoring
                 o.Append(line);
 
                 if (!String.IsNullOrEmpty(line) && !line.EndsWith(";"))
-                    o.Append('\n');
+                    o.Append(removeLineBreaks?' ':'\n');
             }
             programCode = o.ToString();
             //tmp = regexOperators.Replace(tmp, m => m.Value.Trim());
@@ -64,9 +67,9 @@ static internal class Refactoring
             {
                 foreach (var v in l.Groups["vars"].Value.Split(new[] {','}))
                 {
-                    var v1 = v.Split(new[] {'='}, 2)[0].Trim();
+                    var v1 = v.Replace(" ", String.Empty).Replace(":=", "=").Split(new[] { '=' }, 2)[0].Trim();
 
-                    if (v1.Length <= 2) continue;
+                    if (v1.Length <= 2 || v1.Contains("#")) continue;
 
                     if (!variables.Contains(v1))
                         variables.Add(v1);
@@ -76,6 +79,7 @@ static internal class Refactoring
             if (variables.Count > 0)
             {
                 // Replacement variables
+                variables.Sort((x, y) => y.Length.CompareTo(x.Length));
                 var replacements = new Dictionary<String, String>();
                 var v1 = programParameters.GetValue("VariableRefactoringStartingSeed");
 
@@ -92,8 +96,7 @@ static internal class Refactoring
 
                 // Do the replacement
                 var final = new StringBuilder();
-                var regexEncodedPlain =
-                    new Regex("(" + Regex.Escape(EncodePrefix) + programParameters.GetValue("RegexBase64") +
+                var regexEncodedPlain = new Regex("(" + Regex.Escape(EncodePrefix) + programParameters.GetValue("RegexBase64") +
                               Regex.Escape(EncodePostfix) + ")");
 
                 foreach (var l in regexEncodedPlain.Split(programCode))
@@ -124,8 +127,8 @@ static internal class Refactoring
         var regexEncoded =
             new Regex(Regex.Escape(EncodePrefix) + "(?<data>" + programParameters.GetValue("RegexBase64") + ")" +
                       Regex.Escape(EncodePostfix));
-        programCode = regexEncoded.Replace(programCode, (MatchEvaluator) DecodeElement);
-        return programCode;
+
+        return regexEncoded.Replace(programCode, DecodeElement);
     }
 
     private static void Next(ref StringBuilder replacement)
@@ -164,7 +167,14 @@ static internal class Refactoring
 
     private static string DecodeElement(Match match)
     {
-        return Encoding.Unicode.GetString(Convert.FromBase64String(match.Groups["data"].Value));
+        try
+        {
+            return Encoding.Unicode.GetString(Convert.FromBase64String(match.Groups["data"].Value));
+        }
+        catch
+        {
+        }
+        return null;
     }
 
     private static string EncodeElement(Match match)
