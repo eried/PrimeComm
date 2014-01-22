@@ -61,6 +61,35 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to !;&quot;Syntax: value!
+        ///
+        ///Factorial. Returns the factorial of a positive integer. For non-integers, ! = ?(x + 1). This calculates the Gamma function. 
+        ///
+        ///Example: 6! returns 720
+        ///&quot;;
+        ///%;&quot;Syntax: %(x, y)
+        ///
+        ///x percent of y. Returns (x/100)*y. 
+        ///
+        ///Example: %(20,50) returns 10
+        ///&quot;;
+        ///%CHANGE;&quot;Syntax: %CHANGE(x, y)
+        ///Percent change from x to y. Returns 100*(y-x)/x.
+        ///%CHANGE(20,50) returns 150
+        ///&quot;;
+        ///%TOTAL;&quot;Syntax: %TOTAL(x, y)
+        ///Percent total; the percentage of x that is y. Returns 100*y/x.
+        ///%TOTAL(20,50)  returns 250.
+        ///&quot;;
+        ///(;&quot;Parentheses [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string commands {
+            get {
+                return ResourceManager.GetString("commands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap connected {

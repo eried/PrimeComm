@@ -36,25 +36,21 @@
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.linkLabelClearWarnings = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxHideAsNotificationIcon = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPageProgram = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tabPageImages = new System.Windows.Forms.TabPage();
-            this.groupBoxDithering = new System.Windows.Forms.GroupBox();
-            this.linkLabelDitheringInfo = new System.Windows.Forms.LinkLabel();
-            this.comboBoxImageDitheringMethod = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonIcon = new System.Windows.Forms.RadioButton();
-            this.radioButtonDimgrob = new System.Windows.Forms.RadioButton();
-            this.radioButtonPixel = new System.Windows.Forms.RadioButton();
-            this.tabPageAdvanced = new System.Windows.Forms.TabPage();
             this.tabPageEditor = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.checkBoxRestorePrimeComm = new System.Windows.Forms.CheckBox();
+            this.checkBoxMinimizePrimeComm = new System.Windows.Forms.CheckBox();
+            this.checkBoxWordWrap = new System.Windows.Forms.CheckBox();
             this.linkLabelClearRecent = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBoxHideAsNotificationIcon = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.numericUpDownRecentFiles = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
+            this.tabPageProgram = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBoxCompressSpacesMore = new System.Windows.Forms.CheckBox();
             this.checkBoxCompressSpaces = new System.Windows.Forms.CheckBox();
@@ -62,25 +58,29 @@
             this.checkBoxEnableAdditionalProgramProcessing = new System.Windows.Forms.CheckBox();
             this.checkBoxRemoveComments = new System.Windows.Forms.CheckBox();
             this.checkBoxObfuscateVariables = new System.Windows.Forms.CheckBox();
-            this.checkBoxRestorePrimeComm = new System.Windows.Forms.CheckBox();
-            this.checkBoxMinimizePrimeComm = new System.Windows.Forms.CheckBox();
-            this.checkBoxWordWrap = new System.Windows.Forms.CheckBox();
-            this.numericUpDownRecentFiles = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
+            this.tabPageImages = new System.Windows.Forms.TabPage();
+            this.groupBoxDithering = new System.Windows.Forms.GroupBox();
+            this.linkLabelDitheringInfo = new System.Windows.Forms.LinkLabel();
+            this.comboBoxImageDitheringMethod = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButtonIcon = new System.Windows.Forms.RadioButton();
+            this.radioButtonDimgrob = new System.Windows.Forms.RadioButton();
             this.checkBoxImageMethodDimgrobOptimizeBlacks = new System.Windows.Forms.CheckBox();
+            this.radioButtonPixel = new System.Windows.Forms.RadioButton();
             this.checkBoxImageMethodDimgrobOptimizeSimilar = new System.Windows.Forms.CheckBox();
+            this.tabPageAdvanced = new System.Windows.Forms.TabPage();
             this.tabControlPreferences.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabPageEditor.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecentFiles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
             this.tabPageProgram.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPageImages.SuspendLayout();
             this.groupBoxDithering.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabPageEditor.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecentFiles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -162,6 +162,31 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "PrimeComm";
             // 
+            // checkBoxHideAsNotificationIcon
+            // 
+            this.checkBoxHideAsNotificationIcon.AutoSize = true;
+            this.checkBoxHideAsNotificationIcon.Checked = global::PrimeComm.Properties.Settings.Default.HideAsNotificationIcon;
+            this.checkBoxHideAsNotificationIcon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxHideAsNotificationIcon.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "HideAsNotificationIcon", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxHideAsNotificationIcon.Location = new System.Drawing.Point(15, 47);
+            this.checkBoxHideAsNotificationIcon.Name = "checkBoxHideAsNotificationIcon";
+            this.checkBoxHideAsNotificationIcon.Size = new System.Drawing.Size(269, 19);
+            this.checkBoxHideAsNotificationIcon.TabIndex = 0;
+            this.checkBoxHideAsNotificationIcon.Text = "Hide the program window as notification icon";
+            this.checkBoxHideAsNotificationIcon.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = global::PrimeComm.Properties.Settings.Default.SkipConflictingProcessChecking;
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "SkipConflictingProcessChecking", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBox1.Location = new System.Drawing.Point(15, 22);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(320, 19);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Hide warning about conflicting processes when starting";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(18, 334);
@@ -169,138 +194,6 @@
             this.label1.Size = new System.Drawing.Size(355, 30);
             this.label1.TabIndex = 3;
             this.label1.Text = "Some notes and warning messages appear only once. You can restore them";
-            // 
-            // tabPageProgram
-            // 
-            this.tabPageProgram.Controls.Add(this.groupBox2);
-            this.tabPageProgram.Location = new System.Drawing.Point(4, 24);
-            this.tabPageProgram.Name = "tabPageProgram";
-            this.tabPageProgram.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageProgram.Size = new System.Drawing.Size(379, 380);
-            this.tabPageProgram.TabIndex = 1;
-            this.tabPageProgram.Text = "Program";
-            this.tabPageProgram.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBoxCompressSpacesMore);
-            this.groupBox2.Controls.Add(this.checkBoxCompressSpaces);
-            this.groupBox2.Controls.Add(this.checkBoxConversionComment);
-            this.groupBox2.Controls.Add(this.checkBoxEnableAdditionalProgramProcessing);
-            this.groupBox2.Controls.Add(this.checkBoxRemoveComments);
-            this.groupBox2.Controls.Add(this.checkBoxObfuscateVariables);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(367, 207);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Program code";
-            // 
-            // tabPageImages
-            // 
-            this.tabPageImages.Controls.Add(this.groupBoxDithering);
-            this.tabPageImages.Controls.Add(this.groupBox1);
-            this.tabPageImages.Location = new System.Drawing.Point(4, 24);
-            this.tabPageImages.Name = "tabPageImages";
-            this.tabPageImages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageImages.Size = new System.Drawing.Size(379, 380);
-            this.tabPageImages.TabIndex = 3;
-            this.tabPageImages.Text = "Images";
-            this.tabPageImages.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxDithering
-            // 
-            this.groupBoxDithering.Controls.Add(this.linkLabelDitheringInfo);
-            this.groupBoxDithering.Controls.Add(this.comboBoxImageDitheringMethod);
-            this.groupBoxDithering.Location = new System.Drawing.Point(6, 168);
-            this.groupBoxDithering.Name = "groupBoxDithering";
-            this.groupBoxDithering.Size = new System.Drawing.Size(367, 69);
-            this.groupBoxDithering.TabIndex = 3;
-            this.groupBoxDithering.TabStop = false;
-            this.groupBoxDithering.Text = "Image processing";
-            // 
-            // linkLabelDitheringInfo
-            // 
-            this.linkLabelDitheringInfo.AutoSize = true;
-            this.linkLabelDitheringInfo.Location = new System.Drawing.Point(12, 29);
-            this.linkLabelDitheringInfo.Name = "linkLabelDitheringInfo";
-            this.linkLabelDitheringInfo.Size = new System.Drawing.Size(104, 15);
-            this.linkLabelDitheringInfo.TabIndex = 6;
-            this.linkLabelDitheringInfo.TabStop = true;
-            this.linkLabelDitheringInfo.Text = "Dithering method:";
-            this.linkLabelDitheringInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelDitheringInfo_LinkClicked);
-            // 
-            // comboBoxImageDitheringMethod
-            // 
-            this.comboBoxImageDitheringMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxImageDitheringMethod.FormattingEnabled = true;
-            this.comboBoxImageDitheringMethod.Location = new System.Drawing.Point(121, 26);
-            this.comboBoxImageDitheringMethod.Name = "comboBoxImageDitheringMethod";
-            this.comboBoxImageDitheringMethod.Size = new System.Drawing.Size(175, 23);
-            this.comboBoxImageDitheringMethod.TabIndex = 4;
-            this.comboBoxImageDitheringMethod.SelectedIndexChanged += new System.EventHandler(this.comboBoxImageDitheringMethod_SelectedIndexChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButtonIcon);
-            this.groupBox1.Controls.Add(this.radioButtonDimgrob);
-            this.groupBox1.Controls.Add(this.checkBoxImageMethodDimgrobOptimizeBlacks);
-            this.groupBox1.Controls.Add(this.radioButtonPixel);
-            this.groupBox1.Controls.Add(this.checkBoxImageMethodDimgrobOptimizeSimilar);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 156);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Image output method";
-            // 
-            // radioButtonIcon
-            // 
-            this.radioButtonIcon.AutoSize = true;
-            this.radioButtonIcon.Enabled = false;
-            this.radioButtonIcon.Location = new System.Drawing.Point(15, 122);
-            this.radioButtonIcon.Name = "radioButtonIcon";
-            this.radioButtonIcon.Size = new System.Drawing.Size(150, 19);
-            this.radioButtonIcon.TabIndex = 0;
-            this.radioButtonIcon.TabStop = true;
-            this.radioButtonIcon.Text = "ICON and BLIT_P (PNG)";
-            this.radioButtonIcon.UseVisualStyleBackColor = true;
-            this.radioButtonIcon.CheckedChanged += new System.EventHandler(this.something_Changed);
-            // 
-            // radioButtonDimgrob
-            // 
-            this.radioButtonDimgrob.AutoSize = true;
-            this.radioButtonDimgrob.Location = new System.Drawing.Point(15, 47);
-            this.radioButtonDimgrob.Name = "radioButtonDimgrob";
-            this.radioButtonDimgrob.Size = new System.Drawing.Size(151, 19);
-            this.radioButtonDimgrob.TabIndex = 0;
-            this.radioButtonDimgrob.TabStop = true;
-            this.radioButtonDimgrob.Text = "DIMGROB_P and BLIT_P";
-            this.radioButtonDimgrob.UseVisualStyleBackColor = true;
-            this.radioButtonDimgrob.CheckedChanged += new System.EventHandler(this.something_Changed);
-            // 
-            // radioButtonPixel
-            // 
-            this.radioButtonPixel.AutoSize = true;
-            this.radioButtonPixel.Location = new System.Drawing.Point(15, 22);
-            this.radioButtonPixel.Name = "radioButtonPixel";
-            this.radioButtonPixel.Size = new System.Drawing.Size(72, 19);
-            this.radioButtonPixel.TabIndex = 0;
-            this.radioButtonPixel.TabStop = true;
-            this.radioButtonPixel.Text = "PIXON_P";
-            this.radioButtonPixel.UseVisualStyleBackColor = true;
-            this.radioButtonPixel.CheckedChanged += new System.EventHandler(this.something_Changed);
-            // 
-            // tabPageAdvanced
-            // 
-            this.tabPageAdvanced.Location = new System.Drawing.Point(4, 24);
-            this.tabPageAdvanced.Name = "tabPageAdvanced";
-            this.tabPageAdvanced.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdvanced.Size = new System.Drawing.Size(379, 380);
-            this.tabPageAdvanced.TabIndex = 2;
-            this.tabPageAdvanced.Text = "Advanced";
-            this.tabPageAdvanced.UseVisualStyleBackColor = true;
             // 
             // tabPageEditor
             // 
@@ -329,6 +222,44 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Editor";
+            // 
+            // checkBoxRestorePrimeComm
+            // 
+            this.checkBoxRestorePrimeComm.AutoSize = true;
+            this.checkBoxRestorePrimeComm.Checked = global::PrimeComm.Properties.Settings.Default.EditorRestoresPrimeComm;
+            this.checkBoxRestorePrimeComm.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxRestorePrimeComm.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorRestoresPrimeComm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxRestorePrimeComm.Location = new System.Drawing.Point(15, 115);
+            this.checkBoxRestorePrimeComm.Name = "checkBoxRestorePrimeComm";
+            this.checkBoxRestorePrimeComm.Size = new System.Drawing.Size(284, 19);
+            this.checkBoxRestorePrimeComm.TabIndex = 5;
+            this.checkBoxRestorePrimeComm.Text = "Restore PrimeComm when closing the last editor";
+            this.checkBoxRestorePrimeComm.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMinimizePrimeComm
+            // 
+            this.checkBoxMinimizePrimeComm.AutoSize = true;
+            this.checkBoxMinimizePrimeComm.Checked = global::PrimeComm.Properties.Settings.Default.EditorMinimizesPrimeComm;
+            this.checkBoxMinimizePrimeComm.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxMinimizePrimeComm.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorMinimizesPrimeComm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxMinimizePrimeComm.Location = new System.Drawing.Point(15, 90);
+            this.checkBoxMinimizePrimeComm.Name = "checkBoxMinimizePrimeComm";
+            this.checkBoxMinimizePrimeComm.Size = new System.Drawing.Size(279, 19);
+            this.checkBoxMinimizePrimeComm.TabIndex = 5;
+            this.checkBoxMinimizePrimeComm.Text = "Minimize PrimeComm when opening the editor";
+            this.checkBoxMinimizePrimeComm.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxWordWrap
+            // 
+            this.checkBoxWordWrap.AutoSize = true;
+            this.checkBoxWordWrap.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
+            this.checkBoxWordWrap.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorWordWrap", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxWordWrap.Location = new System.Drawing.Point(207, 27);
+            this.checkBoxWordWrap.Name = "checkBoxWordWrap";
+            this.checkBoxWordWrap.Size = new System.Drawing.Size(86, 19);
+            this.checkBoxWordWrap.TabIndex = 4;
+            this.checkBoxWordWrap.Text = "Word Wrap";
+            this.checkBoxWordWrap.UseVisualStyleBackColor = true;
             // 
             // linkLabelClearRecent
             // 
@@ -359,30 +290,60 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Default font size:";
             // 
-            // checkBoxHideAsNotificationIcon
+            // numericUpDownRecentFiles
             // 
-            this.checkBoxHideAsNotificationIcon.AutoSize = true;
-            this.checkBoxHideAsNotificationIcon.Checked = global::PrimeComm.Properties.Settings.Default.HideAsNotificationIcon;
-            this.checkBoxHideAsNotificationIcon.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxHideAsNotificationIcon.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "HideAsNotificationIcon", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxHideAsNotificationIcon.Location = new System.Drawing.Point(15, 47);
-            this.checkBoxHideAsNotificationIcon.Name = "checkBoxHideAsNotificationIcon";
-            this.checkBoxHideAsNotificationIcon.Size = new System.Drawing.Size(269, 19);
-            this.checkBoxHideAsNotificationIcon.TabIndex = 0;
-            this.checkBoxHideAsNotificationIcon.Text = "Hide the program window as notification icon";
-            this.checkBoxHideAsNotificationIcon.UseVisualStyleBackColor = true;
+            this.numericUpDownRecentFiles.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "RecentFilesMaximum", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownRecentFiles.Location = new System.Drawing.Point(144, 55);
+            this.numericUpDownRecentFiles.Name = "numericUpDownRecentFiles";
+            this.numericUpDownRecentFiles.Size = new System.Drawing.Size(48, 23);
+            this.numericUpDownRecentFiles.TabIndex = 0;
+            this.numericUpDownRecentFiles.Value = global::PrimeComm.Properties.Settings.Default.RecentFilesMaximum;
             // 
-            // checkBox1
+            // numericUpDownFontSize
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = global::PrimeComm.Properties.Settings.Default.SkipConflictingProcessChecking;
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "SkipConflictingProcessChecking", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBox1.Location = new System.Drawing.Point(15, 22);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(320, 19);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Hide warning about conflicting processes when starting";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.numericUpDownFontSize.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "EditorFontSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownFontSize.Location = new System.Drawing.Point(144, 26);
+            this.numericUpDownFontSize.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.numericUpDownFontSize.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericUpDownFontSize.Name = "numericUpDownFontSize";
+            this.numericUpDownFontSize.Size = new System.Drawing.Size(48, 23);
+            this.numericUpDownFontSize.TabIndex = 0;
+            this.numericUpDownFontSize.Value = global::PrimeComm.Properties.Settings.Default.EditorFontSize;
+            // 
+            // tabPageProgram
+            // 
+            this.tabPageProgram.Controls.Add(this.groupBox2);
+            this.tabPageProgram.Location = new System.Drawing.Point(4, 24);
+            this.tabPageProgram.Name = "tabPageProgram";
+            this.tabPageProgram.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageProgram.Size = new System.Drawing.Size(379, 380);
+            this.tabPageProgram.TabIndex = 1;
+            this.tabPageProgram.Text = "Program";
+            this.tabPageProgram.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBox2);
+            this.groupBox2.Controls.Add(this.checkBoxCompressSpacesMore);
+            this.groupBox2.Controls.Add(this.checkBoxCompressSpaces);
+            this.groupBox2.Controls.Add(this.checkBoxConversionComment);
+            this.groupBox2.Controls.Add(this.checkBoxEnableAdditionalProgramProcessing);
+            this.groupBox2.Controls.Add(this.checkBoxRemoveComments);
+            this.groupBox2.Controls.Add(this.checkBoxObfuscateVariables);
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(367, 207);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Program code";
             // 
             // checkBox2
             // 
@@ -472,71 +433,88 @@
             this.checkBoxObfuscateVariables.Text = "Obfuscate variable names";
             this.checkBoxObfuscateVariables.UseVisualStyleBackColor = true;
             // 
-            // checkBoxRestorePrimeComm
+            // tabPageImages
             // 
-            this.checkBoxRestorePrimeComm.AutoSize = true;
-            this.checkBoxRestorePrimeComm.Checked = global::PrimeComm.Properties.Settings.Default.EditorRestoresPrimeComm;
-            this.checkBoxRestorePrimeComm.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxRestorePrimeComm.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorRestoresPrimeComm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxRestorePrimeComm.Location = new System.Drawing.Point(15, 115);
-            this.checkBoxRestorePrimeComm.Name = "checkBoxRestorePrimeComm";
-            this.checkBoxRestorePrimeComm.Size = new System.Drawing.Size(284, 19);
-            this.checkBoxRestorePrimeComm.TabIndex = 5;
-            this.checkBoxRestorePrimeComm.Text = "Restore PrimeComm when closing the last editor";
-            this.checkBoxRestorePrimeComm.UseVisualStyleBackColor = true;
+            this.tabPageImages.Controls.Add(this.groupBoxDithering);
+            this.tabPageImages.Controls.Add(this.groupBox1);
+            this.tabPageImages.Location = new System.Drawing.Point(4, 24);
+            this.tabPageImages.Name = "tabPageImages";
+            this.tabPageImages.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageImages.Size = new System.Drawing.Size(379, 380);
+            this.tabPageImages.TabIndex = 3;
+            this.tabPageImages.Text = "Images";
+            this.tabPageImages.UseVisualStyleBackColor = true;
             // 
-            // checkBoxMinimizePrimeComm
+            // groupBoxDithering
             // 
-            this.checkBoxMinimizePrimeComm.AutoSize = true;
-            this.checkBoxMinimizePrimeComm.Checked = global::PrimeComm.Properties.Settings.Default.EditorMinimizesPrimeComm;
-            this.checkBoxMinimizePrimeComm.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxMinimizePrimeComm.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorMinimizesPrimeComm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxMinimizePrimeComm.Location = new System.Drawing.Point(15, 90);
-            this.checkBoxMinimizePrimeComm.Name = "checkBoxMinimizePrimeComm";
-            this.checkBoxMinimizePrimeComm.Size = new System.Drawing.Size(279, 19);
-            this.checkBoxMinimizePrimeComm.TabIndex = 5;
-            this.checkBoxMinimizePrimeComm.Text = "Minimize PrimeComm when opening the editor";
-            this.checkBoxMinimizePrimeComm.UseVisualStyleBackColor = true;
+            this.groupBoxDithering.Controls.Add(this.linkLabelDitheringInfo);
+            this.groupBoxDithering.Controls.Add(this.comboBoxImageDitheringMethod);
+            this.groupBoxDithering.Location = new System.Drawing.Point(6, 168);
+            this.groupBoxDithering.Name = "groupBoxDithering";
+            this.groupBoxDithering.Size = new System.Drawing.Size(367, 69);
+            this.groupBoxDithering.TabIndex = 3;
+            this.groupBoxDithering.TabStop = false;
+            this.groupBoxDithering.Text = "Image processing";
             // 
-            // checkBoxWordWrap
+            // linkLabelDitheringInfo
             // 
-            this.checkBoxWordWrap.AutoSize = true;
-            this.checkBoxWordWrap.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
-            this.checkBoxWordWrap.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorWordWrap", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxWordWrap.Location = new System.Drawing.Point(207, 27);
-            this.checkBoxWordWrap.Name = "checkBoxWordWrap";
-            this.checkBoxWordWrap.Size = new System.Drawing.Size(86, 19);
-            this.checkBoxWordWrap.TabIndex = 4;
-            this.checkBoxWordWrap.Text = "Word Wrap";
-            this.checkBoxWordWrap.UseVisualStyleBackColor = true;
+            this.linkLabelDitheringInfo.AutoSize = true;
+            this.linkLabelDitheringInfo.Location = new System.Drawing.Point(12, 29);
+            this.linkLabelDitheringInfo.Name = "linkLabelDitheringInfo";
+            this.linkLabelDitheringInfo.Size = new System.Drawing.Size(104, 15);
+            this.linkLabelDitheringInfo.TabIndex = 6;
+            this.linkLabelDitheringInfo.TabStop = true;
+            this.linkLabelDitheringInfo.Text = "Dithering method:";
+            this.linkLabelDitheringInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelDitheringInfo_LinkClicked);
             // 
-            // numericUpDownRecentFiles
+            // comboBoxImageDitheringMethod
             // 
-            this.numericUpDownRecentFiles.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "RecentFilesMaximum", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownRecentFiles.Location = new System.Drawing.Point(144, 55);
-            this.numericUpDownRecentFiles.Name = "numericUpDownRecentFiles";
-            this.numericUpDownRecentFiles.Size = new System.Drawing.Size(48, 23);
-            this.numericUpDownRecentFiles.TabIndex = 0;
-            this.numericUpDownRecentFiles.Value = global::PrimeComm.Properties.Settings.Default.RecentFilesMaximum;
+            this.comboBoxImageDitheringMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxImageDitheringMethod.FormattingEnabled = true;
+            this.comboBoxImageDitheringMethod.Location = new System.Drawing.Point(121, 26);
+            this.comboBoxImageDitheringMethod.Name = "comboBoxImageDitheringMethod";
+            this.comboBoxImageDitheringMethod.Size = new System.Drawing.Size(175, 23);
+            this.comboBoxImageDitheringMethod.TabIndex = 4;
+            this.comboBoxImageDitheringMethod.SelectedIndexChanged += new System.EventHandler(this.comboBoxImageDitheringMethod_SelectedIndexChanged);
             // 
-            // numericUpDownFontSize
+            // groupBox1
             // 
-            this.numericUpDownFontSize.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "EditorFontSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownFontSize.Location = new System.Drawing.Point(144, 26);
-            this.numericUpDownFontSize.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.numericUpDownFontSize.Minimum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericUpDownFontSize.Name = "numericUpDownFontSize";
-            this.numericUpDownFontSize.Size = new System.Drawing.Size(48, 23);
-            this.numericUpDownFontSize.TabIndex = 0;
-            this.numericUpDownFontSize.Value = global::PrimeComm.Properties.Settings.Default.EditorFontSize;
+            this.groupBox1.Controls.Add(this.radioButtonIcon);
+            this.groupBox1.Controls.Add(this.radioButtonDimgrob);
+            this.groupBox1.Controls.Add(this.checkBoxImageMethodDimgrobOptimizeBlacks);
+            this.groupBox1.Controls.Add(this.radioButtonPixel);
+            this.groupBox1.Controls.Add(this.checkBoxImageMethodDimgrobOptimizeSimilar);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(367, 156);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Image output method";
+            // 
+            // radioButtonIcon
+            // 
+            this.radioButtonIcon.AutoSize = true;
+            this.radioButtonIcon.Enabled = false;
+            this.radioButtonIcon.Location = new System.Drawing.Point(15, 122);
+            this.radioButtonIcon.Name = "radioButtonIcon";
+            this.radioButtonIcon.Size = new System.Drawing.Size(150, 19);
+            this.radioButtonIcon.TabIndex = 0;
+            this.radioButtonIcon.TabStop = true;
+            this.radioButtonIcon.Text = "ICON and BLIT_P (PNG)";
+            this.radioButtonIcon.UseVisualStyleBackColor = true;
+            this.radioButtonIcon.CheckedChanged += new System.EventHandler(this.something_Changed);
+            // 
+            // radioButtonDimgrob
+            // 
+            this.radioButtonDimgrob.AutoSize = true;
+            this.radioButtonDimgrob.Location = new System.Drawing.Point(15, 47);
+            this.radioButtonDimgrob.Name = "radioButtonDimgrob";
+            this.radioButtonDimgrob.Size = new System.Drawing.Size(151, 19);
+            this.radioButtonDimgrob.TabIndex = 0;
+            this.radioButtonDimgrob.TabStop = true;
+            this.radioButtonDimgrob.Text = "DIMGROB_P and BLIT_P";
+            this.radioButtonDimgrob.UseVisualStyleBackColor = true;
+            this.radioButtonDimgrob.CheckedChanged += new System.EventHandler(this.something_Changed);
             // 
             // checkBoxImageMethodDimgrobOptimizeBlacks
             // 
@@ -551,6 +529,18 @@
             this.checkBoxImageMethodDimgrobOptimizeBlacks.Text = "Use short form for black color";
             this.checkBoxImageMethodDimgrobOptimizeBlacks.UseVisualStyleBackColor = true;
             // 
+            // radioButtonPixel
+            // 
+            this.radioButtonPixel.AutoSize = true;
+            this.radioButtonPixel.Location = new System.Drawing.Point(15, 22);
+            this.radioButtonPixel.Name = "radioButtonPixel";
+            this.radioButtonPixel.Size = new System.Drawing.Size(72, 19);
+            this.radioButtonPixel.TabIndex = 0;
+            this.radioButtonPixel.TabStop = true;
+            this.radioButtonPixel.Text = "PIXON_P";
+            this.radioButtonPixel.UseVisualStyleBackColor = true;
+            this.radioButtonPixel.CheckedChanged += new System.EventHandler(this.something_Changed);
+            // 
             // checkBoxImageMethodDimgrobOptimizeSimilar
             // 
             this.checkBoxImageMethodDimgrobOptimizeSimilar.AutoSize = true;
@@ -563,6 +553,16 @@
             this.checkBoxImageMethodDimgrobOptimizeSimilar.TabIndex = 1;
             this.checkBoxImageMethodDimgrobOptimizeSimilar.Text = "Optimize similar blocks if possible";
             this.checkBoxImageMethodDimgrobOptimizeSimilar.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAdvanced
+            // 
+            this.tabPageAdvanced.Location = new System.Drawing.Point(4, 24);
+            this.tabPageAdvanced.Name = "tabPageAdvanced";
+            this.tabPageAdvanced.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdvanced.Size = new System.Drawing.Size(379, 380);
+            this.tabPageAdvanced.TabIndex = 2;
+            this.tabPageAdvanced.Text = "Advanced";
+            this.tabPageAdvanced.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
@@ -587,6 +587,11 @@
             this.tabPageGeneral.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabPageEditor.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecentFiles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).EndInit();
             this.tabPageProgram.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -595,11 +600,6 @@
             this.groupBoxDithering.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPageEditor.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecentFiles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).EndInit();
             this.ResumeLayout(false);
 
         }
