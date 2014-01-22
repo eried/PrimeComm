@@ -66,5 +66,5 @@ Related
 HID/USB Library: https://github.com/mikeobrien/HidLibrary <br>
 USB Library: https://bitbucket.org/adamfettig/usb (early version) <br>
 Source: https://github.com/eried/PrimeComm <br>
-Download: http://ried.cl/wp-content/uploads/2013/11/PrimeComm.zip <br> 
+Download last version: http://servicios.ried.cl/primecomm/ <br> 
 Details: http://ried.cl/proyecto/utilidad-para-intercambiar-archivos-con-la-hp-prime-primecomm/
