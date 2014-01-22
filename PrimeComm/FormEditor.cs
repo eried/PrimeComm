@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using PrimeComm.Properties;
+using PrimeLib;
+using ScintillaNET;
+using System;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
-using PrimeComm.Properties;
-using PrimeLib;
-using ScintillaNET;
-using ScintillaNET.Configuration;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace PrimeComm
 {
@@ -22,6 +18,7 @@ namespace PrimeComm
         private readonly FormMain _parent;
         private string _currentFile, _currentName;
         private const string EditorName = "PrimePad";
+        private readonly FormHelpWindow helpWindow;
 
         /// <summary>
         /// Creates a new editor window
@@ -32,8 +29,15 @@ namespace PrimeComm
         {
             IsClosed = false;
             InitializeComponent();
-            _parent = p;
 
+            // Docking
+            //dockPanel.Controls.Add(editor);
+            var ed = new DockContent { CloseButton = false, CloseButtonVisible = false };
+            ed.Controls.Add(editor);
+            editor.Dock = DockStyle.Fill;
+            ed.Show(dockPanel);
+
+            _parent = p;
             LoadEditorSettings();
 
             if (openFile == null)
@@ -47,8 +51,17 @@ namespace PrimeComm
             UpdateGui();
 
             // Sorting the toolstrips
-            toolStripMain.Location = new Point(0, menuStrip1.Height);
-            toolStripSendTo.Location = new Point(toolStripMain.Width + 3, menuStrip1.Height);
+            toolStripMain.Location = new Point(0, menuStripMain.Height);
+            toolStripSendTo.Location = new Point(toolStripMain.Width + 3, menuStripMain.Height);
+
+            // Adding the help
+            helpWindow = new FormHelpWindow (Resources.commands, editor.Font);
+            dockPanel.DockBottomPortion = 0.4;
+            dockPanel.DockLeftPortion = 0.3;
+            dockPanel.DockTopPortion = 0.4;
+            dockPanel.DockRightPortion = 0.3;
+            
+            helpWindow.Show(dockPanel, DockState.DockRightAutoHide);
         }
 
         private void LoadEditorSettings()
@@ -83,6 +96,9 @@ namespace PrimeComm
                 {
                 }
             }
+
+            // Editor font colors
+            //editor.Styles[editor.Lexing.StyleNameMap["LINENUMBER"]].ForeColor = Color.Azure;
 
             // Word wrap
             editor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
@@ -320,6 +336,54 @@ namespace PrimeComm
         private void scintillaEditor_SelectionChanged(object sender, EventArgs e)
         {
             UpdateGui();
+
+            if (editor.Selection.Length == 0)
+            {
+                // Check nearby word
+                helpWindow.SearchReference(GetSelectedWord(editor), false);
+            }
+            else
+            {
+                if(editor.Selection.Length < 30)
+                    helpWindow.SearchReference(editor.Selection.Text.Trim(), false);
+            }
+
+        }
+
+        private string GetSelectedWord(Scintilla ed)
+        {
+            var ini = editor.Selection.Start-1;
+            for (var i = 0; i < 30; i++)
+            {
+                var pos = ini-i;
+
+                if (pos < 0 || IsWordEndChar(editor.CharAt(pos)))
+                {
+                    ini = pos+1;
+                    break;
+                }
+            }
+
+            var end = editor.Selection.Start;
+            for (var i = 0; i < 30; i++)
+            {
+                var pos = end + i;
+
+                if (pos > editor.TextLength-1 || IsWordEndChar(editor.CharAt(pos)))
+                {
+                    end = pos;
+                    break;
+                }
+            }
+
+            if (end - ini > 0)
+                return editor.Text.Substring(ini, end - ini);
+            return String.Empty;
+        }
+
+        private static bool IsWordEndChar(char c)
+        {
+            return "\r\n :;,.{}[]()=\"+-*/^|".Any(f => f == c);
         }
 
         private void sendToDeviceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -505,6 +569,7 @@ namespace PrimeComm
         private void FormEditor_Shown(object sender, EventArgs e)
         {
             _parent.CheckEditorStates();
+            editor.Select();
         }
 
         private void FormEditor_FormClosed(object sender, FormClosedEventArgs e)
@@ -535,6 +600,24 @@ namespace PrimeComm
         {
             if (e.Data.GetFormats().Any(f => f == "FileName"))
                 e.Effect = DragDropEffects.Copy;
+        }
+
+        private void formatDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Remove indentation
+            foreach (Line l in editor.Lines)
+                l.Text = l.Text.Trim(new[] {'\t', ' ', '\n', '\r'});
+
+            var indentation = new String(editor.Indentation.UseTabs ? '\t' : ' ',
+                editor.Indentation.UseTabs ? editor.Indentation.TabWidth : editor.Indentation.IndentWidth);
+
+            // Find code blocks
+
+        }
+
+        private void formatselectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //dockPanel1.DockPaneFactory.CreateDockPane(new HelpPane(), DockState.DockBottom, true);
         }
     }
 }
