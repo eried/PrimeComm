@@ -18,7 +18,9 @@ namespace PrimeComm
         private readonly FormMain _parent;
         private string _currentFile, _currentName;
         private const string EditorName = "PrimePad";
-        private readonly FormHelpWindow helpWindow;
+        private FormHelpWindow _helpWindow;
+        private FormCharmapWindow _charmapWindow;
+        private PrivateFontCollection fontCollection;
 
         /// <summary>
         /// Creates a new editor window
@@ -54,14 +56,20 @@ namespace PrimeComm
             toolStripMain.Location = new Point(0, menuStripMain.Height);
             toolStripSendTo.Location = new Point(toolStripMain.Width + 3, menuStripMain.Height);
 
-            // Adding the help
-            helpWindow = new FormHelpWindow (Resources.commands, editor.Font);
+            // Adjusting the dock
             dockPanel.DockBottomPortion = 0.4;
             dockPanel.DockLeftPortion = 0.3;
             dockPanel.DockTopPortion = 0.4;
             dockPanel.DockRightPortion = 0.3;
-            
-            helpWindow.Show(dockPanel, DockState.DockRightAutoHide);
+
+            // Adding the charmap
+            //_charmapWindow = new FormCharmapWindow(this, fontCollection.Families[0]);
+            //_charmapWindow.Show(dockPanel, DockState.DockBottomAutoHide);
+
+            // Adding the help
+            _helpWindow = new FormHelpWindow(Resources.commands, fontCollection.Families[0]);
+            //_helpWindow.Show(_charmapWindow.Pane, DockAlignment.Right, 0.6);
+            _helpWindow.Show(dockPanel, DockState.DockBottomAutoHide);
         }
 
         private void LoadEditorSettings()
@@ -81,7 +89,7 @@ namespace PrimeComm
             {
                 try
                 {
-                    var fontCollection = new PrivateFontCollection();
+                    fontCollection = new PrivateFontCollection();
                     fontCollection.AddFontFile(f);
                     editor.Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize);
 
@@ -340,12 +348,12 @@ namespace PrimeComm
             if (editor.Selection.Length == 0)
             {
                 // Check nearby word
-                helpWindow.SearchReference(GetSelectedWord(editor), false);
+                _helpWindow.SearchReference(GetSelectedWord(editor), false);
             }
             else
             {
                 if(editor.Selection.Length < 30)
-                    helpWindow.SearchReference(editor.Selection.Text.Trim(), false);
+                    _helpWindow.SearchReference(editor.Selection.Text.Trim(), false);
             }
 
         }
@@ -432,6 +440,11 @@ namespace PrimeComm
         {
             if (!AskForSave())
                 e.Cancel = true;
+            else
+            {
+                IsClosed = true;
+                _parent.CheckEditorStates();
+            }
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -570,12 +583,12 @@ namespace PrimeComm
         {
             _parent.CheckEditorStates();
             editor.Select();
+            editor.Visible = true;
         }
 
         private void FormEditor_FormClosed(object sender, FormClosedEventArgs e)
         {
-            IsClosed = true;
-            _parent.CheckEditorStates();
+            
         }
 
         public bool IsClosed { get; private set; }
@@ -618,6 +631,11 @@ namespace PrimeComm
         private void formatselectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //dockPanel1.DockPaneFactory.CreateDockPane(new HelpPane(), DockState.DockBottom, true);
+        }
+
+        public void InsertText(string text)
+        {
+            editor.InsertText(text);
         }
     }
 }
