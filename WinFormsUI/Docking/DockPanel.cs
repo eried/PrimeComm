@@ -14,6 +14,7 @@ using System.Collections.Generic;
 // #2 Use "resfinder" in the toolbox bitmap attribute instead of the control name.
 // #3 use the "<default namespace>.<resourcename>" string to locate the resource.
 // See: http://www.bobpowell.net/toolboxbitmap.htm
+
 internal class resfinder
 {
 }
@@ -34,8 +35,8 @@ namespace WeifenLuo.WinFormsUI.Docking
         private readonly DockPanelExtender m_extender;
         private readonly DockPaneCollection m_panes;
         private readonly FloatWindowCollection m_floatWindows;
-        private readonly AutoHideWindowControl m_autoHideWindow;
-        private readonly DockWindowCollection m_dockWindows;
+        private AutoHideWindowControl m_autoHideWindow;
+        private DockWindowCollection m_dockWindows;
         private readonly DockContent m_dummyContent; 
         private readonly Control m_dummyControl;
         
@@ -50,7 +51,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
             SuspendLayout();
 
-            m_autoHideWindow = new AutoHideWindowControl(this);
+            m_autoHideWindow = Extender.AutoHideWindowFactory.CreateAutoHideWindow(this);
             m_autoHideWindow.Visible = false;
             m_autoHideWindow.ActiveContentChanged += m_autoHideWindow_ActiveContentChanged; 
             SetAutoHideWindowParent();
@@ -59,19 +60,12 @@ namespace WeifenLuo.WinFormsUI.Docking
             m_dummyControl.Bounds = new Rectangle(0, 0, 1, 1);
             Controls.Add(m_dummyControl);
 
-            m_dockWindows = new DockWindowCollection(this);
-            Controls.AddRange(new Control[]    {
-                DockWindows[DockState.Document],
-                DockWindows[DockState.DockLeft],
-                DockWindows[DockState.DockRight],
-                DockWindows[DockState.DockTop],
-                DockWindows[DockState.DockBottom]
-                });
+            LoadDockWindows();
 
             m_dummyContent = new DockContent();
             ResumeLayout();
         }
-        
+
         private Color m_BackColor;
         /// <summary>
         /// Determines the color with which the client rectangle will be drawn.
@@ -115,7 +109,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         internal AutoHideStripBase AutoHideStripControl
         {
             get
-            {    
+            {	
                 if (m_autoHideStripControl == null)
                 {
                     m_autoHideStripControl = AutoHideStripFactory.CreateAutoHideStrip(this);
@@ -177,8 +171,8 @@ namespace WeifenLuo.WinFormsUI.Docking
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDockContent ActiveAutoHideContent
         {
-            get    {    return AutoHideWindow.ActiveContent;    }
-            set    {    AutoHideWindow.ActiveContent = value;    }
+            get	{	return AutoHideWindow.ActiveContent;	}
+            set	{	AutoHideWindow.ActiveContent = value;	}
         }
 
         private bool m_allowEndUserDocking = !Win32Helper.IsRunningOnMono;
@@ -228,12 +222,12 @@ namespace WeifenLuo.WinFormsUI.Docking
         [Browsable(false)]
         public DockContentCollection Contents
         {
-            get    {    return m_contents;    }
+            get	{	return m_contents;	}
         }
 
         internal DockContent DummyContent
         {
-            get    {    return m_dummyContent;    }
+            get	{	return m_dummyContent;	}
         }
 
         private bool m_rightToLeftLayout = false;
@@ -270,7 +264,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         [LocalizedDescription("DockPanel_ShowDocumentIcon_Description")]
         public bool ShowDocumentIcon
         {
-            get    {    return m_showDocumentIcon;    }
+            get	{	return m_showDocumentIcon;	}
             set
             {
                 if (m_showDocumentIcon == value)
@@ -294,40 +288,46 @@ namespace WeifenLuo.WinFormsUI.Docking
         [Browsable(false)]
         public DockPanelExtender Extender
         {
-            get    {    return m_extender;    }
+            get	{	return m_extender;	}
         }
 
         [Browsable(false)]
         public DockPanelExtender.IDockPaneFactory DockPaneFactory
         {
-            get    {    return Extender.DockPaneFactory;    }
+            get	{	return Extender.DockPaneFactory;	}
         }
 
         [Browsable(false)]
         public DockPanelExtender.IFloatWindowFactory FloatWindowFactory
         {
-            get    {    return Extender.FloatWindowFactory;    }
+            get	{	return Extender.FloatWindowFactory;	}
+        }
+
+        [Browsable(false)]
+        public DockPanelExtender.IDockWindowFactory DockWindowFactory
+        {
+            get { return Extender.DockWindowFactory; }
         }
 
         internal DockPanelExtender.IDockPaneCaptionFactory DockPaneCaptionFactory
         {
-            get    {    return Extender.DockPaneCaptionFactory;    }
+            get	{	return Extender.DockPaneCaptionFactory;	}
         }
 
         internal DockPanelExtender.IDockPaneStripFactory DockPaneStripFactory
         {
-            get    {    return Extender.DockPaneStripFactory;    }
+            get	{	return Extender.DockPaneStripFactory;	}
         }
 
         internal DockPanelExtender.IAutoHideStripFactory AutoHideStripFactory
         {
-            get    {    return Extender.AutoHideStripFactory;    }
+            get	{	return Extender.AutoHideStripFactory;	}
         }
 
         [Browsable(false)]
         public DockPaneCollection Panes
         {
-            get    {    return m_panes;    }
+            get	{	return m_panes;	}
         }
 
         internal Rectangle DockArea
@@ -346,7 +346,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         [DefaultValue(0.25)]
         public double DockBottomPortion
         {
-            get    {    return m_dockBottomPortion;    }
+            get	{	return m_dockBottomPortion;	}
             set
             {
                 if (value <= 0)
@@ -373,7 +373,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         [DefaultValue(0.25)]
         public double DockLeftPortion
         {
-            get    {    return m_dockLeftPortion;    }
+            get	{	return m_dockLeftPortion;	}
             set
             {
                 if (value <= 0)
@@ -399,7 +399,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         [DefaultValue(0.25)]
         public double DockRightPortion
         {
-            get    {    return m_dockRightPortion;    }
+            get	{	return m_dockRightPortion;	}
             set
             {
                 if (value <= 0)
@@ -425,7 +425,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         [DefaultValue(0.25)]
         public double DockTopPortion
         {
-            get    {    return m_dockTopPortion;    }
+            get	{	return m_dockTopPortion;	}
             set
             {
                 if (value <= 0)
@@ -448,7 +448,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         [Browsable(false)]
         public DockWindowCollection DockWindows
         {
-            get    {    return m_dockWindows;    }
+            get	{	return m_dockWindows;	}
         }
 
         public void UpdateDockWindowZOrder(DockStyle dockStyle, bool fullPanelEdge)
@@ -525,13 +525,13 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private Control DummyControl
         {
-            get    {    return m_dummyControl;    }
+            get	{	return m_dummyControl;	}
         }
 
         [Browsable(false)]
         public FloatWindowCollection FloatWindows
         {
-            get    {    return m_floatWindows;    }
+            get	{	return m_floatWindows;	}
         }
 
         private Size m_defaultFloatWindowSize = new Size(300, 300);
@@ -557,7 +557,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         [DefaultValue(DocumentStyle.DockingMdi)]
         public DocumentStyle DocumentStyle
         {
-            get    {    return m_documentStyle;    }
+            get	{	return m_documentStyle;	}
             set
             {
                 if (value == m_documentStyle)
@@ -604,7 +604,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         [DefaultValue(true)]
         public bool ShowAutoHideContentOnHover { get; set; }
 
-        private int GetDockWindowSize(DockState dockState)
+        public int GetDockWindowSize(DockState dockState)
         {
             if (dockState == DockState.DockLeft || dockState == DockState.DockRight)
             {
@@ -819,7 +819,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         internal Form ParentForm
         {
             get
-            {    
+            {	
                 if (!IsParentFormValid())
                     throw new InvalidOperationException(Strings.DockPanel_ParentForm_Invalid);
 
@@ -992,6 +992,11 @@ namespace WeifenLuo.WinFormsUI.Docking
                 Region region = new Region(new Rectangle(0, 0, this.Width, this.Height));
                 foreach (Rectangle rect in m_clipRects)
                     region.Exclude(rect);
+                if (Region != null)
+                {
+                    Region.Dispose();
+                }
+
                 Region = region;
             }
         }
@@ -1060,8 +1065,8 @@ namespace WeifenLuo.WinFormsUI.Docking
         [LocalizedDescription("DockPanel_ContentAdded_Description")]
         public event EventHandler<DockContentEventArgs> ContentAdded
         {
-            add    {    Events.AddHandler(ContentAddedEvent, value);    }
-            remove    {    Events.RemoveHandler(ContentAddedEvent, value);    }
+            add	{	Events.AddHandler(ContentAddedEvent, value);	}
+            remove	{	Events.RemoveHandler(ContentAddedEvent, value);	}
         }
         protected virtual void OnContentAdded(DockContentEventArgs e)
         {
@@ -1075,14 +1080,46 @@ namespace WeifenLuo.WinFormsUI.Docking
         [LocalizedDescription("DockPanel_ContentRemoved_Description")]
         public event EventHandler<DockContentEventArgs> ContentRemoved
         {
-            add    {    Events.AddHandler(ContentRemovedEvent, value);    }
-            remove    {    Events.RemoveHandler(ContentRemovedEvent, value);    }
+            add	{	Events.AddHandler(ContentRemovedEvent, value);	}
+            remove	{	Events.RemoveHandler(ContentRemovedEvent, value);	}
         }
         protected virtual void OnContentRemoved(DockContentEventArgs e)
         {
             EventHandler<DockContentEventArgs> handler = (EventHandler<DockContentEventArgs>)Events[ContentRemovedEvent];
             if (handler != null)
                 handler(this, e);
+        }
+
+        internal void ReloadDockWindows()
+        {
+            var old = m_dockWindows;
+            LoadDockWindows();
+            foreach (var dockWindow in old)
+            {
+                Controls.Remove(dockWindow);
+                dockWindow.Dispose();
+            }
+        }
+
+        internal void LoadDockWindows()
+        {
+            m_dockWindows = new DockWindowCollection(this);
+            foreach (var dockWindow in DockWindows)
+            {
+                Controls.Add(dockWindow);
+            }
+        }
+
+        public void ResetAutoHideStripWindow()
+        {
+            var old = m_autoHideWindow;
+            m_autoHideWindow = Extender.AutoHideWindowFactory.CreateAutoHideWindow(this);
+            m_autoHideWindow.Visible = false;
+            SetAutoHideWindowParent();
+
+            old.Visible = false;
+            old.Parent = null;
+            old.Dispose();
         }
     }
 }

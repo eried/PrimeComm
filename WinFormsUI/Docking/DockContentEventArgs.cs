@@ -13,7 +13,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         public IDockContent Content
         {
-            get    {    return m_content;    }
+            get { return m_content; }
         }
     }
 }

@@ -1,34 +1,39 @@
-﻿using WeifenLuo.WinFormsUI.Docking.Skins;
-using System.ComponentModel;
+using System;
 
 namespace WeifenLuo.WinFormsUI.Docking
 {
     public partial class DockPanel
     {
-        private DockPanelSkin m_dockPanelSkin = DockPanelSkinBuilder.Create(Style.VisualStudio2005);
+        private DockPanelSkin m_dockPanelSkin = VS2005Theme.CreateVisualStudio2005();
         [LocalizedCategory("Category_Docking")]
         [LocalizedDescription("DockPanel_DockPanelSkin")]
+        [Obsolete("Please use Theme instead.")]
         public DockPanelSkin Skin
         {
             get { return m_dockPanelSkin;  }
             set { m_dockPanelSkin = value; }
         }
         
-        private Style m_dockPanelSkinStyle = Style.VisualStudio2005;
+        private ThemeBase m_dockPanelTheme = new VS2005Theme();
         [LocalizedCategory("Category_Docking")]
-        [LocalizedDescription("DockPanel_DockPanelSkinStyle")]
-        [DefaultValue(Style.VisualStudio2005)]
-        public Style SkinStyle
+        [LocalizedDescription("DockPanel_DockPanelTheme")]
+        public ThemeBase Theme
         {
-            get { return m_dockPanelSkinStyle; }
+            get { return m_dockPanelTheme; }
             set
             {
-                if (m_dockPanelSkinStyle == value)
+                if (value == null)
+                {
                     return;
+                }
 
-                m_dockPanelSkinStyle = value;
+                if (m_dockPanelTheme.GetType() == value.GetType())
+                {
+                    return;
+                }
 
-                Skin = DockPanelSkinBuilder.Create(m_dockPanelSkinStyle);
+                m_dockPanelTheme = value;
+                m_dockPanelTheme.Apply(this);
             }
         }
     }

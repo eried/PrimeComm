@@ -1,21 +1,40 @@
-﻿using System.Drawing;
+using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace WeifenLuo.WinFormsUI.Docking.Skins
+namespace WeifenLuo.WinFormsUI.Docking
 {
-    internal static class DockPanelSkinBuilder
+    /// <summary>
+    /// Visual Studio 2005 theme (default theme).
+    /// </summary>
+    public class VS2005Theme : ThemeBase
     {
-        public static DockPanelSkin Create(Style style)
+        /// <summary>
+        /// Applies the specified theme to the dock panel.
+        /// </summary>
+        /// <param name="dockPanel">The dock panel.</param>
+        public override void Apply(DockPanel dockPanel)
         {
-            switch (style)
+            if (dockPanel == null)
             {
-                case Style.VisualStudio2005:
-                default:
-                    return CreateVisualStudio2005();
+                throw new NullReferenceException("dockPanel");
             }
+
+            Measures.SplitterSize = 4;
+            dockPanel.Extender.DockPaneCaptionFactory = null;
+            dockPanel.Extender.AutoHideStripFactory = null;
+            dockPanel.Extender.AutoHideWindowFactory = null;
+            dockPanel.Extender.DockPaneStripFactory = null;
+            dockPanel.Extender.DockPaneSplitterControlFactory = null;
+            dockPanel.Extender.DockWindowSplitterControlFactory = null;
+            dockPanel.Extender.DockWindowFactory = null;
+            dockPanel.Extender.PaneIndicatorFactory = null;
+            dockPanel.Extender.PanelIndicatorFactory = null;
+            dockPanel.Extender.DockOutlineFactory = null;
+            dockPanel.Skin = CreateVisualStudio2005();
         }
 
-        private static DockPanelSkin CreateVisualStudio2005()
+        internal static DockPanelSkin CreateVisualStudio2005()
         {
             DockPanelSkin skin = new DockPanelSkin();
 
@@ -52,6 +71,5 @@ namespace WeifenLuo.WinFormsUI.Docking.Skins
 
             return skin;
         }
-
     }
 }

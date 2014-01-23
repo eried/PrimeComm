@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
 namespace WeifenLuo.WinFormsUI.Docking
-{    
+{
     internal class DockAreasEditor : UITypeEditor
     {
         private class DockAreasEditorControl : System.Windows.Forms.UserControl

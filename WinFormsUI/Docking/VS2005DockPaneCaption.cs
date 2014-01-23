@@ -188,7 +188,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private static int TextGapTop
         {
-            get    {    return _TextGapTop;    }
+            get	{	return _TextGapTop;	}
         }
 
         public Font TextFont
@@ -198,49 +198,49 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private static int TextGapBottom
         {
-            get    {    return _TextGapBottom;    }
+            get	{	return _TextGapBottom;	}
         }
 
         private static int TextGapLeft
         {
-            get    {    return _TextGapLeft;    }
+            get	{	return _TextGapLeft;	}
         }
 
         private static int TextGapRight
         {
-            get    {    return _TextGapRight;    }
+            get	{	return _TextGapRight;	}
         }
 
         private static int ButtonGapTop
         {
-            get    {    return _ButtonGapTop;    }
+            get	{	return _ButtonGapTop;	}
         }
 
         private static int ButtonGapBottom
         {
-            get    {    return _ButtonGapBottom;    }
+            get	{	return _ButtonGapBottom;	}
         }
 
         private static int ButtonGapLeft
         {
-            get    {    return _ButtonGapLeft;    }
+            get	{	return _ButtonGapLeft;	}
         }
 
         private static int ButtonGapRight
         {
-            get    {    return _ButtonGapRight;    }
+            get	{	return _ButtonGapRight;	}
         }
 
         private static int ButtonGapBetween
         {
-            get    {    return _ButtonGapBetween;    }
+            get	{	return _ButtonGapBetween;	}
         }
 
         private static string _toolTipClose;
         private static string ToolTipClose
         {
             get
-            {    
+            {	
                 if (_toolTipClose == null)
                     _toolTipClose = Strings.DockPaneCaption_ToolTipClose;
                 return _toolTipClose;
@@ -263,7 +263,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         private static string ToolTipAutoHide
         {
             get
-            {    
+            {	
                 if (_toolTipAutoHide == null)
                     _toolTipAutoHide = Strings.DockPaneCaption_ToolTipAutoHide;
                 return _toolTipAutoHide;
@@ -393,7 +393,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private bool CloseButtonEnabled
         {
-            get    {    return (DockPane.ActiveContent != null)? DockPane.ActiveContent.DockHandler.CloseButton : false;    }
+            get	{	return (DockPane.ActiveContent != null)? DockPane.ActiveContent.DockHandler.CloseButton : false;	}
         }
 
         /// <summary>
@@ -406,7 +406,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private bool ShouldShowAutoHideButton
         {
-            get    {    return !DockPane.IsFloat;    }
+            get	{	return !DockPane.IsFloat;	}
         }
 
         private void SetButtons()

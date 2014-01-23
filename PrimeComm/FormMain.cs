@@ -645,6 +645,7 @@ namespace PrimeComm
 
         private void RestoreWindow()
         {
+            ShowInTaskbar = true;
             Visible = true;
             WindowState = _lastWindowState;
         }
@@ -653,17 +654,17 @@ namespace PrimeComm
         {
             if (WindowState != FormWindowState.Minimized)
             {
-                if (!Visible)
-                    Visible = true;
-
                 notifyIconMain.Visible = false;
+                Application.DoEvents();
+
                 _lastWindowState = WindowState;
             }
             else if (Settings.Default.HideAsNotificationIcon)
             {
                 const string tip = "Double click this icon to restore the main program window";
-                Visible = false;
 
+                ShowInTaskbar = false;
+                Visible = false;
                 notifyIconMain.Visible = true;
                 notifyIconMain.Text = Text;
 

@@ -19,22 +19,22 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         public INestedPanesContainer Container
         {
-            get    {    return m_container;    }
+            get	{	return m_container;	}
         }
         
         public VisibleNestedPaneCollection VisibleNestedPanes
         {
-            get    {    return m_visibleNestedPanes;    }
+            get	{	return m_visibleNestedPanes;	}
         }
 
         public DockState DockState
         {
-            get    {    return Container.DockState;    }
+            get	{	return Container.DockState;	}
         }
 
         public bool IsFloat
         {
-            get    {    return DockState == DockState.Float;    }
+            get	{	return DockState == DockState.Float;	}
         }
 
         internal void Add(DockPane pane)

@@ -72,8 +72,8 @@ namespace WeifenLuo.WinFormsUI.Docking
         private bool m_allowEndUserDocking = true;
         public bool AllowEndUserDocking
         {
-            get    {    return m_allowEndUserDocking;    }
-            set    {    m_allowEndUserDocking = value;    }
+            get	{	return m_allowEndUserDocking;	}
+            set	{	m_allowEndUserDocking = value;	}
         }
 
         private bool m_doubleClickTitleBarToDock = true;
@@ -85,28 +85,28 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         public NestedPaneCollection NestedPanes
         {
-            get    {    return m_nestedPanes;    }
+            get	{	return m_nestedPanes;	}
         }
 
         public VisibleNestedPaneCollection VisibleNestedPanes
         {
-            get    {    return NestedPanes.VisibleNestedPanes;    }
+            get	{	return NestedPanes.VisibleNestedPanes;	}
         }
 
         private DockPanel m_dockPanel;
         public DockPanel DockPanel
         {
-            get    {    return m_dockPanel;    }
+            get	{	return m_dockPanel;	}
         }
 
         public DockState DockState
         {
-            get    {    return DockState.Float;    }
+            get	{	return DockState.Float;	}
         }
     
         public bool IsFloat
         {
-            get    {    return DockState == DockState.Float;    }
+            get	{	return DockState == DockState.Float;	}
         }
 
         internal bool IsDockStateValid(DockState dockState)
@@ -156,7 +156,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
             if (theOnlyPane == null || theOnlyPane.ActiveContent == null)
             {
-                Text = " ";    // use " " instead of string.Empty because the whole title bar will disappear when ControlBox is set to false.
+                Text = " ";	// use " " instead of string.Empty because the whole title bar will disappear when ControlBox is set to false.
                 Icon = null;
             }
             else
@@ -190,7 +190,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                             return;
 
                         uint result = Win32Helper.IsRunningOnMono ? 0 : NativeMethods.SendMessage(this.Handle, (int)Win32.Msgs.WM_NCHITTEST, 0, (uint)m.LParam);
-                        if (result == 2 && DockPanel.AllowEndUserDocking && this.AllowEndUserDocking)    // HITTEST_CAPTION
+                        if (result == 2 && DockPanel.AllowEndUserDocking && this.AllowEndUserDocking)	// HITTEST_CAPTION
                         {
                             Activate();
                             m_dockPanel.BeginDrag(this);
@@ -203,7 +203,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                 case (int)Win32.Msgs.WM_NCRBUTTONDOWN:
                     {
                         uint result = Win32Helper.IsRunningOnMono ? 0 : NativeMethods.SendMessage(this.Handle, (int)Win32.Msgs.WM_NCHITTEST, 0, (uint)m.LParam);
-                        if (result == 2)    // HITTEST_CAPTION
+                        if (result == 2)	// HITTEST_CAPTION
                         {
                             DockPane theOnlyPane = (VisibleNestedPanes.Count == 1) ? VisibleNestedPanes[0] : null;
                             if (theOnlyPane != null && theOnlyPane.ActiveContent != null)
@@ -247,7 +247,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                             ? 0
                             : NativeMethods.SendMessage(this.Handle, (int)Win32.Msgs.WM_NCHITTEST, 0, (uint)m.LParam);
 
-                        if (result != 2)    // HITTEST_CAPTION
+                        if (result != 2)	// HITTEST_CAPTION
                         {
                             base.WndProc(ref m);
                             return;
@@ -311,7 +311,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         public virtual Rectangle DisplayingRectangle
         {
-            get    {    return ClientRectangle;    }
+            get	{	return ClientRectangle;	}
         }
 
         internal void TestDrop(IDockDragSource dragSource, DockOutlineBase dockOutline)

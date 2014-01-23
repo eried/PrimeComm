@@ -188,7 +188,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
                 public AutoHideStateCollection()
                 {
-                    m_states = new AutoHideState[]    {    
+                    m_states = new AutoHideState[]	{	
                                                 new AutoHideState(DockState.DockTopAutoHide),
                                                 new AutoHideState(DockState.DockBottomAutoHide),
                                                 new AutoHideState(DockState.DockLeftAutoHide),
@@ -388,7 +388,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         protected Rectangle RectangleTopLeft
         {
             get
-            {    
+            {	
                 int height = MeasureHeight();
                 return PanesTop.Count > 0 && PanesLeft.Count > 0 ? new Rectangle(0, 0, height, height) : Rectangle.Empty;
             }

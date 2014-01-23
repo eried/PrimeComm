@@ -96,6 +96,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHelpWindow";
             this.Text = "Reference";
+            this.Shown += new System.EventHandler(this.FormHelpWindow_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

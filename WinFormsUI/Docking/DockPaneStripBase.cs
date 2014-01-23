@@ -127,12 +127,12 @@ namespace WeifenLuo.WinFormsUI.Docking
         private DockPane m_dockPane;
         protected DockPane DockPane
         {
-            get    {    return m_dockPane;    }
+            get	{	return m_dockPane;	}
         }
 
         protected DockPane.AppearanceStyle Appearance
         {
-            get    {    return DockPane.Appearance;    }
+            get	{	return DockPane.Appearance;	}
         }
 
         private TabCollection m_tabs = null;
@@ -177,12 +177,12 @@ namespace WeifenLuo.WinFormsUI.Docking
             return new Tab(content);
         }
 
+        private Rectangle _dragBox = Rectangle.Empty;
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
 
-            int index = HitTest(e.Location);
-
+            int index = HitTest();
             if (index != -1)
             {
                 if (e.Button == MouseButtons.Middle)
@@ -201,9 +201,21 @@ namespace WeifenLuo.WinFormsUI.Docking
 
             if (e.Button == MouseButtons.Left)
             {
-                if (DockPane.DockPanel.AllowEndUserDocking && DockPane.AllowDockDragAndDrop && DockPane.ActiveContent.DockHandler.AllowEndUserDocking)
-                    DockPane.DockPanel.BeginDrag(DockPane.ActiveContent.DockHandler);
+                var dragSize = SystemInformation.DragSize;
+                _dragBox = new Rectangle(new Point(e.X - (dragSize.Width / 2),
+                                                e.Y - (dragSize.Height / 2)), dragSize);
             }
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+
+            if (e.Button != MouseButtons.Left || _dragBox.Contains(e.Location)) 
+                return;
+
+            if (DockPane.DockPanel.AllowEndUserDocking && DockPane.AllowDockDragAndDrop && DockPane.ActiveContent.DockHandler.AllowEndUserDocking)
+                DockPane.DockPanel.BeginDrag(DockPane.ActiveContent.DockHandler);
         }
 
         protected bool HasTabPageContextMenu
@@ -236,7 +248,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                 {
                     IDockContent content = Tabs[index].Content;
                     if (content.DockHandler.CheckDockState(!content.DockHandler.IsFloat) != DockState.Unknown)
-                        content.DockHandler.IsFloat = !content.DockHandler.IsFloat;    
+                        content.DockHandler.IsFloat = !content.DockHandler.IsFloat;	
                 }
 
                 return;

@@ -6,25 +6,28 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
+using PrimeComm.Properties;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PrimeComm
 {
     public partial class FormHelpWindow : DockContent
     {
+        private readonly string _commands;
         private readonly List<ReferenceDefinition> _reference;
 
-        public FormHelpWindow(string commands = null, Font font = null)
-        { 
+        public FormHelpWindow(string commands = null, FontFamily fontFamily = null)
+        {
+            _commands = commands;
+
             InitializeComponent();
+
+            if (fontFamily != null)
+                textBoxHelp.Font = new Font(fontFamily, (int)Settings.Default.EditorFontSize);
+
             _reference = new List<ReferenceDefinition>();
-
-            if (!String.IsNullOrEmpty(commands))
-                backgroundWorkerHelp.RunWorkerAsync(commands);
-
-            if (font != null)
-                textBoxHelp.Font = font;
         }
 
         private void backgroundWorkerHelp_DoWork(object sender, DoWorkEventArgs e)
@@ -32,7 +35,6 @@ namespace PrimeComm
             using (var r = new CsvFileReader(new MemoryStream(Encoding.UTF8.GetBytes(e.Argument as string ?? "")),
                 EmptyLineBehavior.EndOfFile))
             {
-
                 r.Delimiter = ';';
 
                 var t = new List<String>();
@@ -56,13 +58,17 @@ namespace PrimeComm
                 comboBoxCommand.Items.Add(r);
 
             comboBoxCommand.Enabled = comboBoxCommand.Items.Count > 0;
+            comboBoxCommand.Select();
+
             buttonSearch.Enabled = comboBoxCommand.Enabled;
         }
 
         private void comboBoxCommand_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCommand.SelectedItem != null)
+            {
                 textBoxHelp.Text = ((ReferenceDefinition) comboBoxCommand.SelectedItem).Description;
+            }
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -96,6 +102,12 @@ namespace PrimeComm
                 SearchReference(comboBoxCommand.Text);
                 comboBoxCommand.SelectAll();
             }
+        }
+
+        private void FormHelpWindow_Shown(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(_commands))
+                backgroundWorkerHelp.RunWorkerAsync(_commands);
         }
     }
 

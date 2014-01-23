@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace WeifenLuo.WinFormsUI.Docking
 {
-    internal class SplitterBase : Control
+    [ToolboxItem(false)]
+    public class SplitterBase : Control
     {
         public SplitterBase()
         {
@@ -15,7 +14,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         public override DockStyle Dock
         {
-            get    {    return base.Dock;    }
+            get	{	return base.Dock;	}
             set
             {
                 SuspendLayout();
@@ -41,7 +40,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         protected virtual int SplitterSize
         {
-            get    {    return 0;    }
+            get	{	return 0;	}
         }
 
         protected override void OnMouseDown(MouseEventArgs e)

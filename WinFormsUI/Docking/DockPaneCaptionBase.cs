@@ -22,12 +22,12 @@ namespace WeifenLuo.WinFormsUI.Docking
         private DockPane m_dockPane;
         protected DockPane DockPane
         {
-            get    {    return m_dockPane;    }
+            get	{	return m_dockPane;	}
         }
 
         protected DockPane.AppearanceStyle Appearance
         {
-            get    {    return DockPane.Appearance;    }
+            get	{	return DockPane.Appearance;	}
         }
 
         protected bool HasTabPageContextMenu
