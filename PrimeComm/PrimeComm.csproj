@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharmapGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CsvFile.cs" />
     <Compile Include="FileSet.cs" />
     <Compile Include="FolderSelectDialog.cs" />
     <Compile Include="FormAbout.cs">
@@ -59,11 +63,23 @@
     <Compile Include="FormAbout.Designer.cs">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCharmapWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCharmapWindow.Designer.cs">
+      <DependentUpon>FormCharmapWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEditor.Designer.cs">
       <DependentUpon>FormEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHelpWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHelpWindow.Designer.cs">
+      <DependentUpon>FormHelpWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -96,8 +112,14 @@
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCharmapWindow.resx">
+      <DependentUpon>FormCharmapWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditor.resx">
       <DependentUpon>FormEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHelpWindow.resx">
+      <DependentUpon>FormHelpWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -114,6 +136,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="bin\Setup\help\commands.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -132,6 +155,10 @@
     <ProjectReference Include="..\ScintillaNet\2.5\ScintillaNET\ScintillaNET.csproj">
       <Project>{f9b6dabd-bbc1-4638-8ce6-a5c9506bfdcb}</Project>
       <Name>ScintillaNET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
+      <Name>WinFormsUI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
