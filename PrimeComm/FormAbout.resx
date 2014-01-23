@@ -139,11 +139,18 @@ https://github.com/mikeobrien/HidLibrary
 CommandLine
 http://commandline.codeplex.com
 
-Recent icons from Fatcow
-http://www.fatcow.com/free-icons
+DockPanel Suite
+http://sourceforge.net/projects/dockpanelsuite
 
-Other icons from VisualPharm
-http://www.visualpharm.com</value>
+CsvFile
+http://www.blackbeltcoder.com
+
+Main UI icons from VisualPharm
+http://www.visualpharm.com
+
+Various icons from
+http://p.yusukekamiyamane.com 
+http://www.fatcow.com/free-icons</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
