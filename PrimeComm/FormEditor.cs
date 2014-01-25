@@ -256,6 +256,8 @@ namespace PrimeComm
             pasteToolStripMenuItem.Enabled = editor.Clipboard.CanPaste;
             toolStripButtonPaste.Enabled = editor.Clipboard.CanPaste;
 
+            propertiesToolStripMenuItem.Enabled = !String.IsNullOrEmpty(_currentFile);
+
             var textSelected = editor.Selection.Length > 0;
             var textNotEmpty = editor.TextLength > 0;
             deleteToolStripMenuItem.Enabled = textSelected;
@@ -687,6 +689,15 @@ namespace PrimeComm
                     new[] {"\x222A", @"\union\"},//
                 }.Aggregate(txt, (current, r) => current.Replace(r[0], r[1])), Encoding.ASCII);
             }
+        }
+
+        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(File.Exists(_currentFile))
+                Utilities.ShowFileProperties(_currentFile);
+            else
+                MessageBox.Show("File '" + _currentFile + "' was not found", "Properties", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
         }
     }
 }
