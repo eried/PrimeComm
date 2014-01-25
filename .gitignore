@@ -50,7 +50,9 @@ build/
 [Bb]in/
 [Oo]bj/
 Documentation/
-
+Setup/files
+Setup/_files
+Setup/setup
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
