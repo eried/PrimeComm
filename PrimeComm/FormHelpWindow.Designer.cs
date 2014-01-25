@@ -39,11 +39,11 @@
             // 
             this.buttonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(214, 4);
+            this.buttonSearch.Location = new System.Drawing.Point(214, 5);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(55, 23);
             this.buttonSearch.TabIndex = 1;
-            this.buttonSearch.Text = "Search";
+            this.buttonSearch.Text = "&Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
@@ -53,7 +53,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxCommand.Enabled = false;
             this.comboBoxCommand.FormattingEnabled = true;
-            this.comboBoxCommand.Location = new System.Drawing.Point(6, 5);
+            this.comboBoxCommand.Location = new System.Drawing.Point(6, 6);
             this.comboBoxCommand.Name = "comboBoxCommand";
             this.comboBoxCommand.Size = new System.Drawing.Size(205, 21);
             this.comboBoxCommand.TabIndex = 0;
@@ -65,12 +65,12 @@
             this.textBoxHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxHelp.Location = new System.Drawing.Point(6, 30);
+            this.textBoxHelp.Location = new System.Drawing.Point(6, 31);
             this.textBoxHelp.Multiline = true;
             this.textBoxHelp.Name = "textBoxHelp";
             this.textBoxHelp.ReadOnly = true;
             this.textBoxHelp.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxHelp.Size = new System.Drawing.Size(262, 167);
+            this.textBoxHelp.Size = new System.Drawing.Size(262, 165);
             this.textBoxHelp.TabIndex = 2;
             // 
             // backgroundWorkerHelp
