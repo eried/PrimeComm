@@ -34,7 +34,7 @@ namespace PrimeComm
 
             // Docking
             //dockPanel.Controls.Add(editor);
-            var ed = new DockContent { CloseButton = false, CloseButtonVisible = false };
+            var ed = new DockContent {CloseButton = false, CloseButtonVisible = false};
             ed.Controls.Add(editor);
             editor.Dock = DockStyle.Fill;
             ed.Show(dockPanel);
@@ -63,8 +63,8 @@ namespace PrimeComm
             dockPanel.DockRightPortion = 0.3;
 
             // Adding the charmap
-            //_charmapWindow = new FormCharmapWindow(this, fontCollection.Families[0]);
-            //_charmapWindow.Show(dockPanel, DockState.DockBottomAutoHide);
+            _charmapWindow = new FormCharmapWindow(this, fontCollection.Families[0]);
+            _charmapWindow.Show(dockPanel, DockState.DockBottomAutoHide);
 
             // Adding the help
             _helpWindow = new FormHelpWindow(Resources.commands, fontCollection.Families[0]);
@@ -91,12 +91,13 @@ namespace PrimeComm
                 {
                     fontCollection = new PrivateFontCollection();
                     fontCollection.AddFontFile(f);
-                    editor.Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize);
+                    editor.Font = new Font(fontCollection.Families[0], (int) Settings.Default.EditorFontSize);
 
                     //foreach (StylesCommon s in Enum.GetValues(typeof (StylesCommon)))
                     foreach (var s in editor.Lexing.StyleNameMap.Keys)
                     {
-                        editor.Styles[s].Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize, editor.Styles[s].Font.Style);
+                        editor.Styles[s].Font = new Font(fontCollection.Families[0],
+                            (int) Settings.Default.EditorFontSize, editor.Styles[s].Font.Style);
                     }
                     break;
                 }
@@ -120,17 +121,17 @@ namespace PrimeComm
                 {
                     if (!File.Exists(fileName))
                     {
-                        MessageBox.Show("Can't load '" + fileName + "'", "File does not exist", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Can't load '" + fileName + "'", "File does not exist", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                         Utilities.UpdateRecentFiles();
                         Close();
                     }
                     else
                     {
                         var tmp = new PrimeProgramFile(fileName, _parent.Parameters);
-                        _currentName = tmp.SafeName;
                         _currentFile = String.Empty;
-                        editor.Text = new PrimeUsbData(_currentName, tmp.Data).ToString();
-                        
+                        _currentName = String.Empty;
+                        editor.Text = new PrimeUsbData(tmp.SafeName, tmp.Data).ToString();
 
                         if (tmp.IsConversion)
                         {
@@ -179,7 +180,9 @@ namespace PrimeComm
         {
             if (_dirty)
             {
-                switch (MessageBox.Show(String.Format("Save the changes to '{0}'?", CurrentProgramName), "Save changes", MessageBoxButtons.YesNoCancel,
+                switch (
+                    MessageBox.Show(String.Format("Save the changes to '{0}'?", CurrentProgramName), "Save changes",
+                        MessageBoxButtons.YesNoCancel,
                         MessageBoxIcon.Exclamation))
                 {
                     case DialogResult.Yes:
@@ -226,7 +229,7 @@ namespace PrimeComm
             catch
             {
                 MessageBox.Show("Error saving the program", "Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBoxIcon.Error);
             }
             return false;
         }
@@ -272,9 +275,12 @@ namespace PrimeComm
         {
             get
             {
-                _currentName = (String.IsNullOrEmpty(_currentName) ? (String.IsNullOrEmpty(_currentFile)
-                            ? "Untitled" : Path.GetFileNameWithoutExtension(_currentFile)): _currentName).Trim();
-                return _currentName;
+                _currentName = (String.IsNullOrEmpty(_currentName)
+                    ? (String.IsNullOrEmpty(_currentFile)
+                        ? String.Empty
+                        : Path.GetFileName(_currentFile))
+                    : _currentName).Trim();
+                return String.IsNullOrEmpty(_currentName) ? "Untitled" : _currentName;
             }
             set { _currentName = value; }
         }
@@ -352,7 +358,7 @@ namespace PrimeComm
             }
             else
             {
-                if(editor.Selection.Length < 30)
+                if (editor.Selection.Length < 30)
                     _helpWindow.SearchReference(editor.Selection.Text.Trim(), false);
             }
 
@@ -360,14 +366,14 @@ namespace PrimeComm
 
         private string GetSelectedWord(Scintilla ed)
         {
-            var ini = editor.Selection.Start-1;
+            var ini = editor.Selection.Start - 1;
             for (var i = 0; i < 30; i++)
             {
-                var pos = ini-i;
+                var pos = ini - i;
 
                 if (pos < 0 || IsWordEndChar(editor.CharAt(pos)))
                 {
-                    ini = pos+1;
+                    ini = pos + 1;
                     break;
                 }
             }
@@ -377,7 +383,7 @@ namespace PrimeComm
             {
                 var pos = end + i;
 
-                if (pos > editor.TextLength-1 || IsWordEndChar(editor.CharAt(pos)))
+                if (pos > editor.TextLength - 1 || IsWordEndChar(editor.CharAt(pos)))
                 {
                     end = pos;
                     break;
@@ -462,13 +468,13 @@ namespace PrimeComm
             New(true);
         }
 
-        private void New(bool template=false)
+        private void New(bool template = false)
         {
             if (AskForSave())
             {
                 _currentName = String.Empty;
                 _currentFile = String.Empty;
-                editor.Text = template? Settings.Default.ProgramTemplate: String.Empty;
+                editor.Text = template ? Settings.Default.ProgramTemplate : String.Empty;
 
                 // Find cursor location
                 const string cursorToken = "%cursor%";
@@ -478,7 +484,7 @@ namespace PrimeComm
 
                     if (c > 0)
                     {
-                        editor.Text = editor.Text.Substring(0, c) + editor.Text.Substring(c+cursorToken.Length);
+                        editor.Text = editor.Text.Substring(0, c) + editor.Text.Substring(c + cursorToken.Length);
                         editor.CurrentPos = c;
                     }
                     else
@@ -497,7 +503,7 @@ namespace PrimeComm
             OpenSettings();
         }
 
-        private void OpenSettings(int p=0)
+        private void OpenSettings(int p = 0)
         {
             if (new FormSettings(p).ShowDialog() == DialogResult.OK)
             {
@@ -541,7 +547,7 @@ namespace PrimeComm
         private void recentToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             var f = e.ClickedItem.Tag as string;
-            if (f!=null)
+            if (f != null)
                 OpenFile(f);
         }
 
@@ -564,7 +570,8 @@ namespace PrimeComm
                     editor.InsertText(editor.Lines[i].StartPosition, commentsPrefix);
                 else
                 {
-                    editor.Lines[i].Text = editor.Lines[i].Text.TrimEnd(new []{'\r','\n'}).TrimStart(commentsPrefix, false);
+                    editor.Lines[i].Text = editor.Lines[i].Text.TrimEnd(new[] {'\r', '\n'})
+                        .TrimStart(commentsPrefix, false);
                 }
             }
 
@@ -573,7 +580,7 @@ namespace PrimeComm
 
             editor.UndoRedo.EndUndoAction();
         }
-        
+
         private void uncommentSelectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommentEditorLines(false);
@@ -588,7 +595,7 @@ namespace PrimeComm
 
         private void FormEditor_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
         }
 
         public bool IsClosed { get; private set; }
@@ -636,6 +643,50 @@ namespace PrimeComm
         public void InsertText(string text)
         {
             editor.InsertText(text);
+        }
+
+        private void exportToASCII7BitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: Move to external file
+            var f = new SaveFileDialog {Filter = "txt|*.txt"};
+            var txt = editor.Text;
+
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                // Convert editor text
+                File.WriteAllText(f.FileName, new[]
+                {
+                    new[] {"\xB2", @"\^2\"}, // ^2
+                    new[] {"\xB1", @"\+-\"}, //
+                    new[] {"\xB0", @"\o_\"}, // grados
+                    new[] {"\xB9", @"\^1\"}, //
+                    new[] {"\xB3", @"\^3\"}, //
+                    new[] {"e\x6578", @"\e^\"}, //
+                    new[] {"\x25B6", @"\store\"}, // > store symbol 
+                    new[] {"\xE004", @"\^-1\"}, // ^-1
+                    new[] {"\x1D07", @"\ee\"}, // E
+                    new[] {"\xE003", @"\i\"}, // i, unidad imaginaria
+                    new[] {"\x2260", @"\!=\"}, // no igual
+                    new[] {"\x2264", @"\=<\"}, // <=
+                    new[] {"\x2265", @"\>=\"}, // <=
+                    new[] {"\x221A", @"\root\"}, // sqRoot
+                    new[] {"\x222B", @"\integral\"}, new[] {"\x2202", @"\diff\"}, // differentation 
+                    new[] {"\x2221", @"\/_\"}, // angle symbol
+                    new[] {"\x03C0", @"\pi\"}, // pi number (minuscula)
+                    new[] {"\x220f", @"\PI\"}, // pi  (mayuscula)
+                    new[] {"\x2211", @"\Sigma\"}, // sigma symbol Sumatoria (mayuscula)
+                    new[] {"\x221E", @"\oo_\"}, // infinite   
+                    new[] {"\x2032", @"\'\"}, // minutos
+                    new[] {"\x2033", @"\''\"}, // segundos
+                    new[] {"\x2192", @"\->\"}, //
+                    new[] {"\x2212", @"\-\"}, // menos superindice
+                    new[] {"\x03B1", @"\alpha\"}, // alpha (minuscula)
+                    new[] {"\x03B2", @"\beta\"}, // alpha (minuscula)
+                    new[] {"\x0394", @"\delta\"}, // delta
+                    new[] {"\x2229", @"\intersection\"}, //
+                    new[] {"\x222A", @"\union\"},//
+                }.Aggregate(txt, (current, r) => current.Replace(r[0], r[1])), Encoding.ASCII);
+            }
         }
     }
 }
