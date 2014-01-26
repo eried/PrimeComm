@@ -312,11 +312,6 @@ namespace PrimeComm
             UpdateGui();
         }
 
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void buttonReceive_Click(object sender, EventArgs e)
         {
             StartReceiving();
