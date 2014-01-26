@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Drawing;
@@ -15,6 +16,7 @@ namespace PrimeComm
     static internal class Utilities
     {
         public static string CommandToken = "????";
+        private static List<KeyValuePair<string, string>> _ascii7Codes;
 
         public static void InvokeIfRequired(this Control c, MethodInvoker action)
         {
@@ -131,6 +133,82 @@ namespace PrimeComm
         }
 
         public static ToolStripDropDown RecentFiles { get; private set; }
+
+        public static List<KeyValuePair<String, String>> ASCII7Codes
+        {
+            get
+            {
+                if (_ascii7Codes == null)
+                {
+                    _ascii7Codes = new List<KeyValuePair<string, string>>();
+                    foreach (var c in new[]
+                    {
+                        new[] {"\xB0", @"\o_\"}, // °
+                        new[] {"\xB1", @"\+-\"}, // ±
+                        new[] {"\xB2", @"\^2\"}, // ²
+                        new[] {"\xB3", @"\^3\"}, // ³
+                        new[] {"\xB9", @"\^1\"}, // ¹
+                        new[] {"\x25B6", @"\store\"}, // ▶ store symbol 
+                        new[] {"\xE004", @"\^-1\"}, // 
+                        new[] {"\x1D07", @"\ee\"}, // ᴇ
+                        new[] {"\xE003", @"\i\"}, // , unidad imaginaria
+                        new[] {"\x2260", @"\!=\"}, // ≠
+                        new[] {"\x2264", @"\=<\"}, // ≤
+                        new[] {"\x2265", @"\>=\"}, // ≥
+                        new[] {"\x221A", @"\root\"}, // √
+                        new[] {"\x222B", @"\integral\"}, // ∫
+                        new[] {"\x2202", @"\diff\"}, // ∂
+                        new[] {"\x2221", @"\/_\"}, // ∡ angle symbol
+                        new[] {"\x2211", @"\Sigma0\"}, // ∑ sigma (mayuscula)
+                        new[] {"\x221E", @"\oo_\"}, // ∞ infinite   
+                        new[] {"\x2032", @"\'\"}, // ′ minutos
+                        new[] {"\x2033", @"\''\"}, // ″ segundos
+                        new[] {"\x2192", @"\->\"}, // →
+                        new[] {"\x2212", @"\-\"}, // − menos superindice
+                        new[] {"\x03B1", @"\alpha\"}, // α (minuscula)
+                        new[] {"\x03B2", @"\beta\"}, // β (minuscula)
+                        new[] {"\x03B3", @"\gamma\"}, //  (minuscula)
+                        new[] {"\x03B4", @"\delta\"}, //  (minuscula)
+                        new[] {"\x03B5", @"\epsilon\"}, //  (minuscula)
+                        new[] {"\x03B6", @"\zeta\"}, //  (minuscula)
+                        new[] {"\x03B7", @"\eta\"}, //  (minuscula)
+                        new[] {"\x03B8", @"\theta\"}, //  (minuscula)
+                        new[] {"\x03B7", @"\eta\"}, //  (minuscula)
+                        new[] {"\x03B8", @"\theta\"}, //  (minuscula)
+                        new[] {"\x03B9", @"\iota\"}, //  (minuscula)
+                        new[] {"\x03BA", @"\kappa\"}, //  (minuscula)
+                        new[] {"\x03BB", @"\lambda\"}, //  (minuscula)
+                        new[] {"\x03BC", @"\mu\"}, //  (minuscula)
+                        new[] {"\x03BD", @"\nu\"}, //  (minuscula)
+                        new[] {"\x03BE", @"\xi\"}, //  (minuscula)
+                        new[] {"\x03C0", @"\pi\"}, //  π (minuscula)
+                        new[] {"\x03C1", @"\rho\"}, //  (minuscula)
+                        new[] {"\x03C2", @"\sigma\"}, //  (minuscula)
+                        new[] {"\x03C3", @"\sigma2\"}, //  (minuscula)
+                        new[] {"\x03C4", @"\tau\"}, //  (minuscula)
+                        new[] {"\x03C5", @"\upsilon\"}, //  (minuscula)
+                        new[] {"\x03C6", @"\phi\"}, //  (minuscula)
+                        new[] {"\x03C7", @"\chi\"}, //  (minuscula)
+                        new[] {"\x03C8", @"\psi\"}, //  (minuscula)
+                        new[] {"\x03C9", @"\omega\"}, //  (minuscula)
+                        new[] {"\x393", @"\Gamma\"}, //  (mayuscula)
+                        new[] {"\x394", @"\Delta\"}, //  (mayuscula)
+                        new[] {"\x03A0", @"\Pi\"}, // Π  (mayuscula)
+                        new[] {"\x03A3", @"\Sigma\"}, // (mayuscula)
+                        new[] {"\x03A9", @"\Omega\"}, // (mayuscula)
+                        new[] {"\x2229", @"\intersection\"}, // ∩
+                        new[] {"\x222A", @"\union\"}, // ∪
+                        new[] {"exp", @"\e^\"}, //
+                        new[] {"&&", @"\andBit\"}, //
+                        new[] {"||", @"\orBit\"}, //
+                    })
+                    {
+                        _ascii7Codes.Add(new KeyValuePair<string, string>(c[0], c[1]));
+                    }
+                }
+                return _ascii7Codes;
+            }
+        }
 
         [DllImport("shell32.dll", CharSet = CharSet.Auto)]
         static extern bool ShellExecuteEx(ref SHELLEXECUTEINFO lpExecInfo);
