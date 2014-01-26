@@ -84,7 +84,7 @@ namespace PrimeLib
             GenerateChunks(fullData, chunkSize);
         }
 
-        private void GenerateChunks(List<byte> data, int chunkSize)
+        public void GenerateChunks(List<byte> data, int chunkSize)
         {
             if (chunkSize <= 2)
                 return;
@@ -92,7 +92,7 @@ namespace PrimeLib
             int position = 0, chunk = 0;
 
             // Add missing padding zeros
-            var allBytes = data.Concat(new byte[data.Count() % chunkSize]).ToArray();
+            var allBytes = data.Concat(new byte[chunkSize - (data.Count() % chunkSize)]).ToArray();
             if (chunkSize > 0)
                 do
                 {
