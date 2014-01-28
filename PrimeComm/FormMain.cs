@@ -718,7 +718,9 @@ namespace PrimeComm
         private void FormMain_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetFormats().Any(f => f == "FileDrop"))
-                e.Effect = DragDropEffects.Copy;
+            {
+                e.Effect = sender == buttonSend ? DragDropEffects.Move:  DragDropEffects.Copy;
+            }
         }
 
         private void FormMain_DragDrop(object sender, DragEventArgs e)
@@ -728,8 +730,11 @@ namespace PrimeComm
                 var f = e.Data.GetData("FileDrop") as string[];
 
                 if (f != null)
-                    foreach(var file in f)
-                        OpenFile(file);
+                    if (sender == buttonSend)
+                        SendDataTo(new PrimeFileSet(f, _parameters));
+                    else
+                        foreach(var file in f)
+                                OpenFile(file);
             }
         }
     }
