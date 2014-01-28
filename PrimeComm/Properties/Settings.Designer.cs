@@ -357,5 +357,29 @@ namespace PrimeComm.Properties {
                 this["CompressSpacesMore"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EditorSearchReferenceTextChanged {
+            get {
+                return ((bool)(this["EditorSearchReferenceTextChanged"]));
+            }
+            set {
+                this["EditorSearchReferenceTextChanged"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EditorSearchReferenceSelectionChanged {
+            get {
+                return ((bool)(this["EditorSearchReferenceSelectionChanged"]));
+            }
+            set {
+                this["EditorSearchReferenceSelectionChanged"] = value;
+            }
+        }
     }
 }

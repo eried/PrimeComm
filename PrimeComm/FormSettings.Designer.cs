@@ -34,15 +34,22 @@
             this.buttonReset = new System.Windows.Forms.Button();
             this.tabControlPreferences = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.checkBoxHideAsNotificationIcon = new System.Windows.Forms.CheckBox();
             this.linkLabelClearWarnings = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBoxHideAsNotificationIcon = new System.Windows.Forms.CheckBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageEditor = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBoxSearchReferenceOnSelectionChanged = new System.Windows.Forms.CheckBox();
+            this.checkBoxSearchReferenceOnTextChanged = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.checkBoxRestorePrimeComm = new System.Windows.Forms.CheckBox();
             this.checkBoxMinimizePrimeComm = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.checkBoxWordWrap = new System.Windows.Forms.CheckBox();
             this.linkLabelClearRecent = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,8 +78,11 @@
             this.tabPageAdvanced = new System.Windows.Forms.TabPage();
             this.tabControlPreferences.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPageEditor.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecentFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
@@ -129,6 +139,7 @@
             // 
             // tabPageGeneral
             // 
+            this.tabPageGeneral.Controls.Add(this.groupBox7);
             this.tabPageGeneral.Controls.Add(this.linkLabelClearWarnings);
             this.tabPageGeneral.Controls.Add(this.groupBox3);
             this.tabPageGeneral.Controls.Add(this.label1);
@@ -139,6 +150,29 @@
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.checkBoxHideAsNotificationIcon);
+            this.groupBox7.Location = new System.Drawing.Point(6, 91);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(367, 55);
+            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Behaviour";
+            // 
+            // checkBoxHideAsNotificationIcon
+            // 
+            this.checkBoxHideAsNotificationIcon.AutoSize = true;
+            this.checkBoxHideAsNotificationIcon.Checked = global::PrimeComm.Properties.Settings.Default.HideAsNotificationIcon;
+            this.checkBoxHideAsNotificationIcon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxHideAsNotificationIcon.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "HideAsNotificationIcon", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxHideAsNotificationIcon.Location = new System.Drawing.Point(15, 22);
+            this.checkBoxHideAsNotificationIcon.Name = "checkBoxHideAsNotificationIcon";
+            this.checkBoxHideAsNotificationIcon.Size = new System.Drawing.Size(299, 19);
+            this.checkBoxHideAsNotificationIcon.TabIndex = 0;
+            this.checkBoxHideAsNotificationIcon.Text = "Hide the main program window as notification icon";
+            this.checkBoxHideAsNotificationIcon.UseVisualStyleBackColor = true;
             // 
             // linkLabelClearWarnings
             // 
@@ -153,27 +187,37 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.checkBoxHideAsNotificationIcon);
+            this.groupBox3.Controls.Add(this.linkLabel1);
+            this.groupBox3.Controls.Add(this.checkBox3);
             this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(367, 79);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PrimeComm";
+            this.groupBox3.Text = "Startup";
             // 
-            // checkBoxHideAsNotificationIcon
+            // linkLabel1
             // 
-            this.checkBoxHideAsNotificationIcon.AutoSize = true;
-            this.checkBoxHideAsNotificationIcon.Checked = global::PrimeComm.Properties.Settings.Default.HideAsNotificationIcon;
-            this.checkBoxHideAsNotificationIcon.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxHideAsNotificationIcon.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "HideAsNotificationIcon", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxHideAsNotificationIcon.Location = new System.Drawing.Point(15, 47);
-            this.checkBoxHideAsNotificationIcon.Name = "checkBoxHideAsNotificationIcon";
-            this.checkBoxHideAsNotificationIcon.Size = new System.Drawing.Size(269, 19);
-            this.checkBoxHideAsNotificationIcon.TabIndex = 0;
-            this.checkBoxHideAsNotificationIcon.Text = "Hide the program window as notification icon";
-            this.checkBoxHideAsNotificationIcon.UseVisualStyleBackColor = true;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Enabled = false;
+            this.linkLabel1.Location = new System.Drawing.Point(269, 48);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(66, 15);
+            this.linkLabel1.TabIndex = 2;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Check now";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Enabled = false;
+            this.checkBox3.Location = new System.Drawing.Point(15, 47);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(239, 19);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.Text = "Check for program updates once a week";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
@@ -197,6 +241,8 @@
             // 
             // tabPageEditor
             // 
+            this.tabPageEditor.Controls.Add(this.groupBox6);
+            this.tabPageEditor.Controls.Add(this.groupBox5);
             this.tabPageEditor.Controls.Add(this.groupBox4);
             this.tabPageEditor.Location = new System.Drawing.Point(4, 24);
             this.tabPageEditor.Name = "tabPageEditor";
@@ -206,22 +252,53 @@
             this.tabPageEditor.Text = "Editor";
             this.tabPageEditor.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // groupBox6
             // 
-            this.groupBox4.Controls.Add(this.checkBoxRestorePrimeComm);
-            this.groupBox4.Controls.Add(this.checkBoxMinimizePrimeComm);
-            this.groupBox4.Controls.Add(this.checkBoxWordWrap);
-            this.groupBox4.Controls.Add(this.linkLabelClearRecent);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.numericUpDownRecentFiles);
-            this.groupBox4.Controls.Add(this.numericUpDownFontSize);
-            this.groupBox4.Location = new System.Drawing.Point(6, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(367, 144);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Editor";
+            this.groupBox6.Controls.Add(this.checkBoxSearchReferenceOnSelectionChanged);
+            this.groupBox6.Controls.Add(this.checkBoxSearchReferenceOnTextChanged);
+            this.groupBox6.Location = new System.Drawing.Point(6, 109);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(367, 77);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Reference";
+            // 
+            // checkBoxSearchReferenceOnSelectionChanged
+            // 
+            this.checkBoxSearchReferenceOnSelectionChanged.AutoSize = true;
+            this.checkBoxSearchReferenceOnSelectionChanged.Checked = global::PrimeComm.Properties.Settings.Default.EditorSearchReferenceSelectionChanged;
+            this.checkBoxSearchReferenceOnSelectionChanged.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSearchReferenceOnSelectionChanged.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorSearchReferenceSelectionChanged", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxSearchReferenceOnSelectionChanged.Location = new System.Drawing.Point(15, 47);
+            this.checkBoxSearchReferenceOnSelectionChanged.Name = "checkBoxSearchReferenceOnSelectionChanged";
+            this.checkBoxSearchReferenceOnSelectionChanged.Size = new System.Drawing.Size(279, 19);
+            this.checkBoxSearchReferenceOnSelectionChanged.TabIndex = 5;
+            this.checkBoxSearchReferenceOnSelectionChanged.Text = "Search the reference when a keyword is selected";
+            this.checkBoxSearchReferenceOnSelectionChanged.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSearchReferenceOnTextChanged
+            // 
+            this.checkBoxSearchReferenceOnTextChanged.AutoSize = true;
+            this.checkBoxSearchReferenceOnTextChanged.Checked = global::PrimeComm.Properties.Settings.Default.EditorSearchReferenceTextChanged;
+            this.checkBoxSearchReferenceOnTextChanged.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSearchReferenceOnTextChanged.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorSearchReferenceTextChanged", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxSearchReferenceOnTextChanged.Location = new System.Drawing.Point(15, 22);
+            this.checkBoxSearchReferenceOnTextChanged.Name = "checkBoxSearchReferenceOnTextChanged";
+            this.checkBoxSearchReferenceOnTextChanged.Size = new System.Drawing.Size(239, 19);
+            this.checkBoxSearchReferenceOnTextChanged.TabIndex = 5;
+            this.checkBoxSearchReferenceOnTextChanged.Text = "Search the reference when cursor moves";
+            this.checkBoxSearchReferenceOnTextChanged.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.checkBoxRestorePrimeComm);
+            this.groupBox5.Controls.Add(this.checkBoxMinimizePrimeComm);
+            this.groupBox5.Location = new System.Drawing.Point(6, 192);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(367, 78);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Behaviour";
             // 
             // checkBoxRestorePrimeComm
             // 
@@ -229,7 +306,7 @@
             this.checkBoxRestorePrimeComm.Checked = global::PrimeComm.Properties.Settings.Default.EditorRestoresPrimeComm;
             this.checkBoxRestorePrimeComm.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRestorePrimeComm.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorRestoresPrimeComm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxRestorePrimeComm.Location = new System.Drawing.Point(15, 115);
+            this.checkBoxRestorePrimeComm.Location = new System.Drawing.Point(15, 47);
             this.checkBoxRestorePrimeComm.Name = "checkBoxRestorePrimeComm";
             this.checkBoxRestorePrimeComm.Size = new System.Drawing.Size(284, 19);
             this.checkBoxRestorePrimeComm.TabIndex = 5;
@@ -242,12 +319,27 @@
             this.checkBoxMinimizePrimeComm.Checked = global::PrimeComm.Properties.Settings.Default.EditorMinimizesPrimeComm;
             this.checkBoxMinimizePrimeComm.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxMinimizePrimeComm.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorMinimizesPrimeComm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxMinimizePrimeComm.Location = new System.Drawing.Point(15, 90);
+            this.checkBoxMinimizePrimeComm.Location = new System.Drawing.Point(15, 22);
             this.checkBoxMinimizePrimeComm.Name = "checkBoxMinimizePrimeComm";
             this.checkBoxMinimizePrimeComm.Size = new System.Drawing.Size(279, 19);
             this.checkBoxMinimizePrimeComm.TabIndex = 5;
             this.checkBoxMinimizePrimeComm.Text = "Minimize PrimeComm when opening the editor";
             this.checkBoxMinimizePrimeComm.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.checkBoxWordWrap);
+            this.groupBox4.Controls.Add(this.linkLabelClearRecent);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.numericUpDownRecentFiles);
+            this.groupBox4.Controls.Add(this.numericUpDownFontSize);
+            this.groupBox4.Location = new System.Drawing.Point(6, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(367, 97);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Editor";
             // 
             // checkBoxWordWrap
             // 
@@ -585,9 +677,15 @@
             this.tabControlPreferences.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPageEditor.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecentFiles)).EndInit();
@@ -646,5 +744,12 @@
         private System.Windows.Forms.NumericUpDown numericUpDownRecentFiles;
         private System.Windows.Forms.NumericUpDown numericUpDownFontSize;
         private System.Windows.Forms.CheckBox checkBoxCompressSpacesMore;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox checkBoxSearchReferenceOnSelectionChanged;
+        private System.Windows.Forms.CheckBox checkBoxSearchReferenceOnTextChanged;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

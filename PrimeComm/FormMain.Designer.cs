@@ -74,10 +74,13 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.commandLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForANewVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogProgram = new System.Windows.Forms.OpenFileDialog();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorkerServer = new System.ComponentModel.BackgroundWorker();
+            this.toolTipHints = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             this.menuStripMain.SuspendLayout();
@@ -129,6 +132,7 @@
             // 
             // buttonSend
             // 
+            this.buttonSend.AllowDrop = true;
             this.buttonSend.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
             this.buttonSend.Location = new System.Drawing.Point(97, 138);
             this.buttonSend.Name = "buttonSend";
@@ -139,6 +143,8 @@
             this.buttonSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            this.buttonSend.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.buttonSend.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             // 
             // buttonCaptureScreen
             // 
@@ -453,17 +459,32 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkForANewVersionToolStripMenuItem,
+            this.toolStripMenuItem3,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // checkForANewVersionToolStripMenuItem
+            // 
+            this.checkForANewVersionToolStripMenuItem.Name = "checkForANewVersionToolStripMenuItem";
+            this.checkForANewVersionToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.checkForANewVersionToolStripMenuItem.Text = "Check for update";
+            this.checkForANewVersionToolStripMenuItem.Visible = false;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(162, 6);
+            this.toolStripMenuItem3.Visible = false;
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -561,6 +582,9 @@
         private System.Windows.Forms.ToolStripMenuItem recentToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIconMain;
         private System.ComponentModel.BackgroundWorker backgroundWorkerServer;
+        private System.Windows.Forms.ToolStripMenuItem checkForANewVersionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolTip toolTipHints;
     }
 }
 
