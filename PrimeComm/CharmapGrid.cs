@@ -18,11 +18,12 @@ namespace PrimeComm
             SelectedChar = char.MaxValue;
             FirstCellChar = (char)32;
             MouseClick += CharmapGrid_MouseClick;
+            MouseMove += CharmapGrid_MouseClick;
         }
 
         void CharmapGrid_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && ((Control)sender).ClientRectangle.Contains(e.Location))
             {
                 float cellHeight, cellWidth;
                 UpdateCellSize(out cellHeight, out cellWidth);
@@ -127,11 +128,12 @@ namespace PrimeComm
         public char SelectedChar
         {
             get { return _selectedChar; }
-            private set
+            set
             {
                 if (_selectedChar != value)
                 {
                     _selectedChar = value;
+                    Invalidate(); // Repaint the selected char
 
                     if(SelectedCharChanged != null)
                         SelectedCharChanged.Invoke(this, new EventArgs());
