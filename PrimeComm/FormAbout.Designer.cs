@@ -204,7 +204,7 @@
             this.textBox1.Size = new System.Drawing.Size(449, 140);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "Testing, suggestions:\r\nCompSystems\r\n\r\nOther:\r\nHP (for creating the calculator, .." +
-    ".hence the challenge)";
+    ".hence the challenge)\r\nJetbrains (For giving away a Resharper license)";
             // 
             // FormAbout
             // 
