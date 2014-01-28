@@ -1,4 +1,8 @@
-﻿using PrimeComm.Properties;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Threading;
+using PrimeComm.Properties;
 using PrimeLib;
 using ScintillaNET;
 using System;
@@ -270,6 +274,11 @@ namespace PrimeComm
             sendToVirtualToolStripMenuItem.Enabled = _parent.IsEmulatorAvailable && !_parent.IsBusy;
             toolStripButtonSendToVirtual.Enabled = sendToVirtualToolStripMenuItem.Enabled;
 
+            searchReferenceToolStripMenuItem.Enabled = _helpWindow != null && _helpWindow.DockState != DockState.DockBottomAutoHide &&
+                                                       _helpWindow.DockState != DockState.DockLeftAutoHide &&
+                                                       _helpWindow.DockState != DockState.DockRightAutoHide &&
+                                                       _helpWindow.DockState != DockState.DockTopAutoHide;
+
             Text = String.Format("{2}{0}: {1}", CurrentProgramName, EditorName, _dirty ? "* " : string.Empty);
         }
 
@@ -353,20 +362,23 @@ namespace PrimeComm
         {
             UpdateGui();
 
+            SearchReference();
+        }
+
+        private void SearchReference(bool forced=false)
+        {
             if (editor.Selection.Length == 0)
             {
                 // Check nearby word
-                _helpWindow.SearchReference(GetSelectedWord(editor), false);
+                if (forced || Settings.Default.EditorSearchReferenceTextChanged)
+                    _helpWindow.SearchReference(GetSelectedWord(editor), false);
             }
-            else
-            {
-                if (editor.Selection.Length < 30)
+            else if (Settings.Default.EditorSearchReferenceSelectionChanged)
+                if (forced || editor.Selection.Length < 30)
                     _helpWindow.SearchReference(editor.Selection.Text.Trim(), false);
-            }
-
         }
 
-        private string GetSelectedWord(Scintilla ed)
+        private static string GetSelectedWord(Scintilla editor)
         {
             var ini = editor.Selection.Start - 1;
             for (var i = 0; i < 30; i++)
@@ -649,45 +661,49 @@ namespace PrimeComm
 
         private void exportToASCII7BitsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: Move to external file
-            var f = new SaveFileDialog {Filter = "txt|*.txt"};
-            var txt = editor.Text;
-
-            if (f.ShowDialog() == DialogResult.OK)
+            try
             {
-                // Convert editor text
-                File.WriteAllText(f.FileName, new[]
+                var f = new SaveFileDialog {Filter = "txt|*.txt"};
+                var txt = editor.Text;
+
+                if (f.ShowDialog() == DialogResult.OK)
                 {
-                    new[] {"\xB2", @"\^2\"}, // ^2
-                    new[] {"\xB1", @"\+-\"}, //
-                    new[] {"\xB0", @"\o_\"}, // grados
-                    new[] {"\xB9", @"\^1\"}, //
-                    new[] {"\xB3", @"\^3\"}, //
-                    new[] {"e\x6578", @"\e^\"}, //
-                    new[] {"\x25B6", @"\store\"}, // > store symbol 
-                    new[] {"\xE004", @"\^-1\"}, // ^-1
-                    new[] {"\x1D07", @"\ee\"}, // E
-                    new[] {"\xE003", @"\i\"}, // i, unidad imaginaria
-                    new[] {"\x2260", @"\!=\"}, // no igual
-                    new[] {"\x2264", @"\=<\"}, // <=
-                    new[] {"\x2265", @"\>=\"}, // <=
-                    new[] {"\x221A", @"\root\"}, // sqRoot
-                    new[] {"\x222B", @"\integral\"}, new[] {"\x2202", @"\diff\"}, // differentation 
-                    new[] {"\x2221", @"\/_\"}, // angle symbol
-                    new[] {"\x03C0", @"\pi\"}, // pi number (minuscula)
-                    new[] {"\x220f", @"\PI\"}, // pi  (mayuscula)
-                    new[] {"\x2211", @"\Sigma\"}, // sigma symbol Sumatoria (mayuscula)
-                    new[] {"\x221E", @"\oo_\"}, // infinite   
-                    new[] {"\x2032", @"\'\"}, // minutos
-                    new[] {"\x2033", @"\''\"}, // segundos
-                    new[] {"\x2192", @"\->\"}, //
-                    new[] {"\x2212", @"\-\"}, // menos superindice
-                    new[] {"\x03B1", @"\alpha\"}, // alpha (minuscula)
-                    new[] {"\x03B2", @"\beta\"}, // alpha (minuscula)
-                    new[] {"\x0394", @"\delta\"}, // delta
-                    new[] {"\x2229", @"\intersection\"}, //
-                    new[] {"\x222A", @"\union\"},//
-                }.Aggregate(txt, (current, r) => current.Replace(r[0], r[1])), Encoding.ASCII);
+                    // Convert editor text
+                    File.WriteAllText(f.FileName,
+                        Utilities.ASCII7Codes.Aggregate(txt, (current, r) => current.Replace(r.Key, r.Value)),
+                        Encoding.ASCII);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error exporting the data", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void importFromASCII7BitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var f = new OpenFileDialog {Filter = "txt|*.txt"};
+
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    // Convert editor text
+                    var t = File.ReadAllText(f.FileName, Encoding.ASCII);
+
+                    if (!String.IsNullOrEmpty(t))
+                    {
+                        t = Utilities.ASCII7Codes.Aggregate(t, (current, r) => current.Replace(r.Value, r.Key));
+                        editor.InsertText(t);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error importing data", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -698,6 +714,123 @@ namespace PrimeComm
             else
                 MessageBox.Show("File '" + _currentFile + "' was not found", "Properties", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
+        }
+
+        private void exportAsUSBDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // TODO: Move to external file
+                var f = new SaveFileDialog {Filter = "bin|*.bin"};
+
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    var n = 0;
+                    var name = Path.Combine(Path.GetDirectoryName(f.FileName),
+                        Path.GetFileNameWithoutExtension(f.FileName));
+                    var ext = Path.GetExtension(f.FileName);
+                    var prog = new PrimeProgramFile(Utilities.CreateTemporalFileFromText(editor.Text));
+                    var p = new PrimeUsbData(prog.SafeName, prog.Data);
+                    p.GenerateChunks(p.Data.ToList(), 64);
+                    foreach (var c in p.Chunks)
+                    {
+                        File.WriteAllBytes(name + (n++ > 0 ? n + "" : String.Empty) + ext, c);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error exporting the data", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void searchReferenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchReference(true);
+        }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+        public static void sendKeystroke(IEnumerable<Keys> keysToPress)
+        {
+            const uint WM_KEYDOWN = 0x100;
+            const uint WM_KEYUP = 0x0101;
+
+            IntPtr hWnd;
+            string processName = "HPPrime";
+            Process[] processList = Process.GetProcesses();
+
+            foreach (Process P in processList)
+            {
+                if (P.ProcessName.Equals(processName))
+                {
+                    IntPtr edit = P.MainWindowHandle;
+                    foreach (Keys k in keysToPress)
+                    {
+                        PostMessage(edit, WM_KEYDOWN, (IntPtr)(k), IntPtr.Zero);
+                        //PostMessage(edit, WM_KEYDOWN, (IntPtr)(Keys.A), IntPtr.Zero);
+                        Thread.Sleep(1);
+                        PostMessage(edit, WM_KEYUP, (IntPtr)(k), IntPtr.Zero);
+                        /*PostMessage(edit, WM_KEYDOWN, (IntPtr)(Keys.Control), IntPtr.Zero);
+                    PostMessage(edit, WM_KEYDOWN, (IntPtr)(Keys.A), IntPtr.Zero);
+                    PostMessage(edit, WM_KEYUP, (IntPtr)(Keys.Control), IntPtr.Zero);*/
+                    }
+                }
+            }
+        }
+
+        private void showMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sendKeystroke(new[] {Keys.Escape, Keys.Escape, Keys.Escape, Keys.F1});
+        }
+
+        private void gotoFunctionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sendKeystroke(new[] { Keys.Escape, Keys.Escape, Keys.F1, Keys.F1, Keys.F1, Keys.F, Keys.U, Keys.Enter });
+        }
+
+        private void gotoCASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sendKeystroke(new[] { Keys.Escape, Keys.Escape, Keys.F1, Keys.F1, Keys.F1, Keys.A, Keys.D, Keys.Enter, Keys.F7 });
+        }
+
+        private void convertSymbolsToPlainTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            convertSymbolsToPlain(false);
+        }
+
+        private void convertPlainTextToSymbolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            convertSymbolsToPlain(true);
+        }
+
+        private void convertSymbolsToPlain(bool reverse)
+        {
+            if (editor.TextLength == 0)
+                return;
+
+            editor.UndoRedo.BeginUndoAction();
+
+            if (editor.Selection.Length == 0)
+            {
+                var t = Utilities.MathSymbols.Aggregate(editor.Text,
+                    (current, r) => current.Replace(reverse ? r.Key : r.Value, reverse ? r.Value : r.Key));
+
+                if (t != editor.Text)
+                    editor.Text = t;
+            }
+            else
+            {
+                var t = Utilities.MathSymbols.Aggregate(editor.Selection.Text,
+                    (current, r) => current.Replace(reverse ? r.Key : r.Value, reverse ? r.Value : r.Key));
+
+                if (t != editor.Selection.Text)
+                    editor.Selection.Text = t;
+            }
+
+            editor.UndoRedo.EndUndoAction();
         }
     }
 }
