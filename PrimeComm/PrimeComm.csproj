@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterPage.cs" />
     <Compile Include="CharmapGrid.cs">
       <SubType>Component</SubType>
     </Compile>
