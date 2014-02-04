@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
+    <None Include="img\settings.png" />
     <None Include="img\new\recent.png" />
     <None Include="img\new\info.png" />
     <None Include="img\new\help.png" />

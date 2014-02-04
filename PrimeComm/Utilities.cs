@@ -142,7 +142,7 @@ namespace PrimeComm
             foreach (var l in Settings.Default.EmulatorCommands.Split(new[] {Environment.NewLine},StringSplitOptions.RemoveEmptyEntries))
             {
                 var line = l.Trim();
-                if (line.StartsWith(";") || !line.Contains("=")) continue;
+                if (line.StartsWith(";") || line.StartsWith("#") || !line.Contains("=")) continue;
 
                 var p = line.Split(new[] {'='}, 2);
 
@@ -419,8 +419,8 @@ namespace PrimeComm
                 Command = command;
 
                 // Process command
-                RequiresSelection = command.Contains("{Selection}");
-                RequiresText = command.Contains("{Text}");
+                RequiresSelection = command.Contains("Selection}");
+                RequiresText = command.Contains("Text}");
             }
         }
 
