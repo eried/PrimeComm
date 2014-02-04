@@ -29,7 +29,6 @@ namespace PrimeComm
 
             if (startTab < tabControlPreferences.TabCount)
                 tabControlPreferences.SelectedIndex = startTab;
-            UpdateTab(tabControlPreferences.SelectedTab);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -40,6 +39,9 @@ namespace PrimeComm
         private void SaveAndExit()
         {
             Utilities.UpdateRecentFiles();
+
+            // Manual update due performance
+            Settings.Default.EmulatorCommands = textBoxCommands.Text;
             Utilities.UpdateEditorCommands();
 
             Settings.Default.Save();
@@ -112,6 +114,9 @@ namespace PrimeComm
 
             // Image reduction
             comboBoxImageDitheringMethod.SelectedItem = Settings.Default.ImageDitheringMethod;
+
+            // Emulator commands
+            textBoxCommands.Text = Settings.Default.EmulatorCommands;
         }
 
         private void CreateAdvancedSettings(TabPage tabPage)
@@ -150,11 +155,6 @@ namespace PrimeComm
             tabPage.Controls.Add(table);
         }
 
-        private void tabControlPreferences_Selected(object sender, TabControlEventArgs e)
-        {
-            UpdateTab(e.TabPage);
-        }
-
         private void UpdateTab(TabPage tabPage)
         {
             if (tabPage == tabPageAdvanced && tabPageAdvanced.Controls.Count == 0)
@@ -170,7 +170,13 @@ namespace PrimeComm
                         comboBoxCommandsKeys.Items.Add(k);
                     ClearCombobox(comboBoxCommandsKeys);
 
-                    foreach (var k in new[] { "Nop", "Selection", "Text", "Wait" })
+                    var r = new[]
+                    {
+                        "Show", "Focus", "CopySelection", "Selection", "CopyText", "Text", "Paste", "Alert:<Text>",
+                        "Question:<Text>", "Nop", "Wait","ProgramName", "RandomNumber", "RandomChar","RandomCHAR",
+                    }.ToList();
+                    r.Sort();
+                    foreach (var k in r)
                         comboBoxCommandsSpecial.Items.Add("{" + k + "}");
                     ClearCombobox(comboBoxCommandsSpecial);
 
@@ -178,6 +184,7 @@ namespace PrimeComm
                     textBoxCommands.SelectionLength = 0;
                 }
                 textBoxCommands.Select();
+                textBoxCommands.ScrollToCaret();
             }
         }
 
@@ -229,8 +236,19 @@ namespace PrimeComm
                         textBoxCommands.Text[selectionIndex - 1] != '\r';
                     txt = (prefix ? "," : "") + txt + (prefix ? "" : ",");
                     textBoxCommands.Text = textBoxCommands.Text.Insert(selectionIndex, txt);
-                    textBoxCommands.SelectionStart = selectionIndex + txt.Length;
+
+                    if (txt.Contains("<") && txt.Contains(">"))
+                    {
+                        textBoxCommands.SelectionStart = selectionIndex + txt.LastIndexOf("<");
+                        textBoxCommands.SelectionLength = txt.LastIndexOf(">") - txt.LastIndexOf("<")+1;
+                    }
+                    else
+                    {
+                        textBoxCommands.SelectionStart = selectionIndex + txt.Length;
+                        textBoxCommands.SelectionLength = 0;
+                    }
                     textBoxCommands.Select();
+                    textBoxCommands.ScrollToCaret();
                     c.SelectedIndex = 0;
                 }
             }
@@ -246,6 +264,16 @@ namespace PrimeComm
         private void comboBoxCommands_DropDownClosed(object sender, EventArgs e)
         {
             ClearCombobox(sender as ComboBox);
+        }
+
+        private void FormSettings_Shown(object sender, EventArgs e)
+        {
+            UpdateTab(tabControlPreferences.SelectedTab);
+        }
+
+        private void tabControlPreferences_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateTab(tabControlPreferences.SelectedTab);
         }
     }
 }

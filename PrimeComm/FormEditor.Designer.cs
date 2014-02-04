@@ -407,6 +407,7 @@
             // 
             // preferencesToolStripMenuItem
             // 
+            this.preferencesToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.settings;
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences...";
@@ -565,7 +566,7 @@
             this.wordWrapToolStripMenuItem.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
             this.wordWrapToolStripMenuItem.CheckOnClick = true;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.wordWrapToolStripMenuItem.Text = "&Word wrap";
             // 
             // languageToolStripMenuItem
@@ -649,6 +650,7 @@
             // 
             // editorPreferencesToolStripMenuItem
             // 
+            this.editorPreferencesToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.settings;
             this.editorPreferencesToolStripMenuItem.Name = "editorPreferencesToolStripMenuItem";
             this.editorPreferencesToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.editorPreferencesToolStripMenuItem.Text = "&Editor preferences...";
@@ -706,6 +708,7 @@
             // 
             // programPreferencesToolStripMenuItem
             // 
+            this.programPreferencesToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.settings;
             this.programPreferencesToolStripMenuItem.Name = "programPreferencesToolStripMenuItem";
             this.programPreferencesToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.programPreferencesToolStripMenuItem.Text = "&Program code preferences...";

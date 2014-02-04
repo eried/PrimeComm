@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using Clipboard = System.Windows.Forms.Clipboard;
 
 namespace PrimeComm
 {
@@ -140,8 +141,7 @@ namespace PrimeComm
                         if (tmp.IsConversion)
                         {
                             if (Settings.Default.AddCommentOnConversion)
-                                editor.InsertText(0,
-                                    "// Converted by PrimeComm from " + fileName + Environment.NewLine);
+                                editor.InsertText(0,"// Converted by PrimeComm from " + fileName + Environment.NewLine);
                         }
                         else
                             _currentFile = fileName;
@@ -740,13 +740,32 @@ namespace PrimeComm
             SearchReference(true);
         }
 
+        [StructLayout(LayoutKind.Sequential)]
+        public struct KEYBDINPUT
+        {
+            public ushort wVk;
+            public ushort wScan;
+            public uint dwFlags;
+            public uint time;
+            public IntPtr dwExtraInfo;
+        }
+
         [DllImport("user32.dll")]
         public static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 
-        const uint WM_KEYDOWN = 0x100;
-        const uint WM_KEYUP = 0x0101;
-        const uint WM_CHAR = 0x0102;
+        [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, Int16 nCmdShow);
+
+        [DllImport("user32.dll")]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        const uint WM_KEYDOWN = 0x100, WM_KEYUP = 0x0101, WM_CHAR = 0x0102, WM_PASTE = 0x0302, WM_APPCOMMAND = 0x0319, 
+            APPCOMMAND_PASTE = 38, WM_SYSKEYDOWN = 0x0104, WM_SYSKEYUP = 0x0105, WM_COMMAND =0x0111;
         const string processName = "HPPrime";
+        private Random _random = new Random();
 
         public void SendCommandToEmulator(String command)
         {
@@ -767,12 +786,30 @@ namespace PrimeComm
                     {
                         case "{Text}":
                         case "{Selection}":
-                            foreach (var c in key == "{Text}" ? editor.Text : editor.Selection.Text)
-                                SendKeyToWindow(emulator, IntPtr.Zero, c);
+                        case "{CopyText}":
+                        case "{CopySelection}":
+                            var tmp = key.EndsWith("Text}") ? editor.Text : editor.Selection.Text;
+                            if (key.StartsWith("{Copy"))
+                                Clipboard.SetText(tmp);
+                            else
+                                foreach (var c in tmp)
+                                    SendKeyToWindow(emulator, IntPtr.Zero, c);
                             break;
 
                         case "{Nop}":
                             Thread.Sleep(1);
+                            break;
+
+                        case "{Focus}":
+                            SetForegroundWindow(emulator);
+                            break;
+
+                        case "{Show}":
+                            ShowWindow(emulator,1);
+                            break;
+
+                        case "{Paste}":
+                            PostMessage(emulator, WM_COMMAND, (IntPtr)32801, IntPtr.Zero);
                             break;
 
                         case "{Wait}":
@@ -784,7 +821,50 @@ namespace PrimeComm
                             break;
 
                         default:
-                            bool keyUp = true, keyDown = true;
+                            if (key.EndsWith("}"))
+                            {
+                                if (key.StartsWith("{Alert:"))
+                                {
+                                    MessageBox.Show(key.Substring(7, key.Length - 8), "Alert");
+                                    continue;
+                                }
+
+                                if (key.StartsWith("{Question:"))
+                                {
+                                    if (
+                                        MessageBox.Show(key.Substring(10, key.Length - 11), "Question",
+                                            MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                                        return;
+                                    continue;
+                                }
+
+                                switch (key)
+                                {
+                                    case "{ProgramName}":
+                                        key = "\"" + CurrentProgramName + "\"";
+                                        break;
+
+                                    case "{RandomChar}":
+                                        key = "\"" + (char) _random.Next('a', 'z' + 1) + "\"";
+                                        break;
+
+                                    case "{RandomCHAR}":
+                                        key = "\"" + (char) _random.Next('A', 'Z' + 1) + "\"";
+                                        break;
+
+                                    case "{RandomNumber}":
+                                        key = "\"" + (char) _random.Next('0', '9' + 1) + "\"";
+                                        break;
+                                }
+                            }
+
+                            if (key.StartsWith("\"") && key.EndsWith("\""))
+                            {
+                                foreach (var c in key.Substring(1,key.Length-2))
+                                    SendKeyToWindow(emulator, IntPtr.Zero, c);
+                            }
+
+                            /*bool keyUp = true, keyDown = true;
                             if (key.EndsWith("_up"))
                             {
                                 keyDown = false;
@@ -794,32 +874,28 @@ namespace PrimeComm
                             {
                                 keyUp = false;
                                 key = key.Substring(0, key.Length - 5);
-                            }
+                            }*/
                             Keys pressedKey;
-                            if(Enum.TryParse(key, out pressedKey))
-                                SendKeyToWindow(emulator, (IntPtr)pressedKey, char.MinValue, keyUp, keyDown);
+                            if (Enum.TryParse(key, out pressedKey))
+                                SendKeyToWindow(emulator, (IntPtr) pressedKey, char.MinValue);
                             break;
                     }
                 }
             }
         }
 
-        private static void SendKeyToWindow(IntPtr edit, IntPtr keys, char character, bool keyUp = true, bool keyDown = true)
+        private static void SendKeyToWindow(IntPtr emulator, IntPtr key, char character)
         {
-            if (keys == IntPtr.Zero)
+            if (key == IntPtr.Zero)
             {
-                PostMessage(edit, WM_CHAR, (IntPtr)character, IntPtr.Zero);
+                PostMessage(emulator, WM_CHAR, (IntPtr)character, IntPtr.Zero);
                 Thread.Sleep(1);
             }
             else
             {
-                if (keyDown)
-                    PostMessage(edit, WM_KEYDOWN, keys, IntPtr.Zero);
-
+                PostMessage(emulator, WM_KEYDOWN, key, IntPtr.Zero);
                 Thread.Sleep(1);
-
-                if (keyUp)
-                    PostMessage(edit, WM_KEYUP, keys, IntPtr.Zero);
+                PostMessage(emulator, WM_KEYUP, key, IntPtr.Zero);
             }
         }
 
@@ -884,7 +960,7 @@ namespace PrimeComm
 
             if(emulatorCommandsToolStripMenuItem.DropDownItems.Count>0)
                 emulatorCommandsToolStripMenuItem.DropDownItems.Add("-");
-            emulatorCommandsToolStripMenuItem.DropDownItems.Add("Emulator commands settings...", null, (o, args)=> OpenSettings(4));
+            emulatorCommandsToolStripMenuItem.DropDownItems.Add("Emulator commands settings...", Resources.settings, (o, args)=> OpenSettings(4));
         }
     }
 }
