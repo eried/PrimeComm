@@ -29,6 +29,7 @@ namespace PrimeComm
 
             if (startTab < tabControlPreferences.TabCount)
                 tabControlPreferences.SelectedIndex = startTab;
+            UpdateTab(tabControlPreferences.SelectedTab);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -39,6 +40,8 @@ namespace PrimeComm
         private void SaveAndExit()
         {
             Utilities.UpdateRecentFiles();
+            Utilities.UpdateEditorCommands();
+
             Settings.Default.Save();
             DialogResult = DialogResult.OK;
         }
@@ -149,8 +152,44 @@ namespace PrimeComm
 
         private void tabControlPreferences_Selected(object sender, TabControlEventArgs e)
         {
-            if (e.TabPage == tabPageAdvanced && tabPageAdvanced.Controls.Count == 0)
-                CreateAdvancedSettings(e.TabPage);
+            UpdateTab(e.TabPage);
+        }
+
+        private void UpdateTab(TabPage tabPage)
+        {
+            if (tabPage == tabPageAdvanced && tabPageAdvanced.Controls.Count == 0)
+                CreateAdvancedSettings(tabPage);
+            else if (tabPage == tabPageEmulator)
+            {
+                if (comboBoxCommandsKeys.Items.Count == 0)
+                {
+                    var keys = Enum.GetNames(typeof (Keys)).ToList();
+                    keys.Sort();
+
+                    foreach (var k in keys.Where(k => k != "NoName" && k != "None"))
+                        comboBoxCommandsKeys.Items.Add(k);
+                    ClearCombobox(comboBoxCommandsKeys);
+
+                    foreach (var k in new[] { "Nop", "Selection", "Text", "Wait" })
+                        comboBoxCommandsSpecial.Items.Add("{" + k + "}");
+                    ClearCombobox(comboBoxCommandsSpecial);
+
+                    textBoxCommands.SelectionStart = textBoxCommands.TextLength;
+                    textBoxCommands.SelectionLength = 0;
+                }
+                textBoxCommands.Select();
+            }
+        }
+
+        private void ClearCombobox(ComboBox combo)
+        {
+            var label = combo == comboBoxCommandsKeys ? "(Insert Key)" : "(Insert Special)";
+
+            if (combo.Items.Count == 0 || (String) combo.Items[0] != label)
+                combo.Items.Insert(0, label);
+
+            if (combo.SelectedIndex < 0)
+                combo.SelectedIndex = 0;
         }
 
         private void linkLabelClearWarnings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -173,6 +212,40 @@ namespace PrimeComm
         {
             Settings.Default.RecentOpenedFiles.Clear();
             linkLabelClearRecent.Enabled = false;
+        }
+
+        private void comboBoxCommands_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var c = sender as ComboBox;
+            if (c!=null && c.SelectedIndex >0)
+            { 
+                var txt = c.SelectedItem as string;
+
+                if (!String.IsNullOrEmpty(txt))
+                {
+                    var selectionIndex = textBoxCommands.SelectionStart+textBoxCommands.SelectionLength;
+                    var prefix = selectionIndex > 0 && textBoxCommands.Text[selectionIndex - 1] != ',' && 
+                        textBoxCommands.Text[selectionIndex - 1] != '=' && textBoxCommands.Text[selectionIndex - 1] != '\n' && 
+                        textBoxCommands.Text[selectionIndex - 1] != '\r';
+                    txt = (prefix ? "," : "") + txt + (prefix ? "" : ",");
+                    textBoxCommands.Text = textBoxCommands.Text.Insert(selectionIndex, txt);
+                    textBoxCommands.SelectionStart = selectionIndex + txt.Length;
+                    textBoxCommands.Select();
+                    c.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void comboBoxCommands_DropDown(object sender, EventArgs e)
+        {
+            var c = sender as ComboBox;
+            if (c != null && c.Items.Count > 0)
+                c.Items.RemoveAt(0);
+        }
+
+        private void comboBoxCommands_DropDownClosed(object sender, EventArgs e)
+        {
+            ClearCombobox(sender as ComboBox);
         }
     }
 }

@@ -381,5 +381,28 @@ namespace PrimeComm.Properties {
                 this["EditorSearchReferenceSelectionChanged"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@";Emulator commands definition file
+;Special variables {Text} and {Selection}
+;for full program text and selected text respectively.
+;Use {Wait} and {Nop} to add delays, the first one
+;delays 100 ms and the second skips one keypress.
+;To hold a key, use Key_down and then Key_up, 
+;for example Control_down,V,Control_up
+
+Send to &CAS=Escape,Escape,F1,F1,F1,A,D,Enter,F7,{Text},Enter
+Send &selection to CAS=Escape,Escape,F1,F1,F1,A,D,Enter,F7,{Selection},Enter
+-=
+Show &Apps=Escape,Escape,Escape,F1")]
+        public string EmulatorCommands {
+            get {
+                return ((string)(this["EmulatorCommands"]));
+            }
+            set {
+                this["EmulatorCommands"] = value;
+            }
+        }
     }
 }

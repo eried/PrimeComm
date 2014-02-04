@@ -97,10 +97,7 @@
             this.convertPlainTextToSymbolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.editorPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gotoFunctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gotoCASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emulatorCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToVirtualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -247,7 +244,7 @@
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.languageToolStripMenuItem,
-            this.emulatorToolStripMenuItem,
+            this.emulatorCommandsToolStripMenuItem,
             this.actionsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
@@ -602,7 +599,6 @@
             this.formatselectionToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.formatselectionToolStripMenuItem.Text = "Format &selection";
             this.formatselectionToolStripMenuItem.Visible = false;
-            this.formatselectionToolStripMenuItem.Click += new System.EventHandler(this.formatselectionToolStripMenuItem_Click);
             // 
             // toolStripMenuItem9
             // 
@@ -658,37 +654,12 @@
             this.editorPreferencesToolStripMenuItem.Text = "&Editor preferences...";
             this.editorPreferencesToolStripMenuItem.Click += new System.EventHandler(this.editorPreferencesToolStripMenuItem_Click);
             // 
-            // emulatorToolStripMenuItem
+            // emulatorCommandsToolStripMenuItem
             // 
-            this.emulatorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showMenuToolStripMenuItem,
-            this.gotoFunctionToolStripMenuItem,
-            this.gotoCASToolStripMenuItem});
-            this.emulatorToolStripMenuItem.Name = "emulatorToolStripMenuItem";
-            this.emulatorToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.emulatorToolStripMenuItem.Text = "&Tools";
-            this.emulatorToolStripMenuItem.Visible = false;
-            // 
-            // showMenuToolStripMenuItem
-            // 
-            this.showMenuToolStripMenuItem.Name = "showMenuToolStripMenuItem";
-            this.showMenuToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.showMenuToolStripMenuItem.Text = "Show Apps";
-            this.showMenuToolStripMenuItem.Click += new System.EventHandler(this.showMenuToolStripMenuItem_Click);
-            // 
-            // gotoFunctionToolStripMenuItem
-            // 
-            this.gotoFunctionToolStripMenuItem.Name = "gotoFunctionToolStripMenuItem";
-            this.gotoFunctionToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.gotoFunctionToolStripMenuItem.Text = "Goto Function";
-            this.gotoFunctionToolStripMenuItem.Click += new System.EventHandler(this.gotoFunctionToolStripMenuItem_Click);
-            // 
-            // gotoCASToolStripMenuItem
-            // 
-            this.gotoCASToolStripMenuItem.Name = "gotoCASToolStripMenuItem";
-            this.gotoCASToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.gotoCASToolStripMenuItem.Text = "Goto Advanced Graphics/CAS";
-            this.gotoCASToolStripMenuItem.Click += new System.EventHandler(this.gotoCASToolStripMenuItem_Click);
+            this.emulatorCommandsToolStripMenuItem.Name = "emulatorCommandsToolStripMenuItem";
+            this.emulatorCommandsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.emulatorCommandsToolStripMenuItem.Text = "E&mulator";
+            this.emulatorCommandsToolStripMenuItem.DropDownOpening += new System.EventHandler(this.emulatorCommandsStripMenuItem_DropDownOpening);
             // 
             // actionsToolStripMenuItem
             // 
@@ -924,7 +895,6 @@
             this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "FormEditor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditor_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditor_FormClosed);
             this.Shown += new System.EventHandler(this.FormEditor_Shown);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
@@ -1017,12 +987,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem10;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem searchReferenceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem emulatorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showMenuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gotoFunctionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gotoCASToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem12;
         private System.Windows.Forms.ToolStripMenuItem convertSymbolsToPlainTextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem convertPlainTextToSymbolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emulatorCommandsToolStripMenuItem;
     }
 }

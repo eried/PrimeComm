@@ -96,5 +96,19 @@ END;
     <Setting Name="EditorSearchReferenceSelectionChanged" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="EmulatorCommands" Type="System.String" Scope="User">
+      <Value Profile="(Default)">;Emulator commands definition file
+;Special variables {Text} and {Selection}
+;for full program text and selected text respectively.
+;Use {Wait} and {Nop} to add delays, the first one
+;delays 100 ms and the second skips one keypress.
+;To hold a key, use Key_down and then Key_up, 
+;for example Control_down,V,Control_up
+
+Send to &amp;CAS=Escape,Escape,F1,F1,F1,A,D,Enter,F7,{Text},Enter
+Send &amp;selection to CAS=Escape,Escape,F1,F1,F1,A,D,Enter,F7,{Selection},Enter
+-=
+Show &amp;Apps=Escape,Escape,Escape,F1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

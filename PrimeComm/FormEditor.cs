@@ -607,11 +607,6 @@ namespace PrimeComm
             editor.Visible = true;
         }
 
-        private void FormEditor_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         public bool IsClosed { get; private set; }
 
         private void editorPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -647,11 +642,6 @@ namespace PrimeComm
 
             // Find code blocks
 
-        }
-
-        private void formatselectionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //dockPanel1.DockPaneFactory.CreateDockPane(new HelpPane(), DockState.DockBottom, true);
         }
 
         public void InsertText(string text)
@@ -753,60 +743,98 @@ namespace PrimeComm
         [DllImport("user32.dll")]
         public static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 
-        public static void sendKeystroke(IEnumerable<Keys> keysToPress)
+        const uint WM_KEYDOWN = 0x100;
+        const uint WM_KEYUP = 0x0101;
+        const uint WM_CHAR = 0x0102;
+        const string processName = "HPPrime";
+
+        public void SendCommandToEmulator(String command)
         {
-            const uint WM_KEYDOWN = 0x100;
-            const uint WM_KEYUP = 0x0101;
-
-            IntPtr hWnd;
-            string processName = "HPPrime";
-            Process[] processList = Process.GetProcesses();
-
-            foreach (Process P in processList)
+            foreach (var p in Process.GetProcesses())
             {
-                if (P.ProcessName.Equals(processName))
+                if (!p.ProcessName.Equals(processName)) continue;
+
+                var emulator = p.MainWindowHandle;
+
+                // Decode the keypresses
+                foreach (var k in command.Split(new[] {','}))
                 {
-                    IntPtr edit = P.MainWindowHandle;
-                    foreach (Keys k in keysToPress)
+                    var key = k.Trim();
+
+                    if (key.Length == 0) continue;
+
+                    switch (key)
                     {
-                        PostMessage(edit, WM_KEYDOWN, (IntPtr)(k), IntPtr.Zero);
-                        //PostMessage(edit, WM_KEYDOWN, (IntPtr)(Keys.A), IntPtr.Zero);
-                        Thread.Sleep(1);
-                        PostMessage(edit, WM_KEYUP, (IntPtr)(k), IntPtr.Zero);
-                        /*PostMessage(edit, WM_KEYDOWN, (IntPtr)(Keys.Control), IntPtr.Zero);
-                    PostMessage(edit, WM_KEYDOWN, (IntPtr)(Keys.A), IntPtr.Zero);
-                    PostMessage(edit, WM_KEYUP, (IntPtr)(Keys.Control), IntPtr.Zero);*/
+                        case "{Text}":
+                        case "{Selection}":
+                            foreach (var c in key == "{Text}" ? editor.Text : editor.Selection.Text)
+                                SendKeyToWindow(emulator, IntPtr.Zero, c);
+                            break;
+
+                        case "{Nop}":
+                            Thread.Sleep(1);
+                            break;
+
+                        case "{Wait}":
+                            for (int i = 0; i < 10; i++)
+                            {
+                                Thread.Sleep(10);
+                                Application.DoEvents();
+                            }
+                            break;
+
+                        default:
+                            bool keyUp = true, keyDown = true;
+                            if (key.EndsWith("_up"))
+                            {
+                                keyDown = false;
+                                key = key.Substring(0, key.Length - 3);
+                            }
+                            else if (key.EndsWith("_down"))
+                            {
+                                keyUp = false;
+                                key = key.Substring(0, key.Length - 5);
+                            }
+                            Keys pressedKey;
+                            if(Enum.TryParse(key, out pressedKey))
+                                SendKeyToWindow(emulator, (IntPtr)pressedKey, char.MinValue, keyUp, keyDown);
+                            break;
                     }
                 }
             }
         }
 
-        private void showMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        private static void SendKeyToWindow(IntPtr edit, IntPtr keys, char character, bool keyUp = true, bool keyDown = true)
         {
-            sendKeystroke(new[] {Keys.Escape, Keys.Escape, Keys.Escape, Keys.F1});
+            if (keys == IntPtr.Zero)
+            {
+                PostMessage(edit, WM_CHAR, (IntPtr)character, IntPtr.Zero);
+                Thread.Sleep(1);
+            }
+            else
+            {
+                if (keyDown)
+                    PostMessage(edit, WM_KEYDOWN, keys, IntPtr.Zero);
+
+                Thread.Sleep(1);
+
+                if (keyUp)
+                    PostMessage(edit, WM_KEYUP, keys, IntPtr.Zero);
+            }
         }
 
-        private void gotoFunctionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sendKeystroke(new[] { Keys.Escape, Keys.Escape, Keys.F1, Keys.F1, Keys.F1, Keys.F, Keys.U, Keys.Enter });
-        }
-
-        private void gotoCASToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sendKeystroke(new[] { Keys.Escape, Keys.Escape, Keys.F1, Keys.F1, Keys.F1, Keys.A, Keys.D, Keys.Enter, Keys.F7 });
-        }
 
         private void convertSymbolsToPlainTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            convertSymbolsToPlain(false);
+            ConvertSymbolsToPlain(false);
         }
 
         private void convertPlainTextToSymbolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            convertSymbolsToPlain(true);
+            ConvertSymbolsToPlain(true);
         }
 
-        private void convertSymbolsToPlain(bool reverse)
+        private void ConvertSymbolsToPlain(bool reverse)
         {
             if (editor.TextLength == 0)
                 return;
@@ -831,6 +859,32 @@ namespace PrimeComm
             }
 
             editor.UndoRedo.EndUndoAction();
+        }
+
+        private void emulatorCommandsStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            emulatorCommandsToolStripMenuItem.DropDownItems.Clear();
+
+            foreach (var c in Utilities.EditorCommands)
+            {
+                if (c.Separator)
+                    emulatorCommandsToolStripMenuItem.DropDownItems.Add(c.Name);
+                else
+                {
+                    var currentCommand = c.Command;
+                    var tmp = emulatorCommandsToolStripMenuItem.DropDownItems.Add(c.Name, null, (o, args) => SendCommandToEmulator(currentCommand));
+
+                    if (c.RequiresSelection)
+                        tmp.Enabled = editor.Selection.Length > 0;
+                    else
+                        if(c.RequiresText)
+                            tmp.Enabled = editor.TextLength > 0;
+                }
+            }
+
+            if(emulatorCommandsToolStripMenuItem.DropDownItems.Count>0)
+                emulatorCommandsToolStripMenuItem.DropDownItems.Add("-");
+            emulatorCommandsToolStripMenuItem.DropDownItems.Add("Emulator commands settings...", null, (o, args)=> OpenSettings(4));
         }
     }
 }

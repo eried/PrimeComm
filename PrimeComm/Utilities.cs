@@ -17,6 +17,7 @@ namespace PrimeComm
     {
         public static string CommandToken = "????";
         private static List<KeyValuePair<string, string>> _ascii7Codes, _mathSymbols;
+        private static List<EditorCommand> _editorCommands;
 
         public static void InvokeIfRequired(this Control c, MethodInvoker action)
         {
@@ -102,7 +103,7 @@ namespace PrimeComm
 
         internal static void UpdateRecentFiles()
         {
-            RecentFiles = new ToolStripDropDown() { LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow};
+            RecentFiles = new ToolStripDropDown { LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow};
 
             if (Settings.Default.RecentOpenedFiles != null)
             {
@@ -134,7 +135,32 @@ namespace PrimeComm
 
         public static ToolStripDropDown RecentFiles { get; private set; }
 
-        
+        internal static void UpdateEditorCommands()
+        {
+            _editorCommands = new List<EditorCommand>();
+
+            foreach (var l in Settings.Default.EmulatorCommands.Split(new[] {Environment.NewLine},StringSplitOptions.RemoveEmptyEntries))
+            {
+                var line = l.Trim();
+                if (line.StartsWith(";") || !line.Contains("=")) continue;
+
+                var p = line.Split(new[] {'='}, 2);
+
+                if(p[0].Length > 0 && p.Count()>1)
+                    _editorCommands.Add(new EditorCommand(p[0].Trim(), p[1].Trim()));
+            }
+        }
+
+        public static List<EditorCommand> EditorCommands
+        {
+            get
+            {
+                if (_editorCommands == null)
+                    UpdateEditorCommands();
+                return _editorCommands;
+            }
+        }
+
         public static List<KeyValuePair<String, String>> MathSymbols
         {
             get
@@ -372,5 +398,36 @@ namespace PrimeComm
             info.fMask = SEE_MASK_INVOKEIDLIST;
             return ShellExecuteEx(ref info);
         }
+    }
+
+    internal class EditorCommand
+    {
+        public string Name { get; private set; }
+        public string Command { get; private set; }
+
+        public EditorCommand(String name, String command)
+        {
+            Name = name;
+
+            if (name == "-")
+            {
+                Separator = true;
+            }
+            else
+            {
+                Separator = false;
+                Command = command;
+
+                // Process command
+                RequiresSelection = command.Contains("{Selection}");
+                RequiresText = command.Contains("{Text}");
+            }
+        }
+
+        public bool Separator { get; private set; }
+
+        public bool RequiresText { get; private set; }
+
+        public bool RequiresSelection { get; private set; }
     }
 }
