@@ -384,18 +384,35 @@ namespace PrimeComm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@";Emulator commands definition file
-;Special variables {Text} and {Selection}
-;for full program text and selected text respectively.
-;Use {Wait} and {Nop} to add delays, the first one
-;delays 100 ms and the second skips one keypress.
-;To hold a key, use Key_down and then Key_up, 
-;for example Control_down,V,Control_up
-
-Send to &CAS=Escape,Escape,F1,F1,F1,A,D,Enter,F7,{Text},Enter
-Send &selection to CAS=Escape,Escape,F1,F1,F1,A,D,Enter,F7,{Selection},Enter
--=
-Show &Apps=Escape,Escape,Escape,F1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("# To customize the emulator command menu just\r\n# use the format:\r\n# <Menu text>=<" +
+            "Command1>,<Command2>, ...\r\n#\r\n# Special Commands:\r\n#  {Show}: Show emulator (if " +
+            "minimized)\r\n#  {Focus}: Select emulator window (if visible)\r\n#  {Selection}: Sel" +
+            "ected text from PrimePad\r\n#  {Text}: Text from PrimePad\r\n#  {CopySelection}: Cop" +
+            "y selected text\r\n#  {CopyText}: Copy text from PrimePad\r\n#  {Paste}: Paste copie" +
+            "d text in emulator\r\n#  {Alert:<Text>}: Msgbox with <Text>\r\n#    This stops the c" +
+            "ommand until OK\r\n#  {Question:<Text>}: Msgbox with OK/Cancel\r\n#    This stops th" +
+            "e command on Cancel\r\n#  {Nop}/{Wait}: 1ms delay/100ms delay\r\n#  {ProgramName}: T" +
+            "ypes current program name\r\n#  {RandomNumber}: Types a random 0-9 number\r\n#  {Ran" +
+            "domChar}/{RandomCHAR}: Lower/upper random char\r\n#  \"string\": Any string\r\n\r\nCopy " +
+            "all, open first Program, clear and paste=Escape,{CopyText},Escape,Escape,F1,Cont" +
+            "rolKey,NumPad1,Enter,ControlKey,Escape,\"// \",{ProgramName},Enter,Enter,{Paste}\r\n" +
+            "-=\r\nExecute all text in &CAS=Escape,Escape,Escape,F1,F1,F1,A,D,Enter,F7,{Text},E" +
+            "nter\r\nCopy text and paste in CAS=Escape,{CopyText},Escape,Escape,F1,F1,F1,A,D,En" +
+            "ter,F7,{Paste},Enter\r\nExecute &selection in CAS=Escape,Escape,Escape,F1,F1,F1,A," +
+            "D,Enter,F7,{Selection},Enter\r\nCopy selection and paste in CAS=Escape,{CopySelect" +
+            "ion},Escape,Escape,F1,F1,F1,A,D,Enter,F7,{Paste}\r\n-=\r\nExecute all text in &Home=" +
+            "Escape,Escape,Escape,F1,F1,F1,A,D,Enter,F4,{Text},Enter\r\nCopy text and paste in " +
+            "Home=Escape,{CopyText},Escape,Escape,F1,F1,F1,A,D,Enter,F4,{Paste},Enter\r\nExecut" +
+            "e &selection in Home=Escape,Escape,Escape,F1,F1,F1,A,D,Enter,F4,{Selection},Ente" +
+            "r\r\nCopy selection and paste in Home=Escape,{CopySelection},Escape,Escape,F1,F1,F" +
+            "1,A,D,Enter,F4,{Paste}\r\n-=\r\nGoto &Apps (Main menu)=Escape,Escape,Escape,F1\r\nGoto" +
+            " &Spreadsheet and type something=Escape,Escape,Escape,F1,S,P,R,Enter,Tab,NumPad0" +
+            ",{Wait},ShiftKey,\"Hello\",Space,W,O,R,L,D,Enter\r\nGoto Program and delete all Prog" +
+            "rams={Question:Do you really want to delete all the Programs?},Escape,Escape,Esc" +
+            "ape,F1,ControlKey,NumPad1,ControlKey,Escape,Enter,Escape,ControlKey,NumPad1,Cont" +
+            "rolKey,Escape,Enter,Escape,ControlKey,NumPad1,ControlKey,Escape,Enter\r\n-=\r\nSwitc" +
+            "h to Emulator={Show},{Focus}\r\n#Show Emulator={Show}\r\n#Do nothing={Question:Are y" +
+            "ou sure?},{Alert:Very well...},{Wait},{Wait},{Wait},{Wait},{Alert:Done!}")]
         public string EmulatorCommands {
             get {
                 return ((string)(this["EmulatorCommands"]));
