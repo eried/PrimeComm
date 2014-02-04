@@ -62,7 +62,7 @@
             this.comboBoxPage.FormattingEnabled = true;
             this.comboBoxPage.Location = new System.Drawing.Point(6, 6);
             this.comboBoxPage.Name = "comboBoxPage";
-            this.comboBoxPage.Size = new System.Drawing.Size(226, 21);
+            this.comboBoxPage.Size = new System.Drawing.Size(165, 21);
             this.comboBoxPage.TabIndex = 2;
             // 
             // label1
@@ -132,9 +132,9 @@
             // 
             this.panelSelectedChar.Controls.Add(this.labelChar);
             this.panelSelectedChar.Controls.Add(this.label3);
-            this.panelSelectedChar.Location = new System.Drawing.Point(238, 4);
+            this.panelSelectedChar.Location = new System.Drawing.Point(177, 5);
             this.panelSelectedChar.Name = "panelSelectedChar";
-            this.panelSelectedChar.Size = new System.Drawing.Size(156, 23);
+            this.panelSelectedChar.Size = new System.Drawing.Size(147, 23);
             this.panelSelectedChar.TabIndex = 6;
             // 
             // labelChar
