@@ -333,6 +333,7 @@
             // 
             // preferencesToolStripMenuItem
             // 
+            this.preferencesToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.settings;
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences...";
