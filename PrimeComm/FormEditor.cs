@@ -271,7 +271,7 @@ namespace PrimeComm
             sendToDeviceToolStripMenuItem.Enabled = _parent.IsDeviceConnected && !_parent.IsBusy;
             toolStripButtonSendToDevice.Enabled = sendToDeviceToolStripMenuItem.Enabled;
 
-            sendToVirtualToolStripMenuItem.Enabled = _parent.IsEmulatorAvailable && !_parent.IsBusy;
+            sendToVirtualToolStripMenuItem.Enabled = _parent.IsWorkFolderAvailable && !_parent.IsBusy;
             toolStripButtonSendToVirtual.Enabled = sendToVirtualToolStripMenuItem.Enabled;
 
             searchReferenceToolStripMenuItem.Enabled = _helpWindow != null && _helpWindow.DockState != DockState.DockBottomAutoHide &&
@@ -380,7 +380,7 @@ namespace PrimeComm
 
         private static string GetSelectedWord(Scintilla editor)
         {
-            var ini = editor.Selection.Start - 1;
+            var ini = Math.Min(editor.Text.Length,editor.Selection.Start) - 1;
             for (var i = 0; i < 30; i++)
             {
                 var pos = ini - i;
@@ -397,7 +397,7 @@ namespace PrimeComm
             {
                 var pos = end + i;
 
-                if (pos > editor.TextLength - 1 || IsWordEndChar(editor.CharAt(pos)))
+                if (pos > editor.Text.Length - 1 || IsWordEndChar(editor.CharAt(pos)))
                 {
                     end = pos;
                     break;
@@ -405,7 +405,7 @@ namespace PrimeComm
             }
 
             if (end - ini > 0)
-                return editor.Text.Substring(ini, end - ini);
+                return editor.Text.Substring(ini, Math.Min(editor.Text.Length,end) - ini);
             return String.Empty;
         }
 
@@ -769,10 +769,12 @@ namespace PrimeComm
 
         public void SendCommandToEmulator(String command)
         {
+            var emulatorNotFound = true;
             foreach (var p in Process.GetProcesses())
             {
                 if (!p.ProcessName.Equals(processName)) continue;
 
+                emulatorNotFound = false;
                 var emulator = p.MainWindowHandle;
 
                 // Decode the keypresses
@@ -882,6 +884,21 @@ namespace PrimeComm
                     }
                 }
             }
+
+            if (emulatorNotFound)
+            {
+                if (!String.IsNullOrEmpty(_parent.EmulatorExeFile))
+                {
+                    var p = Process.Start(_parent.EmulatorExeFile);
+                    p.WaitForInputIdle(1000);
+                    Thread.Sleep(100);
+                    SendCommandToEmulator(command);
+                }
+                else
+                    MessageBox.Show("The emulator is not running, and it seems it is not available in this system.",
+                        "Run Emulator", MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation);
+            }
         }
 
         private static void SendKeyToWindow(IntPtr emulator, IntPtr key, char character)
@@ -954,7 +971,7 @@ namespace PrimeComm
                         tmp.Enabled = editor.Selection.Length > 0;
                     else
                         if(c.RequiresText)
-                            tmp.Enabled = editor.TextLength > 0;
+                            tmp.Enabled = editor.Text.Length > 0;
                 }
             }
 
