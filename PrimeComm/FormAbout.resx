@@ -785,6 +785,20 @@ http://www.fatcow.com/free-icons</value>
         8eB48acFBTVz4u2sUhIq4K41CgptI+HtrAgUe521KUmjnvpigpuujSSkk/FWIF2alYuFVgUr/9k=
 </value>
   </data>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Testing, suggestions:
+CompSystems
+
+Licensed products:
+Jetbrains (For giving away a Resharper license)
+http://www.jetbrains.com/resharper/
+
+WyDay (For giving away a WyBuild license)
+http://wyday.com/wybuild/
+
+Other:
+HP (for creating the calculator, ...hence the challenge)</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAQAMDAAAAEAIACoJQAARgAAACAgAAABACAAqBAAAO4lAAAYGAAAAQAgAIgJAACWNgAAEBAAAAEA
