@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScintillaNET", "ScintillaNe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsUI", "WinFormsUI\WinFormsUI.csproj", "{C75532C4-765B-418E-B09B-46D36B2ABDB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeSkin", "PrimeSkin\PrimeSkin.csproj", "{6FC49E68-59B2-4749-95BB-7EB1FCF62867}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +239,34 @@ Global
 		{C75532C4-765B-418E-B09B-46D36B2ABDB1}.Release35|Win32.ActiveCfg = Release|Any CPU
 		{C75532C4-765B-418E-B09B-46D36B2ABDB1}.Release35|x64.ActiveCfg = Release|Any CPU
 		{C75532C4-765B-418E-B09B-46D36B2ABDB1}.Release35|x86.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug35|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug35|Any CPU.Build.0 = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug35|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug35|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug35|Win32.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug35|x64.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Debug35|x86.ActiveCfg = Debug|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release|Win32.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release|x64.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release|x86.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release35|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release35|Any CPU.Build.0 = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release35|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release35|Mixed Platforms.Build.0 = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release35|Win32.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release35|x64.ActiveCfg = Release|Any CPU
+		{6FC49E68-59B2-4749-95BB-7EB1FCF62867}.Release35|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
