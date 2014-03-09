@@ -21,7 +21,6 @@ namespace PrimeSkin
             _penLegend = new Pen(new SolidBrush(Color.FromArgb(255, Color.Blue)), 1);
         private readonly bool _dirty;
         private Point[] _borderPoints;
-        private Rectangle _screen;
         private readonly Font _fontLabel = new Font("Arial", 8);
 
         public Skin(string filePath)
@@ -30,7 +29,7 @@ namespace PrimeSkin
 
             // Base path
             Settings = new Dictionary<string, string>();
-            Keys = new Dictionary<int, KeyDefinition>();
+            Components = new List<Component>();
 
             SkinPath = filePath;
             BasePath = Path.GetDirectoryName(filePath);
@@ -47,24 +46,22 @@ namespace PrimeSkin
                     var m = keyRegex.Match(p[1]);
 
                     if (m.Success)
-                        Keys.Add(int.Parse(m.Groups["id"].Value), new KeyDefinition {
+                        Components.Add(new Component { Id = int.Parse(m.Groups["id"].Value),
                             Value = m.Groups["key"].Value,
-                            Left = int.Parse(m.Groups["left"].Value),
-                            Up = int.Parse(m.Groups["up"].Value),
-                            Right = int.Parse(m.Groups["right"].Value),
-                            Down = int.Parse(m.Groups["down"].Value),
+                            ClientRectangle = ParseRectangle(p[1].Substring(m.Groups["left"].Index,(m.Groups["down"].Index+m.Groups["down"].Length)-m.Groups["left"].Index),true),
                             Modifiers = new[] { m.Groups["modifier1"].Value, m.Groups["modifier2"].Value, m.Groups["modifier3"].Value },
                             Mappings = m.Groups["mappings"].Value,
                             Comments = m.Groups["comment"].Value
                         });
                 }
-                else
-                    if(!Settings.ContainsKey(p[0]))
+                else if (p[0] == "screen")
+                    Components.Add(new Component(ComponentType.Screen) {ClientRectangle = ParseRectangle(p[1])});
+                else if(!Settings.ContainsKey(p[0]))
                         Settings.Add(p[0], p[1]);
             }
         }
 
-        public Dictionary<int, KeyDefinition> Keys { get; set; }
+        public List<Component> Components { get; set; }
 
         /// <summary>
         /// Skin file path
@@ -91,9 +88,7 @@ namespace PrimeSkin
                 }
 
                 if (t == typeof (Image))
-                {
                     return (T)(object)Image.FromFile(Path.Combine(BasePath, Settings[key]));
-                }
 
                 if (t == typeof (Point[]))
                 {
@@ -106,13 +101,17 @@ namespace PrimeSkin
                 }
 
                 if (t == typeof (Rectangle))
-                {
-                    var p = Settings[key].Split(new[] { ',' });
-                    return (T)(object)new Rectangle(int.Parse(p[0]),int.Parse(p[1]),int.Parse(p[2]),int.Parse(p[3]));
-                }
+                    return (T)(object)ParseRectangle(Settings[key]);
             }
 
             return default(T);
+        }
+
+        private static Rectangle ParseRectangle(string s, bool secondTupleIsRightDown = false)
+        {
+            var p = s.Split(new[] { ',' });
+            int x = int.Parse(p[0]), y = int.Parse(p[1]);
+            return new Rectangle(x, y, int.Parse(p[2]) - (secondTupleIsRightDown ? x : 0), int.Parse(p[3]) - (secondTupleIsRightDown ? y : 0));
         }
 
         public void Paint(Graphics g, Size size)
@@ -121,20 +120,15 @@ namespace PrimeSkin
             {
                 _background = GetSetting<Image>("picture");
                 _borderPoints = GetSetting<Point[]>("border");
-                _screen = GetSetting<Rectangle>("screen");
             }
 
             g.DrawImage(_background, 0, 0, size.Width, size.Height);
-            
-            g.FillRectangle(_brushScreen, _screen);
-            DrawLegend(g, _screen, "screen");
-
             g.DrawPolygon(_penBorder, _borderPoints);
             
-            foreach (var k in Keys)
+            foreach (var k in Components)
             {
-                g.FillRectangle(_brushKey, k.Value.ClientRectangle);
-                DrawLegend(g, k.Value.ClientRectangle, "id:"+k.Key);
+                g.FillRectangle(_brushKey, k.ClientRectangle);
+                DrawLegend(g, k.ClientRectangle, k.Type == ComponentType.Key? "id:"+k.Id:"screen");
             }
         }
 
@@ -146,11 +140,15 @@ namespace PrimeSkin
         private void DrawLegend(Graphics g, int x, int y, int w, int h, string label)
         {
             g.DrawRectangle(_penLegend, x,y,w,h);
-            //g.DrawLines(_penLegend, new[] { new Point(x+w-4, y+h), new Point(x+w, y+h), new Point(x+w, y+h-4) });
             var m = g.MeasureString(label, _fontLabel);
             var rect = new Rectangle((int)(x + ((w - m.Width) / 2)), (int)(y + ((h - m.Height) / 2)), (int)m.Width, (int)m.Height);
             g.FillRectangle(_brushLabelBackground, rect);
             g.DrawString(label, _fontLabel, _brushLabel, rect.Left-1, rect.Top);
+        }
+
+        public Component GetComponent(Point location)
+        {
+            return Components.FirstOrDefault(k => k.ClientRectangle.Contains(location));
         }
     }
 }

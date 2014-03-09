@@ -37,7 +37,7 @@
             this.panelSkin = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSelection = new System.Windows.Forms.ComboBox();
             this.groupBoxVisuals = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.buttonBackground = new System.Windows.Forms.Button();
@@ -54,10 +54,11 @@
             // 
             this.pictureBoxSkin.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxSkin.Name = "pictureBoxSkin";
-            this.pictureBoxSkin.Size = new System.Drawing.Size(224, 224);
+            this.pictureBoxSkin.Size = new System.Drawing.Size(213, 176);
             this.pictureBoxSkin.TabIndex = 1;
             this.pictureBoxSkin.TabStop = false;
             this.pictureBoxSkin.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxSkin_Paint);
+            this.pictureBoxSkin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSkin_MouseDown);
             // 
             // groupBoxSkin
             // 
@@ -107,6 +108,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSkin.AutoScroll = true;
+            this.panelSkin.AutoScrollMargin = new System.Drawing.Size(3, 3);
             this.panelSkin.BackColor = System.Drawing.Color.White;
             this.panelSkin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSkin.Controls.Add(this.pictureBoxSkin);
@@ -120,8 +122,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.propertyGrid1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Enabled = false;
+            this.groupBox1.Controls.Add(this.comboBoxSelection);
             this.groupBox1.Location = new System.Drawing.Point(12, 240);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(275, 519);
@@ -138,13 +139,14 @@
             this.propertyGrid1.Size = new System.Drawing.Size(237, 467);
             this.propertyGrid1.TabIndex = 1;
             // 
-            // comboBox1
+            // comboBoxSelection
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(237, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSelection.FormattingEnabled = true;
+            this.comboBoxSelection.Location = new System.Drawing.Point(18, 19);
+            this.comboBoxSelection.Name = "comboBoxSelection";
+            this.comboBoxSelection.Size = new System.Drawing.Size(237, 21);
+            this.comboBoxSelection.TabIndex = 0;
             // 
             // groupBoxVisuals
             // 
@@ -230,7 +232,7 @@
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSelection;
         private System.Windows.Forms.GroupBox groupBoxVisuals;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button buttonBackground;

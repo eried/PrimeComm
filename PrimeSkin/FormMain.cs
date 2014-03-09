@@ -25,6 +25,10 @@ namespace PrimeSkin
         {
             _currentSkin = new Skin(path);
             pictureBoxSkin.Size = _currentSkin.GetSetting<Size>("size");
+
+            foreach (var k in _currentSkin.Components)
+                comboBoxSelection.Items.Add(k);
+
             pictureBoxSkin.Invalidate();
         }
 
@@ -52,6 +56,24 @@ namespace PrimeSkin
                 }
 
         }
+
+        private void pictureBoxSkin_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (_currentSkin == null)
+                return;
+
+            if (e.Button == MouseButtons.Left)
+            {
+                var k = _currentSkin.GetComponent(e.Location);
+                if (k !=null)
+                {
+                    comboBoxSelection.Text = k + "";
+                    propertyGrid1.PropertyTabs.AddTabType(typeof (Button));
+                }
+            }
+        }
+
+
 
     }
 }
