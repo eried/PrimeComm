@@ -294,7 +294,7 @@ namespace PrimeSkin
                     Settings["size"] = _pictureBox.Width + "," + _pictureBox.Height;
 
                     // Picture
-                    if (!Settings.ContainsKey("picture"))
+                    if (Settings.ContainsKey("picture"))
                         Settings["picture"] = ImagePath;
                     else
                         Settings.Add("picture", ImagePath);

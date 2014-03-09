@@ -158,11 +158,12 @@ namespace PrimeSkin
 
         private void Save(String path="")
         {
+            path = String.IsNullOrEmpty(path) ? _currentSkin.SkinPath : path;
+
             if (_currentSkin.Save(path))
             {
                 _dirty = false;
-
-                LoadSkin(String.IsNullOrEmpty(path) ? _currentSkin.SkinPath : path);
+                LoadSkin(path);
             }
             else
                 MessageBox.Show("Error saving the skin (check if you have privileges in the destination folder and retry)", "Error",
