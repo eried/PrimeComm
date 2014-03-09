@@ -33,7 +33,7 @@ namespace PrimeSkin
             panelSkin.Enabled = isSkinLoaded;
             groupBoxComponents.Enabled = isSkinLoaded;
             groupBoxVisuals.Enabled = isSkinLoaded;
-            buttonSave.Enabled = isSkinLoaded;
+            buttonSave.Enabled = isSkinLoaded && _dirty;
             buttonSaveAs.Enabled = isSkinLoaded;
 
             Text = (_dirty?"* ":"")+(isSkinLoaded ? Path.GetFileNameWithoutExtension(_currentSkin.SkinPath) + ": " : String.Empty) + Application.ProductName;
