@@ -35,7 +35,7 @@
             this.buttonLoad = new System.Windows.Forms.Button();
             this.panelSkin = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.propertyGridComponent = new System.Windows.Forms.PropertyGrid();
             this.comboBoxSelection = new System.Windows.Forms.ComboBox();
             this.groupBoxVisuals = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -107,7 +107,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.propertyGrid1);
+            this.groupBox1.Controls.Add(this.propertyGridComponent);
             this.groupBox1.Controls.Add(this.comboBoxSelection);
             this.groupBox1.Location = new System.Drawing.Point(12, 240);
             this.groupBox1.Name = "groupBox1";
@@ -116,14 +116,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Components";
             // 
-            // propertyGrid1
+            // propertyGridComponent
             // 
-            this.propertyGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.propertyGridComponent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.propertyGrid1.Location = new System.Drawing.Point(18, 46);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(237, 467);
-            this.propertyGrid1.TabIndex = 1;
+            this.propertyGridComponent.Location = new System.Drawing.Point(18, 46);
+            this.propertyGridComponent.Name = "propertyGridComponent";
+            this.propertyGridComponent.Size = new System.Drawing.Size(237, 467);
+            this.propertyGridComponent.TabIndex = 1;
             // 
             // comboBoxSelection
             // 
@@ -215,7 +215,7 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
+        private System.Windows.Forms.PropertyGrid propertyGridComponent;
         private System.Windows.Forms.ComboBox comboBoxSelection;
         private System.Windows.Forms.GroupBox groupBoxVisuals;
         private System.Windows.Forms.CheckBox checkBox1;

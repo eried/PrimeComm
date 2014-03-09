@@ -67,7 +67,11 @@ namespace PrimeSkin
         private void comboBoxSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_currentSkin != null)
+            {
                 _currentSkin.Selected = comboBoxSelection.SelectedItem as Component;
+                propertyGridComponent.SelectedObject = _currentSkin.Selected;
+                propertyGridComponent.ExpandAllGridItems();
+            }
         }
     }
 }

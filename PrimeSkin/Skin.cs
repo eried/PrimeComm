@@ -56,7 +56,7 @@ namespace PrimeSkin
                             {
                                 Id = int.Parse(m.Groups["id"].Value),
                                 Value = m.Groups["key"].Value,
-                                ClientRectangle =
+                                Rectangle =
                                     ParseRectangle(
                                         p[1].Substring(m.Groups["left"].Index,
                                             (m.Groups["down"].Index + m.Groups["down"].Length) - m.Groups["left"].Index),
@@ -71,7 +71,7 @@ namespace PrimeSkin
                         break;
 
                     case "screen":
-                        Components.Add(new Component(ComponentType.Screen) {ClientRectangle = ParseRectangle(p[1])});
+                        Components.Add(new Component(ComponentType.Screen) {Rectangle = ParseRectangle(p[1])});
                         break;
 
                     default:
@@ -187,8 +187,8 @@ namespace PrimeSkin
 
         private void DrawComponent(Graphics g, Component k)
         {
-            g.FillRectangle(_brushKey, k.ClientRectangle);
-            DrawLegend(g, k.ClientRectangle, k.Type == ComponentType.Key ? "id:" + k.Id : "screen", k.Selected);
+            g.FillRectangle(_brushKey, k.Rectangle);
+            DrawLegend(g, k.Rectangle, k.Type == ComponentType.Key ? "id:" + k.Id : "screen", k.Selected);
         }
 
         private void DrawLegend(Graphics g, Rectangle rect, string label = "", bool selected = false)
@@ -207,7 +207,7 @@ namespace PrimeSkin
 
         public Component GetComponent(Point location)
         {
-            return Components.FirstOrDefault(k => k.ClientRectangle.Contains(location));
+            return Components.FirstOrDefault(k => k.Rectangle.Contains(location));
         }
 
         internal void SelectComponent(Component k)
