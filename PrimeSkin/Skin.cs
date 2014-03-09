@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -14,7 +15,6 @@ namespace PrimeSkin
     public class Skin
     {
         private readonly PictureBox _pictureBox;
-        private Image _background;
         private const int Alpha = 100;
         private readonly Brush _brushKey= new SolidBrush(Color.FromArgb(Alpha, Color.Blue)),
             _brushScreen = new SolidBrush(Color.FromArgb(Alpha, 0, 255, 0)),
@@ -29,6 +29,8 @@ namespace PrimeSkin
         private Point[] _borderPoints;
         private readonly Font _fontLabel = new Font("Arial", 8);
         private Component _selected;
+        private string _imagePath;
+        private Image _background;
 
         public Skin(string filePath, PictureBox pictureBox)
         {
@@ -41,8 +43,8 @@ namespace PrimeSkin
 
             SkinPath = filePath;
             BasePath = Path.GetDirectoryName(filePath);
-            var keyRegex = new Regex(@"(?<key>.*?),??(?<id>\d{1,9}),(?<left>\d{1,9}),(?<up>\d{1,9}),(?<right>\d{1,9}),(?<down>\d{1,9}),\{(?<modifier1>[\d,]*)\},\{(?<modifier2>[\d,]*)\},\{(?<modifier3>[\d,]*)\},?\[?(?<mappings>[\w""]*)\]?.*?[\s#]*(?<comment>.*)");
 
+            var keyRegex = new Regex(@"(?<value>"".*"")?,?(?<id>[0-9]+),(?<left>[0-9]+),(?<top>[0-9]+),(?<right>[0-9]+),(?<bottom>[0-9]+),\{(?<modifier1>\d?[\d,]*)\},\{(?<modifier2>\d?[\d,]*)\},\{(?<modifier3>\d?[\d,]*)\}(?:,\[(?<mappings>.*)\])?(?:[\t #]+(?<comment>.*))?$");
             foreach (var p in from l in File.ReadAllLines(filePath) where l.Contains('=') select l.Split(new[] {'='}, 2))
             {
                 switch (p[0])
@@ -55,19 +57,17 @@ namespace PrimeSkin
                             Components.Add(new Component
                             {
                                 Id = int.Parse(m.Groups["id"].Value),
-                                Value = m.Groups["key"].Value,
-                                Rectangle =
-                                    ParseRectangle(
-                                        p[1].Substring(m.Groups["left"].Index,
-                                            (m.Groups["down"].Index + m.Groups["down"].Length) - m.Groups["left"].Index),
-                                        true),
-                                Modifiers =
-                                    new[]
-                                    {m.Groups["modifier1"].Value, m.Groups["modifier2"].Value, m.Groups["modifier3"].Value},
+                                Value = m.Groups["value"].Value,
+                                Rectangle =ParseRectangle(p[1].Substring(m.Groups["left"].Index, (m.Groups["bottom"].Index + m.Groups["bottom"].Length) - m.Groups["left"].Index),true),
+                                Modifiers =new[]{m.Groups["modifier1"].Value, m.Groups["modifier2"].Value, m.Groups["modifier3"].Value},
                                 Mappings = m.Groups["mappings"].Value,
                                 Comments = m.Groups["comment"].Value
                             });
                     }
+                        break;
+
+                    case "picture":
+                        ImagePath = p[1];
                         break;
 
                     case "screen":
@@ -139,9 +139,6 @@ namespace PrimeSkin
                     return (T)(object)(new Size(int.Parse(s[0]), int.Parse(s[1])));
                 }
 
-                if (t == typeof (Image))
-                    return (T)(object)Image.FromFile(Path.Combine(BasePath, Settings[key]));
-
                 if (t == typeof (Point[]))
                 {
                     var p = Settings[key].Split(new[] {','});
@@ -170,11 +167,12 @@ namespace PrimeSkin
         {
             if (_dirty)
             {
-                _background = GetSetting<Image>("picture");
                 _borderPoints = GetSetting<Point[]>("border");
             }
 
-            g.DrawImage(_background, 0, 0, _pictureBox.Width, _pictureBox.Height);
+            if(_background!=null)
+                g.DrawImage(_background, 0, 0, _pictureBox.Width, _pictureBox.Height);
+
             g.DrawPolygon(_penBorder, _borderPoints);
             
             foreach (var k in Components.Where(k => !k.Selected))
@@ -226,8 +224,116 @@ namespace PrimeSkin
 
         protected virtual void OnSelectedComponentChange()
         {
-            EventHandler<SelectedComponentEventArgs> handler = SelectedComponentChange;
+            var handler = SelectedComponentChange;
             if (handler != null) handler(this, new SelectedComponentEventArgs(Selected));
+        }
+
+        internal void Refresh(bool recalculateBounds=false)
+        {
+            if (recalculateBounds)
+            {
+                foreach (var k in Components)
+                {
+                    if (!_pictureBox.ClientRectangle.Contains(k.Rectangle))
+                    {
+                        // Adjust position and size
+                        var p = new Point(Math.Min(_pictureBox.Width, Math.Max(0, k.Rectangle.Location.X)), 
+                            Math.Min(_pictureBox.Height, Math.Max(k.Rectangle.Location.Y, 0)));
+                        
+                        var s = k.Rectangle.Size;
+
+                        if (p.X + s.Width > _pictureBox.Width)
+                            s.Width = _pictureBox.Width - p.X;
+
+                        if (p.Y + s.Height > _pictureBox.Height)
+                            s.Height = _pictureBox.Height - p.Y;
+
+                        k.Rectangle = new Rectangle(p, s);
+                    }
+                }
+            }
+
+            _pictureBox.Invalidate();
+        }
+
+        public string ImagePath
+        {
+            get { return _imagePath; }
+            set
+            {
+                var f = Path.Combine(BasePath, value);
+                _background = null;
+                _imagePath = null; 
+
+                if (File.Exists(f))
+                {
+                    try
+                    {
+                        _background = Image.FromFile(f);
+                        _pictureBox.Size = _background.Size;
+                        _imagePath = f.Replace(BasePath,String.Empty).TrimStart(new [] { ' ', '\\', '/'}); 
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+        }
+
+        internal bool Save(string path="")
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(path) && (String.IsNullOrEmpty(SkinPath) || !File.Exists(SkinPath)))
+                {
+                    // No file to save
+                }
+                else
+                {
+                    var f = new List<String>(new[]{"# File created by PrimeScreen", "# Part of PrimeComm: http://servicios.ried.cl/primecomm/", ""});
+                    Settings["size"] = _pictureBox.Width + "," + _pictureBox.Height;
+
+                    // Picture
+                    if (!Settings.ContainsKey("picture"))
+                        Settings["picture"] = ImagePath;
+                    else
+                        Settings.Add("picture", ImagePath);
+
+                    f.AddRange(Settings.Select(c => c.Key + "=" + c.Value).ToList());
+
+                    foreach (var c in Components)
+                    {
+                        switch (c.Type)
+                        {
+                            case ComponentType.Key:
+                            {
+                                var value = String.IsNullOrEmpty(c.Value) ? String.Empty : c.Value + ",";
+                                var mapped = String.IsNullOrEmpty(c.Mappings) ? String.Empty : ",[" + c.Mappings + "]";
+                                var comments = String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments;
+
+                                f.Add(String.Format("key={0}{1},{2},{3},{4},{5},{{{6}}},{{{7}}},{{{8}}}{9}{10}",
+                                    value, c.Id, c.Rectangle.Left, c.Rectangle.Top, c.Rectangle.Right,
+                                    c.Rectangle.Bottom,
+                                    c.Modifiers[0], c.Modifiers[1], c.Modifiers[2], mapped, comments));
+                                break;
+                            }
+                            case ComponentType.Screen:
+                                f.Add("screen=" + c.Rectangle.Left + "," + c.Rectangle.Top + "," + c.Rectangle.Width +
+                                      "," + c.Rectangle.Height + (String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments));
+                                break;
+                        }
+                    }
+
+                    f.Add("end");
+
+                    File.WriteAllLines(path, f, Encoding.Default);
+                    return true;
+                }
+            }
+            catch
+            {
+            }
+            return false;
         }
     }
 
