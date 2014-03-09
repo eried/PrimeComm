@@ -23,19 +23,26 @@ namespace PrimeSkin
 
         private void LoadSkin(string path)
         {
-            _currentSkin = new Skin(path);
-            pictureBoxSkin.Size = _currentSkin.GetSetting<Size>("size");
+            panelSkin.Controls.Clear();
+            var pictureBoxSkin = new PictureBox
+            {
+                Parent = panelSkin,
+                Location = new Point(panelSkin.Margin.Left, panelSkin.Margin.Right),
+                Anchor = AnchorStyles.Left | AnchorStyles.Top
+            };
+            _currentSkin = new Skin(path, pictureBoxSkin);
 
-            foreach (var k in _currentSkin.Components)
-                comboBoxSelection.Items.Add(k);
-
-            pictureBoxSkin.Invalidate();
+            comboBoxSelection.Items.Clear();
+            comboBoxSelection.Items.AddRange(_currentSkin.Components.ToArray());
+            
+            _currentSkin.SelectedComponentChange += _currentSkin_SelectedComponentChange;
+            _currentSkin.Selected = null;
         }
 
-        private void pictureBoxSkin_Paint(object sender, PaintEventArgs e)
+        void _currentSkin_SelectedComponentChange(object sender, SelectedComponentEventArgs e)
         {
-            if (_currentSkin != null)
-                _currentSkin.Paint(e.Graphics, pictureBoxSkin.Size);
+            if(comboBoxSelection.SelectedItem != e.Selected)
+                comboBoxSelection.SelectedItem = e.Selected;
         }
 
         private void buttonLoad_Click(object sender, EventArgs e)
@@ -43,10 +50,10 @@ namespace PrimeSkin
             var f = new OpenFileDialog
             {
                 Filter = "Skin file (*.skin)|*.skin",
-                InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),@"Hewlett-Packard\HP Prime Virtual Calculator\")
+                InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Hewlett-Packard\HP Prime Virtual Calculator\")
             };
 
-            if(f.ShowDialog() == DialogResult.OK)
+            if (f.ShowDialog() == DialogResult.OK)
                 try
                 {
                     LoadSkin(f.FileName);
@@ -57,23 +64,10 @@ namespace PrimeSkin
 
         }
 
-        private void pictureBoxSkin_MouseDown(object sender, MouseEventArgs e)
+        private void comboBoxSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_currentSkin == null)
-                return;
-
-            if (e.Button == MouseButtons.Left)
-            {
-                var k = _currentSkin.GetComponent(e.Location);
-                if (k !=null)
-                {
-                    comboBoxSelection.Text = k + "";
-                    propertyGrid1.PropertyTabs.AddTabType(typeof (Button));
-                }
-            }
+            if (_currentSkin != null)
+                _currentSkin.Selected = comboBoxSelection.SelectedItem as Component;
         }
-
-
-
     }
 }

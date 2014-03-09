@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 
 namespace PrimeSkin
@@ -25,12 +26,20 @@ namespace PrimeSkin
 
         public override string ToString()
         {
-            return Type == ComponentType.Key ? "Key: " + Id : "Screen";
+            switch (Type)
+            {
+                case ComponentType.Key:
+                    return "Key: " + Id;
+                case ComponentType.Screen:
+                    return "Screen";
+                default:
+                    return "(None selected)";
+            }
         }
     }
 
     public enum ComponentType
     {
-        Key, Screen
+        None=0, Key, Screen,
     }
 }

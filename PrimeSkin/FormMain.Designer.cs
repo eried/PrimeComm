@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.pictureBoxSkin = new System.Windows.Forms.PictureBox();
             this.groupBoxSkin = new System.Windows.Forms.GroupBox();
             this.buttonSaveAs = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -43,22 +42,10 @@
             this.buttonBackground = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSkin)).BeginInit();
             this.groupBoxSkin.SuspendLayout();
-            this.panelSkin.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxVisuals.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBoxSkin
-            // 
-            this.pictureBoxSkin.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxSkin.Name = "pictureBoxSkin";
-            this.pictureBoxSkin.Size = new System.Drawing.Size(213, 176);
-            this.pictureBoxSkin.TabIndex = 1;
-            this.pictureBoxSkin.TabStop = false;
-            this.pictureBoxSkin.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxSkin_Paint);
-            this.pictureBoxSkin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSkin_MouseDown);
             // 
             // groupBoxSkin
             // 
@@ -111,7 +98,6 @@
             this.panelSkin.AutoScrollMargin = new System.Drawing.Size(3, 3);
             this.panelSkin.BackColor = System.Drawing.Color.White;
             this.panelSkin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSkin.Controls.Add(this.pictureBoxSkin);
             this.panelSkin.Location = new System.Drawing.Point(293, 12);
             this.panelSkin.Name = "panelSkin";
             this.panelSkin.Size = new System.Drawing.Size(438, 747);
@@ -147,6 +133,7 @@
             this.comboBoxSelection.Name = "comboBoxSelection";
             this.comboBoxSelection.Size = new System.Drawing.Size(237, 21);
             this.comboBoxSelection.TabIndex = 0;
+            this.comboBoxSelection.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelection_SelectedIndexChanged);
             // 
             // groupBoxVisuals
             // 
@@ -212,9 +199,7 @@
             this.MinimumSize = new System.Drawing.Size(580, 480);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSkin)).EndInit();
             this.groupBoxSkin.ResumeLayout(false);
-            this.panelSkin.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBoxVisuals.ResumeLayout(false);
             this.groupBoxVisuals.PerformLayout();
@@ -224,7 +209,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxSkin;
         private System.Windows.Forms.GroupBox groupBoxSkin;
         private System.Windows.Forms.Panel panelSkin;
         private System.Windows.Forms.Button buttonSaveAs;
