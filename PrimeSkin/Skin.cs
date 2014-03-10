@@ -66,6 +66,10 @@ namespace PrimeSkin
                     }
                         break;
 
+                    case "border":
+                        Border = p[1];
+                        break;
+
                     case "picture":
                         ImagePath = p[1];
                         break;
@@ -139,16 +143,6 @@ namespace PrimeSkin
                     return (T)(object)(new Size(int.Parse(s[0]), int.Parse(s[1])));
                 }
 
-                if (t == typeof (Point[]))
-                {
-                    var p = Settings[key].Split(new[] {','});
-                    var tmp = new List<Point>();
-                    for (var i = 0; i < p.Length; i += 2)
-                        tmp.Add(new Point(int.Parse(p[i]), int.Parse(p[i + 1])));
-
-                    return (T)(object)tmp.ToArray();
-                }
-
                 if (t == typeof (Rectangle))
                     return (T)(object)ParseRectangle(Settings[key]);
             }
@@ -169,11 +163,6 @@ namespace PrimeSkin
 
         public void Paint(Graphics g)
         {
-            if (_dirty)
-            {
-                _borderPoints = GetSetting<Point[]>("border");
-            }
-
             if(_background!=null)
                 g.DrawImage(_background, 0, 0, _pictureBox.Width, _pictureBox.Height);
 
@@ -284,6 +273,31 @@ namespace PrimeSkin
             }
         }
 
+        public string Border
+        {
+            get 
+            {
+                return _borderPoints != null? String.Join(",",_borderPoints.Select(p => p.X + "," + p.Y).ToList()):""; 
+            }
+            set 
+            { 
+                if (String.IsNullOrEmpty(value))
+                    _borderPoints = new[]{new Point(0, 0), new Point(_pictureBox.Width, 0), new Point(_pictureBox.Width, _pictureBox.Height),new Point(0, _pictureBox.Height)};
+                else
+                    _borderPoints = ParsePointArray(value);
+            }
+        }
+
+        private static Point[] ParsePointArray(string s)
+        {
+            var p = s.Split(new[] { ',' });
+            var tmp = new List<Point>();
+            for (var i = 0; i < p.Length; i += 2)
+                tmp.Add(new Point(int.Parse(p[i]), int.Parse(p[i + 1])));
+
+            return tmp.ToArray();
+        }
+
         internal bool Save(string path="")
         {
             try
@@ -304,6 +318,7 @@ namespace PrimeSkin
                         Settings.Add("picture", ImagePath);
 
                     f.AddRange(Settings.Select(c => c.Key + "=" + c.Value).ToList());
+                    f.Add("border="+Border);
 
                     foreach (var c in Components)
                     {
@@ -338,6 +353,14 @@ namespace PrimeSkin
             {
             }
             return false;
+        }
+
+        /// <summary>
+        /// Find the border of the image
+        /// </summary>
+        internal void FindBorder()
+        {
+            _borderPoints = new MarchingSquare().DoMarch(new Bitmap(_background));
         }
     }
 
