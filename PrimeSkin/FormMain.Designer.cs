@@ -106,7 +106,7 @@
             this.panelSkin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSkin.Location = new System.Drawing.Point(293, 12);
             this.panelSkin.Name = "panelSkin";
-            this.panelSkin.Size = new System.Drawing.Size(438, 747);
+            this.panelSkin.Size = new System.Drawing.Size(399, 637);
             this.panelSkin.TabIndex = 3;
             // 
             // groupBoxComponents
@@ -117,10 +117,10 @@
             this.groupBoxComponents.Controls.Add(this.comboBoxSelection);
             this.groupBoxComponents.Location = new System.Drawing.Point(12, 240);
             this.groupBoxComponents.Name = "groupBoxComponents";
-            this.groupBoxComponents.Size = new System.Drawing.Size(275, 519);
+            this.groupBoxComponents.Size = new System.Drawing.Size(275, 409);
             this.groupBoxComponents.TabIndex = 2;
             this.groupBoxComponents.TabStop = false;
-            this.groupBoxComponents.Text = "Components";
+            this.groupBoxComponents.Text = "Properties";
             // 
             // propertyGridComponent
             // 
@@ -128,7 +128,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.propertyGridComponent.Location = new System.Drawing.Point(18, 46);
             this.propertyGridComponent.Name = "propertyGridComponent";
-            this.propertyGridComponent.Size = new System.Drawing.Size(237, 456);
+            this.propertyGridComponent.Size = new System.Drawing.Size(237, 346);
             this.propertyGridComponent.TabIndex = 1;
             this.propertyGridComponent.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGridComponent_PropertyValueChanged);
             // 
@@ -153,7 +153,7 @@
             this.groupBoxVisuals.Size = new System.Drawing.Size(275, 157);
             this.groupBoxVisuals.TabIndex = 1;
             this.groupBoxVisuals.TabStop = false;
-            this.groupBoxVisuals.Text = "Visuals";
+            this.groupBoxVisuals.Text = "Layout";
             // 
             // buttonBackground
             // 
@@ -202,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 771);
+            this.ClientSize = new System.Drawing.Size(704, 661);
             this.Controls.Add(this.groupBoxVisuals);
             this.Controls.Add(this.groupBoxComponents);
             this.Controls.Add(this.panelSkin);
