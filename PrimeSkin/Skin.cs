@@ -159,8 +159,12 @@ namespace PrimeSkin
         private static Rectangle ParseRectangle(string s, bool secondTupleIsRightDown = false)
         {
             var p = s.Split(new[] { ',' });
-            int x = int.Parse(p[0]), y = int.Parse(p[1]);
-            return new Rectangle(x, y, int.Parse(p[2]) - (secondTupleIsRightDown ? x : 0), int.Parse(p[3]) - (secondTupleIsRightDown ? y : 0));
+            int x1 = int.Parse(p[0]), y1 = int.Parse(p[1]), x2 = int.Parse(p[2]), y2 = int.Parse(p[3]);
+
+            if (!secondTupleIsRightDown) return new Rectangle(x1, y1, x2, y2); // Direct output
+
+            int xmin = Math.Min(x1, x2), ymin = Math.Min(y1, y2);
+            return new Rectangle(xmin, ymin, Math.Max(x1, x2) - xmin,Math.Max(y1, y2) - ymin);
         }
 
         public void Paint(Graphics g)
