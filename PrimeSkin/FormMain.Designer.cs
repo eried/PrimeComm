@@ -39,11 +39,11 @@
             this.propertyGridComponent = new System.Windows.Forms.PropertyGrid();
             this.comboBoxSelection = new System.Windows.Forms.ComboBox();
             this.groupBoxVisuals = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.buttonBackground = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonBorderReset = new System.Windows.Forms.Button();
             this.buttonBorderFind = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
             this.groupBoxSkin.SuspendLayout();
             this.groupBoxComponents.SuspendLayout();
@@ -118,9 +118,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxComponents.Controls.Add(this.propertyGridComponent);
             this.groupBoxComponents.Controls.Add(this.comboBoxSelection);
-            this.groupBoxComponents.Location = new System.Drawing.Point(12, 240);
+            this.groupBoxComponents.Location = new System.Drawing.Point(12, 207);
             this.groupBoxComponents.Name = "groupBoxComponents";
-            this.groupBoxComponents.Size = new System.Drawing.Size(255, 409);
+            this.groupBoxComponents.Size = new System.Drawing.Size(255, 442);
             this.groupBoxComponents.TabIndex = 2;
             this.groupBoxComponents.TabStop = false;
             this.groupBoxComponents.Text = "Properties";
@@ -131,7 +131,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.propertyGridComponent.Location = new System.Drawing.Point(9, 46);
             this.propertyGridComponent.Name = "propertyGridComponent";
-            this.propertyGridComponent.Size = new System.Drawing.Size(237, 346);
+            this.propertyGridComponent.Size = new System.Drawing.Size(237, 379);
             this.propertyGridComponent.TabIndex = 1;
             this.propertyGridComponent.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGridComponent_PropertyValueChanged);
             // 
@@ -154,10 +154,21 @@
             this.groupBoxVisuals.Controls.Add(this.buttonBorderFind);
             this.groupBoxVisuals.Location = new System.Drawing.Point(12, 77);
             this.groupBoxVisuals.Name = "groupBoxVisuals";
-            this.groupBoxVisuals.Size = new System.Drawing.Size(255, 157);
+            this.groupBoxVisuals.Size = new System.Drawing.Size(255, 124);
             this.groupBoxVisuals.TabIndex = 1;
             this.groupBoxVisuals.TabStop = false;
             this.groupBoxVisuals.Text = "Layout";
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(73, 52);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(173, 27);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "&Apply a template layout...";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             // 
             // buttonBackground
             // 
@@ -174,9 +185,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(15, 100);
+            this.label1.Location = new System.Drawing.Point(6, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 13);
             this.label1.TabIndex = 2;
@@ -184,8 +196,9 @@
             // 
             // buttonBorderReset
             // 
+            this.buttonBorderReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonBorderReset.Enabled = false;
-            this.buttonBorderReset.Location = new System.Drawing.Point(171, 116);
+            this.buttonBorderReset.Location = new System.Drawing.Point(171, 83);
             this.buttonBorderReset.Name = "buttonBorderReset";
             this.buttonBorderReset.Size = new System.Drawing.Size(75, 27);
             this.buttonBorderReset.TabIndex = 3;
@@ -196,8 +209,9 @@
             // 
             // buttonBorderFind
             // 
+            this.buttonBorderFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonBorderFind.Enabled = false;
-            this.buttonBorderFind.Location = new System.Drawing.Point(9, 116);
+            this.buttonBorderFind.Location = new System.Drawing.Point(9, 83);
             this.buttonBorderFind.Name = "buttonBorderFind";
             this.buttonBorderFind.Size = new System.Drawing.Size(156, 27);
             this.buttonBorderFind.TabIndex = 3;
@@ -205,16 +219,6 @@
             this.toolTipInfo.SetToolTip(this.buttonBorderFind, "Creates a border using the top left pixel of the background image as reference");
             this.buttonBorderFind.UseVisualStyleBackColor = true;
             this.buttonBorderFind.Click += new System.EventHandler(this.buttonBorderFind_Click);
-            // 
-            // button2
-            // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(9, 52);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(237, 27);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "&Apply a template layout...";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 

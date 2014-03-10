@@ -153,11 +153,51 @@ namespace PrimeSkin
                 InitialDirectory = _currentSkin.BasePath
             };
 
-            if (f.ShowDialog() == DialogResult.OK)
+            if (f.ShowDialog() != DialogResult.OK) return;
+
+            var p = Path.Combine(_currentSkin.BasePath, Path.GetFileName(f.FileName));
+            if (!File.Exists(p))
             {
-                _currentSkin.ImagePath = f.FileName;
-                _currentSkin.Refresh(true);
+                switch (MessageBox.Show("The selected image isn't in the same directory of the skin file. This might cause issues. What do you want to do?" +
+                                        Environment.NewLine + Environment.NewLine + "Click Yes to copy the image" + Environment.NewLine +
+                                        "Click No to change the image anyway" + Environment.NewLine + "Click Cancel to keep the current background image", "Image location",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation))
+                {
+                    case DialogResult.Cancel:
+                        return;
+
+                    case DialogResult.Yes:
+                        var wasCopied = false;
+                        do
+                        {
+                            try
+                            {
+                                File.Copy(f.FileName, p);
+                                wasCopied = true;
+                            }
+                            catch
+                            {
+                            }
+
+                            if (wasCopied)
+                            {
+                                f.FileName = p;
+                                continue;
+                            }
+
+                            if (MessageBox.Show("Error copying the image (check if you have privileges in the destination folder and retry). Do you want to retry?",
+                                "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.No)
+                                return;
+                        }while(wasCopied==false);
+                        break;
+                }
             }
+
+            _currentSkin.ImagePath = f.FileName;
+            _currentSkin.Refresh(true);
+
+            _dirty = true;
+            UpdateGui();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
