@@ -55,14 +55,14 @@
             this.groupBoxSkin.Controls.Add(this.buttonLoad);
             this.groupBoxSkin.Location = new System.Drawing.Point(12, 12);
             this.groupBoxSkin.Name = "groupBoxSkin";
-            this.groupBoxSkin.Size = new System.Drawing.Size(275, 59);
+            this.groupBoxSkin.Size = new System.Drawing.Size(255, 59);
             this.groupBoxSkin.TabIndex = 0;
             this.groupBoxSkin.TabStop = false;
             this.groupBoxSkin.Text = "Skin";
             // 
             // buttonSaveAs
             // 
-            this.buttonSaveAs.Location = new System.Drawing.Point(180, 19);
+            this.buttonSaveAs.Location = new System.Drawing.Point(171, 19);
             this.buttonSaveAs.Name = "buttonSaveAs";
             this.buttonSaveAs.Size = new System.Drawing.Size(75, 27);
             this.buttonSaveAs.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSave.Location = new System.Drawing.Point(99, 19);
+            this.buttonSave.Location = new System.Drawing.Point(90, 19);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 27);
             this.buttonSave.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             this.buttonLoad.Image = ((System.Drawing.Image)(resources.GetObject("buttonLoad.Image")));
             this.buttonLoad.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonLoad.Location = new System.Drawing.Point(18, 19);
+            this.buttonLoad.Location = new System.Drawing.Point(9, 19);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(75, 27);
             this.buttonLoad.TabIndex = 0;
@@ -105,9 +105,9 @@
             this.panelSkin.AutoScrollMargin = new System.Drawing.Size(3, 3);
             this.panelSkin.BackColor = System.Drawing.Color.White;
             this.panelSkin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSkin.Location = new System.Drawing.Point(293, 12);
+            this.panelSkin.Location = new System.Drawing.Point(275, 12);
             this.panelSkin.Name = "panelSkin";
-            this.panelSkin.Size = new System.Drawing.Size(419, 637);
+            this.panelSkin.Size = new System.Drawing.Size(437, 637);
             this.panelSkin.TabIndex = 3;
             // 
             // groupBoxComponents
@@ -118,7 +118,7 @@
             this.groupBoxComponents.Controls.Add(this.comboBoxSelection);
             this.groupBoxComponents.Location = new System.Drawing.Point(12, 240);
             this.groupBoxComponents.Name = "groupBoxComponents";
-            this.groupBoxComponents.Size = new System.Drawing.Size(275, 409);
+            this.groupBoxComponents.Size = new System.Drawing.Size(255, 409);
             this.groupBoxComponents.TabIndex = 2;
             this.groupBoxComponents.TabStop = false;
             this.groupBoxComponents.Text = "Properties";
@@ -127,7 +127,7 @@
             // 
             this.propertyGridComponent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.propertyGridComponent.Location = new System.Drawing.Point(18, 46);
+            this.propertyGridComponent.Location = new System.Drawing.Point(9, 46);
             this.propertyGridComponent.Name = "propertyGridComponent";
             this.propertyGridComponent.Size = new System.Drawing.Size(237, 346);
             this.propertyGridComponent.TabIndex = 1;
@@ -137,7 +137,7 @@
             // 
             this.comboBoxSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelection.FormattingEnabled = true;
-            this.comboBoxSelection.Location = new System.Drawing.Point(18, 19);
+            this.comboBoxSelection.Location = new System.Drawing.Point(9, 19);
             this.comboBoxSelection.Name = "comboBoxSelection";
             this.comboBoxSelection.Size = new System.Drawing.Size(237, 21);
             this.comboBoxSelection.TabIndex = 0;
@@ -152,7 +152,7 @@
             this.groupBoxVisuals.Controls.Add(this.buttonBorderFind);
             this.groupBoxVisuals.Location = new System.Drawing.Point(12, 77);
             this.groupBoxVisuals.Name = "groupBoxVisuals";
-            this.groupBoxVisuals.Size = new System.Drawing.Size(275, 157);
+            this.groupBoxVisuals.Size = new System.Drawing.Size(255, 157);
             this.groupBoxVisuals.TabIndex = 1;
             this.groupBoxVisuals.TabStop = false;
             this.groupBoxVisuals.Text = "Layout";
@@ -161,7 +161,7 @@
             // 
             this.buttonBackground.Image = ((System.Drawing.Image)(resources.GetObject("buttonBackground.Image")));
             this.buttonBackground.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonBackground.Location = new System.Drawing.Point(18, 19);
+            this.buttonBackground.Location = new System.Drawing.Point(9, 19);
             this.buttonBackground.Name = "buttonBackground";
             this.buttonBackground.Size = new System.Drawing.Size(237, 27);
             this.buttonBackground.TabIndex = 0;
@@ -183,7 +183,7 @@
             // buttonBorderReset
             // 
             this.buttonBorderReset.Enabled = false;
-            this.buttonBorderReset.Location = new System.Drawing.Point(180, 116);
+            this.buttonBorderReset.Location = new System.Drawing.Point(171, 116);
             this.buttonBorderReset.Name = "buttonBorderReset";
             this.buttonBorderReset.Size = new System.Drawing.Size(75, 27);
             this.buttonBorderReset.TabIndex = 3;
@@ -194,7 +194,7 @@
             // buttonBorderFind
             // 
             this.buttonBorderFind.Enabled = false;
-            this.buttonBorderFind.Location = new System.Drawing.Point(18, 116);
+            this.buttonBorderFind.Location = new System.Drawing.Point(9, 116);
             this.buttonBorderFind.Name = "buttonBorderFind";
             this.buttonBorderFind.Size = new System.Drawing.Size(156, 27);
             this.buttonBorderFind.TabIndex = 3;
@@ -205,7 +205,7 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(18, 52);
+            this.button2.Location = new System.Drawing.Point(9, 52);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(237, 27);
             this.button2.TabIndex = 4;
