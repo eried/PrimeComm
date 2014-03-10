@@ -59,6 +59,8 @@ namespace PrimeSkin
 
                     _currentSkin.SelectedComponentChange += _currentSkin_SelectedComponentChange;
                     _currentSkin.Selected = null;
+
+                    UpdateProperties();
                     _dirty = false;
                 }
                 catch
@@ -95,6 +97,11 @@ namespace PrimeSkin
         }
 
         private void comboBoxSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateProperties();
+        }
+
+        private void UpdateProperties()
         {
             if (_currentSkin != null)
             {
