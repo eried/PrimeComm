@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.groupBoxSkin = new System.Windows.Forms.GroupBox();
             this.buttonSaveAs = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.buttonBorderReset = new System.Windows.Forms.Button();
             this.buttonBorderFind = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
             this.groupBoxSkin.SuspendLayout();
             this.groupBoxComponents.SuspendLayout();
             this.groupBoxVisuals.SuspendLayout();
@@ -188,6 +190,7 @@
             this.buttonBorderReset.Size = new System.Drawing.Size(75, 27);
             this.buttonBorderReset.TabIndex = 3;
             this.buttonBorderReset.Text = "&Reset";
+            this.toolTipInfo.SetToolTip(this.buttonBorderReset, "Resets the border to a rectangle");
             this.buttonBorderReset.UseVisualStyleBackColor = true;
             this.buttonBorderReset.Click += new System.EventHandler(this.buttonBorderReset_Click);
             // 
@@ -199,6 +202,7 @@
             this.buttonBorderFind.Size = new System.Drawing.Size(156, 27);
             this.buttonBorderFind.TabIndex = 3;
             this.buttonBorderFind.Text = "&Rebuild from background";
+            this.toolTipInfo.SetToolTip(this.buttonBorderFind, "Creates a border using the top left pixel of the background image as reference");
             this.buttonBorderFind.UseVisualStyleBackColor = true;
             this.buttonBorderFind.Click += new System.EventHandler(this.buttonBorderFind_Click);
             // 
@@ -250,6 +254,7 @@
         private System.Windows.Forms.Button buttonBorderFind;
         private System.Windows.Forms.Button buttonBorderReset;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolTip toolTipInfo;
     }
 }
 

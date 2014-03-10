@@ -89,6 +89,7 @@ namespace PrimeSkin
             _pictureBox.Size = GetSetting<Size>("size");
             pictureBox.Paint += (o, args) => Paint(args.Graphics);
             pictureBox.MouseDown += pictureBox_MouseDown;
+            pictureBox.MouseMove += (o, args) => _pictureBox.Parent.Focus(); // Fix the mouse wheel scroll
         }
 
         void pictureBox_MouseDown(object sender, MouseEventArgs e)
