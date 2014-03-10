@@ -35,6 +35,8 @@ namespace PrimeSkin
             groupBoxVisuals.Enabled = isSkinLoaded;
             buttonSave.Enabled = isSkinLoaded && _dirty;
             buttonSaveAs.Enabled = isSkinLoaded;
+            buttonBorderFind.Enabled = isSkinLoaded;
+            buttonBorderReset.Enabled = isSkinLoaded;
 
             Text = (_dirty?"* ":"")+(isSkinLoaded ? Path.GetFileNameWithoutExtension(_currentSkin.SkinPath) + ": " : String.Empty) + Application.ProductName;
         }
@@ -193,6 +195,28 @@ namespace PrimeSkin
         {
             if (!AskForSave())
                 e.Cancel = true;
+        }
+
+        private void buttonBorderReset_Click(object sender, EventArgs e)
+        {
+            ChangeBorder();
+        }
+
+        private void ChangeBorder(bool findBorder=false)
+        {
+            if (findBorder)
+                _currentSkin.FindBorder();
+            else
+                _currentSkin.Border = null;
+            _dirty = true;
+
+            _currentSkin.Refresh();
+            UpdateGui();
+        }
+
+        private void buttonBorderFind_Click(object sender, EventArgs e)
+        {
+            ChangeBorder(true);
         }
     }
 }

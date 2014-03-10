@@ -360,7 +360,7 @@ namespace PrimeSkin
         /// </summary>
         internal void FindBorder()
         {
-            _borderPoints = new MarchingSquare().DoMarch(new Bitmap(_background));
+            _borderPoints = new MarchingSquares().DoMarch(new Bitmap(_background));
         }
     }
 
