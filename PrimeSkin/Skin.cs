@@ -45,7 +45,7 @@ namespace PrimeSkin
             BasePath = Path.GetDirectoryName(filePath);
 
             var keyRegex = new Regex(@"(?<value>"".*"")?,?(?<id>[0-9]+),(?<left>[0-9]+),(?<top>[0-9]+),(?<right>[0-9]+),(?<bottom>[0-9]+),\{(?<modifier1>\d?[\d,]*)\},\{(?<modifier2>\d?[\d,]*)\},\{(?<modifier3>\d?[\d,]*)\}(?:,\[(?<mappings>.*)\])?(?:[\t #]+(?<comment>.*))?$");
-            foreach (var p in from l in File.ReadAllLines(filePath) where l.Contains('=') select l.Split(new[] {'='}, 2))
+            foreach (var p in from l in File.ReadAllLines(filePath, Encoding.Default) where l.Contains('=') select l.Split(new[] {'='}, 2))
             {
                 switch (p[0])
                 {
