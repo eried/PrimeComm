@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 
 namespace PrimeSkin
 {
@@ -44,12 +46,25 @@ namespace PrimeSkin
             switch (Type)
             {
                 case ComponentType.Key:
-                    return "Key: " + Id;
+                    return "Key: " + Id + GetDetails();
                 case ComponentType.Screen:
                     return "Screen";
-                default:
-                    return "(None selected)";
             }
+            return String.Empty;
+        }
+
+        private string GetDetails()
+        {
+            var r = new[]
+            {
+                !String.IsNullOrEmpty(Value) ? "value: " + Value : null,
+                !String.IsNullOrEmpty(Comments) ?  "comments: " + Comments : null
+            };
+
+            if (r.Length == 0)
+                return String.Empty;
+
+            return "  (" + String.Join("; ", r.Where(m => m != null)) + ")";
         }
 
         internal void Move(ref Point oldReference, Point newPosition)
