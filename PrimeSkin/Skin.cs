@@ -199,7 +199,25 @@ namespace PrimeSkin
 
         public Component GetComponent(Point location)
         {
-            return Components.FirstOrDefault(k => k.Rectangle.Contains(location));
+            // Search for the nearest
+            for (int i = 0; i < 10; i += 5)
+            {
+                var r = Components.FirstOrDefault(k => Inflate(k.Rectangle, i).Contains(location));
+
+                if (r != null)
+                    return r;
+            }
+            return null;
+        }
+
+        private static Rectangle Inflate(Rectangle rectangle, int size)
+        {
+            if (size == 0 || (rectangle.Width >size && rectangle.Height > size))
+                return rectangle;
+
+            var r = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
+            r.Inflate(size, size);
+            return r;
         }
 
         internal void SelectComponent(Component k)
