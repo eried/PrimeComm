@@ -20,6 +20,7 @@ namespace PrimeSkin
         private Bitmap _img;
         private StepDirection _previousStep, _nextStep;
         private Color _cornerColor;
+        private const float Tolerance = 0.0001F; // To do the line optimization
 
         public Point[] DoMarch(Bitmap target, bool optimized=true)
         {
@@ -60,13 +61,22 @@ namespace PrimeSkin
             return r;
         }
 
+        public static float GetY(Point start, Point end, Point check)
+        {
+            if (end.X == start.X)
+                return check.Y;
+
+            var m = (end.Y - start.Y) / (float)(end.X - start.X);
+            var b = start.Y - (m * start.X);
+            return m * check.X + b;
+        }
+
         private static bool PointIsInLine(Point start, Point end, Point check)
         {
-            // Check the slopes
-            var t1 = end.X!= start.X? (check.X - start.X) / (end.X - start.X):0;
-            var t2 = end.Y!= start.Y?(check.Y - start.Y) / (end.Y - start.Y):0;
+            if (check == start || check == end)
+                return true;
 
-            return t1 == t2;
+            return Math.Abs(GetY(start, end, check) - check.Y) < Tolerance;
         }
 
         /// <summary>
