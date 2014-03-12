@@ -18,7 +18,6 @@ namespace PrimeSkin
         private readonly PictureBox _pictureBox;
         private const int Alpha = 100;
         private readonly Brush _brushKey= new SolidBrush(Color.FromArgb(Alpha, Color.Blue)),
-            _brushScreen = new SolidBrush(Color.FromArgb(Alpha, 0, 255, 0)),
             _brushLabel = new SolidBrush(Color.FromArgb(255, Color.Black)),
             _brushLabelBackground = new SolidBrush(Color.FromArgb(255, Color.Yellow));
 
@@ -26,7 +25,6 @@ namespace PrimeSkin
             _penLegend = new Pen(new SolidBrush(Color.FromArgb(255, Color.Blue)), 1),
             _penLegendSelected = new Pen(new SolidBrush(Color.FromArgb(255, Color.White)), 1) { DashStyle = System.Drawing.Drawing2D.DashStyle.Dot };
 
-        private readonly bool _dirty;
         private Point[] _borderPoints;
         private readonly Font _fontLabel = new Font("Arial", 8);
         private Component _selected;
@@ -36,11 +34,11 @@ namespace PrimeSkin
         private Rectangle _controlMove, _controlResize;
         private bool _isMoving, _isResizing;
         private Point _lastPosition;
+        private Size _controlDefaultSize = new Size(20, 20);
 
         public Skin(string filePath, PictureBox pictureBox)
         {
             _pictureBox = pictureBox;
-            _dirty = true;
 
             // Base path
             Settings = new Dictionary<string, string>();
@@ -63,7 +61,7 @@ namespace PrimeSkin
                             {
                                 Id = int.Parse(m.Groups["id"].Value),
                                 Value = m.Groups["value"].Value,
-                                Rectangle =ParseRectangle(p[1].Substring(m.Groups["left"].Index, (m.Groups["bottom"].Index + m.Groups["bottom"].Length) - m.Groups["left"].Index),true),
+                                Rectangle =Utilities.ParseRectangle(p[1].Substring(m.Groups["left"].Index, (m.Groups["bottom"].Index + m.Groups["bottom"].Length) - m.Groups["left"].Index),true),
                                 Modifiers =new[]{m.Groups["modifier1"].Value, m.Groups["modifier2"].Value, m.Groups["modifier3"].Value},
                                 Mappings = m.Groups["mappings"].Value,
                                 Comments = m.Groups["comment"].Value
@@ -80,7 +78,7 @@ namespace PrimeSkin
                         break;
 
                     case "screen":
-                        Components.Add(new Component(ComponentType.Screen) {Rectangle = ParseRectangle(p[1])});
+                        Components.Add(new Component(ComponentType.Screen) {Rectangle = Utilities.ParseRectangle(p[1])});
                         break;
 
                     default:
@@ -128,7 +126,7 @@ namespace PrimeSkin
             if (_isMoving)
             {
                 if (!_controlMove.Contains(e.Location))
-                    _lastPosition = GetCenter(_controlMove);
+                    _lastPosition = Utilities.GetCenter(_controlMove);
 
                 Selected.Move(ref _lastPosition, e.Location);
                 Refresh(true);
@@ -137,16 +135,11 @@ namespace PrimeSkin
             else if (_isResizing)
             {
                 if (!_controlResize.Contains(e.Location))
-                    _lastPosition = GetCenter(_controlResize);
+                    _lastPosition = Utilities.GetCenter(_controlResize);
 
                 Selected.Resize(ref _lastPosition, e.Location);
                 Refresh(true);
             }
-        }
-
-        private static Point GetCenter(Rectangle control)
-        {
-            return new Point(control.X + (control.Width/2), control.Y + (control.Height/2));
         }
 
         void pictureBox_MouseDown(object sender, MouseEventArgs e)
@@ -213,21 +206,10 @@ namespace PrimeSkin
                 }
 
                 if (t == typeof (Rectangle))
-                    return (T)(object)ParseRectangle(Settings[key]);
+                    return (T)(object)Utilities.ParseRectangle(Settings[key]);
             }
 
             return default(T);
-        }
-
-        private static Rectangle ParseRectangle(string s, bool secondTupleIsRightDown = false)
-        {
-            var p = s.Split(new[] { ',' });
-            int x1 = int.Parse(p[0]), y1 = int.Parse(p[1]), x2 = int.Parse(p[2]), y2 = int.Parse(p[3]);
-
-            if (!secondTupleIsRightDown) return new Rectangle(x1, y1, x2, y2); // Direct output
-
-            int xmin = Math.Min(x1, x2), ymin = Math.Min(y1, y2);
-            return new Rectangle(xmin, ymin, Math.Max(x1, x2) - xmin,Math.Max(y1, y2) - ymin);
         }
 
         public void Paint(Graphics g)
@@ -261,32 +243,34 @@ namespace PrimeSkin
 
         private void DrawLegend(Graphics g, int x, int y, int w, int h, string label="", bool selected=false)
         {
+            if (selected)
+            {
+                // Draw move and resize controls
+                _controlMove = new Rectangle(Math.Max(0, x - _controlDefaultSize.Width), Math.Max(0, y - _controlDefaultSize.Height),_controlDefaultSize.Width, _controlDefaultSize.Height);
+                _controlResize = new Rectangle(Math.Min(x + w, _pictureBox.Width - _controlDefaultSize.Width),
+                    Math.Min(y + h, _pictureBox.Height - _controlDefaultSize.Height), _controlDefaultSize.Width, _controlDefaultSize.Height);
+            }
+
             g.DrawRectangle(selected?_penLegendSelected:_penLegend, x, y, w, h);
             var m = g.MeasureString(label, _fontLabel);
             var rect = new Rectangle((int)(x + ((w - m.Width) / 2)), (int)(y + ((h - m.Height) / 2)), (int)m.Width, (int)m.Height);
-            g.FillRectangle(_brushLabelBackground, rect);
-            g.DrawString(label, _fontLabel, _brushLabel, rect.Left-1, rect.Top);
 
-            if (selected)
+            // Draw the label only when is not selected or when is not touching the selection controls
+            if (!selected || (!rect.IntersectsWith(_controlMove) && !rect.IntersectsWith(_controlResize)))
             {
-                var controlSize = new Size(20, 20);
+                g.FillRectangle(_brushLabelBackground, rect);
+                g.DrawString(label, _fontLabel, _brushLabel, rect.Left - 1, rect.Top);
+            }
 
-                // Draw move and resize controls
-                _controlMove = new Rectangle(Math.Max(0, x - controlSize.Width), Math.Max(0, y - controlSize.Height), controlSize.Width, controlSize.Height);
-                _controlResize = new Rectangle(Math.Min(x+w, _pictureBox.Width-controlSize.Width), Math.Min(y+h, _pictureBox.Height-controlSize.Height), controlSize.Width, controlSize.Height);
-                
+            if(selected)
+            {
+                g.FillRectangle(SystemBrushes.Control, _controlResize);
+                g.DrawRectangle(SystemPens.ControlDark, _controlResize);
+                g.DrawImage(Resources.resize, _controlResize.Location.X + 2, _controlResize.Location.Y + 2);
+
                 g.FillRectangle(SystemBrushes.Control, _controlMove);
                 g.DrawRectangle(SystemPens.ControlDark, _controlMove);
                 g.DrawImage(Resources.move, _controlMove.Location.X + 2, _controlMove.Location.Y + 2);
-
-                if (!_controlMove.Contains(_controlResize.Location))
-                {
-                    g.FillRectangle(SystemBrushes.Control, _controlResize);
-                    g.DrawRectangle(SystemPens.ControlDark, _controlResize);
-                    g.DrawImage(Resources.resize, _controlResize.Location.X + 2, _controlResize.Location.Y + 2);
-                }
-                else
-                    _controlResize = Rectangle.Empty;
             }
         }
 
@@ -295,22 +279,12 @@ namespace PrimeSkin
             // Search for the nearest
             for (int i = 0; i < 10; i += 5)
             {
-                var r = Components.FirstOrDefault(k => Inflate(k.Rectangle, i).Contains(location));
+                var r = Components.FirstOrDefault(k => Utilities.Inflate(k.Rectangle, i).Contains(location));
 
                 if (r != null)
                     return r;
             }
             return null;
-        }
-
-        private static Rectangle Inflate(Rectangle rectangle, int size)
-        {
-            if (size == 0 || (rectangle.Width >size && rectangle.Height > size))
-                return rectangle;
-
-            var r = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
-            r.Inflate(size, size);
-            return r;
         }
 
         internal void SelectComponent(Component k)
@@ -394,18 +368,8 @@ namespace PrimeSkin
                 if (String.IsNullOrEmpty(value))
                     _borderPoints = new[]{new Point(0, 0), new Point(_pictureBox.Width, 0), new Point(_pictureBox.Width, _pictureBox.Height),new Point(0, _pictureBox.Height)};
                 else
-                    _borderPoints = ParsePointArray(value);
+                    _borderPoints = Utilities.ParsePointArray(value);
             }
-        }
-
-        private static Point[] ParsePointArray(string s)
-        {
-            var p = s.Split(new[] { ',' });
-            var tmp = new List<Point>();
-            for (var i = 0; i < p.Length; i += 2)
-                tmp.Add(new Point(int.Parse(p[i]), int.Parse(p[i + 1])));
-
-            return tmp.ToArray();
         }
 
         internal bool Save(string path="")
