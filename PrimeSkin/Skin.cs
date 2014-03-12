@@ -120,7 +120,6 @@ namespace PrimeSkin
         {
             _pictureBox.Parent.Focus(); // Fix the mouse wheel scroll
 
-
             if (Selected == null) return;
 
             if (_isMoving)
@@ -251,7 +250,7 @@ namespace PrimeSkin
                     Math.Min(y + h, _pictureBox.Height - _controlDefaultSize.Height), _controlDefaultSize.Width, _controlDefaultSize.Height);
             }
 
-            g.DrawRectangle(selected?_penLegendSelected:_penLegend, x, y, w, h);
+            g.DrawRectangle(selected?_penLegendSelected:_penLegend, x, y, Math.Max(1,w), Math.Max(1,h));
             var m = g.MeasureString(label, _fontLabel);
             var rect = new Rectangle((int)(x + ((w - m.Width) / 2)), (int)(y + ((h - m.Height) / 2)), (int)m.Width, (int)m.Height);
 
@@ -264,6 +263,7 @@ namespace PrimeSkin
 
             if(selected)
             {
+                // Draw the controls
                 g.FillRectangle(SystemBrushes.Control, _controlResize);
                 g.DrawRectangle(SystemPens.ControlDark, _controlResize);
                 g.DrawImage(Resources.resize, _controlResize.Location.X + 2, _controlResize.Location.Y + 2);
