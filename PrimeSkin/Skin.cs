@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using PrimeSkin.Properties;
 
 namespace PrimeSkin
 {
@@ -31,6 +32,10 @@ namespace PrimeSkin
         private Component _selected;
         private string _imagePath;
         private Image _background;
+        public event EventHandler<SelectedComponentEventArgs> SelectedComponentChange;
+        private Rectangle _controlMove, _controlResize;
+        private bool _isMoving, _isResizing;
+        private Point _lastPosition;
 
         public Skin(string filePath, PictureBox pictureBox)
         {
@@ -89,13 +94,76 @@ namespace PrimeSkin
             _pictureBox.Size = GetSetting<Size>("size");
             pictureBox.Paint += (o, args) => Paint(args.Graphics);
             pictureBox.MouseDown += pictureBox_MouseDown;
-            pictureBox.MouseMove += (o, args) => _pictureBox.Parent.Focus(); // Fix the mouse wheel scroll
+            pictureBox.MouseUp += pictureBox_MouseUp;
+            pictureBox.MouseLeave += pictureBox_MouseLeave;
+            pictureBox.MouseMove += pictureBox_MouseMove;
+        }
+
+        void pictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            ReleaseMouseActions();
+        }
+
+        private void ReleaseMouseActions()
+        {
+            if (!_isMoving && !_isResizing) return;
+
+            _isMoving = false;
+            _isResizing = false;
+            OnSelectedComponentPropertiesChanged();
+        }
+
+        void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            ReleaseMouseActions();
+        }
+
+        void pictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            _pictureBox.Parent.Focus(); // Fix the mouse wheel scroll
+
+
+            if (Selected == null) return;
+
+            if (_isMoving)
+            {
+                if (!_controlMove.Contains(e.Location))
+                    _lastPosition = GetCenter(_controlMove);
+
+                Selected.Move(ref _lastPosition, e.Location);
+                Refresh(true);
+
+            }
+            else if (_isResizing)
+            {
+                if (!_controlResize.Contains(e.Location))
+                    _lastPosition = GetCenter(_controlResize);
+
+                Selected.Resize(ref _lastPosition, e.Location);
+                Refresh(true);
+            }
+        }
+
+        private static Point GetCenter(Rectangle control)
+        {
+            return new Point(control.X + (control.Width/2), control.Y + (control.Height/2));
         }
 
         void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                Selected = GetComponent(e.Location);
+            {
+                // Move and resize
+                _lastPosition = e.Location;
+                _isMoving = _controlMove.Contains(e.Location);
+                if (_isMoving) return;
+
+                // Selected
+                _isResizing = _controlResize.Contains(e.Location);
+
+                if(!_isResizing)
+                    Selected = GetComponent(e.Location);
+            }
         }
 
         public Component Selected
@@ -164,6 +232,9 @@ namespace PrimeSkin
 
         public void Paint(Graphics g)
         {
+            _controlMove = Rectangle.Empty;
+            _controlResize = Rectangle.Empty;
+
             if(_background!=null)
                 g.DrawImage(_background, 0, 0, _pictureBox.Width, _pictureBox.Height);
 
@@ -195,6 +266,28 @@ namespace PrimeSkin
             var rect = new Rectangle((int)(x + ((w - m.Width) / 2)), (int)(y + ((h - m.Height) / 2)), (int)m.Width, (int)m.Height);
             g.FillRectangle(_brushLabelBackground, rect);
             g.DrawString(label, _fontLabel, _brushLabel, rect.Left-1, rect.Top);
+
+            if (selected)
+            {
+                var controlSize = new Size(20, 20);
+
+                // Draw move and resize controls
+                _controlMove = new Rectangle(Math.Max(0, x - controlSize.Width), Math.Max(0, y - controlSize.Height), controlSize.Width, controlSize.Height);
+                _controlResize = new Rectangle(Math.Min(x+w, _pictureBox.Width-controlSize.Width), Math.Min(y+h, _pictureBox.Height-controlSize.Height), controlSize.Width, controlSize.Height);
+                
+                g.FillRectangle(SystemBrushes.Control, _controlMove);
+                g.DrawRectangle(SystemPens.ControlDark, _controlMove);
+                g.DrawImage(Resources.move, _controlMove.Location.X + 2, _controlMove.Location.Y + 2);
+
+                if (!_controlMove.Contains(_controlResize.Location))
+                {
+                    g.FillRectangle(SystemBrushes.Control, _controlResize);
+                    g.DrawRectangle(SystemPens.ControlDark, _controlResize);
+                    g.DrawImage(Resources.resize, _controlResize.Location.X + 2, _controlResize.Location.Y + 2);
+                }
+                else
+                    _controlResize = Rectangle.Empty;
+            }
         }
 
         public Component GetComponent(Point location)
@@ -232,8 +325,6 @@ namespace PrimeSkin
                 k.Selected = false;
         }
 
-        public event EventHandler<SelectedComponentEventArgs> SelectedComponentChange;
-
         protected virtual void OnSelectedComponentChange()
         {
             var handler = SelectedComponentChange;
@@ -246,13 +337,13 @@ namespace PrimeSkin
             {
                 foreach (var k in Components)
                 {
-                    if (!_pictureBox.ClientRectangle.Contains(k.Rectangle))
+                    if (!_pictureBox.ClientRectangle.Contains(k.Rectangle) || k.Rectangle.Height <0 || k.Rectangle.Width < 0)
                     {
                         // Adjust position and size
                         var p = new Point(Math.Min(_pictureBox.Width, Math.Max(0, k.Rectangle.Location.X)), 
                             Math.Min(_pictureBox.Height, Math.Max(k.Rectangle.Location.Y, 0)));
-                        
-                        var s = k.Rectangle.Size;
+
+                        var s = new Size(Math.Max(0, k.Rectangle.Size.Width), Math.Max(0, k.Rectangle.Size.Height));
 
                         if (p.X + s.Width > _pictureBox.Width)
                             s.Width = _pictureBox.Width - p.X;
@@ -380,6 +471,14 @@ namespace PrimeSkin
         internal void FindBorder()
         {
             _borderPoints = new MarchingSquares().DoMarch(new Bitmap(_background));
+        }
+
+        public event EventHandler<EventArgs> SelectedComponentPropertiesChanged;
+
+        protected virtual void OnSelectedComponentPropertiesChanged()
+        {
+            EventHandler<EventArgs> handler = SelectedComponentPropertiesChanged;
+            if (handler != null) handler(this, EventArgs.Empty);
         }
     }
 

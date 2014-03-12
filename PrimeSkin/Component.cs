@@ -51,6 +51,27 @@ namespace PrimeSkin
                     return "(None selected)";
             }
         }
+
+        internal void Move(ref Point oldReference, Point newPosition)
+        {
+            Transform(ref oldReference, newPosition);
+        }
+
+        internal void Resize(ref Point oldReference, Point newPosition)
+        {
+            Transform(ref oldReference, newPosition, false);
+        }
+
+        internal void Transform(ref Point oldReference, Point newPosition, bool isMove = true)
+        {
+            var x = newPosition.X - oldReference.X;
+            var y = newPosition.Y - oldReference.Y;
+
+            Rectangle = isMove ? new Rectangle(Rectangle.X + x, Rectangle.Y + y, Rectangle.Width, Rectangle.Height) : 
+                new Rectangle(Rectangle.X, Rectangle.Y, Rectangle.Width+x, Rectangle.Height+y);
+
+            oldReference = newPosition;
+        }
     }
 
     public enum ComponentType

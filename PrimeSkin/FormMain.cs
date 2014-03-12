@@ -60,6 +60,7 @@ namespace PrimeSkin
                     comboBoxSelection.Items.AddRange(_currentSkin.Components.ToArray());
 
                     _currentSkin.SelectedComponentChange += _currentSkin_SelectedComponentChange;
+                    _currentSkin.SelectedComponentPropertiesChanged += _currentSkin_SelectedComponentPropertiesChanged;
                     _currentSkin.Selected = null;
 
                     UpdateProperties();
@@ -72,6 +73,11 @@ namespace PrimeSkin
                 }
             }
             UpdateGui();
+        }
+
+        void _currentSkin_SelectedComponentPropertiesChanged(object sender, EventArgs e)
+        {
+            UpdateProperties();
         }
 
         void _currentSkin_SelectedComponentChange(object sender, SelectedComponentEventArgs e)
