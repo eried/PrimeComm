@@ -77,6 +77,12 @@ namespace PrimeSkin
 
         void _currentSkin_SelectedComponentPropertiesChanged(object sender, EventArgs e)
         {
+            if (!_dirty)
+            {
+                _dirty = true;
+                UpdateGui();
+            }
+
             UpdateProperties();
         }
 
@@ -115,7 +121,6 @@ namespace PrimeSkin
             {
                 _currentSkin.Selected = comboBoxSelection.SelectedItem as Component;
                 propertyGridComponent.SelectedObject = _currentSkin.Selected;
-
                 propertyGridComponent.ExpandAllGridItems();
             }
         }
@@ -132,8 +137,7 @@ namespace PrimeSkin
         {
             if (_dirty)
             {
-                switch (
-                    MessageBox.Show(String.Format("Save the changes to '{0}'?", Path.GetFileNameWithoutExtension(_currentSkin.SkinPath)), "Save changes",
+                switch (MessageBox.Show(String.Format("Save the changes to '{0}'?", Path.GetFileNameWithoutExtension(_currentSkin.SkinPath)), "Save changes",
                         MessageBoxButtons.YesNoCancel,
                         MessageBoxIcon.Exclamation))
                 {

@@ -277,7 +277,7 @@ namespace PrimeSkin
         public Component GetComponent(Point location)
         {
             // Search for the nearest
-            for (int i = 0; i < 10; i += 5)
+            for (var i = 0; i < 10; i += 5)
             {
                 var r = Components.FirstOrDefault(k => Utilities.Inflate(k.Rectangle, i).Contains(location));
 
@@ -340,19 +340,18 @@ namespace PrimeSkin
             {
                 var f = Path.Combine(BasePath, value);
                 _background = null;
-                _imagePath = null; 
+                _imagePath = null;
 
-                if (File.Exists(f))
+                if (!File.Exists(f)) return;
+
+                try
                 {
-                    try
-                    {
-                        _background = Image.FromFile(f);
-                        _pictureBox.Size = _background.Size;
-                        _imagePath = f.Replace(BasePath,String.Empty).TrimStart(new [] { ' ', '\\', '/'}); 
-                    }
-                    catch
-                    {
-                    }
+                    _background = Image.FromFile(f);
+                    _pictureBox.Size = _background.Size;
+                    _imagePath = f.Replace(BasePath,String.Empty).TrimStart(new [] { ' ', '\\', '/'}); 
+                }
+                catch
+                {
                 }
             }
         }
@@ -364,11 +363,9 @@ namespace PrimeSkin
                 return _borderPoints != null? String.Join(",",_borderPoints.Select(p => p.X + "," + p.Y).ToList()):""; 
             }
             set 
-            { 
-                if (String.IsNullOrEmpty(value))
-                    _borderPoints = new[]{new Point(0, 0), new Point(_pictureBox.Width, 0), new Point(_pictureBox.Width, _pictureBox.Height),new Point(0, _pictureBox.Height)};
-                else
-                    _borderPoints = Utilities.ParsePointArray(value);
+            {
+                _borderPoints = String.IsNullOrEmpty(value) ? new[]{new Point(0, 0), new Point(_pictureBox.Width, 0), 
+                    new Point(_pictureBox.Width, _pictureBox.Height),new Point(0, _pictureBox.Height)} : Utilities.ParsePointArray(value);
             }
         }
 
@@ -376,11 +373,7 @@ namespace PrimeSkin
         {
             try
             {
-                if (String.IsNullOrEmpty(path) && (String.IsNullOrEmpty(SkinPath) || !File.Exists(SkinPath)))
-                {
-                    // No file to save
-                }
-                else
+                if (!String.IsNullOrEmpty(path) || (!String.IsNullOrEmpty(SkinPath) && File.Exists(SkinPath)))
                 {
                     var f = new List<String>(new[]{"# File created by PrimeScreen", "# Part of PrimeComm: http://servicios.ried.cl/primecomm/", ""});
                     Settings["size"] = _pictureBox.Width + "," + _pictureBox.Height;
@@ -392,7 +385,7 @@ namespace PrimeSkin
                         Settings.Add("picture", ImagePath);
 
                     f.AddRange(Settings.Select(c => c.Key + "=" + c.Value).ToList());
-                    f.Add("border="+Border);
+                    f.Add("border=" + Border);
 
                     foreach (var c in Components)
                     {
@@ -412,7 +405,8 @@ namespace PrimeSkin
                             }
                             case ComponentType.Screen:
                                 f.Add("screen=" + c.Rectangle.Left + "," + c.Rectangle.Top + "," + c.Rectangle.Width +
-                                      "," + c.Rectangle.Height + (String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments));
+                                      "," + c.Rectangle.Height +
+                                      (String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments));
                                 break;
                         }
                     }
