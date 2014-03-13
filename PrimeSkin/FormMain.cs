@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -32,6 +33,7 @@ namespace PrimeSkin
             
             panelSkin.Enabled = isSkinLoaded;
             groupBoxProperties.Enabled = isSkinLoaded;
+            groupBoxView.Enabled = isSkinLoaded;
             groupBoxLayout.Enabled = isSkinLoaded;
             buttonSave.Enabled = isSkinLoaded && _dirty;
             buttonSaveAs.Enabled = isSkinLoaded;
@@ -267,6 +269,44 @@ namespace PrimeSkin
         private void buttonBorderFind_Click(object sender, EventArgs e)
         {
             ChangeBorder(true);
+        }
+
+        private void checkBoxViewAll_CheckedChanged(object sender, EventArgs e)
+        {
+            var checks = new[] {checkBoxViewKeys, checkBoxViewRegions, checkBoxViewScreen};
+
+            foreach(var c in checks)
+                c.CheckedChanged -= checkBoxView_CheckedChanged;
+
+            foreach (var c in checks)
+            {
+                c.Checked = checkBoxViewAll.Checked;
+                c.CheckedChanged += checkBoxView_CheckedChanged;
+            }
+        }
+
+        private void checkBoxView_CheckedChanged(object sender, EventArgs e)
+        {
+            var r = new List<ComponentType>();
+
+            if (checkBoxViewKeys.Checked)
+                r.Add(ComponentType.Key);
+
+            if (checkBoxViewRegions.Checked)
+                r.Add(ComponentType.Maximized);
+
+            if (checkBoxViewScreen.Checked)
+                r.Add(ComponentType.Screen);
+
+            checkBoxViewAll.CheckedChanged -= checkBoxViewAll_CheckedChanged;
+
+            checkBoxViewAll.CheckState = r.Count == 0
+                ? CheckState.Unchecked
+                : (r.Count == 3 ? CheckState.Checked : CheckState.Indeterminate);
+
+            checkBoxViewAll.CheckedChanged += checkBoxViewAll_CheckedChanged;
+
+            _currentSkin.VisibleTypes = r.ToArray();
         }
     }
 }

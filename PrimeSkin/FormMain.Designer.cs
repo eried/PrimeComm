@@ -47,10 +47,10 @@
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
             this.groupBoxView = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBoxViewAll = new System.Windows.Forms.CheckBox();
-            this.checkBoxViewKeys = new System.Windows.Forms.CheckBox();
-            this.checkBoxViewScreen = new System.Windows.Forms.CheckBox();
             this.checkBoxViewRegions = new System.Windows.Forms.CheckBox();
+            this.checkBoxViewScreen = new System.Windows.Forms.CheckBox();
+            this.checkBoxViewKeys = new System.Windows.Forms.CheckBox();
+            this.checkBoxViewAll = new System.Windows.Forms.CheckBox();
             this.groupBoxSkin.SuspendLayout();
             this.groupBoxProperties.SuspendLayout();
             this.groupBoxLayout.SuspendLayout();
@@ -254,25 +254,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(237, 57);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // checkBoxViewAll
+            // checkBoxViewRegions
             // 
-            this.checkBoxViewAll.AutoSize = true;
-            this.checkBoxViewAll.Location = new System.Drawing.Point(3, 3);
-            this.checkBoxViewAll.Name = "checkBoxViewAll";
-            this.checkBoxViewAll.Size = new System.Drawing.Size(37, 17);
-            this.checkBoxViewAll.TabIndex = 0;
-            this.checkBoxViewAll.Text = "All";
-            this.checkBoxViewAll.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxViewKeys
-            // 
-            this.checkBoxViewKeys.AutoSize = true;
-            this.checkBoxViewKeys.Location = new System.Drawing.Point(121, 3);
-            this.checkBoxViewKeys.Name = "checkBoxViewKeys";
-            this.checkBoxViewKeys.Size = new System.Drawing.Size(49, 17);
-            this.checkBoxViewKeys.TabIndex = 1;
-            this.checkBoxViewKeys.Text = "Keys";
-            this.checkBoxViewKeys.UseVisualStyleBackColor = true;
+            this.checkBoxViewRegions.AutoSize = true;
+            this.checkBoxViewRegions.Location = new System.Drawing.Point(121, 31);
+            this.checkBoxViewRegions.Name = "checkBoxViewRegions";
+            this.checkBoxViewRegions.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxViewRegions.TabIndex = 3;
+            this.checkBoxViewRegions.Text = "Regions";
+            this.checkBoxViewRegions.UseVisualStyleBackColor = true;
+            this.checkBoxViewRegions.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 
             // checkBoxViewScreen
             // 
@@ -283,16 +274,29 @@
             this.checkBoxViewScreen.TabIndex = 2;
             this.checkBoxViewScreen.Text = "Screen";
             this.checkBoxViewScreen.UseVisualStyleBackColor = true;
+            this.checkBoxViewScreen.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 
-            // checkBoxViewRegions
+            // checkBoxViewKeys
             // 
-            this.checkBoxViewRegions.AutoSize = true;
-            this.checkBoxViewRegions.Location = new System.Drawing.Point(121, 31);
-            this.checkBoxViewRegions.Name = "checkBoxViewRegions";
-            this.checkBoxViewRegions.Size = new System.Drawing.Size(65, 17);
-            this.checkBoxViewRegions.TabIndex = 3;
-            this.checkBoxViewRegions.Text = "Regions";
-            this.checkBoxViewRegions.UseVisualStyleBackColor = true;
+            this.checkBoxViewKeys.AutoSize = true;
+            this.checkBoxViewKeys.Location = new System.Drawing.Point(121, 3);
+            this.checkBoxViewKeys.Name = "checkBoxViewKeys";
+            this.checkBoxViewKeys.Size = new System.Drawing.Size(49, 17);
+            this.checkBoxViewKeys.TabIndex = 1;
+            this.checkBoxViewKeys.Text = "Keys";
+            this.checkBoxViewKeys.UseVisualStyleBackColor = true;
+            this.checkBoxViewKeys.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
+            // 
+            // checkBoxViewAll
+            // 
+            this.checkBoxViewAll.AutoSize = true;
+            this.checkBoxViewAll.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxViewAll.Name = "checkBoxViewAll";
+            this.checkBoxViewAll.Size = new System.Drawing.Size(37, 17);
+            this.checkBoxViewAll.TabIndex = 0;
+            this.checkBoxViewAll.Text = "All";
+            this.checkBoxViewAll.UseVisualStyleBackColor = true;
+            this.checkBoxViewAll.CheckedChanged += new System.EventHandler(this.checkBoxViewAll_CheckedChanged);
             // 
             // FormMain
             // 
