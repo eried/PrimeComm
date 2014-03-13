@@ -27,7 +27,7 @@ namespace PrimeSkin
 
         private Point[] _borderPoints;
         private readonly Font _fontLabel = new Font("Arial", 8);
-        private Component _selected;
+        private VirtualComponent _selected;
         private string _imagePath;
         private Image _background;
         public event EventHandler<SelectedComponentEventArgs> SelectedComponentChange;
@@ -42,7 +42,7 @@ namespace PrimeSkin
 
             // Base path
             Settings = new Dictionary<string, string>();
-            Components = new List<Component>();
+            Components = new List<VirtualComponent>();
 
             SkinPath = filePath;
             BasePath = Path.GetDirectoryName(filePath);
@@ -50,14 +50,19 @@ namespace PrimeSkin
             var keyRegex = new Regex(@"(?<value>"".*"")?,?(?<id>[0-9]+),(?<left>[0-9]+),(?<top>[0-9]+),(?<right>[0-9]+),(?<bottom>[0-9]+),\{(?<modifier1>\d?[\d,]*)\},\{(?<modifier2>\d?[\d,]*)\},\{(?<modifier3>\d?[\d,]*)\}(?:,\[(?<mappings>.*)\])?(?:[\t #]+(?<comment>.*))?$");
             foreach (var p in from l in File.ReadAllLines(filePath, Encoding.Default) where l.Contains('=') select l.Split(new[] {'='}, 2))
             {
-                switch (p[0])
+                var k = p[0];
+
+                if (k.StartsWith("MAXIMIZED"))
+                    k = "MAXIMIZED";
+
+                switch (k)
                 {
                     case "key":
                     {
                         var m = keyRegex.Match(p[1]);
 
                         if (m.Success)
-                            Components.Add(new Component
+                            Components.Add(new VirtualKey
                             {
                                 Id = int.Parse(m.Groups["id"].Value),
                                 Value = m.Groups["value"].Value,
@@ -77,13 +82,38 @@ namespace PrimeSkin
                         ImagePath = p[1];
                         break;
 
+                    case "MAXIMIZED":
+                    {
+                        var s = p[1].Split(new[] {','});
+
+                        switch (s.Length)
+                        {
+                            case(4):
+                                Components.Add(new VirtualMaximized
+                                {
+                                    Rectangle = Utilities.ParseRectangle(p[1])
+                                });
+                                break;
+
+                            case(6):
+                                Components.Add(new VirtualMaximized
+                                {
+                                    Rectangle = Utilities.ParseRectangle(String.Join(",",s,0,4)),
+                                    RelativeLocation = Utilities.ParsePoint(String.Join(",", s, 4, 2))
+                                });
+                                break;
+                        }
+                        
+                    }
+                        break;
+
                     case "screen":
-                        Components.Add(new Component(ComponentType.Screen) {Rectangle = Utilities.ParseRectangle(p[1])});
+                        Components.Add(new VirtualScreen {Rectangle = Utilities.ParseRectangle(p[1])});
                         break;
 
                     default:
-                        if (!Settings.ContainsKey(p[0]))
-                            Settings.Add(p[0], p[1]);
+                        if (!Settings.ContainsKey(k))
+                            Settings.Add(k, p[1]);
                         break;
                 }
             }
@@ -158,7 +188,7 @@ namespace PrimeSkin
             }
         }
 
-        public Component Selected
+        public VirtualComponent Selected
         {
             get 
             { 
@@ -167,18 +197,12 @@ namespace PrimeSkin
             set 
             { 
                 _selected = value;
-
-                if (_selected != null)
-                    SelectComponent(_selected);
-                else
-                    DeselectAll();
-
                 _pictureBox.Invalidate();
                 OnSelectedComponentChange();
             }
         }
 
-        public List<Component> Components { get; set; }
+        public List<VirtualComponent> Components { get; set; }
 
         /// <summary>
         /// Skin file path
@@ -221,18 +245,18 @@ namespace PrimeSkin
 
             g.DrawPolygon(_penBorder, _borderPoints);
             
-            foreach (var k in Components.Where(k => !k.Selected))
+            foreach (var k in Components.Where(k => k!=Selected))
                 DrawComponent(g, k);
 
-            foreach (var k in Components.Where(k => k.Selected))
+            foreach (var k in Components.Where(k => k==Selected))
                 DrawComponent(g, k);
 
         }
 
-        private void DrawComponent(Graphics g, Component k)
+        private void DrawComponent(Graphics g, VirtualComponent k)
         {
             g.FillRectangle(_brushKey, k.Rectangle);
-            DrawLegend(g, k.Rectangle, k.Type == ComponentType.Key ? "id:" + k.Id : "screen", k.Selected);
+            DrawLegend(g, k.Rectangle, k.Type == ComponentType.Key ? "id:" + ((VirtualKey)k).Id : "screen", k==Selected);
         }
 
         private void DrawLegend(Graphics g, Rectangle rect, string label = "", bool selected = false)
@@ -274,7 +298,7 @@ namespace PrimeSkin
             }
         }
 
-        public Component GetComponent(Point location)
+        public VirtualComponent GetComponent(Point location)
         {
             // Search for the nearest
             for (var i = 0; i < 10; i += 5)
@@ -287,16 +311,15 @@ namespace PrimeSkin
             return null;
         }
 
-        internal void SelectComponent(Component k)
+        internal void SelectComponent(VirtualComponent k)
         {
             DeselectAll();
-            k.Selected = true;
+            Selected = k;
         }
 
         private void DeselectAll()
         {
-            foreach (var k in Components)
-                k.Selected = false;
+            Selected = null;
         }
 
         protected virtual void OnSelectedComponentChange()
@@ -393,14 +416,15 @@ namespace PrimeSkin
                         {
                             case ComponentType.Key:
                             {
-                                var value = String.IsNullOrEmpty(c.Value) ? String.Empty : c.Value + ",";
-                                var mapped = String.IsNullOrEmpty(c.Mappings) ? String.Empty : ",[" + c.Mappings + "]";
+                                var key = (VirtualKey)c;
+                                var value = String.IsNullOrEmpty(key.Value) ? String.Empty : key.Value + ",";
+                                var mapped = String.IsNullOrEmpty(key.Mappings) ? String.Empty : ",[" + key.Mappings + "]";
                                 var comments = String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments;
 
                                 f.Add(String.Format("key={0}{1},{2},{3},{4},{5},{{{6}}},{{{7}}},{{{8}}}{9}{10}",
-                                    value, c.Id, c.Rectangle.Left, c.Rectangle.Top, c.Rectangle.Right,
+                                    value, key.Id, c.Rectangle.Left, c.Rectangle.Top, c.Rectangle.Right,
                                     c.Rectangle.Bottom,
-                                    c.Modifiers[0], c.Modifiers[1], c.Modifiers[2], mapped, comments));
+                                    key.Modifiers[0], key.Modifiers[1], key.Modifiers[2], mapped, comments));
                                 break;
                             }
                             case ComponentType.Screen:
@@ -437,16 +461,6 @@ namespace PrimeSkin
         {
             EventHandler<EventArgs> handler = SelectedComponentPropertiesChanged;
             if (handler != null) handler(this, EventArgs.Empty);
-        }
-    }
-
-    public class SelectedComponentEventArgs : EventArgs
-    {
-        public Component Selected { get; set; }
-
-        public SelectedComponentEventArgs(Component selected)
-        {
-            Selected = selected;
         }
     }
 }
