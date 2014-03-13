@@ -37,6 +37,7 @@ namespace PrimeSkin
         private Size _controlDefaultSize = new Size(20, 20);
         private ComponentType[] _visibleTypes;
         private List<VirtualComponent> _components;
+        private Size _skinSize;
 
         public Skin(string filePath, PictureBox pictureBox)
         {
@@ -131,12 +132,22 @@ namespace PrimeSkin
             }
 
             // PictureBox events
-            _pictureBox.Size = GetSetting<Size>("size");
+            SkinSize = GetSetting<Size>("size");
             pictureBox.Paint += (o, args) => Paint(args.Graphics);
             pictureBox.MouseDown += pictureBox_MouseDown;
             pictureBox.MouseUp += pictureBox_MouseUp;
             pictureBox.MouseLeave += pictureBox_MouseLeave;
             pictureBox.MouseMove += pictureBox_MouseMove;
+        }
+
+        public Size SkinSize
+        {
+            get { return _skinSize; }
+            set
+            {
+                _skinSize = value;
+                _pictureBox.Size = new Size(SkinSize.Width * 3, SkinSize.Height * 3);
+            }
         }
 
         void pictureBox_MouseLeave(object sender, EventArgs e)
@@ -268,7 +279,7 @@ namespace PrimeSkin
             _controlResize = Rectangle.Empty;
 
             if(_background!=null)
-                g.DrawImage(_background, 0, 0, _pictureBox.Width, _pictureBox.Height);
+                g.DrawImage(_background, 0, 0, SkinSize.Width, SkinSize.Height);
 
             g.DrawPolygon(_penBorder, _borderPoints);
             
@@ -398,7 +409,7 @@ namespace PrimeSkin
                 try
                 {
                     _background = Image.FromFile(f);
-                    _pictureBox.Size = _background.Size;
+                    SkinSize = _background.Size;
                     _imagePath = f.Replace(BasePath,String.Empty).TrimStart(new [] { ' ', '\\', '/'}); 
                 }
                 catch
@@ -415,8 +426,8 @@ namespace PrimeSkin
             }
             set 
             {
-                _borderPoints = String.IsNullOrEmpty(value) ? new[]{new Point(0, 0), new Point(_pictureBox.Width, 0), 
-                    new Point(_pictureBox.Width, _pictureBox.Height),new Point(0, _pictureBox.Height)} : Utilities.ParsePointArray(value);
+                _borderPoints = String.IsNullOrEmpty(value) ? new[]{new Point(0, 0), new Point(SkinSize.Width, 0), 
+                    new Point(SkinSize.Width, SkinSize.Height),new Point(0, SkinSize.Height)} : Utilities.ParsePointArray(value);
             }
         }
 
@@ -445,7 +456,7 @@ namespace PrimeSkin
                 if (!String.IsNullOrEmpty(path) || (!String.IsNullOrEmpty(SkinPath) && File.Exists(SkinPath)))
                 {
                     var f = new List<String>(new[]{"# File created by PrimeScreen", "# Part of PrimeComm: http://servicios.ried.cl/primecomm/", ""});
-                    Settings["size"] = _pictureBox.Width + "," + _pictureBox.Height;
+                    Settings["size"] = SkinSize.Width + "," + SkinSize.Height;
 
                     // Picture
                     if (Settings.ContainsKey("picture"))

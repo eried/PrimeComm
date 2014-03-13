@@ -19,6 +19,9 @@ namespace PrimeSkin
             InitializeComponent();
             UpdateGui();
 
+            // Size of the window relative to the screen
+            Size = new Size((int) (Screen.PrimaryScreen.WorkingArea.Size.Width*0.6),(int)(Screen.PrimaryScreen.WorkingArea.Size.Height*0.9));
+
             // Initial window title includes the version
             var v = Assembly.GetExecutingAssembly().GetName().Version;
             Text = String.Format("{0} v{1} b{2}", Application.ProductName, v.ToString(2), v.Build);
