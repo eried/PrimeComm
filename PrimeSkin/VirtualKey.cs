@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
 namespace PrimeSkin
 {
     /// <summary>
-    /// Properties of a button in the Prime emulator
+    /// Represents each Key in the skin file
     /// </summary>
     public class VirtualKey : VirtualComponent
     {

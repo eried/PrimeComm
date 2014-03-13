@@ -1,13 +1,12 @@
+using PrimeSkin.Properties;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using PrimeSkin.Properties;
 
 namespace PrimeSkin
 {
@@ -25,7 +24,7 @@ namespace PrimeSkin
             _penLegend = new Pen(new SolidBrush(Color.FromArgb(255, Color.Blue)), 1),
             _penLegendSelected = new Pen(new SolidBrush(Color.FromArgb(255, Color.White)), 1) { DashStyle = System.Drawing.Drawing2D.DashStyle.Dot };
 
-        private Dictionary<ComponentType, Brush> _brushPerType;
+        private readonly Dictionary<ComponentType, Brush> _brushPerType;
         private Point[] _borderPoints;
         private readonly Font _fontLabel = new Font("Arial", 8);
         private VirtualComponent _selected;

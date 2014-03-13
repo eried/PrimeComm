@@ -51,11 +51,15 @@
             this.checkBoxViewScreen = new System.Windows.Forms.CheckBox();
             this.checkBoxViewKeys = new System.Windows.Forms.CheckBox();
             this.checkBoxViewAll = new System.Windows.Forms.CheckBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.linkLabelRegionAdd = new System.Windows.Forms.LinkLabel();
+            this.linkLabelRegionRemove = new System.Windows.Forms.LinkLabel();
             this.groupBoxSkin.SuspendLayout();
             this.groupBoxProperties.SuspendLayout();
             this.groupBoxLayout.SuspendLayout();
             this.groupBoxView.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxSkin
@@ -242,22 +246,24 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxViewRegions, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxViewScreen, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxViewKeys, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxViewAll, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(9, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(237, 57);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // checkBoxViewRegions
             // 
             this.checkBoxViewRegions.AutoSize = true;
-            this.checkBoxViewRegions.Location = new System.Drawing.Point(121, 31);
+            this.flowLayoutPanel1.SetFlowBreak(this.checkBoxViewRegions, true);
+            this.checkBoxViewRegions.Location = new System.Drawing.Point(0, 0);
+            this.checkBoxViewRegions.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxViewRegions.Name = "checkBoxViewRegions";
             this.checkBoxViewRegions.Size = new System.Drawing.Size(65, 17);
             this.checkBoxViewRegions.TabIndex = 3;
@@ -268,7 +274,8 @@
             // checkBoxViewScreen
             // 
             this.checkBoxViewScreen.AutoSize = true;
-            this.checkBoxViewScreen.Location = new System.Drawing.Point(3, 31);
+            this.checkBoxViewScreen.Location = new System.Drawing.Point(0, 20);
+            this.checkBoxViewScreen.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxViewScreen.Name = "checkBoxViewScreen";
             this.checkBoxViewScreen.Size = new System.Drawing.Size(60, 17);
             this.checkBoxViewScreen.TabIndex = 2;
@@ -279,7 +286,8 @@
             // checkBoxViewKeys
             // 
             this.checkBoxViewKeys.AutoSize = true;
-            this.checkBoxViewKeys.Location = new System.Drawing.Point(121, 3);
+            this.checkBoxViewKeys.Location = new System.Drawing.Point(118, 0);
+            this.checkBoxViewKeys.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxViewKeys.Name = "checkBoxViewKeys";
             this.checkBoxViewKeys.Size = new System.Drawing.Size(49, 17);
             this.checkBoxViewKeys.TabIndex = 1;
@@ -290,13 +298,50 @@
             // checkBoxViewAll
             // 
             this.checkBoxViewAll.AutoSize = true;
-            this.checkBoxViewAll.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxViewAll.Location = new System.Drawing.Point(0, 0);
+            this.checkBoxViewAll.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxViewAll.Name = "checkBoxViewAll";
             this.checkBoxViewAll.Size = new System.Drawing.Size(37, 17);
             this.checkBoxViewAll.TabIndex = 0;
             this.checkBoxViewAll.Text = "All";
             this.checkBoxViewAll.UseVisualStyleBackColor = true;
             this.checkBoxViewAll.CheckedChanged += new System.EventHandler(this.checkBoxViewAll_CheckedChanged);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.checkBoxViewRegions);
+            this.flowLayoutPanel1.Controls.Add(this.linkLabelRegionAdd);
+            this.flowLayoutPanel1.Controls.Add(this.linkLabelRegionRemove);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(118, 20);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(119, 37);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // linkLabelRegionAdd
+            // 
+            this.linkLabelRegionAdd.AutoSize = true;
+            this.linkLabelRegionAdd.Location = new System.Drawing.Point(17, 17);
+            this.linkLabelRegionAdd.Margin = new System.Windows.Forms.Padding(17, 0, 3, 0);
+            this.linkLabelRegionAdd.Name = "linkLabelRegionAdd";
+            this.linkLabelRegionAdd.Size = new System.Drawing.Size(26, 13);
+            this.linkLabelRegionAdd.TabIndex = 4;
+            this.linkLabelRegionAdd.TabStop = true;
+            this.linkLabelRegionAdd.Text = "Add";
+            this.toolTipInfo.SetToolTip(this.linkLabelRegionAdd, "Adds a new region");
+            this.linkLabelRegionAdd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegionAdd_LinkClicked);
+            // 
+            // linkLabelRegionRemove
+            // 
+            this.linkLabelRegionRemove.AutoSize = true;
+            this.linkLabelRegionRemove.Location = new System.Drawing.Point(49, 17);
+            this.linkLabelRegionRemove.Name = "linkLabelRegionRemove";
+            this.linkLabelRegionRemove.Size = new System.Drawing.Size(47, 13);
+            this.linkLabelRegionRemove.TabIndex = 4;
+            this.linkLabelRegionRemove.TabStop = true;
+            this.linkLabelRegionRemove.Text = "Remove";
+            this.toolTipInfo.SetToolTip(this.linkLabelRegionRemove, "Removes the last region");
+            this.linkLabelRegionRemove.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegionRemove_LinkClicked);
             // 
             // FormMain
             // 
@@ -320,6 +365,8 @@
             this.groupBoxView.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -347,6 +394,9 @@
         private System.Windows.Forms.CheckBox checkBoxViewScreen;
         private System.Windows.Forms.CheckBox checkBoxViewKeys;
         private System.Windows.Forms.CheckBox checkBoxViewAll;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.LinkLabel linkLabelRegionAdd;
+        private System.Windows.Forms.LinkLabel linkLabelRegionRemove;
     }
 }
 

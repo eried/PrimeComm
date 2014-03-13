@@ -1,5 +1,8 @@
 namespace PrimeSkin
 {
+    /// <summary>
+    /// Represents the Screen in the skin file
+    /// </summary>
     public class VirtualScreen : VirtualComponent
     {
         public VirtualScreen()

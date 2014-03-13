@@ -1,12 +1,11 @@
-using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Drawing;
-using System.Reflection;
-using System.Windows.Forms;
 
 namespace PrimeSkin
 {
+    /// <summary>
+    /// Represents the Maximized regions in the skin file
+    /// </summary>
     public class VirtualMaximized : VirtualComponent
     {
         [Category("Layout"),

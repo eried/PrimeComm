@@ -1,13 +1,10 @@
-﻿using System;
+﻿using PrimeSkin.Properties;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
-using PrimeSkin.Properties;
 
 namespace PrimeSkin
 {
