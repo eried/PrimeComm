@@ -45,15 +45,15 @@
             this.buttonBorderReset = new System.Windows.Forms.Button();
             this.buttonBorderFind = new System.Windows.Forms.Button();
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.linkLabelRegionAdd = new System.Windows.Forms.LinkLabel();
+            this.linkLabelRegionRemove = new System.Windows.Forms.LinkLabel();
             this.groupBoxView = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBoxViewRegions = new System.Windows.Forms.CheckBox();
             this.checkBoxViewScreen = new System.Windows.Forms.CheckBox();
             this.checkBoxViewKeys = new System.Windows.Forms.CheckBox();
             this.checkBoxViewAll = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.linkLabelRegionAdd = new System.Windows.Forms.LinkLabel();
-            this.linkLabelRegionRemove = new System.Windows.Forms.LinkLabel();
+            this.checkBoxViewRegions = new System.Windows.Forms.CheckBox();
             this.groupBoxSkin.SuspendLayout();
             this.groupBoxProperties.SuspendLayout();
             this.groupBoxLayout.SuspendLayout();
@@ -122,7 +122,7 @@
             this.panelSkin.Location = new System.Drawing.Point(275, 12);
             this.panelSkin.Name = "panelSkin";
             this.panelSkin.Size = new System.Drawing.Size(437, 637);
-            this.panelSkin.TabIndex = 3;
+            this.panelSkin.TabIndex = 4;
             // 
             // groupBoxProperties
             // 
@@ -133,7 +133,7 @@
             this.groupBoxProperties.Location = new System.Drawing.Point(12, 295);
             this.groupBoxProperties.Name = "groupBoxProperties";
             this.groupBoxProperties.Size = new System.Drawing.Size(255, 354);
-            this.groupBoxProperties.TabIndex = 2;
+            this.groupBoxProperties.TabIndex = 3;
             this.groupBoxProperties.TabStop = false;
             this.groupBoxProperties.Text = "Properties";
             // 
@@ -212,7 +212,7 @@
             this.buttonBorderReset.Location = new System.Drawing.Point(171, 83);
             this.buttonBorderReset.Name = "buttonBorderReset";
             this.buttonBorderReset.Size = new System.Drawing.Size(75, 27);
-            this.buttonBorderReset.TabIndex = 3;
+            this.buttonBorderReset.TabIndex = 2;
             this.buttonBorderReset.Text = "&Reset";
             this.toolTipInfo.SetToolTip(this.buttonBorderReset, "Resets the border to a rectangle");
             this.buttonBorderReset.UseVisualStyleBackColor = true;
@@ -225,11 +225,36 @@
             this.buttonBorderFind.Location = new System.Drawing.Point(9, 83);
             this.buttonBorderFind.Name = "buttonBorderFind";
             this.buttonBorderFind.Size = new System.Drawing.Size(156, 27);
-            this.buttonBorderFind.TabIndex = 3;
+            this.buttonBorderFind.TabIndex = 1;
             this.buttonBorderFind.Text = "&Rebuild from background";
             this.toolTipInfo.SetToolTip(this.buttonBorderFind, "Creates a border using the top left pixel of the background image as reference");
             this.buttonBorderFind.UseVisualStyleBackColor = true;
             this.buttonBorderFind.Click += new System.EventHandler(this.buttonBorderFind_Click);
+            // 
+            // linkLabelRegionAdd
+            // 
+            this.linkLabelRegionAdd.AutoSize = true;
+            this.linkLabelRegionAdd.Location = new System.Drawing.Point(17, 17);
+            this.linkLabelRegionAdd.Margin = new System.Windows.Forms.Padding(17, 0, 3, 0);
+            this.linkLabelRegionAdd.Name = "linkLabelRegionAdd";
+            this.linkLabelRegionAdd.Size = new System.Drawing.Size(26, 13);
+            this.linkLabelRegionAdd.TabIndex = 1;
+            this.linkLabelRegionAdd.TabStop = true;
+            this.linkLabelRegionAdd.Text = "Add";
+            this.toolTipInfo.SetToolTip(this.linkLabelRegionAdd, "Adds a new region");
+            this.linkLabelRegionAdd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegionAdd_LinkClicked);
+            // 
+            // linkLabelRegionRemove
+            // 
+            this.linkLabelRegionRemove.AutoSize = true;
+            this.linkLabelRegionRemove.Location = new System.Drawing.Point(49, 17);
+            this.linkLabelRegionRemove.Name = "linkLabelRegionRemove";
+            this.linkLabelRegionRemove.Size = new System.Drawing.Size(47, 13);
+            this.linkLabelRegionRemove.TabIndex = 2;
+            this.linkLabelRegionRemove.TabStop = true;
+            this.linkLabelRegionRemove.Text = "Remove";
+            this.toolTipInfo.SetToolTip(this.linkLabelRegionRemove, "Removes the last region");
+            this.linkLabelRegionRemove.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegionRemove_LinkClicked);
             // 
             // groupBoxView
             // 
@@ -237,7 +262,7 @@
             this.groupBoxView.Location = new System.Drawing.Point(12, 207);
             this.groupBoxView.Name = "groupBoxView";
             this.groupBoxView.Size = new System.Drawing.Size(255, 82);
-            this.groupBoxView.TabIndex = 4;
+            this.groupBoxView.TabIndex = 2;
             this.groupBoxView.TabStop = false;
             this.groupBoxView.Text = "View";
             // 
@@ -257,19 +282,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(237, 57);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // checkBoxViewRegions
-            // 
-            this.checkBoxViewRegions.AutoSize = true;
-            this.flowLayoutPanel1.SetFlowBreak(this.checkBoxViewRegions, true);
-            this.checkBoxViewRegions.Location = new System.Drawing.Point(0, 0);
-            this.checkBoxViewRegions.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxViewRegions.Name = "checkBoxViewRegions";
-            this.checkBoxViewRegions.Size = new System.Drawing.Size(65, 17);
-            this.checkBoxViewRegions.TabIndex = 3;
-            this.checkBoxViewRegions.Text = "Regions";
-            this.checkBoxViewRegions.UseVisualStyleBackColor = true;
-            this.checkBoxViewRegions.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 
             // checkBoxViewScreen
             // 
@@ -318,30 +330,18 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(119, 37);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
-            // linkLabelRegionAdd
+            // checkBoxViewRegions
             // 
-            this.linkLabelRegionAdd.AutoSize = true;
-            this.linkLabelRegionAdd.Location = new System.Drawing.Point(17, 17);
-            this.linkLabelRegionAdd.Margin = new System.Windows.Forms.Padding(17, 0, 3, 0);
-            this.linkLabelRegionAdd.Name = "linkLabelRegionAdd";
-            this.linkLabelRegionAdd.Size = new System.Drawing.Size(26, 13);
-            this.linkLabelRegionAdd.TabIndex = 4;
-            this.linkLabelRegionAdd.TabStop = true;
-            this.linkLabelRegionAdd.Text = "Add";
-            this.toolTipInfo.SetToolTip(this.linkLabelRegionAdd, "Adds a new region");
-            this.linkLabelRegionAdd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegionAdd_LinkClicked);
-            // 
-            // linkLabelRegionRemove
-            // 
-            this.linkLabelRegionRemove.AutoSize = true;
-            this.linkLabelRegionRemove.Location = new System.Drawing.Point(49, 17);
-            this.linkLabelRegionRemove.Name = "linkLabelRegionRemove";
-            this.linkLabelRegionRemove.Size = new System.Drawing.Size(47, 13);
-            this.linkLabelRegionRemove.TabIndex = 4;
-            this.linkLabelRegionRemove.TabStop = true;
-            this.linkLabelRegionRemove.Text = "Remove";
-            this.toolTipInfo.SetToolTip(this.linkLabelRegionRemove, "Removes the last region");
-            this.linkLabelRegionRemove.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegionRemove_LinkClicked);
+            this.checkBoxViewRegions.AutoSize = true;
+            this.flowLayoutPanel1.SetFlowBreak(this.checkBoxViewRegions, true);
+            this.checkBoxViewRegions.Location = new System.Drawing.Point(0, 0);
+            this.checkBoxViewRegions.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxViewRegions.Name = "checkBoxViewRegions";
+            this.checkBoxViewRegions.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxViewRegions.TabIndex = 0;
+            this.checkBoxViewRegions.Text = "Regions";
+            this.checkBoxViewRegions.UseVisualStyleBackColor = true;
+            this.checkBoxViewRegions.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 
             // FormMain
             // 
