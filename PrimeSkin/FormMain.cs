@@ -31,8 +31,8 @@ namespace PrimeSkin
             var isSkinLoaded = _currentSkin != null;
             
             panelSkin.Enabled = isSkinLoaded;
-            groupBoxComponents.Enabled = isSkinLoaded;
-            groupBoxVisuals.Enabled = isSkinLoaded;
+            groupBoxProperties.Enabled = isSkinLoaded;
+            groupBoxLayout.Enabled = isSkinLoaded;
             buttonSave.Enabled = isSkinLoaded && _dirty;
             buttonSaveAs.Enabled = isSkinLoaded;
             buttonBorderFind.Enabled = isSkinLoaded;
@@ -119,7 +119,7 @@ namespace PrimeSkin
         {
             if (_currentSkin != null)
             {
-                _currentSkin.Selected = comboBoxSelection.SelectedItem as Component;
+                _currentSkin.Selected = comboBoxSelection.SelectedItem as VirtualComponent;
                 propertyGridComponent.SelectedObject = _currentSkin.Selected;
                 propertyGridComponent.ExpandAllGridItems();
             }

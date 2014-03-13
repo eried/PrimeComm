@@ -35,19 +35,27 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.panelSkin = new System.Windows.Forms.Panel();
-            this.groupBoxComponents = new System.Windows.Forms.GroupBox();
+            this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.propertyGridComponent = new System.Windows.Forms.PropertyGrid();
             this.comboBoxSelection = new System.Windows.Forms.ComboBox();
-            this.groupBoxVisuals = new System.Windows.Forms.GroupBox();
+            this.groupBoxLayout = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonBackground = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonBorderReset = new System.Windows.Forms.Button();
             this.buttonBorderFind = new System.Windows.Forms.Button();
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBoxView = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBoxViewAll = new System.Windows.Forms.CheckBox();
+            this.checkBoxViewKeys = new System.Windows.Forms.CheckBox();
+            this.checkBoxViewScreen = new System.Windows.Forms.CheckBox();
+            this.checkBoxViewRegions = new System.Windows.Forms.CheckBox();
             this.groupBoxSkin.SuspendLayout();
-            this.groupBoxComponents.SuspendLayout();
-            this.groupBoxVisuals.SuspendLayout();
+            this.groupBoxProperties.SuspendLayout();
+            this.groupBoxLayout.SuspendLayout();
+            this.groupBoxView.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxSkin
@@ -112,18 +120,18 @@
             this.panelSkin.Size = new System.Drawing.Size(437, 637);
             this.panelSkin.TabIndex = 3;
             // 
-            // groupBoxComponents
+            // groupBoxProperties
             // 
-            this.groupBoxComponents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupBoxProperties.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBoxComponents.Controls.Add(this.propertyGridComponent);
-            this.groupBoxComponents.Controls.Add(this.comboBoxSelection);
-            this.groupBoxComponents.Location = new System.Drawing.Point(12, 207);
-            this.groupBoxComponents.Name = "groupBoxComponents";
-            this.groupBoxComponents.Size = new System.Drawing.Size(255, 442);
-            this.groupBoxComponents.TabIndex = 2;
-            this.groupBoxComponents.TabStop = false;
-            this.groupBoxComponents.Text = "Properties";
+            this.groupBoxProperties.Controls.Add(this.propertyGridComponent);
+            this.groupBoxProperties.Controls.Add(this.comboBoxSelection);
+            this.groupBoxProperties.Location = new System.Drawing.Point(12, 295);
+            this.groupBoxProperties.Name = "groupBoxProperties";
+            this.groupBoxProperties.Size = new System.Drawing.Size(255, 354);
+            this.groupBoxProperties.TabIndex = 2;
+            this.groupBoxProperties.TabStop = false;
+            this.groupBoxProperties.Text = "Properties";
             // 
             // propertyGridComponent
             // 
@@ -131,7 +139,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.propertyGridComponent.Location = new System.Drawing.Point(9, 46);
             this.propertyGridComponent.Name = "propertyGridComponent";
-            this.propertyGridComponent.Size = new System.Drawing.Size(237, 379);
+            this.propertyGridComponent.Size = new System.Drawing.Size(237, 291);
             this.propertyGridComponent.TabIndex = 1;
             this.propertyGridComponent.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGridComponent_PropertyValueChanged);
             // 
@@ -145,19 +153,19 @@
             this.comboBoxSelection.TabIndex = 0;
             this.comboBoxSelection.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelection_SelectedIndexChanged);
             // 
-            // groupBoxVisuals
+            // groupBoxLayout
             // 
-            this.groupBoxVisuals.Controls.Add(this.button2);
-            this.groupBoxVisuals.Controls.Add(this.buttonBackground);
-            this.groupBoxVisuals.Controls.Add(this.label1);
-            this.groupBoxVisuals.Controls.Add(this.buttonBorderReset);
-            this.groupBoxVisuals.Controls.Add(this.buttonBorderFind);
-            this.groupBoxVisuals.Location = new System.Drawing.Point(12, 77);
-            this.groupBoxVisuals.Name = "groupBoxVisuals";
-            this.groupBoxVisuals.Size = new System.Drawing.Size(255, 124);
-            this.groupBoxVisuals.TabIndex = 1;
-            this.groupBoxVisuals.TabStop = false;
-            this.groupBoxVisuals.Text = "Layout";
+            this.groupBoxLayout.Controls.Add(this.button2);
+            this.groupBoxLayout.Controls.Add(this.buttonBackground);
+            this.groupBoxLayout.Controls.Add(this.label1);
+            this.groupBoxLayout.Controls.Add(this.buttonBorderReset);
+            this.groupBoxLayout.Controls.Add(this.buttonBorderFind);
+            this.groupBoxLayout.Location = new System.Drawing.Point(12, 77);
+            this.groupBoxLayout.Name = "groupBoxLayout";
+            this.groupBoxLayout.Size = new System.Drawing.Size(255, 124);
+            this.groupBoxLayout.TabIndex = 1;
+            this.groupBoxLayout.TabStop = false;
+            this.groupBoxLayout.Text = "Layout";
             // 
             // button2
             // 
@@ -219,13 +227,81 @@
             this.buttonBorderFind.UseVisualStyleBackColor = true;
             this.buttonBorderFind.Click += new System.EventHandler(this.buttonBorderFind_Click);
             // 
+            // groupBoxView
+            // 
+            this.groupBoxView.Controls.Add(this.tableLayoutPanel1);
+            this.groupBoxView.Location = new System.Drawing.Point(12, 207);
+            this.groupBoxView.Name = "groupBoxView";
+            this.groupBoxView.Size = new System.Drawing.Size(255, 82);
+            this.groupBoxView.TabIndex = 4;
+            this.groupBoxView.TabStop = false;
+            this.groupBoxView.Text = "View";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxViewRegions, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxViewScreen, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxViewKeys, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxViewAll, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(9, 19);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(237, 57);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // checkBoxViewAll
+            // 
+            this.checkBoxViewAll.AutoSize = true;
+            this.checkBoxViewAll.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxViewAll.Name = "checkBoxViewAll";
+            this.checkBoxViewAll.Size = new System.Drawing.Size(37, 17);
+            this.checkBoxViewAll.TabIndex = 0;
+            this.checkBoxViewAll.Text = "All";
+            this.checkBoxViewAll.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxViewKeys
+            // 
+            this.checkBoxViewKeys.AutoSize = true;
+            this.checkBoxViewKeys.Location = new System.Drawing.Point(121, 3);
+            this.checkBoxViewKeys.Name = "checkBoxViewKeys";
+            this.checkBoxViewKeys.Size = new System.Drawing.Size(49, 17);
+            this.checkBoxViewKeys.TabIndex = 1;
+            this.checkBoxViewKeys.Text = "Keys";
+            this.checkBoxViewKeys.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxViewScreen
+            // 
+            this.checkBoxViewScreen.AutoSize = true;
+            this.checkBoxViewScreen.Location = new System.Drawing.Point(3, 31);
+            this.checkBoxViewScreen.Name = "checkBoxViewScreen";
+            this.checkBoxViewScreen.Size = new System.Drawing.Size(60, 17);
+            this.checkBoxViewScreen.TabIndex = 2;
+            this.checkBoxViewScreen.Text = "Screen";
+            this.checkBoxViewScreen.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxViewRegions
+            // 
+            this.checkBoxViewRegions.AutoSize = true;
+            this.checkBoxViewRegions.Location = new System.Drawing.Point(121, 31);
+            this.checkBoxViewRegions.Name = "checkBoxViewRegions";
+            this.checkBoxViewRegions.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxViewRegions.TabIndex = 3;
+            this.checkBoxViewRegions.Text = "Regions";
+            this.checkBoxViewRegions.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 661);
-            this.Controls.Add(this.groupBoxVisuals);
-            this.Controls.Add(this.groupBoxComponents);
+            this.Controls.Add(this.groupBoxView);
+            this.Controls.Add(this.groupBoxLayout);
+            this.Controls.Add(this.groupBoxProperties);
             this.Controls.Add(this.panelSkin);
             this.Controls.Add(this.groupBoxSkin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -234,9 +310,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.groupBoxSkin.ResumeLayout(false);
-            this.groupBoxComponents.ResumeLayout(false);
-            this.groupBoxVisuals.ResumeLayout(false);
-            this.groupBoxVisuals.PerformLayout();
+            this.groupBoxProperties.ResumeLayout(false);
+            this.groupBoxLayout.ResumeLayout(false);
+            this.groupBoxLayout.PerformLayout();
+            this.groupBoxView.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -248,16 +327,22 @@
         private System.Windows.Forms.Button buttonSaveAs;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonLoad;
-        private System.Windows.Forms.GroupBox groupBoxComponents;
+        private System.Windows.Forms.GroupBox groupBoxProperties;
         private System.Windows.Forms.PropertyGrid propertyGridComponent;
         private System.Windows.Forms.ComboBox comboBoxSelection;
-        private System.Windows.Forms.GroupBox groupBoxVisuals;
+        private System.Windows.Forms.GroupBox groupBoxLayout;
         private System.Windows.Forms.Button buttonBackground;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonBorderFind;
         private System.Windows.Forms.Button buttonBorderReset;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolTip toolTipInfo;
+        private System.Windows.Forms.GroupBox groupBoxView;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.CheckBox checkBoxViewRegions;
+        private System.Windows.Forms.CheckBox checkBoxViewScreen;
+        private System.Windows.Forms.CheckBox checkBoxViewKeys;
+        private System.Windows.Forms.CheckBox checkBoxViewAll;
     }
 }
 
