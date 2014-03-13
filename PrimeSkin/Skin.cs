@@ -169,7 +169,7 @@ namespace PrimeSkin
             ReleaseMouseActions();
         }
 
-        void pictureBox_MouseMove(object sender, MouseEventArgs e)
+        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             _pictureBox.Parent.Focus(); // Fix the mouse wheel scroll
 
@@ -192,6 +192,12 @@ namespace PrimeSkin
                 Selected.Resize(ref _lastPosition, e.Location);
                 Refresh(true);
             }
+            else
+            {
+                // Change the cursor only for the resize, move mouse looks weird
+                _pictureBox.Cursor = _controlResize.Contains(e.Location) ? Cursors.SizeNWSE : Cursors.Default;
+            }
+
         }
 
         void pictureBox_MouseDown(object sender, MouseEventArgs e)
