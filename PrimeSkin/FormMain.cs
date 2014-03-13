@@ -25,6 +25,11 @@ namespace PrimeSkin
             // Initial window title includes the version
             var v = Assembly.GetExecutingAssembly().GetName().Version;
             Text = String.Format("{0} v{1} b{2}", Application.ProductName, v.ToString(2), v.Build);
+
+            // Initial view checkboxes
+            checkBoxViewKeys.Checked = true;
+            checkBoxViewScreen.Checked = true;
+            checkBoxViewAll.CheckState = CheckState.Indeterminate;
         }
 
         private void UpdateGui()
@@ -58,14 +63,16 @@ namespace PrimeSkin
                     };
                     _currentSkin = new Skin(path, pictureBoxSkin);
 
-                    comboBoxSelection.Items.Clear();
-                    comboBoxSelection.Items.AddRange(_currentSkin.Components.ToArray());
-
-                    _currentSkin.SelectedComponentChange += _currentSkin_SelectedComponentChange;
+                    UpdatePropertiesCombo();
+                    
+                    _currentSkin.SelectedComponentChanged += _currentSkin_SelectedComponentChanged;
+                    _currentSkin.ComponentsChanged += _currentSkin_ComponentsChanged;
                     _currentSkin.SelectedComponentPropertiesChanged += _currentSkin_SelectedComponentPropertiesChanged;
                     _currentSkin.Selected = null;
 
                     UpdateProperties();
+                    UpdateView();
+
                     _dirty = false;
                 }
                 catch
@@ -75,6 +82,19 @@ namespace PrimeSkin
                 }
             }
             UpdateGui();
+        }
+
+        private void UpdatePropertiesCombo()
+        {
+            comboBoxSelection.Items.Clear();
+            comboBoxSelection.Items.AddRange(_currentSkin.Components.ToArray());
+        }
+
+        void _currentSkin_ComponentsChanged(object sender, EventArgs e)
+        {
+            UpdatePropertiesCombo();
+            comboBoxSelection.SelectedItem = _currentSkin.Selected;
+            //UpdateProperties();
         }
 
         void _currentSkin_SelectedComponentPropertiesChanged(object sender, EventArgs e)
@@ -88,7 +108,7 @@ namespace PrimeSkin
             UpdateProperties();
         }
 
-        void _currentSkin_SelectedComponentChange(object sender, SelectedComponentEventArgs e)
+        void _currentSkin_SelectedComponentChanged(object sender, SelectedComponentEventArgs e)
         {
             if(comboBoxSelection.SelectedItem != e.Selected)
                 comboBoxSelection.SelectedItem = e.Selected;
@@ -219,12 +239,16 @@ namespace PrimeSkin
 
         private void Save(String path="")
         {
-            path = String.IsNullOrEmpty(path) ? _currentSkin.SkinPath : path;
+            var realPath = String.IsNullOrEmpty(path) ? _currentSkin.SkinPath : path;
 
-            if (_currentSkin.Save(path))
+            if (_currentSkin.Save(realPath))
             {
                 _dirty = false;
-                LoadSkin(path);
+
+                if (path == realPath)
+                    LoadSkin(path);
+                else
+                    UpdateGui(); // Just remove the 'unsaved' symbol
             }
             else
                 MessageBox.Show("Error saving the skin (check if you have privileges in the destination folder and retry)", "Error",
@@ -280,20 +304,51 @@ namespace PrimeSkin
 
             foreach (var c in checks)
             {
-                c.Checked = checkBoxViewAll.Checked;
+                switch (checkBoxViewAll.CheckState)
+                {
+                    case CheckState.Checked:
+                        c.Checked = true;
+                        break;
+
+                    case CheckState.Unchecked:
+                        c.Checked = false;
+                        break;
+                }
+
                 c.CheckedChanged += checkBoxView_CheckedChanged;
             }
+
+            UpdateView();
         }
 
         private void checkBoxView_CheckedChanged(object sender, EventArgs e)
         {
+            UpdateView();
+        }
+
+        private void UpdateView()
+        {
+            if (_currentSkin == null)
+                return;
+
             var r = new List<ComponentType>();
 
             if (checkBoxViewKeys.Checked)
                 r.Add(ComponentType.Key);
 
             if (checkBoxViewRegions.Checked)
+            {
                 r.Add(ComponentType.Maximized);
+
+                linkLabelRegionAdd.Enabled = true;
+                var tmp = _currentSkin.RemoveMaximizedRegion(false); // Check for the last maximized region
+                linkLabelRegionRemove.Enabled = tmp!=null && tmp.Id > 0;
+            }
+            else
+            {
+                linkLabelRegionAdd.Enabled = false;
+                linkLabelRegionRemove.Enabled = false;
+            }
 
             if (checkBoxViewScreen.Checked)
                 r.Add(ComponentType.Screen);
@@ -307,6 +362,26 @@ namespace PrimeSkin
             checkBoxViewAll.CheckedChanged += checkBoxViewAll_CheckedChanged;
 
             _currentSkin.VisibleTypes = r.ToArray();
+        }
+
+        private void linkLabelRegionAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            _currentSkin.AddMaximizedRegion(true);
+            UpdateView();
+        }
+
+        private void linkLabelRegionRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var r = _currentSkin.RemoveMaximizedRegion(false);
+
+            if (r == null) return;
+
+            if (MessageBox.Show("This will remove the last maximized region '" + r + "'. Do you want to continue?",
+                "Remove region", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                _currentSkin.RemoveMaximizedRegion(true);
+                UpdateView();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -17,32 +18,42 @@ namespace PrimeSkin
     {
         private readonly PictureBox _pictureBox;
         private const int Alpha = 100;
-        private readonly Brush _brushKey= new SolidBrush(Color.FromArgb(Alpha, Color.Blue)),
-            _brushLabel = new SolidBrush(Color.FromArgb(255, Color.Black)),
+        private readonly Brush _brushLabel = new SolidBrush(Color.FromArgb(255, Color.Black)),
             _brushLabelBackground = new SolidBrush(Color.FromArgb(255, Color.Yellow));
 
         private readonly Pen _penBorder = new Pen(new SolidBrush(Color.FromArgb(Alpha, Color.Magenta)), 4),
             _penLegend = new Pen(new SolidBrush(Color.FromArgb(255, Color.Blue)), 1),
             _penLegendSelected = new Pen(new SolidBrush(Color.FromArgb(255, Color.White)), 1) { DashStyle = System.Drawing.Drawing2D.DashStyle.Dot };
 
+        private Dictionary<ComponentType, Brush> _brushPerType;
         private Point[] _borderPoints;
         private readonly Font _fontLabel = new Font("Arial", 8);
         private VirtualComponent _selected;
         private string _imagePath;
         private Image _background;
-        public event EventHandler<SelectedComponentEventArgs> SelectedComponentChange;
+        public event EventHandler<SelectedComponentEventArgs> SelectedComponentChanged;
         private Rectangle _controlMove, _controlResize;
         private bool _isMoving, _isResizing;
         private Point _lastPosition;
         private Size _controlDefaultSize = new Size(20, 20);
+        private ComponentType[] _visibleTypes;
+        private List<VirtualComponent> _components;
 
         public Skin(string filePath, PictureBox pictureBox)
         {
             _pictureBox = pictureBox;
 
+            // Brushes
+            _brushPerType = new Dictionary<ComponentType, Brush>
+            {
+                {ComponentType.Key, new SolidBrush(Color.FromArgb(Alpha, Color.Blue))},
+                {ComponentType.Screen, new SolidBrush(Color.FromArgb(Alpha, Color.Red))},
+                {ComponentType.Maximized, new SolidBrush(Color.FromArgb(Alpha, Color.Green))}
+            };
+
             // Base path
             Settings = new Dictionary<string, string>();
-            Components = new List<VirtualComponent>();
+            _components = new List<VirtualComponent>();
 
             SkinPath = filePath;
             BasePath = Path.GetDirectoryName(filePath);
@@ -62,7 +73,7 @@ namespace PrimeSkin
                         var m = keyRegex.Match(p[1]);
 
                         if (m.Success)
-                            Components.Add(new VirtualKey
+                            _components.Add(new VirtualKey
                             {
                                 Id = int.Parse(m.Groups["id"].Value),
                                 Value = m.Groups["value"].Value,
@@ -89,17 +100,19 @@ namespace PrimeSkin
                         switch (s.Length)
                         {
                             case(4):
-                                Components.Add(new VirtualMaximized
+                                _components.Add(new VirtualMaximized
                                 {
-                                    Rectangle = Utilities.ParseRectangle(p[1])
+                                    Rectangle = Utilities.ParseRectangle(p[1]),
+                                    Id = 0
                                 });
                                 break;
 
                             case(6):
-                                Components.Add(new VirtualMaximized
+                                _components.Add(new VirtualMaximized
                                 {
                                     Rectangle = Utilities.ParseRectangle(String.Join(",",s,0,4)),
-                                    RelativeLocation = Utilities.ParsePoint(String.Join(",", s, 4, 2))
+                                    RelativeLocation = Utilities.ParsePoint(String.Join(",", s, 4, 2)),
+                                    Id  = int.Parse(p[0].Remove(0,k.Length))
                                 });
                                 break;
                         }
@@ -108,7 +121,7 @@ namespace PrimeSkin
                         break;
 
                     case "screen":
-                        Components.Add(new VirtualScreen {Rectangle = Utilities.ParseRectangle(p[1])});
+                        _components.Add(new VirtualScreen { Rectangle = Utilities.ParseRectangle(p[1]) });
                         break;
 
                     default:
@@ -155,7 +168,7 @@ namespace PrimeSkin
             if (_isMoving)
             {
                 if (!_controlMove.Contains(e.Location))
-                    _lastPosition = Utilities.GetCenter(_controlMove);
+                    _lastPosition = _controlMove.GetCenter();
 
                 Selected.Move(ref _lastPosition, e.Location);
                 Refresh(true);
@@ -164,7 +177,7 @@ namespace PrimeSkin
             else if (_isResizing)
             {
                 if (!_controlResize.Contains(e.Location))
-                    _lastPosition = Utilities.GetCenter(_controlResize);
+                    _lastPosition = _controlResize.GetCenter();
 
                 Selected.Resize(ref _lastPosition, e.Location);
                 Refresh(true);
@@ -202,7 +215,22 @@ namespace PrimeSkin
             }
         }
 
-        public List<VirtualComponent> Components { get; set; }
+        public List<VirtualComponent> Components
+        {
+            get { return GetComponents(_components, VisibleTypes); }
+            set { _components = value; }
+        }
+
+        internal List<VirtualComponent> GetComponents(List<VirtualComponent> components, ComponentType[] types)
+        {
+            var t = new List<VirtualComponent>();
+            if (types == null || types.Length == 0)
+                    return t;
+
+            t.AddRange(_components.Where(c => types.Contains(c.Type)));
+
+            return t;
+        }
 
         /// <summary>
         /// Skin file path
@@ -255,8 +283,8 @@ namespace PrimeSkin
 
         private void DrawComponent(Graphics g, VirtualComponent k)
         {
-            g.FillRectangle(_brushKey, k.Rectangle);
-            DrawLegend(g, k.Rectangle, k.Type == ComponentType.Key ? "id:" + ((VirtualKey)k).Id : "screen", k==Selected);
+            g.FillRectangle(_brushPerType[k.Type], k.Rectangle);
+            DrawLegend(g, k.Rectangle, k.Type == ComponentType.Key ? "id:" + ((VirtualKey)k).Id : (k.Type == ComponentType.Maximized?"maximized: "+(((VirtualMaximized)k).Id):"screen"), k==Selected);
         }
 
         private void DrawLegend(Graphics g, Rectangle rect, string label = "", bool selected = false)
@@ -283,6 +311,7 @@ namespace PrimeSkin
             {
                 g.FillRectangle(_brushLabelBackground, rect);
                 g.DrawString(label, _fontLabel, _brushLabel, rect.Left - 1, rect.Top);
+                //g.DrawString(label, _fontLabel, SystemBrushes.Control, rect.Left - 1, rect.Top);
             }
 
             if(selected)
@@ -303,7 +332,7 @@ namespace PrimeSkin
             // Search for the nearest
             for (var i = 0; i < 10; i += 5)
             {
-                var r = Components.FirstOrDefault(k => Utilities.Inflate(k.Rectangle, i).Contains(location));
+                var r = Components.FirstOrDefault(k => k.Rectangle.Inflate(i).Contains(location));
 
                 if (r != null)
                     return r;
@@ -324,7 +353,7 @@ namespace PrimeSkin
 
         protected virtual void OnSelectedComponentChange()
         {
-            var handler = SelectedComponentChange;
+            var handler = SelectedComponentChanged;
             if (handler != null) handler(this, new SelectedComponentEventArgs(Selected));
         }
 
@@ -392,6 +421,24 @@ namespace PrimeSkin
             }
         }
 
+        public ComponentType[] VisibleTypes
+        {
+            get { return _visibleTypes; }
+            set 
+            {
+                if (_visibleTypes != value)
+                {
+                    if (Selected != null && !value.Contains(Selected.Type))
+                        Selected = null;
+
+                    _visibleTypes = value;
+
+                    OnComponentsChanged();
+                    Refresh();
+                }
+            }
+        }
+
         internal bool Save(string path="")
         {
             try
@@ -410,7 +457,10 @@ namespace PrimeSkin
                     f.AddRange(Settings.Select(c => c.Key + "=" + c.Value).ToList());
                     f.Add("border=" + Border);
 
-                    foreach (var c in Components)
+                    const int linesPerGroup = 6;
+                    var lines = linesPerGroup;
+
+                    foreach (var c in _components)
                     {
                         switch (c.Type)
                         {
@@ -421,12 +471,27 @@ namespace PrimeSkin
                                 var mapped = String.IsNullOrEmpty(key.Mappings) ? String.Empty : ",[" + key.Mappings + "]";
                                 var comments = String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments;
 
+                                if (++lines >= linesPerGroup)
+                                {
+                                    f.Add(String.Empty);
+                                    lines = 0;
+                                }
+
                                 f.Add(String.Format("key={0}{1},{2},{3},{4},{5},{{{6}}},{{{7}}},{{{8}}}{9}{10}",
                                     value, key.Id, c.Rectangle.Left, c.Rectangle.Top, c.Rectangle.Right,
                                     c.Rectangle.Bottom,
                                     key.Modifiers[0], key.Modifiers[1], key.Modifiers[2], mapped, comments));
                                 break;
                             }
+
+                            case ComponentType.Maximized:
+                            {
+                                var m = (VirtualMaximized)c;
+                                f.Add("MAXIMIZED=" + c.Rectangle.Left + "," + c.Rectangle.Top + "," + c.Rectangle.Width +
+                                    "," + c.Rectangle.Height + (m.Id>0?","+m.RelativeLocation.X+","+m.RelativeLocation.Y:""));
+                            }
+                                break;
+
                             case ComponentType.Screen:
                                 f.Add("screen=" + c.Rectangle.Left + "," + c.Rectangle.Top + "," + c.Rectangle.Width +
                                       "," + c.Rectangle.Height +
@@ -460,6 +525,65 @@ namespace PrimeSkin
         protected virtual void OnSelectedComponentPropertiesChanged()
         {
             EventHandler<EventArgs> handler = SelectedComponentPropertiesChanged;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        internal void AddMaximizedRegion(bool focus)
+        {
+            var last = RemoveMaximizedRegion(false);
+
+            if (last == null)
+                return;
+
+            var offset = new Point(0, last.Id == 0 ? 0 : _pictureBox.Height - last.Rectangle.Bottom > 0? last.Rectangle.Height:0);
+            var v = new VirtualMaximized
+            {
+                Rectangle = new Rectangle(new Point(last.Rectangle.Location.X + offset.X,
+                    last.Rectangle.Location.Y + offset.Y), last.Rectangle.Size),
+                Id = last.Id + 1,
+                RelativeLocation = offset
+            };
+
+            _components.Add(v);
+            OnComponentsChanged();
+
+            if (focus)
+                Selected = v;
+
+            Refresh(true);
+        }
+
+        public VirtualMaximized RemoveMaximizedRegion(bool removeNow)
+        {
+            var m = -1;
+            VirtualMaximized v = null;
+
+            foreach (VirtualMaximized c in GetComponents(Components, new[] {ComponentType.Maximized}))
+            {
+                if (c.Id > m)
+                {
+                    m = c.Id;
+                    v = c;
+                }
+            }
+
+            if (removeNow && m>0)
+            {
+                if (v == Selected)
+                    Selected = null;
+
+                _components.Remove(v);
+                OnComponentsChanged();
+            }
+
+            return v;
+        }
+
+        public event EventHandler<EventArgs> ComponentsChanged;
+
+        protected virtual void OnComponentsChanged()
+        {
+            EventHandler<EventArgs> handler = ComponentsChanged;
             if (handler != null) handler(this, EventArgs.Empty);
         }
     }

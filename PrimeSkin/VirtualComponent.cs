@@ -1,15 +1,16 @@
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
 namespace PrimeSkin
 {
-    public class VirtualComponent
+    public class VirtualComponent 
     {
         [Category("Layout"), Description("Location and size in pixels")]
         public Rectangle Rectangle { get; set; }
 
         [ReadOnly(true), Description("Internal component type used by the PrimeSkin")]
-        public ComponentType Type { get; set; }
+        protected internal ComponentType Type { get; set; }
 
         internal void Move(ref Point oldReference, Point newPosition)
         {
