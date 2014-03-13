@@ -80,7 +80,7 @@
             this.buttonSaveAs.Name = "buttonSaveAs";
             this.buttonSaveAs.Size = new System.Drawing.Size(75, 27);
             this.buttonSaveAs.TabIndex = 2;
-            this.buttonSaveAs.Text = "&Save as...";
+            this.buttonSaveAs.Text = "Save &as...";
             this.buttonSaveAs.UseVisualStyleBackColor = true;
             this.buttonSaveAs.Click += new System.EventHandler(this.buttonSaveAs_Click);
             // 
@@ -135,7 +135,7 @@
             this.groupBoxProperties.Size = new System.Drawing.Size(255, 354);
             this.groupBoxProperties.TabIndex = 3;
             this.groupBoxProperties.TabStop = false;
-            this.groupBoxProperties.Text = "Properties";
+            this.groupBoxProperties.Text = "&Properties";
             // 
             // propertyGridComponent
             // 
@@ -226,7 +226,7 @@
             this.buttonBorderFind.Name = "buttonBorderFind";
             this.buttonBorderFind.Size = new System.Drawing.Size(156, 27);
             this.buttonBorderFind.TabIndex = 1;
-            this.buttonBorderFind.Text = "&Rebuild from background";
+            this.buttonBorderFind.Text = "Re&build from background";
             this.toolTipInfo.SetToolTip(this.buttonBorderFind, "Creates a border using the top left pixel of the background image as reference");
             this.buttonBorderFind.UseVisualStyleBackColor = true;
             this.buttonBorderFind.Click += new System.EventHandler(this.buttonBorderFind_Click);
@@ -291,7 +291,7 @@
             this.checkBoxViewScreen.Name = "checkBoxViewScreen";
             this.checkBoxViewScreen.Size = new System.Drawing.Size(60, 17);
             this.checkBoxViewScreen.TabIndex = 2;
-            this.checkBoxViewScreen.Text = "Screen";
+            this.checkBoxViewScreen.Text = "S&creen";
             this.checkBoxViewScreen.UseVisualStyleBackColor = true;
             this.checkBoxViewScreen.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 
@@ -303,7 +303,7 @@
             this.checkBoxViewKeys.Name = "checkBoxViewKeys";
             this.checkBoxViewKeys.Size = new System.Drawing.Size(49, 17);
             this.checkBoxViewKeys.TabIndex = 1;
-            this.checkBoxViewKeys.Text = "Keys";
+            this.checkBoxViewKeys.Text = "&Keys";
             this.checkBoxViewKeys.UseVisualStyleBackColor = true;
             this.checkBoxViewKeys.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 
@@ -315,7 +315,7 @@
             this.checkBoxViewAll.Name = "checkBoxViewAll";
             this.checkBoxViewAll.Size = new System.Drawing.Size(37, 17);
             this.checkBoxViewAll.TabIndex = 0;
-            this.checkBoxViewAll.Text = "All";
+            this.checkBoxViewAll.Text = "&All";
             this.checkBoxViewAll.UseVisualStyleBackColor = true;
             this.checkBoxViewAll.CheckedChanged += new System.EventHandler(this.checkBoxViewAll_CheckedChanged);
             // 
@@ -339,7 +339,7 @@
             this.checkBoxViewRegions.Name = "checkBoxViewRegions";
             this.checkBoxViewRegions.Size = new System.Drawing.Size(65, 17);
             this.checkBoxViewRegions.TabIndex = 0;
-            this.checkBoxViewRegions.Text = "Regions";
+            this.checkBoxViewRegions.Text = "R&egions";
             this.checkBoxViewRegions.UseVisualStyleBackColor = true;
             this.checkBoxViewRegions.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 

@@ -376,7 +376,7 @@ namespace PrimeSkin
 
             if (r == null) return;
 
-            if (MessageBox.Show("This will remove the last maximized region '" + r + "'. Do you want to continue?",
+            if (MessageBox.Show("This will remove the last region '" + r + "'. Do you want to continue?",
                 "Remove region", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 _currentSkin.RemoveMaximizedRegion(true);
