@@ -32,7 +32,7 @@ namespace PrimeSkin
         private VirtualComponent _selected;
         private Size _controlDefaultSize = new Size(20, 20);
         private Skin _skin;
-        private UndoRedoManager<Skin> _undo;
+        private readonly UndoRedoManager<Skin> _undo;
 
         public SkinManager(string filePath, PictureBox pictureBox)
         {
@@ -316,6 +316,16 @@ namespace PrimeSkin
         public string BasePath 
         {
             get { return _skin.BasePath; }
+        }
+
+        public bool CanUndo 
+        {
+            get { return _undo.CanUndo; }
+        }
+
+        public bool CanRedo
+        {
+            get { return _undo.CanRedo; }
         }
 
         public event EventHandler<EventArgs> SelectedComponentPropertiesChanged;
