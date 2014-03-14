@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -10,7 +11,6 @@ namespace PrimeSkin
     {
         private readonly LinkedList<T> _undoLinkedList;
         private readonly Stack<T> _redoStack;
-        private readonly CloneManager _cloneManager;
 
         public int Capacity { get; private set; }
 
@@ -18,17 +18,18 @@ namespace PrimeSkin
         {
             Capacity = capacity;
 
-            _cloneManager = new CloneManager();
             _undoLinkedList = new LinkedList<T>();
             _redoStack = new Stack<T>();
         }
 
         public void SaveState(T state)
         {
+            Debug.WriteLine("Saving!");
+
             while (_undoLinkedList.Count() > Capacity)
                 _undoLinkedList.RemoveFirst();
 
-            _undoLinkedList.AddLast(_cloneManager.Clone(state));
+            _undoLinkedList.AddLast((T) ((ICloneable)state).Clone());
             _redoStack.Clear();
         }
 
@@ -61,7 +62,7 @@ namespace PrimeSkin
             get { return _redoStack.Count > 0; }
         }
 
-        public T GetLast()
+        public T GetState()
         {
             return _undoLinkedList.Last.Value;
         }
@@ -73,26 +74,5 @@ namespace PrimeSkin
             var handler = StateChanged;
             if (handler != null) handler(this, EventArgs.Empty);
         }
-    }
-
-    /// <summary>
-    /// Generics cloner based on serialization
-    /// http://www.codeproject.com/Articles/25418/Object-Cloning-Using-Generic-in-C
-    /// </summary>
-    public class CloneManager : IClone
-    {
-        public T Clone<T>(T instance) where T : class
-        {
-            var serializer = new XmlSerializer(typeof (T));
-            var stream = new MemoryStream();
-            serializer.Serialize(stream, instance);
-            stream.Seek(0, SeekOrigin.Begin);
-            return serializer.Deserialize(stream) as T;
-        }
-    }
-
-    public interface IClone
-    {
-        T Clone<T>(T instance) where T : class;
     }
 }

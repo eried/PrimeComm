@@ -7,6 +7,8 @@ namespace PrimeSkin
     /// <summary>
     /// Generic class for any component in the skin file
     /// </summary>
+    
+    [Serializable]
     public class VirtualComponent
     {
         [Category("Layout"), Description("Location and size in pixels")]

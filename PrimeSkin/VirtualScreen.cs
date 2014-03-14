@@ -1,8 +1,11 @@
+using System;
+
 namespace PrimeSkin
 {
     /// <summary>
     /// Represents the Screen in the skin file
     /// </summary>
+    [Serializable]
     public class VirtualScreen : VirtualComponent
     {
         public VirtualScreen()

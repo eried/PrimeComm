@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -6,6 +7,7 @@ namespace PrimeSkin
     /// <summary>
     /// Represents the Maximized regions in the skin file
     /// </summary>
+    [Serializable]
     public class VirtualMaximized : VirtualComponent
     {
         [Category("Layout"),

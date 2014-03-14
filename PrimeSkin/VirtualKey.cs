@@ -7,6 +7,7 @@ namespace PrimeSkin
     /// <summary>
     /// Represents each Key in the skin file
     /// </summary>
+    [Serializable]
     public class VirtualKey : VirtualComponent
     {
         public VirtualKey()
