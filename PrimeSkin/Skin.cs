@@ -161,6 +161,7 @@ namespace PrimeSkin
 
             _isMoving = false;
             _isResizing = false;
+
             OnSelectedComponentPropertiesChanged();
         }
 

@@ -367,6 +367,8 @@ namespace PrimeSkin
         private void linkLabelRegionAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             _currentSkin.AddMaximizedRegion(true);
+            _dirty = true;
+
             UpdateView();
         }
 
@@ -380,6 +382,8 @@ namespace PrimeSkin
                 "Remove region", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 _currentSkin.RemoveMaximizedRegion(true);
+                _dirty = true;
+
                 UpdateView();
             }
         }

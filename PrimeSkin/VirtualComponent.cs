@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -6,7 +7,7 @@ namespace PrimeSkin
     /// <summary>
     /// Generic class for any component in the skin file
     /// </summary>
-    public class VirtualComponent 
+    public class VirtualComponent
     {
         [Category("Layout"), Description("Location and size in pixels")]
         public Rectangle Rectangle { get; set; }
@@ -34,6 +35,8 @@ namespace PrimeSkin
 
             oldReference = newPosition;
         }
+
         public string Comments { get; set; }
+
     }
 }

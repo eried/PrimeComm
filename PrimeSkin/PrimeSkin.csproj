@@ -48,6 +48,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="SkinUndoManager.cs" />
     <Compile Include="VirtualComponent.cs" />
     <Compile Include="VirtualKey.cs" />
     <Compile Include="MarchingSquares.cs" />
