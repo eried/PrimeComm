@@ -10,7 +10,7 @@ namespace PrimeSkin
 {
     public partial class FormMain : Form
     {
-        private Skin _currentSkin;
+        private SkinManager _currentSkin;
         private bool _dirty;
         private readonly string _initialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Hewlett-Packard\HP Prime Virtual Calculator\");
 
@@ -23,8 +23,7 @@ namespace PrimeSkin
             Size = new Size((int) (Screen.PrimaryScreen.WorkingArea.Size.Width*0.6),(int)(Screen.PrimaryScreen.WorkingArea.Size.Height*0.9));
 
             // Initial window title includes the version
-            var v = Assembly.GetExecutingAssembly().GetName().Version;
-            Text = String.Format("{0} v{1} b{2}", Application.ProductName, v.ToString(2), v.Build);
+            Text = Utilities.GetProgramVersion();
 
             // Initial view checkboxes
             checkBoxViewKeys.Checked = true;
@@ -61,7 +60,7 @@ namespace PrimeSkin
                         Location = new Point(panelSkin.Margin.Left, panelSkin.Margin.Right),
                         Anchor = AnchorStyles.Left | AnchorStyles.Top
                     };
-                    _currentSkin = new Skin(path, pictureBoxSkin);
+                    _currentSkin = new SkinManager(path, pictureBoxSkin);
 
                     UpdatePropertiesCombo();
                     
@@ -87,7 +86,7 @@ namespace PrimeSkin
         private void UpdatePropertiesCombo()
         {
             comboBoxSelection.Items.Clear();
-            comboBoxSelection.Items.AddRange(_currentSkin.Components.ToArray());
+            comboBoxSelection.Items.AddRange(_currentSkin.Components);
         }
 
         void _currentSkin_ComponentsChanged(object sender, EventArgs e)
@@ -99,12 +98,7 @@ namespace PrimeSkin
 
         void _currentSkin_SelectedComponentPropertiesChanged(object sender, EventArgs e)
         {
-            if (!_dirty)
-            {
-                _dirty = true;
-                UpdateGui();
-            }
-
+            SomethingChanged();
             UpdateProperties();
         }
 
@@ -150,9 +144,7 @@ namespace PrimeSkin
         private void propertyGridComponent_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
             _currentSkin.Refresh(true);
-
-            _dirty = true;
-            UpdateGui();
+            SomethingChanged();
         }
 
         private bool AskForSave()
@@ -228,8 +220,7 @@ namespace PrimeSkin
             _currentSkin.ImagePath = f.FileName;
             _currentSkin.Refresh(true);
 
-            _dirty = true;
-            UpdateGui();
+            SomethingChanged();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -281,13 +272,12 @@ namespace PrimeSkin
         private void ChangeBorder(bool findBorder=false)
         {
             if (findBorder)
-                _currentSkin.FindBorder();
+                _currentSkin.FindBorder(true);
             else
-                _currentSkin.Border = null;
-            _dirty = true;
+                _currentSkin.FindBorder(false);
 
             _currentSkin.Refresh();
-            UpdateGui();
+            SomethingChanged();
         }
 
         private void buttonBorderFind_Click(object sender, EventArgs e)
@@ -366,10 +356,18 @@ namespace PrimeSkin
 
         private void linkLabelRegionAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            _currentSkin.AddMaximizedRegion(true);
-            _dirty = true;
-
+            _currentSkin.AddMaximizedRegion();
+            SomethingChanged();
             UpdateView();
+        }
+
+        private void SomethingChanged()
+        {
+            if (!_dirty)
+            {
+                _dirty = true;
+                UpdateGui();
+            }
         }
 
         private void linkLabelRegionRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -382,8 +380,7 @@ namespace PrimeSkin
                 "Remove region", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 _currentSkin.RemoveMaximizedRegion(true);
-                _dirty = true;
-
+                SomethingChanged();
                 UpdateView();
             }
         }

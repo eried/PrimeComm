@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace PrimeSkin
 {
@@ -51,6 +53,12 @@ namespace PrimeSkin
                 return Point.Empty;
 
             return new Point(Int32.Parse(p[0]), Int32.Parse(p[1]));
+        }
+
+        internal static string GetProgramVersion()
+        {
+            var v = Assembly.GetExecutingAssembly().GetName().Version;
+            return String.Format("{0} v{1} b{2}", Application.ProductName, v.ToString(2), v.Build);
         }
     }
 }
