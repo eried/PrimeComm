@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
 using PrimeSkin.Properties;
 
 namespace PrimeSkin
 {
-    class Skin
+    [Serializable]
+    public class Skin : ICloneable
     {
         private List<VirtualComponent> _components;
         internal Point[] _borderPoints;
@@ -21,6 +25,10 @@ namespace PrimeSkin
         {
             _components = new List<VirtualComponent>();
             Settings = new Dictionary<string, string>();
+
+            if (!File.Exists(filePath))
+                return;
+
             BasePath = Path.GetDirectoryName(filePath);
 
             var keyRegex = new Regex(@"(?<value>"".*"")?,?(?<id>[0-9]+),(?<left>[0-9]+),(?<top>[0-9]+),(?<right>[0-9]+),(?<bottom>[0-9]+),\{(?<modifier1>\d?[\d,]*)\},\{(?<modifier2>\d?[\d,]*)\},\{(?<modifier3>\d?[\d,]*)\}(?:,\[(?<mappings>.*)\])?(?:[\t #]+(?<comment>.*))?$");
@@ -271,6 +279,25 @@ namespace PrimeSkin
             }
 
             return v;
+        }
+
+        public object Clone()
+        {
+            return GenericCopier<Skin>.DeepCopy(this);
+        }
+    }
+
+    public static class GenericCopier<T>
+    {
+        public static T DeepCopy(object objectToCopy)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                var binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(memoryStream, objectToCopy);
+                memoryStream.Seek(0, SeekOrigin.Begin);
+                return (T)binaryFormatter.Deserialize(memoryStream);
+            }
         }
     }
 }

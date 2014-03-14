@@ -31,8 +31,8 @@ namespace PrimeSkin
         private Point _lastPosition;
         private VirtualComponent _selected;
         private Size _controlDefaultSize = new Size(20, 20);
-        private readonly Skin _skin;
-        private object selected = new object();
+        private Skin _skin;
+        private UndoRedoManager<Skin> _undo;
 
         public SkinManager(string filePath, PictureBox pictureBox)
         {
@@ -49,7 +49,10 @@ namespace PrimeSkin
             // Path
             SkinPath = filePath;
 
+            _undo = new UndoRedoManager<Skin>(10);
             _skin = new Skin(SkinPath);
+            _undo.SaveState(_skin);
+
             _pictureBox.Size = new Size(_skin.SkinSize.Width * 3, _skin.SkinSize.Height * 3);
 
             // PictureBox events
@@ -71,6 +74,8 @@ namespace PrimeSkin
 
             _isMoving = false;
             _isResizing = false;
+
+            _undo.SaveState(_skin);
 
             OnSelectedComponentPropertiesChanged();
         }
@@ -343,6 +348,8 @@ namespace PrimeSkin
 
             if (v != null)
                 Selected = v;
+
+            _undo.SaveState(_skin);
         }
 
         public void Paint(Graphics g)
@@ -358,7 +365,7 @@ namespace PrimeSkin
             foreach (var k in _skin.Components.Where(k => k != Selected))
                 DrawComponent(g, k);
 
-            if (selected == null)
+            if (Selected == null)
                 return;
 
             foreach (var k in _skin.Components.Where(k => k == Selected))
@@ -369,8 +376,13 @@ namespace PrimeSkin
         {
             var v = _skin.RemoveMaximizedRegion(removeNow);
 
-            if (removeNow && v == Selected)
-                Selected = null;
+            if (removeNow)
+            {
+                if (v == Selected)
+                    Selected = null;
+
+                _undo.SaveState(_skin);
+            }
 
             OnComponentsChanged();
             return v;
@@ -393,6 +405,24 @@ namespace PrimeSkin
                 _skin.FindBorder();
             else
                 _skin.Border = null;
+        }
+
+        internal void Undo()
+        {
+            _undo.Undo();
+            _skin = _undo.GetState();
+
+            OnComponentsChanged();
+            Selected = null;
+        }
+
+        internal void Redo()
+        {
+            _undo.Redo();
+            _skin = _undo.GetState();
+
+            OnComponentsChanged();
+            Selected = null;
         }
     }
 }
