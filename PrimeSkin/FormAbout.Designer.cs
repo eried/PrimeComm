@@ -76,10 +76,10 @@
             // 
             this.linkLabel2.Location = new System.Drawing.Point(16, 104);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(220, 26);
+            this.linkLabel2.Size = new System.Drawing.Size(333, 26);
             this.linkLabel2.TabIndex = 1;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "https://github.com/eried/PrimeComm";
+            this.linkLabel2.Text = "https://github.com/eried/PrimeComm/tree/master/PrimeSkin";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenLink_LinkClicked);
             // 
             // linkLabel1
