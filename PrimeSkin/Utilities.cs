@@ -60,5 +60,25 @@ namespace PrimeSkin
             var v = Assembly.GetExecutingAssembly().GetName().Version;
             return String.Format("{0} v{1} b{2}", Application.ProductName, v.ToString(2), v.Build);
         }
+
+        /// <summary>
+        /// Based on http://stackoverflow.com/questions/9462518/short-way-to-add-item-after-item-in-list
+        /// </summary>
+        /// <param name="list">List</param>
+        /// <param name="find">Find this element</param>
+        /// <param name="add">Element to add</param>
+        public static void InsertAfter<T>(this List<T> list, T find, T add)
+        {
+            foreach (var item in list.Select((o, i) => new {Value = o, Index = i}).Where(p => p.Value.Equals(find)).OrderByDescending(p => p.Index))
+            {
+                if (item.Index + 1 == list.Count) 
+                    list.Add(add); // Append to the end
+                else
+                {
+                    list.Insert(item.Index + 1, add);
+                    return;
+                }
+            }
+        }
     }
 }
