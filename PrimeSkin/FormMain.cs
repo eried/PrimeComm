@@ -21,10 +21,7 @@ namespace PrimeSkin
 
             // Size of the window relative to the screen
             Size = new Size((int) (Screen.PrimaryScreen.WorkingArea.Size.Width*0.6),(int)(Screen.PrimaryScreen.WorkingArea.Size.Height*0.9));
-
-            // Initial window title includes the version
-            Text = Utilities.GetProgramVersion();
-
+            
             // Initial view checkboxes
             checkBoxViewKeys.Checked = true;
             checkBoxViewScreen.Checked = true;
@@ -38,11 +35,23 @@ namespace PrimeSkin
             panelSkin.Enabled = isSkinLoaded;
             groupBoxProperties.Enabled = isSkinLoaded;
             groupBoxView.Enabled = isSkinLoaded;
-            groupBoxLayout.Enabled = isSkinLoaded;
             buttonSave.Enabled = isSkinLoaded && _dirty;
             buttonSaveAs.Enabled = isSkinLoaded;
             buttonBorderFind.Enabled = isSkinLoaded;
             buttonBorderReset.Enabled = isSkinLoaded;
+            buttonBackground.Enabled = isSkinLoaded;
+
+            // View menu
+            keysToolStripMenuItem.Enabled = isSkinLoaded;
+            screenToolStripMenuItem.Enabled = isSkinLoaded;
+            regionsToolStripMenuItem.Enabled = isSkinLoaded;
+            allComponentsToolStripMenuItem.Enabled = isSkinLoaded;
+            hideAllToolStripMenuItem.Enabled = isSkinLoaded;
+            addANewRegionToolStripMenuItem.Enabled = isSkinLoaded;
+            removeTheLastRegionToolStripMenuItem.Enabled = isSkinLoaded;
+
+            undoToolStripMenuItem.Enabled = isSkinLoaded && _currentSkin.CanUndo;
+            redoToolStripMenuItem.Enabled = isSkinLoaded && _currentSkin.CanRedo;
 
             Text = (_dirty?"* ":"")+(isSkinLoaded ? Path.GetFileNameWithoutExtension(_currentSkin.SkinPath) + ": " : String.Empty) + Application.ProductName;
         }
@@ -93,7 +102,7 @@ namespace PrimeSkin
         {
             UpdatePropertiesCombo();
             comboBoxSelection.SelectedItem = _currentSkin.Selected;
-            //UpdateProperties();
+            UpdateGui();
         }
 
         void _currentSkin_SelectedComponentPropertiesChanged(object sender, EventArgs e)
@@ -330,15 +339,22 @@ namespace PrimeSkin
             {
                 r.Add(ComponentType.Maximized);
 
-                linkLabelRegionAdd.Enabled = true;
+                addANewRegionToolStripMenuItem.Enabled = true;
                 var tmp = _currentSkin.RemoveMaximizedRegion(false); // Check for the last maximized region
-                linkLabelRegionRemove.Enabled = tmp!=null && tmp.Id > 0;
+                removeTheLastRegionToolStripMenuItem.Enabled = tmp!=null && tmp.Id > 0;
             }
             else
             {
-                linkLabelRegionAdd.Enabled = false;
-                linkLabelRegionRemove.Enabled = false;
+                addANewRegionToolStripMenuItem.Enabled = false;
+                removeTheLastRegionToolStripMenuItem.Enabled = false;
             }
+
+            // Update Gui
+            linkLabelRegionAdd.Enabled = addANewRegionToolStripMenuItem.Enabled;
+            linkLabelRegionRemove.Enabled = removeTheLastRegionToolStripMenuItem.Enabled;
+            keysToolStripMenuItem.Checked = checkBoxViewKeys.Checked;
+            screenToolStripMenuItem.Checked = checkBoxViewScreen.Checked;
+            regionsToolStripMenuItem.Checked = checkBoxViewRegions.Checked;
 
             if (checkBoxViewScreen.Checked)
                 r.Add(ComponentType.Screen);
@@ -354,13 +370,6 @@ namespace PrimeSkin
             _currentSkin.VisibleTypes = r.ToArray();
         }
 
-        private void linkLabelRegionAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            _currentSkin.AddMaximizedRegion();
-            SomethingChanged();
-            UpdateView();
-        }
-
         private void SomethingChanged()
         {
             if (!_dirty)
@@ -370,7 +379,36 @@ namespace PrimeSkin
             }
         }
 
-        private void linkLabelRegionRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void buttonUndo_Click(object sender, EventArgs e)
+        {
+            _currentSkin.Undo();
+            UpdateView();
+        }
+
+        private void buttonRedo_Click(object sender, EventArgs e)
+        {
+            _currentSkin.Redo();
+            UpdateView();
+        }
+
+        private void addANewRegionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRegion();
+        }
+
+        private void AddRegion()
+        {
+            _currentSkin.AddMaximizedRegion();
+            SomethingChanged();
+            UpdateView();
+        }
+
+        private void removeTheLastRegionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveRegion();
+        }
+
+        private void RemoveRegion()
         {
             var r = _currentSkin.RemoveMaximizedRegion(false);
 
@@ -383,6 +421,51 @@ namespace PrimeSkin
                 SomethingChanged();
                 UpdateView();
             }
+        }
+
+        private void linkLabelRegionAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AddRegion();
+        }
+
+        private void linkLabelRegionRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RemoveRegion();
+        }
+
+        private void keysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checkBoxViewKeys.Checked = !checkBoxViewKeys.Checked;
+        }
+
+        private void screenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checkBoxViewScreen.Checked = !checkBoxViewScreen.Checked;
+        }
+
+        private void regionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checkBoxViewRegions.Checked = !checkBoxViewRegions.Checked;
+        }
+
+        private void allComponentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checkBoxViewAll.Checked = true;
+        }
+
+        private void hideAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checkBoxViewAll.Checked = false;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormAbout().ShowDialog();
         }
     }
 }

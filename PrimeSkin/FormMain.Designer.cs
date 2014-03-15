@@ -30,20 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.groupBoxSkin = new System.Windows.Forms.GroupBox();
-            this.buttonSaveAs = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonLoad = new System.Windows.Forms.Button();
             this.panelSkin = new System.Windows.Forms.Panel();
             this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.propertyGridComponent = new System.Windows.Forms.PropertyGrid();
             this.comboBoxSelection = new System.Windows.Forms.ComboBox();
-            this.groupBoxLayout = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.buttonBackground = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonBorderReset = new System.Windows.Forms.Button();
-            this.buttonBorderFind = new System.Windows.Forms.Button();
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabelRegionAdd = new System.Windows.Forms.LinkLabel();
             this.linkLabelRegionRemove = new System.Windows.Forms.LinkLabel();
@@ -54,61 +44,40 @@
             this.checkBoxViewAll = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBoxViewRegions = new System.Windows.Forms.CheckBox();
-            this.groupBoxSkin.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.buttonBackground = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.buttonBorderFind = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonBorderReset = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allComponentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.keysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.screenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.addANewRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeTheLastRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBoxProperties.SuspendLayout();
-            this.groupBoxLayout.SuspendLayout();
             this.groupBoxView.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBoxSkin
-            // 
-            this.groupBoxSkin.Controls.Add(this.buttonSaveAs);
-            this.groupBoxSkin.Controls.Add(this.buttonSave);
-            this.groupBoxSkin.Controls.Add(this.buttonLoad);
-            this.groupBoxSkin.Location = new System.Drawing.Point(12, 12);
-            this.groupBoxSkin.Name = "groupBoxSkin";
-            this.groupBoxSkin.Size = new System.Drawing.Size(255, 59);
-            this.groupBoxSkin.TabIndex = 0;
-            this.groupBoxSkin.TabStop = false;
-            this.groupBoxSkin.Text = "Skin";
-            // 
-            // buttonSaveAs
-            // 
-            this.buttonSaveAs.Location = new System.Drawing.Point(171, 19);
-            this.buttonSaveAs.Name = "buttonSaveAs";
-            this.buttonSaveAs.Size = new System.Drawing.Size(75, 27);
-            this.buttonSaveAs.TabIndex = 2;
-            this.buttonSaveAs.Text = "Save &as...";
-            this.buttonSaveAs.UseVisualStyleBackColor = true;
-            this.buttonSaveAs.Click += new System.EventHandler(this.buttonSaveAs_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
-            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSave.Location = new System.Drawing.Point(90, 19);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 27);
-            this.buttonSave.TabIndex = 1;
-            this.buttonSave.Text = "&Save";
-            this.buttonSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // buttonLoad
-            // 
-            this.buttonLoad.Image = ((System.Drawing.Image)(resources.GetObject("buttonLoad.Image")));
-            this.buttonLoad.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonLoad.Location = new System.Drawing.Point(9, 19);
-            this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(75, 27);
-            this.buttonLoad.TabIndex = 0;
-            this.buttonLoad.Text = "&Load...";
-            this.buttonLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonLoad.UseVisualStyleBackColor = true;
-            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // panelSkin
             // 
@@ -119,9 +88,9 @@
             this.panelSkin.AutoScrollMargin = new System.Drawing.Size(3, 3);
             this.panelSkin.BackColor = System.Drawing.Color.White;
             this.panelSkin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSkin.Location = new System.Drawing.Point(275, 12);
+            this.panelSkin.Location = new System.Drawing.Point(254, 27);
             this.panelSkin.Name = "panelSkin";
-            this.panelSkin.Size = new System.Drawing.Size(437, 637);
+            this.panelSkin.Size = new System.Drawing.Size(458, 622);
             this.panelSkin.TabIndex = 4;
             // 
             // groupBoxProperties
@@ -130,106 +99,35 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxProperties.Controls.Add(this.propertyGridComponent);
             this.groupBoxProperties.Controls.Add(this.comboBoxSelection);
-            this.groupBoxProperties.Location = new System.Drawing.Point(12, 295);
+            this.groupBoxProperties.Location = new System.Drawing.Point(12, 115);
             this.groupBoxProperties.Name = "groupBoxProperties";
-            this.groupBoxProperties.Size = new System.Drawing.Size(255, 354);
+            this.groupBoxProperties.Size = new System.Drawing.Size(234, 534);
             this.groupBoxProperties.TabIndex = 3;
             this.groupBoxProperties.TabStop = false;
             this.groupBoxProperties.Text = "&Properties";
             // 
             // propertyGridComponent
             // 
-            this.propertyGridComponent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.propertyGridComponent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.propertyGridComponent.Location = new System.Drawing.Point(9, 46);
             this.propertyGridComponent.Name = "propertyGridComponent";
-            this.propertyGridComponent.Size = new System.Drawing.Size(237, 291);
+            this.propertyGridComponent.Size = new System.Drawing.Size(216, 478);
             this.propertyGridComponent.TabIndex = 1;
             this.propertyGridComponent.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGridComponent_PropertyValueChanged);
             // 
             // comboBoxSelection
             // 
+            this.comboBoxSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelection.FormattingEnabled = true;
             this.comboBoxSelection.Location = new System.Drawing.Point(9, 19);
             this.comboBoxSelection.Name = "comboBoxSelection";
-            this.comboBoxSelection.Size = new System.Drawing.Size(237, 21);
+            this.comboBoxSelection.Size = new System.Drawing.Size(216, 21);
             this.comboBoxSelection.TabIndex = 0;
             this.comboBoxSelection.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelection_SelectedIndexChanged);
-            // 
-            // groupBoxLayout
-            // 
-            this.groupBoxLayout.Controls.Add(this.button2);
-            this.groupBoxLayout.Controls.Add(this.buttonBackground);
-            this.groupBoxLayout.Controls.Add(this.label1);
-            this.groupBoxLayout.Controls.Add(this.buttonBorderReset);
-            this.groupBoxLayout.Controls.Add(this.buttonBorderFind);
-            this.groupBoxLayout.Location = new System.Drawing.Point(12, 77);
-            this.groupBoxLayout.Name = "groupBoxLayout";
-            this.groupBoxLayout.Size = new System.Drawing.Size(255, 124);
-            this.groupBoxLayout.TabIndex = 1;
-            this.groupBoxLayout.TabStop = false;
-            this.groupBoxLayout.Text = "Layout";
-            // 
-            // button2
-            // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(73, 52);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 27);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "&Apply a template layout...";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            // 
-            // buttonBackground
-            // 
-            this.buttonBackground.Image = ((System.Drawing.Image)(resources.GetObject("buttonBackground.Image")));
-            this.buttonBackground.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonBackground.Location = new System.Drawing.Point(9, 19);
-            this.buttonBackground.Name = "buttonBackground";
-            this.buttonBackground.Size = new System.Drawing.Size(237, 27);
-            this.buttonBackground.TabIndex = 0;
-            this.buttonBackground.Text = "&Change background image...";
-            this.buttonBackground.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonBackground.UseVisualStyleBackColor = true;
-            this.buttonBackground.Click += new System.EventHandler(this.buttonBackground_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Border used for chromeless mode:";
-            // 
-            // buttonBorderReset
-            // 
-            this.buttonBorderReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonBorderReset.Enabled = false;
-            this.buttonBorderReset.Location = new System.Drawing.Point(171, 83);
-            this.buttonBorderReset.Name = "buttonBorderReset";
-            this.buttonBorderReset.Size = new System.Drawing.Size(75, 27);
-            this.buttonBorderReset.TabIndex = 2;
-            this.buttonBorderReset.Text = "&Reset";
-            this.toolTipInfo.SetToolTip(this.buttonBorderReset, "Resets the border to a rectangle");
-            this.buttonBorderReset.UseVisualStyleBackColor = true;
-            this.buttonBorderReset.Click += new System.EventHandler(this.buttonBorderReset_Click);
-            // 
-            // buttonBorderFind
-            // 
-            this.buttonBorderFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonBorderFind.Enabled = false;
-            this.buttonBorderFind.Location = new System.Drawing.Point(9, 83);
-            this.buttonBorderFind.Name = "buttonBorderFind";
-            this.buttonBorderFind.Size = new System.Drawing.Size(156, 27);
-            this.buttonBorderFind.TabIndex = 1;
-            this.buttonBorderFind.Text = "Re&build from background";
-            this.toolTipInfo.SetToolTip(this.buttonBorderFind, "Creates a border using the top left pixel of the background image as reference");
-            this.buttonBorderFind.UseVisualStyleBackColor = true;
-            this.buttonBorderFind.Click += new System.EventHandler(this.buttonBorderFind_Click);
             // 
             // linkLabelRegionAdd
             // 
@@ -259,15 +157,17 @@
             // groupBoxView
             // 
             this.groupBoxView.Controls.Add(this.tableLayoutPanel1);
-            this.groupBoxView.Location = new System.Drawing.Point(12, 207);
+            this.groupBoxView.Location = new System.Drawing.Point(12, 27);
             this.groupBoxView.Name = "groupBoxView";
-            this.groupBoxView.Size = new System.Drawing.Size(255, 82);
+            this.groupBoxView.Size = new System.Drawing.Size(234, 82);
             this.groupBoxView.TabIndex = 2;
             this.groupBoxView.TabStop = false;
             this.groupBoxView.Text = "View";
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -280,7 +180,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(237, 57);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(216, 57);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // checkBoxViewScreen
@@ -298,7 +198,7 @@
             // checkBoxViewKeys
             // 
             this.checkBoxViewKeys.AutoSize = true;
-            this.checkBoxViewKeys.Location = new System.Drawing.Point(118, 0);
+            this.checkBoxViewKeys.Location = new System.Drawing.Point(108, 0);
             this.checkBoxViewKeys.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxViewKeys.Name = "checkBoxViewKeys";
             this.checkBoxViewKeys.Size = new System.Drawing.Size(49, 17);
@@ -324,10 +224,10 @@
             this.flowLayoutPanel1.Controls.Add(this.checkBoxViewRegions);
             this.flowLayoutPanel1.Controls.Add(this.linkLabelRegionAdd);
             this.flowLayoutPanel1.Controls.Add(this.linkLabelRegionRemove);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(118, 20);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(108, 20);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(119, 37);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(108, 37);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // checkBoxViewRegions
@@ -343,50 +243,275 @@
             this.checkBoxViewRegions.UseVisualStyleBackColor = true;
             this.checkBoxViewRegions.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(724, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonLoad,
+            this.toolStripMenuItem6,
+            this.buttonSave,
+            this.buttonSaveAs,
+            this.toolStripMenuItem1,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // buttonLoad
+            // 
+            this.buttonLoad.Image = ((System.Drawing.Image)(resources.GetObject("buttonLoad.Image")));
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.buttonLoad.Size = new System.Drawing.Size(155, 22);
+            this.buttonLoad.Text = "&Open...";
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.buttonSave.Size = new System.Drawing.Size(155, 22);
+            this.buttonSave.Text = "&Save";
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonSaveAs
+            // 
+            this.buttonSaveAs.Name = "buttonSaveAs";
+            this.buttonSaveAs.Size = new System.Drawing.Size(155, 22);
+            this.buttonSaveAs.Text = "Save &as...";
+            this.buttonSaveAs.Click += new System.EventHandler(this.buttonSaveAs_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exitToolStripMenuItem.Text = "&Quit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoToolStripMenuItem,
+            this.redoToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.buttonBackground,
+            this.toolStripMenuItem2,
+            this.buttonBorderFind,
+            this.buttonBorderReset});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "&Edit";
+            // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.undoToolStripMenuItem.Text = "&Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.buttonUndo_Click);
+            // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.redoToolStripMenuItem.Text = "&Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.buttonRedo_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(279, 6);
+            // 
+            // buttonBackground
+            // 
+            this.buttonBackground.Image = ((System.Drawing.Image)(resources.GetObject("buttonBackground.Image")));
+            this.buttonBackground.Name = "buttonBackground";
+            this.buttonBackground.Size = new System.Drawing.Size(282, 22);
+            this.buttonBackground.Text = "&Change skin image...";
+            this.buttonBackground.Click += new System.EventHandler(this.buttonBackground_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(279, 6);
+            // 
+            // buttonBorderFind
+            // 
+            this.buttonBorderFind.Name = "buttonBorderFind";
+            this.buttonBorderFind.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.buttonBorderFind.Size = new System.Drawing.Size(266, 22);
+            this.buttonBorderFind.Text = "&Rebuild skin border from image";
+            this.buttonBorderFind.Click += new System.EventHandler(this.buttonBorderFind_Click);
+            // 
+            // buttonBorderReset
+            // 
+            this.buttonBorderReset.Name = "buttonBorderReset";
+            this.buttonBorderReset.ShortcutKeys = System.Windows.Forms.Keys.F12;
+            this.buttonBorderReset.Size = new System.Drawing.Size(266, 22);
+            this.buttonBorderReset.Text = "Reset &border";
+            this.buttonBorderReset.Click += new System.EventHandler(this.buttonBorderReset_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allComponentsToolStripMenuItem,
+            this.hideAllToolStripMenuItem,
+            this.toolStripMenuItem4,
+            this.keysToolStripMenuItem,
+            this.screenToolStripMenuItem,
+            this.regionsToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.addANewRegionToolStripMenuItem,
+            this.removeTheLastRegionToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "&View";
+            // 
+            // allComponentsToolStripMenuItem
+            // 
+            this.allComponentsToolStripMenuItem.Name = "allComponentsToolStripMenuItem";
+            this.allComponentsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.allComponentsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.allComponentsToolStripMenuItem.Text = "&Show all";
+            this.allComponentsToolStripMenuItem.Click += new System.EventHandler(this.allComponentsToolStripMenuItem_Click);
+            // 
+            // hideAllToolStripMenuItem
+            // 
+            this.hideAllToolStripMenuItem.Name = "hideAllToolStripMenuItem";
+            this.hideAllToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.hideAllToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.hideAllToolStripMenuItem.Text = "&Hide all";
+            this.hideAllToolStripMenuItem.Click += new System.EventHandler(this.hideAllToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(201, 6);
+            // 
+            // keysToolStripMenuItem
+            // 
+            this.keysToolStripMenuItem.Name = "keysToolStripMenuItem";
+            this.keysToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.keysToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.keysToolStripMenuItem.Text = "Keys";
+            this.keysToolStripMenuItem.Click += new System.EventHandler(this.keysToolStripMenuItem_Click);
+            // 
+            // screenToolStripMenuItem
+            // 
+            this.screenToolStripMenuItem.Name = "screenToolStripMenuItem";
+            this.screenToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.screenToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.screenToolStripMenuItem.Text = "Screen";
+            this.screenToolStripMenuItem.Click += new System.EventHandler(this.screenToolStripMenuItem_Click);
+            // 
+            // regionsToolStripMenuItem
+            // 
+            this.regionsToolStripMenuItem.Name = "regionsToolStripMenuItem";
+            this.regionsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
+            this.regionsToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.regionsToolStripMenuItem.Text = "Regions";
+            this.regionsToolStripMenuItem.Click += new System.EventHandler(this.regionsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(201, 6);
+            // 
+            // addANewRegionToolStripMenuItem
+            // 
+            this.addANewRegionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addANewRegionToolStripMenuItem.Image")));
+            this.addANewRegionToolStripMenuItem.Name = "addANewRegionToolStripMenuItem";
+            this.addANewRegionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.addANewRegionToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.addANewRegionToolStripMenuItem.Text = "&Add a new region";
+            this.addANewRegionToolStripMenuItem.Click += new System.EventHandler(this.addANewRegionToolStripMenuItem_Click);
+            // 
+            // removeTheLastRegionToolStripMenuItem
+            // 
+            this.removeTheLastRegionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("removeTheLastRegionToolStripMenuItem.Image")));
+            this.removeTheLastRegionToolStripMenuItem.Name = "removeTheLastRegionToolStripMenuItem";
+            this.removeTheLastRegionToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.removeTheLastRegionToolStripMenuItem.Text = "&Remove the last region...";
+            this.removeTheLastRegionToolStripMenuItem.Click += new System.EventHandler(this.removeTheLastRegionToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "&About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 6);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 661);
             this.Controls.Add(this.groupBoxView);
-            this.Controls.Add(this.groupBoxLayout);
             this.Controls.Add(this.groupBoxProperties);
             this.Controls.Add(this.panelSkin);
-            this.Controls.Add(this.groupBoxSkin);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(580, 480);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
-            this.groupBoxSkin.ResumeLayout(false);
             this.groupBoxProperties.ResumeLayout(false);
-            this.groupBoxLayout.ResumeLayout(false);
-            this.groupBoxLayout.PerformLayout();
             this.groupBoxView.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBoxSkin;
         private System.Windows.Forms.Panel panelSkin;
-        private System.Windows.Forms.Button buttonSaveAs;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.GroupBox groupBoxProperties;
         private System.Windows.Forms.PropertyGrid propertyGridComponent;
         private System.Windows.Forms.ComboBox comboBoxSelection;
-        private System.Windows.Forms.GroupBox groupBoxLayout;
-        private System.Windows.Forms.Button buttonBackground;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonBorderFind;
-        private System.Windows.Forms.Button buttonBorderReset;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolTip toolTipInfo;
         private System.Windows.Forms.GroupBox groupBoxView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -397,6 +522,34 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabelRegionAdd;
         private System.Windows.Forms.LinkLabel linkLabelRegionRemove;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buttonLoad;
+        private System.Windows.Forms.ToolStripMenuItem buttonSave;
+        private System.Windows.Forms.ToolStripMenuItem buttonSaveAs;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allComponentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem keysToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem addANewRegionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeTheLastRegionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buttonBackground;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem buttonBorderFind;
+        private System.Windows.Forms.ToolStripMenuItem buttonBorderReset;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hideAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
     }
 }
 
