@@ -114,33 +114,35 @@ namespace PrimeSkin
         {
             _pictureBox.Parent.Focus(); // Fix the mouse wheel scroll
 
-            if (Selected == null) return;
-
-            if (_isMoving)
+            if (Selected != null)
             {
-                if (!_controlMove.Contains(e.Location))
-                    _lastPosition = _controlMove.GetCenter();
+                if (_isMoving)
+                {
+                    if (!_controlMove.Contains(e.Location))
+                        _lastPosition = _controlMove.GetCenter();
 
-                Selected.Move(ref _lastPosition, e.Location);
-                _skin.Refresh(_pictureBox.ClientRectangle, true);
-                _pictureBox.Invalidate();
+                    Selected.Move(ref _lastPosition, e.Location);
+                    _skin.Refresh(_pictureBox.ClientRectangle, true);
+                    _pictureBox.Invalidate();
 
-            }
-            else if (_isResizing)
-            {
-                if (!_controlResize.Contains(e.Location))
-                    _lastPosition = _controlResize.GetCenter();
+                }
+                else if (_isResizing)
+                {
+                    if (!_controlResize.Contains(e.Location))
+                        _lastPosition = _controlResize.GetCenter();
 
-                Selected.Resize(ref _lastPosition, e.Location);
-                _skin.Refresh(_pictureBox.ClientRectangle, true);
-                _pictureBox.Invalidate();
+                    Selected.Resize(ref _lastPosition, e.Location);
+                    _skin.Refresh(_pictureBox.ClientRectangle, true);
+                    _pictureBox.Invalidate();
+                }
+                else
+                {
+                    // Change the cursor only for the resize, move mouse looks weird
+                    _pictureBox.Cursor = _controlResize.Contains(e.Location) ? Cursors.SizeNWSE : Cursors.Default;
+                }
             }
             else
-            {
-                // Change the cursor only for the resize, move mouse looks weird
-                _pictureBox.Cursor = _controlResize.Contains(e.Location) ? Cursors.SizeNWSE : Cursors.Default;
-            }
-
+                _pictureBox.Cursor = Cursors.Default;
         }
 
         void pictureBox_MouseDown(object sender, MouseEventArgs e)
@@ -421,7 +423,7 @@ namespace PrimeSkin
         {
             _undo.Undo();
             _skin = _undo.GetState();
-
+            
             OnComponentsChanged();
             Selected = null;
         }
