@@ -160,32 +160,31 @@ namespace PrimeSkin
             return null;
         }
 
-        internal void Refresh(Rectangle _pictureBox, bool recalculateBounds = false)
+        internal void Refresh(Rectangle bounds, bool recalculateBounds = false)
         {
             if (recalculateBounds)
             {
                 foreach (var k in Components)
                 {
-                    if (!_pictureBox.Contains(k.Rectangle) || k.Rectangle.Height < 0 || k.Rectangle.Width < 0)
+                    if (!bounds.Contains(k.Rectangle) || k.Rectangle.Height < 0 || k.Rectangle.Width < 0)
                     {
                         // Adjust position and size
-                        var p = new Point(Math.Min(_pictureBox.Width, Math.Max(0, k.Rectangle.Location.X)),
-                            Math.Min(_pictureBox.Height, Math.Max(k.Rectangle.Location.Y, 0)));
+                        var p = new Point(Math.Min(bounds.Width, Math.Max(0, k.Rectangle.Location.X)),
+                            Math.Min(bounds.Height, Math.Max(k.Rectangle.Location.Y, 0)));
 
                         var s = new Size(Math.Max(0, k.Rectangle.Size.Width), Math.Max(0, k.Rectangle.Size.Height));
 
-                        if (p.X + s.Width > _pictureBox.Width)
-                            s.Width = _pictureBox.Width - p.X;
+                        if (p.X + s.Width > bounds.Width)
+                            s.Width = bounds.Width - p.X;
 
-                        if (p.Y + s.Height > _pictureBox.Height)
-                            s.Height = _pictureBox.Height - p.Y;
+                        if (p.Y + s.Height > bounds.Height)
+                            s.Height = bounds.Height - p.Y;
 
                         k.Rectangle = new Rectangle(p, s);
                     }
                 }
             }
         }
-
 
         /// <summary>
         /// Base directory 
@@ -236,14 +235,14 @@ namespace PrimeSkin
             _borderPoints = new MarchingSquares().DoMarch(new Bitmap(_background));
         }
 
-        internal VirtualMaximized AddMaximizedRegion(Rectangle _pictureBox)
+        internal VirtualMaximized AddMaximizedRegion(Rectangle bounds)
         {
             var last = RemoveMaximizedRegion(false);
 
             if (last == null)
                 return null;
 
-            var offset = new Point(0, last.Id == 0 ? 0 : _pictureBox.Height - last.Rectangle.Bottom > 0 ? last.Rectangle.Height : 0);
+            var offset = new Point(0, last.Id == 0 ? 0 : bounds.Height - last.Rectangle.Bottom > 0 ? last.Rectangle.Height : 0);
             var v = new VirtualMaximized
             {
                 Rectangle = new Rectangle(new Point(last.Rectangle.Location.X + offset.X,
@@ -252,8 +251,8 @@ namespace PrimeSkin
                 RelativeLocation = offset
             };
 
-            _components.Add(v);
-            Refresh(_pictureBox, true);
+            _components.InsertAfter(last,v);
+            Refresh(bounds, true);
 
             return v;
         }

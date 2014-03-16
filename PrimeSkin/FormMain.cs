@@ -1,4 +1,5 @@
-﻿using PrimeSkin.Properties;
+﻿using System.Diagnostics;
+using PrimeSkin.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -50,10 +51,18 @@ namespace PrimeSkin
             addANewRegionToolStripMenuItem.Enabled = isSkinLoaded;
             removeTheLastRegionToolStripMenuItem.Enabled = isSkinLoaded;
 
-            undoToolStripMenuItem.Enabled = isSkinLoaded && _currentSkin.CanUndo;
-            redoToolStripMenuItem.Enabled = isSkinLoaded && _currentSkin.CanRedo;
+            UpdateUndoRedoMenu();
 
             Text = (_dirty?"* ":"")+(isSkinLoaded ? Path.GetFileNameWithoutExtension(_currentSkin.SkinPath) + ": " : String.Empty) + Application.ProductName;
+        }
+
+        private void UpdateUndoRedoMenu()
+        {
+            Debug.WriteLine("Checking UndoRedo...");
+            var isSkinLoaded = _currentSkin != null;
+            undoToolStripMenuItem.Enabled = isSkinLoaded && _currentSkin.CanUndo;
+            redoToolStripMenuItem.Enabled = isSkinLoaded && _currentSkin.CanRedo;
+            Debug.WriteLine("Undo: " + undoToolStripMenuItem.Enabled + ", Redo: " + redoToolStripMenuItem.Enabled);
         }
 
         private void LoadSkin(string path)
