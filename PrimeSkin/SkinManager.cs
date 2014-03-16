@@ -52,6 +52,7 @@ namespace PrimeSkin
             _undo = new UndoRedoManager<Skin>(10);
             _skin = new Skin(SkinPath);
             _undo.SaveState(_skin);
+            _undo.StateChanged += (o, args) => OnComponentsChanged();
 
             _pictureBox.Size = new Size(_skin.SkinSize.Width * 3, _skin.SkinSize.Height * 3);
 
@@ -407,6 +408,7 @@ namespace PrimeSkin
             else
             {
                 _skin.Refresh(_pictureBox.ClientRectangle, true);
+                _undo.SaveState(_skin);
                 _pictureBox.Invalidate();
             }
         }
@@ -417,6 +419,8 @@ namespace PrimeSkin
                 _skin.FindBorder();
             else
                 _skin.Border = null;
+
+            _undo.SaveState(_skin);
         }
 
         internal void Undo()

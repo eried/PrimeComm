@@ -24,23 +24,26 @@ namespace PrimeSkin
 
         public void SaveState(T state)
         {
-            Debug.WriteLine("Saving!");
+            Debug.WriteLine("Saving! undo: " + _undoLinkedList.Count + ", redo: "+ _redoStack.Count);
 
             while (_undoLinkedList.Count() > Capacity)
                 _undoLinkedList.RemoveFirst();
 
             _undoLinkedList.AddLast((T) ((ICloneable)state).Clone());
             _redoStack.Clear();
+            Debug.WriteLine("Done. undo: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
+            OnStateChanged();
         }
 
         public void Undo()
         {
+            Debug.WriteLine("Undoing: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
             if (CanUndo)
             {
                 _redoStack.Push(_undoLinkedList.Last.Value);
                 _undoLinkedList.RemoveLast();
             }
-
+            Debug.WriteLine("Done. undo: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
             OnStateChanged();
         }
 
@@ -51,9 +54,10 @@ namespace PrimeSkin
 
         public void Redo()
         {
+            Debug.WriteLine("Redoing: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
             if (CanRedo)
                 _undoLinkedList.AddLast(_redoStack.Pop());
-
+            Debug.WriteLine("Done. undo: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
             OnStateChanged();
         }
 
@@ -64,7 +68,7 @@ namespace PrimeSkin
 
         public T GetState()
         {
-            return _undoLinkedList.Last.Value;
+            return (T) ((ICloneable) _undoLinkedList.Last.Value).Clone();
         }
 
         public event EventHandler<EventArgs> StateChanged;
