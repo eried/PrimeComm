@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Xml.Serialization;
 
 namespace PrimeSkin
 {
+    /// <summary>
+    /// Generic Undo Redo manager
+    /// </summary>
+    /// <typeparam name="T">Type</typeparam>
     internal class UndoRedoManager<T> where T : class
     {
         private readonly LinkedList<T> _undoLinkedList;
@@ -22,29 +23,29 @@ namespace PrimeSkin
             _redoStack = new Stack<T>();
         }
 
+        /// <summary>
+        /// Pushes the state to the undo list, clearing the redo
+        /// </summary>
+        /// <param name="state">State to save</param>
         public void SaveState(T state)
         {
-            Debug.WriteLine("Saving! undo: " + _undoLinkedList.Count + ", redo: "+ _redoStack.Count);
-
             while (_undoLinkedList.Count() > Capacity)
                 _undoLinkedList.RemoveFirst();
 
             _undoLinkedList.AddLast((T) ((ICloneable)state).Clone());
             _redoStack.Clear();
-            Debug.WriteLine("Done. undo: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
-            OnStateChanged();
+
+            OnUndoRedoStateChanged();
         }
 
         public void Undo()
         {
-            Debug.WriteLine("Undoing: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
             if (CanUndo)
             {
                 _redoStack.Push(_undoLinkedList.Last.Value);
                 _undoLinkedList.RemoveLast();
             }
-            Debug.WriteLine("Done. undo: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
-            OnStateChanged();
+            OnUndoRedoStateChanged();
         }
 
         public bool CanUndo
@@ -54,11 +55,10 @@ namespace PrimeSkin
 
         public void Redo()
         {
-            Debug.WriteLine("Redoing: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
             if (CanRedo)
                 _undoLinkedList.AddLast(_redoStack.Pop());
-            Debug.WriteLine("Done. undo: " + _undoLinkedList.Count + ", redo: " + _redoStack.Count);
-            OnStateChanged();
+
+            OnUndoRedoStateChanged();
         }
 
         public bool CanRedo
@@ -66,16 +66,23 @@ namespace PrimeSkin
             get { return _redoStack.Count > 0; }
         }
 
+        /// <summary>
+        /// Returns a cloned copy of the current state
+        /// </summary>
+        /// <returns>Last saved state</returns>
         public T GetState()
         {
             return (T) ((ICloneable) _undoLinkedList.Last.Value).Clone();
         }
 
-        public event EventHandler<EventArgs> StateChanged;
+        /// <summary>
+        /// Occurs when the current state has changed
+        /// </summary>
+        public event EventHandler<EventArgs> UndoRedoStateChanged;
 
-        protected virtual void OnStateChanged()
+        protected virtual void OnUndoRedoStateChanged()
         {
-            var handler = StateChanged;
+            var handler = UndoRedoStateChanged;
             if (handler != null) handler(this, EventArgs.Empty);
         }
     }

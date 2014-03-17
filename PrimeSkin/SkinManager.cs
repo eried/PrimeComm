@@ -5,7 +5,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace PrimeSkin
@@ -52,7 +51,7 @@ namespace PrimeSkin
             _undo = new UndoRedoManager<Skin>(10);
             _skin = new Skin(SkinPath);
             _undo.SaveState(_skin);
-            _undo.StateChanged += (o, args) => OnComponentsChanged();
+            _undo.UndoRedoStateChanged += (o, args) => OnComponentsChanged();
 
             _pictureBox.Size = new Size(_skin.SkinSize.Width * 3, _skin.SkinSize.Height * 3);
 

@@ -58,11 +58,9 @@ namespace PrimeSkin
 
         private void UpdateUndoRedoMenu()
         {
-            Debug.WriteLine("Checking UndoRedo...");
             var isSkinLoaded = _currentSkin != null;
             undoToolStripMenuItem.Enabled = isSkinLoaded && _currentSkin.CanUndo;
             redoToolStripMenuItem.Enabled = isSkinLoaded && _currentSkin.CanRedo;
-            Debug.WriteLine("Undo: " + undoToolStripMenuItem.Enabled + ", Redo: " + redoToolStripMenuItem.Enabled);
         }
 
         private void LoadSkin(string path)
