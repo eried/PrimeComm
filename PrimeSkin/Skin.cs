@@ -160,30 +160,10 @@ namespace PrimeSkin
             return null;
         }
 
-        internal void Refresh(Rectangle bounds, bool recalculateBounds = false)
+        internal void RecalculateLayouts(Rectangle bounds)
         {
-            if (recalculateBounds)
-            {
-                foreach (var k in Components)
-                {
-                    if (!bounds.Contains(k.Rectangle) || k.Rectangle.Height < 0 || k.Rectangle.Width < 0)
-                    {
-                        // Adjust position and size
-                        var p = new Point(Math.Min(bounds.Width, Math.Max(0, k.Rectangle.Location.X)),
-                            Math.Min(bounds.Height, Math.Max(k.Rectangle.Location.Y, 0)));
-
-                        var s = new Size(Math.Max(0, k.Rectangle.Size.Width), Math.Max(0, k.Rectangle.Size.Height));
-
-                        if (p.X + s.Width > bounds.Width)
-                            s.Width = bounds.Width - p.X;
-
-                        if (p.Y + s.Height > bounds.Height)
-                            s.Height = bounds.Height - p.Y;
-
-                        k.Rectangle = new Rectangle(p, s);
-                    }
-                }
-            }
+            foreach (var k in Components)
+                k.RecalculateLayout(bounds);
         }
 
         /// <summary>
@@ -252,7 +232,7 @@ namespace PrimeSkin
             };
 
             _components.InsertAfter(last,v);
-            Refresh(bounds, true);
+            RecalculateLayouts(bounds);
 
             return v;
         }
