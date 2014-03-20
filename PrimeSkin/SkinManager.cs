@@ -121,8 +121,7 @@ namespace PrimeSkin
                     if (!_controlMove.Contains(e.Location))
                         _lastPosition = _controlMove.GetCenter();
 
-                    Selected.Move(ref _lastPosition, e.Location);
-                    _skin.Refresh(_pictureBox.ClientRectangle, true);
+                    Selected.Move(ref _lastPosition, e.Location, _pictureBox.ClientRectangle);
                     _pictureBox.Invalidate();
 
                 }
@@ -131,8 +130,7 @@ namespace PrimeSkin
                     if (!_controlResize.Contains(e.Location))
                         _lastPosition = _controlResize.GetCenter();
 
-                    Selected.Resize(ref _lastPosition, e.Location);
-                    _skin.Refresh(_pictureBox.ClientRectangle, true);
+                    Selected.Resize(ref _lastPosition, e.Location, _pictureBox.ClientRectangle);
                     _pictureBox.Invalidate();
                 }
                 else
@@ -406,9 +404,9 @@ namespace PrimeSkin
                 _pictureBox.Invalidate();
             else
             {
-                _skin.Refresh(_pictureBox.ClientRectangle, true);
-                _undo.SaveState(_skin);
+                _skin.RecalculateLayouts(_pictureBox.ClientRectangle);
                 _pictureBox.Invalidate();
+                _undo.SaveState(_skin);
             }
         }
 
