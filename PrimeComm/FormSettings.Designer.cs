@@ -209,7 +209,6 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Enabled = false;
             this.linkLabel1.Location = new System.Drawing.Point(269, 48);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(66, 15);
@@ -220,7 +219,6 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Enabled = false;
             this.checkBox3.Location = new System.Drawing.Point(15, 47);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(239, 19);

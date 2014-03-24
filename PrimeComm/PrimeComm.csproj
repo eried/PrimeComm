@@ -38,6 +38,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutomaticUpdater">
+      <HintPath>C:\Program Files (x86)\wyBuild\AutomaticUpdater\Microsoft .NET 4.0\AutomaticUpdater.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -109,6 +112,9 @@
     </Compile>
     <Compile Include="SendResults.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
@@ -153,6 +159,10 @@
       <Project>{7bf31f37-800f-4465-975f-7d1bd9636f05}</Project>
       <Name>PrimeLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrimeSkin\PrimeSkin.csproj">
+      <Project>{6fc49e68-59b2-4749-95bb-7eb1fcf62867}</Project>
+      <Name>PrimeSkin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ScintillaNet\2.5\ScintillaNET\ScintillaNET.csproj">
       <Project>{f9b6dabd-bbc1-4638-8ce6-a5c9506bfdcb}</Project>
       <Name>ScintillaNET</Name>
@@ -164,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
+    <None Include="img\new\primeskin.png" />
     <None Include="img\settings.png" />
     <None Include="img\new\recent.png" />
     <None Include="img\new\info.png" />
