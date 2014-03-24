@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.automaticUpdater = new wyDay.Controls.AutomaticUpdater();
             this.labelStatusSubtitle = new System.Windows.Forms.Label();
             this.pictureBoxStatus = new System.Windows.Forms.PictureBox();
             this.buttonReceive = new System.Windows.Forms.Button();
-            this.buttonSend = new System.Windows.Forms.Button();
             this.buttonCaptureScreen = new System.Windows.Forms.Button();
             this.openFilesDialogProgram = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogProgram = new System.Windows.Forms.SaveFileDialog();
@@ -69,8 +69,9 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.captureScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.virtualHPPrimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectivityKitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.primeSkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.virtualHPPrimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.commandLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,31 +82,59 @@
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorkerServer = new System.ComponentModel.BackgroundWorker();
             this.toolTipHints = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStripSend = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sendFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendFileToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuReceive = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.receiveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelReceiveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonSend = new wyDay.Controls.SplitButton();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.automaticUpdater)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             this.menuStripMain.SuspendLayout();
+            this.contextMenuStripSend.SuspendLayout();
+            this.contextMenuReceive.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.automaticUpdater);
             this.groupBox1.Controls.Add(this.labelStatusSubtitle);
             this.groupBox1.Controls.Add(this.pictureBoxStatus);
             this.groupBox1.Location = new System.Drawing.Point(12, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(277, 93);
+            this.groupBox1.Size = new System.Drawing.Size(338, 93);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
             // 
+            // automaticUpdater
+            // 
+            this.automaticUpdater.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.automaticUpdater.ContainerForm = this;
+            this.automaticUpdater.DaysBetweenChecks = 7;
+            this.automaticUpdater.GUID = "8085933a-22bb-4780-a3e8-0b8af6316817";
+            this.automaticUpdater.Location = new System.Drawing.Point(316, 19);
+            this.automaticUpdater.Name = "automaticUpdater";
+            this.automaticUpdater.Size = new System.Drawing.Size(16, 16);
+            this.automaticUpdater.TabIndex = 1;
+            this.automaticUpdater.wyUpdateCommandline = null;
+            // 
             // labelStatusSubtitle
             // 
-            this.labelStatusSubtitle.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelStatusSubtitle.Location = new System.Drawing.Point(80, 19);
+            this.labelStatusSubtitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelStatusSubtitle.Location = new System.Drawing.Point(85, 19);
             this.labelStatusSubtitle.Name = "labelStatusSubtitle";
-            this.labelStatusSubtitle.Size = new System.Drawing.Size(194, 71);
-            this.labelStatusSubtitle.TabIndex = 1;
+            this.labelStatusSubtitle.Size = new System.Drawing.Size(250, 71);
+            this.labelStatusSubtitle.TabIndex = 0;
             this.labelStatusSubtitle.Text = "Unknown";
             this.labelStatusSubtitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -122,39 +151,22 @@
             // 
             // buttonReceive
             // 
-            this.buttonReceive.Location = new System.Drawing.Point(12, 138);
+            this.buttonReceive.Location = new System.Drawing.Point(104, 137);
             this.buttonReceive.Name = "buttonReceive";
-            this.buttonReceive.Size = new System.Drawing.Size(79, 24);
-            this.buttonReceive.TabIndex = 1;
+            this.buttonReceive.Size = new System.Drawing.Size(67, 25);
+            this.buttonReceive.TabIndex = 4;
             this.buttonReceive.Text = "&Receive";
             this.buttonReceive.UseVisualStyleBackColor = true;
             this.buttonReceive.Click += new System.EventHandler(this.buttonReceive_Click);
             // 
-            // buttonSend
-            // 
-            this.buttonSend.AllowDrop = true;
-            this.buttonSend.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
-            this.buttonSend.Location = new System.Drawing.Point(97, 138);
-            this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(79, 24);
-            this.buttonSend.TabIndex = 1;
-            this.buttonSend.Text = "&Send";
-            this.buttonSend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
-            this.buttonSend.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
-            this.buttonSend.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
-            // 
             // buttonCaptureScreen
             // 
-            this.buttonCaptureScreen.Location = new System.Drawing.Point(182, 138);
+            this.buttonCaptureScreen.Location = new System.Drawing.Point(243, 137);
             this.buttonCaptureScreen.Name = "buttonCaptureScreen";
-            this.buttonCaptureScreen.Size = new System.Drawing.Size(107, 24);
-            this.buttonCaptureScreen.TabIndex = 1;
+            this.buttonCaptureScreen.Size = new System.Drawing.Size(107, 25);
+            this.buttonCaptureScreen.TabIndex = 2;
             this.buttonCaptureScreen.Text = "&Screen capture";
             this.buttonCaptureScreen.UseVisualStyleBackColor = true;
-            this.buttonCaptureScreen.Visible = false;
             this.buttonCaptureScreen.Click += new System.EventHandler(this.captureScreenToolStripMenuItem_Click);
             // 
             // openFilesDialogProgram
@@ -182,8 +194,8 @@
             this.helpToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(301, 24);
-            this.menuStripMain.TabIndex = 2;
+            this.menuStripMain.Size = new System.Drawing.Size(362, 24);
+            this.menuStripMain.TabIndex = 3;
             this.menuStripMain.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -407,7 +419,6 @@
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(193, 6);
-            this.toolStripMenuItem2.Visible = false;
             // 
             // captureScreenToolStripMenuItem
             // 
@@ -415,20 +426,34 @@
             this.captureScreenToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
             this.captureScreenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.captureScreenToolStripMenuItem.Text = "&Screen capture";
-            this.captureScreenToolStripMenuItem.Visible = false;
             this.captureScreenToolStripMenuItem.Click += new System.EventHandler(this.captureScreenToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.virtualHPPrimeToolStripMenuItem,
             this.connectivityKitToolStripMenuItem,
+            this.primeSkinToolStripMenuItem,
+            this.virtualHPPrimeToolStripMenuItem,
             this.toolStripMenuItem6,
             this.commandLineToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
-            this.toolsToolStripMenuItem.Visible = false;
+            // 
+            // connectivityKitToolStripMenuItem
+            // 
+            this.connectivityKitToolStripMenuItem.Name = "connectivityKitToolStripMenuItem";
+            this.connectivityKitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.connectivityKitToolStripMenuItem.Text = "Connectivity Kit";
+            this.connectivityKitToolStripMenuItem.Click += new System.EventHandler(this.connectivityKitToolStripMenuItem_Click);
+            // 
+            // primeSkinToolStripMenuItem
+            // 
+            this.primeSkinToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.primeskin;
+            this.primeSkinToolStripMenuItem.Name = "primeSkinToolStripMenuItem";
+            this.primeSkinToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.primeSkinToolStripMenuItem.Text = "PrimeSkin";
+            this.primeSkinToolStripMenuItem.Click += new System.EventHandler(this.primeSkinToolStripMenuItem_Click);
             // 
             // virtualHPPrimeToolStripMenuItem
             // 
@@ -437,13 +462,6 @@
             this.virtualHPPrimeToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.virtualHPPrimeToolStripMenuItem.Text = "&Virtual HP Prime";
             this.virtualHPPrimeToolStripMenuItem.Click += new System.EventHandler(this.virtualHPPrimeToolStripMenuItem_Click);
-            // 
-            // connectivityKitToolStripMenuItem
-            // 
-            this.connectivityKitToolStripMenuItem.Name = "connectivityKitToolStripMenuItem";
-            this.connectivityKitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.connectivityKitToolStripMenuItem.Text = "Connectivity Kit";
-            this.connectivityKitToolStripMenuItem.Click += new System.EventHandler(this.connectivityKitToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -472,13 +490,12 @@
             this.checkForANewVersionToolStripMenuItem.Name = "checkForANewVersionToolStripMenuItem";
             this.checkForANewVersionToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.checkForANewVersionToolStripMenuItem.Text = "Check for update";
-            this.checkForANewVersionToolStripMenuItem.Visible = false;
+            this.checkForANewVersionToolStripMenuItem.Click += new System.EventHandler(this.checkForANewVersionToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(162, 6);
-            this.toolStripMenuItem3.Visible = false;
             // 
             // aboutToolStripMenuItem
             // 
@@ -500,14 +517,94 @@
             this.backgroundWorkerServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerServer_DoWork);
             this.backgroundWorkerServer.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerServer_ProgressChanged);
             // 
+            // contextMenuStripSend
+            // 
+            this.contextMenuStripSend.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sendFileToolStripMenuItem,
+            this.sendClipboardToolStripMenuItem1,
+            this.sendFileToolStripSeparator,
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem1});
+            this.contextMenuStripSend.Name = "contextMenuStrip1";
+            this.contextMenuStripSend.Size = new System.Drawing.Size(154, 98);
+            // 
+            // sendFileToolStripMenuItem
+            // 
+            this.sendFileToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
+            this.sendFileToolStripMenuItem.Name = "sendFileToolStripMenuItem";
+            this.sendFileToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.sendFileToolStripMenuItem.Text = "&Send file...";
+            // 
+            // sendClipboardToolStripMenuItem1
+            // 
+            this.sendClipboardToolStripMenuItem1.Name = "sendClipboardToolStripMenuItem1";
+            this.sendClipboardToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.sendClipboardToolStripMenuItem1.Text = "Send clipboard";
+            // 
+            // sendFileToolStripSeparator
+            // 
+            this.sendFileToolStripSeparator.Name = "sendFileToolStripSeparator";
+            this.sendFileToolStripSeparator.Size = new System.Drawing.Size(150, 6);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_new;
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.newToolStripMenuItem.Text = "&New...";
+            // 
+            // openToolStripMenuItem1
+            // 
+            this.openToolStripMenuItem1.Image = global::PrimeComm.Properties.Resources.editor_open;
+            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.openToolStripMenuItem1.Text = "&Open...";
+            // 
+            // contextMenuReceive
+            // 
+            this.contextMenuReceive.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.receiveToolStripMenuItem1,
+            this.cancelReceiveToolStripMenuItem1});
+            this.contextMenuReceive.Name = "contextMenuReceive";
+            this.contextMenuReceive.Size = new System.Drawing.Size(151, 48);
+            // 
+            // receiveToolStripMenuItem1
+            // 
+            this.receiveToolStripMenuItem1.Name = "receiveToolStripMenuItem1";
+            this.receiveToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.receiveToolStripMenuItem1.Text = "&Receive file";
+            // 
+            // cancelReceiveToolStripMenuItem1
+            // 
+            this.cancelReceiveToolStripMenuItem1.Name = "cancelReceiveToolStripMenuItem1";
+            this.cancelReceiveToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.cancelReceiveToolStripMenuItem1.Text = "&Cancel receive";
+            // 
+            // buttonSend
+            // 
+            this.buttonSend.AutoSize = true;
+            this.buttonSend.ContextMenuStrip = this.contextMenuStripSend;
+            this.buttonSend.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
+            this.buttonSend.Location = new System.Drawing.Point(12, 137);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(86, 25);
+            this.buttonSend.SplitMenuStrip = this.contextMenuStripSend;
+            this.buttonSend.TabIndex = 5;
+            this.buttonSend.Text = "&Send...";
+            this.buttonSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            this.buttonSend.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.buttonSend.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
+            // 
             // FormMain
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 174);
-            this.Controls.Add(this.buttonCaptureScreen);
+            this.ClientSize = new System.Drawing.Size(362, 174);
             this.Controls.Add(this.buttonSend);
+            this.Controls.Add(this.buttonCaptureScreen);
             this.Controls.Add(this.buttonReceive);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStripMain);
@@ -525,9 +622,12 @@
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             this.Resize += new System.EventHandler(this.FormMain_Resize);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.automaticUpdater)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).EndInit();
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
+            this.contextMenuStripSend.ResumeLayout(false);
+            this.contextMenuReceive.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,7 +639,6 @@
         private System.Windows.Forms.PictureBox pictureBoxStatus;
         private System.Windows.Forms.Label labelStatusSubtitle;
         private System.Windows.Forms.Button buttonReceive;
-        private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.Button buttonCaptureScreen;
         private System.Windows.Forms.OpenFileDialog openFilesDialogProgram;
         internal System.Windows.Forms.SaveFileDialog saveFileDialogProgram;
@@ -586,6 +685,18 @@
         private System.Windows.Forms.ToolStripMenuItem checkForANewVersionToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolTip toolTipHints;
+        private wyDay.Controls.AutomaticUpdater automaticUpdater;
+        private wyDay.Controls.SplitButton buttonSend;
+        private System.Windows.Forms.ToolStripMenuItem primeSkinToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripSend;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sendFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator sendFileToolStripSeparator;
+        private System.Windows.Forms.ToolStripMenuItem sendClipboardToolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuReceive;
+        private System.Windows.Forms.ToolStripMenuItem receiveToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cancelReceiveToolStripMenuItem1;
     }
 }
 

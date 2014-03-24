@@ -30,6 +30,7 @@ namespace PrimeComm
         private PrimeParameters _parameters;
         private static readonly Object scheduleLock = new Object();
         private FormWindowState _lastWindowState;
+        private string _emulatorExeFile;
 
         public FormMain()
         {
@@ -57,7 +58,12 @@ namespace PrimeComm
             _parameters = null; // Invalidate parameters
         }
 
-        public bool IsEmulatorAvailable
+        public string EmulatorExeFile 
+        {
+            get { return File.Exists(_emulatorExeFile) ? _emulatorExeFile : null; }
+        }
+
+            public bool IsWorkFolderAvailable
         {
             get { return Directory.Exists(_emulatorFolder); }
         }
@@ -76,17 +82,16 @@ namespace PrimeComm
             openFileDialogProgram.Filter = Resources.FilterInput;
             saveFileDialogProgram.Filter = Resources.FilterOutput;
 
-            _userFilesFolder =
-                Registry.GetValue(@"HKEY_CURRENT_USER\Software\Hewlett-Packard\HP Connectivity Kit", "WorkFolder", null)
-                    as string;
-            connectivityKitUserFolderToolStripMenuItem.Enabled = _userFilesFolder != null &&
-                                                                 Directory.Exists(_userFilesFolder);
+            _userFilesFolder = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Hewlett-Packard\HP Connectivity Kit", "WorkFolder", null) as string;
+            connectivityKitUserFolderToolStripMenuItem.Enabled = _userFilesFolder != null && Directory.Exists(_userFilesFolder);
 
-            _emulatorFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "HP_Prime");
-            sendToEmulatorKitToolStripMenuItem.Enabled = IsEmulatorAvailable;
+            _emulatorFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"HP_Prime");
+            sendToEmulatorKitToolStripMenuItem.Enabled = IsWorkFolderAvailable;
             emulatorToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
             exploreVirtualHPPrimeWorkingFolderToolStripMenuItem.Enabled = sendToEmulatorKitToolStripMenuItem.Enabled;
+
+            _emulatorExeFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
+                @"Hewlett-Packard\HP Prime Virtual Calculator\HPPrime.exe");
 
             //UpdateDevices();
             _calculator = new PrimeCalculator();
@@ -147,11 +152,17 @@ namespace PrimeComm
                 receiveToolStripMenuItem.Enabled = buttonReceive.Enabled;
                 cancelReceiveToolStripMenuItem.Enabled = _receivingData;
 
-                buttonSend.Enabled = IsDeviceConnected && !IsBusy;
-                sendFilesToolStripMenuItem.Enabled = buttonSend.Enabled;
-                sendClipboardToolStripMenuItem.Enabled = buttonSend.Enabled;
+                var canSend = IsDeviceConnected && !IsBusy;
+
+                buttonSend.Text = canSend ? "&Send..." : "&Open...";
+                buttonSend.Image = canSend ? Resources.editor_send_to_device : Resources.editor_open;
+                sendFileToolStripMenuItem.Visible = canSend;
+                sendFileToolStripSeparator.Visible = canSend;
+                sendFilesToolStripMenuItem.Enabled = canSend;
+                sendClipboardToolStripMenuItem.Enabled = canSend;
 
                 buttonCaptureScreen.Enabled = IsDeviceConnected && !IsBusy;
+                captureScreenToolStripMenuItem.Enabled = buttonCaptureScreen.Enabled;
 
                 if (Editors != null)
                     foreach (var n in Editors.Where(ed => !ed.IsDisposed))
@@ -565,6 +576,12 @@ namespace PrimeComm
             Process.Start("cmd.exe", "/K title PrimeCmd&color 0A&cls&primecmd");
         }
 
+
+        private void primeSkinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("primeskin.exe");
+        }
+
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialogProgram.ShowDialog() == DialogResult.OK)
@@ -736,6 +753,11 @@ namespace PrimeComm
                         foreach(var file in f)
                                 OpenFile(file);
             }
+        }
+
+        private void checkForANewVersionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            automaticUpdater.ForceCheckForUpdate();
         }
     }
 }
