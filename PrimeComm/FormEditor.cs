@@ -280,6 +280,7 @@ namespace PrimeComm
                                                        _helpWindow.DockState != DockState.DockTopAutoHide;
 
             Text = String.Format("{2}{0}: {1}", CurrentProgramName, EditorName, _dirty ? "* " : string.Empty);
+            toolStripTextBoxName.Text = CurrentProgramName;
         }
 
         public String CurrentProgramName
@@ -978,6 +979,15 @@ namespace PrimeComm
             if(emulatorCommandsToolStripMenuItem.DropDownItems.Count>0)
                 emulatorCommandsToolStripMenuItem.DropDownItems.Add("-");
             emulatorCommandsToolStripMenuItem.DropDownItems.Add("Emulator commands settings...", Resources.settings, (o, args)=> OpenSettings(4));
+        }
+
+        private void toolStripTextBoxName_TextChanged(object sender, EventArgs e)
+        {
+            CurrentProgramName = toolStripTextBoxName.Text;
+            _currentFile = null;
+            _dirty = true;
+
+            UpdateGui();
         }
     }
 }

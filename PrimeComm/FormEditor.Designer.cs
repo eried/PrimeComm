@@ -121,6 +121,10 @@
             this.toolStripSendTo = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSendToDevice = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSendToVirtual = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxName = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonRestoreName = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -566,7 +570,7 @@
             this.wordWrapToolStripMenuItem.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
             this.wordWrapToolStripMenuItem.CheckOnClick = true;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.wordWrapToolStripMenuItem.Text = "&Word wrap";
             // 
             // languageToolStripMenuItem
@@ -860,11 +864,15 @@
             this.toolStripSendTo.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStripSendTo.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripSendTo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripTextBoxName,
+            this.toolStripButtonRestoreName,
+            this.toolStripSeparator3,
             this.toolStripButtonSendToDevice,
             this.toolStripButtonSendToVirtual});
             this.toolStripSendTo.Location = new System.Drawing.Point(101, 47);
             this.toolStripSendTo.Name = "toolStripSendTo";
-            this.toolStripSendTo.Size = new System.Drawing.Size(49, 25);
+            this.toolStripSendTo.Size = new System.Drawing.Size(253, 25);
             this.toolStripSendTo.TabIndex = 4;
             // 
             // toolStripButtonSendToDevice
@@ -886,6 +894,33 @@
             this.toolStripButtonSendToVirtual.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSendToVirtual.Text = "Send to Virtual HP Prime working folder (F10)";
             this.toolStripButtonSendToVirtual.Click += new System.EventHandler(this.sendToVirtualToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel1.Text = "Name:";
+            // 
+            // toolStripTextBoxName
+            // 
+            this.toolStripTextBoxName.Name = "toolStripTextBoxName";
+            this.toolStripTextBoxName.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBoxName.TextChanged += new System.EventHandler(this.toolStripTextBoxName_TextChanged);
+            // 
+            // toolStripButtonRestoreName
+            // 
+            this.toolStripButtonRestoreName.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRestoreName.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRestoreName.Image")));
+            this.toolStripButtonRestoreName.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRestoreName.Name = "toolStripButtonRestoreName";
+            this.toolStripButtonRestoreName.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonRestoreName.Text = "toolStripButton1";
+            this.toolStripButtonRestoreName.ToolTipText = "Restore name";
             // 
             // FormEditor
             // 
@@ -994,5 +1029,9 @@
         private System.Windows.Forms.ToolStripMenuItem convertSymbolsToPlainTextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem convertPlainTextToSymbolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emulatorCommandsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxName;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRestoreName;
     }
 }
