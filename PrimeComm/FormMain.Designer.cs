@@ -83,21 +83,17 @@
             this.backgroundWorkerServer = new System.ComponentModel.BackgroundWorker();
             this.toolTipHints = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStripSend = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sendFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendClipboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendClipboardToolStripMenuItemContextual = new System.Windows.Forms.ToolStripMenuItem();
             this.sendFileToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuReceive = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.receiveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelReceiveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItemopenToolStripMenuItemContextual = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItemContextual = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSend = new wyDay.Controls.SplitButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.automaticUpdater)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             this.menuStripMain.SuspendLayout();
             this.contextMenuStripSend.SuspendLayout();
-            this.contextMenuReceive.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -157,7 +153,7 @@
             this.buttonReceive.TabIndex = 4;
             this.buttonReceive.Text = "&Receive";
             this.buttonReceive.UseVisualStyleBackColor = true;
-            this.buttonReceive.Click += new System.EventHandler(this.buttonReceive_Click);
+            this.buttonReceive.Click += new System.EventHandler(this.buttonStopReceive_Click);
             // 
             // buttonCaptureScreen
             // 
@@ -413,7 +409,7 @@
             this.sendFilesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
             this.sendFilesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.sendFilesToolStripMenuItem.Text = "Send files...";
-            this.sendFilesToolStripMenuItem.Click += new System.EventHandler(this.buttonSend_Click);
+            this.sendFilesToolStripMenuItem.Click += new System.EventHandler(this.buttonOpenSend_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -520,65 +516,49 @@
             // contextMenuStripSend
             // 
             this.contextMenuStripSend.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sendFileToolStripMenuItem,
-            this.sendClipboardToolStripMenuItem1,
+            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual,
+            this.sendClipboardToolStripMenuItemContextual,
             this.sendFileToolStripSeparator,
-            this.newToolStripMenuItem,
-            this.openToolStripMenuItem1});
+            this.newToolStripMenuItemopenToolStripMenuItemContextual,
+            this.openToolStripMenuItemContextual});
             this.contextMenuStripSend.Name = "contextMenuStrip1";
-            this.contextMenuStripSend.Size = new System.Drawing.Size(154, 98);
+            this.contextMenuStripSend.Size = new System.Drawing.Size(154, 120);
             // 
-            // sendFileToolStripMenuItem
+            // sendFileToolStripMenuItemopenToolStripMenuItemContextual
             // 
-            this.sendFileToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
-            this.sendFileToolStripMenuItem.Name = "sendFileToolStripMenuItem";
-            this.sendFileToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.sendFileToolStripMenuItem.Text = "&Send file...";
+            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
+            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Name = "sendFileToolStripMenuItemopenToolStripMenuItemContextual";
+            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Size = new System.Drawing.Size(153, 22);
+            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Text = "&Send file...";
+            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Click += new System.EventHandler(this.buttonOpenSend_Click);
             // 
-            // sendClipboardToolStripMenuItem1
+            // sendClipboardToolStripMenuItemContextual
             // 
-            this.sendClipboardToolStripMenuItem1.Name = "sendClipboardToolStripMenuItem1";
-            this.sendClipboardToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
-            this.sendClipboardToolStripMenuItem1.Text = "Send clipboard";
+            this.sendClipboardToolStripMenuItemContextual.Name = "sendClipboardToolStripMenuItemContextual";
+            this.sendClipboardToolStripMenuItemContextual.Size = new System.Drawing.Size(153, 22);
+            this.sendClipboardToolStripMenuItemContextual.Text = "Send clipboard";
+            this.sendClipboardToolStripMenuItemContextual.Click += new System.EventHandler(this.sendClipboardToolStripMenuItem_Click);
             // 
             // sendFileToolStripSeparator
             // 
             this.sendFileToolStripSeparator.Name = "sendFileToolStripSeparator";
             this.sendFileToolStripSeparator.Size = new System.Drawing.Size(150, 6);
             // 
-            // newToolStripMenuItem
+            // newToolStripMenuItemopenToolStripMenuItemContextual
             // 
-            this.newToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.editor_new;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.newToolStripMenuItem.Text = "&New...";
+            this.newToolStripMenuItemopenToolStripMenuItemContextual.Image = global::PrimeComm.Properties.Resources.editor_new;
+            this.newToolStripMenuItemopenToolStripMenuItemContextual.Name = "newToolStripMenuItemopenToolStripMenuItemContextual";
+            this.newToolStripMenuItemopenToolStripMenuItemContextual.Size = new System.Drawing.Size(153, 22);
+            this.newToolStripMenuItemopenToolStripMenuItemContextual.Text = "&New...";
+            this.newToolStripMenuItemopenToolStripMenuItemContextual.Click += new System.EventHandler(this.newProgramToolStripMenuItem_Click);
             // 
-            // openToolStripMenuItem1
+            // openToolStripMenuItemContextual
             // 
-            this.openToolStripMenuItem1.Image = global::PrimeComm.Properties.Resources.editor_open;
-            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
-            this.openToolStripMenuItem1.Text = "&Open...";
-            // 
-            // contextMenuReceive
-            // 
-            this.contextMenuReceive.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.receiveToolStripMenuItem1,
-            this.cancelReceiveToolStripMenuItem1});
-            this.contextMenuReceive.Name = "contextMenuReceive";
-            this.contextMenuReceive.Size = new System.Drawing.Size(151, 48);
-            // 
-            // receiveToolStripMenuItem1
-            // 
-            this.receiveToolStripMenuItem1.Name = "receiveToolStripMenuItem1";
-            this.receiveToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
-            this.receiveToolStripMenuItem1.Text = "&Receive file";
-            // 
-            // cancelReceiveToolStripMenuItem1
-            // 
-            this.cancelReceiveToolStripMenuItem1.Name = "cancelReceiveToolStripMenuItem1";
-            this.cancelReceiveToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
-            this.cancelReceiveToolStripMenuItem1.Text = "&Cancel receive";
+            this.openToolStripMenuItemContextual.Image = global::PrimeComm.Properties.Resources.editor_open;
+            this.openToolStripMenuItemContextual.Name = "openToolStripMenuItemContextual";
+            this.openToolStripMenuItemContextual.Size = new System.Drawing.Size(153, 22);
+            this.openToolStripMenuItemContextual.Text = "&Open...";
+            this.openToolStripMenuItemContextual.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // buttonSend
             // 
@@ -593,7 +573,7 @@
             this.buttonSend.Text = "&Send...";
             this.buttonSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            this.buttonSend.Click += new System.EventHandler(this.buttonOpenSend_Click);
             this.buttonSend.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
             this.buttonSend.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             // 
@@ -627,7 +607,6 @@
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.contextMenuStripSend.ResumeLayout(false);
-            this.contextMenuReceive.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -689,14 +668,11 @@
         private wyDay.Controls.SplitButton buttonSend;
         private System.Windows.Forms.ToolStripMenuItem primeSkinToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripSend;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem sendFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItemopenToolStripMenuItemContextual;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItemContextual;
+        private System.Windows.Forms.ToolStripMenuItem sendFileToolStripMenuItemopenToolStripMenuItemContextual;
         private System.Windows.Forms.ToolStripSeparator sendFileToolStripSeparator;
-        private System.Windows.Forms.ToolStripMenuItem sendClipboardToolStripMenuItem1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuReceive;
-        private System.Windows.Forms.ToolStripMenuItem receiveToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem cancelReceiveToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sendClipboardToolStripMenuItemContextual;
     }
 }
 

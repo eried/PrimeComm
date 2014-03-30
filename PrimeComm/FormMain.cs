@@ -137,8 +137,7 @@ namespace PrimeComm
                 else
                     labelStatusSubtitle.Text = IsDeviceConnected
                         ? Resources.StatusConnected +
-                          (_receivingData
-                              ? Environment.NewLine + Environment.NewLine +
+                          (_receivingData ? Environment.NewLine + Environment.NewLine +
                                 (_receivedData.Count > 0
                                     ? String.Format(Resources.StatusReceived, GetKilobytes(_receivedData.Count), 1)
                                     : Resources.StatusWaiting)
@@ -148,7 +147,8 @@ namespace PrimeComm
                 if (!IsBusy)
                     IsBusy = _receivedData.Count > 0;
 
-                buttonReceive.Enabled = !_receivingData && IsDeviceConnected && !IsBusy;
+                buttonReceive.Enabled = IsDeviceConnected && !IsBusy;
+                buttonReceive.Text = _receivingData? "&Cancel" : "&Receive";
                 receiveToolStripMenuItem.Enabled = buttonReceive.Enabled;
                 cancelReceiveToolStripMenuItem.Enabled = _receivingData;
 
@@ -156,10 +156,11 @@ namespace PrimeComm
 
                 buttonSend.Text = canSend ? "&Send..." : "&Open...";
                 buttonSend.Image = canSend ? Resources.editor_send_to_device : Resources.editor_open;
-                sendFileToolStripMenuItem.Visible = canSend;
+                sendFileToolStripMenuItemopenToolStripMenuItemContextual.Visible = canSend;
                 sendFileToolStripSeparator.Visible = canSend;
                 sendFilesToolStripMenuItem.Enabled = canSend;
                 sendClipboardToolStripMenuItem.Enabled = canSend;
+                sendClipboardToolStripMenuItemContextual.Visible = canSend;
 
                 buttonCaptureScreen.Enabled = IsDeviceConnected && !IsBusy;
                 captureScreenToolStripMenuItem.Enabled = buttonCaptureScreen.Enabled;
@@ -282,9 +283,12 @@ namespace PrimeComm
             set { _parameters = value; }
         }
 
-        private void buttonSend_Click(object sender, EventArgs e)
+        private void buttonOpenSend_Click(object sender, EventArgs e)
         {
-            SendDataTo(Destinations.Calculator);
+            if(IsDeviceConnected)
+                SendDataTo(Destinations.Calculator);
+            else
+                OpenFile();
         }
 
         private void SendDataTo(Destinations destination)
@@ -323,9 +327,12 @@ namespace PrimeComm
             UpdateGui();
         }
 
-        private void buttonReceive_Click(object sender, EventArgs e)
+        private void buttonStopReceive_Click(object sender, EventArgs e)
         {
-            StartReceiving();
+            if(_receivingData)
+                StopReceiving();
+            else
+                StartReceiving();
         }
 
         private void StartReceiving()
@@ -583,6 +590,11 @@ namespace PrimeComm
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFile();
+        }
+
+        private void OpenFile()
         {
             if (openFileDialogProgram.ShowDialog() == DialogResult.OK)
                 OpenFile(openFileDialogProgram.FileName);
