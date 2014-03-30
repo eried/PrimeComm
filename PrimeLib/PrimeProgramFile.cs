@@ -88,12 +88,22 @@ namespace PrimeLib
                     {
                         var universalMode = false;
 
-                        for (var i = 1; i <= 7; i++)
-                            if (b[i] != 0x00) // Special case where b[4]==0x01
-                            {
-                                universalMode = true;
-                                break;
-                            }
+                        if (b[0] == 0xFF && b[1] == 0xFE)
+                        {
+                            // Plain file with Unicode flag on front
+                            Data = b.SubArray(2, b.Length - 2);
+                            IsValid = true;
+                            break;
+                        }
+                        else
+                        {
+                            for (var i = 1; i <= 7; i++)
+                                if (b[i] != 0x00) // Special case where b[4]==0x01
+                                {
+                                    universalMode = true;
+                                    break;
+                                }
+                        }
 
                         if (universalMode) // Reads from the last byte. This will ignore any header
                         {
