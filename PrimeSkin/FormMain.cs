@@ -1,10 +1,8 @@
-﻿using System.Diagnostics;
-using PrimeSkin.Properties;
+﻿using PrimeSkin.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace PrimeSkin

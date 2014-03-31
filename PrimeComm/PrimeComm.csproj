@@ -159,6 +159,10 @@
       <Project>{7bf31f37-800f-4465-975f-7d1bd9636f05}</Project>
       <Name>PrimeLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrimeRPL\PrimeRPL.csproj">
+      <Project>{0c4ef634-a65b-4708-b6cc-dc757b2530af}</Project>
+      <Name>PrimeRPL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrimeSkin\PrimeSkin.csproj">
       <Project>{6fc49e68-59b2-4749-95bb-7eb1fcf62867}</Project>
       <Name>PrimeSkin</Name>
@@ -174,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
+    <None Include="img\new\primerpl.png" />
     <None Include="img\new\primeskin.png" />
     <None Include="img\settings.png" />
     <None Include="img\new\recent.png" />

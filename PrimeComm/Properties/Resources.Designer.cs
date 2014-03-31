@@ -249,6 +249,16 @@ namespace PrimeComm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap primerpl {
+            get {
+                object obj = ResourceManager.GetObject("primerpl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap primeskin {
             get {
                 object obj = ResourceManager.GetObject("primeskin", resourceCulture);

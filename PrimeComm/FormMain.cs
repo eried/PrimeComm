@@ -771,5 +771,10 @@ namespace PrimeComm
         {
             automaticUpdater.ForceCheckForUpdate();
         }
+
+        private void primeRPLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("primerpl.exe");
+        }
     }
 }

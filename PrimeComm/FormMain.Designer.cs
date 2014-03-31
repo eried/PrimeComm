@@ -71,6 +71,7 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectivityKitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.primeSkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.primeRPLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.virtualHPPrimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.commandLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,6 +121,7 @@
             this.automaticUpdater.Name = "automaticUpdater";
             this.automaticUpdater.Size = new System.Drawing.Size(16, 16);
             this.automaticUpdater.TabIndex = 1;
+            this.automaticUpdater.Visible = false;
             this.automaticUpdater.wyUpdateCommandline = null;
             // 
             // labelStatusSubtitle
@@ -163,6 +165,7 @@
             this.buttonCaptureScreen.TabIndex = 2;
             this.buttonCaptureScreen.Text = "&Screen capture";
             this.buttonCaptureScreen.UseVisualStyleBackColor = true;
+            this.buttonCaptureScreen.Visible = false;
             this.buttonCaptureScreen.Click += new System.EventHandler(this.captureScreenToolStripMenuItem_Click);
             // 
             // openFilesDialogProgram
@@ -429,6 +432,7 @@
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectivityKitToolStripMenuItem,
             this.primeSkinToolStripMenuItem,
+            this.primeRPLToolStripMenuItem,
             this.virtualHPPrimeToolStripMenuItem,
             this.toolStripMenuItem6,
             this.commandLineToolStripMenuItem});
@@ -441,6 +445,7 @@
             this.connectivityKitToolStripMenuItem.Name = "connectivityKitToolStripMenuItem";
             this.connectivityKitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.connectivityKitToolStripMenuItem.Text = "Connectivity Kit";
+            this.connectivityKitToolStripMenuItem.Visible = false;
             this.connectivityKitToolStripMenuItem.Click += new System.EventHandler(this.connectivityKitToolStripMenuItem_Click);
             // 
             // primeSkinToolStripMenuItem
@@ -451,24 +456,36 @@
             this.primeSkinToolStripMenuItem.Text = "PrimeSkin";
             this.primeSkinToolStripMenuItem.Click += new System.EventHandler(this.primeSkinToolStripMenuItem_Click);
             // 
+            // primeRPLToolStripMenuItem
+            // 
+            this.primeRPLToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.primerpl;
+            this.primeRPLToolStripMenuItem.Name = "primeRPLToolStripMenuItem";
+            this.primeRPLToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.primeRPLToolStripMenuItem.Text = "PrimeRPL";
+            this.primeRPLToolStripMenuItem.Visible = false;
+            this.primeRPLToolStripMenuItem.Click += new System.EventHandler(this.primeRPLToolStripMenuItem_Click);
+            // 
             // virtualHPPrimeToolStripMenuItem
             // 
             this.virtualHPPrimeToolStripMenuItem.Name = "virtualHPPrimeToolStripMenuItem";
             this.virtualHPPrimeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F10)));
             this.virtualHPPrimeToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.virtualHPPrimeToolStripMenuItem.Text = "&Virtual HP Prime";
+            this.virtualHPPrimeToolStripMenuItem.Visible = false;
             this.virtualHPPrimeToolStripMenuItem.Click += new System.EventHandler(this.virtualHPPrimeToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(215, 6);
+            this.toolStripMenuItem6.Visible = false;
             // 
             // commandLineToolStripMenuItem
             // 
             this.commandLineToolStripMenuItem.Name = "commandLineToolStripMenuItem";
             this.commandLineToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.commandLineToolStripMenuItem.Text = "Command line";
+            this.commandLineToolStripMenuItem.Visible = false;
             this.commandLineToolStripMenuItem.Click += new System.EventHandler(this.commandLineToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -486,12 +503,14 @@
             this.checkForANewVersionToolStripMenuItem.Name = "checkForANewVersionToolStripMenuItem";
             this.checkForANewVersionToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.checkForANewVersionToolStripMenuItem.Text = "Check for update";
+            this.checkForANewVersionToolStripMenuItem.Visible = false;
             this.checkForANewVersionToolStripMenuItem.Click += new System.EventHandler(this.checkForANewVersionToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(162, 6);
+            this.toolStripMenuItem3.Visible = false;
             // 
             // aboutToolStripMenuItem
             // 
@@ -522,7 +541,7 @@
             this.newToolStripMenuItemopenToolStripMenuItemContextual,
             this.openToolStripMenuItemContextual});
             this.contextMenuStripSend.Name = "contextMenuStrip1";
-            this.contextMenuStripSend.Size = new System.Drawing.Size(154, 120);
+            this.contextMenuStripSend.Size = new System.Drawing.Size(154, 98);
             // 
             // sendFileToolStripMenuItemopenToolStripMenuItemContextual
             // 
@@ -673,6 +692,7 @@
         private System.Windows.Forms.ToolStripMenuItem sendFileToolStripMenuItemopenToolStripMenuItemContextual;
         private System.Windows.Forms.ToolStripSeparator sendFileToolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem sendClipboardToolStripMenuItemContextual;
+        private System.Windows.Forms.ToolStripMenuItem primeRPLToolStripMenuItem;
     }
 }
 

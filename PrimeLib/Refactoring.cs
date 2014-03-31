@@ -1,13 +1,29 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 using System.Text.RegularExpressions;
 using PrimeLib;
 
 static internal class Refactoring
 {
-    private const string EncodePrefix = "____[";
-    private const string EncodePostfix = "]____";
+    private const string EncodePrefix = "____[", EncodePostfix = "]____";
+
+    /*public static string ApplyCodeRefactoring(string programCode, params RefactorFlag[] flags)
+    {
+        IEnumerable<KeyValuePair<string, object>> p;
+
+        foreach (var f in flags)
+        {
+            switch (f)
+            {
+                case RefactorFlag.RemoveComments:
+                    break;
+            }
+        }
+
+        return ApplyCodeRefactoring(programCode, new PrimeParameters(p));
+    }*/
 
     public static string ApplyCodeRefactoring(string programCode, PrimeParameters programParameters)
     {
@@ -17,7 +33,7 @@ static internal class Refactoring
         var regexOperators = new Regex(operators);
 
         // Encode strings and comments
-        programCode = regexStrings.Replace(programCode, (MatchEvaluator) EncodeElement);
+        programCode = regexStrings.Replace(programCode, EncodeElement);
         programCode = regexComments.Replace(programCode,
             programParameters.GetFlag("RemoveComments") ? (m => String.Empty) : (MatchEvaluator) EncodeElement);
 
@@ -182,3 +198,8 @@ static internal class Refactoring
         return EncodePrefix + Convert.ToBase64String(Encoding.Unicode.GetBytes(match.Value)) + EncodePostfix;
     }
 }
+
+/*internal enum RefactorFlag
+{
+    RemoveComments
+}*/
