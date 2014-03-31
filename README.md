@@ -6,7 +6,7 @@ Small application/library suite to send and receive HP Prime Calculator files. B
 
 PrimeComm
 ---------
-<img src=http://content.screencast.com/users/erwinried/folders/Jing/media/e488be73-c0ed-4e80-ba96-43c48aaecd35/2013-12-03_0232.png /><br>
+<img src=http://f.cl.ly/items/352B1f0d1w3b0f381N17/Image%202014-03-31%20at%202.58.49%20PM.png /><br>
 Windows application to send, receive, convert programs and do other operations with the HP Prime Calculator. Is able to do some code refactoring, convert formats like images to something the HP Prime can display, etc:
 
 <img src=http://f.cl.ly/items/0H243P273M1g073a0N3C/Image%202013-12-22%20at%205.15.00%20PM.png /><br>
@@ -15,6 +15,11 @@ PrimeCmd
 --------
 <img src=http://content.screencast.com/users/erwinried/folders/Jing/media/d0cd4317-e707-45ec-ac81-425915332bba/2013-12-03_0229.png /><br>
 Provides commandline access for PrimeComm operations.
+
+PrimeSkin
+---------
+<img src=http://f.cl.ly/items/331F0S2f2u1w340K0y0p/Image%202014-03-16%20at%203.23.20%20PM.png /><br>
+Utility to edit Virtual Prime/39gII emulator skins.
 
 PrimeLib
 --------
