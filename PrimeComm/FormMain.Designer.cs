@@ -152,7 +152,7 @@
             this.buttonReceive.Location = new System.Drawing.Point(104, 137);
             this.buttonReceive.Name = "buttonReceive";
             this.buttonReceive.Size = new System.Drawing.Size(67, 25);
-            this.buttonReceive.TabIndex = 4;
+            this.buttonReceive.TabIndex = 2;
             this.buttonReceive.Text = "&Receive";
             this.buttonReceive.UseVisualStyleBackColor = true;
             this.buttonReceive.Click += new System.EventHandler(this.buttonStopReceive_Click);
@@ -162,7 +162,7 @@
             this.buttonCaptureScreen.Location = new System.Drawing.Point(243, 137);
             this.buttonCaptureScreen.Name = "buttonCaptureScreen";
             this.buttonCaptureScreen.Size = new System.Drawing.Size(107, 25);
-            this.buttonCaptureScreen.TabIndex = 2;
+            this.buttonCaptureScreen.TabIndex = 3;
             this.buttonCaptureScreen.Text = "&Screen capture";
             this.buttonCaptureScreen.UseVisualStyleBackColor = true;
             this.buttonCaptureScreen.Visible = false;
@@ -194,7 +194,7 @@
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(362, 24);
-            this.menuStripMain.TabIndex = 3;
+            this.menuStripMain.TabIndex = 4;
             this.menuStripMain.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -548,7 +548,7 @@
             this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;
             this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Name = "sendFileToolStripMenuItemopenToolStripMenuItemContextual";
             this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Size = new System.Drawing.Size(153, 22);
-            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Text = "&Send file...";
+            this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Text = "&Send files...";
             this.sendFileToolStripMenuItemopenToolStripMenuItemContextual.Click += new System.EventHandler(this.buttonOpenSend_Click);
             // 
             // sendClipboardToolStripMenuItemContextual
@@ -588,7 +588,7 @@
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(86, 25);
             this.buttonSend.SplitMenuStrip = this.contextMenuStripSend;
-            this.buttonSend.TabIndex = 5;
+            this.buttonSend.TabIndex = 1;
             this.buttonSend.Text = "&Send...";
             this.buttonSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSend.UseVisualStyleBackColor = true;
