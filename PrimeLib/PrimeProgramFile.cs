@@ -93,6 +93,7 @@ namespace PrimeLib
                             // Plain file with Unicode flag on front
                             Data = b.SubArray(2, b.Length - 2);
                             IsValid = true;
+                            IsConversion = true;
                             break;
                         }
                         else

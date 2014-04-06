@@ -137,16 +137,18 @@ namespace PrimeComm
                         _currentFile = String.Empty;
                         _currentName = String.Empty;
                         editor.Text = new PrimeUsbData(tmp.SafeName, tmp.Data).ToString();
+                        _dirty = false;
 
                         if (tmp.IsConversion)
                         {
                             if (Settings.Default.AddCommentOnConversion)
-                                editor.InsertText(0,"// Converted by PrimeComm from " + fileName + Environment.NewLine);
+                                editor.InsertText(0, "// Converted by PrimeComm from " + fileName + Environment.NewLine);
                         }
                         else
+                        {
                             _currentFile = fileName;
-
-                        _dirty = false;
+                            _currentName = String.Empty;
+                        }
 
                         // Check file length
                         AdjustScrollbarWidth();
@@ -280,7 +282,7 @@ namespace PrimeComm
                                                        _helpWindow.DockState != DockState.DockTopAutoHide;
 
             Text = String.Format("{2}{0}: {1}", CurrentProgramName, EditorName, _dirty ? "* " : string.Empty);
-            toolStripTextBoxName.Text = CurrentProgramName;
+            //toolStripTextBoxName.Text = CurrentProgramName;
         }
 
         public String CurrentProgramName
@@ -983,11 +985,11 @@ namespace PrimeComm
 
         private void toolStripTextBoxName_TextChanged(object sender, EventArgs e)
         {
-            CurrentProgramName = toolStripTextBoxName.Text;
+            /*CurrentProgramName = toolStripTextBoxName.Text;
             _currentFile = null;
             _dirty = true;
 
-            UpdateGui();
+            UpdateGui();*/
         }
     }
 }

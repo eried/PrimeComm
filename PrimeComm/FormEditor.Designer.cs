@@ -567,7 +567,6 @@
             // 
             // wordWrapToolStripMenuItem
             // 
-            this.wordWrapToolStripMenuItem.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
             this.wordWrapToolStripMenuItem.CheckOnClick = true;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
             this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
@@ -872,7 +871,7 @@
             this.toolStripButtonSendToVirtual});
             this.toolStripSendTo.Location = new System.Drawing.Point(3, 47);
             this.toolStripSendTo.Name = "toolStripSendTo";
-            this.toolStripSendTo.Size = new System.Drawing.Size(253, 25);
+            this.toolStripSendTo.Size = new System.Drawing.Size(49, 25);
             this.toolStripSendTo.TabIndex = 4;
             // 
             // toolStripLabel1
