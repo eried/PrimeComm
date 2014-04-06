@@ -649,33 +649,32 @@ namespace PrimeComm
                 editor.Indentation.UseTabs ? editor.Indentation.TabWidth : editor.Indentation.IndentWidth);
 
             // Find code blocks
-            int currentlyOpenedBlocks = 0;
+            var currentlyOpenedBlocks = 0;
             var codeBlocks = new[]
             {
-                new CodeBlock(@"\sBEGIN\s"), new CodeBlock(@"\sCASE\s"), new CodeBlock(@"\sIFERR\s"), new CodeBlock(@"\sIF\s"),
-                new CodeBlock(@"\sFOR\s"), new CodeBlock(@"\sWHILE\s"), new CodeBlock(@"\sREPEAT\s", @"\sUNTIL\s")
+                new CodeBlock("BEGIN"), new CodeBlock("CASE"), new CodeBlock("IFERR"), new CodeBlock("IF"),
+                new CodeBlock("FOR"), new CodeBlock("WHILE"), new CodeBlock("REPEAT", "UNTIL")
             };
 
             var output = new List<String>();
             var opened = new Stack<CodeBlock>();
-            var lineNumber = 0;
-            foreach (var line in lines)
+            for (var l = 0; l < lines.Count; l++)
             {
-                lineNumber++;
+                var line = lines[l];
 
                 var lineStart = 0;
                 foreach (var block in codeBlocks)
                 {
-                    var tmpLine = block.MatchesOpen(" " + line.Substring(lineStart) + " ");
+                    var tmpLine = block.MatchesOpen(line.Substring(lineStart));
                     if (tmpLine > 0)
                     {
-                        block.Line = (line.Length > 60 ? line.Substring(0, 57) + "..." : line) + " (line " + lineNumber+")";
+                        block.Line = (line.Length > 60 ? line.Substring(0, 57) + "..." : line) + " (line " + l + ")";
                         opened.Push(block);
                     }
 
-                    if (opened.Count >0)
+                    if (opened.Count > 0)
                     {
-                        tmpLine = opened.Peek().MatchesClose(" " + line.Substring(lineStart) + " ");
+                        tmpLine = opened.Peek().MatchesClose(line.Substring(lineStart));
 
                         if (tmpLine > 0)
                         {
@@ -1057,10 +1056,11 @@ namespace PrimeComm
     {
         private readonly Regex _blockOpen,_blockClose;
 
-        public CodeBlock(string blockOpen, string blockClose=@"\sEND[\s;]")
+        public CodeBlock(string blockOpen, string blockClose = @"\sEND[\s;]")
         {
-            _blockOpen = new Regex(blockOpen, RegexOptions.IgnoreCase);
-            _blockClose = new Regex(blockClose, RegexOptions.IgnoreCase);
+            const string s = @"\s"; // Space or line ending
+            _blockOpen = new Regex(blockOpen.Contains('\\') ? blockOpen : (s + blockOpen + s), RegexOptions.IgnoreCase);
+            _blockClose = new Regex(blockClose.Contains('\\') ? blockClose : (s + blockClose + s), RegexOptions.IgnoreCase);
         }
 
         public string Line { get; set; }
@@ -1077,7 +1077,7 @@ namespace PrimeComm
 
         private int Match(string p, Regex regexMatch)
         {
-            var m = regexMatch.Match(p);
+            var m = regexMatch.Match(" "+p+" ");
 
             if (!m.Success)
                 return 0;
