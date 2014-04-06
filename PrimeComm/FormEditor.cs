@@ -1,6 +1,8 @@
 ﻿
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading;
 using PrimeComm.Properties;
 using PrimeLib;
@@ -636,15 +638,73 @@ namespace PrimeComm
 
         private void formatDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Save backup 
+            //var t = editor.Text.Clone() as string;
+            var cursor = editor.CurrentPos;
+
             // Remove indentation
-            foreach (Line l in editor.Lines)
-                l.Text = l.Text.Trim(new[] {'\t', ' ', '\n', '\r'});
+            var lines = (from Line l in editor.Lines select l.Text.Trim(new[] {'\t', ' ', '\n', '\r'})).ToList();
 
             var indentation = new String(editor.Indentation.UseTabs ? '\t' : ' ',
                 editor.Indentation.UseTabs ? editor.Indentation.TabWidth : editor.Indentation.IndentWidth);
 
             // Find code blocks
+            int currentlyOpenedBlocks = 0;
+            var codeBlocks = new[]
+            {
+                new CodeBlock(@"\sBEGIN\s"), new CodeBlock(@"\sCASE\s"), new CodeBlock(@"\sIFERR\s"), new CodeBlock(@"\sIF\s"),
+                new CodeBlock(@"\sFOR\s"), new CodeBlock(@"\sWHILE\s"), new CodeBlock(@"\sREPEAT\s", @"\sUNTIL\s")
+            };
 
+            var output = new List<String>();
+            var opened = new Stack<CodeBlock>();
+            var lineNumber = 0;
+            foreach (var line in lines)
+            {
+                lineNumber++;
+
+                var lineStart = 0;
+                foreach (var block in codeBlocks)
+                {
+                    var tmpLine = block.MatchesOpen(" " + line.Substring(lineStart) + " ");
+                    if (tmpLine > 0)
+                    {
+                        block.Line = (line.Length > 60 ? line.Substring(0, 57) + "..." : line) + " (line " + lineNumber+")";
+                        opened.Push(block);
+                    }
+
+                    if (opened.Count >0)
+                    {
+                        tmpLine = opened.Peek().MatchesClose(" " + line.Substring(lineStart) + " ");
+
+                        if (tmpLine > 0)
+                        {
+                            lineStart = tmpLine;
+                            opened.Pop();
+                            currentlyOpenedBlocks = opened.Count;
+                        }
+                    }
+                }
+
+                var tmp = "";
+                for (var i = 0; i < currentlyOpenedBlocks; i++)
+                    tmp += indentation;
+
+                output.Add(tmp + line);
+                currentlyOpenedBlocks = opened.Count;
+            }
+
+            if (currentlyOpenedBlocks!=0)
+            {
+                //editor.Text = t;
+                MessageBox.Show("Can't format the code because:\n" + opened.Peek().Line + "\nhas not matching closing line. Please check your code and retry.", "Format code", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                editor.Text = String.Join(Environment.NewLine, output);
+                editor.Refresh();
+                editor.CurrentPos = Math.Min(cursor, editor.TextLength);
+            }
         }
 
         public void InsertText(string text)
@@ -990,6 +1050,38 @@ namespace PrimeComm
             _dirty = true;
 
             UpdateGui();*/
+        }
+    }
+
+    internal class CodeBlock
+    {
+        private readonly Regex _blockOpen,_blockClose;
+
+        public CodeBlock(string blockOpen, string blockClose=@"\sEND[\s;]")
+        {
+            _blockOpen = new Regex(blockOpen, RegexOptions.IgnoreCase);
+            _blockClose = new Regex(blockClose, RegexOptions.IgnoreCase);
+        }
+
+        public string Line { get; set; }
+
+        internal int MatchesOpen(string p)
+        {
+            return Match(p, _blockOpen);
+        }
+
+        internal int MatchesClose(string p)
+        {
+            return Match(p, _blockClose);
+        }
+
+        private int Match(string p, Regex regexMatch)
+        {
+            var m = regexMatch.Match(p);
+
+            if (!m.Success)
+                return 0;
+            return m.Index + m.Value.Length - 1;
         }
     }
 }

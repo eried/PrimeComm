@@ -164,6 +164,7 @@
             this.editor.ConfigurationManager.Language = "pascal";
             this.editor.Folding.Flags = ScintillaNET.FoldFlag.Box;
             this.editor.Folding.UseCompactFolding = true;
+            this.editor.Indentation.IndentWidth = 4;
             this.editor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
             this.editor.Indentation.TabWidth = 4;
             this.editor.Indentation.UseTabs = false;
@@ -592,9 +593,9 @@
             // formatDocumentToolStripMenuItem
             // 
             this.formatDocumentToolStripMenuItem.Name = "formatDocumentToolStripMenuItem";
+            this.formatDocumentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.formatDocumentToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.formatDocumentToolStripMenuItem.Text = "&Format document";
-            this.formatDocumentToolStripMenuItem.Visible = false;
             this.formatDocumentToolStripMenuItem.Click += new System.EventHandler(this.formatDocumentToolStripMenuItem_Click);
             // 
             // formatselectionToolStripMenuItem
@@ -608,7 +609,6 @@
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(225, 6);
-            this.toolStripMenuItem9.Visible = false;
             // 
             // commentSelectionToolStripMenuItem
             // 
