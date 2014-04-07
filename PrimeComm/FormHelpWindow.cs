@@ -61,6 +61,7 @@ namespace PrimeComm
             comboBoxCommand.Select();
 
             buttonSearch.Enabled = comboBoxCommand.Enabled;
+            OnReferenceLoaded(this, new EventArgs());
         }
 
         private void comboBoxCommand_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,6 +109,14 @@ namespace PrimeComm
         {
             if (!String.IsNullOrEmpty(_commands))
                 backgroundWorkerHelp.RunWorkerAsync(_commands);
+        }
+
+        public event Action<object, EventArgs> ReferenceLoaded;
+
+        protected virtual void OnReferenceLoaded(object sender, EventArgs e)
+        {
+            var handler = ReferenceLoaded;
+            if (handler != null) handler(sender, e);
         }
     }
 

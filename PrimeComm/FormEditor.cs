@@ -75,8 +75,8 @@ namespace PrimeComm
 
             // Adding the help
             _helpWindow = new FormHelpWindow(Resources.commands, fontCollection.Families[0]);
-            //_helpWindow.Show(_charmapWindow.Pane, DockAlignment.Right, 0.6);
             _helpWindow.Show(dockPanel, DockState.DockBottomAutoHide);
+            _helpWindow.ReferenceLoaded += (o, args) => SearchReference(true);
         }
 
         private void LoadEditorSettings()
@@ -278,11 +278,11 @@ namespace PrimeComm
             sendToVirtualToolStripMenuItem.Enabled = _parent.IsWorkFolderAvailable && !_parent.IsBusy;
             toolStripButtonSendToVirtual.Enabled = sendToVirtualToolStripMenuItem.Enabled;
 
-            searchReferenceToolStripMenuItem.Enabled = _helpWindow != null && _helpWindow.DockState != DockState.DockBottomAutoHide &&
+            /*searchReferenceToolStripMenuItem.Enabled = _helpWindow != null && _helpWindow.DockState != DockState.DockBottomAutoHide &&
                                                        _helpWindow.DockState != DockState.DockLeftAutoHide &&
                                                        _helpWindow.DockState != DockState.DockRightAutoHide &&
                                                        _helpWindow.DockState != DockState.DockTopAutoHide;
-
+            */
             Text = String.Format("{2}{0}: {1}", CurrentProgramName, EditorName, _dirty ? "* " : string.Empty);
             //toolStripTextBoxName.Text = CurrentProgramName;
         }
@@ -366,7 +366,6 @@ namespace PrimeComm
         private void scintillaEditor_SelectionChanged(object sender, EventArgs e)
         {
             UpdateGui();
-
             SearchReference();
         }
 
@@ -378,8 +377,8 @@ namespace PrimeComm
                 if (forced || Settings.Default.EditorSearchReferenceTextChanged)
                     _helpWindow.SearchReference(GetSelectedWord(editor), false);
             }
-            else if (Settings.Default.EditorSearchReferenceSelectionChanged)
-                if (forced || editor.Selection.Length < 30)
+            else if (forced || Settings.Default.EditorSearchReferenceSelectionChanged)
+                if (editor.Selection.Length < 30)
                     _helpWindow.SearchReference(editor.Selection.Text.Trim(), false);
         }
 
@@ -799,7 +798,24 @@ namespace PrimeComm
 
         private void searchReferenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SearchReference(true);
+            switch (_helpWindow.DockState)
+            {
+                case DockState.DockTopAutoHide:
+                    _helpWindow.DockState = DockState.DockTop;
+                    break;
+                case DockState.DockLeftAutoHide:
+                    _helpWindow.DockState = DockState.DockLeft;
+                    break;
+                case DockState.DockBottomAutoHide:
+                    _helpWindow.DockState = DockState.DockBottom;
+                    break;
+                case DockState.DockRightAutoHide:
+                    _helpWindow.DockState = DockState.DockRight;
+                    break;
+                default:
+                    SearchReference(true);
+                    break;
+            }
         }
 
         [StructLayout(LayoutKind.Sequential)]
