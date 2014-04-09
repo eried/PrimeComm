@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 
 public static class Refactoring
 {
+    private static CodeBlock[] _codeBlocks;
+
     private const string EncodePrefix = "____[", EncodePostfix = "]____";
 
     /*public static string ApplyCodeRefactoring(string programCode, params RefactorFlag[] flags)
@@ -207,43 +209,71 @@ public static class Refactoring
     public static CodeBlock FormatLines(ref List<string> lines, String indentation)
     {
         // Find code blocks
-        var codeBlocks = new[]
+        if (_codeBlocks == null)
+            _codeBlocks = new[]
             {
                 new CodeBlock("BEGIN"), new CodeBlock("CASE"), new CodeBlock("IFERR"), new CodeBlock("IF"),
                 new CodeBlock("FOR"), new CodeBlock("WHILE"), new CodeBlock("REPEAT", "UNTIL")
             };
 
         var opened = new Stack<CodeBlock>();
+        var openedBlocks = 0;
+
         for (var l = 0; l < lines.Count; l++)
         {
-            var line = lines[l].Trim(new[] { '\t', ' ', '\n', '\r' });
+            var line = lines[l].Trim(new[] {'\t', ' ', '\n', '\r'});
 
             var lineStart = 0;
-            foreach (var block in codeBlocks)
+            var tmpLine = 0;
+            var repeat = false;
+
+            do
             {
-                var tmpLine = block.MatchesOpen(line.Substring(lineStart));
-                if (tmpLine > 0)
+                repeat = false;
+
+                if (line.Length == 0)
+                    break;
+
+                foreach (var block in _codeBlocks)
                 {
-                    block.Line = l;
-                    opened.Push(block);
+                    tmpLine = block.MatchesOpen(line.Substring(Math.Min(line.Length - 1, lineStart)));
+
+                    if (tmpLine > 0)
+                    {
+                        lineStart = tmpLine;
+                        block.Line = l;
+                        opened.Push(block);
+                        repeat = true;
+                    }
                 }
+            } while (repeat);
+
+            do
+            {
+                repeat = false;
+
+                if (line.Length == 0)
+                    break;
 
                 if (opened.Count > 0)
                 {
-                    tmpLine = opened.Peek().MatchesClose(line.Substring(lineStart));
+                    tmpLine = opened.Peek().MatchesClose(line.Substring(Math.Min(line.Length - 1, lineStart)));
 
                     if (tmpLine > 0)
                     {
                         lineStart = tmpLine;
                         opened.Pop();
+                        openedBlocks = opened.Count;
+                        repeat = true;
                     }
                 }
-            }
+            } while (repeat);
 
             var tmp = "";
-            for (var i = 0; i < opened.Count; i++)
+            for (var i = 0; i < openedBlocks; i++)
                 tmp += indentation;
 
+            openedBlocks = opened.Count;
             lines[l] = tmp + line;
         }
 
@@ -251,16 +281,17 @@ public static class Refactoring
     }
 }
 
-
 public class CodeBlock
 {
     private readonly Regex _blockOpen, _blockClose;
+    private static Regex _regexComments;
 
     public CodeBlock(string blockOpen, string blockClose = @"\sEND[\s;]")
     {
         const string s = @"\s"; // Space or line ending
-        _blockOpen = new Regex(blockOpen.Contains('\\') ? blockOpen : (s + blockOpen + s), RegexOptions.IgnoreCase);
-        _blockClose = new Regex(blockClose.Contains('\\') ? blockClose : (s + blockClose + s), RegexOptions.IgnoreCase);
+        const string o = @"[\(\s]"; // Space, line ending or open parenthesis
+        _blockOpen = new Regex(blockOpen.Contains('\\') ? blockOpen : (s + blockOpen + o), RegexOptions.IgnoreCase);
+        _blockClose = new Regex(blockClose.Contains('\\') ? blockClose : (s + blockClose + o), RegexOptions.IgnoreCase);
     }
 
     public int Line { get; set; }
@@ -275,18 +306,18 @@ public class CodeBlock
         return Match(p, _blockClose);
     }
 
-    private int Match(string p, Regex regexMatch)
+    private static int Match(string p, Regex regexMatch)
     {
-        // TODO: Avoid the strings
-        var m = regexMatch.Match(" " + (p + "//").Split(new[] { "//" }, 2, StringSplitOptions.None)[0] + " ");
+        if(_regexComments == null)
+            _regexComments = new Regex(@"""[^""""\\]*(?:\\.[^""""\\]*)*""");
+
+        // Remove comments and strings
+        var m = regexMatch.Match(" " + (_regexComments.Replace(p, match => new String(' ', 
+            match.Length)) + "//").Split(new[] { "//" }, 2, StringSplitOptions.None)[0] + " ");
 
         if (!m.Success)
             return 0;
+
         return m.Index + m.Value.Length - 1;
     }
 }
-
-/*internal enum RefactorFlag
-{
-    RemoveComments
-}*/
