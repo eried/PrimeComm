@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SendError" xml:space="preserve">
-    <value>Error sending the file</value>
+    <value>Error sending the file(s)</value>
   </data>
   <data name="StatusWaiting" xml:space="preserve">
     <value>Waiting, select a program and tap Send in your calculator...</value>
@@ -179,7 +179,7 @@
     <value>Sending ({0} of {1})...</value>
   </data>
   <data name="StatusSent" xml:space="preserve">
-    <value>File sucessfully sent!</value>
+    <value>File(s) sucessfully sent!</value>
   </data>
   <data name="SendNotSupported" xml:space="preserve">
     <value>Not supported file</value>
@@ -203,7 +203,7 @@
     <value>..\img\new\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StatusSending" xml:space="preserve">
-    <value>Sending files...</value>
+    <value>Sending file(s)...</value>
   </data>
   <data name="editor_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\new\editor_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -297,7 +297,7 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error sending the file.
+        ///   Looks up a localized string similar to Error sending the file(s).
         /// </summary>
         internal static string SendError {
             get {
@@ -370,7 +370,7 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sending files....
+        ///   Looks up a localized string similar to Sending file(s)....
         /// </summary>
         internal static string StatusSending {
             get {
@@ -388,7 +388,7 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File sucessfully sent!.
+        ///   Looks up a localized string similar to File(s) sucessfully sent!.
         /// </summary>
         internal static string StatusSent {
             get {
