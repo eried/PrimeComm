@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -23,9 +24,7 @@ namespace PrimeComm
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            var instance = false;
+            bool instance;
             var mutex = new Mutex(true, Application.ProductName, out instance);
 
             if (!instance)
@@ -34,18 +33,15 @@ namespace PrimeComm
                 var c = Process.GetCurrentProcess();
                 var firstSeen = false;
 
-                foreach (var p in Process.GetProcessesByName(c.ProcessName))
-                    if (p.Id != c.Id)
-                        if (!firstSeen)
-                        {
-                            firstSeen = true;
-                            ShowWindow(p.MainWindowHandle, 5);
-                            SetForegroundWindow(p.MainWindowHandle);
-                        }
-                        else
-                        {
-                            p.Kill();
-                        }
+                foreach (var p in Process.GetProcessesByName(c.ProcessName).Where(p => p.Id != c.Id))
+                    if (!firstSeen)
+                    {
+                        firstSeen = true;
+                        ShowWindow(p.MainWindowHandle, 5);
+                        SetForegroundWindow(p.MainWindowHandle);
+                    }
+                    else
+                        p.Kill();
 
                 // Connect to the running instance
                 try
@@ -61,8 +57,7 @@ namespace PrimeComm
 
                             if (s.Length == 0)
                                 sr.WriteLine("show" + Utilities.CommandToken + "1");
-                            else
-                            foreach (var f in s)
+                            else foreach (var f in s)
                                 sr.WriteLine("open"+Utilities.CommandToken+f);
                         }
                     }
@@ -73,6 +68,8 @@ namespace PrimeComm
             }
             else
             {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new FormMain());
                 GC.KeepAlive(mutex);
             }
