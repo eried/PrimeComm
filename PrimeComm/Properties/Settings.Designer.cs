@@ -424,7 +424,7 @@ namespace PrimeComm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public decimal EditorIndentationSize {
             get {
                 return ((decimal)(this["EditorIndentationSize"]));

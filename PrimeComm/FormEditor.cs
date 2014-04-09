@@ -115,6 +115,9 @@ namespace PrimeComm
 
             // Editor font colors
             //editor.Styles[editor.Lexing.StyleNameMap["LINENUMBER"]].ForeColor = Color.Azure;
+            editor.Indentation.IndentWidth = (int) Settings.Default.EditorIndentationSize;
+            editor.Indentation.TabWidth = (int)Settings.Default.EditorIndentationSize;
+            editor.Indentation.UseTabs = !Settings.Default.EditorIndentationSpaces;
 
             // Word wrap
             editor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
@@ -640,7 +643,7 @@ namespace PrimeComm
             var code = (from Line l in editor.Lines select l.Text).ToList();
 
             var openedBlock = Refactoring.FormatLines(ref code, new String(editor.Indentation.UseTabs ? '\t' : ' ',
-                    editor.Indentation.UseTabs ? editor.Indentation.TabWidth : editor.Indentation.IndentWidth));
+                    editor.Indentation.UseTabs ? editor.Indentation.TabWidth*4 : editor.Indentation.IndentWidth));
 
             if (openedBlock != null)
             {

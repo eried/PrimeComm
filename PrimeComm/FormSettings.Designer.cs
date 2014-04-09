@@ -71,6 +71,7 @@
             this.checkBoxSearchReferenceOnTextChanged = new System.Windows.Forms.CheckBox();
             this.checkBoxRestorePrimeComm = new System.Windows.Forms.CheckBox();
             this.checkBoxMinimizePrimeComm = new System.Windows.Forms.CheckBox();
+            this.checkBoxIndentationTabs = new System.Windows.Forms.CheckBox();
             this.checkBoxWordWrap = new System.Windows.Forms.CheckBox();
             this.numericUpDownIndentation = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownRecentFiles = new System.Windows.Forms.NumericUpDown();
@@ -84,7 +85,6 @@
             this.checkBoxObfuscateVariables = new System.Windows.Forms.CheckBox();
             this.checkBoxImageMethodDimgrobOptimizeBlacks = new System.Windows.Forms.CheckBox();
             this.checkBoxImageMethodDimgrobOptimizeSimilar = new System.Windows.Forms.CheckBox();
-            this.checkBoxIndentationTabs = new System.Windows.Forms.CheckBox();
             this.tabControlPreferences.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -170,7 +170,7 @@
             this.groupBox7.Location = new System.Drawing.Point(6, 91);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(367, 55);
-            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Behaviour";
             // 
@@ -180,7 +180,7 @@
             this.linkLabelClearWarnings.Location = new System.Drawing.Point(88, 349);
             this.linkLabelClearWarnings.Name = "linkLabelClearWarnings";
             this.linkLabelClearWarnings.Size = new System.Drawing.Size(74, 15);
-            this.linkLabelClearWarnings.TabIndex = 2;
+            this.linkLabelClearWarnings.TabIndex = 3;
             this.linkLabelClearWarnings.TabStop = true;
             this.linkLabelClearWarnings.Text = "clicking here";
             this.linkLabelClearWarnings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelClearWarnings_LinkClicked);
@@ -193,7 +193,7 @@
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(367, 79);
-            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Startup";
             // 
@@ -224,7 +224,7 @@
             this.label1.Location = new System.Drawing.Point(18, 334);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(355, 30);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 2;
             this.label1.Text = "Some notes and warning messages appear only once. You can restore them";
             // 
             // tabPageEditor
@@ -247,7 +247,7 @@
             this.groupBox6.Location = new System.Drawing.Point(6, 137);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(367, 77);
-            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Reference";
             // 
@@ -258,7 +258,7 @@
             this.groupBox5.Location = new System.Drawing.Point(6, 220);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(367, 78);
-            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Behaviour";
             // 
@@ -276,17 +276,17 @@
             this.groupBox4.Location = new System.Drawing.Point(6, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(367, 125);
-            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Editor";
             // 
             // linkLabelClearRecent
             // 
             this.linkLabelClearRecent.AutoSize = true;
-            this.linkLabelClearRecent.Location = new System.Drawing.Point(206, 57);
+            this.linkLabelClearRecent.Location = new System.Drawing.Point(204, 86);
             this.linkLabelClearRecent.Name = "linkLabelClearRecent";
             this.linkLabelClearRecent.Size = new System.Drawing.Size(72, 15);
-            this.linkLabelClearRecent.TabIndex = 3;
+            this.linkLabelClearRecent.TabIndex = 8;
             this.linkLabelClearRecent.TabStop = true;
             this.linkLabelClearRecent.Text = "Clear entries";
             this.linkLabelClearRecent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelClearRecent_LinkClicked);
@@ -294,19 +294,19 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 86);
+            this.label5.Location = new System.Drawing.Point(12, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 15);
-            this.label5.TabIndex = 1;
+            this.label5.TabIndex = 3;
             this.label5.Text = "Indentation size:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 57);
+            this.label3.Location = new System.Drawing.Point(12, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 15);
-            this.label3.TabIndex = 1;
+            this.label3.TabIndex = 6;
             this.label3.Text = "Maximum recent files:";
             // 
             // label2
@@ -315,7 +315,7 @@
             this.label2.Location = new System.Drawing.Point(12, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 15);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Default font size:";
             // 
             // tabPageProgram
@@ -551,7 +551,7 @@
             this.checkBoxSearchReferenceOnSelectionChanged.Location = new System.Drawing.Point(15, 47);
             this.checkBoxSearchReferenceOnSelectionChanged.Name = "checkBoxSearchReferenceOnSelectionChanged";
             this.checkBoxSearchReferenceOnSelectionChanged.Size = new System.Drawing.Size(279, 19);
-            this.checkBoxSearchReferenceOnSelectionChanged.TabIndex = 5;
+            this.checkBoxSearchReferenceOnSelectionChanged.TabIndex = 1;
             this.checkBoxSearchReferenceOnSelectionChanged.Text = "Search the reference when a keyword is selected";
             this.checkBoxSearchReferenceOnSelectionChanged.UseVisualStyleBackColor = true;
             // 
@@ -564,7 +564,7 @@
             this.checkBoxSearchReferenceOnTextChanged.Location = new System.Drawing.Point(15, 22);
             this.checkBoxSearchReferenceOnTextChanged.Name = "checkBoxSearchReferenceOnTextChanged";
             this.checkBoxSearchReferenceOnTextChanged.Size = new System.Drawing.Size(239, 19);
-            this.checkBoxSearchReferenceOnTextChanged.TabIndex = 5;
+            this.checkBoxSearchReferenceOnTextChanged.TabIndex = 0;
             this.checkBoxSearchReferenceOnTextChanged.Text = "Search the reference when cursor moves";
             this.checkBoxSearchReferenceOnTextChanged.UseVisualStyleBackColor = true;
             // 
@@ -577,7 +577,7 @@
             this.checkBoxRestorePrimeComm.Location = new System.Drawing.Point(15, 47);
             this.checkBoxRestorePrimeComm.Name = "checkBoxRestorePrimeComm";
             this.checkBoxRestorePrimeComm.Size = new System.Drawing.Size(284, 19);
-            this.checkBoxRestorePrimeComm.TabIndex = 5;
+            this.checkBoxRestorePrimeComm.TabIndex = 1;
             this.checkBoxRestorePrimeComm.Text = "Restore PrimeComm when closing the last editor";
             this.checkBoxRestorePrimeComm.UseVisualStyleBackColor = true;
             // 
@@ -590,38 +590,49 @@
             this.checkBoxMinimizePrimeComm.Location = new System.Drawing.Point(15, 22);
             this.checkBoxMinimizePrimeComm.Name = "checkBoxMinimizePrimeComm";
             this.checkBoxMinimizePrimeComm.Size = new System.Drawing.Size(279, 19);
-            this.checkBoxMinimizePrimeComm.TabIndex = 5;
+            this.checkBoxMinimizePrimeComm.TabIndex = 0;
             this.checkBoxMinimizePrimeComm.Text = "Minimize PrimeComm when opening the editor";
             this.checkBoxMinimizePrimeComm.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxIndentationTabs
+            // 
+            this.checkBoxIndentationTabs.AutoSize = true;
+            this.checkBoxIndentationTabs.Location = new System.Drawing.Point(207, 57);
+            this.checkBoxIndentationTabs.Name = "checkBoxIndentationTabs";
+            this.checkBoxIndentationTabs.Size = new System.Drawing.Size(120, 19);
+            this.checkBoxIndentationTabs.TabIndex = 5;
+            this.checkBoxIndentationTabs.Text = "Convert to spaces";
+            this.checkBoxIndentationTabs.UseVisualStyleBackColor = true;
+            this.checkBoxIndentationTabs.CheckedChanged += new System.EventHandler(this.checkBoxIndentationTabs_CheckedChanged);
             // 
             // checkBoxWordWrap
             // 
             this.checkBoxWordWrap.AutoSize = true;
             this.checkBoxWordWrap.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
             this.checkBoxWordWrap.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorWordWrap", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxWordWrap.Location = new System.Drawing.Point(207, 27);
+            this.checkBoxWordWrap.Location = new System.Drawing.Point(207, 28);
             this.checkBoxWordWrap.Name = "checkBoxWordWrap";
             this.checkBoxWordWrap.Size = new System.Drawing.Size(86, 19);
-            this.checkBoxWordWrap.TabIndex = 4;
+            this.checkBoxWordWrap.TabIndex = 2;
             this.checkBoxWordWrap.Text = "Word Wrap";
             this.checkBoxWordWrap.UseVisualStyleBackColor = true;
             // 
             // numericUpDownIndentation
             // 
             this.numericUpDownIndentation.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "EditorIndentationSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownIndentation.Location = new System.Drawing.Point(144, 84);
+            this.numericUpDownIndentation.Location = new System.Drawing.Point(144, 55);
             this.numericUpDownIndentation.Name = "numericUpDownIndentation";
             this.numericUpDownIndentation.Size = new System.Drawing.Size(48, 23);
-            this.numericUpDownIndentation.TabIndex = 0;
+            this.numericUpDownIndentation.TabIndex = 4;
             this.numericUpDownIndentation.Value = global::PrimeComm.Properties.Settings.Default.EditorIndentationSize;
             // 
             // numericUpDownRecentFiles
             // 
             this.numericUpDownRecentFiles.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "RecentFilesMaximum", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownRecentFiles.Location = new System.Drawing.Point(144, 55);
+            this.numericUpDownRecentFiles.Location = new System.Drawing.Point(144, 84);
             this.numericUpDownRecentFiles.Name = "numericUpDownRecentFiles";
             this.numericUpDownRecentFiles.Size = new System.Drawing.Size(48, 23);
-            this.numericUpDownRecentFiles.TabIndex = 0;
+            this.numericUpDownRecentFiles.TabIndex = 7;
             this.numericUpDownRecentFiles.Value = global::PrimeComm.Properties.Settings.Default.RecentFilesMaximum;
             // 
             // numericUpDownFontSize
@@ -640,7 +651,7 @@
             0});
             this.numericUpDownFontSize.Name = "numericUpDownFontSize";
             this.numericUpDownFontSize.Size = new System.Drawing.Size(48, 23);
-            this.numericUpDownFontSize.TabIndex = 0;
+            this.numericUpDownFontSize.TabIndex = 1;
             this.numericUpDownFontSize.Value = global::PrimeComm.Properties.Settings.Default.EditorFontSize;
             // 
             // checkBox2
@@ -756,18 +767,6 @@
             this.checkBoxImageMethodDimgrobOptimizeSimilar.TabIndex = 1;
             this.checkBoxImageMethodDimgrobOptimizeSimilar.Text = "Optimize similar blocks if possible";
             this.checkBoxImageMethodDimgrobOptimizeSimilar.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxIndentationTabs
-            // 
-            this.checkBoxIndentationTabs.AutoSize = true;
-            this.checkBoxIndentationTabs.Checked = global::PrimeComm.Properties.Settings.Default.EditorIndentationSpaces;
-            this.checkBoxIndentationTabs.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorIndentationSpaces", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxIndentationTabs.Location = new System.Drawing.Point(207, 85);
-            this.checkBoxIndentationTabs.Name = "checkBoxIndentationTabs";
-            this.checkBoxIndentationTabs.Size = new System.Drawing.Size(120, 19);
-            this.checkBoxIndentationTabs.TabIndex = 4;
-            this.checkBoxIndentationTabs.Text = "Convert to spaces";
-            this.checkBoxIndentationTabs.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
