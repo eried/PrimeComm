@@ -637,73 +637,30 @@ namespace PrimeComm
 
         private void formatDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Save backup 
-            //var t = editor.Text.Clone() as string;
-            var cursor = editor.CurrentPos;
+            var code = (from Line l in editor.Lines select l.Text).ToList();
 
-            // Remove indentation
-            var lines = (from Line l in editor.Lines select l.Text.Trim(new[] {'\t', ' ', '\n', '\r'})).ToList();
+            var openedBlock = Refactoring.FormatLines(ref code, new String(editor.Indentation.UseTabs ? '\t' : ' ',
+                    editor.Indentation.UseTabs ? editor.Indentation.TabWidth : editor.Indentation.IndentWidth));
 
-            var indentation = new String(editor.Indentation.UseTabs ? '\t' : ' ',
-                editor.Indentation.UseTabs ? editor.Indentation.TabWidth : editor.Indentation.IndentWidth);
-
-            // Find code blocks
-            var currentlyOpenedBlocks = 0;
-            var codeBlocks = new[]
+            if (openedBlock != null)
             {
-                new CodeBlock("BEGIN"), new CodeBlock("CASE"), new CodeBlock("IFERR"), new CodeBlock("IF"),
-                new CodeBlock("FOR"), new CodeBlock("WHILE"), new CodeBlock("REPEAT", "UNTIL")
-            };
+                MessageBox.Show("Can't format the code because missing closing statements after the line:\n" + openedBlock.Line + ": '" +
+                    editor.Lines[openedBlock.Line].Text.Trim(new[] { '\n', '\r' }) + "'\n\nPlease check your code and retry.", "Format code", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
 
-            var output = new List<String>();
-            var opened = new Stack<CodeBlock>();
-            for (var l = 0; l < lines.Count; l++)
-            {
-                var line = lines[l];
-
-                var lineStart = 0;
-                foreach (var block in codeBlocks)
-                {
-                    var tmpLine = block.MatchesOpen(line.Substring(lineStart));
-                    if (tmpLine > 0)
-                    {
-                        block.Line = l;
-                        opened.Push(block);
-                    }
-
-                    if (opened.Count > 0)
-                    {
-                        tmpLine = opened.Peek().MatchesClose(line.Substring(lineStart));
-
-                        if (tmpLine > 0)
-                        {
-                            lineStart = tmpLine;
-                            opened.Pop();
-                            currentlyOpenedBlocks = opened.Count;
-                        }
-                    }
-                }
-
-                var tmp = "";
-                for (var i = 0; i < currentlyOpenedBlocks; i++)
-                    tmp += indentation;
-
-                output.Add(tmp + line);
-                currentlyOpenedBlocks = opened.Count;
-            }
-
-            if (currentlyOpenedBlocks!=0)
-            {
-                //editor.Text = t;
-                editor.Selection.Start = editor.Lines[opened.Peek().Line].SelectionStartPosition;
-                editor.Selection.End = editor.Lines[opened.Peek().Line].SelectionEndPosition;
-                MessageBox.Show("Can't format the code because the sentence:\n" + opened.Peek().Line + ": '" + editor.Lines[opened.Peek().Line].Text.Trim(new [] { '\n','\r'}) + "'\nhas not matching closing line.\n\nPlease check your code and retry.", "Format code", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                editor.Selection.Start = editor.Lines[openedBlock.Line].StartPosition;
+                editor.Selection.End = editor.Lines[openedBlock.Line].EndPosition;
+                editor.Scrolling.ScrollToCaret();
             }
             else
             {
-                editor.Text = String.Join(Environment.NewLine, output);
+                int selectionStart = editor.Selection.Start, selectionEnd = editor.Selection.End;
+                var first = editor.Lines.FirstVisibleIndex;
+                editor.Text = String.Join(Environment.NewLine, code);
+                editor.Lines.FirstVisibleIndex = first;
+                editor.Selection.Start = Math.Min(selectionStart, editor.TextLength);
+                editor.Selection.End = Math.Min(selectionEnd, editor.TextLength);
                 editor.Refresh();
-                editor.CurrentPos = Math.Min(cursor, editor.TextLength);
             }
         }
 
@@ -1067,39 +1024,6 @@ namespace PrimeComm
             _dirty = true;
 
             UpdateGui();*/
-        }
-    }
-
-    internal class CodeBlock
-    {
-        private readonly Regex _blockOpen,_blockClose;
-
-        public CodeBlock(string blockOpen, string blockClose = @"\sEND[\s;]")
-        {
-            const string s = @"\s"; // Space or line ending
-            _blockOpen = new Regex(blockOpen.Contains('\\') ? blockOpen : (s + blockOpen + s), RegexOptions.IgnoreCase);
-            _blockClose = new Regex(blockClose.Contains('\\') ? blockClose : (s + blockClose + s), RegexOptions.IgnoreCase);
-        }
-
-        public int Line { get; set; }
-
-        internal int MatchesOpen(string p)
-        {
-            return Match(p, _blockOpen);
-        }
-
-        internal int MatchesClose(string p)
-        {
-            return Match(p, _blockClose);
-        }
-
-        private int Match(string p, Regex regexMatch)
-        {
-            var m = regexMatch.Match(" " + (p + "//").Split(new[] { "//" }, 2, StringSplitOptions.None)[0] + " ");
-
-            if (!m.Success)
-                return 0;
-            return m.Index + m.Value.Length - 1;
         }
     }
 }

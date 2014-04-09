@@ -1,11 +1,11 @@
+using PrimeLib;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using PrimeLib;
 
-static internal class Refactoring
+public static class Refactoring
 {
     private const string EncodePrefix = "____[", EncodePostfix = "]____";
 
@@ -196,6 +196,95 @@ static internal class Refactoring
     private static string EncodeElement(Match match)
     {
         return EncodePrefix + Convert.ToBase64String(Encoding.Unicode.GetBytes(match.Value)) + EncodePostfix;
+    }
+
+    /// <summary>
+    /// Formats the code indentation
+    /// </summary>
+    /// <param name="lines">Code lines to be changed</param>
+    /// <param name="indentation">Indentation to add</param>
+    /// <returns>Null if everything was closed, or the last opened block that prevented the code indentation</returns>
+    public static CodeBlock FormatLines(ref List<string> lines, String indentation)
+    {
+        // Find code blocks
+        var currentlyOpenedBlocks = 0;
+        var codeBlocks = new[]
+            {
+                new CodeBlock("BEGIN"), new CodeBlock("CASE"), new CodeBlock("IFERR"), new CodeBlock("IF"),
+                new CodeBlock("FOR"), new CodeBlock("WHILE"), new CodeBlock("REPEAT", "UNTIL")
+            };
+
+        var opened = new Stack<CodeBlock>();
+        for (var l = 0; l < lines.Count; l++)
+        {
+            var line = lines[l].Trim(new[] { '\t', ' ', '\n', '\r' });
+
+            var lineStart = 0;
+            foreach (var block in codeBlocks)
+            {
+                var tmpLine = block.MatchesOpen(line.Substring(lineStart));
+                if (tmpLine > 0)
+                {
+                    block.Line = l;
+                    opened.Push(block);
+                }
+
+                if (opened.Count > 0)
+                {
+                    tmpLine = opened.Peek().MatchesClose(line.Substring(lineStart));
+
+                    if (tmpLine > 0)
+                    {
+                        lineStart = tmpLine;
+                        opened.Pop();
+                        currentlyOpenedBlocks = opened.Count;
+                    }
+                }
+            }
+
+            var tmp = "";
+            for (var i = 0; i < currentlyOpenedBlocks; i++)
+                tmp += indentation;
+
+            lines[l] = tmp + line;
+        }
+
+        return opened.Count > 0 ? opened.Pop() : null;
+    }
+}
+
+
+public class CodeBlock
+{
+    private readonly Regex _blockOpen, _blockClose;
+
+    public CodeBlock(string blockOpen, string blockClose = @"\sEND[\s;]")
+    {
+        const string s = @"\s"; // Space or line ending
+        _blockOpen = new Regex(blockOpen.Contains('\\') ? blockOpen : (s + blockOpen + s), RegexOptions.IgnoreCase);
+        _blockClose = new Regex(blockClose.Contains('\\') ? blockClose : (s + blockClose + s), RegexOptions.IgnoreCase);
+    }
+
+    public int Line { get; set; }
+
+    internal int MatchesOpen(string p)
+    {
+        return Match(p, _blockOpen);
+    }
+
+    internal int MatchesClose(string p)
+    {
+        return Match(p, _blockClose);
+    }
+
+    private int Match(string p, Regex regexMatch)
+    {
+        // TODO: Avoid the strings
+        var m = regexMatch.Match(" " + (p + "//").Split(new[] { "//" }, 2, StringSplitOptions.None)[0] + " ");
+
+        if (!m.Success)
+            return 0;
+        return m.Index + m.Value.Length - 1;
     }
 }
 
