@@ -57,7 +57,12 @@ namespace PrimeComm
                         {
                             sr.AutoFlush = true;
 
-                            foreach (var f in Environment.GetCommandLineArgs().SubArray(1))
+                            var s = Environment.GetCommandLineArgs().SubArray(1);
+
+                            if (s.Length == 0)
+                                sr.WriteLine("show" + Utilities.CommandToken + "1");
+                            else
+                            foreach (var f in s)
                                 sr.WriteLine("open"+Utilities.CommandToken+f);
                         }
                     }

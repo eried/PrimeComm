@@ -741,6 +741,10 @@ namespace PrimeComm
                 case "open":
                     OpenFile(args[1]);
                     break;
+
+                case "show":
+                    RestoreWindow();
+                    break;
             }
         }
 
