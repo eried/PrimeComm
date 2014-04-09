@@ -183,14 +183,15 @@ namespace PrimeSkin
 
                     foreach (var c in _skin.GetComponents((ComponentType[]) Enum.GetValues(typeof (ComponentType))))
                     {
-                        switch (c.Type) // TODO: Save the comments for all objects!
+                        var comments = String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments;
+
+                        switch (c.Type)
                         {
                             case ComponentType.Key:
                                 {
                                     var key = (VirtualKey)c;
                                     var value = String.IsNullOrEmpty(key.Value) ? String.Empty : key.Value + ",";
                                     var mapped = String.IsNullOrEmpty(key.Mappings) ? String.Empty : ",[" + key.Mappings + "]";
-                                    var comments = String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments;
 
                                     if (++lines >= linesPerGroup)
                                     {
@@ -200,8 +201,7 @@ namespace PrimeSkin
 
                                     f.Add(String.Format("key={0}{1},{2},{3},{4},{5},{{{6}}},{{{7}}},{{{8}}}{9}{10}",
                                         value, key.Id, c.Rectangle.Left, c.Rectangle.Top, c.Rectangle.Right,
-                                        c.Rectangle.Bottom,
-                                        key.Modifiers[0], key.Modifiers[1], key.Modifiers[2], mapped, comments));
+                                        c.Rectangle.Bottom, key.Modifiers[0], key.Modifiers[1], key.Modifiers[2], mapped, comments));
                                     break;
                                 }
 
@@ -209,14 +209,13 @@ namespace PrimeSkin
                                 {
                                     var m = (VirtualMaximized)c;
                                     f.Add("MAXIMIZED=" + c.Rectangle.Left + "," + c.Rectangle.Top + "," + c.Rectangle.Width +
-                                        "," + c.Rectangle.Height + (m.Id > 0 ? "," + m.RelativeLocation.X + "," + m.RelativeLocation.Y : ""));
+                                        "," + c.Rectangle.Height + (m.Id > 0 ? "," + m.RelativeLocation.X + "," + m.RelativeLocation.Y : "") + comments);
                                 }
                                 break;
 
                             case ComponentType.Screen:
                                 f.Add("screen=" + c.Rectangle.Left + "," + c.Rectangle.Top + "," + c.Rectangle.Width +
-                                      "," + c.Rectangle.Height +
-                                      (String.IsNullOrEmpty(c.Comments) ? String.Empty : " #" + c.Comments));
+                                      "," + c.Rectangle.Height + comments);
                                 break;
                         }
                     }

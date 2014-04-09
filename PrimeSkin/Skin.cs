@@ -32,7 +32,12 @@ namespace PrimeSkin
             BasePath = Path.GetDirectoryName(filePath);
 
             var keyRegex = new Regex(@"(?<value>"".*"")?,?(?<id>[0-9]+),(?<left>[0-9]+),(?<top>[0-9]+),(?<right>[0-9]+),(?<bottom>[0-9]+),\{(?<modifier1>\d?[\d,]*)\},\{(?<modifier2>\d?[\d,]*)\},\{(?<modifier3>\d?[\d,]*)\}(?:,\[(?<mappings>.*)\])?(?:[\t #]+(?<comment>.*))?$");
-            foreach (var p in from l in File.ReadAllLines(filePath, Encoding.Default) where l.Contains('=') select l.Split(new[] { '=' }, 2))
+            var generalRegex = new Regex(@"(?<value>.*?) ?(?:[\t #]+(?<comment>.*))?$");
+            foreach (
+                var p in
+                    from l in File.ReadAllLines(filePath, Encoding.Default)
+                    where l.Contains('=')
+                    select l.Split(new[] {'='}, 2))
             {
                 var k = p[0];
 
@@ -42,59 +47,80 @@ namespace PrimeSkin
                 switch (k)
                 {
                     case "key":
-                        {
-                            var m = keyRegex.Match(p[1]);
+                    {
+                        var m = keyRegex.Match(p[1]);
 
-                            if (m.Success)
-                                _components.Add(new VirtualKey
-                                {
-                                    Id = int.Parse(m.Groups["id"].Value),
-                                    Value = m.Groups["value"].Value,
-                                    Rectangle = Utilities.ParseRectangle(p[1].Substring(m.Groups["left"].Index, (m.Groups["bottom"].Index + m.Groups["bottom"].Length) - m.Groups["left"].Index), true),
-                                    Modifiers = new[] { m.Groups["modifier1"].Value, m.Groups["modifier2"].Value, m.Groups["modifier3"].Value },
-                                    Mappings = m.Groups["mappings"].Value,
-                                    Comments = m.Groups["comment"].Value
-                                });
-                        }
+                        if (m.Success)
+                            _components.Add(new VirtualKey
+                            {
+                                Id = int.Parse(m.Groups["id"].Value),
+                                Value = m.Groups["value"].Value,
+                                Rectangle =
+                                    Utilities.ParseRectangle(
+                                        p[1].Substring(m.Groups["left"].Index,
+                                            (m.Groups["bottom"].Index + m.Groups["bottom"].Length) -
+                                            m.Groups["left"].Index), true),
+                                Modifiers =
+                                    new[]
+                                    {
+                                        m.Groups["modifier1"].Value, m.Groups["modifier2"].Value,
+                                        m.Groups["modifier3"].Value
+                                    },
+                                Mappings = m.Groups["mappings"].Value,
+                                Comments = m.Groups["comment"].Value
+                            });
+                    }
                         break;
 
                     case "border":
-                        Border = p[1];
+                        Border = generalRegex.Match(p[1]).Groups["value"].Value;
                         break;
 
                     case "picture":
-                        ImagePath = p[1];
+                        ImagePath = generalRegex.Match(p[1]).Groups["value"].Value;
                         break;
 
                     case "MAXIMIZED":
+                    {
+                        var m = generalRegex.Match(p[1]);
+                        var v = m.Groups["value"].Value;
+                        var s = v.Split(new[] {','});
+                        var comments = m.Groups["comment"].Value;
+
+                        switch (s.Length)
                         {
-                            var s = p[1].Split(new[] { ',' });
+                            case (4):
+                                _components.Add(new VirtualMaximized
+                                {
+                                    Rectangle = Utilities.ParseRectangle(v),
+                                    Id = 0,
+                                    Comments = comments
+                                });
+                                break;
 
-                            switch (s.Length)
-                            {
-                                case (4):
-                                    _components.Add(new VirtualMaximized
-                                    {
-                                        Rectangle = Utilities.ParseRectangle(p[1]),
-                                        Id = 0
-                                    });
-                                    break;
-
-                                case (6):
-                                    _components.Add(new VirtualMaximized
-                                    {
-                                        Rectangle = Utilities.ParseRectangle(String.Join(",", s, 0, 4)),
-                                        RelativeLocation = Utilities.ParsePoint(String.Join(",", s, 4, 2)),
-                                        Id = int.Parse(p[0].Remove(0, k.Length))
-                                    });
-                                    break;
-                            }
-
+                            case (6):
+                                _components.Add(new VirtualMaximized
+                                {
+                                    Rectangle = Utilities.ParseRectangle(String.Join(",", s, 0, 4)),
+                                    RelativeLocation = Utilities.ParsePoint(String.Join(",", s, 4, 2)),
+                                    Id = int.Parse(p[0].Remove(0, k.Length)),
+                                    Comments = comments
+                                });
+                                break;
                         }
+
+                    }
                         break;
 
                     case "screen":
-                        _components.Add(new VirtualScreen { Rectangle = Utilities.ParseRectangle(p[1]) });
+                    {
+                        var m = generalRegex.Match(p[1]);
+                        _components.Add(new VirtualScreen
+                        {
+                            Rectangle = Utilities.ParseRectangle(m.Groups["value"].Value),
+                            Comments = m.Groups["comment"].Value
+                        });
+                    }
                         break;
 
                     default:
