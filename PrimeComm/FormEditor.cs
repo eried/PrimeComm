@@ -667,7 +667,7 @@ namespace PrimeComm
                     var tmpLine = block.MatchesOpen(line.Substring(lineStart));
                     if (tmpLine > 0)
                     {
-                        block.Line = (line.Length > 60 ? line.Substring(0, 57) + "..." : line) + " (line " + l + ")";
+                        block.Line = l;
                         opened.Push(block);
                     }
 
@@ -695,7 +695,9 @@ namespace PrimeComm
             if (currentlyOpenedBlocks!=0)
             {
                 //editor.Text = t;
-                MessageBox.Show("Can't format the code because:\n" + opened.Peek().Line + "\nhas not matching closing line. Please check your code and retry.", "Format code", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                editor.Selection.Start = editor.Lines[opened.Peek().Line].SelectionStartPosition;
+                editor.Selection.End = editor.Lines[opened.Peek().Line].SelectionEndPosition;
+                MessageBox.Show("Can't format the code because the sentence:\n" + opened.Peek().Line + ": '" + editor.Lines[opened.Peek().Line].Text.Trim(new [] { '\n','\r'}) + "'\nhas not matching closing line.\n\nPlease check your code and retry.", "Format code", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -1079,7 +1081,7 @@ namespace PrimeComm
             _blockClose = new Regex(blockClose.Contains('\\') ? blockClose : (s + blockClose + s), RegexOptions.IgnoreCase);
         }
 
-        public string Line { get; set; }
+        public int Line { get; set; }
 
         internal int MatchesOpen(string p)
         {
@@ -1093,7 +1095,7 @@ namespace PrimeComm
 
         private int Match(string p, Regex regexMatch)
         {
-            var m = regexMatch.Match(" "+p+" ");
+            var m = regexMatch.Match(" " + (p + "//").Split(new[] { "//" }, 2, StringSplitOptions.None)[0] + " ");
 
             if (!m.Success)
                 return 0;

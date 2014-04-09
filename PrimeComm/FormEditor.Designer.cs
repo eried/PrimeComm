@@ -51,10 +51,12 @@
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFromtemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newFromTemplateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importAndExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importFromASCII7BitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -263,10 +265,12 @@
             this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.newFromtemplateToolStripMenuItem,
+            this.newFromTemplateToolStripMenuItem1,
             this.openToolStripMenuItem,
             this.recentToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
+            this.saveAsTemplateToolStripMenuItem,
             this.importAndExportToolStripMenuItem,
             this.toolStripMenuItem3,
             this.printPreviewToolStripMenuItem,
@@ -296,6 +300,12 @@
             this.newFromtemplateToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.newFromtemplateToolStripMenuItem.Text = "New &blank program";
             this.newFromtemplateToolStripMenuItem.Click += new System.EventHandler(this.newFromtemplateToolStripMenuItem_Click);
+            // 
+            // newFromTemplateToolStripMenuItem1
+            // 
+            this.newFromTemplateToolStripMenuItem1.Name = "newFromTemplateToolStripMenuItem1";
+            this.newFromTemplateToolStripMenuItem1.Size = new System.Drawing.Size(193, 22);
+            this.newFromTemplateToolStripMenuItem1.Text = "New from template";
             // 
             // openToolStripMenuItem
             // 
@@ -329,6 +339,12 @@
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.saveAsToolStripMenuItem.Text = "Save as...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
+            // saveAsTemplateToolStripMenuItem
+            // 
+            this.saveAsTemplateToolStripMenuItem.Name = "saveAsTemplateToolStripMenuItem";
+            this.saveAsTemplateToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.saveAsTemplateToolStripMenuItem.Text = "Save as template...";
             // 
             // importAndExportToolStripMenuItem
             // 
@@ -571,7 +587,7 @@
             // 
             this.wordWrapToolStripMenuItem.CheckOnClick = true;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.wordWrapToolStripMenuItem.Text = "&Word wrap";
             // 
             // languageToolStripMenuItem
@@ -1037,5 +1053,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxName;
         private System.Windows.Forms.ToolStripButton toolStripButtonRestoreName;
+        private System.Windows.Forms.ToolStripMenuItem newFromTemplateToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem saveAsTemplateToolStripMenuItem;
     }
 }
