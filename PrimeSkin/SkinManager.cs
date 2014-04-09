@@ -183,7 +183,7 @@ namespace PrimeSkin
 
                     foreach (var c in _skin.GetComponents((ComponentType[]) Enum.GetValues(typeof (ComponentType))))
                     {
-                        switch (c.Type)
+                        switch (c.Type) // TODO: Save the comments for all objects!
                         {
                             case ComponentType.Key:
                                 {

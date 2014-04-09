@@ -644,8 +644,8 @@ namespace PrimeComm
 
             if (openedBlock != null)
             {
-                MessageBox.Show("Can't format the code because missing closing statements after the line:\n" + openedBlock.Line + ": '" +
-                    editor.Lines[openedBlock.Line].Text.Trim(new[] { '\n', '\r' }) + "'\n\nPlease check your code and retry.", "Format code", MessageBoxButtons.OK,
+                MessageBox.Show("Can't format the code because missing closing statements after:\n" + (openedBlock.Line+1) + ": '" +
+                    editor.Lines[openedBlock.Line].Text.Trim().Trim(new[] { '\n', '\r' }) + "'\n\nPlease check your code and retry.", "Format document", MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
 
                 editor.Selection.Start = editor.Lines[openedBlock.Line].StartPosition;

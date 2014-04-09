@@ -207,7 +207,6 @@ public static class Refactoring
     public static CodeBlock FormatLines(ref List<string> lines, String indentation)
     {
         // Find code blocks
-        var currentlyOpenedBlocks = 0;
         var codeBlocks = new[]
             {
                 new CodeBlock("BEGIN"), new CodeBlock("CASE"), new CodeBlock("IFERR"), new CodeBlock("IF"),
@@ -237,13 +236,12 @@ public static class Refactoring
                     {
                         lineStart = tmpLine;
                         opened.Pop();
-                        currentlyOpenedBlocks = opened.Count;
                     }
                 }
             }
 
             var tmp = "";
-            for (var i = 0; i < currentlyOpenedBlocks; i++)
+            for (var i = 0; i < opened.Count; i++)
                 tmp += indentation;
 
             lines[l] = tmp + line;
