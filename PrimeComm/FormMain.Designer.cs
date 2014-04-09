@@ -418,6 +418,7 @@
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(193, 6);
+            this.toolStripMenuItem2.Visible = false;
             // 
             // captureScreenToolStripMenuItem
             // 
@@ -425,6 +426,7 @@
             this.captureScreenToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
             this.captureScreenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.captureScreenToolStripMenuItem.Text = "&Screen capture";
+            this.captureScreenToolStripMenuItem.Visible = false;
             this.captureScreenToolStripMenuItem.Click += new System.EventHandler(this.captureScreenToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
@@ -581,6 +583,7 @@
             // 
             // buttonSend
             // 
+            this.buttonSend.AllowDrop = true;
             this.buttonSend.AutoSize = true;
             this.buttonSend.ContextMenuStrip = this.contextMenuStripSend;
             this.buttonSend.Image = global::PrimeComm.Properties.Resources.editor_send_to_device;

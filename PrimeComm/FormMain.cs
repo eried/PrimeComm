@@ -762,12 +762,23 @@ namespace PrimeComm
             {
                 var f = e.Data.GetData("FileDrop") as string[];
 
-                if (f != null)
-                    if (sender == buttonSend)
+                if (f == null) return;
+                var shouldOpen = true;
+
+                if (sender == buttonSend && IsDeviceConnected)
+                {
+                    StopReceiving();
+
+                    if (!IsBusy)
+                    {
                         SendDataTo(new PrimeFileSet(f, _parameters));
-                    else
-                        foreach(var file in f)
-                                OpenFile(file);
+                        shouldOpen = false;
+                    }
+                }
+
+                if (shouldOpen)
+                    foreach (var file in f)
+                        OpenFile(file);
             }
         }
 
