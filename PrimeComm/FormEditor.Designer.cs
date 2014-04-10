@@ -346,6 +346,7 @@
             this.saveAsTemplateToolStripMenuItem.Name = "saveAsTemplateToolStripMenuItem";
             this.saveAsTemplateToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.saveAsTemplateToolStripMenuItem.Text = "Save as template...";
+            this.saveAsTemplateToolStripMenuItem.Visible = false;
             // 
             // importAndExportToolStripMenuItem
             // 
