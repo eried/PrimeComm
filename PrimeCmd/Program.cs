@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using CommandLine;
@@ -167,6 +168,10 @@ namespace PrimeCmd
                 Console.Write(options.GetUsage());
             }
             Console.WriteLine();
+
+            if (args.Length > 0)
+                if (args.Any(i => i == "--wait"))
+                    Console.ReadKey();
         }
 
         private static String ExecuteCommand(string cmd)
