@@ -39,8 +39,10 @@ Name: "hpprgmfiletype"; Description: "Associate .hpprgm files"; GroupDescription
 Source: "files\*"; DestDir: "{app}"; Flags: ignoreversion createallsubdirs recursesubdirs;
 
 [Icons]
-Name: "{group}\PrimeComm"; Filename: {app}\PrimeComm.exe; 
-Name: "{userdesktop}\PrimeComm"; Filename: {app}\PrimeComm.exe; Tasks: desktopicon; 
+Name: "{group}\PrimeComm"; Filename: "{app}\PrimeComm.exe"
+Name: "{group}\PrimeSkin"; Filename: "{app}\PrimeSkin.exe"
+Name: "{group}\PrimeCmd"; Filename: "{app}\PrimeCmd.exe"; Parameters: "--wait"
+Name: "{userdesktop}\PrimeComm"; Filename: "{app}\PrimeComm.exe"; Tasks: desktopicon
 
 ;[Registry]
 ;Root: HKCR; SubKey: xapfile\shell\open\; ValueType: string; ValueName: command; ValueData: "{app}\wp7-deploy.exe"; Flags: UninsDeleteKey; Tasks: xapfiletype;
