@@ -140,10 +140,13 @@ Switch to Emulator={Show},{Focus}
 #Do nothing={Question:Are you sure?},{Alert:Very well...},{Wait},{Wait},{Wait},{Wait},{Alert:Done!}</Value>
     </Setting>
     <Setting Name="EditorIndentationSize" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
-    <Setting Name="EditorIndentationSpaces" Type="System.Boolean" Scope="User">
+    <Setting Name="EditorIndentationUseSpacesAsDefault" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EditorIndentationTabWidth" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">4</Value>
     </Setting>
   </Settings>
 </SettingsFile>

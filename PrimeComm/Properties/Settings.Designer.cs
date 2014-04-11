@@ -437,12 +437,24 @@ namespace PrimeComm.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool EditorIndentationSpaces {
+        public bool EditorIndentationUseSpacesAsDefault {
             get {
-                return ((bool)(this["EditorIndentationSpaces"]));
+                return ((bool)(this["EditorIndentationUseSpacesAsDefault"]));
             }
             set {
-                this["EditorIndentationSpaces"] = value;
+                this["EditorIndentationUseSpacesAsDefault"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public decimal EditorIndentationTabWidth {
+            get {
+                return ((decimal)(this["EditorIndentationTabWidth"]));
+            }
+            set {
+                this["EditorIndentationTabWidth"] = value;
             }
         }
     }
