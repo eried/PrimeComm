@@ -96,11 +96,6 @@ namespace PrimeComm
 
         private void LoadSettings()
         {
-            // Indentation settings
-            checkBoxIndentationTabs.CheckedChanged -= checkBoxIndentationTabs_CheckedChanged;
-            checkBoxIndentationTabs.Checked = Settings.Default.EditorIndentationSpaces;
-            checkBoxIndentationTabs.CheckedChanged += checkBoxIndentationTabs_CheckedChanged;
-
             // Output method
             switch (Settings.Default.ImageMethod)
             {
@@ -279,14 +274,6 @@ namespace PrimeComm
         private void tabControlPreferences_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateTab(tabControlPreferences.SelectedTab);
-        }
-
-        private void checkBoxIndentationTabs_CheckedChanged(object sender, EventArgs e)
-        {
-            numericUpDownIndentation.Value = (int) Math.Min(numericUpDownIndentation.Maximum,(decimal)Math.Ceiling(checkBoxIndentationTabs.Checked
-                ? (double) Settings.Default.EditorIndentationSize*4
-                : (double) Settings.Default.EditorIndentationSize/4.0));
-            Settings.Default.EditorIndentationSpaces = checkBoxIndentationTabs.Checked;
         }
     }
 }
