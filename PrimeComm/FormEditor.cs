@@ -25,9 +25,9 @@ namespace PrimeComm
         private readonly FormMain _parent;
         private string _currentFile, _currentName;
         private const string EditorName = "PrimePad";
-        private FormHelpWindow _helpWindow;
-        private FormCharmapWindow _charmapWindow;
-        private PrivateFontCollection fontCollection;
+        private readonly FormHelpWindow _helpWindow;
+        private readonly FormCharmapWindow _charmapWindow;
+        private PrivateFontCollection _fontCollection;
 
         /// <summary>
         /// Creates a new editor window
@@ -70,13 +70,23 @@ namespace PrimeComm
             dockPanel.DockRightPortion = 0.3;
 
             // Adding the charmap
-            _charmapWindow = new FormCharmapWindow(this, fontCollection.Families[0]);
+            _charmapWindow = new FormCharmapWindow(this, CurrentFontFamily);
             _charmapWindow.Show(dockPanel, DockState.DockBottomAutoHide);
 
             // Adding the help
-            _helpWindow = new FormHelpWindow(Resources.commands, fontCollection.Families[0]);
+            _helpWindow = new FormHelpWindow(Resources.commands, CurrentFontFamily);
             _helpWindow.Show(dockPanel, DockState.DockBottomAutoHide);
             _helpWindow.ReferenceLoaded += (o, args) => SearchReference(true);
+        }
+
+        public FontFamily CurrentFontFamily
+        {
+            get
+            {
+                return _fontCollection != null && _fontCollection.Families.Any()
+                    ? _fontCollection.Families[0]
+                    : SystemFonts.DefaultFont.FontFamily;
+            }
         }
 
         private void LoadEditorSettings()
@@ -96,14 +106,14 @@ namespace PrimeComm
             {
                 try
                 {
-                    fontCollection = new PrivateFontCollection();
-                    fontCollection.AddFontFile(f);
-                    editor.Font = new Font(fontCollection.Families[0], (int) Settings.Default.EditorFontSize);
+                    _fontCollection = new PrivateFontCollection();
+                    _fontCollection.AddFontFile(f);
+                    editor.Font = new Font(_fontCollection.Families[0], (int) Settings.Default.EditorFontSize);
 
                     //foreach (StylesCommon s in Enum.GetValues(typeof (StylesCommon)))
                     foreach (var s in editor.Lexing.StyleNameMap.Keys)
                     {
-                        editor.Styles[s].Font = new Font(fontCollection.Families[0],
+                        editor.Styles[s].Font = new Font(_fontCollection.Families[0],
                             (int) Settings.Default.EditorFontSize, editor.Styles[s].Font.Style);
                     }
                     break;
@@ -113,11 +123,12 @@ namespace PrimeComm
                 }
             }
 
+
             // Editor font colors
             //editor.Styles[editor.Lexing.StyleNameMap["LINENUMBER"]].ForeColor = Color.Azure;
             editor.Indentation.IndentWidth = (int) Settings.Default.EditorIndentationSize;
-            editor.Indentation.TabWidth = (int)Settings.Default.EditorIndentationSize;
-            editor.Indentation.UseTabs = !Settings.Default.EditorIndentationSpaces;
+            editor.Indentation.TabWidth = (int) Settings.Default.EditorIndentationTabWidth;
+            editor.Indentation.UseTabs = !Settings.Default.EditorIndentationUseSpacesAsDefault;
 
             // Word wrap
             editor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
@@ -642,8 +653,8 @@ namespace PrimeComm
         {
             var code = (from Line l in editor.Lines select l.Text).ToList();
 
-            var openedBlock = Refactoring.FormatLines(ref code, new String(editor.Indentation.UseTabs ? '\t' : ' ',
-                    editor.Indentation.UseTabs ? editor.Indentation.TabWidth*4 : editor.Indentation.IndentWidth));
+            var openedBlock = Refactoring.FormatLines(ref code,
+                new String(editor.Indentation.UseTabs ? '\t' : ' ',editor.Indentation.UseTabs ? 1 : editor.Indentation.IndentWidth));
 
             if (openedBlock != null)
             {
