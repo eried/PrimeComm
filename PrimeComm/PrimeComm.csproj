@@ -146,7 +146,6 @@
     <None Include="bin\Setup\help\commands.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -155,6 +154,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PrimeCmd\PrimeCmd.csproj">
+      <Project>{2e28e6be-2cd9-4c1e-ace3-461cf3519519}</Project>
+      <Name>PrimeCmd</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrimeLib\PrimeLib.csproj">
       <Project>{7bf31f37-800f-4465-975f-7d1bd9636f05}</Project>
       <Name>PrimeLib</Name>
