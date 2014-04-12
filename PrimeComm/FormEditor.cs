@@ -102,7 +102,7 @@ namespace PrimeComm
             //scintillaEditor.Snippets.IsEnabled = true;
 
             // Editor font
-            foreach (var f in Directory.GetFiles(".", "*.ttf"))
+            foreach (var f in Directory.GetFiles(".", "*.ttf", SearchOption.AllDirectories))
             {
                 try
                 {
