@@ -662,11 +662,6 @@ namespace PrimeComm
             }
         }
 
-        private void notifyIconMain_DoubleClick(object sender, EventArgs e)
-        {
-            RestoreWindow();
-        }
-
         private void RestoreWindow()
         {
             ShowInTaskbar = true;
@@ -685,7 +680,7 @@ namespace PrimeComm
             }
             else if (Settings.Default.HideAsNotificationIcon)
             {
-                const string tip = "Double click this icon to restore the main program window";
+                const string tip = "Click this icon to restore the main program window";
 
                 ShowInTaskbar = false;
                 Visible = false;
@@ -790,6 +785,22 @@ namespace PrimeComm
         private void primeRPLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("primerpl.exe");
+        }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RestoreWindow();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void notifyIconMain_MouseUp(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+                RestoreWindow();
         }
     }
 }

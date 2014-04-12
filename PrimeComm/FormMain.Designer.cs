@@ -75,6 +75,9 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogProgram = new System.Windows.Forms.OpenFileDialog();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStripNotificationIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorkerServer = new System.ComponentModel.BackgroundWorker();
             this.toolTipHints = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStripSend = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -88,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.automaticUpdater)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
             this.menuStripMain.SuspendLayout();
+            this.contextMenuStripNotificationIcon.SuspendLayout();
             this.contextMenuStripSend.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -436,7 +440,7 @@
             // 
             this.primeSkinToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.primeskin;
             this.primeSkinToolStripMenuItem.Name = "primeSkinToolStripMenuItem";
-            this.primeSkinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.primeSkinToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.primeSkinToolStripMenuItem.Text = "PrimeSkin";
             this.primeSkinToolStripMenuItem.Click += new System.EventHandler(this.primeSkinToolStripMenuItem_Click);
             // 
@@ -444,7 +448,7 @@
             // 
             this.primeRPLToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.primerpl;
             this.primeRPLToolStripMenuItem.Name = "primeRPLToolStripMenuItem";
-            this.primeRPLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.primeRPLToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.primeRPLToolStripMenuItem.Text = "PrimeRPL";
             this.primeRPLToolStripMenuItem.Visible = false;
             this.primeRPLToolStripMenuItem.Click += new System.EventHandler(this.primeRPLToolStripMenuItem_Click);
@@ -462,14 +466,37 @@
             this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // notifyIconMain
             // 
+            this.notifyIconMain.ContextMenuStrip = this.contextMenuStripNotificationIcon;
             this.notifyIconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconMain.Icon")));
-            this.notifyIconMain.DoubleClick += new System.EventHandler(this.notifyIconMain_DoubleClick);
+            this.notifyIconMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.notifyIconMain_MouseUp);
+            // 
+            // contextMenuStripNotificationIcon
+            // 
+            this.contextMenuStripNotificationIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.restoreToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.contextMenuStripNotificationIcon.Name = "contextMenuStripNotificationIcon";
+            this.contextMenuStripNotificationIcon.Size = new System.Drawing.Size(153, 70);
+            // 
+            // restoreToolStripMenuItem
+            // 
+            this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.restoreToolStripMenuItem.Text = "&Restore";
+            this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // backgroundWorkerServer
             // 
@@ -571,6 +598,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).EndInit();
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
+            this.contextMenuStripNotificationIcon.ResumeLayout(false);
             this.contextMenuStripSend.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -633,6 +661,9 @@
         private System.Windows.Forms.ToolStripSeparator sendFileToolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem sendClipboardToolStripMenuItemContextual;
         private System.Windows.Forms.ToolStripMenuItem primeRPLToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripNotificationIcon;
+        private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
