@@ -247,7 +247,8 @@ namespace PrimeComm
 
         private void linkLabelClearRecent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Settings.Default.RecentOpenedFiles.Clear();
+            if(Settings.Default.RecentOpenedFiles!=null)
+                Settings.Default.RecentOpenedFiles.Clear();
             linkLabelClearRecent.Enabled = false;
         }
 
