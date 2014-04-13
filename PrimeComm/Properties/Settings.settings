@@ -56,7 +56,7 @@
     <Setting Name="ProgramTemplate" Type="System.String" Scope="User">
       <Value Profile="(Default)">EXPORT programName()
 BEGIN
-    %cursor%
+{tab}{cursor}
 END;
 </Value>
     </Setting>
@@ -140,13 +140,13 @@ Switch to Emulator={Show},{Focus}
 #Do nothing={Question:Are you sure?},{Alert:Very well...},{Wait},{Wait},{Wait},{Wait},{Alert:Done!}</Value>
     </Setting>
     <Setting Name="EditorIndentationSize" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">4</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="EditorIndentationUseSpacesAsDefault" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="EditorIndentationTabWidth" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">4</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="EditorMargin0" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">30</Value>

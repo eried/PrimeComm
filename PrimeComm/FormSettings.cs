@@ -198,7 +198,13 @@ namespace PrimeComm
             String selected = null;
             comboBoxFontFile.Items.Clear();
 
-            foreach (var f in Directory.GetFiles(".", "*.ttf", SearchOption.AllDirectories))
+            var fontFiles = Directory.GetFiles(".", "*.ttf", SearchOption.AllDirectories).ToList();
+
+            // No fonts... try later again
+            if (fontFiles.Count == 0) return;
+
+            fontFiles.Sort();
+            foreach (var f in fontFiles)
             {
                 comboBoxFontFile.Items.Add(f);
 
@@ -206,14 +212,11 @@ namespace PrimeComm
                     selected = f;
             }
 
-            // No fonts... try later again
-            if (comboBoxFontFile.Items.Count <= 0) return;
-
             // Select default
-            comboBoxFontFile.SelectedIndexChanged += (o, args) => Settings.Default.EditorPreferedFontFile = comboBoxFontFile.SelectedValue as string;
+            comboBoxFontFile.SelectedIndexChanged += (o, args) => Settings.Default.EditorPreferedFontFile = comboBoxFontFile.SelectedItem as string;
 
             if (!String.IsNullOrEmpty(selected))
-                comboBoxFontFile.SelectedValue = selected;
+                comboBoxFontFile.SelectedItem = selected;
             else
                 comboBoxFontFile.SelectedIndex = 0;
         }

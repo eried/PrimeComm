@@ -102,12 +102,14 @@ namespace PrimeComm
             //scintillaEditor.Snippets.IsEnabled = true;
 
             // Editor font
-            foreach (var f in Directory.GetFiles(".", "*.ttf", SearchOption.AllDirectories))
+            var fontFiles = Directory.GetFiles(".", "*.ttf", SearchOption.AllDirectories);
+
+            if (fontFiles.Any())
             {
                 try
                 {
                     _fontCollection = new PrivateFontCollection();
-                    _fontCollection.AddFontFile(f);
+                    _fontCollection.AddFontFile(fontFiles.FirstOrDefault(f => f == Settings.Default.EditorPreferedFontFile) ?? fontFiles[0]);
                     editor.Font = new Font(_fontCollection.Families[0], (int) Settings.Default.EditorFontSize);
 
                     //foreach (StylesCommon s in Enum.GetValues(typeof (StylesCommon)))
@@ -116,7 +118,6 @@ namespace PrimeComm
                         editor.Styles[s].Font = new Font(_fontCollection.Families[0],
                             (int) Settings.Default.EditorFontSize, editor.Styles[s].Font.Style);
                     }
-                    break;
                 }
                 catch
                 {
@@ -507,10 +508,10 @@ namespace PrimeComm
             {
                 _currentName = String.Empty;
                 _currentFile = String.Empty;
-                editor.Text = template ? Settings.Default.ProgramTemplate : String.Empty;
+                editor.Text = template ? Settings.Default.ProgramTemplate.Replace("{tab}", "\t") : String.Empty;
 
                 // Find cursor location
-                const string cursorToken = "%cursor%";
+                const string cursorToken = "{cursor}";
                 do
                 {
                     var c = editor.Text.IndexOf(cursorToken);

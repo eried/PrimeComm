@@ -229,7 +229,7 @@ namespace PrimeComm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("EXPORT programName()\r\nBEGIN\r\n    %cursor%\r\nEND;\r\n")]
+        [global::System.Configuration.DefaultSettingValueAttribute("EXPORT programName()\r\nBEGIN\r\n{tab}{cursor}\r\nEND;\r\n")]
         public string ProgramTemplate {
             get {
                 return ((string)(this["ProgramTemplate"]));
@@ -424,7 +424,7 @@ namespace PrimeComm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public decimal EditorIndentationSize {
             get {
                 return ((decimal)(this["EditorIndentationSize"]));
@@ -448,7 +448,7 @@ namespace PrimeComm.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public decimal EditorIndentationTabWidth {
             get {
                 return ((decimal)(this["EditorIndentationTabWidth"]));
