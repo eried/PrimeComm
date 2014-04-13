@@ -129,6 +129,7 @@ namespace PrimeComm
             editor.Indentation.IndentWidth = (int) Settings.Default.EditorIndentationSize;
             editor.Indentation.TabWidth = (int) Settings.Default.EditorIndentationTabWidth;
             editor.Indentation.UseTabs = !Settings.Default.EditorIndentationUseSpacesAsDefault;
+            editor.Margins.Margin0.Width = (int) Settings.Default.EditorMargin0;
 
             // Word wrap
             editor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
