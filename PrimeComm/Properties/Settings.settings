@@ -148,5 +148,11 @@ Switch to Emulator={Show},{Focus}
     <Setting Name="EditorIndentationTabWidth" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
+    <Setting Name="EditorMargin0" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="EditorPreferedFontFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

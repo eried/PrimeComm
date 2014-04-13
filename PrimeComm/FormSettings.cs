@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -60,7 +61,7 @@ namespace PrimeComm
             {
                 Settings.Default.Reset();
                 LoadSettings();
-                //SaveAndExit();
+                LoadFonts();
             }
         }
 
@@ -157,7 +158,11 @@ namespace PrimeComm
 
         private void UpdateTab(TabPage tabPage)
         {
-            if (tabPage == tabPageAdvanced && tabPageAdvanced.Controls.Count == 0)
+            if (tabPage == tabPageEditor && comboBoxFontFile.Items.Count == 0)
+            {
+                LoadFonts();
+            }
+            else if (tabPage == tabPageAdvanced && tabPageAdvanced.Controls.Count == 0)
                 CreateAdvancedSettings(tabPage);
             else if (tabPage == tabPageEmulator)
             {
@@ -173,7 +178,7 @@ namespace PrimeComm
                     var r = new[]
                     {
                         "Show", "Focus", "CopySelection", "Selection", "CopyText", "Text", "Paste", "Alert:<Text>",
-                        "Question:<Text>", "Nop", "Wait","ProgramName", "RandomNumber", "RandomChar","RandomCHAR",
+                        "Question:<Text>", "Nop", "Wait", "ProgramName", "RandomNumber", "RandomChar", "RandomCHAR",
                     }.ToList();
                     r.Sort();
                     foreach (var k in r)
@@ -186,6 +191,31 @@ namespace PrimeComm
                 textBoxCommands.Select();
                 textBoxCommands.ScrollToCaret();
             }
+        }
+
+        private void LoadFonts()
+        {
+            String selected = null;
+            comboBoxFontFile.Items.Clear();
+
+            foreach (var f in Directory.GetFiles(".", "*.ttf", SearchOption.AllDirectories))
+            {
+                comboBoxFontFile.Items.Add(f);
+
+                if (f == Settings.Default.EditorPreferedFontFile)
+                    selected = f;
+            }
+
+            // No fonts... try later again
+            if (comboBoxFontFile.Items.Count <= 0) return;
+
+            // Select default
+            comboBoxFontFile.SelectedIndexChanged += (o, args) => Settings.Default.EditorPreferedFontFile = comboBoxFontFile.SelectedValue as string;
+
+            if (!String.IsNullOrEmpty(selected))
+                comboBoxFontFile.SelectedValue = selected;
+            else
+                comboBoxFontFile.SelectedIndex = 0;
         }
 
         private void ClearCombobox(ComboBox combo)

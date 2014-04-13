@@ -50,15 +50,19 @@
             this.checkBoxRestorePrimeComm = new System.Windows.Forms.CheckBox();
             this.checkBoxMinimizePrimeComm = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboBoxFontFile = new System.Windows.Forms.ComboBox();
             this.checkBoxIndentationSpaces = new System.Windows.Forms.CheckBox();
             this.checkBoxWordWrap = new System.Windows.Forms.CheckBox();
             this.linkLabelClearRecent = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDownTabWidth = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownIndentation = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownLeftMargin = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownRecentFiles = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
             this.tabPageProgram = new System.Windows.Forms.TabPage();
@@ -87,8 +91,6 @@
             this.textBoxCommands = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageAdvanced = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControlPreferences.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -99,6 +101,7 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTabWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIndentation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLeftMargin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecentFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
             this.tabPageProgram.SuspendLayout();
@@ -112,7 +115,8 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(324, 425);
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCancel.Location = new System.Drawing.Point(324, 435);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 24);
             this.buttonCancel.TabIndex = 0;
@@ -122,7 +126,8 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(243, 425);
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSave.Location = new System.Drawing.Point(243, 435);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 24);
             this.buttonSave.TabIndex = 3;
@@ -132,7 +137,8 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(12, 425);
+            this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonReset.Location = new System.Drawing.Point(12, 435);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 24);
             this.buttonReset.TabIndex = 2;
@@ -142,6 +148,8 @@
             // 
             // tabControlPreferences
             // 
+            this.tabControlPreferences.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControlPreferences.Controls.Add(this.tabPageGeneral);
             this.tabControlPreferences.Controls.Add(this.tabPageEditor);
             this.tabControlPreferences.Controls.Add(this.tabPageProgram);
@@ -151,7 +159,7 @@
             this.tabControlPreferences.Location = new System.Drawing.Point(12, 12);
             this.tabControlPreferences.Name = "tabControlPreferences";
             this.tabControlPreferences.SelectedIndex = 0;
-            this.tabControlPreferences.Size = new System.Drawing.Size(387, 408);
+            this.tabControlPreferences.Size = new System.Drawing.Size(387, 418);
             this.tabControlPreferences.TabIndex = 1;
             this.tabControlPreferences.SelectedIndexChanged += new System.EventHandler(this.tabControlPreferences_SelectedIndexChanged);
             // 
@@ -164,7 +172,7 @@
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 24);
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneral.Size = new System.Drawing.Size(379, 380);
+            this.tabPageGeneral.Size = new System.Drawing.Size(379, 390);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
@@ -265,7 +273,7 @@
             this.tabPageEditor.Location = new System.Drawing.Point(4, 24);
             this.tabPageEditor.Name = "tabPageEditor";
             this.tabPageEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEditor.Size = new System.Drawing.Size(379, 380);
+            this.tabPageEditor.Size = new System.Drawing.Size(379, 390);
             this.tabPageEditor.TabIndex = 4;
             this.tabPageEditor.Text = "Editor";
             this.tabPageEditor.UseVisualStyleBackColor = true;
@@ -274,7 +282,7 @@
             // 
             this.groupBox6.Controls.Add(this.checkBoxSearchReferenceOnSelectionChanged);
             this.groupBox6.Controls.Add(this.checkBoxSearchReferenceOnTextChanged);
-            this.groupBox6.Location = new System.Drawing.Point(6, 187);
+            this.groupBox6.Location = new System.Drawing.Point(6, 215);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(367, 77);
             this.groupBox6.TabIndex = 1;
@@ -311,7 +319,7 @@
             // 
             this.groupBox5.Controls.Add(this.checkBoxRestorePrimeComm);
             this.groupBox5.Controls.Add(this.checkBoxMinimizePrimeComm);
-            this.groupBox5.Location = new System.Drawing.Point(6, 270);
+            this.groupBox5.Location = new System.Drawing.Point(6, 298);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(367, 78);
             this.groupBox5.TabIndex = 2;
@@ -346,32 +354,43 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.comboBoxFontFile);
             this.groupBox4.Controls.Add(this.checkBoxIndentationSpaces);
             this.groupBox4.Controls.Add(this.checkBoxWordWrap);
             this.groupBox4.Controls.Add(this.linkLabelClearRecent);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.numericUpDownTabWidth);
             this.groupBox4.Controls.Add(this.numericUpDownIndentation);
+            this.groupBox4.Controls.Add(this.numericUpDownLeftMargin);
             this.groupBox4.Controls.Add(this.numericUpDownRecentFiles);
             this.groupBox4.Controls.Add(this.numericUpDownFontSize);
             this.groupBox4.Location = new System.Drawing.Point(6, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(367, 175);
+            this.groupBox4.Size = new System.Drawing.Size(367, 203);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Editor";
+            // 
+            // comboBoxFontFile
+            // 
+            this.comboBoxFontFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFontFile.FormattingEnabled = true;
+            this.comboBoxFontFile.Location = new System.Drawing.Point(151, 23);
+            this.comboBoxFontFile.Name = "comboBoxFontFile";
+            this.comboBoxFontFile.Size = new System.Drawing.Size(200, 23);
+            this.comboBoxFontFile.TabIndex = 9;
             // 
             // checkBoxIndentationSpaces
             // 
             this.checkBoxIndentationSpaces.AutoSize = true;
             this.checkBoxIndentationSpaces.Checked = global::PrimeComm.Properties.Settings.Default.EditorIndentationUseSpacesAsDefault;
             this.checkBoxIndentationSpaces.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorIndentationUseSpacesAsDefault", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxIndentationSpaces.Location = new System.Drawing.Point(207, 82);
+            this.checkBoxIndentationSpaces.Location = new System.Drawing.Point(214, 83);
             this.checkBoxIndentationSpaces.Name = "checkBoxIndentationSpaces";
             this.checkBoxIndentationSpaces.Size = new System.Drawing.Size(120, 19);
             this.checkBoxIndentationSpaces.TabIndex = 5;
@@ -383,7 +402,7 @@
             this.checkBoxWordWrap.AutoSize = true;
             this.checkBoxWordWrap.Checked = global::PrimeComm.Properties.Settings.Default.EditorWordWrap;
             this.checkBoxWordWrap.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::PrimeComm.Properties.Settings.Default, "EditorWordWrap", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxWordWrap.Location = new System.Drawing.Point(207, 53);
+            this.checkBoxWordWrap.Location = new System.Drawing.Point(214, 54);
             this.checkBoxWordWrap.Name = "checkBoxWordWrap";
             this.checkBoxWordWrap.Size = new System.Drawing.Size(86, 19);
             this.checkBoxWordWrap.TabIndex = 2;
@@ -393,54 +412,72 @@
             // linkLabelClearRecent
             // 
             this.linkLabelClearRecent.AutoSize = true;
-            this.linkLabelClearRecent.Location = new System.Drawing.Point(204, 140);
+            this.linkLabelClearRecent.Location = new System.Drawing.Point(211, 141);
             this.linkLabelClearRecent.Name = "linkLabelClearRecent";
-            this.linkLabelClearRecent.Size = new System.Drawing.Size(72, 15);
+            this.linkLabelClearRecent.Size = new System.Drawing.Size(94, 15);
             this.linkLabelClearRecent.TabIndex = 8;
             this.linkLabelClearRecent.TabStop = true;
-            this.linkLabelClearRecent.Text = "Clear entries";
+            this.linkLabelClearRecent.Text = "Clear recent files";
             this.linkLabelClearRecent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelClearRecent_LinkClicked);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 111);
+            this.label6.Location = new System.Drawing.Point(13, 111);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 15);
+            this.label6.Size = new System.Drawing.Size(133, 15);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Tabulator width:";
+            this.label6.Text = "Tabulator width (chars):";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 82);
+            this.label5.Location = new System.Drawing.Point(13, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 15);
+            this.label5.Size = new System.Drawing.Size(132, 15);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Indentation size:";
+            this.label5.Text = "Indentation size (chars):";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 169);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(111, 15);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Left margin (pixels):";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 140);
+            this.label3.Location = new System.Drawing.Point(13, 140);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 15);
+            this.label3.Size = new System.Drawing.Size(125, 15);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Maximum recent files:";
+            this.label3.Text = "Recent history (items):";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 15);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Font file:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 53);
+            this.label2.Location = new System.Drawing.Point(13, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 15);
+            this.label2.Size = new System.Drawing.Size(100, 15);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Default font size:";
+            this.label2.Text = "Font size (points):";
             // 
             // numericUpDownTabWidth
             // 
             this.numericUpDownTabWidth.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "EditorIndentationTabWidth", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownTabWidth.Location = new System.Drawing.Point(144, 109);
+            this.numericUpDownTabWidth.Location = new System.Drawing.Point(151, 110);
             this.numericUpDownTabWidth.Name = "numericUpDownTabWidth";
             this.numericUpDownTabWidth.Size = new System.Drawing.Size(48, 23);
             this.numericUpDownTabWidth.TabIndex = 4;
@@ -449,16 +486,25 @@
             // numericUpDownIndentation
             // 
             this.numericUpDownIndentation.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "EditorIndentationSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownIndentation.Location = new System.Drawing.Point(144, 80);
+            this.numericUpDownIndentation.Location = new System.Drawing.Point(151, 81);
             this.numericUpDownIndentation.Name = "numericUpDownIndentation";
             this.numericUpDownIndentation.Size = new System.Drawing.Size(48, 23);
             this.numericUpDownIndentation.TabIndex = 4;
             this.numericUpDownIndentation.Value = global::PrimeComm.Properties.Settings.Default.EditorIndentationSize;
             // 
+            // numericUpDownLeftMargin
+            // 
+            this.numericUpDownLeftMargin.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "EditorMargin0", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownLeftMargin.Location = new System.Drawing.Point(151, 168);
+            this.numericUpDownLeftMargin.Name = "numericUpDownLeftMargin";
+            this.numericUpDownLeftMargin.Size = new System.Drawing.Size(48, 23);
+            this.numericUpDownLeftMargin.TabIndex = 7;
+            this.numericUpDownLeftMargin.Value = global::PrimeComm.Properties.Settings.Default.EditorMargin0;
+            // 
             // numericUpDownRecentFiles
             // 
             this.numericUpDownRecentFiles.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "RecentFilesMaximum", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownRecentFiles.Location = new System.Drawing.Point(144, 138);
+            this.numericUpDownRecentFiles.Location = new System.Drawing.Point(151, 139);
             this.numericUpDownRecentFiles.Name = "numericUpDownRecentFiles";
             this.numericUpDownRecentFiles.Size = new System.Drawing.Size(48, 23);
             this.numericUpDownRecentFiles.TabIndex = 7;
@@ -467,7 +513,7 @@
             // numericUpDownFontSize
             // 
             this.numericUpDownFontSize.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PrimeComm.Properties.Settings.Default, "EditorFontSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownFontSize.Location = new System.Drawing.Point(144, 51);
+            this.numericUpDownFontSize.Location = new System.Drawing.Point(151, 52);
             this.numericUpDownFontSize.Maximum = new decimal(new int[] {
             200,
             0,
@@ -489,7 +535,7 @@
             this.tabPageProgram.Location = new System.Drawing.Point(4, 24);
             this.tabPageProgram.Name = "tabPageProgram";
             this.tabPageProgram.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageProgram.Size = new System.Drawing.Size(379, 380);
+            this.tabPageProgram.Size = new System.Drawing.Size(379, 390);
             this.tabPageProgram.TabIndex = 1;
             this.tabPageProgram.Text = "Program";
             this.tabPageProgram.UseVisualStyleBackColor = true;
@@ -605,7 +651,7 @@
             this.tabPageImages.Location = new System.Drawing.Point(4, 24);
             this.tabPageImages.Name = "tabPageImages";
             this.tabPageImages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageImages.Size = new System.Drawing.Size(379, 380);
+            this.tabPageImages.Size = new System.Drawing.Size(379, 390);
             this.tabPageImages.TabIndex = 3;
             this.tabPageImages.Text = "Images";
             this.tabPageImages.UseVisualStyleBackColor = true;
@@ -725,7 +771,7 @@
             this.tabPageEmulator.Location = new System.Drawing.Point(4, 24);
             this.tabPageEmulator.Name = "tabPageEmulator";
             this.tabPageEmulator.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEmulator.Size = new System.Drawing.Size(379, 380);
+            this.tabPageEmulator.Size = new System.Drawing.Size(379, 390);
             this.tabPageEmulator.TabIndex = 5;
             this.tabPageEmulator.Text = "Emulator";
             this.tabPageEmulator.UseVisualStyleBackColor = true;
@@ -791,34 +837,16 @@
             this.tabPageAdvanced.Location = new System.Drawing.Point(4, 24);
             this.tabPageAdvanced.Name = "tabPageAdvanced";
             this.tabPageAdvanced.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdvanced.Size = new System.Drawing.Size(379, 380);
+            this.tabPageAdvanced.Size = new System.Drawing.Size(379, 390);
             this.tabPageAdvanced.TabIndex = 2;
             this.tabPageAdvanced.Text = "Advanced";
             this.tabPageAdvanced.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 15);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Default font file:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(144, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 23);
-            this.comboBox1.TabIndex = 9;
             // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 461);
+            this.ClientSize = new System.Drawing.Size(411, 471);
             this.Controls.Add(this.tabControlPreferences);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonSave);
@@ -849,6 +877,7 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTabWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIndentation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLeftMargin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRecentFiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).EndInit();
             this.tabPageProgram.ResumeLayout(false);
@@ -926,7 +955,9 @@
         private System.Windows.Forms.CheckBox checkBoxIndentationSpaces;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericUpDownTabWidth;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxFontFile;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown numericUpDownLeftMargin;
     }
 }
