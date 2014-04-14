@@ -14,8 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ScintillaNet;
-using ScintillaNet.Configuration;
+using ScintillaNET;
 using WeifenLuo.WinFormsUI.Docking;
 using Clipboard = System.Windows.Forms.Clipboard;
 
@@ -136,7 +135,7 @@ namespace PrimeComm
             editor.Margins.Margin0.Width = (int) Settings.Default.EditorMargin0;
 
             // Word wrap
-            editor.LineWrap.Mode = Settings.Default.EditorWordWrap ? WrapMode.Word : WrapMode.None;
+            editor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
         }
 
         private void OpenFile(string fileName)
@@ -184,6 +183,8 @@ namespace PrimeComm
                     MessageBox.Show("Error loading '" + fileName + "'", "Error", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
+
+                UpdateGui();
             }
         }
 
@@ -200,7 +201,7 @@ namespace PrimeComm
 
             if (line >= 0)
                 m = TextRenderer.MeasureText(editor.Lines[line].Text, editor.Font).Width;
-            editor.Scrolling.HorizontalWidth = m;
+            editor.Scrolling.HorizontalScrollWidth = m;
         }
 
         private bool AskForSave()
@@ -395,47 +396,34 @@ namespace PrimeComm
             {
                 // Check nearby word
                 if (forced || Settings.Default.EditorSearchReferenceTextChanged)
-                    _helpWindow.SearchReference(GetSelectedWord(editor), false);
+                    _helpWindow.SearchReference(GetWordNearCursor(editor), false);
             }
             else if (forced || Settings.Default.EditorSearchReferenceSelectionChanged)
                 if (editor.Selection.Length < 30)
                     _helpWindow.SearchReference(editor.Selection.Text.Trim(), false);
         }
 
-        private static string GetSelectedWord(Scintilla editor)
+        private static string GetWordNearCursor(Scintilla editor)
         {
-            var ini = Math.Min(editor.Text.Length,editor.Selection.Start) - 1;
-            for (var i = 0; i < 30; i++)
+            int caretPos;
+            var s = " " + editor.GetCurrentLine(out caretPos) + " ";
+
+            do
             {
-                var pos = ini - i;
-
-                if (pos < 0 || IsWordEndChar(editor.CharAt(pos)))
-                {
-                    ini = pos + 1;
+                if (caretPos == 0)
                     break;
-                }
-            }
+            } while (!IsWordEndChar(s[--caretPos]));
 
-            var end = editor.Selection.Start;
-            for (var i = 0; i < 30; i++)
-            {
-                var pos = end + i;
+            for (var i = (++caretPos) + 1; i < s.Length; i++)
+                if (IsWordEndChar(s[i]))
+                    return s.Substring(caretPos, i - caretPos);
 
-                if (pos > editor.Text.Length - 1 || IsWordEndChar(editor.CharAt(pos)))
-                {
-                    end = pos;
-                    break;
-                }
-            }
-
-            if (end - ini > 0)
-                return editor.Text.Substring(ini, Math.Min(editor.Text.Length,end) - ini);
             return String.Empty;
         }
 
         private static bool IsWordEndChar(char c)
         {
-            return "\r\n :;,.{}[]()=\"+-*/^|".Any(f => f == c);
+            return "\t\r\n :;,.{}[]()=\"+-*/^|".Any(f => f == c);
         }
 
         private void sendToDeviceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -640,9 +628,9 @@ namespace PrimeComm
 
         private void editor_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("FileName"))
+            if (e.Data.GetDataPresent(Resources.DropDataFormat))
             {
-                var f = e.Data.GetData("FileName") as string[];
+                var f = e.Data.GetData(Resources.DropDataFormat) as string[];
 
                 if (f != null && f.Any())
                     OpenFile(f[0]);
@@ -651,7 +639,7 @@ namespace PrimeComm
 
         private void editor_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetFormats().Any(f => f == "FileName"))
+            if (e.Data.GetFormats().Any(f => f == Resources.DropDataFormat))
                 e.Effect = DragDropEffects.Copy;
         }
 
