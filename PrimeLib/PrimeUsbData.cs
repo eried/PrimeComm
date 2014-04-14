@@ -43,14 +43,18 @@ namespace PrimeLib
         {
             get { return _data; }
             private set 
-            { 
+            {
+                _data = value; 
+
+                if (_settings == null) return;
+
+                if (_settings.GetFlag("ConvertTabsToSpaces"))
+                    _data = Encoding.Unicode.GetBytes(Encoding.Unicode.GetString(_data).Replace("\t", new String(' ', 
+                        (int) _settings.GetSetting<decimal>("EditorIndentationSize", 3))));
+
                 // Special data processing
-                if (_settings != null && _settings.GetFlag("EnableAdditionalProgramProcessing"))
-                {
-                    _data = Encoding.Unicode.GetBytes(Refactoring.ApplyCodeRefactoring(Encoding.Unicode.GetString(value), _settings));
-                }
-                else
-                    _data = value; 
+                if(_settings.GetFlag("EnableAdditionalProgramProcessing"))
+                    _data = Encoding.Unicode.GetBytes(Refactoring.ApplyCodeRefactoring(Encoding.Unicode.GetString(_data), _settings));
             }
         }
 
