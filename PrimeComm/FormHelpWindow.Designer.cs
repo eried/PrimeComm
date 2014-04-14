@@ -38,7 +38,6 @@
             // buttonSearch
             // 
             this.buttonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSearch.Enabled = false;
             this.buttonSearch.Location = new System.Drawing.Point(214, 5);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(55, 23);
@@ -51,7 +50,6 @@
             // 
             this.comboBoxCommand.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxCommand.Enabled = false;
             this.comboBoxCommand.FormattingEnabled = true;
             this.comboBoxCommand.Location = new System.Drawing.Point(6, 6);
             this.comboBoxCommand.Name = "comboBoxCommand";
@@ -97,6 +95,7 @@
             this.Name = "FormHelpWindow";
             this.Text = "Reference";
             this.Shown += new System.EventHandler(this.FormHelpWindow_Shown);
+            this.ResizeEnd += new System.EventHandler(this.FormHelpWindow_ResizeEnd);
             this.ResumeLayout(false);
             this.PerformLayout();
 

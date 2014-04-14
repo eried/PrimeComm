@@ -56,20 +56,13 @@ namespace PrimeComm
         {
             foreach (var r in _reference)
                 comboBoxCommand.Items.Add(r);
-
-            comboBoxCommand.Enabled = comboBoxCommand.Items.Count > 0;
-            comboBoxCommand.Select();
-
-            buttonSearch.Enabled = comboBoxCommand.Enabled;
             OnReferenceLoaded(this, new EventArgs());
         }
 
         private void comboBoxCommand_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCommand.SelectedItem != null)
-            {
                 textBoxHelp.Text = ((ReferenceDefinition) comboBoxCommand.SelectedItem).Description;
-            }
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -117,6 +110,12 @@ namespace PrimeComm
         {
             var handler = ReferenceLoaded;
             if (handler != null) handler(sender, e);
+        }
+
+        private void FormHelpWindow_ResizeEnd(object sender, EventArgs e)
+        {
+            if (Visible && Focused)
+                comboBoxCommand.Select();
         }
     }
 
