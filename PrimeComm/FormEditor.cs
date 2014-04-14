@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Xml;
 using PrimeComm.Properties;
 using PrimeLib;
 using System;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ScintillaNet;
+using ScintillaNet.Configuration;
 using WeifenLuo.WinFormsUI.Docking;
 using Clipboard = System.Windows.Forms.Clipboard;
 
@@ -94,8 +96,10 @@ namespace PrimeComm
             // Editor configuration
             /*if (File.Exists("hpppl.xml"))
             {
+                var iniParser
                 var config = new Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
-                scintillaEditor.ConfigurationManager.Configure(config);
+                editor.ConfigurationManager.Configure(config);
+                editor.ConfigurationManager.Language = "hpppl";
             }*/
 
             //scintillaEditor.Snippets.List.Add(new Snippet("if", "IF THEN END"));
@@ -123,7 +127,6 @@ namespace PrimeComm
                 {
                 }
             }
-
 
             // Editor font colors
             //editor.Styles[editor.Lexing.StyleNameMap["LINENUMBER"]].ForeColor = Color.Azure;
@@ -274,11 +277,11 @@ namespace PrimeComm
             var textSelected = editor.Selection.Length > 0;
             var textNotEmpty = editor.TextLength > 0;
 
-            copyToolStripMenuItem.Enabled = textNotEmpty;
-            toolStripButtonCopy.Enabled = textNotEmpty;
+            copyToolStripMenuItem.Enabled = textSelected;
+            toolStripButtonCopy.Enabled = textSelected;
 
-            cutToolStripMenuItem.Enabled = textNotEmpty;
-            toolStripButtonCut.Enabled = textNotEmpty;
+            cutToolStripMenuItem.Enabled = textSelected;
+            toolStripButtonCut.Enabled = textSelected;
 
             pasteToolStripMenuItem.Enabled = editor.Clipboard.CanPaste;
             toolStripButtonPaste.Enabled = editor.Clipboard.CanPaste;
