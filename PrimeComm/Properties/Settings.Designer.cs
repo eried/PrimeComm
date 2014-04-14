@@ -481,5 +481,17 @@ namespace PrimeComm.Properties {
                 this["EditorPreferedFontFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ConvertTabsToSpaces {
+            get {
+                return ((bool)(this["ConvertTabsToSpaces"]));
+            }
+            set {
+                this["ConvertTabsToSpaces"] = value;
+            }
+        }
     }
 }
