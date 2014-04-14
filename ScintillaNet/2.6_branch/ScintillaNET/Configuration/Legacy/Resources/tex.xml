@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="tex-Default" inherit-style="Default" />
+      <style-class name="tex-Special" inherit-style="Special" />
+      <style-class name="tex-Group" inherit-style="Group" />
+      <style-class name="tex-Symbol" inherit-style="Symbol" />
+      <style-class name="tex-Command" inherit-style="Command" />
+      <style-class name="tex-Text" inherit-style="Text" />
+      <style-class name="tex-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="tex-LineNumber" inherit-style="LineNumber" />
+      <style-class name="tex-BraceLight" inherit-style="BraceLight" />
+      <style-class name="tex-BraceBad" inherit-style="BraceBad" />
+      <style-class name="tex-ControlChar" inherit-style="ControlChar" />
+      <style-class name="tex-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="tex-CallTip" inherit-style="CallTip" />
+      <style-class name="tex-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="tex-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="tex-Keywords" >         
+         above abovedisplayshortskip abovedisplayskip
+         abovewithdelims accent adjdemerits advance afterassignment
+         aftergroup atop atopwithdelims
+         badness baselineskip batchmode begingroup
+         belowdisplayshortskip belowdisplayskip binoppenalty botmark
+         box boxmaxdepth brokenpenalty
+         catcode char chardef cleaders closein closeout clubpenalty
+         copy count countdef cr crcr csname
+         day deadcycles def defaulthyphenchar defaultskewchar
+         delcode delimiter delimiterfactor delimeters
+         delimitershortfall delimeters dimen dimendef discretionary
+         displayindent displaylimits displaystyle
+         displaywidowpenalty displaywidth divide
+         doublehyphendemerits dp dump
+         edef else emergencystretch end endcsname endgroup endinput
+         endlinechar eqno errhelp errmessage errorcontextlines
+         errorstopmode escapechar everycr everydisplay everyhbox
+         everyjob everymath everypar everyvbox exhyphenpenalty
+         expandafter
+         fam fi finalhyphendemerits firstmark floatingpenalty font
+         fontdimen fontname futurelet
+         gdef global group globaldefs
+         halign hangafter hangindent hbadness hbox hfil horizontal
+         hfill horizontal hfilneg hfuzz hoffset holdinginserts hrule
+         hsize hskip hss horizontal ht hyphenation hyphenchar
+         hyphenpenalty hyphen
+         if ifcase ifcat ifdim ifeof iffalse ifhbox ifhmode ifinner
+         ifmmode ifnum ifodd iftrue ifvbox ifvmode ifvoid ifx
+         ignorespaces immediate indent input inputlineno input
+         insert insertpenalties interlinepenalty
+         jobname
+         kern
+         language lastbox lastkern lastpenalty lastskip lccode
+         leaders left lefthyphenmin leftskip leqno let limits
+         linepenalty line lineskip lineskiplimit long looseness
+         lower lowercase
+         mag mark mathaccent mathbin mathchar mathchardef mathchoice
+         mathclose mathcode mathinner mathop mathopen mathord
+         mathpunct mathrel mathsurround maxdeadcycles maxdepth
+         meaning medmuskip message mkern month moveleft moveright
+         mskip multiply muskip muskipdef
+         newlinechar noalign noboundary noexpand noindent nolimits
+         nonscript scriptscript nonstopmode nulldelimiterspace
+         nullfont number
+         omit openin openout or outer output outputpenalty over
+         overfullrule overline overwithdelims
+         pagedepth pagefilllstretch pagefillstretch pagefilstretch
+         pagegoal pageshrink pagestretch pagetotal par parfillskip
+         parindent parshape parskip patterns pausing penalty
+         postdisplaypenalty predisplaypenalty predisplaysize
+         pretolerance prevdepth prevgraf
+         radical raise read relax relpenalty right righthyphenmin
+         rightskip romannumeral
+         scriptfont scriptscriptfont scriptscriptstyle scriptspace
+         scriptstyle scrollmode setbox setlanguage sfcode shipout
+         show showbox showboxbreadth showboxdepth showlists showthe
+         skewchar skip skipdef spacefactor spaceskip span special
+         splitbotmark splitfirstmark splitmaxdepth splittopskip
+         string
+         tabskip textfont textstyle the thickmuskip thinmuskip time
+         toks toksdef tolerance topmark topskip tracingcommands
+         tracinglostchars tracingmacros tracingonline tracingoutput
+         tracingpages tracingparagraphs tracingrestores tracingstats
+         uccode uchyph underline unhbox unhcopy unkern unpenalty
+         unskip unvbox unvcopy uppercase
+         vadjust valign vbadness vbox vcenter vfil vfill vfilneg
+         vfuzz voffset vrule vsize vskip vsplit vss vtop
+         wd widowpenalty write
+         xdef xleaders xspaceskip
+         year
+         TeX
+         bgroup egroup endgraf space empty null
+         newcount newdimen newskip newmuskip newbox newtoks newhelp newread newwrite newfam newlanguage newinsert newif
+         maxdimen magstephalf magstep
+         frenchspacing nonfrenchspacing normalbaselines obeylines obeyspaces raggedright ttraggedright
+         thinspace negthinspace enspace enskip quad qquad
+         smallskip medskip bigskip removelastskip topglue vglue hglue
+         break nobreak allowbreak filbreak goodbreak smallbreak medbreak bigbreak
+         line leftline rightline centerline rlap llap underbar strutbox strut
+         cases matrix pmatrix bordermatrix eqalign displaylines eqalignno leqalignno
+         pageno folio tracingall showhyphens fmtname fmtversion
+         hphantom vphantom phantom smash
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="tex">
+         <lexer name="TeX" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.tex *.sty</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="tex-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="tex-Default" />
+            <style name="Special" class="tex-Special" />
+            <style name="Group" class="tex-Group" />
+            <style name="Symbol" class="tex-Symbol" />
+            <style name="Command" class="tex-Command" />
+            <style name="Text" class="tex-Text" />
+            <style name="GlobalDefault" class="tex-GlobalDefault" />
+            <style name="LineNumber" class="tex-LineNumber" />
+            <style name="BraceLight" class="tex-BraceLight" />
+            <style name="BraceBad" class="tex-BraceBad" />
+            <style name="ControlChar" class="tex-ControlChar" />
+            <style name="IndentGuide" class="tex-IndentGuide" />
+            <style name="CallTip" class="tex-CallTip" />
+            <style name="LastPredefined" class="tex-LastPredefined" />
+            <style name="Max" class="tex-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

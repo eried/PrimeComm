@@ -1,0 +1,43 @@
+rem  This batch file gets a character or word of user input and 
+rem  returns it in the environment variable VALUE. Two tricks are 
+rem  used to accomplish this: 
+rem
+rem  (1) The FC (File Compare) command is used to compare two standard 
+rem      devices -- NUL (nothing) and CON (the console). The /LB1 option
+rem      is used to insure only one line is compared, and the /N numbers  
+rem      that output line with a "1:", making it easier for us to find.
+rem      FC will output immediately after the user hits "Enter" (because
+rem      of the /LB1), and will give us a total of 7 lines of output. 
+rem      Of these 7 lines, the one starting with "1:" is the one we want.
+rem
+rem  (2) The DATE command is used only because it always returns the
+rem      phrase "Enter new date (mm-dd-yy): " followed by whatever was
+rem      piped into it. Why is this format important?  Obviously, it
+rem      has nothing to do with setting the date!  Well, we will be
+rem      piping it into a batch file and running it. When that batch 
+rem      file runs, it will try to execute the first word (Enter) as if 
+rem      it were a valid command, and pass everything else as arguments. 
+rem      Since we have created a valid (batch file) command called ENTER, 
+rem      this will actually work! We just have to make sure that ENTER.BAT
+rem      is set up to handle the arguments that will be passed to it!
+
+
+echo This is a test. Please enter "y" or "n"
+fc con nul /lb1 /n | date | find "1:" > en#er.bat
+echo set value=%%5> enter.bat
+call en#er.bat
+del en?er.bat > nul
+if "%value%"=="n" echo You entered "n"
+if "%value%"=="y" echo You entered "y"
+set value=
+
+
+rem      See PC Magazine V14N12 June 27, 1995 page 248 for further 
+rem      information. The PC Magazine article suggests using a 
+rem      permanent ENTER.BAT which can accept a line 
+rem      of user input (complete with spaces between words!). 
+rem      My version is meant to be inserted into any batch file 
+rem      and will create a simple one-line temporary ENTER.BAT in 
+rem      the default directory and on the fly as needed.
+rem      http://www.ericphelps.com
+

@@ -1,0 +1,9 @@
+ScintillaNet v4.0 Changelog
+
+
+
+Breaking Changes:
+
+AutoComplete.cs-
+Property "CancelAtStart" has been renamed to "CancelAtShowPoint" in order to better reflect what the property actually does.
+This was also changed in all other references to it.

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="lout-Default" inherit-style="Default" />
+      <style-class name="lout-Comment" inherit-style="Comment" />
+      <style-class name="lout-Number" inherit-style="Number" />
+      <style-class name="lout-Word" inherit-style="Word" />
+      <style-class name="lout-Word2" inherit-style="Word2" />
+      <style-class name="lout-Word3" inherit-style="Word3" />
+      <style-class name="lout-Word4" inherit-style="Word4" />
+      <style-class name="lout-String" inherit-style="String" />
+      <style-class name="lout-Operator" inherit-style="Operator" />
+      <style-class name="lout-Identifier" inherit-style="Identifier" />
+      <style-class name="lout-StringEol" inherit-style="StringEol" />
+      <style-class name="lout-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="lout-LineNumber" inherit-style="LineNumber" />
+      <style-class name="lout-BraceLight" inherit-style="BraceLight" />
+      <style-class name="lout-BraceBad" inherit-style="BraceBad" />
+      <style-class name="lout-ControlChar" inherit-style="ControlChar" />
+      <style-class name="lout-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="lout-CallTip" inherit-style="CallTip" />
+      <style-class name="lout-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="lout-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="lout-identifiers" >         
+         @OptGall @Filter @FilterIn @FilterOut
+         @FilterErr @FontDef @Family @Face @Name @Metrics @ExtraMetrics
+         @Mapping @Recode @Common @Rump @Meld @Insert @OneOf @Next @Plus
+         @Minus @Wide @High @HShift @VShift @BeginHeaderComponent
+         @EndHeaderComponent @SetHeaderComponent @ClearHeaderComponent @OneCol
+         @OneRow @HScale @VScale @HCover @VCover @Scale @KernShrink @HContract
+         @VContract @HLimited @VLimited @HExpand @VExpand @StartHVSpan
+         @StartHSpan @StartVSpan @HSpan @VSpan @PAdjust @HAdjust @VAdjust
+         @Rotate @Background @IncludeGraphic @SysIncludeGraphic @Graphic
+         @LinkSource @LinkDest @URLLink @PlainGraphic @Verbatim @RawVerbatim
+         @Case @Yield @BackEnd @Char @Font @Space @YUnit @ZUnit @Break
+         @Underline @SetColour @SetColor @SetTexture @Outline @Language
+         @CurrLang @CurrFamily @CurrFace @CurrYUnit @CurrZUnit @LEnv @LClos
+         @LUse @LEO @Open @Use @NotRevealed @Tagged @Database @SysDatabase
+         @Include @SysInclude @IncludeGraphicRepeated @PrependGraphic
+         @SysIncludeGraphicRepeated @SysPrependGraphic @Target @Null
+         @PageLabel @Galley @ForceGalley @LInput @Split @Tag @Key @Optimize
+         @Merge @Enclose @Begin @End @Moment @Second @Minute @Hour @Day @Month
+         @Year @Century @WeekDay @YearDay @DaylightSaving @@A @@B @@C @@D @@E @@V
+      </keyword-class>
+      <keyword-class name="lout-delimiters" >         
+         &amp;&amp;&amp; &amp;&amp; &amp; ^// ^/ ^|| ^| ^&amp; // / || |
+      </keyword-class>
+      <keyword-class name="lout-keywords" >         
+         def langdef force horizontally into
+         extend import export precedence associativity left right body macro
+         named compulsory following preceding foll_or_prec now
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="lout">
+         <lexer name="LOUT" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.lt</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="lout-identifiers"/>
+            <keyword key="1" class="lout-delimiters"/>
+            <keyword key="2" class="lout-keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="lout-Default" />
+            <style name="Comment" class="lout-Comment" />
+            <style name="Number" class="lout-Number" />
+            <style name="Word" class="lout-Word" />
+            <style name="Word2" class="lout-Word2" />
+            <style name="Word3" class="lout-Word3" />
+            <style name="Word4" class="lout-Word4" />
+            <style name="String" class="lout-String" />
+            <style name="Operator" class="lout-Operator" />
+            <style name="Identifier" class="lout-Identifier" />
+            <style name="StringEol" class="lout-StringEol" />
+            <style name="GlobalDefault" class="lout-GlobalDefault" />
+            <style name="LineNumber" class="lout-LineNumber" />
+            <style name="BraceLight" class="lout-BraceLight" />
+            <style name="BraceBad" class="lout-BraceBad" />
+            <style name="ControlChar" class="lout-ControlChar" />
+            <style name="IndentGuide" class="lout-IndentGuide" />
+            <style name="CallTip" class="lout-CallTip" />
+            <style name="LastPredefined" class="lout-LastPredefined" />
+            <style name="Max" class="lout-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

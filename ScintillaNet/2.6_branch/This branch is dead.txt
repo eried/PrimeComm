@@ -1,0 +1,8 @@
+Okay, “dead” may be too harsh a term. But it is not being actively developed.
+
+It was created as an experiment to try new things.
+
+If you’re looking for the latest code it will be in Trunk.
+
+If you’re looking for the latest release it will be in Releases.
+

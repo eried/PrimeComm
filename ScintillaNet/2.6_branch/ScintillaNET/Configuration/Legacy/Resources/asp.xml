@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="asp-Default" inherit-style="Default" />
+      <style-class name="asp-Tag" inherit-style="Tag" />
+      <style-class name="asp-TagUnknown" inherit-style="TagUnknown" />
+      <style-class name="asp-Attribute" inherit-style="Attribute" />
+      <style-class name="asp-AttributeUnknown" inherit-style="AttributeUnknown" />
+      <style-class name="asp-Number" inherit-style="Number" />
+      <style-class name="asp-DoubleString" inherit-style="DoubleString" />
+      <style-class name="asp-SingleString" inherit-style="SingleString" />
+      <style-class name="asp-Other" inherit-style="Other" />
+      <style-class name="asp-Comment" inherit-style="Comment" />
+      <style-class name="asp-Entity" inherit-style="Entity" />
+      <style-class name="asp-TagEnd" inherit-style="TagEnd" />
+      <style-class name="asp-XmlStart" inherit-style="XmlStart" />
+      <style-class name="asp-XmlEnd" inherit-style="XmlEnd" />
+      <style-class name="asp-Script" inherit-style="Script" />
+      <style-class name="asp-Asp" inherit-style="Asp" />
+      <style-class name="asp-AspAt" inherit-style="AspAt" />
+      <style-class name="asp-CData" inherit-style="CData" />
+      <style-class name="asp-Question" inherit-style="Question" />
+      <style-class name="asp-Value" inherit-style="Value" />
+      <style-class name="asp-XCComment" inherit-style="XCComment" />
+      <style-class name="asp-SgmlDefault" inherit-style="SgmlDefault" />
+      <style-class name="asp-SgmlCommand" inherit-style="SgmlCommand" />
+      <style-class name="asp-SgmlSgml1stParameter" inherit-style="SgmlSgml1stParameter" />
+      <style-class name="asp-SgmlDoubleString" inherit-style="SgmlDoubleString" />
+      <style-class name="asp-SgmlSimpleString" inherit-style="SgmlSimpleString" />
+      <style-class name="asp-SgmlError" inherit-style="SgmlError" />
+      <style-class name="asp-SgmlSpecial" inherit-style="SgmlSpecial" />
+      <style-class name="asp-SgmlEntity" inherit-style="SgmlEntity" />
+      <style-class name="asp-SgmlComment" inherit-style="SgmlComment" />
+      <style-class name="asp-SgmlSgml1stParameterComment" inherit-style="SgmlSgml1stParameterComment" />
+      <style-class name="asp-SgmlBlockDefault" inherit-style="SgmlBlockDefault" />
+      <style-class name="asp-JavaScriptStart" inherit-style="JavaScriptStart" />
+      <style-class name="asp-JavaScriptDefault" inherit-style="JavaScriptDefault" />
+      <style-class name="asp-JavaScriptComment" inherit-style="JavaScriptComment" />
+      <style-class name="asp-JavaScriptCommentLine" inherit-style="JavaScriptCommentLine" />
+      <style-class name="asp-JavaScriptCommentDoc" inherit-style="JavaScriptCommentDoc" />
+      <style-class name="asp-JavaScriptNumber" inherit-style="JavaScriptNumber" />
+      <style-class name="asp-JavaScriptWord" inherit-style="JavaScriptWord" />
+      <style-class name="asp-JavaScriptKeyword" inherit-style="JavaScriptKeyword" />
+      <style-class name="asp-JavaScriptDoubleString" inherit-style="JavaScriptDoubleString" />
+      <style-class name="asp-JavaScriptSingleString" inherit-style="JavaScriptSingleString" />
+      <style-class name="asp-JavaScriptSymbols" inherit-style="JavaScriptSymbols" />
+      <style-class name="asp-JavaScriptStringEol" inherit-style="JavaScriptStringEol" />
+      <style-class name="asp-JavaScriptRegex" inherit-style="JavaScriptRegex" />
+      <style-class name="asp-AspJavaScriptStart" inherit-style="AspJavaScriptStart" />
+      <style-class name="asp-AspJavaScriptDefault" inherit-style="AspJavaScriptDefault" />
+      <style-class name="asp-AspJavaScriptComment" inherit-style="AspJavaScriptComment" />
+      <style-class name="asp-AspJavaScriptCommentLine" inherit-style="AspJavaScriptCommentLine" />
+      <style-class name="asp-AspJavaScriptCommentDoc" inherit-style="AspJavaScriptCommentDoc" />
+      <style-class name="asp-AspJavaScriptNumber" inherit-style="AspJavaScriptNumber" />
+      <style-class name="asp-AspJavaScriptWord" inherit-style="AspJavaScriptWord" />
+      <style-class name="asp-AspJavaScriptKeyword" inherit-style="AspJavaScriptKeyword" />
+      <style-class name="asp-AspJavaScriptDoubleString" inherit-style="AspJavaScriptDoubleString" />
+      <style-class name="asp-AspJavaScriptSingleString" inherit-style="AspJavaScriptSingleString" />
+      <style-class name="asp-AspJavaScriptSymbols" inherit-style="AspJavaScriptSymbols" />
+      <style-class name="asp-AspJavaScriptStringEol" inherit-style="AspJavaScriptStringEol" />
+      <style-class name="asp-AspJavaScriptRegex" inherit-style="AspJavaScriptRegex" />
+      <style-class name="asp-VBScriptStart" inherit-style="VBScriptStart" />
+      <style-class name="asp-VBScriptDefault" inherit-style="VBScriptDefault" />
+      <style-class name="asp-VBScriptCommentLine" inherit-style="VBScriptCommentLine" />
+      <style-class name="asp-VBScriptNumber" inherit-style="VBScriptNumber" />
+      <style-class name="asp-VBScriptWord" inherit-style="VBScriptWord" />
+      <style-class name="asp-VBScriptString" inherit-style="VBScriptString" />
+      <style-class name="asp-VBScriptIdentifier" inherit-style="VBScriptIdentifier" />
+      <style-class name="asp-VBScriptStringEol" inherit-style="VBScriptStringEol" />
+      <style-class name="asp-AspVBScriptStart" inherit-style="AspVBScriptStart" />
+      <style-class name="asp-AspVBScriptDefault" inherit-style="AspVBScriptDefault" />
+      <style-class name="asp-AspVBScriptCommentLine" inherit-style="AspVBScriptCommentLine" />
+      <style-class name="asp-AspVBScriptNumber" inherit-style="AspVBScriptNumber" />
+      <style-class name="asp-AspVBScriptWord" inherit-style="AspVBScriptWord" />
+      <style-class name="asp-AspVBScriptString" inherit-style="AspVBScriptString" />
+      <style-class name="asp-AspVBScriptIdentifier" inherit-style="AspVBScriptIdentifier" />
+      <style-class name="asp-AspVBScriptStringEol" inherit-style="AspVBScriptStringEol" />
+      <style-class name="asp-PythonStart" inherit-style="PythonStart" />
+      <style-class name="asp-PythonDefault" inherit-style="PythonDefault" />
+      <style-class name="asp-PythonCommentLine" inherit-style="PythonCommentLine" />
+      <style-class name="asp-PythonNumber" inherit-style="PythonNumber" />
+      <style-class name="asp-PythonString" inherit-style="PythonString" />
+      <style-class name="asp-PythonCharacter" inherit-style="PythonCharacter" />
+      <style-class name="asp-PythonWord" inherit-style="PythonWord" />
+      <style-class name="asp-PythonTriple" inherit-style="PythonTriple" />
+      <style-class name="asp-PythonTripleDouble" inherit-style="PythonTripleDouble" />
+      <style-class name="asp-PythonClassName" inherit-style="PythonClassName" />
+      <style-class name="asp-PythonDefName" inherit-style="PythonDefName" />
+      <style-class name="asp-PythonOperator" inherit-style="PythonOperator" />
+      <style-class name="asp-PythonIdentifier" inherit-style="PythonIdentifier" />
+      <style-class name="asp-PhpComplexVariable" inherit-style="PhpComplexVariable" />
+      <style-class name="asp-AspPythonStart" inherit-style="AspPythonStart" />
+      <style-class name="asp-AspPythonDefault" inherit-style="AspPythonDefault" />
+      <style-class name="asp-AspPythonCommentLine" inherit-style="AspPythonCommentLine" />
+      <style-class name="asp-AspPythonNumber" inherit-style="AspPythonNumber" />
+      <style-class name="asp-AspPythonString" inherit-style="AspPythonString" />
+      <style-class name="asp-AspPythonCharacter" inherit-style="AspPythonCharacter" />
+      <style-class name="asp-AspPythonWord" inherit-style="AspPythonWord" />
+      <style-class name="asp-AspPythonTriple" inherit-style="AspPythonTriple" />
+      <style-class name="asp-AspPythonTripleDouble" inherit-style="AspPythonTripleDouble" />
+      <style-class name="asp-AspPythonClassName" inherit-style="AspPythonClassName" />
+      <style-class name="asp-AspPythonDefName" inherit-style="AspPythonDefName" />
+      <style-class name="asp-AspPythonOperator" inherit-style="AspPythonOperator" />
+      <style-class name="asp-AspPythonIdentifier" inherit-style="AspPythonIdentifier" />
+      <style-class name="asp-PhpDefault" inherit-style="PhpDefault" />
+      <style-class name="asp-PhpHString" inherit-style="PhpHString" />
+      <style-class name="asp-PhpSimpleString" inherit-style="PhpSimpleString" />
+      <style-class name="asp-PhpWord" inherit-style="PhpWord" />
+      <style-class name="asp-PhpNumber" inherit-style="PhpNumber" />
+      <style-class name="asp-PhpVariable" inherit-style="PhpVariable" />
+      <style-class name="asp-PhpComment" inherit-style="PhpComment" />
+      <style-class name="asp-PhpCommentLine" inherit-style="PhpCommentLine" />
+      <style-class name="asp-PhpHstringVariable" inherit-style="PhpHstringVariable" />
+      <style-class name="asp-PhpOperator" inherit-style="PhpOperator" />
+      <style-class name="asp-ADefault" inherit-style="ADefault" />
+      <style-class name="asp-AIdentifier" inherit-style="AIdentifier" />
+      <style-class name="asp-AKeyword" inherit-style="AKeyword" />
+      <style-class name="asp-ANumber" inherit-style="ANumber" />
+      <style-class name="asp-AString" inherit-style="AString" />
+      <style-class name="asp-ACharacter" inherit-style="ACharacter" />
+      <style-class name="asp-AClass" inherit-style="AClass" />
+      <style-class name="asp-AModule" inherit-style="AModule" />
+      <style-class name="asp-ACapital" inherit-style="ACapital" />
+      <style-class name="asp-AData" inherit-style="AData" />
+      <style-class name="asp-AImport" inherit-style="AImport" />
+      <style-class name="asp-AOperator" inherit-style="AOperator" />
+      <style-class name="asp-AInstance" inherit-style="AInstance" />
+      <style-class name="asp-ACommentline" inherit-style="ACommentline" />
+      <style-class name="asp-ACommentblock" inherit-style="ACommentblock" />
+      <style-class name="asp-ACommentblock2" inherit-style="ACommentblock2" />
+      <style-class name="asp-ACommentblock3" inherit-style="ACommentblock3" />
+      <style-class name="asp-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="asp-LineNumber" inherit-style="LineNumber" />
+      <style-class name="asp-BraceLight" inherit-style="BraceLight" />
+      <style-class name="asp-BraceBad" inherit-style="BraceBad" />
+      <style-class name="asp-ControlChar" inherit-style="ControlChar" />
+      <style-class name="asp-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="asp-CallTip" inherit-style="CallTip" />
+      <style-class name="asp-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="asp-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="asp-HTML-elements-and-attributes" >         
+         a abbr acronym address applet area b base basefont
+         bdo big blockquote body br button caption center
+         cite code col colgroup dd del dfn dir div dl dt em
+         fieldset font form frame frameset h1 h2 h3 h4 h5 h6
+         head hr html i iframe img input ins isindex kbd label
+         legend li link map menu meta noframes noscript
+         object ol optgroup option p param pre q s samp
+         script select small span strike strong style sub sup
+         table tbody td textarea tfoot th thead title tr tt u ul
+         var xml xmlns
+         abbr accept-charset accept accesskey action align alink
+         alt archive axis background bgcolor border
+         cellpadding cellspacing char charoff charset checked cite
+         class classid clear codebase codetype color cols colspan
+         compact content coords
+         data datafld dataformatas datapagesize datasrc datetime
+         declare defer dir disabled enctype event
+         face for frame frameborder
+         headers height href hreflang hspace http-equiv
+         id ismap label lang language leftmargin link longdesc
+         marginwidth marginheight maxlength media method multiple
+         name nohref noresize noshade nowrap
+         object onblur onchange onclick ondblclick onfocus
+         onkeydown onkeypress onkeyup onload onmousedown
+         onmousemove onmouseover onmouseout onmouseup
+         onreset onselect onsubmit onunload
+         profile prompt readonly rel rev rows rowspan rules
+         scheme scope selected shape size span src standby start style
+         summary tabindex target text title topmargin type usemap
+         valign value valuetype version vlink vspace width
+         text password checkbox radio submit reset
+         file hidden image
+         public !doctype
+      </keyword-class>
+      <keyword-class name="asp-JavaScript-keywords" >         
+         abstract boolean break byte case catch char class
+         const continue debugger default delete do double else enum export extends
+         final finally float for function goto if implements import in instanceof
+         int interface long native new package private protected public
+         return short static super switch synchronized this throw throws
+         transient try typeof var void volatile while with
+      </keyword-class>
+      <keyword-class name="asp-VBScript-keywords" >         
+         and begin case call continue do each else elseif end erase
+         error event exit false for function get gosub goto if implement in load loop lset
+         me mid new next not nothing on or property raiseevent rem resume return rset
+         select set stop sub then to true unload until wend while with withevents
+         attribute alias as boolean byref byte byval const compare currency date declare dim double
+         enum explicit friend global integer let lib long module object option optional
+         preserve private property public redim single static string type variant
+      </keyword-class>
+      <keyword-class name="asp-Python-keywords" >         
+         and assert break class continue def del elif
+         else except exec finally for from global if import in is lambda None
+         not or pass print raise return try while yield
+      </keyword-class>
+      <keyword-class name="asp-PHP-keywords" >         
+         and argv as argc break case cfunction class continue declare default do
+         die echo else elseif empty enddeclare endfor endforeach endif endswitch
+         endwhile e_all e_parse e_error e_warning eval exit extends false for
+         foreach function global http_cookie_vars http_get_vars http_post_vars
+         http_post_files http_env_vars http_server_vars if include include_once
+         list new not null old_function or parent php_os php_self php_version
+         print require require_once return static switch stdclass this true var
+         xor virtual while __file__ __line__ __sleep __wakeup
+      </keyword-class>
+      <keyword-class name="asp-SGML-and-DTD-keywords" >         
+         ELEMENT DOCTYPE ATTLIST ENTITY NOTATION
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="asp">
+         <lexer name="ASP" style-bits="7"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.asp *.aspx</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="asp-HTML-elements-and-attributes"/>
+            <keyword key="1" class="asp-JavaScript-keywords"/>
+            <keyword key="2" class="asp-VBScript-keywords"/>
+            <keyword key="3" class="asp-Python-keywords"/>
+            <keyword key="4" class="asp-PHP-keywords"/>
+            <keyword key="5" class="asp-SGML-and-DTD-keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="asp-Default" />
+            <style name="Tag" class="asp-Tag" />
+            <style name="TagUnknown" class="asp-TagUnknown" />
+            <style name="Attribute" class="asp-Attribute" />
+            <style name="AttributeUnknown" class="asp-AttributeUnknown" />
+            <style name="Number" class="asp-Number" />
+            <style name="DoubleString" class="asp-DoubleString" />
+            <style name="SingleString" class="asp-SingleString" />
+            <style name="Other" class="asp-Other" />
+            <style name="Comment" class="asp-Comment" />
+            <style name="Entity" class="asp-Entity" />
+            <style name="TagEnd" class="asp-TagEnd" />
+            <style name="XmlStart" class="asp-XmlStart" />
+            <style name="XmlEnd" class="asp-XmlEnd" />
+            <style name="Script" class="asp-Script" />
+            <style name="Asp" class="asp-Asp" />
+            <style name="AspAt" class="asp-AspAt" />
+            <style name="CData" class="asp-CData" />
+            <style name="Question" class="asp-Question" />
+            <style name="Value" class="asp-Value" />
+            <style name="XCComment" class="asp-XCComment" />
+            <style name="SgmlDefault" class="asp-SgmlDefault" />
+            <style name="SgmlCommand" class="asp-SgmlCommand" />
+            <style name="SgmlSgml1stParameter" class="asp-SgmlSgml1stParameter" />
+            <style name="SgmlDoubleString" class="asp-SgmlDoubleString" />
+            <style name="SgmlSimpleString" class="asp-SgmlSimpleString" />
+            <style name="SgmlError" class="asp-SgmlError" />
+            <style name="SgmlSpecial" class="asp-SgmlSpecial" />
+            <style name="SgmlEntity" class="asp-SgmlEntity" />
+            <style name="SgmlComment" class="asp-SgmlComment" />
+            <style name="SgmlSgml1stParameterComment" class="asp-SgmlSgml1stParameterComment" />
+            <style name="SgmlBlockDefault" class="asp-SgmlBlockDefault" />
+            <style name="JavaScriptStart" class="asp-JavaScriptStart" />
+            <style name="JavaScriptDefault" class="asp-JavaScriptDefault" />
+            <style name="JavaScriptComment" class="asp-JavaScriptComment" />
+            <style name="JavaScriptCommentLine" class="asp-JavaScriptCommentLine" />
+            <style name="JavaScriptCommentDoc" class="asp-JavaScriptCommentDoc" />
+            <style name="JavaScriptNumber" class="asp-JavaScriptNumber" />
+            <style name="JavaScriptWord" class="asp-JavaScriptWord" />
+            <style name="JavaScriptKeyword" class="asp-JavaScriptKeyword" />
+            <style name="JavaScriptDoubleString" class="asp-JavaScriptDoubleString" />
+            <style name="JavaScriptSingleString" class="asp-JavaScriptSingleString" />
+            <style name="JavaScriptSymbols" class="asp-JavaScriptSymbols" />
+            <style name="JavaScriptStringEol" class="asp-JavaScriptStringEol" />
+            <style name="JavaScriptRegex" class="asp-JavaScriptRegex" />
+            <style name="AspJavaScriptStart" class="asp-AspJavaScriptStart" />
+            <style name="AspJavaScriptDefault" class="asp-AspJavaScriptDefault" />
+            <style name="AspJavaScriptComment" class="asp-AspJavaScriptComment" />
+            <style name="AspJavaScriptCommentLine" class="asp-AspJavaScriptCommentLine" />
+            <style name="AspJavaScriptCommentDoc" class="asp-AspJavaScriptCommentDoc" />
+            <style name="AspJavaScriptNumber" class="asp-AspJavaScriptNumber" />
+            <style name="AspJavaScriptWord" class="asp-AspJavaScriptWord" />
+            <style name="AspJavaScriptKeyword" class="asp-AspJavaScriptKeyword" />
+            <style name="AspJavaScriptDoubleString" class="asp-AspJavaScriptDoubleString" />
+            <style name="AspJavaScriptSingleString" class="asp-AspJavaScriptSingleString" />
+            <style name="AspJavaScriptSymbols" class="asp-AspJavaScriptSymbols" />
+            <style name="AspJavaScriptStringEol" class="asp-AspJavaScriptStringEol" />
+            <style name="AspJavaScriptRegex" class="asp-AspJavaScriptRegex" />
+            <style name="VBScriptStart" class="asp-VBScriptStart" />
+            <style name="VBScriptDefault" class="asp-VBScriptDefault" />
+            <style name="VBScriptCommentLine" class="asp-VBScriptCommentLine" />
+            <style name="VBScriptNumber" class="asp-VBScriptNumber" />
+            <style name="VBScriptWord" class="asp-VBScriptWord" />
+            <style name="VBScriptString" class="asp-VBScriptString" />
+            <style name="VBScriptIdentifier" class="asp-VBScriptIdentifier" />
+            <style name="VBScriptStringEol" class="asp-VBScriptStringEol" />
+            <style name="AspVBScriptStart" class="asp-AspVBScriptStart" />
+            <style name="AspVBScriptDefault" class="asp-AspVBScriptDefault" />
+            <style name="AspVBScriptCommentLine" class="asp-AspVBScriptCommentLine" />
+            <style name="AspVBScriptNumber" class="asp-AspVBScriptNumber" />
+            <style name="AspVBScriptWord" class="asp-AspVBScriptWord" />
+            <style name="AspVBScriptString" class="asp-AspVBScriptString" />
+            <style name="AspVBScriptIdentifier" class="asp-AspVBScriptIdentifier" />
+            <style name="AspVBScriptStringEol" class="asp-AspVBScriptStringEol" />
+            <style name="PythonStart" class="asp-PythonStart" />
+            <style name="PythonDefault" class="asp-PythonDefault" />
+            <style name="PythonCommentLine" class="asp-PythonCommentLine" />
+            <style name="PythonNumber" class="asp-PythonNumber" />
+            <style name="PythonString" class="asp-PythonString" />
+            <style name="PythonCharacter" class="asp-PythonCharacter" />
+            <style name="PythonWord" class="asp-PythonWord" />
+            <style name="PythonTriple" class="asp-PythonTriple" />
+            <style name="PythonTripleDouble" class="asp-PythonTripleDouble" />
+            <style name="PythonClassName" class="asp-PythonClassName" />
+            <style name="PythonDefName" class="asp-PythonDefName" />
+            <style name="PythonOperator" class="asp-PythonOperator" />
+            <style name="PythonIdentifier" class="asp-PythonIdentifier" />
+            <style name="PhpComplexVariable" class="asp-PhpComplexVariable" />
+            <style name="AspPythonStart" class="asp-AspPythonStart" />
+            <style name="AspPythonDefault" class="asp-AspPythonDefault" />
+            <style name="AspPythonCommentLine" class="asp-AspPythonCommentLine" />
+            <style name="AspPythonNumber" class="asp-AspPythonNumber" />
+            <style name="AspPythonString" class="asp-AspPythonString" />
+            <style name="AspPythonCharacter" class="asp-AspPythonCharacter" />
+            <style name="AspPythonWord" class="asp-AspPythonWord" />
+            <style name="AspPythonTriple" class="asp-AspPythonTriple" />
+            <style name="AspPythonTripleDouble" class="asp-AspPythonTripleDouble" />
+            <style name="AspPythonClassName" class="asp-AspPythonClassName" />
+            <style name="AspPythonDefName" class="asp-AspPythonDefName" />
+            <style name="AspPythonOperator" class="asp-AspPythonOperator" />
+            <style name="AspPythonIdentifier" class="asp-AspPythonIdentifier" />
+            <style name="PhpDefault" class="asp-PhpDefault" />
+            <style name="PhpHString" class="asp-PhpHString" />
+            <style name="PhpSimpleString" class="asp-PhpSimpleString" />
+            <style name="PhpWord" class="asp-PhpWord" />
+            <style name="PhpNumber" class="asp-PhpNumber" />
+            <style name="PhpVariable" class="asp-PhpVariable" />
+            <style name="PhpComment" class="asp-PhpComment" />
+            <style name="PhpCommentLine" class="asp-PhpCommentLine" />
+            <style name="PhpHstringVariable" class="asp-PhpHstringVariable" />
+            <style name="PhpOperator" class="asp-PhpOperator" />
+            <style name="ADefault" class="asp-ADefault" />
+            <style name="AIdentifier" class="asp-AIdentifier" />
+            <style name="AKeyword" class="asp-AKeyword" />
+            <style name="ANumber" class="asp-ANumber" />
+            <style name="AString" class="asp-AString" />
+            <style name="ACharacter" class="asp-ACharacter" />
+            <style name="AClass" class="asp-AClass" />
+            <style name="AModule" class="asp-AModule" />
+            <style name="ACapital" class="asp-ACapital" />
+            <style name="AData" class="asp-AData" />
+            <style name="AImport" class="asp-AImport" />
+            <style name="AOperator" class="asp-AOperator" />
+            <style name="AInstance" class="asp-AInstance" />
+            <style name="ACommentline" class="asp-ACommentline" />
+            <style name="ACommentblock" class="asp-ACommentblock" />
+            <style name="ACommentblock2" class="asp-ACommentblock2" />
+            <style name="ACommentblock3" class="asp-ACommentblock3" />
+            <style name="GlobalDefault" class="asp-GlobalDefault" />
+            <style name="LineNumber" class="asp-LineNumber" />
+            <style name="BraceLight" class="asp-BraceLight" />
+            <style name="BraceBad" class="asp-BraceBad" />
+            <style name="ControlChar" class="asp-ControlChar" />
+            <style name="IndentGuide" class="asp-IndentGuide" />
+            <style name="CallTip" class="asp-CallTip" />
+            <style name="LastPredefined" class="asp-LastPredefined" />
+            <style name="Max" class="asp-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

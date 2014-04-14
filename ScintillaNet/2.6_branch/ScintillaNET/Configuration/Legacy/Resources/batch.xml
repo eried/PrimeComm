@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="batch-Default" inherit-style="Default" />
+      <style-class name="batch-Comment" inherit-style="Comment" />
+      <style-class name="batch-Word" inherit-style="Word" />
+      <style-class name="batch-Label" inherit-style="Label" />
+      <style-class name="batch-Hide" inherit-style="Hide" />
+      <style-class name="batch-Command" inherit-style="Command" />
+      <style-class name="batch-Identifier" inherit-style="Identifier" />
+      <style-class name="batch-Operator" inherit-style="Operator" />
+      <style-class name="batch-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="batch-LineNumber" inherit-style="LineNumber" />
+      <style-class name="batch-BraceLight" inherit-style="BraceLight" />
+      <style-class name="batch-BraceBad" inherit-style="BraceBad" />
+      <style-class name="batch-ControlChar" inherit-style="ControlChar" />
+      <style-class name="batch-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="batch-CallTip" inherit-style="CallTip" />
+      <style-class name="batch-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="batch-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="batch-Keywords" >         
+         rem set if exist errorlevel for in do
+         break call chcp cd chdir choice cls country ctty date del erase dir echo
+         exit goto loadfix loadhigh mkdir md move path pause prompt rename ren
+         rmdir rd shift time type ver verify vol
+         com con lpt nul
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="batch">
+         <lexer name="Batch" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.bat *.cmd *.nt</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="batch-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="batch-Default" />
+            <style name="Comment" class="batch-Comment" />
+            <style name="Word" class="batch-Word" />
+            <style name="Label" class="batch-Label" />
+            <style name="Hide" class="batch-Hide" />
+            <style name="Command" class="batch-Command" />
+            <style name="Identifier" class="batch-Identifier" />
+            <style name="Operator" class="batch-Operator" />
+            <style name="GlobalDefault" class="batch-GlobalDefault" />
+            <style name="LineNumber" class="batch-LineNumber" />
+            <style name="BraceLight" class="batch-BraceLight" />
+            <style name="BraceBad" class="batch-BraceBad" />
+            <style name="ControlChar" class="batch-ControlChar" />
+            <style name="IndentGuide" class="batch-IndentGuide" />
+            <style name="CallTip" class="batch-CallTip" />
+            <style name="LastPredefined" class="batch-LastPredefined" />
+            <style name="Max" class="batch-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,4 +1,6 @@
-﻿namespace PrimeComm
+﻿using System;
+
+namespace PrimeComm
 {
     partial class FormEditor
     {
@@ -45,7 +47,7 @@
             WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditor));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.editor = new ScintillaNET.Scintilla();
+            this.editor = new ScintillaNet.Scintilla();
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -162,16 +164,15 @@
             this.editor.AllowDrop = true;
             this.editor.AutoComplete.IsCaseSensitive = false;
             this.editor.AutoComplete.ListString = "";
-            this.editor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.editor.ConfigurationManager.Language = "pascal";
-            this.editor.Folding.Flags = ScintillaNET.FoldFlag.Box;
+            this.editor.Folding.Flags = ScintillaNet.FoldFlag.Box;
             this.editor.Folding.UseCompactFolding = true;
             this.editor.Indentation.IndentWidth = 4;
-            this.editor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
+            this.editor.Indentation.SmartIndentType = ScintillaNet.SmartIndent.CPP;
             this.editor.Indentation.TabWidth = 4;
             this.editor.Indentation.UseTabs = false;
             this.editor.IsBraceMatching = true;
-            this.editor.Lexing.Lexer = ScintillaNET.Lexer.Pascal;
+            this.editor.Lexing.Lexer = ScintillaNet.Lexer.Pascal;
             this.editor.Lexing.LexerName = "pascal";
             this.editor.Lexing.LineCommentPrefix = "//";
             this.editor.Lexing.StreamCommentPrefix = "";
@@ -184,7 +185,7 @@
             this.editor.Snippets.IsOneKeySelectionEmbedEnabled = true;
             this.editor.TabIndex = 0;
             this.editor.SelectionChanged += new System.EventHandler(this.scintillaEditor_SelectionChanged);
-            this.editor.TextChanged += new System.EventHandler(this.scintillaEditor_TextChanged);
+            this.editor.TextChanged += new EventHandler<EventArgs>(this.scintillaEditor_TextChanged);
             this.editor.DragDrop += new System.Windows.Forms.DragEventHandler(this.editor_DragDrop);
             this.editor.DragEnter += new System.Windows.Forms.DragEventHandler(this.editor_DragEnter);
             // 
@@ -974,7 +975,7 @@
 
         #endregion
 
-        private ScintillaNET.Scintilla editor;
+        private ScintillaNet.Scintilla editor;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripButton toolStripButtonNew;

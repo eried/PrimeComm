@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE vxml PUBLIC "-//BeVocal Inc//VoiceXML 2.0//EN"
+ "http://cafe.bevocal.com/libraries/dtd/vxml2-0-bevocal.dtd"> 
+<vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
+   <var name="key" />          
+   <var name="user_status" expr="'old'" />
+   <form id="training_form">
+     <block>
+       <prompt>
+         Welcome to the Speaker Verification
+       </prompt>
+     </block>
+     <field name="phone4" type="digits">
+       <prompt>
+         Please say or enter the last 4 digits of your telephone number.
+         This number will identify you for access to the
+         secure application 
+       </prompt>
+     </field>
+ 
+     <field name="confirm_key" type="boolean">
+       <prompt> I heard <value expr="phone4"/> </prompt>
+       <prompt> Is that correct? Say Yes or No </prompt>
+       <filled>
+         <if cond="confirm_key">
+           <prompt> Okay, Let's continue </prompt>
+           <assign name="key" expr="phone4"/>
+         <else/>
+           <clear namelist="phone4 confirm_key"/>
+         </if>
+       </filled>
+     </field>
+     <bevocal:register name="register_step1" type="phone" keyExpr="key" mode="skip">
+       <prompt>
+         I need some samples of your speech to create an 
+         identifying voice print. Please say your 10-digit telephone number
+       </prompt>
+       <filled>
+         <assign name="user_status" expr="'new'"/>
+       </filled>
+       </bevocal:register>
+     <block>
+       <if cond="user_status == 'old'">
+         <prompt>
+           A voice print has already been registered for 
+           the identifying number <value expr="key"/>.
+           Let's see if your voice matches that voice print
+         </prompt>
+         <goto next="#authentication_form"/>
+       </if>
+     </block>
+     <bevocal:register name="register_step2" type="digits" keyExpr="key">
+       <prompt>
+         Please say any 5 digit number and repeat it.
+       </prompt>
+     </bevocal:register>
+   
+     <filled namelist="register_step1 register_step2"> 
+       <prompt>
+         Your voice print has been registered
+       </prompt>
+     </filled>
+       
+     <field name="confirm_continue" type="boolean">
+       <prompt>
+         Do you wish to continue with authentication?
+       </prompt>
+       <filled>
+         <if cond="confirm_continue">
+           <goto next="#authentication_form"/>
+         <else/>
+           <prompt>
+             Thank you for registering to use this application.
+           </prompt>
+           <exit/>
+         </if>
+       </filled>
+     </field>
+     </form>
+   <form id="authentication_form" >
+     <bevocal:verify name="compare1" type="phone" keyExpr="key">
+       <prompt> 
+         Please say your 10-digit telephone number 
+       </prompt>
+       <filled>
+         <if cond="compare1$.decision == 'accepted'">
+           <prompt>
+             Your identity has been verified 
+           </prompt>
+           <goto next="#secure_form"/>
+         <elseif cond="compare1$.decision == 'rejected'" />
+           <prompt>
+             Sorry you are not authorized to access 
+             the secure application. Goodbye
+           </prompt>
+           <exit/>
+         </if>
+       </filled>
+     </bevocal:verify>
+     <bevocal:verify name="compare2" type="digits" keyExpr="key">
+       <prompt> 
+         Please say any five digit number   
+       </prompt>
+       <filled>
+         <if cond="compare2$.decision == 'accepted'">
+           <prompt>
+             Your identity has been verified 
+           </prompt>
+           <goto next="#secure_form"/>
+         <elseif cond="compare2$.decision == 'rejected'" />
+           <prompt>
+             Sorry. You are not authorized to access 
+             the secure application. Goodbye
+           </prompt>
+           <exit/>
+         <elseif cond="compare2$.decision == 'unsure'" />
+           <prompt>
+             I'm still not sure of your identity. Lets try again   
+           </prompt>
+           <clear namelist="compare1 compare2"/>
+         </if>
+       </filled>
+     </bevocal:verify>
+   </form>    
+   <form id="secure_form" >
+     <block>
+       <prompt>
+         Thanks for using the secure application. Good bye.
+       </prompt>
+     </block>
+   </form>    
+ </vxml>

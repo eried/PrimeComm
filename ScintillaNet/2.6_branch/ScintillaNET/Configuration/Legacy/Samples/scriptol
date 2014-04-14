@@ -1,0 +1,36 @@
+/*
+    Scriptol Example
+    Class and inheritance.
+    Defining a class and a sub-class, declaring instances.
+    Calling methods.
+    Static method.
+*/    
+
+
+class Car
+    int power = 850
+    int getPower() return power
+    
+    static text color(int c)
+        text tc = "other"
+        if c
+        = 1: tc = "blue"
+        = 2: tc = "green"
+        = 4: tc = "red"
+        /if
+    return "color is " + tc
+    
+/class
+
+class FormulaOne is Car
+    int speed
+    int getSpeed()
+        speed = getPower() * 2 / 5
+    return speed
+/class
+
+FormulaOne f1                        // instance of FormulaOne
+print f1.power                        // attribute of the superclass
+print f1.getPower()                // method of the superclass
+print f1.getSpeed()                // method of the class itself
+print FormulaOne.color(4)        // static method of the superclass

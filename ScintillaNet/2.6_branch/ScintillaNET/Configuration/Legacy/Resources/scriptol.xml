@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="scriptol-Default" inherit-style="Default" />
+      <style-class name="scriptol-White" inherit-style="White" />
+      <style-class name="scriptol-CommentLine" inherit-style="CommentLine" />
+      <style-class name="scriptol-Persistent" inherit-style="Persistent" />
+      <style-class name="scriptol-CStyle" inherit-style="CStyle" />
+      <style-class name="scriptol-CommentBlock" inherit-style="CommentBlock" />
+      <style-class name="scriptol-Number" inherit-style="Number" />
+      <style-class name="scriptol-String" inherit-style="String" />
+      <style-class name="scriptol-Character" inherit-style="Character" />
+      <style-class name="scriptol-StringEol" inherit-style="StringEol" />
+      <style-class name="scriptol-Keyword" inherit-style="Keyword" />
+      <style-class name="scriptol-Operator" inherit-style="Operator" />
+      <style-class name="scriptol-Identifier" inherit-style="Identifier" />
+      <style-class name="scriptol-Triple" inherit-style="Triple" />
+      <style-class name="scriptol-ClassName" inherit-style="ClassName" />
+      <style-class name="scriptol-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="scriptol-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="scriptol-LineNumber" inherit-style="LineNumber" />
+      <style-class name="scriptol-BraceLight" inherit-style="BraceLight" />
+      <style-class name="scriptol-BraceBad" inherit-style="BraceBad" />
+      <style-class name="scriptol-ControlChar" inherit-style="ControlChar" />
+      <style-class name="scriptol-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="scriptol-CallTip" inherit-style="CallTip" />
+      <style-class name="scriptol-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="scriptol-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="scriptol-Keywords" >         
+         act action alias always and array as
+         bool boolean break by byte
+         class case catch const constant continue
+         dyn def define dict do double
+         echo else elsif end enum error false file for float forever function
+         globak gtk
+         in if ifdef import include int integer java javax
+         let long match mod nil not natural null number
+         or print protected public real return redo
+         scan script scriptol sol short super static step until using
+         var text then this true try
+         void volatile while when
+         undef zero
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="scriptol">
+         <lexer name="Sol" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.sol</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="scriptol-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="scriptol-Default" />
+            <style name="White" class="scriptol-White" />
+            <style name="CommentLine" class="scriptol-CommentLine" />
+            <style name="Persistent" class="scriptol-Persistent" />
+            <style name="CStyle" class="scriptol-CStyle" />
+            <style name="CommentBlock" class="scriptol-CommentBlock" />
+            <style name="Number" class="scriptol-Number" />
+            <style name="String" class="scriptol-String" />
+            <style name="Character" class="scriptol-Character" />
+            <style name="StringEol" class="scriptol-StringEol" />
+            <style name="Keyword" class="scriptol-Keyword" />
+            <style name="Operator" class="scriptol-Operator" />
+            <style name="Identifier" class="scriptol-Identifier" />
+            <style name="Triple" class="scriptol-Triple" />
+            <style name="ClassName" class="scriptol-ClassName" />
+            <style name="Preprocessor" class="scriptol-Preprocessor" />
+            <style name="GlobalDefault" class="scriptol-GlobalDefault" />
+            <style name="LineNumber" class="scriptol-LineNumber" />
+            <style name="BraceLight" class="scriptol-BraceLight" />
+            <style name="BraceBad" class="scriptol-BraceBad" />
+            <style name="ControlChar" class="scriptol-ControlChar" />
+            <style name="IndentGuide" class="scriptol-IndentGuide" />
+            <style name="CallTip" class="scriptol-CallTip" />
+            <style name="LastPredefined" class="scriptol-LastPredefined" />
+            <style name="Max" class="scriptol-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="ruby-Default" inherit-style="Default" />
+      <style-class name="ruby-Error" inherit-style="Error" />
+      <style-class name="ruby-CommentLine" inherit-style="CommentLine" />
+      <style-class name="ruby-Pod" inherit-style="Pod" />
+      <style-class name="ruby-Number" inherit-style="Number" />
+      <style-class name="ruby-Word" inherit-style="Word" />
+      <style-class name="ruby-String" inherit-style="String" />
+      <style-class name="ruby-Character" inherit-style="Character" />
+      <style-class name="ruby-ClassName" inherit-style="ClassName" />
+      <style-class name="ruby-DefName" inherit-style="DefName" />
+      <style-class name="ruby-Operator" inherit-style="Operator" />
+      <style-class name="ruby-Identifier" inherit-style="Identifier" />
+      <style-class name="ruby-Regex" inherit-style="Regex" />
+      <style-class name="ruby-Global" inherit-style="Global" />
+      <style-class name="ruby-Symbol" inherit-style="Symbol" />
+      <style-class name="ruby-ModuleName" inherit-style="ModuleName" />
+      <style-class name="ruby-InstanceVar" inherit-style="InstanceVar" />
+      <style-class name="ruby-ClassVar" inherit-style="ClassVar" />
+      <style-class name="ruby-BackTicks" inherit-style="BackTicks" />
+      <style-class name="ruby-DataSection" inherit-style="DataSection" />
+      <style-class name="ruby-HereDelimiter" inherit-style="HereDelimiter" />
+      <style-class name="ruby-HereQ" inherit-style="HereQ" />
+      <style-class name="ruby-HereQQ" inherit-style="HereQQ" />
+      <style-class name="ruby-HereQX" inherit-style="HereQX" />
+      <style-class name="ruby-StringQ" inherit-style="StringQ" />
+      <style-class name="ruby-StringQQ" inherit-style="StringQQ" />
+      <style-class name="ruby-StringQX" inherit-style="StringQX" />
+      <style-class name="ruby-StringQR" inherit-style="StringQR" />
+      <style-class name="ruby-StringQW" inherit-style="StringQW" />
+      <style-class name="ruby-WordDemoted" inherit-style="WordDemoted" />
+      <style-class name="ruby-StdIn" inherit-style="StdIn" />
+      <style-class name="ruby-StdOut" inherit-style="StdOut" />
+      <style-class name="ruby-StdErr" inherit-style="StdErr" />
+      <style-class name="ruby-UpperBound" inherit-style="UpperBound" />
+      <style-class name="ruby-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="ruby-LineNumber" inherit-style="LineNumber" />
+      <style-class name="ruby-BraceLight" inherit-style="BraceLight" />
+      <style-class name="ruby-BraceBad" inherit-style="BraceBad" />
+      <style-class name="ruby-ControlChar" inherit-style="ControlChar" />
+      <style-class name="ruby-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="ruby-CallTip" inherit-style="CallTip" />
+      <style-class name="ruby-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="ruby-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="ruby-Keywords" >         
+         __FILE__ and def end in or self unless __LINE__ begin
+         defined? ensure module redo super until BEGIN break do false next rescue
+         then when END case else for nil require retry true while alias class elsif if
+         not return undef yield
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="ruby">
+         <lexer name="Ruby" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.rb</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="ruby-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="ruby-Default" />
+            <style name="Error" class="ruby-Error" />
+            <style name="CommentLine" class="ruby-CommentLine" />
+            <style name="Pod" class="ruby-Pod" />
+            <style name="Number" class="ruby-Number" />
+            <style name="Word" class="ruby-Word" />
+            <style name="String" class="ruby-String" />
+            <style name="Character" class="ruby-Character" />
+            <style name="ClassName" class="ruby-ClassName" />
+            <style name="DefName" class="ruby-DefName" />
+            <style name="Operator" class="ruby-Operator" />
+            <style name="Identifier" class="ruby-Identifier" />
+            <style name="Regex" class="ruby-Regex" />
+            <style name="Global" class="ruby-Global" />
+            <style name="Symbol" class="ruby-Symbol" />
+            <style name="ModuleName" class="ruby-ModuleName" />
+            <style name="InstanceVar" class="ruby-InstanceVar" />
+            <style name="ClassVar" class="ruby-ClassVar" />
+            <style name="BackTicks" class="ruby-BackTicks" />
+            <style name="DataSection" class="ruby-DataSection" />
+            <style name="HereDelimiter" class="ruby-HereDelimiter" />
+            <style name="HereQ" class="ruby-HereQ" />
+            <style name="HereQQ" class="ruby-HereQQ" />
+            <style name="HereQX" class="ruby-HereQX" />
+            <style name="StringQ" class="ruby-StringQ" />
+            <style name="StringQQ" class="ruby-StringQQ" />
+            <style name="StringQX" class="ruby-StringQX" />
+            <style name="StringQR" class="ruby-StringQR" />
+            <style name="StringQW" class="ruby-StringQW" />
+            <style name="WordDemoted" class="ruby-WordDemoted" />
+            <style name="StdIn" class="ruby-StdIn" />
+            <style name="StdOut" class="ruby-StdOut" />
+            <style name="StdErr" class="ruby-StdErr" />
+            <style name="UpperBound" class="ruby-UpperBound" />
+            <style name="GlobalDefault" class="ruby-GlobalDefault" />
+            <style name="LineNumber" class="ruby-LineNumber" />
+            <style name="BraceLight" class="ruby-BraceLight" />
+            <style name="BraceBad" class="ruby-BraceBad" />
+            <style name="ControlChar" class="ruby-ControlChar" />
+            <style name="IndentGuide" class="ruby-IndentGuide" />
+            <style name="CallTip" class="ruby-CallTip" />
+            <style name="LastPredefined" class="ruby-LastPredefined" />
+            <style name="Max" class="ruby-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

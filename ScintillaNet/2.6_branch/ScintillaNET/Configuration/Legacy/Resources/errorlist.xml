@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="errorlist-Default" inherit-style="Default" />
+      <style-class name="errorlist-Python" inherit-style="Python" />
+      <style-class name="errorlist-Gcc" inherit-style="Gcc" />
+      <style-class name="errorlist-MS" inherit-style="MS" />
+      <style-class name="errorlist-Cmd" inherit-style="Cmd" />
+      <style-class name="errorlist-Borland" inherit-style="Borland" />
+      <style-class name="errorlist-Perl" inherit-style="Perl" />
+      <style-class name="errorlist-Net" inherit-style="Net" />
+      <style-class name="errorlist-Lua" inherit-style="Lua" />
+      <style-class name="errorlist-CTag" inherit-style="CTag" />
+      <style-class name="errorlist-DiffChanged" inherit-style="DiffChanged" />
+      <style-class name="errorlist-DiffAddition" inherit-style="DiffAddition" />
+      <style-class name="errorlist-DiffDeletion" inherit-style="DiffDeletion" />
+      <style-class name="errorlist-DiffMessage" inherit-style="DiffMessage" />
+      <style-class name="errorlist-Php" inherit-style="Php" />
+      <style-class name="errorlist-Elf" inherit-style="Elf" />
+      <style-class name="errorlist-IfC" inherit-style="IfC" />
+      <style-class name="errorlist-Ifort" inherit-style="Ifort" />
+      <style-class name="errorlist-Absf" inherit-style="Absf" />
+      <style-class name="errorlist-Tidy" inherit-style="Tidy" />
+      <style-class name="errorlist-JavaStack" inherit-style="JavaStack" />
+      <style-class name="errorlist-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="errorlist-LineNumber" inherit-style="LineNumber" />
+      <style-class name="errorlist-BraceLight" inherit-style="BraceLight" />
+      <style-class name="errorlist-BraceBad" inherit-style="BraceBad" />
+      <style-class name="errorlist-ControlChar" inherit-style="ControlChar" />
+      <style-class name="errorlist-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="errorlist-CallTip" inherit-style="CallTip" />
+      <style-class name="errorlist-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="errorlist-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="errorlist-" >
+      </keyword-class>
+      <keyword-class name="errorlist-Keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="errorlist">
+         <lexer name="ErrorList" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="errorlist-"/>
+            <keyword key="1" class="errorlist-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="errorlist-Default" />
+            <style name="Python" class="errorlist-Python" />
+            <style name="Gcc" class="errorlist-Gcc" />
+            <style name="MS" class="errorlist-MS" />
+            <style name="Cmd" class="errorlist-Cmd" />
+            <style name="Borland" class="errorlist-Borland" />
+            <style name="Perl" class="errorlist-Perl" />
+            <style name="Net" class="errorlist-Net" />
+            <style name="Lua" class="errorlist-Lua" />
+            <style name="CTag" class="errorlist-CTag" />
+            <style name="DiffChanged" class="errorlist-DiffChanged" />
+            <style name="DiffAddition" class="errorlist-DiffAddition" />
+            <style name="DiffDeletion" class="errorlist-DiffDeletion" />
+            <style name="DiffMessage" class="errorlist-DiffMessage" />
+            <style name="Php" class="errorlist-Php" />
+            <style name="Elf" class="errorlist-Elf" />
+            <style name="IfC" class="errorlist-IfC" />
+            <style name="Ifort" class="errorlist-Ifort" />
+            <style name="Absf" class="errorlist-Absf" />
+            <style name="Tidy" class="errorlist-Tidy" />
+            <style name="JavaStack" class="errorlist-JavaStack" />
+            <style name="GlobalDefault" class="errorlist-GlobalDefault" />
+            <style name="LineNumber" class="errorlist-LineNumber" />
+            <style name="BraceLight" class="errorlist-BraceLight" />
+            <style name="BraceBad" class="errorlist-BraceBad" />
+            <style name="ControlChar" class="errorlist-ControlChar" />
+            <style name="IndentGuide" class="errorlist-IndentGuide" />
+            <style name="CallTip" class="errorlist-CallTip" />
+            <style name="LastPredefined" class="errorlist-LastPredefined" />
+            <style name="Max" class="errorlist-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

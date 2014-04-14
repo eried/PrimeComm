@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+  <Language Name="perl">
+    <AutoComplete FillUpCharacters=".([" SingleLineAccept="True" IsCaseSensitive="False">
+      <List>
+        abstract assert boolean break byte case catch char class continue default do double else enum extends
+        $ @ / \ ^ =~ die do else for foreach if last next print return sub while unless until
+      </List>
+    </AutoComplete>
+
+
+    <Indentation TabWidth="4" SmartIndentType="cpp" />
+
+
+    <Lexer LexerName="cpp" LineCommentPrefix="#" StreamCommentPrefix="/* " StreamCommentSuffix=" */" >
+      <Keywords List="0" Inherit="False">
+        do double else enum extends
+      </Keywords>
+      <Keywords List="1" Inherit="False">
+        float g long s str
+      </Keywords>
+    </Lexer>
+  </Language>
+</ScintillaNET> 

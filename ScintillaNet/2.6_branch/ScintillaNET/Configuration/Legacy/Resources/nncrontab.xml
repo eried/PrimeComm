@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="nncrontab-Default" inherit-style="Default" />
+      <style-class name="nncrontab-Comment" inherit-style="Comment" />
+      <style-class name="nncrontab-Task" inherit-style="Task" />
+      <style-class name="nncrontab-Section" inherit-style="Section" />
+      <style-class name="nncrontab-Keyword" inherit-style="Keyword" />
+      <style-class name="nncrontab-Modifier" inherit-style="Modifier" />
+      <style-class name="nncrontab-Asterisk" inherit-style="Asterisk" />
+      <style-class name="nncrontab-Number" inherit-style="Number" />
+      <style-class name="nncrontab-String" inherit-style="String" />
+      <style-class name="nncrontab-Environment" inherit-style="Environment" />
+      <style-class name="nncrontab-Identifier" inherit-style="Identifier" />
+      <style-class name="nncrontab-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="nncrontab-LineNumber" inherit-style="LineNumber" />
+      <style-class name="nncrontab-BraceLight" inherit-style="BraceLight" />
+      <style-class name="nncrontab-BraceBad" inherit-style="BraceBad" />
+      <style-class name="nncrontab-ControlChar" inherit-style="ControlChar" />
+      <style-class name="nncrontab-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="nncrontab-CallTip" inherit-style="CallTip" />
+      <style-class name="nncrontab-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="nncrontab-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="nncrontab-Section-keywords-and-Forth-words" >         
+         AGAIN ALLOT AND Action BEGIN CASE COMPARE CONSTANT CREATE DO Days ELSE
+         ENDCASE ENDOF EVAL-SUBST EVALUATE FALSE Hours I IF LEAVE LOOP Minutes
+         Months NOT OF OFF ON OR PAD REPEAT Rule SET THEN TRUE Time UNTIL VALUE
+         VARIABLE WHILE WeekDays Years
+      </keyword-class>
+      <keyword-class name="nncrontab-nnCrontab-keywords" >         
+         &lt;/JScript&gt; &lt;/SCRIPT&gt; &lt;/VBScript&gt; &lt;JScript&gt; &lt;VBScript&gt; ACCESS-DATE BEEP
+         CALL_DIAL CALL_HANGUP CHAR CLIPBOARD CONSOLE CREATION-DATE CUR-DATE DATE-
+         DATE-INTERVAL DELAY DIAL DIR-CREATE DIR-DELETE DIR-EMPTY DIR-SIZE Day@
+         Domain ERR-MSG EXIST FILE-ACCESS-DATE FILE-APPEND FILE-COPY FILE-CREATE
+         FILE-CREATION-DATE FILE-CROP FILE-DATE FILE-DELETE FILE-EMPTY FILE-EXIST
+         FILE-MOVE FILE-RENAME FILE-SIZE FILE-WRITE FILE-WRITE-DATE FOR-CHILD-WINDOWS
+         FOR-FILES FOR-WINDOWS FREE-SPACE GET-CUR-TIME GET-REG GET-VER GetTickCount
+         HANGUP HIDE-ICON HINT HINT-OFF HINT-POS HINT-SIZE HINTW HOST-EXIST Hour@
+         IDLE INTERVAL IS-ARCHIVE IS-DIR IS-HIDDEN IS-READONLY IS-SYSTEM KILL LAUNCH
+         LOG LOGGEDON LOGOFF LogonBatch LogonInteractive LogonNetwork MOUSE-LBCLK
+         MOUSE-LBDCLK MOUSE-LBDN MOUSE-LBUP MOUSE-MOVE MOUSE-MOVER MOUSE-MOVEW
+         MOUSE-RBCLK MOUSE-RBDCLK MOUSE-RBDN MOUSE-RBUP MSG Min@ Mon@
+         MonitorResponseTime NHOST-EXIST No ONLINE PAUSE PLAY-SOUND PLAY-SOUNDW
+         POP3-CHECK POWEROFF PROC-EXIST PROC-TIME PURGE-OLD PURGE-OLDA PURGE-OLDW
+         Password QSTART-APP QSTART-APPW QUERY QUIT RASDomain RASError RASPassword
+         RASPhone RASSecPassword RASUser RE-ALL RE-MATCH REBOOT REG-DELETE-KEY
+         REG-DELETE-VALUE REG-DWORD REG-SZ REMINDER RUN SEND-KEYS SEND-KEYS-DELAY
+         SHOW-ICON SHUTDOWN START-APP START-APPW START-QUIT START-TIME Sec@
+         SecPassword THINT THINTW TimeSec@ TMSG TQUERY User WDay@ WIN-ACTIVATE
+         WIN-ACTIVE WIN-CLICK WIN-CLOSE WIN-EXIST WIN-HIDE WIN-HWND WIN-MAXIMIZE
+         WIN-MINIMIZE WIN-MOVE WIN-MOVER WIN-RESTORE WIN-SEND-KEYS WIN-SHOW
+         WIN-TERMINATE WIN-TOPMOST WIN-VER WIN-WAIT WINAPI WRITE-DATE WatchClipboard
+         WatchConnect WatchDir WatchDisconnect WatchDriveInsert WatchDriveRemove
+         WatchFile WatchProc WatchProcStop WatchWinActivate WatchWinCreate
+         WatchWinDestroy WatchWindow WinNT Year@ Yes
+      </keyword-class>
+      <keyword-class name="nncrontab-Modifiers" >         
+         ALL AboveNormalPriority AsService BelowNormalPriority FILESONLY
+         HighPriority IdlePriority LoadProfile NoActive NoDel NoLog NoRunAs
+         NormalPriority OnceADay OnceAHour OnceAMonth OnceAWeek RECURSIVE
+         RealtimePriority RunOnce SWHide ShowMaximized ShowMinimized ShowNoActivate
+         ShowNormal StartIn StartPos StartSize TODEPTH WATCH-CHANGE-ATTRIBUTES
+         WATCH-CHANGE-DIR-NAME WATCH-CHANGE-FILE-NAME WATCH-CHANGE-LAST-WRITE
+         WATCH-CHANGE-SECURITY WATCH-CHANGE-SIZE WaitFor WatchSubtree WithoutProfile
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="nncrontab">
+         <lexer name="NNCronTab" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.tab *.spf</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="nncrontab-Section-keywords-and-Forth-words"/>
+            <keyword key="1" class="nncrontab-nnCrontab-keywords"/>
+            <keyword key="2" class="nncrontab-Modifiers"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="nncrontab-Default" />
+            <style name="Comment" class="nncrontab-Comment" />
+            <style name="Task" class="nncrontab-Task" />
+            <style name="Section" class="nncrontab-Section" />
+            <style name="Keyword" class="nncrontab-Keyword" />
+            <style name="Modifier" class="nncrontab-Modifier" />
+            <style name="Asterisk" class="nncrontab-Asterisk" />
+            <style name="Number" class="nncrontab-Number" />
+            <style name="String" class="nncrontab-String" />
+            <style name="Environment" class="nncrontab-Environment" />
+            <style name="Identifier" class="nncrontab-Identifier" />
+            <style name="GlobalDefault" class="nncrontab-GlobalDefault" />
+            <style name="LineNumber" class="nncrontab-LineNumber" />
+            <style name="BraceLight" class="nncrontab-BraceLight" />
+            <style name="BraceBad" class="nncrontab-BraceBad" />
+            <style name="ControlChar" class="nncrontab-ControlChar" />
+            <style name="IndentGuide" class="nncrontab-IndentGuide" />
+            <style name="CallTip" class="nncrontab-CallTip" />
+            <style name="LastPredefined" class="nncrontab-LastPredefined" />
+            <style name="Max" class="nncrontab-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

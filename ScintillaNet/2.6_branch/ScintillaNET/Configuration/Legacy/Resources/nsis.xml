@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="nsis-Default" inherit-style="Default" />
+      <style-class name="nsis-Comment" inherit-style="Comment" />
+      <style-class name="nsis-StringDQ" inherit-style="StringDQ" />
+      <style-class name="nsis-StringLQ" inherit-style="StringLQ" />
+      <style-class name="nsis-StringRQ" inherit-style="StringRQ" />
+      <style-class name="nsis-Function" inherit-style="Function" />
+      <style-class name="nsis-Variable" inherit-style="Variable" />
+      <style-class name="nsis-Label" inherit-style="Label" />
+      <style-class name="nsis-UserDefined" inherit-style="UserDefined" />
+      <style-class name="nsis-SecionDef" inherit-style="SecionDef" />
+      <style-class name="nsis-SubsectionDef" inherit-style="SubsectionDef" />
+      <style-class name="nsis-IfDefineDef" inherit-style="IfDefineDef" />
+      <style-class name="nsis-MacroDef" inherit-style="MacroDef" />
+      <style-class name="nsis-StringVar" inherit-style="StringVar" />
+      <style-class name="nsis-Number" inherit-style="Number" />
+      <style-class name="nsis-SectionGroup" inherit-style="SectionGroup" />
+      <style-class name="nsis-PageEx" inherit-style="PageEx" />
+      <style-class name="nsis-FunctionDef" inherit-style="FunctionDef" />
+      <style-class name="nsis-CommentBox" inherit-style="CommentBox" />
+      <style-class name="nsis-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="nsis-LineNumber" inherit-style="LineNumber" />
+      <style-class name="nsis-BraceLight" inherit-style="BraceLight" />
+      <style-class name="nsis-BraceBad" inherit-style="BraceBad" />
+      <style-class name="nsis-ControlChar" inherit-style="ControlChar" />
+      <style-class name="nsis-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="nsis-CallTip" inherit-style="CallTip" />
+      <style-class name="nsis-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="nsis-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="nsis-Functions" >         
+         What Abort AddSize AllowRootDirInstall AutoCloseWindow
+         BGGradient BrandingText BringToFront CRCCheck Call CallInstDLL Caption ClearErrors
+         CompletedText ComponentText CopyFiles CreateDirectory CreateShortCut Delete
+         DeleteINISec DeleteINIStr DeleteRegKey DeleteRegValue DetailPrint DetailsButtonText
+         DirShow DirText DisabledBitmap EnabledBitmap EnumRegKey EnumRegValue Exch Exec
+         ExecShell ExecWait ExpandEnvStrings File FileClose FileErrorText FileOpen FileRead
+         FileReadByte FileSeek FileWrite FileWriteByte FindClose FindFirst FindNext FindWindow
+         FlushINI Function FunctionEnd GetCurrentAddress GetDLLVersionLocal GetDLLVersion GetFileTime
+         GetFileTimeLocal GetFullPathName GetFunctionAddress GetLabelAddress GetTempFileName
+         Goto HideWindow Icon IfErrors IfFileExists IfRebootFlag InstProgressFlags InstType
+         InstallButtonText InstallColors InstallDir InstallDirRegKey IntCmp IntCmpU IntFmt IntOp
+         IsWindow LicenseData LicenseText MessageBox MiscButtonText Name OutFile Pop Push
+         Quit RMDir ReadEnvStr ReadINIStr ReadRegDword ReadRegStr Reboot RegDLL Rename
+         Return SearchPath Section SectionDivider SectionEnd SectionIn SendMessage SetAutoClose
+         SetCompress SetDatablockOptimize SetDateSave SetDetailsPrint SetDetailsView SetErrors
+         SetFileAttributes SetOutPath SetOverwrite SetRebootFlag ShowInstDetails ShowUninstDetails
+         SilentInstall SilentUnInstall Sleep SpaceTexts StrCmp StrCpy StrLen SubCaption UnRegDLL
+         UninstallButtonText UninstallCaption UninstallEXEName UninstallIcon UninstallSubCaption
+         UninstallText WindowIcon WriteINIStr WriteRegBin WriteRegDword WriteRegExpandStr
+         WriteRegStr WriteUninstaller SectionGetFlags SectionSetFlags SectionSetText SectionGetText
+         LogText LogSet CreateFont SetShellVarContext SetStaticBkColor SetBrandingImage PluginDir
+         SubSectionEnd SubSection CheckBitmap ChangeUI SetFont AddBrandingImage XPStyle
+         LangString !define !undef !ifdef !ifndef !endif !else !macro !echo !warning !error !verbose
+         !macroend !insertmacro !system !include !cd !packhdr
+      </keyword-class>
+      <keyword-class name="nsis-Variables" >         
+         $0 $1 $2 $3 $4 $5 $6 $7 $8 $9
+         $R0 $R1 $R2 $R3 $R4 $R5 $R6 $R7 $R8 $R9 $CMDLINE $DESKTOP
+         $EXEDIR $HWNDPARENT $INSTDIR $OUTDIR $PROGRAMFILES ${NSISDIR} $\n $\r
+         $QUICKLAUNCH $SMPROGRAMS $SMSTARTUP $STARTMENU $SYSDIR $TEMP $WINDIR
+      </keyword-class>
+      <keyword-class name="nsis-Lables" >         
+         ARCHIVE FILE_ATTRIBUTE_ARCHIVE FILE_ATTRIBUTE_HIDDEN
+         FILE_ATTRIBUTE_NORMAL FILE_ATTRIBUTE_OFFLINE FILE_ATTRIBUTE_READONLY
+         FILE_ATTRIBUTE_SYSTEM FILE_ATTRIBUTE_TEMPORARY HIDDEN HKCC HKCR HKCU
+         HKDD HKEY_CLASSES_ROOT HKEY_CURRENT_CONFIG HKEY_CURRENT_USER HKEY_DYN_DATA
+         HKEY_LOCAL_MACHINE HKEY_PERFORMANCE_DATA HKEY_USERS HKLM HKPD HKU IDABORT
+         IDCANCEL IDIGNORE IDNO IDOK IDRETRY IDYES MB_ABORTRETRYIGNORE MB_DEFBUTTON1
+         MB_DEFBUTTON2 MB_DEFBUTTON3 MB_DEFBUTTON4 MB_ICONEXCLAMATION
+         MB_ICONINFORMATION MB_ICONQUESTION MB_ICONSTOP MB_OK MB_OKCANCEL
+         MB_RETRYCANCEL MB_RIGHT MB_SETFOREGROUND MB_TOPMOST MB_YESNO MB_YESNOCANCEL
+         NORMAL OFFLINE READONLY SW_SHOWMAXIMIZED SW_SHOWMINIMIZED SW_SHOWNORMAL
+         SYSTEM TEMPORARY auto colored false force hide ifnewer nevershow normal
+         off on show silent silentlog smooth true try
+      </keyword-class>
+      <keyword-class name="nsis-UserDefined" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="nsis">
+         <lexer name="NSIS" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.nsi *.nsh</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="nsis-Functions"/>
+            <keyword key="1" class="nsis-Variables"/>
+            <keyword key="2" class="nsis-Lables"/>
+            <keyword key="3" class="nsis-UserDefined"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="nsis-Default" />
+            <style name="Comment" class="nsis-Comment" />
+            <style name="StringDQ" class="nsis-StringDQ" />
+            <style name="StringLQ" class="nsis-StringLQ" />
+            <style name="StringRQ" class="nsis-StringRQ" />
+            <style name="Function" class="nsis-Function" />
+            <style name="Variable" class="nsis-Variable" />
+            <style name="Label" class="nsis-Label" />
+            <style name="UserDefined" class="nsis-UserDefined" />
+            <style name="SecionDef" class="nsis-SecionDef" />
+            <style name="SubsectionDef" class="nsis-SubsectionDef" />
+            <style name="IfDefineDef" class="nsis-IfDefineDef" />
+            <style name="MacroDef" class="nsis-MacroDef" />
+            <style name="StringVar" class="nsis-StringVar" />
+            <style name="Number" class="nsis-Number" />
+            <style name="SectionGroup" class="nsis-SectionGroup" />
+            <style name="PageEx" class="nsis-PageEx" />
+            <style name="FunctionDef" class="nsis-FunctionDef" />
+            <style name="CommentBox" class="nsis-CommentBox" />
+            <style name="GlobalDefault" class="nsis-GlobalDefault" />
+            <style name="LineNumber" class="nsis-LineNumber" />
+            <style name="BraceLight" class="nsis-BraceLight" />
+            <style name="BraceBad" class="nsis-BraceBad" />
+            <style name="ControlChar" class="nsis-ControlChar" />
+            <style name="IndentGuide" class="nsis-IndentGuide" />
+            <style name="CallTip" class="nsis-CallTip" />
+            <style name="LastPredefined" class="nsis-LastPredefined" />
+            <style name="Max" class="nsis-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

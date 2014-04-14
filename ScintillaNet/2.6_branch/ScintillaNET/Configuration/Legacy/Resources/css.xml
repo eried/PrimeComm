@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="css-Default" inherit-style="Default" />
+      <style-class name="css-Tag" inherit-style="Tag" />
+      <style-class name="css-Class" inherit-style="Class" />
+      <style-class name="css-PseudoClass" inherit-style="PseudoClass" />
+      <style-class name="css-UnknownPseudoclass" inherit-style="UnknownPseudoclass" />
+      <style-class name="css-Operator" inherit-style="Operator" />
+      <style-class name="css-Identifier" inherit-style="Identifier" />
+      <style-class name="css-UnknownIdentifier" inherit-style="UnknownIdentifier" />
+      <style-class name="css-Value" inherit-style="Value" />
+      <style-class name="css-Comment" inherit-style="Comment" />
+      <style-class name="css-Id" inherit-style="Id" />
+      <style-class name="css-Important" inherit-style="Important" />
+      <style-class name="css-Directive" inherit-style="Directive" />
+      <style-class name="css-DoubleString" inherit-style="DoubleString" />
+      <style-class name="css-SingleString" inherit-style="SingleString" />
+      <style-class name="css-Identifier2" inherit-style="Identifier2" />
+      <style-class name="css-Attribute" inherit-style="Attribute" />
+      <style-class name="css-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="css-LineNumber" inherit-style="LineNumber" />
+      <style-class name="css-BraceLight" inherit-style="BraceLight" />
+      <style-class name="css-BraceBad" inherit-style="BraceBad" />
+      <style-class name="css-ControlChar" inherit-style="ControlChar" />
+      <style-class name="css-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="css-CallTip" inherit-style="CallTip" />
+      <style-class name="css-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="css-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="css-Keywords" >
+      </keyword-class>
+      <keyword-class name="css-Pseudo-classes" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="css">
+         <lexer name="CSS" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.css</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="css-Keywords"/>
+            <keyword key="1" class="css-Pseudo-classes"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="css-Default" />
+            <style name="Tag" class="css-Tag" />
+            <style name="Class" class="css-Class" />
+            <style name="PseudoClass" class="css-PseudoClass" />
+            <style name="UnknownPseudoclass" class="css-UnknownPseudoclass" />
+            <style name="Operator" class="css-Operator" />
+            <style name="Identifier" class="css-Identifier" />
+            <style name="UnknownIdentifier" class="css-UnknownIdentifier" />
+            <style name="Value" class="css-Value" />
+            <style name="Comment" class="css-Comment" />
+            <style name="Id" class="css-Id" />
+            <style name="Important" class="css-Important" />
+            <style name="Directive" class="css-Directive" />
+            <style name="DoubleString" class="css-DoubleString" />
+            <style name="SingleString" class="css-SingleString" />
+            <style name="Identifier2" class="css-Identifier2" />
+            <style name="Attribute" class="css-Attribute" />
+            <style name="GlobalDefault" class="css-GlobalDefault" />
+            <style name="LineNumber" class="css-LineNumber" />
+            <style name="BraceLight" class="css-BraceLight" />
+            <style name="BraceBad" class="css-BraceBad" />
+            <style name="ControlChar" class="css-ControlChar" />
+            <style name="IndentGuide" class="css-IndentGuide" />
+            <style name="CallTip" class="css-CallTip" />
+            <style name="LastPredefined" class="css-LastPredefined" />
+            <style name="Max" class="css-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

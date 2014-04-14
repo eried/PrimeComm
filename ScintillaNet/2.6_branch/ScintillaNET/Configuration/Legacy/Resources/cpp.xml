@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="cpp-Default" inherit-style="Default" />
+      <style-class name="cpp-Comment" inherit-style="Comment" />
+      <style-class name="cpp-CommentLine" inherit-style="CommentLine" />
+      <style-class name="cpp-CommentDoc" inherit-style="CommentDoc" />
+      <style-class name="cpp-Number" inherit-style="Number" />
+      <style-class name="cpp-Word" inherit-style="Word" />
+      <style-class name="cpp-String" inherit-style="String" />
+      <style-class name="cpp-Character" inherit-style="Character" />
+      <style-class name="cpp-Uuid" inherit-style="Uuid" />
+      <style-class name="cpp-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="cpp-Operator" inherit-style="Operator" />
+      <style-class name="cpp-Identifier" inherit-style="Identifier" />
+      <style-class name="cpp-StringEol" inherit-style="StringEol" />
+      <style-class name="cpp-Verbatim" inherit-style="Verbatim" />
+      <style-class name="cpp-Regex" inherit-style="Regex" />
+      <style-class name="cpp-CommentLineDoc" inherit-style="CommentLineDoc" />
+      <style-class name="cpp-Word2" inherit-style="Word2" />
+      <style-class name="cpp-CommentDocKeyword" inherit-style="CommentDocKeyword" />
+      <style-class name="cpp-CommentDocKeywordError" inherit-style="CommentDocKeywordError" />
+      <style-class name="cpp-GlobalClass" inherit-style="GlobalClass" />
+      <style-class name="cpp-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="cpp-LineNumber" inherit-style="LineNumber" />
+      <style-class name="cpp-BraceLight" inherit-style="BraceLight" />
+      <style-class name="cpp-BraceBad" inherit-style="BraceBad" />
+      <style-class name="cpp-ControlChar" inherit-style="ControlChar" />
+      <style-class name="cpp-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="cpp-CallTip" inherit-style="CallTip" />
+      <style-class name="cpp-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="cpp-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="cpp-Primary-keywords-and-identifiers" >         
+         and and_eq asm auto bitand bitor bool break
+         case catch char class compl const const_cast continue
+         default delete do double dynamic_cast else enum explicit export extern false float for
+         friend goto if inline int long mutable namespace new not not_eq
+         operator or or_eq private protected public
+         register reinterpret_cast return short signed sizeof static static_cast struct switch
+         template this throw true try typedef typeid typename union unsigned using
+         virtual void volatile wchar_t while xor xor_eq
+      </keyword-class>
+      <keyword-class name="cpp-Secondary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="cpp-Documentation-comment-keywords" >         
+         a addindex addtogroup anchor arg attention
+         author b brief bug c class code date def defgroup deprecated dontinclude
+         e em endcode endhtmlonly endif endlatexonly endlink endverbatim enum example exception
+         f$ f[ f] file fn hideinitializer htmlinclude htmlonly
+         if image include ingroup internal invariant interface latexonly li line link
+         mainpage name namespace nosubgrouping note overload
+         p page par param post pre ref relates remarks return retval
+         sa section see showinitializer since skip skipline struct subsection
+         test throw todo typedef union until
+         var verbatim verbinclude version warning weakgroup $ @ &gt; &lt; \ &amp; # { }
+      </keyword-class>
+      <keyword-class name="cpp-Unused" >
+      </keyword-class>
+      <keyword-class name="cpp-Global-classes-and-typedefs" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="cpp">
+         <lexer name="Cpp" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.c *.cc *.cpp *.cxx *.h *.hh *.hpp *.hxx</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="cpp-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="cpp-Secondary-keywords-and-identifiers"/>
+            <keyword key="2" class="cpp-Documentation-comment-keywords"/>
+            <keyword key="3" class="cpp-Unused"/>
+            <keyword key="4" class="cpp-Global-classes-and-typedefs"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="cpp-Default" />
+            <style name="Comment" class="cpp-Comment" />
+            <style name="CommentLine" class="cpp-CommentLine" />
+            <style name="CommentDoc" class="cpp-CommentDoc" />
+            <style name="Number" class="cpp-Number" />
+            <style name="Word" class="cpp-Word" />
+            <style name="String" class="cpp-String" />
+            <style name="Character" class="cpp-Character" />
+            <style name="Uuid" class="cpp-Uuid" />
+            <style name="Preprocessor" class="cpp-Preprocessor" />
+            <style name="Operator" class="cpp-Operator" />
+            <style name="Identifier" class="cpp-Identifier" />
+            <style name="StringEol" class="cpp-StringEol" />
+            <style name="Verbatim" class="cpp-Verbatim" />
+            <style name="Regex" class="cpp-Regex" />
+            <style name="CommentLineDoc" class="cpp-CommentLineDoc" />
+            <style name="Word2" class="cpp-Word2" />
+            <style name="CommentDocKeyword" class="cpp-CommentDocKeyword" />
+            <style name="CommentDocKeywordError" class="cpp-CommentDocKeywordError" />
+            <style name="GlobalClass" class="cpp-GlobalClass" />
+            <style name="GlobalDefault" class="cpp-GlobalDefault" />
+            <style name="LineNumber" class="cpp-LineNumber" />
+            <style name="BraceLight" class="cpp-BraceLight" />
+            <style name="BraceBad" class="cpp-BraceBad" />
+            <style name="ControlChar" class="cpp-ControlChar" />
+            <style name="IndentGuide" class="cpp-IndentGuide" />
+            <style name="CallTip" class="cpp-CallTip" />
+            <style name="LastPredefined" class="cpp-LastPredefined" />
+            <style name="Max" class="cpp-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

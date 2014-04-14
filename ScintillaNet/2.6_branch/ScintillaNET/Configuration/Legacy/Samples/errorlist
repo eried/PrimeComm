@@ -1,0 +1,40 @@
+Index: integer.c
+===================================================================
+--- integer.c	(revision 343)
++++ integer.c	(revision 344)
+@@ -147,7 +147,7 @@
+     case 6:  sprintf(info->operating_system, "HPFS (OS/2 or NT)"); break;
+     case 7:  sprintf(info->operating_system, "Macintosh"); break;
+     case 8:  sprintf(info->operating_system, "Z-System"); break;
+-    case 9:  sprintf(info->operating_system, "CPM"); break;
++    case 9:  sprintf(info->operating_system, "CP/M"); break;
+     case 10:  sprintf(info->operating_system, "TOPS-20"); break;
+     case 11:  sprintf(info->operating_system, "NTFS (Windows NT)"); break;
+     case 12:  sprintf(info->operating_system, "QDOS"); break;
+@@ -164,7 +164,7 @@
+     low = (unsigned short) read_byte(gzfile);  /* read LSB */
+     high = (unsigned short) read_byte(gzfile); /* read MSB */
+     high = high << 8;  /* interpret MSB correctly */
+-    total = low + high; /* add them togethe for correct total */
++    total = low + high; /* add them together for correct total */
+ 
+     info->extra_header = (unsigned char *) my_malloc(total);
+     fread(info->extra_header, total, 1, gzfile);
+@@ -241,7 +241,7 @@
+      Store the offset with ftell() ! */
+ 
+   if ((info->data_offset = ftell(gzfile))== -1) {
+-    printf("error: ftell() retturned -1.\n");
++    printf("error: ftell() returned -1.\n");
+     exit(1);
+   }
+ 
+@@ -249,7 +249,7 @@
+   printf("I believe start of compressed data is %u\n", info->data_offset);
+   #endif
+   
+-  /* Set postion eight bytes from the end of the file. */
++  /* Set position eight bytes from the end of the file. */
+ 
+   if (fseek(gzfile, -8, SEEK_END)) {
+     printf("error: fseek() returned non-zero\n");

@@ -1,0 +1,1006 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<includes>
+<!-- #region "xml-includes"
+        <include file="settings\ada.xml" />
+        <include file="settings\asm.xml" />
+        <include file="settings\asp.xml" />
+        <include file="settings\bash.xml" />
+        <include file="settings\batch.xml" />
+        <include file="settings\conf.xml" />
+        <include file="settings\cpp.xml" />
+        <include file="settings\cs.xml" />
+        <include file="settings\css.xml" />
+        <include file="settings\diff.xml" />
+        <include file="settings\docbook.xml" />
+        <include file="settings\eiffel.xml" />
+        <include file="settings\erlang.xml" />
+        <include file="settings\errorlist.xml" />
+        <include file="settings\escript.xml" />
+        <include file="settings\f77.xml" />
+        <include file="settings\f95.xml" />
+        <include file="settings\forth.xml" />
+        <include file="settings\html.xml" />
+        <include file="settings\idl.xml" />
+        <include file="settings\java.xml" />
+        <include file="settings\javascript.xml" />
+        <include file="settings\tex.xml" />
+        <include file="settings\latex.xml" />
+        <include file="settings\lisp.xml" />
+        <include file="settings\lot.xml" />
+        <include file="settings\lout.xml" />
+        <include file="settings\lua.xml" />
+        <include file="settings\make.xml" />
+        <include file="settings\matlab.xml" />
+        <include file="settings\metapost.xml" />
+        <include file="settings\mmixal.xml" />
+        <include file="settings\plsql.xml" />
+        <include file="settings\sql.xml" />
+        <include file="settings\mssql.xml" />
+        <include file="settings\plsql.xml" />
+        <include file="settings\nncrontab.xml" />
+        <include file="settings\nsis.xml" />
+        <include file="settings\octave.xml" />
+        <include file="settings\pascal.xml" />
+        <include file="settings\perl.xml" />
+        <include file="settings\php.xml" />
+        <include file="settings\pov.xml" />
+        <include file="settings\props.xml" />
+        <include file="settings\ps.xml" />
+        <include file="settings\python.xml" />
+        <include file="settings\rc.xml" />
+        <include file="settings\ruby.xml" />
+        <include file="settings\scheme.xml" />
+        <include file="settings\scriptol.xml" />
+        <include file="settings\tcl.xml" />
+        <include file="settings\vb.xml" />
+        <include file="settings\vbscript.xml" />
+        <include file="settings\verilog.xml" />
+        <include file="settings\vxml.xml" />
+        <include file="settings\xml.xml" />
+        <include file="settings\yaml.xml" />
+#endregion -->
+<include file="Colors.xml" />
+<include file="$$USERDIR$$\Colors.xml" />
+</includes>
+<character-classes>
+<character-class name="alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</character-class>
+<character-class name="alphanumeric" inherit="alpha">1234567890</character-class>
+<character-class name="numeric" >1234567890</character-class>
+</character-classes>
+<globals>
+<value name="default-font">Lucida Sans Unicode</value>
+<value name="default-fore">blue</value>
+<value name="default-back">0xffffff</value>
+<value name="default-font-size">10</value>
+<value name="default-caret-fore">white</value>
+<value name="default-selection-fore">white</value>
+<value name="default-selection-back">blue</value>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <!-- Used in LOT -->
+      <style-class name="Abort" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Absf" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="ACapital" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="ACharacter" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AClass" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="ACommentblock" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="ACommentblock2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="ACommentblock3" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="ACommentline" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AData" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Diff -->
+      <style-class name="Added" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="ADefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AIdentifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AImport" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AInstance" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AKeyword" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AModule" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="ANumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AOperator" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Csound -->
+      <style-class name="ArateVar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in APDL -->
+      <style-class name="Argument" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl -->
+      <style-class name="Array" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, FlagShip -->
+      <style-class name="Asm" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="Asp" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspAt" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptCommentDoc" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptCommentLine" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptDoubleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptKeyword" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptRegex" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptSingleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptStart" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptStringEol" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptSymbols" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspJavaScriptWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonCharacter" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonClassName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonCommentLine" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonDefName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonIdentifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonOperator" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonStart" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonTriple" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonTripleDouble" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspPythonWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspVBScriptCommentLine" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspVBScriptDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspVBScriptIdentifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspVBScriptNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspVBScriptStart" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspVBScriptString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspVBScriptStringEol" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AspVBScriptWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Smalltalk -->
+      <style-class name="Assign" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Properties -->
+      <style-class name="Assignment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NNCronTab -->
+      <style-class name="Asterisk" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Erlang -->
+      <style-class name="Atom" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP, CSS, Clarion, Asn1, VHDL -->
+      <style-class name="Attribute" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="AttributeUnknown" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby, Bash -->
+      <style-class name="BackTicks" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in POV -->
+      <style-class name="BadDirective" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="BadStringChar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="Base85string" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol, Smalltalk -->
+      <style-class name="Binary" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, FlagShip -->
+      <style-class name="BinNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, TADS3 -->
+      <style-class name="BlockComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Smalltalk -->
+      <style-class name="Bool" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Opal -->
+      <style-class name="BoolConst" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Borland" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ESCRIPT -->
+      <style-class name="Brace" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="BraceBad" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="BracedString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="BraceLight" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in LOT -->
+      <style-class name="Break" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="BuiltinProceduresFunction" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="CallTip" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Caml -->
+      <style-class name="CamlLineNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Haskell -->
+      <style-class name="Capital" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="CData" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL, Caml -->
+      <style-class name="Char" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, Perl, Ruby, Lua, Ada, Eiffel, EiffelKW, Sol, Asm, Erlang, Bash, Haskell, Rebol, SQL, Smalltalk -->
+      <style-class name="Character" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ada -->
+      <style-class name="CharacterEol" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in CSS, Haskell -->
+      <style-class name="Class" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Ruby, Sol -->
+      <style-class name="ClassName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby -->
+      <style-class name="ClassVar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Cmd" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Specman -->
+      <style-class name="Code" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL -->
+      <style-class name="ColumnName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL -->
+      <style-class name="ColumnName2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in LaTeX, Batch, Diff, MatLab, TeX, Metapost, Octave, APDL -->
+      <style-class name="Command" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, Batch, MakeFile, Diff, Conf, Avenue, Baan, Lisp, NNCronTab, Forth, MatLab, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, YAML, Erlang, Octave, MSSQL, Verilog, Kix, Au3, APDL, Asn1, VHDL, Caml, SQL, Smalltalk, FlagShip, Csound, Inno -->
+      <style-class name="Comment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Caml -->
+      <style-class name="Comment1" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Caml -->
+      <style-class name="Comment2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Caml -->
+      <style-class name="Comment3" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Sol, Asm, Au3, APDL, Haskell, Rebol, Csound, Opal -->
+      <style-class name="CommentBlock" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Haskell -->
+      <style-class name="Commentblock2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Haskell -->
+      <style-class name="Commentblock3" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, NSIS -->
+      <style-class name="CommentBox" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt, Lua, Baan, ESCRIPT, SQL -->
+      <style-class name="CommentDoc" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt, SQL -->
+      <style-class name="CommentDocKeyword" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt, SQL -->
+      <style-class name="CommentDocKeywordError" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, Perl, Ruby, Lua, Ada, Eiffel, EiffelKW, Sol, POV, ESCRIPT, Verilog, Specman, Bash, Haskell, Rebol, SQL, Opal, Spice -->
+      <style-class name="CommentLine" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Verilog, Specman, VHDL -->
+      <style-class name="CommentLineBang" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt, SQL -->
+      <style-class name="CommentLineDoc" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Forth -->
+      <style-class name="CommentMl" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Inno -->
+      <style-class name="CommentPascal" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Au3 -->
+      <style-class name="ComObj" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="CompilerDirective" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, FlagShip -->
+      <style-class name="Constant" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Fortran, F77 -->
+      <style-class name="Continuation" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Forth -->
+      <style-class name="Control" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="ControlChar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Asm -->
+      <style-class name="CpuInstruction" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Sol -->
+      <style-class name="CStyle" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="CTag" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Haskell -->
+      <style-class name="Data" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="DataSection" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL -->
+      <style-class name="Datatype" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, Rebol, FlagShip -->
+      <style-class name="Date" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python -->
+      <style-class name="Decorator" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="Default" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL -->
+      <style-class name="DefaultPrefDatatype" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Ruby -->
+      <style-class name="DefName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Properties -->
+      <style-class name="DefValue" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Forth -->
+      <style-class name="DefWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Diff -->
+      <style-class name="Deleted" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ada, Spice -->
+      <style-class name="Delimiter" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="Deprecated" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Asn1 -->
+      <style-class name="Descriptor" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="DiffAddition" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="DiffChanged" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="DiffDeletion" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="DiffMessage" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Conf, Asm, CSS, POV -->
+      <style-class name="Directive" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Asm -->
+      <style-class name="DirectiveOperand" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in YAML -->
+      <style-class name="Document" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MatLab, Octave -->
+      <style-class name="DoubleQuoteString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP, CSS -->
+      <style-class name="DoubleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="DscComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="DscValue" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="DString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Elf" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="Email" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="Entity" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Avenue -->
+      <style-class name="Enum" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NNCronTab -->
+      <style-class name="Environment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby, VB, VBScript, PowerBasic, Clarion, YAML, Bash, FlagShip -->
+      <style-class name="Error" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, Au3 -->
+      <style-class name="Expand" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Conf -->
+      <style-class name="Extension" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Asm -->
+      <style-class name="ExtInstruction" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Metapost -->
+      <style-class name="Extra" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in LOT -->
+      <style-class name="Fail" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="File" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS, MSSQL, Au3, APDL -->
+      <style-class name="Function" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="FunctionDef" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Erlang -->
+      <style-class name="FunctionName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Kix -->
+      <style-class name="Functions" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Gcc" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby, Smalltalk -->
+      <style-class name="Global" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt -->
+      <style-class name="GlobalClass" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="GlobalDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Csound -->
+      <style-class name="GlobalVar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL -->
+      <style-class name="GlobalVariable" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TeX, Metapost -->
+      <style-class name="Group" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl -->
+      <style-class name="Hash" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Diff, LOT -->
+      <style-class name="Header" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Csound -->
+      <style-class name="HeaderStatement" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby, Bash -->
+      <style-class name="HereDelimiter" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby, Bash -->
+      <style-class name="HereQ" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="HereQQ" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="HereQX" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="Hex" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, FlagShip -->
+      <style-class name="HexNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="HexString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Batch -->
+      <style-class name="Hide" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="HtmlDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="HtmlString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="HtmlTag" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in CSS -->
+      <style-class name="Id" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, Perl, Ruby, VB, VBScript, PowerBasic, Lua, Batch, MakeFile, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, YAML, Octave, MSSQL, Verilog, Kix, Specman, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, FlagShip, Csound, Inno, Spice -->
+      <style-class name="Identifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in CSS -->
+      <style-class name="Identifier2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MakeFile -->
+      <style-class name="IDEol" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="IfC" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="IfDefineDef" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Ifort" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ada -->
+      <style-class name="Illegal" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="ImmEval" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Haskell -->
+      <style-class name="Import" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in CSS -->
+      <style-class name="Important" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="Include" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="IndentGuide" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL -->
+      <style-class name="InQuote" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Haskell -->
+      <style-class name="Instance" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby -->
+      <style-class name="InstanceVar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Csound -->
+      <style-class name="Instr" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Opal -->
+      <style-class name="Integer" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="IntegerConstant" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Conf -->
+      <style-class name="IP" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Csound -->
+      <style-class name="IrateVar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="Issue" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptCommentDoc" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptCommentLine" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptDoubleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptKeyword" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptRegex" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptSingleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptStart" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptStringEol" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptSymbols" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="JavaScriptWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="JavaStack" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Properties -->
+      <style-class name="Key" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, Lisp, NNCronTab, Forth, MatLab, Sol, PS, Clarion, YAML, Erlang, Octave, Kix, Au3, Asn1, VHDL, Caml, Haskell, TADS3, FlagShip, Inno, Opal, Spice -->
+      <style-class name="Keyword" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, Caml, FlagShip, Spice -->
+      <style-class name="Keyword2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, Caml, FlagShip, Spice -->
+      <style-class name="Keyword3" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, FlagShip -->
+      <style-class name="Keyword4" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Lisp -->
+      <style-class name="KeywordKw" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Inno -->
+      <style-class name="KeywordPascal" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Inno -->
+      <style-class name="KeywordUser" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Csound -->
+      <style-class name="KrateVar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Smalltalk -->
+      <style-class name="KWSend" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VB, VBScript, PowerBasic, Batch, Ada, Fortran, F77, NSIS, MMIXAL, Clarion, FlagShip -->
+      <style-class name="Label" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="LastPredefined" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="LeadWS" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="LibDirective" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL, TADS3 -->
+      <style-class name="LineComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="LineNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="Literal" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Lua -->
+      <style-class name="LiteralString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Forth -->
+      <style-class name="Locale" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl -->
+      <style-class name="LongQuote" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Lua" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Erlang, Kix, Au3 -->
+      <style-class name="Macro" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="MacroDef" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in LaTeX -->
+      <style-class name="Math" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Asm -->
+      <style-class name="MathInstruction" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Properties, LaTeX, Lua, ErrorList, Batch, MakeFile, Diff, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, Clarion, LOT, YAML, TeX, Metapost, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Inno, Opal, Spice -->
+      <style-class name="Max" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, NNCronTab -->
+      <style-class name="Modifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Haskell -->
+      <style-class name="Module" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby -->
+      <style-class name="ModuleName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="Money" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="MS" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="MsgParam" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Lisp -->
+      <style-class name="MultiComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="Name" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Net" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Smalltalk -->
+      <style-class name="Nil" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Erlang -->
+      <style-class name="NodeName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, HTML, XML, ASP, PHP, Perl, Ruby, VB, VBScript, PowerBasic, Lua, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, Fortran, F77, POV, LOUT, ESCRIPT, PS, NSIS, MMIXAL, YAML, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, VHDL, Caml, Haskell, TADS3, Rebol, SQL, Smalltalk, FlagShip, Csound, Spice -->
+      <style-class name="Number" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Asn1 -->
+      <style-class name="Oid" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL, Csound -->
+      <style-class name="Opcode" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="OpcodePost" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="OpcodePre" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="OpcodeUnknown" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="OpcodeValid" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="Operands" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, Perl, Ruby, VB, VBScript, PowerBasic, Lua, Batch, MakeFile, Conf, Avenue, Baan, Lisp, Eiffel, EiffelKW, MatLab, Sol, Asm, Fortran, F77, CSS, POV, LOUT, ESCRIPT, MMIXAL, Erlang, Octave, MSSQL, Verilog, Kix, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, TADS3, Rebol, SQL, FlagShip, Csound -->
+      <style-class name="Operator" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Fortran, F77 -->
+      <style-class name="Operator2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="Other" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="PageEx" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="Pair" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Opal -->
+      <style-class name="Par" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Conf, Bash, Csound, Inno -->
+      <style-class name="Parameter" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="ParenArray" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="ParenDict" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS -->
+      <style-class name="ParenProc" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in LOT -->
+      <style-class name="Pass" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Perl" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Sol -->
+      <style-class name="Persistent" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Php" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpCommentLine" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpComplexVariable" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpHString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpHstringVariable" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpOperator" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpSimpleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpVariable" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PhpWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="PictureString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="Pod" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl -->
+      <style-class name="PodVerb" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Diff -->
+      <style-class name="Position" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="Preface" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Inno -->
+      <style-class name="PreProc" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt, Perl, VB, VBScript, PowerBasic, Lua, MakeFile, Baan, Sol, Fortran, F77, Verilog, Specman, Au3, TADS3, FlagShip -->
+      <style-class name="Preprocessor" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Inno -->
+      <style-class name="PreprocInline" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Forth -->
+      <style-class name="Preword1" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Forth -->
+      <style-class name="Preword2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in APDL -->
+      <style-class name="Processor" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in CSS -->
+      <style-class name="PseudoClass" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl -->
+      <style-class name="Punctuation" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Python" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonCharacter" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonClassName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonCommentLine" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonDefName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonIdentifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonOperator" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonStart" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonTriple" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonTripleDouble" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="PythonWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="Question" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in SQL -->
+      <style-class name="QuotedIdentifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="QuotedString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="RealConstant" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Erlang -->
+      <style-class name="Record" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MMIXAL -->
+      <style-class name="Ref" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in YAML -->
+      <style-class name="Reference" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt, Perl, Ruby -->
+      <style-class name="Regex" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Asm, MMIXAL -->
+      <style-class name="Register" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl -->
+      <style-class name="RegularExpressionSubstitution" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Specman -->
+      <style-class name="RegularExpressionTag" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Smalltalk -->
+      <style-class name="Return" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="RuntimeExpressions" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Bash, Asn1 -->
+      <style-class name="Scalar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="Script" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="SecionDef" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Properties, NNCronTab, Inno -->
+      <style-class name="Section" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="SectionGroup" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Smalltalk -->
+      <style-class name="Self" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Au3 -->
+      <style-class name="Sent" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Erlang -->
+      <style-class name="Separator" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in LOT -->
+      <style-class name="Set" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlBlockDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlCommand" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlDoubleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlEntity" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlError" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlSgml1stParameter" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlSgml1stParameterComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlSimpleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="SgmlSpecial" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Specman -->
+      <style-class name="Signal" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP, CSS -->
+      <style-class name="SingleString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in APDL -->
+      <style-class name="SlashCommand" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Opal -->
+      <style-class name="Sort" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Opal -->
+      <style-class name="Space" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Lisp, TeX, Metapost, Au3, Smalltalk -->
+      <style-class name="Special" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Smalltalk -->
+      <style-class name="SpecSel" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in SQL -->
+      <style-class name="SqlPlus" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in SQL -->
+      <style-class name="SqlplusComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in SQL -->
+      <style-class name="SqlplusPrompt" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="SString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="StandardEquate" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in APDL -->
+      <style-class name="StarCommand" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL -->
+      <style-class name="Statement" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby -->
+      <style-class name="StdErr" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VHDL -->
+      <style-class name="StdFunction" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby -->
+      <style-class name="StdIn" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VHDL -->
+      <style-class name="StdOperator" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby -->
+      <style-class name="StdOut" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VHDL -->
+      <style-class name="StdPackage" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VHDL -->
+      <style-class name="StdType" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL -->
+      <style-class name="StoredProcedure" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, Perl, Ruby, VB, VBScript, PowerBasic, Lua, Conf, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, NNCronTab, Forth, MatLab, Sol, Asm, POV, LOUT, ESCRIPT, MMIXAL, Clarion, Erlang, Octave, MSSQL, Verilog, Specman, Au3, APDL, Bash, Asn1, VHDL, Caml, Haskell, SQL, Smalltalk, FlagShip, Opal -->
+      <style-class name="String" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Fortran, F77, Kix -->
+      <style-class name="String1" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Fortran, F77, Kix -->
+      <style-class name="String2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Inno -->
+      <style-class name="StringDouble" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="StringDQ" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, VB, VBScript, PowerBasic, Lua, Avenue, Ada, Baan, Lisp, Eiffel, EiffelKW, Sol, Asm, Fortran, F77, POV, LOUT, Verilog, Specman, VHDL, FlagShip, Csound -->
+      <style-class name="StringEol" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="StringLQ" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="StringQ" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="StringQQ" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="StringQR" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="StringQW" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl, Ruby -->
+      <style-class name="StringQX" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="StringRQ" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Inno -->
+      <style-class name="StringSingle" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="StringVar" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="StructureDataType" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL -->
+      <style-class name="SubBrace" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="SubsectionDef" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL -->
+      <style-class name="Substitution" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Smalltalk -->
+      <style-class name="Super" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby, Lisp, MMIXAL, TeX, Metapost, Smalltalk -->
+      <style-class name="Symbol" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl -->
+      <style-class name="SymbolTable" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MSSQL -->
+      <style-class name="SysTable" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP, LaTeX, CSS, Rebol -->
+      <style-class name="Tag" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="TagEnd" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Caml -->
+      <style-class name="TagName" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="TagUnknown" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in MakeFile -->
+      <style-class name="Target" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NNCronTab -->
+      <style-class name="Task" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in PS, YAML, TeX, Metapost -->
+      <style-class name="Text" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in ErrorList -->
+      <style-class name="Tidy" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="Time" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Sol -->
+      <style-class name="Triple" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python -->
+      <style-class name="TripleDouble" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="Tuple" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Asn1 -->
+      <style-class name="Type" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Au3 -->
+      <style-class name="Udf" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Erlang -->
+      <style-class name="Unknown" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in CSS -->
+      <style-class name="UnknownIdentifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in CSS -->
+      <style-class name="UnknownPseudoclass" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby -->
+      <style-class name="UpperBound" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Rebol -->
+      <style-class name="Url" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Verilog, Specman -->
+      <style-class name="User" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3, SQL -->
+      <style-class name="User1" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3, SQL -->
+      <style-class name="User2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3, SQL -->
+      <style-class name="User3" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in SQL -->
+      <style-class name="User4" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS -->
+      <style-class name="UserDefined" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Clarion -->
+      <style-class name="UserIdentifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Csound -->
+      <style-class name="UserKeyword" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in VHDL -->
+      <style-class name="UserWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt -->
+      <style-class name="Uuid" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP, CSS, Spice -->
+      <style-class name="Value" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Kix -->
+      <style-class name="Var" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in NSIS, Erlang, MSSQL, Au3 -->
+      <style-class name="Variable" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Perl -->
+      <style-class name="VariableIndexer" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="VBScriptCommentLine" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="VBScriptDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="VBScriptIdentifier" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="VBScriptNumber" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="VBScriptStart" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="VBScriptString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="VBScriptStringEol" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="VBScriptWord" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Cpp, Pascal, BullAnt -->
+      <style-class name="Verbatim" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Sol -->
+      <style-class name="White" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, Perl, Ruby, Lua, Batch, Avenue, Ada, Baan, Eiffel, EiffelKW, Fortran, F77, LOUT, ESCRIPT, Verilog, Specman, APDL, Bash, Rebol, SQL -->
+      <style-class name="Word" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Avenue -->
+      <style-class name="Word1" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Python, Cpp, Pascal, BullAnt, TCL, Lua, Avenue, Baan, Fortran, F77, POV, LOUT, ESCRIPT, Verilog, Specman, Rebol, SQL -->
+      <style-class name="Word2" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, Lua, Avenue, Fortran, F77, POV, LOUT, ESCRIPT, Verilog, Specman, Rebol -->
+      <style-class name="Word3" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, Lua, Avenue, POV, LOUT, Rebol -->
+      <style-class name="Word4" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, Lua, Avenue, POV, Rebol -->
+      <style-class name="Word5" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, Lua, Avenue, POV, Rebol -->
+      <style-class name="Word6" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, Lua, POV, Rebol -->
+      <style-class name="Word7" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL, Lua, POV, Rebol -->
+      <style-class name="Word8" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in Ruby -->
+      <style-class name="WordDemoted" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TCL -->
+      <style-class name="WordInQuote" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="XCComment" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="XDefault" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="XmlEnd" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in HTML, XML, ASP, PHP -->
+      <style-class name="XmlStart" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+      <!-- Used in TADS3 -->
+      <style-class name="XString" fore="default-fore" back="default-back" size="default-font-size" font="default-font" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+<!-- #endregion -->
+</languages>
+</Scintilla>

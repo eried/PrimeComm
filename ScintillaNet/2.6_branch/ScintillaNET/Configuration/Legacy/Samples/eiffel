@@ -1,0 +1,32 @@
+class ACCOUNT feature 
+              balance: INTEGER; 
+              owner: PERSON;
+              minimum_balance: INTEGER is 1000
+
+              open (who: PERSON) is 
+                   -- Assign the account to owner who. 
+                   do 
+                        owner := who 
+                   end
+              deposit (sum: INTEGER) is 
+                   -- Deposit sum into the account. 
+                   do 
+                        add (sum) 
+                   end 
+              withdraw (sum: INTEGER) is 
+                   -- Withdraw sum from the account. 
+                   do 
+                        add (-sum) 
+                   end 
+              may_withdraw (sum: INTEGER): BOOLEAN is 
+                   -- Is there enough money to withdraw sum? 
+                   do 
+                        Result := (balance >= sum + minimum_balance) 
+                   end 
+         feature {NONE} 
+              add (sum: INTEGER) is 
+                   -- Add sum to the balance. 
+                   do 
+                        balance := balance + sum 
+                   end 
+end -- class ACCOUNT 

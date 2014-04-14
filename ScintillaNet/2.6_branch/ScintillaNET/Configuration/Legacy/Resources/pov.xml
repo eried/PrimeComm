@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="pov-Default" inherit-style="Default" />
+      <style-class name="pov-Comment" inherit-style="Comment" />
+      <style-class name="pov-CommentLine" inherit-style="CommentLine" />
+      <style-class name="pov-Number" inherit-style="Number" />
+      <style-class name="pov-Operator" inherit-style="Operator" />
+      <style-class name="pov-Identifier" inherit-style="Identifier" />
+      <style-class name="pov-String" inherit-style="String" />
+      <style-class name="pov-StringEol" inherit-style="StringEol" />
+      <style-class name="pov-Directive" inherit-style="Directive" />
+      <style-class name="pov-BadDirective" inherit-style="BadDirective" />
+      <style-class name="pov-Word2" inherit-style="Word2" />
+      <style-class name="pov-Word3" inherit-style="Word3" />
+      <style-class name="pov-Word4" inherit-style="Word4" />
+      <style-class name="pov-Word5" inherit-style="Word5" />
+      <style-class name="pov-Word6" inherit-style="Word6" />
+      <style-class name="pov-Word7" inherit-style="Word7" />
+      <style-class name="pov-Word8" inherit-style="Word8" />
+      <style-class name="pov-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="pov-LineNumber" inherit-style="LineNumber" />
+      <style-class name="pov-BraceLight" inherit-style="BraceLight" />
+      <style-class name="pov-BraceBad" inherit-style="BraceBad" />
+      <style-class name="pov-ControlChar" inherit-style="ControlChar" />
+      <style-class name="pov-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="pov-CallTip" inherit-style="CallTip" />
+      <style-class name="pov-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="pov-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="pov-Language-directives" >         
+         declare local include undef fopen fclose read write default version
+         case range break debug error warning
+         if ifdef ifndef switch while macro else end
+      </keyword-class>
+      <keyword-class name="pov-Objects-CSG-Appearance" >         
+         camera light_source light_group
+         object blob sphere cylinder box cone height_field julia_fractal
+         lathe prism sphere_sweep superellipsoid sor text torus
+         bicubic_patch disc mesh mesh2 polygon triangle smooth_triangle
+         plane poly cubic quartic quadric isosurface parametric
+         union intersection difference merge function array spline
+         vertex_vectors normal_vectors uv_vectors face_indices normal_indices uv_indices
+         texture texture_list interior_texture
+         texture_map material_map image_map color_map colour_map pigment_map
+         normal_map slope_map bump_map density_map
+         pigment normal material interior finish reflection irid slope pigment_pattern image_pattern
+         warp media scattering density background fog sky_sphere rainbow
+         global_settings radiosity photons pattern
+         transform looks_like projected_through contained_by clipped_by bounded_by
+      </keyword-class>
+      <keyword-class name="pov-Types-Modifiers-Items" >         
+         linear_spline quadratic_spline cubic_spline natural_spline bezier_spline b_spline
+         read write append inverse open
+         perspective orthographic fisheye ultra_wide_angle omnimax panoramic
+         spherical spotlight jitter circular orient
+         media_attenuation media_interaction shadowless parallel
+         refraction collect pass_through global_lights hierarchy sturm smooth
+         gif tga iff pot png pgm ppm jpeg tiff sys ttf
+         quaternion hypercomplex linear_sweep conic_sweep
+         type all_intersections split_union cutaway_textures
+         no_shadow no_image no_reflection double_illuminate hollow
+         uv_mapping all use_index use_color use_colour no_bump_scale
+         conserve_energy fresnel
+         average agate boxed bozo bumps cells crackle cylindrical density_file dents
+         facets granite leopard marble onion planar quilted radial ripples spotted waves wood wrinkles
+         solid use_alpha interpolate magnet noise_generator toroidal
+         ramp_wave triangle_wave sine_wave scallop_wave cubic_wave poly_wave
+         once map_type method fog_type hf_gray_16 charset ascii utf8
+         rotate scale translate matrix location right up direction sky
+         angle look_at aperture blur_samples focal_point confidence variance
+         radius falloff tightness point_at area_light adaptive fade_distance fade_power
+         threshold strength water_level tolerance max_iteration precision slice
+         u_steps v_steps flatness inside_vector
+         accuracy max_gradient evaluate max_trace precompute
+         target ior dispersion dispersion_samples caustics
+         color colour rgb rgbf rgbt rgbft red green blue filter transmit gray hf
+         fade_color fade_colour quick_color quick_colour
+         brick checker hexagon brick_size mortar bump_size
+         ambient diffuse brilliance crand phong phong_size metallic specular
+         roughness reflection_exponent exponent thickness
+         gradient spiral1 spiral2 agate_turb form metric
+         offset df3 coords size mandel exterior julia
+         control0 control1 altitude turbulence octaves omega lambda
+         repeat flip black-hole orientation dist_exp major_radius
+         frequency phase intervals samples ratio absorption emission aa_threshold aa_level
+         eccentricity extinction distance turb_depth fog_offset fog_alt width arc_angle falloff_angle
+         adc_bailout ambient_light assumed_gamma irid_wavelength number_of_waves
+         always_sample brigthness count error_bound gray_threshold load_file
+         low_error_factor max_sample minimum_reuse nearest_count
+         pretrace_end pretrace_start recursion_limit save_file
+         spacing gather max_trace_level autostop expand_thresholds
+      </keyword-class>
+      <keyword-class name="pov-Predefined-Identifiers" >         
+         x y z t u v
+         yes no true false on off
+         clock clock_delta clock_on final_clock final_frame frame_number
+         image_height image_width initial_clock initial_frame pi version
+      </keyword-class>
+      <keyword-class name="pov-Predefined-Functions" >         
+         bs acos acosh asc asin asinh atan atanh atan2
+         ceil cos cosh defined degrees dimensions dimension_size div exp file_exists floor
+         inside int ln log max min mod pow prod radians rand seed select sin sinh sqrt strcmp
+         strlen sum tan tanh val vdot vlength min_extent max_extent trace vaxis_rotate
+         vcross vrotate vnormalize vturbulence chr concat str strlwr strupr substr vstr
+         sqr cube reciprocal pwr
+      </keyword-class>
+      <keyword-class name="pov-User-defined-1" >
+      </keyword-class>
+      <keyword-class name="pov-User-defined-2" >
+      </keyword-class>
+      <keyword-class name="pov-User-defined-3" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="pov">
+         <lexer name="POV" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.pov *.inc</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="pov-Language-directives"/>
+            <keyword key="1" class="pov-Objects-CSG-Appearance"/>
+            <keyword key="2" class="pov-Types-Modifiers-Items"/>
+            <keyword key="3" class="pov-Predefined-Identifiers"/>
+            <keyword key="4" class="pov-Predefined-Functions"/>
+            <keyword key="5" class="pov-User-defined-1"/>
+            <keyword key="6" class="pov-User-defined-2"/>
+            <keyword key="7" class="pov-User-defined-3"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="pov-Default" />
+            <style name="Comment" class="pov-Comment" />
+            <style name="CommentLine" class="pov-CommentLine" />
+            <style name="Number" class="pov-Number" />
+            <style name="Operator" class="pov-Operator" />
+            <style name="Identifier" class="pov-Identifier" />
+            <style name="String" class="pov-String" />
+            <style name="StringEol" class="pov-StringEol" />
+            <style name="Directive" class="pov-Directive" />
+            <style name="BadDirective" class="pov-BadDirective" />
+            <style name="Word2" class="pov-Word2" />
+            <style name="Word3" class="pov-Word3" />
+            <style name="Word4" class="pov-Word4" />
+            <style name="Word5" class="pov-Word5" />
+            <style name="Word6" class="pov-Word6" />
+            <style name="Word7" class="pov-Word7" />
+            <style name="Word8" class="pov-Word8" />
+            <style name="GlobalDefault" class="pov-GlobalDefault" />
+            <style name="LineNumber" class="pov-LineNumber" />
+            <style name="BraceLight" class="pov-BraceLight" />
+            <style name="BraceBad" class="pov-BraceBad" />
+            <style name="ControlChar" class="pov-ControlChar" />
+            <style name="IndentGuide" class="pov-IndentGuide" />
+            <style name="CallTip" class="pov-CallTip" />
+            <style name="LastPredefined" class="pov-LastPredefined" />
+            <style name="Max" class="pov-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

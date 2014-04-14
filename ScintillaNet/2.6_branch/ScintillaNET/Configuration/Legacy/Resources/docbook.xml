@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="docbook-Default" inherit-style="Default" />
+      <style-class name="docbook-Tag" inherit-style="Tag" />
+      <style-class name="docbook-TagUnknown" inherit-style="TagUnknown" />
+      <style-class name="docbook-Attribute" inherit-style="Attribute" />
+      <style-class name="docbook-AttributeUnknown" inherit-style="AttributeUnknown" />
+      <style-class name="docbook-Number" inherit-style="Number" />
+      <style-class name="docbook-DoubleString" inherit-style="DoubleString" />
+      <style-class name="docbook-SingleString" inherit-style="SingleString" />
+      <style-class name="docbook-Other" inherit-style="Other" />
+      <style-class name="docbook-Comment" inherit-style="Comment" />
+      <style-class name="docbook-Entity" inherit-style="Entity" />
+      <style-class name="docbook-TagEnd" inherit-style="TagEnd" />
+      <style-class name="docbook-XmlStart" inherit-style="XmlStart" />
+      <style-class name="docbook-XmlEnd" inherit-style="XmlEnd" />
+      <style-class name="docbook-Script" inherit-style="Script" />
+      <style-class name="docbook-Asp" inherit-style="Asp" />
+      <style-class name="docbook-AspAt" inherit-style="AspAt" />
+      <style-class name="docbook-CData" inherit-style="CData" />
+      <style-class name="docbook-Question" inherit-style="Question" />
+      <style-class name="docbook-Value" inherit-style="Value" />
+      <style-class name="docbook-XCComment" inherit-style="XCComment" />
+      <style-class name="docbook-SgmlDefault" inherit-style="SgmlDefault" />
+      <style-class name="docbook-SgmlCommand" inherit-style="SgmlCommand" />
+      <style-class name="docbook-SgmlSgml1stParameter" inherit-style="SgmlSgml1stParameter" />
+      <style-class name="docbook-SgmlDoubleString" inherit-style="SgmlDoubleString" />
+      <style-class name="docbook-SgmlSimpleString" inherit-style="SgmlSimpleString" />
+      <style-class name="docbook-SgmlError" inherit-style="SgmlError" />
+      <style-class name="docbook-SgmlSpecial" inherit-style="SgmlSpecial" />
+      <style-class name="docbook-SgmlEntity" inherit-style="SgmlEntity" />
+      <style-class name="docbook-SgmlComment" inherit-style="SgmlComment" />
+      <style-class name="docbook-SgmlSgml1stParameterComment" inherit-style="SgmlSgml1stParameterComment" />
+      <style-class name="docbook-SgmlBlockDefault" inherit-style="SgmlBlockDefault" />
+      <style-class name="docbook-JavaScriptStart" inherit-style="JavaScriptStart" />
+      <style-class name="docbook-JavaScriptDefault" inherit-style="JavaScriptDefault" />
+      <style-class name="docbook-JavaScriptComment" inherit-style="JavaScriptComment" />
+      <style-class name="docbook-JavaScriptCommentLine" inherit-style="JavaScriptCommentLine" />
+      <style-class name="docbook-JavaScriptCommentDoc" inherit-style="JavaScriptCommentDoc" />
+      <style-class name="docbook-JavaScriptNumber" inherit-style="JavaScriptNumber" />
+      <style-class name="docbook-JavaScriptWord" inherit-style="JavaScriptWord" />
+      <style-class name="docbook-JavaScriptKeyword" inherit-style="JavaScriptKeyword" />
+      <style-class name="docbook-JavaScriptDoubleString" inherit-style="JavaScriptDoubleString" />
+      <style-class name="docbook-JavaScriptSingleString" inherit-style="JavaScriptSingleString" />
+      <style-class name="docbook-JavaScriptSymbols" inherit-style="JavaScriptSymbols" />
+      <style-class name="docbook-JavaScriptStringEol" inherit-style="JavaScriptStringEol" />
+      <style-class name="docbook-JavaScriptRegex" inherit-style="JavaScriptRegex" />
+      <style-class name="docbook-AspJavaScriptStart" inherit-style="AspJavaScriptStart" />
+      <style-class name="docbook-AspJavaScriptDefault" inherit-style="AspJavaScriptDefault" />
+      <style-class name="docbook-AspJavaScriptComment" inherit-style="AspJavaScriptComment" />
+      <style-class name="docbook-AspJavaScriptCommentLine" inherit-style="AspJavaScriptCommentLine" />
+      <style-class name="docbook-AspJavaScriptCommentDoc" inherit-style="AspJavaScriptCommentDoc" />
+      <style-class name="docbook-AspJavaScriptNumber" inherit-style="AspJavaScriptNumber" />
+      <style-class name="docbook-AspJavaScriptWord" inherit-style="AspJavaScriptWord" />
+      <style-class name="docbook-AspJavaScriptKeyword" inherit-style="AspJavaScriptKeyword" />
+      <style-class name="docbook-AspJavaScriptDoubleString" inherit-style="AspJavaScriptDoubleString" />
+      <style-class name="docbook-AspJavaScriptSingleString" inherit-style="AspJavaScriptSingleString" />
+      <style-class name="docbook-AspJavaScriptSymbols" inherit-style="AspJavaScriptSymbols" />
+      <style-class name="docbook-AspJavaScriptStringEol" inherit-style="AspJavaScriptStringEol" />
+      <style-class name="docbook-AspJavaScriptRegex" inherit-style="AspJavaScriptRegex" />
+      <style-class name="docbook-VBScriptStart" inherit-style="VBScriptStart" />
+      <style-class name="docbook-VBScriptDefault" inherit-style="VBScriptDefault" />
+      <style-class name="docbook-VBScriptCommentLine" inherit-style="VBScriptCommentLine" />
+      <style-class name="docbook-VBScriptNumber" inherit-style="VBScriptNumber" />
+      <style-class name="docbook-VBScriptWord" inherit-style="VBScriptWord" />
+      <style-class name="docbook-VBScriptString" inherit-style="VBScriptString" />
+      <style-class name="docbook-VBScriptIdentifier" inherit-style="VBScriptIdentifier" />
+      <style-class name="docbook-VBScriptStringEol" inherit-style="VBScriptStringEol" />
+      <style-class name="docbook-AspVBScriptStart" inherit-style="AspVBScriptStart" />
+      <style-class name="docbook-AspVBScriptDefault" inherit-style="AspVBScriptDefault" />
+      <style-class name="docbook-AspVBScriptCommentLine" inherit-style="AspVBScriptCommentLine" />
+      <style-class name="docbook-AspVBScriptNumber" inherit-style="AspVBScriptNumber" />
+      <style-class name="docbook-AspVBScriptWord" inherit-style="AspVBScriptWord" />
+      <style-class name="docbook-AspVBScriptString" inherit-style="AspVBScriptString" />
+      <style-class name="docbook-AspVBScriptIdentifier" inherit-style="AspVBScriptIdentifier" />
+      <style-class name="docbook-AspVBScriptStringEol" inherit-style="AspVBScriptStringEol" />
+      <style-class name="docbook-PythonStart" inherit-style="PythonStart" />
+      <style-class name="docbook-PythonDefault" inherit-style="PythonDefault" />
+      <style-class name="docbook-PythonCommentLine" inherit-style="PythonCommentLine" />
+      <style-class name="docbook-PythonNumber" inherit-style="PythonNumber" />
+      <style-class name="docbook-PythonString" inherit-style="PythonString" />
+      <style-class name="docbook-PythonCharacter" inherit-style="PythonCharacter" />
+      <style-class name="docbook-PythonWord" inherit-style="PythonWord" />
+      <style-class name="docbook-PythonTriple" inherit-style="PythonTriple" />
+      <style-class name="docbook-PythonTripleDouble" inherit-style="PythonTripleDouble" />
+      <style-class name="docbook-PythonClassName" inherit-style="PythonClassName" />
+      <style-class name="docbook-PythonDefName" inherit-style="PythonDefName" />
+      <style-class name="docbook-PythonOperator" inherit-style="PythonOperator" />
+      <style-class name="docbook-PythonIdentifier" inherit-style="PythonIdentifier" />
+      <style-class name="docbook-PhpComplexVariable" inherit-style="PhpComplexVariable" />
+      <style-class name="docbook-AspPythonStart" inherit-style="AspPythonStart" />
+      <style-class name="docbook-AspPythonDefault" inherit-style="AspPythonDefault" />
+      <style-class name="docbook-AspPythonCommentLine" inherit-style="AspPythonCommentLine" />
+      <style-class name="docbook-AspPythonNumber" inherit-style="AspPythonNumber" />
+      <style-class name="docbook-AspPythonString" inherit-style="AspPythonString" />
+      <style-class name="docbook-AspPythonCharacter" inherit-style="AspPythonCharacter" />
+      <style-class name="docbook-AspPythonWord" inherit-style="AspPythonWord" />
+      <style-class name="docbook-AspPythonTriple" inherit-style="AspPythonTriple" />
+      <style-class name="docbook-AspPythonTripleDouble" inherit-style="AspPythonTripleDouble" />
+      <style-class name="docbook-AspPythonClassName" inherit-style="AspPythonClassName" />
+      <style-class name="docbook-AspPythonDefName" inherit-style="AspPythonDefName" />
+      <style-class name="docbook-AspPythonOperator" inherit-style="AspPythonOperator" />
+      <style-class name="docbook-AspPythonIdentifier" inherit-style="AspPythonIdentifier" />
+      <style-class name="docbook-PhpDefault" inherit-style="PhpDefault" />
+      <style-class name="docbook-PhpHString" inherit-style="PhpHString" />
+      <style-class name="docbook-PhpSimpleString" inherit-style="PhpSimpleString" />
+      <style-class name="docbook-PhpWord" inherit-style="PhpWord" />
+      <style-class name="docbook-PhpNumber" inherit-style="PhpNumber" />
+      <style-class name="docbook-PhpVariable" inherit-style="PhpVariable" />
+      <style-class name="docbook-PhpComment" inherit-style="PhpComment" />
+      <style-class name="docbook-PhpCommentLine" inherit-style="PhpCommentLine" />
+      <style-class name="docbook-PhpHstringVariable" inherit-style="PhpHstringVariable" />
+      <style-class name="docbook-PhpOperator" inherit-style="PhpOperator" />
+      <style-class name="docbook-ADefault" inherit-style="ADefault" />
+      <style-class name="docbook-AIdentifier" inherit-style="AIdentifier" />
+      <style-class name="docbook-AKeyword" inherit-style="AKeyword" />
+      <style-class name="docbook-ANumber" inherit-style="ANumber" />
+      <style-class name="docbook-AString" inherit-style="AString" />
+      <style-class name="docbook-ACharacter" inherit-style="ACharacter" />
+      <style-class name="docbook-AClass" inherit-style="AClass" />
+      <style-class name="docbook-AModule" inherit-style="AModule" />
+      <style-class name="docbook-ACapital" inherit-style="ACapital" />
+      <style-class name="docbook-AData" inherit-style="AData" />
+      <style-class name="docbook-AImport" inherit-style="AImport" />
+      <style-class name="docbook-AOperator" inherit-style="AOperator" />
+      <style-class name="docbook-AInstance" inherit-style="AInstance" />
+      <style-class name="docbook-ACommentline" inherit-style="ACommentline" />
+      <style-class name="docbook-ACommentblock" inherit-style="ACommentblock" />
+      <style-class name="docbook-ACommentblock2" inherit-style="ACommentblock2" />
+      <style-class name="docbook-ACommentblock3" inherit-style="ACommentblock3" />
+      <style-class name="docbook-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="docbook-LineNumber" inherit-style="LineNumber" />
+      <style-class name="docbook-BraceLight" inherit-style="BraceLight" />
+      <style-class name="docbook-BraceBad" inherit-style="BraceBad" />
+      <style-class name="docbook-ControlChar" inherit-style="ControlChar" />
+      <style-class name="docbook-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="docbook-CallTip" inherit-style="CallTip" />
+      <style-class name="docbook-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="docbook-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="docbook-HTML-elements-and-attributes" >         
+         abbrev abstract accel ackno acronym action address affiliation alt anchor
+         answer appendix appendixinfo application area areaset areaspec arg article
+         articleinfo artpagenums attribution audiodata audioobject author authorblurb
+         authorgroup authorinitials beginpage bibliocoverage bibliodiv biblioentry
+         bibliography bibliographyinfo biblioid bibliomisc bibliomixed bibliomset
+         bibliorelation biblioset bibliosource blockinfo blockquote book bookinfo
+         bridgehead callout calloutlist caption caution chapter chapterinfo citation
+         citebiblioid citerefentry citetitle city classname classsynopsis classsynopsisinfo
+         cmdsynopsis co collab collabname colophon colspec command computeroutput
+         confdates confgroup confnum confsponsor conftitle constant constraint
+         constraintdef constructorsynopsis contractnum contractsponsor contrib
+         copyright coref corpauthor corpname country database date dedication
+         destructorsynopsis edition editor email emphasis entry entrytbl envar
+         epigraph equation errorcode errorname errortext errortype example
+         exceptionname fax fieldsynopsis figure filename firstname firstterm
+         footnote footnoteref foreignphrase formalpara funcdef funcparams
+         funcprototype funcsynopsis funcsynopsisinfo function glossary glossaryinfo
+         glossdef glossdiv glossentry glosslist glosssee glossseealso glossterm
+         graphic graphicco group guibutton guiicon guilabel guimenu guimenuitem
+         guisubmenu hardware highlights holder honorific htm imagedata imageobject
+         imageobjectco important index indexdiv indexentry indexinfo indexterm
+         informalequation informalexample informalfigure informaltable initializer
+         inlineequation inlinegraphic inlinemediaobject interface interfacename
+         invpartnumber isbn issn issuenum itemizedlist itermset jobtitle keycap
+         keycode keycombo keysym keyword keywordset label legalnotice lhs lineage
+         lineannotation link listitem iteral literallayout lot lotentry manvolnum
+         markup medialabel mediaobject mediaobjectco member menuchoice methodname
+         methodparam methodsynopsis mm modespec modifier ousebutton msg msgaud
+         msgentry msgexplan msginfo msglevel msgmain msgorig msgrel msgset msgsub
+         msgtext nonterminal note objectinfo olink ooclass ooexception oointerface
+         option optional orderedlist orgdiv orgname otheraddr othercredit othername
+         pagenums para paramdef parameter part partinfo partintro personblurb
+         personname phone phrase pob postcode preface prefaceinfo primary primaryie
+         printhistory procedure production productionrecap productionset productname
+         productnumber programlisting programlistingco prompt property pubdate publisher
+         publishername pubsnumber qandadiv qandaentry qandaset question quote refclass
+         refdescriptor refentry refentryinfo refentrytitle reference referenceinfo
+         refmeta refmiscinfo refname refnamediv refpurpose refsect1 refsect1info refsect2
+         refsect2info refsect3 refsect3info refsection refsectioninfo refsynopsisdiv
+         refsynopsisdivinfo releaseinfo remark replaceable returnvalue revdescription
+         revhistory revision revnumber revremark rhs row sbr screen screenco screeninfo
+         screenshot secondary secondaryie sect1 sect1info sect2 sect2info sect3 sect3info
+         sect4 sect4info sect5 sect5info section sectioninfo see seealso seealsoie
+         seeie seg seglistitem segmentedlist segtitle seriesvolnums set setindex
+         setindexinfo setinfo sgmltag shortaffil shortcut sidebar sidebarinfo simpara
+         simplelist simplemsgentry simplesect spanspec state step street structfield
+         structname subject subjectset subjectterm subscript substeps subtitle
+         superscript surname sv symbol synopfragment synopfragmentref synopsis
+         systemitem table tbody term tertiary tertiaryie textdata textobject tfoot
+         tgroup thead tip title titleabbrev toc tocback tocchap tocentry tocfront
+         toclevel1 toclevel2 toclevel3 toclevel4 toclevel5 tocpart token trademark
+         type ulink userinput varargs variablelist varlistentry varname videodata
+         videoobject void volumenum warning wordasword xref year
+         arch condition conformance id lang os remap role revision revisionflag security
+         userlevel vendor xreflabel
+         status label endterm linkend space width
+      </keyword-class>
+      <keyword-class name="docbook-JavaScript-keywords" >
+      </keyword-class>
+      <keyword-class name="docbook-VBScript-keywords" >
+      </keyword-class>
+      <keyword-class name="docbook-Python-keywords" >
+      </keyword-class>
+      <keyword-class name="docbook-PHP-keywords" >
+      </keyword-class>
+      <keyword-class name="docbook-SGML-and-DTD-keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="docbook">
+         <lexer name="HTML" style-bits="7"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.docbook</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="docbook-HTML-elements-and-attributes"/>
+            <keyword key="1" class="docbook-JavaScript-keywords"/>
+            <keyword key="2" class="docbook-VBScript-keywords"/>
+            <keyword key="3" class="docbook-Python-keywords"/>
+            <keyword key="4" class="docbook-PHP-keywords"/>
+            <keyword key="5" class="docbook-SGML-and-DTD-keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="docbook-Default" />
+            <style name="Tag" class="docbook-Tag" />
+            <style name="TagUnknown" class="docbook-TagUnknown" />
+            <style name="Attribute" class="docbook-Attribute" />
+            <style name="AttributeUnknown" class="docbook-AttributeUnknown" />
+            <style name="Number" class="docbook-Number" />
+            <style name="DoubleString" class="docbook-DoubleString" />
+            <style name="SingleString" class="docbook-SingleString" />
+            <style name="Other" class="docbook-Other" />
+            <style name="Comment" class="docbook-Comment" />
+            <style name="Entity" class="docbook-Entity" />
+            <style name="TagEnd" class="docbook-TagEnd" />
+            <style name="XmlStart" class="docbook-XmlStart" />
+            <style name="XmlEnd" class="docbook-XmlEnd" />
+            <style name="Script" class="docbook-Script" />
+            <style name="Asp" class="docbook-Asp" />
+            <style name="AspAt" class="docbook-AspAt" />
+            <style name="CData" class="docbook-CData" />
+            <style name="Question" class="docbook-Question" />
+            <style name="Value" class="docbook-Value" />
+            <style name="XCComment" class="docbook-XCComment" />
+            <style name="SgmlDefault" class="docbook-SgmlDefault" />
+            <style name="SgmlCommand" class="docbook-SgmlCommand" />
+            <style name="SgmlSgml1stParameter" class="docbook-SgmlSgml1stParameter" />
+            <style name="SgmlDoubleString" class="docbook-SgmlDoubleString" />
+            <style name="SgmlSimpleString" class="docbook-SgmlSimpleString" />
+            <style name="SgmlError" class="docbook-SgmlError" />
+            <style name="SgmlSpecial" class="docbook-SgmlSpecial" />
+            <style name="SgmlEntity" class="docbook-SgmlEntity" />
+            <style name="SgmlComment" class="docbook-SgmlComment" />
+            <style name="SgmlSgml1stParameterComment" class="docbook-SgmlSgml1stParameterComment" />
+            <style name="SgmlBlockDefault" class="docbook-SgmlBlockDefault" />
+            <style name="JavaScriptStart" class="docbook-JavaScriptStart" />
+            <style name="JavaScriptDefault" class="docbook-JavaScriptDefault" />
+            <style name="JavaScriptComment" class="docbook-JavaScriptComment" />
+            <style name="JavaScriptCommentLine" class="docbook-JavaScriptCommentLine" />
+            <style name="JavaScriptCommentDoc" class="docbook-JavaScriptCommentDoc" />
+            <style name="JavaScriptNumber" class="docbook-JavaScriptNumber" />
+            <style name="JavaScriptWord" class="docbook-JavaScriptWord" />
+            <style name="JavaScriptKeyword" class="docbook-JavaScriptKeyword" />
+            <style name="JavaScriptDoubleString" class="docbook-JavaScriptDoubleString" />
+            <style name="JavaScriptSingleString" class="docbook-JavaScriptSingleString" />
+            <style name="JavaScriptSymbols" class="docbook-JavaScriptSymbols" />
+            <style name="JavaScriptStringEol" class="docbook-JavaScriptStringEol" />
+            <style name="JavaScriptRegex" class="docbook-JavaScriptRegex" />
+            <style name="AspJavaScriptStart" class="docbook-AspJavaScriptStart" />
+            <style name="AspJavaScriptDefault" class="docbook-AspJavaScriptDefault" />
+            <style name="AspJavaScriptComment" class="docbook-AspJavaScriptComment" />
+            <style name="AspJavaScriptCommentLine" class="docbook-AspJavaScriptCommentLine" />
+            <style name="AspJavaScriptCommentDoc" class="docbook-AspJavaScriptCommentDoc" />
+            <style name="AspJavaScriptNumber" class="docbook-AspJavaScriptNumber" />
+            <style name="AspJavaScriptWord" class="docbook-AspJavaScriptWord" />
+            <style name="AspJavaScriptKeyword" class="docbook-AspJavaScriptKeyword" />
+            <style name="AspJavaScriptDoubleString" class="docbook-AspJavaScriptDoubleString" />
+            <style name="AspJavaScriptSingleString" class="docbook-AspJavaScriptSingleString" />
+            <style name="AspJavaScriptSymbols" class="docbook-AspJavaScriptSymbols" />
+            <style name="AspJavaScriptStringEol" class="docbook-AspJavaScriptStringEol" />
+            <style name="AspJavaScriptRegex" class="docbook-AspJavaScriptRegex" />
+            <style name="VBScriptStart" class="docbook-VBScriptStart" />
+            <style name="VBScriptDefault" class="docbook-VBScriptDefault" />
+            <style name="VBScriptCommentLine" class="docbook-VBScriptCommentLine" />
+            <style name="VBScriptNumber" class="docbook-VBScriptNumber" />
+            <style name="VBScriptWord" class="docbook-VBScriptWord" />
+            <style name="VBScriptString" class="docbook-VBScriptString" />
+            <style name="VBScriptIdentifier" class="docbook-VBScriptIdentifier" />
+            <style name="VBScriptStringEol" class="docbook-VBScriptStringEol" />
+            <style name="AspVBScriptStart" class="docbook-AspVBScriptStart" />
+            <style name="AspVBScriptDefault" class="docbook-AspVBScriptDefault" />
+            <style name="AspVBScriptCommentLine" class="docbook-AspVBScriptCommentLine" />
+            <style name="AspVBScriptNumber" class="docbook-AspVBScriptNumber" />
+            <style name="AspVBScriptWord" class="docbook-AspVBScriptWord" />
+            <style name="AspVBScriptString" class="docbook-AspVBScriptString" />
+            <style name="AspVBScriptIdentifier" class="docbook-AspVBScriptIdentifier" />
+            <style name="AspVBScriptStringEol" class="docbook-AspVBScriptStringEol" />
+            <style name="PythonStart" class="docbook-PythonStart" />
+            <style name="PythonDefault" class="docbook-PythonDefault" />
+            <style name="PythonCommentLine" class="docbook-PythonCommentLine" />
+            <style name="PythonNumber" class="docbook-PythonNumber" />
+            <style name="PythonString" class="docbook-PythonString" />
+            <style name="PythonCharacter" class="docbook-PythonCharacter" />
+            <style name="PythonWord" class="docbook-PythonWord" />
+            <style name="PythonTriple" class="docbook-PythonTriple" />
+            <style name="PythonTripleDouble" class="docbook-PythonTripleDouble" />
+            <style name="PythonClassName" class="docbook-PythonClassName" />
+            <style name="PythonDefName" class="docbook-PythonDefName" />
+            <style name="PythonOperator" class="docbook-PythonOperator" />
+            <style name="PythonIdentifier" class="docbook-PythonIdentifier" />
+            <style name="PhpComplexVariable" class="docbook-PhpComplexVariable" />
+            <style name="AspPythonStart" class="docbook-AspPythonStart" />
+            <style name="AspPythonDefault" class="docbook-AspPythonDefault" />
+            <style name="AspPythonCommentLine" class="docbook-AspPythonCommentLine" />
+            <style name="AspPythonNumber" class="docbook-AspPythonNumber" />
+            <style name="AspPythonString" class="docbook-AspPythonString" />
+            <style name="AspPythonCharacter" class="docbook-AspPythonCharacter" />
+            <style name="AspPythonWord" class="docbook-AspPythonWord" />
+            <style name="AspPythonTriple" class="docbook-AspPythonTriple" />
+            <style name="AspPythonTripleDouble" class="docbook-AspPythonTripleDouble" />
+            <style name="AspPythonClassName" class="docbook-AspPythonClassName" />
+            <style name="AspPythonDefName" class="docbook-AspPythonDefName" />
+            <style name="AspPythonOperator" class="docbook-AspPythonOperator" />
+            <style name="AspPythonIdentifier" class="docbook-AspPythonIdentifier" />
+            <style name="PhpDefault" class="docbook-PhpDefault" />
+            <style name="PhpHString" class="docbook-PhpHString" />
+            <style name="PhpSimpleString" class="docbook-PhpSimpleString" />
+            <style name="PhpWord" class="docbook-PhpWord" />
+            <style name="PhpNumber" class="docbook-PhpNumber" />
+            <style name="PhpVariable" class="docbook-PhpVariable" />
+            <style name="PhpComment" class="docbook-PhpComment" />
+            <style name="PhpCommentLine" class="docbook-PhpCommentLine" />
+            <style name="PhpHstringVariable" class="docbook-PhpHstringVariable" />
+            <style name="PhpOperator" class="docbook-PhpOperator" />
+            <style name="ADefault" class="docbook-ADefault" />
+            <style name="AIdentifier" class="docbook-AIdentifier" />
+            <style name="AKeyword" class="docbook-AKeyword" />
+            <style name="ANumber" class="docbook-ANumber" />
+            <style name="AString" class="docbook-AString" />
+            <style name="ACharacter" class="docbook-ACharacter" />
+            <style name="AClass" class="docbook-AClass" />
+            <style name="AModule" class="docbook-AModule" />
+            <style name="ACapital" class="docbook-ACapital" />
+            <style name="AData" class="docbook-AData" />
+            <style name="AImport" class="docbook-AImport" />
+            <style name="AOperator" class="docbook-AOperator" />
+            <style name="AInstance" class="docbook-AInstance" />
+            <style name="ACommentline" class="docbook-ACommentline" />
+            <style name="ACommentblock" class="docbook-ACommentblock" />
+            <style name="ACommentblock2" class="docbook-ACommentblock2" />
+            <style name="ACommentblock3" class="docbook-ACommentblock3" />
+            <style name="GlobalDefault" class="docbook-GlobalDefault" />
+            <style name="LineNumber" class="docbook-LineNumber" />
+            <style name="BraceLight" class="docbook-BraceLight" />
+            <style name="BraceBad" class="docbook-BraceBad" />
+            <style name="ControlChar" class="docbook-ControlChar" />
+            <style name="IndentGuide" class="docbook-IndentGuide" />
+            <style name="CallTip" class="docbook-CallTip" />
+            <style name="LastPredefined" class="docbook-LastPredefined" />
+            <style name="Max" class="docbook-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

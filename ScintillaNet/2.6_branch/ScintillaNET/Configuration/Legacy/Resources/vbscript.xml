@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="vbscript-Default" inherit-style="Default" />
+      <style-class name="vbscript-Comment" inherit-style="Comment" />
+      <style-class name="vbscript-Number" inherit-style="Number" />
+      <style-class name="vbscript-Keyword" inherit-style="Keyword" />
+      <style-class name="vbscript-String" inherit-style="String" />
+      <style-class name="vbscript-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="vbscript-Operator" inherit-style="Operator" />
+      <style-class name="vbscript-Identifier" inherit-style="Identifier" />
+      <style-class name="vbscript-Date" inherit-style="Date" />
+      <style-class name="vbscript-StringEol" inherit-style="StringEol" />
+      <style-class name="vbscript-Keyword2" inherit-style="Keyword2" />
+      <style-class name="vbscript-Keyword3" inherit-style="Keyword3" />
+      <style-class name="vbscript-Keyword4" inherit-style="Keyword4" />
+      <style-class name="vbscript-Constant" inherit-style="Constant" />
+      <style-class name="vbscript-Asm" inherit-style="Asm" />
+      <style-class name="vbscript-Label" inherit-style="Label" />
+      <style-class name="vbscript-Error" inherit-style="Error" />
+      <style-class name="vbscript-HexNumber" inherit-style="HexNumber" />
+      <style-class name="vbscript-BinNumber" inherit-style="BinNumber" />
+      <style-class name="vbscript-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="vbscript-LineNumber" inherit-style="LineNumber" />
+      <style-class name="vbscript-BraceLight" inherit-style="BraceLight" />
+      <style-class name="vbscript-BraceBad" inherit-style="BraceBad" />
+      <style-class name="vbscript-ControlChar" inherit-style="ControlChar" />
+      <style-class name="vbscript-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="vbscript-CallTip" inherit-style="CallTip" />
+      <style-class name="vbscript-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="vbscript-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="vbscript-Keywords" >         
+         and begin case call continue do each else elseif end erase
+         error event exit false for function get gosub goto if implement in load loop lset
+         me mid new next not nothing on or property raiseevent rem resume return rset
+         select set stop sub then to true unload until wend while with withevents
+         attribute alias as boolean byref byte byval const compare currency date declare dim double
+         enum explicit friend global integer let lib long module object option optional
+         preserve private property public redim single static string type variant
+      </keyword-class>
+      <keyword-class name="vbscript-User1" >
+      </keyword-class>
+      <keyword-class name="vbscript-User2" >
+      </keyword-class>
+      <keyword-class name="vbscript-User3" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="vbscript">
+         <lexer name="VBScript" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.vbs *.dsm</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="vbscript-Keywords"/>
+            <keyword key="1" class="vbscript-User1"/>
+            <keyword key="2" class="vbscript-User2"/>
+            <keyword key="3" class="vbscript-User3"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="vbscript-Default" />
+            <style name="Comment" class="vbscript-Comment" />
+            <style name="Number" class="vbscript-Number" />
+            <style name="Keyword" class="vbscript-Keyword" />
+            <style name="String" class="vbscript-String" />
+            <style name="Preprocessor" class="vbscript-Preprocessor" />
+            <style name="Operator" class="vbscript-Operator" />
+            <style name="Identifier" class="vbscript-Identifier" />
+            <style name="Date" class="vbscript-Date" />
+            <style name="StringEol" class="vbscript-StringEol" />
+            <style name="Keyword2" class="vbscript-Keyword2" />
+            <style name="Keyword3" class="vbscript-Keyword3" />
+            <style name="Keyword4" class="vbscript-Keyword4" />
+            <style name="Constant" class="vbscript-Constant" />
+            <style name="Asm" class="vbscript-Asm" />
+            <style name="Label" class="vbscript-Label" />
+            <style name="Error" class="vbscript-Error" />
+            <style name="HexNumber" class="vbscript-HexNumber" />
+            <style name="BinNumber" class="vbscript-BinNumber" />
+            <style name="GlobalDefault" class="vbscript-GlobalDefault" />
+            <style name="LineNumber" class="vbscript-LineNumber" />
+            <style name="BraceLight" class="vbscript-BraceLight" />
+            <style name="BraceBad" class="vbscript-BraceBad" />
+            <style name="ControlChar" class="vbscript-ControlChar" />
+            <style name="IndentGuide" class="vbscript-IndentGuide" />
+            <style name="CallTip" class="vbscript-CallTip" />
+            <style name="LastPredefined" class="vbscript-LastPredefined" />
+            <style name="Max" class="vbscript-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

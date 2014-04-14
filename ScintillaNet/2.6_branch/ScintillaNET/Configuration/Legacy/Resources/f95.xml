@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="f95-Default" inherit-style="Default" />
+      <style-class name="f95-Comment" inherit-style="Comment" />
+      <style-class name="f95-Number" inherit-style="Number" />
+      <style-class name="f95-String1" inherit-style="String1" />
+      <style-class name="f95-String2" inherit-style="String2" />
+      <style-class name="f95-StringEol" inherit-style="StringEol" />
+      <style-class name="f95-Operator" inherit-style="Operator" />
+      <style-class name="f95-Identifier" inherit-style="Identifier" />
+      <style-class name="f95-Word" inherit-style="Word" />
+      <style-class name="f95-Word2" inherit-style="Word2" />
+      <style-class name="f95-Word3" inherit-style="Word3" />
+      <style-class name="f95-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="f95-Operator2" inherit-style="Operator2" />
+      <style-class name="f95-Label" inherit-style="Label" />
+      <style-class name="f95-Continuation" inherit-style="Continuation" />
+      <style-class name="f95-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="f95-LineNumber" inherit-style="LineNumber" />
+      <style-class name="f95-BraceLight" inherit-style="BraceLight" />
+      <style-class name="f95-BraceBad" inherit-style="BraceBad" />
+      <style-class name="f95-ControlChar" inherit-style="ControlChar" />
+      <style-class name="f95-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="f95-CallTip" inherit-style="CallTip" />
+      <style-class name="f95-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="f95-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="f95-Primary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="f95-Intrinsic-functions" >
+      </keyword-class>
+      <keyword-class name="f95-Extended-and-user-defined-functions" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="f95">
+         <lexer name="Fortran" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.f90 *.f95 *.f2k</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="f95-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="f95-Intrinsic-functions"/>
+            <keyword key="2" class="f95-Extended-and-user-defined-functions"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="f95-Default" />
+            <style name="Comment" class="f95-Comment" />
+            <style name="Number" class="f95-Number" />
+            <style name="String1" class="f95-String1" />
+            <style name="String2" class="f95-String2" />
+            <style name="StringEol" class="f95-StringEol" />
+            <style name="Operator" class="f95-Operator" />
+            <style name="Identifier" class="f95-Identifier" />
+            <style name="Word" class="f95-Word" />
+            <style name="Word2" class="f95-Word2" />
+            <style name="Word3" class="f95-Word3" />
+            <style name="Preprocessor" class="f95-Preprocessor" />
+            <style name="Operator2" class="f95-Operator2" />
+            <style name="Label" class="f95-Label" />
+            <style name="Continuation" class="f95-Continuation" />
+            <style name="GlobalDefault" class="f95-GlobalDefault" />
+            <style name="LineNumber" class="f95-LineNumber" />
+            <style name="BraceLight" class="f95-BraceLight" />
+            <style name="BraceBad" class="f95-BraceBad" />
+            <style name="ControlChar" class="f95-ControlChar" />
+            <style name="IndentGuide" class="f95-IndentGuide" />
+            <style name="CallTip" class="f95-CallTip" />
+            <style name="LastPredefined" class="f95-LastPredefined" />
+            <style name="Max" class="f95-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="diff-Default" inherit-style="Default" />
+      <style-class name="diff-Comment" inherit-style="Comment" />
+      <style-class name="diff-Command" inherit-style="Command" />
+      <style-class name="diff-Header" inherit-style="Header" />
+      <style-class name="diff-Position" inherit-style="Position" />
+      <style-class name="diff-Deleted" inherit-style="Deleted" />
+      <style-class name="diff-Added" inherit-style="Added" />
+      <style-class name="diff-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="diff-LineNumber" inherit-style="LineNumber" />
+      <style-class name="diff-BraceLight" inherit-style="BraceLight" />
+      <style-class name="diff-BraceBad" inherit-style="BraceBad" />
+      <style-class name="diff-ControlChar" inherit-style="ControlChar" />
+      <style-class name="diff-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="diff-CallTip" inherit-style="CallTip" />
+      <style-class name="diff-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="diff-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="diff-Keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="diff">
+         <lexer name="Diff" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.diff *.patch *.rej</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="diff-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="diff-Default" />
+            <style name="Comment" class="diff-Comment" />
+            <style name="Command" class="diff-Command" />
+            <style name="Header" class="diff-Header" />
+            <style name="Position" class="diff-Position" />
+            <style name="Deleted" class="diff-Deleted" />
+            <style name="Added" class="diff-Added" />
+            <style name="GlobalDefault" class="diff-GlobalDefault" />
+            <style name="LineNumber" class="diff-LineNumber" />
+            <style name="BraceLight" class="diff-BraceLight" />
+            <style name="BraceBad" class="diff-BraceBad" />
+            <style name="ControlChar" class="diff-ControlChar" />
+            <style name="IndentGuide" class="diff-IndentGuide" />
+            <style name="CallTip" class="diff-CallTip" />
+            <style name="LastPredefined" class="diff-LastPredefined" />
+            <style name="Max" class="diff-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

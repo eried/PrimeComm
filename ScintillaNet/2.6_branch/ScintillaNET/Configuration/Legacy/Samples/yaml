@@ -1,0 +1,22 @@
+organisation: Vienna.pm
+url: http://vienna.pm.org
+email: domm@zsi.at
+country: at
+
+projects:
+  - name: Vienna.pm website
+    url: http://vienna.pm.org
+    modules: Template::Toolkit
+    description: |
+      A very simple site using ttree (Template::Toolkit) to add a header, a
+      footer and some navigation to a few files.
+      Nothing fancy, but using ttree saved me from writing my own converter
+      (or manage the HTML by hand (the horrors!)
+       
+  - name: Powered By Perl
+    url: http://poweredbyperl.dev.zsi.at
+    modules: Class::DBI, Template::Toolit, YAML, DateTime, LWP::UserAgent
+    description: |
+      This site :-)
+
+

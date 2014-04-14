@@ -1,0 +1,76 @@
+/* Use this as a start for the CSS for your Web Site */
+/* CSS Document - Main Pages Styles */
+
+/*Overall Page Area Styles*/
+
+body, h1, h2, h3, h4, h5, h6, p
+{ font-family: "Arial", "Helvetica", "sans-serif"; font-color:#000; }
+h1 { color: #660066;}
+h2 { color: #006666;}
+h3 { color: #003366;}
+table { border:0px; padding:0px; width:100%; background-color:#FFF; 
+vertical-align:top; }
+img {align:center;}
+
+/*Top Logo Area Styles*/
+
+tr td#logo
+{ background-color: #EEE; padding-left: 5; padding-top:5; margin-left:5; 
+margin-top:5;
+vertical-align:top; width:20%; border-width:0;}
+
+/*Top Title Area Styles*/
+
+tr td#title
+{ background-color: #EEE; padding-left: 10px; padding-top:6px; 
+margin-left:5px; margin-top:5px;
+vertical-align:top; border-width:0; text-align:center;}
+
+/*Navigation Area Styles*/
+
+tr td#navigation
+{ background-color: #EEE; padding-left:5; padding-top:10; margin-left:5; 
+margin-top:5;
+vertical-align:top; font-weight:bold; font-size:medium; width:20%; 
+border-width:0;}
+tr td#navigation a:link { color: #336699; text-decoration: none; 
+background-color: #EEE;}
+tr td#navigation a:link:hover { color: #336699; text-decoration: 
+underline; background-color: white; }
+tr td#navigation a:visited { color: #CC0033; text-decoration: none; 
+background-color: #EEE; }
+tr td#navigation a:visited:hover { color: #CC0033; text-decoration: 
+underline; background-color: white; }
+
+/*Content Styles*/
+
+tr td#content { vertical-align:top; margin:5px; text-align:left}
+tr td#content a:link { color: #336699; text-decoration: none; 
+background-color: white;}
+tr td#content a:link:hover { color: #336699; text-decoration: underline; 
+background-color: #EEE; }
+tr td#content a:visited { color: #CC0033; text-decoration: none; 
+background-color: white; }
+tr td#content a:visited:hover { color: #CC0033; text-decoration: 
+underline; background-color: #EEE; }
+p.top{ text-align:right}
+h2 { text-align:center}
+/*Bottom Logo Styles*/
+
+tr td#bottom
+{ background-color: #FFF; padding-left: 3px; padding-top:6px; 
+margin-left:3px; margin-top:5px;
+vertical-align:top; font-weight:bold; font-size:medium; width:20%; 
+border-width:0;}
+
+/*Footer Area Styles*/
+td#footer { background-color: #FFF;, padding:10; font-size:small; 
+text-align:center;}
+td#footer a:link { color: #336699; text-decoration: none; 
+background-color: #EEE;}
+td#footer a:link:hover { color: #336699; text-decoration: underline; 
+background-color: white; }
+td#footer a:visited { color: #CC0033; text-decoration: none; 
+background-color: #EEE; }
+td#footer a:visited:hover { color: #CC0033; text-decoration: underline; 
+background-color: white; }

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="asm-Default" inherit-style="Default" />
+      <style-class name="asm-Comment" inherit-style="Comment" />
+      <style-class name="asm-Number" inherit-style="Number" />
+      <style-class name="asm-String" inherit-style="String" />
+      <style-class name="asm-Operator" inherit-style="Operator" />
+      <style-class name="asm-Identifier" inherit-style="Identifier" />
+      <style-class name="asm-CpuInstruction" inherit-style="CpuInstruction" />
+      <style-class name="asm-MathInstruction" inherit-style="MathInstruction" />
+      <style-class name="asm-Register" inherit-style="Register" />
+      <style-class name="asm-Directive" inherit-style="Directive" />
+      <style-class name="asm-DirectiveOperand" inherit-style="DirectiveOperand" />
+      <style-class name="asm-CommentBlock" inherit-style="CommentBlock" />
+      <style-class name="asm-Character" inherit-style="Character" />
+      <style-class name="asm-StringEol" inherit-style="StringEol" />
+      <style-class name="asm-ExtInstruction" inherit-style="ExtInstruction" />
+      <style-class name="asm-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="asm-LineNumber" inherit-style="LineNumber" />
+      <style-class name="asm-BraceLight" inherit-style="BraceLight" />
+      <style-class name="asm-BraceBad" inherit-style="BraceBad" />
+      <style-class name="asm-ControlChar" inherit-style="ControlChar" />
+      <style-class name="asm-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="asm-CallTip" inherit-style="CallTip" />
+      <style-class name="asm-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="asm-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="asm-CPU-instructions" >         
+         aaa aad aam aas adc add and call cbw
+         clc cld cli cmc cmp cmps cmpsb cmpsw cwd daa das dec div esc hlt
+         idiv imul in inc int into iret ja jae jb jbe jc jcxz je jg jge jl
+         jle jmp jna jnae jnb jnbe jnc jne jng jnge jnl jnle jno jnp jns
+         jnz jo jp jpe jpo js jz lahf lds lea les lods lodsb lodsw loop
+         loope loopew loopne loopnew loopnz loopnzw loopw loopz loopzw
+         mov movs movsb movsw mul neg nop not or out pop popf push pushf
+         rcl rcr ret retf retn rol ror sahf sal sar sbb scas scasb scasw
+         shl shr stc std sti stos stosb stosw sub test wait xchg xlat
+         xlatb xor bound enter ins insb insw leave outs outsb outsw popa pusha pushw
+         arpl lar lsl sgdt sidt sldt smsw str verr verw clts lgdt lidt lldt lmsw ltr
+         bsf bsr bt btc btr bts cdq cmpsd cwde insd iretd iretdf  iretf
+         jecxz lfs lgs lodsd loopd  looped  loopned  loopnzd  loopzd  lss
+         movsd movsx movzx outsd popad popfd pushad pushd  pushfd scasd seta
+         setae setb setbe setc sete setg setge setl setle setna setnae setnb
+         setnbe setnc setne setng setnge setnl setnle setno setnp setns
+         setnz seto setp setpe setpo sets setz shld shrd stosd
+         bswap cmpxchg invd  invlpg  wbinvd  xadd
+         lock rep repe repne repnz repz cflush cpuid emms femms
+         cmovo cmovno cmovb cmovc cmovnae cmovae cmovnb cmovnc
+         cmove cmovz cmovne cmovnz cmovbe cmovna cmova cmovnbe
+         cmovs cmovns cmovp cmovpe cmovnp cmovpo cmovl cmovnge
+         cmovge cmovnl cmovle cmovng cmovg cmovnle
+         cmpxchg486 cmpxchg8b
+         loadall loadall286 ibts icebp int1 int3 int01 int03 iretw
+         popaw popfw pushaw pushfw rdmsr rdpmc rdshr rdtsc
+         rsdc rsldt rsm rsts salc smi smint smintold svdc svldt svts
+         syscall sysenter sysexit sysret ud0 ud1 ud2 umov xbts wrmsr wrshr
+      </keyword-class>
+      <keyword-class name="asm-FPU-instructions" >         
+         f2xm1 fabs fadd faddp fbld fbstp fchs fclex fcom fcomp fcompp fdecstp
+         fdisi fdiv fdivp fdivr fdivrp feni ffree fiadd ficom ficomp fidiv
+         fidivr fild fimul fincstp finit fist fistp fisub fisubr fld fld1
+         fldcw fldenv fldenvw fldl2e fldl2t fldlg2 fldln2 fldpi fldz fmul
+         fmulp fnclex fndisi fneni fninit fnop fnsave fnsavew fnstcw fnstenv
+         fnstenvw fnstsw fpatan fprem fptan frndint frstor frstorw fsave
+         fsavew fscale fsqrt fst fstcw fstenv fstenvw fstp fstsw fsub fsubp
+         fsubr fsubrp ftst fwait fxam fxch fxtract fyl2x fyl2xp1
+         fsetpm fcos fldenvd fnsaved fnstenvd fprem1 frstord fsaved fsin fsincos
+         fstenvd fucom fucomp fucompp fcomi fcomip ffreep
+         fcmovb fcmove fcmovbe fcmovu fcmovnb fcmovne fcmovnbe fcmovnu
+      </keyword-class>
+      <keyword-class name="asm-Registers" >         
+         ah al ax bh bl bp bx ch cl cr0 cr2 cr3 cr4 cs
+         cx dh di dl dr0 dr1 dr2 dr3 dr6 dr7 ds dx eax ebp ebx ecx edi edx
+         es esi esp fs gs si sp ss st tr3 tr4 tr5 tr6 tr7
+         st0 st1 st2 st3 st4 st5 st6 st7 mm0 mm1 mm2 mm3 mm4 mm5 mm6 mm7
+         xmm0 xmm1 xmm2 xmm3 xmm4 xmm5 xmm6 xmm7
+      </keyword-class>
+      <keyword-class name="asm-Directives" >         
+         .186 .286 .286c .286p .287 .386 .386c .386p .387 .486 .486p
+         .8086 .8087 .alpha .break .code .const .continue .cref .data .data?
+         .dosseg .else .elseif .endif .endw .err .err1 .err2 .errb
+         .errdef .errdif .errdifi .erre .erridn .erridni .errnb .errndef
+         .errnz .exit .fardata .fardata? .if .lall .lfcond .list .listall
+         .listif .listmacro .listmacroall  .model .no87 .nocref .nolist
+         .nolistif .nolistmacro .radix .repeat .sall .seq .sfcond .stack
+         .startup .tfcond .type .until .untilcxz .while .xall .xcref
+         .xlist alias align assume catstr comm comment db dd df dosseg dq
+         dt dup dw echo else elseif elseif1 elseif2 elseifb elseifdef elseifdif
+         elseifdifi elseife elseifidn elseifidni elseifnb elseifndef end
+         endif endm endp ends eq equ even exitm extern externdef extrn for
+         forc ge goto group gt high highword if if1 if2 ifb ifdef ifdif
+         ifdifi ife  ifidn ifidni ifnb ifndef include includelib instr invoke
+         irp irpc label le length lengthof local low lowword lroffset
+         lt macro mask mod .msfloat name ne offset opattr option org %out
+         page popcontext proc proto ptr public purge pushcontext record
+         repeat rept seg segment short size sizeof sizestr struc struct
+         substr subtitle subttl textequ this title type typedef union while width
+      </keyword-class>
+      <keyword-class name="asm-Directive-operands" >         
+         $ ? @b @f addr basic byte c carry? dword
+         far far16 fortran fword near near16 overflow? parity? pascal qword
+         real4  real8 real10 sbyte sdword sign? stdcall sword syscall tbyte
+         vararg word zero? flat near32 far32
+         abs all assumes at casemap common compact
+         cpu dotname emulator epilogue error export expr16 expr32 farstack flat
+         forceframe huge language large listing ljmp loadds m510 medium memory
+         nearstack nodotname noemulator nokeyword noljmp nom510 none nonunique
+         nooldmacros nooldstructs noreadonly noscoped nosignextend nothing
+         notpublic oldmacros oldstructs os_dos para private prologue radix
+         readonly req scoped setif2 smallstack tiny use16 use32 uses
+      </keyword-class>
+      <keyword-class name="asm-Extended-instructions" >         
+         addpd addps addsd addss andpd andps andnpd andnps
+         cmpeqpd cmpltpd cmplepd cmpunordpd cmpnepd cmpnltpd cmpnlepd cmpordpd
+         cmpeqps cmpltps cmpleps cmpunordps cmpneps cmpnltps cmpnleps cmpordps
+         cmpeqsd cmpltsd cmplesd cmpunordsd cmpnesd cmpnltsd cmpnlesd cmpordsd
+         cmpeqss cmpltss cmpless cmpunordss cmpness cmpnltss cmpnless cmpordss
+         comisd comiss cvtdq2pd cvtdq2ps cvtpd2dq cvtpd2pi cvtpd2ps
+         cvtpi2pd cvtpi2ps cvtps2dq cvtps2pd cvtps2pi cvtss2sd cvtss2si
+         cvtsd2si cvtsd2ss cvtsi2sd cvtsi2ss
+         cvttpd2dq cvttpd2pi cvttps2dq cvttps2pi cvttsd2si cvttss2si
+         divpd divps divsd divss fxrstor fxsave ldmxscr lfence mfence
+         maskmovdqu maskmovdq maxpd maxps paxsd maxss minpd minps minsd minss
+         movapd movaps movdq2q movdqa movdqu movhlps movhpd movhps movd movq
+         movlhps movlpd movlps movmskpd movmskps movntdq movnti movntpd movntps
+         movntq movq2dq movsd movss movupd movups mulpd mulps mulsd mulss
+         orpd orps packssdw packsswb packuswb paddb paddsb paddw paddsw
+         paddd paddsiw paddq paddusb paddusw pand pandn pause paveb pavgb pavgw
+         pavgusb pdistib pextrw pcmpeqb pcmpeqw pcmpeqd pcmpgtb pcmpgtw pcmpgtd
+         pf2id pf2iw pfacc pfadd pfcmpeq pfcmpge pfcmpgt pfmax pfmin pfmul
+         pmachriw pmaddwd pmagw pmaxsw pmaxub pminsw pminub pmovmskb
+         pmulhrwc pmulhriw pmulhrwa pmulhuw pmulhw pmullw pmuludq
+         pmvzb pmvnzb pmvlzb pmvgezb pfnacc pfpnacc por prefetch prefetchw
+         prefetchnta prefetcht0 prefetcht1 prefetcht2 pfrcp pfrcpit1 pfrcpit2
+         pfrsqit1 pfrsqrt pfsub pfsubr pi2fd pf2iw pinsrw psadbw pshufd
+         pshufhw pshuflw pshufw psllw pslld psllq pslldq psraw psrad
+         psrlw psrld psrlq psrldq psubb psubw psubd psubq psubsb psubsw
+         psubusb psubusw psubsiw pswapd punpckhbw punpckhwd punpckhdq punpckhqdq
+         punpcklbw punpcklwd punpckldq punpcklqdq pxor rcpps rcpss
+         rsqrtps rsqrtss sfence shufpd shufps sqrtpd sqrtps sqrtsd sqrtss
+         stmxcsr subpd subps subsd subss ucomisd ucomiss
+         unpckhpd unpckhps unpcklpd unpcklps xorpd xorps
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="asm">
+         <lexer name="Asm" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.asm</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="asm-CPU-instructions"/>
+            <keyword key="1" class="asm-FPU-instructions"/>
+            <keyword key="2" class="asm-Registers"/>
+            <keyword key="3" class="asm-Directives"/>
+            <keyword key="4" class="asm-Directive-operands"/>
+            <keyword key="5" class="asm-Extended-instructions"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="asm-Default" />
+            <style name="Comment" class="asm-Comment" />
+            <style name="Number" class="asm-Number" />
+            <style name="String" class="asm-String" />
+            <style name="Operator" class="asm-Operator" />
+            <style name="Identifier" class="asm-Identifier" />
+            <style name="CpuInstruction" class="asm-CpuInstruction" />
+            <style name="MathInstruction" class="asm-MathInstruction" />
+            <style name="Register" class="asm-Register" />
+            <style name="Directive" class="asm-Directive" />
+            <style name="DirectiveOperand" class="asm-DirectiveOperand" />
+            <style name="CommentBlock" class="asm-CommentBlock" />
+            <style name="Character" class="asm-Character" />
+            <style name="StringEol" class="asm-StringEol" />
+            <style name="ExtInstruction" class="asm-ExtInstruction" />
+            <style name="GlobalDefault" class="asm-GlobalDefault" />
+            <style name="LineNumber" class="asm-LineNumber" />
+            <style name="BraceLight" class="asm-BraceLight" />
+            <style name="BraceBad" class="asm-BraceBad" />
+            <style name="ControlChar" class="asm-ControlChar" />
+            <style name="IndentGuide" class="asm-IndentGuide" />
+            <style name="CallTip" class="asm-CallTip" />
+            <style name="LastPredefined" class="asm-LastPredefined" />
+            <style name="Max" class="asm-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

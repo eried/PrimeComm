@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="lua-Default" inherit-style="Default" />
+      <style-class name="lua-Comment" inherit-style="Comment" />
+      <style-class name="lua-CommentLine" inherit-style="CommentLine" />
+      <style-class name="lua-CommentDoc" inherit-style="CommentDoc" />
+      <style-class name="lua-Number" inherit-style="Number" />
+      <style-class name="lua-Word" inherit-style="Word" />
+      <style-class name="lua-String" inherit-style="String" />
+      <style-class name="lua-Character" inherit-style="Character" />
+      <style-class name="lua-LiteralString" inherit-style="LiteralString" />
+      <style-class name="lua-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="lua-Operator" inherit-style="Operator" />
+      <style-class name="lua-Identifier" inherit-style="Identifier" />
+      <style-class name="lua-StringEol" inherit-style="StringEol" />
+      <style-class name="lua-Word2" inherit-style="Word2" />
+      <style-class name="lua-Word3" inherit-style="Word3" />
+      <style-class name="lua-Word4" inherit-style="Word4" />
+      <style-class name="lua-Word5" inherit-style="Word5" />
+      <style-class name="lua-Word6" inherit-style="Word6" />
+      <style-class name="lua-Word7" inherit-style="Word7" />
+      <style-class name="lua-Word8" inherit-style="Word8" />
+      <style-class name="lua-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="lua-LineNumber" inherit-style="LineNumber" />
+      <style-class name="lua-BraceLight" inherit-style="BraceLight" />
+      <style-class name="lua-BraceBad" inherit-style="BraceBad" />
+      <style-class name="lua-ControlChar" inherit-style="ControlChar" />
+      <style-class name="lua-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="lua-CallTip" inherit-style="CallTip" />
+      <style-class name="lua-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="lua-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="lua-Keywords" >         
+         and break do else elseif end false for function if
+         in local nil not or repeat return then true until while
+      </keyword-class>
+      <keyword-class name="lua-Basic-functions" >         
+         VERSION assert collectgarbage dofile error gcinfo loadfile loadstring
+         print tonumber tostring type unpack
+         ALERT _ERRORMESSAGE _INPUT _PROMPT _OUTPUT
+         _STDERR _STDIN _STDOUT call dostring foreach foreachi getn globals newtype
+         rawget rawset require sort tinsert tremove
+         _G getfenv getmetatable ipairs loadlib next pairs pcall
+         rawegal rawget rawset require setfenv setmetatable xpcall
+         string table math coroutine io os debug
+      </keyword-class>
+      <keyword-class name="lua-String-table-math-functions" >         
+         abs acos asin atan atan2 ceil cos deg exp
+         floor format frexp gsub ldexp log log10 max min mod rad random randomseed
+         sin sqrt strbyte strchar strfind strlen strlower strrep strsub strupper tan
+         string.byte string.char string.dump string.find string.len
+         string.lower string.rep string.sub string.upper string.format string.gfind string.gsub
+         table.concat table.foreach table.foreachi table.getn table.sort table.insert table.remove table.setn
+         math.abs math.acos math.asin math.atan math.atan2 math.ceil math.cos math.deg math.exp
+         math.floor math.frexp math.ldexp math.log math.log10 math.max math.min math.mod
+         math.pi math.rad math.random math.randomseed math.sin math.sqrt math.tan
+      </keyword-class>
+      <keyword-class name="lua-coroutines" >         
+         openfile closefile readfrom writeto appendto
+         remove rename flush seek tmpfile tmpname read write
+         clock date difftime execute exit getenv setlocale time
+         coroutine.create coroutine.resume coroutine.status
+         coroutine.wrap coroutine.yield
+         io.close io.flush io.input io.lines io.open io.output io.read io.tmpfile io.type io.write
+         io.stdin io.stdout io.stderr
+         os.clock os.date os.difftime os.execute os.exit os.getenv os.remove os.rename
+         os.setlocale os.time os.tmpname
+      </keyword-class>
+      <keyword-class name="lua-XXX" >
+      </keyword-class>
+      <keyword-class name="lua-YYY" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="lua">
+         <lexer name="Lua" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.lua</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="lua-Keywords"/>
+            <keyword key="1" class="lua-Basic-functions"/>
+            <keyword key="2" class="lua-String-table-math-functions"/>
+            <keyword key="3" class="lua-coroutines"/>
+            <keyword key="4" class="lua-XXX"/>
+            <keyword key="5" class="lua-YYY"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="lua-Default" />
+            <style name="Comment" class="lua-Comment" />
+            <style name="CommentLine" class="lua-CommentLine" />
+            <style name="CommentDoc" class="lua-CommentDoc" />
+            <style name="Number" class="lua-Number" />
+            <style name="Word" class="lua-Word" />
+            <style name="String" class="lua-String" />
+            <style name="Character" class="lua-Character" />
+            <style name="LiteralString" class="lua-LiteralString" />
+            <style name="Preprocessor" class="lua-Preprocessor" />
+            <style name="Operator" class="lua-Operator" />
+            <style name="Identifier" class="lua-Identifier" />
+            <style name="StringEol" class="lua-StringEol" />
+            <style name="Word2" class="lua-Word2" />
+            <style name="Word3" class="lua-Word3" />
+            <style name="Word4" class="lua-Word4" />
+            <style name="Word5" class="lua-Word5" />
+            <style name="Word6" class="lua-Word6" />
+            <style name="Word7" class="lua-Word7" />
+            <style name="Word8" class="lua-Word8" />
+            <style name="GlobalDefault" class="lua-GlobalDefault" />
+            <style name="LineNumber" class="lua-LineNumber" />
+            <style name="BraceLight" class="lua-BraceLight" />
+            <style name="BraceBad" class="lua-BraceBad" />
+            <style name="ControlChar" class="lua-ControlChar" />
+            <style name="IndentGuide" class="lua-IndentGuide" />
+            <style name="CallTip" class="lua-CallTip" />
+            <style name="LastPredefined" class="lua-LastPredefined" />
+            <style name="Max" class="lua-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

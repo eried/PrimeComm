@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="idl-Default" inherit-style="Default" />
+      <style-class name="idl-Comment" inherit-style="Comment" />
+      <style-class name="idl-CommentLine" inherit-style="CommentLine" />
+      <style-class name="idl-CommentDoc" inherit-style="CommentDoc" />
+      <style-class name="idl-Number" inherit-style="Number" />
+      <style-class name="idl-Word" inherit-style="Word" />
+      <style-class name="idl-String" inherit-style="String" />
+      <style-class name="idl-Character" inherit-style="Character" />
+      <style-class name="idl-Uuid" inherit-style="Uuid" />
+      <style-class name="idl-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="idl-Operator" inherit-style="Operator" />
+      <style-class name="idl-Identifier" inherit-style="Identifier" />
+      <style-class name="idl-StringEol" inherit-style="StringEol" />
+      <style-class name="idl-Verbatim" inherit-style="Verbatim" />
+      <style-class name="idl-Regex" inherit-style="Regex" />
+      <style-class name="idl-CommentLineDoc" inherit-style="CommentLineDoc" />
+      <style-class name="idl-Word2" inherit-style="Word2" />
+      <style-class name="idl-CommentDocKeyword" inherit-style="CommentDocKeyword" />
+      <style-class name="idl-CommentDocKeywordError" inherit-style="CommentDocKeywordError" />
+      <style-class name="idl-GlobalClass" inherit-style="GlobalClass" />
+      <style-class name="idl-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="idl-LineNumber" inherit-style="LineNumber" />
+      <style-class name="idl-BraceLight" inherit-style="BraceLight" />
+      <style-class name="idl-BraceBad" inherit-style="BraceBad" />
+      <style-class name="idl-ControlChar" inherit-style="ControlChar" />
+      <style-class name="idl-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="idl-CallTip" inherit-style="CallTip" />
+      <style-class name="idl-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="idl-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="idl-Primary-keywords-and-identifiers" >         
+         aggregatable allocate appobject arrays async async_uuid
+         auto_handle
+         bindable boolean broadcast byte byte_count
+         call_as callback char coclass code comm_status
+         const context_handle context_handle_noserialize
+         context_handle_serialize control cpp_quote custom
+         decode default defaultbind defaultcollelem
+         defaultvalue defaultvtable dispinterface displaybind dllname
+         double dual
+         enable_allocate encode endpoint entry enum error_status_t
+         explicit_handle
+         fault_status first_is float
+         handle_t heap helpcontext helpfile helpstring
+         helpstringcontext helpstringdll hidden hyper
+         id idempotent ignore iid_as iid_is immediatebind implicit_handle
+         import importlib in include in_line int __int64 __int3264 interface
+         last_is lcid length_is library licensed local long
+         max_is maybe message methods midl_pragma
+         midl_user_allocate midl_user_free min_is module ms_union
+         ncacn_at_dsp ncacn_dnet_nsp ncacn_http ncacn_ip_tcp
+         ncacn_nb_ipx ncacn_nb_nb ncacn_nb_tcp ncacn_np
+         ncacn_spx ncacn_vns_spp ncadg_ip_udp ncadg_ipx ncadg_mq
+         ncalrpc nocode nonbrowsable noncreatable nonextensible notify
+         object odl oleautomation optimize optional out out_of_line
+         pipe pointer_default pragma properties propget propput propputref
+         ptr public
+         range readonly ref represent_as requestedit restricted retval
+         shape short signed size_is small source strict_context_handle
+         string struct switch switch_is switch_type
+         transmit_as typedef
+         uidefault union unique unsigned user_marshal usesgetlasterror uuid
+         v1_enum vararg version void wchar_t wire_marshal
+         handle
+         attribute native noscript scriptable shared wstring inout
+      </keyword-class>
+      <keyword-class name="idl-Secondary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="idl-Documentation-comment-keywords" >
+      </keyword-class>
+      <keyword-class name="idl-Unused" >
+      </keyword-class>
+      <keyword-class name="idl-Global-classes-and-typedefs" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="idl">
+         <lexer name="Cpp" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.idl *.odl</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="idl-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="idl-Secondary-keywords-and-identifiers"/>
+            <keyword key="2" class="idl-Documentation-comment-keywords"/>
+            <keyword key="3" class="idl-Unused"/>
+            <keyword key="4" class="idl-Global-classes-and-typedefs"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="idl-Default" />
+            <style name="Comment" class="idl-Comment" />
+            <style name="CommentLine" class="idl-CommentLine" />
+            <style name="CommentDoc" class="idl-CommentDoc" />
+            <style name="Number" class="idl-Number" />
+            <style name="Word" class="idl-Word" />
+            <style name="String" class="idl-String" />
+            <style name="Character" class="idl-Character" />
+            <style name="Uuid" class="idl-Uuid" />
+            <style name="Preprocessor" class="idl-Preprocessor" />
+            <style name="Operator" class="idl-Operator" />
+            <style name="Identifier" class="idl-Identifier" />
+            <style name="StringEol" class="idl-StringEol" />
+            <style name="Verbatim" class="idl-Verbatim" />
+            <style name="Regex" class="idl-Regex" />
+            <style name="CommentLineDoc" class="idl-CommentLineDoc" />
+            <style name="Word2" class="idl-Word2" />
+            <style name="CommentDocKeyword" class="idl-CommentDocKeyword" />
+            <style name="CommentDocKeywordError" class="idl-CommentDocKeywordError" />
+            <style name="GlobalClass" class="idl-GlobalClass" />
+            <style name="GlobalDefault" class="idl-GlobalDefault" />
+            <style name="LineNumber" class="idl-LineNumber" />
+            <style name="BraceLight" class="idl-BraceLight" />
+            <style name="BraceBad" class="idl-BraceBad" />
+            <style name="ControlChar" class="idl-ControlChar" />
+            <style name="IndentGuide" class="idl-IndentGuide" />
+            <style name="CallTip" class="idl-CallTip" />
+            <style name="LastPredefined" class="idl-LastPredefined" />
+            <style name="Max" class="idl-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+  <Language Name="vbnet">
+    <AutoComplete FillUpCharacters=".([" SingleLineAccept="True" IsCaseSensitive="False">
+      <List>
+        AddHandler AddressOf Alias And AndAlso Ansi Append As Assembly Auto Binary ByRef
+        Byte ByVal Call Case Catch CBool CByte CChar CInt Class Clng CObj Compare CShort
+        CSng CStr CType Date Decimal Declare Default Delegate Dim Do Each Else ElseIf End
+        EndIf Erase Error Event Explicit False For Finally For Friend Function Get GetType
+        GoTo Handles If Implements Imports In Inherits Input Interface Is Let Lib Like Lock
+        Loop Me Mid Mod Module MustInherit MustOverride MyBase MyClass Namespace New Next Not
+        Nothing NotInheritable NotOverridable Object Off On Option Optional Or OrElse Output
+        Overloads Overridable Overrides ParamArray Preserve Private Property Protected Public
+        RaiseEvent Random Read ReadOnly ReDim Rem RemoveHandler Resume Return Seek Select Set
+        Shadows Shared Single Step Stop String Structure Sub SyncLock Text Then Throw To True
+        Try TypeOf Unicode Until Variant When While With WithEvents WriteOnly XOr
+        while
+      </List>
+    </AutoComplete>
+
+
+    <Indentation TabWidth="4" SmartIndentType="cpp" />
+
+
+    <Lexer LexerName="cpp" LineCommentPrefix="'" >
+      <Keywords List="0" Inherit="False">
+        Explicit False For Finally For Friend Function Get GetType
+      </Keywords>
+      <Keywords List="1" Inherit="False">
+        Boolean Double Enum Integer Long Short Static
+      </Keywords>
+    </Lexer>
+  </Language>
+</ScintillaNET> 

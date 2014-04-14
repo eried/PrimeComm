@@ -1,0 +1,135 @@
+var.fontcolor-js=$(color-embedded-js),$(font-js)
+
+# HTML and XML share lexing code so use the same style numbers
+# Hypertext Markup Language
+lex.hypertext.style.default=fore:#000000,$(font-text)
+lex.hypertext.style.tag=fore:#000080
+lex.hypertext.style.tagunknown=fore:#FF0000
+lex.hypertext.style.attribute=fore:#008080
+lex.hypertext.style.attributeunknown=fore:#FF0000
+lex.hypertext.style.number=$(color-number)
+lex.hypertext.style.doublestring=$(color-string)
+lex.hypertext.style.singlestring=$(color-string)
+lex.hypertext.style.other=fore:#800080
+lex.hypertext.style.comment=fore:#808000,$(font-text-comment)
+lex.hypertext.style.entity=fore:#800080,$(font-text)
+lex.hypertext.style.tagend=fore:#000080
+lex.hypertext.style.xmlstart=fore:#0000FF
+lex.hypertext.style.xmlend=fore:#0000FF
+lex.hypertext.style.script=fore:#000080
+lex.hypertext.style.asp=back:#FFFF00
+lex.hypertext.style.aspat=back:#FFDF00
+lex.hypertext.style.cdata=back:#FFDF00
+lex.hypertext.style.question=fore:#0000FF,back:#FFEFBF
+lex.hypertext.style.value=fore:#FF00FF,back:#FFEFFF
+lex.hypertext.style.xccomment=fore:#000000,back:#FFFFD0
+lex.hypertext.style.sgmldefault=fore:#000080,back:#EFEFFF
+lex.hypertext.style.sgmlcommand=fore:#000080,back:#EFEFFF,bold
+lex.hypertext.style.sgmldoublestring=fore:#006600,back:#EFEFFF
+lex.hypertext.style.sgmlsimplestring=fore:#800000,back:#EFEFFF
+lex.hypertext.style.sgmlerror=fore:#993300,back:#EFEFFF
+lex.hypertext.style.sgmlspecial=fore:#800000,back:#FF6666
+lex.hypertext.style.sgmlentity=fore:#3366FF,back:#EFEFFF
+lex.hypertext.style.sgmlcomment=fore:#333333,back:#EFEFFF
+lex.hypertext.style.sgmlsgml1stparametercomment=fore:#808000,back:#EFEFFF
+lex.hypertext.style.sgmlblockdefault=fore:#000066,back:#CCCCE0
+
+# Some reasonable background colors found in the default Windows palette
+# Off White #FFFBF0    Light green #C0DCC0    Light Blue #A6CAF0
+lex.hypertext.style.bracelight=fore:#0000FF,notbold,$(font-text)
+lex.hypertext.style.bracebad=fore:#FF0000,notbold,$(font-text)
+
+# Embedded Javascript
+lex.hypertext.style.javascriptstart=fore:#7F7F00
+lex.hypertext.style.javascriptdefault=fore:#000000,bold,$(fontcolor-js),eolfilled
+lex.hypertext.style.javascriptcomment=$(color-code-comment-box),$(fontcolor-js),eolfilled
+lex.hypertext.style.javascriptcommentline=$(color-code-comment-line),$(fontcolor-js)
+lex.hypertext.style.javascriptcommentdoc=$(color-code-comment-doc),bold,$(fontcolor-js),eolfilled
+lex.hypertext.style.javascriptnumber=$(color-number),$(fontcolor-js)
+lex.hypertext.style.javascriptword=fore:#000000,$(fontcolor-js)
+lex.hypertext.style.javascriptkeyword=$(color-keyword),bold,$(fontcolor-js)
+lex.hypertext.style.javascriptdoublestring=$(color-string),$(fontcolor-js)
+lex.hypertext.style.javascriptsinglestring=$(color-string),$(fontcolor-js)
+lex.hypertext.style.javascriptsymbols=$(color-operator),bold,$(fontcolor-js)
+lex.hypertext.style.javascriptstringeol=back:#BFBBB0,eolfilled
+lex.hypertext.style.javascriptregex=back:#FFBBB0
+
+# ASP Javascript
+lex.hypertext.style.aspjavascriptstart=fore:#7F7F00
+lex.hypertext.style.aspjavascriptdefault=fore:#000000,bold,$(font-js),back:#DFDF7F,eolfilled
+lex.hypertext.style.aspjavascriptcomment=fore:#007F00,$(font-js),back:#DFDF7F,eolfilled
+lex.hypertext.style.aspjavascriptcommentline=fore:#007F00,$(font-js),back:#DFDF7F
+lex.hypertext.style.aspjavascriptcommentdoc=fore:#7F7F7F,bold,$(font-js),back:#DFDF7F,eolfilled
+lex.hypertext.style.aspjavascriptnumber=fore:#007F7F,$(font-js),back:#DFDF7F
+lex.hypertext.style.aspjavascriptword=fore:#000000,$(font-js),back:#DFDF7F
+lex.hypertext.style.aspjavascriptkeyword=fore:#00007F,bold,$(font-js),back:#DFDF7F
+lex.hypertext.style.aspjavascriptdoublestring=fore:#7F007F,$(font-js),back:#DFDF7F
+lex.hypertext.style.aspjavascriptsinglestring=fore:#7F007F,$(font-js),back:#DFDF7F
+lex.hypertext.style.aspjavascriptsymbols=fore:#000000,bold,$(font-js),back:#DFDF7F
+lex.hypertext.style.aspjavascriptstringeol=back:#BFBBB0,eolfilled
+lex.hypertext.style.aspjavascriptregex=back:#FFBBB0
+
+# Embedded VBS
+lex.hypertext.style.vbscriptstart=
+lex.hypertext.style.vbscriptdefault=$(font-vbs),back:#EFEFFF,fore:#000000,eolfilled
+lex.hypertext.style.vbscriptcommentline=$(font-comment),back:#EFEFFF,fore:#008000,eolfilled
+lex.hypertext.style.vbscriptnumber=$(font-vbs),back:#EFEFFF,fore:#008080,eolfilled
+lex.hypertext.style.vbscriptword=$(font-vbs),back:#EFEFFF,fore:#000080,bold,eolfilled
+lex.hypertext.style.vbscriptstring=$(font-vbs),back:#EFEFFF,fore:#800080,eolfilled
+lex.hypertext.style.vbscriptidentifier=$(font-vbs),back:#EFEFFF,fore:#000080,eolfilled
+lex.hypertext.style.vbscriptstringeol=$(font-vbs),back:#7F7FFF,fore:#000080,eolfilled
+
+# ASP VBS
+lex.hypertext.style.aspvbscriptstart=
+lex.hypertext.style.aspvbscriptdefault=$(font-vbs),back:#CFCFEF,fore:#000000,eolfilled
+lex.hypertext.style.aspvbscriptcommentline=$(font-comment),back:#CFCFEF,fore:#008000,eolfilled
+lex.hypertext.style.aspvbscriptnumber=$(font-vbs),back:#CFCFEF,fore:#008080,eolfilled
+lex.hypertext.style.aspvbscriptword=$(font-vbs),back:#CFCFEF,fore:#000080,bold,eolfilled
+lex.hypertext.style.aspvbscriptstring=$(font-vbs),back:#CFCFEF,fore:#800080,eolfilled
+lex.hypertext.style.aspvbscriptidentifier=$(font-vbs),back:#CFCFEF,fore:#000080,eolfilled
+lex.hypertext.style.aspvbscriptstringeol=$(font-vbs),back:#7F7FBF,fore:#000080,eolfilled
+
+# Embedded Python
+lex.hypertext.style.pythonstart=fore:#808080
+lex.hypertext.style.pythondefault=fore:#808080,back:#EFFFEF,eolfilled
+lex.hypertext.style.pythoncommentline=fore:#007F00,$(font-comment),back:#EFFFEF,eolfilled
+lex.hypertext.style.pythonnumber=fore:#007F7F,back:#EFFFEF,eolfilled
+lex.hypertext.style.pythonstring=fore:#7F007F,$(font-monospace),back:#EFFFEF,eolfilled
+lex.hypertext.style.pythoncharacter=fore:#7F007F,$(font-monospace),back:#EFFFEF,eolfilled
+lex.hypertext.style.pythonword=fore:#00007F,bold,back:#EFFFEF,eolfilled
+lex.hypertext.style.pythontriple=fore:#7F0000,back:#EFFFEF,eolfilled
+lex.hypertext.style.pythontripledouble=fore:#7F0000,back:#EFFFEF,eolfilled
+lex.hypertext.style.pythonclassname=fore:#0000FF,bold,back:#EFFFEF,eolfilled
+lex.hypertext.style.pythondefname=fore:#007F7F,bold,back:#EFFFEF,eolfilled
+lex.hypertext.style.pythonoperator=bold,back:#EFFFEF,eolfilled
+lex.hypertext.style.pythonidentifier=back:#EFFFEF,eolfilled
+
+# PHP complex variable
+lex.hypertext.style.phpcomplexvariable=fore:#007F00,italics,back:#FFF8F8
+
+# ASP Python
+lex.hypertext.style.asppythonstart=fore:#808080
+lex.hypertext.style.asppythondefault=fore:#808080,back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythoncommentline=fore:#007F00,$(font-comment),back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythonnumber=fore:#007F7F,back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythonstring=fore:#7F007F,$(font-monospace),back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythoncharacter=fore:#7F007F,$(font-monospace),back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythonword=fore:#00007F,bold,back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythontriple=fore:#7F0000,back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythontripledouble=fore:#7F0000,back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythonclassname=fore:#0000FF,bold,back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythondefname=fore:#007F7F,bold,back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythonoperator=bold,back:#CFEFCF,eolfilled
+lex.hypertext.style.asppythonidentifier=back:#CFEFCF,eolfilled
+
+# PHP
+lex.hypertext.style.phpdefault=fore:#000033,back:#FFF8F8,eolfilled
+lex.hypertext.style.phphstring=fore:#007F00,back:#FFF8F8
+lex.hypertext.style.phpsimplestring=fore:#009F00,back:#FFF8F8
+lex.hypertext.style.phpword=fore:#7F007F,italics,back:#FFF8F8
+lex.hypertext.style.phpnumber=fore:#CC9900,back:#FFF8F8
+lex.hypertext.style.phpvariable=fore:#00007F,italics,back:#FFF8F8
+lex.hypertext.style.phpcomment=fore:#999999,$(font-comment),back:#FFF8F8
+lex.hypertext.style.phpcommentline=fore:#666666,italics,$(font-comment),back:#FFF8F8
+lex.hypertext.style.phphstringvariable=fore:#007F00,italics,back:#FFF8F8
+lex.hypertext.style.phpoperator=fore:#000000,back:#FFF8F8

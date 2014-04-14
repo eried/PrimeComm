@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="octave-Default" inherit-style="Default" />
+      <style-class name="octave-Comment" inherit-style="Comment" />
+      <style-class name="octave-Command" inherit-style="Command" />
+      <style-class name="octave-Number" inherit-style="Number" />
+      <style-class name="octave-Keyword" inherit-style="Keyword" />
+      <style-class name="octave-String" inherit-style="String" />
+      <style-class name="octave-Operator" inherit-style="Operator" />
+      <style-class name="octave-Identifier" inherit-style="Identifier" />
+      <style-class name="octave-DoubleQuoteString" inherit-style="DoubleQuoteString" />
+      <style-class name="octave-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="octave-LineNumber" inherit-style="LineNumber" />
+      <style-class name="octave-BraceLight" inherit-style="BraceLight" />
+      <style-class name="octave-BraceBad" inherit-style="BraceBad" />
+      <style-class name="octave-ControlChar" inherit-style="ControlChar" />
+      <style-class name="octave-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="octave-CallTip" inherit-style="CallTip" />
+      <style-class name="octave-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="octave-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="octave-Keywords" >         
+         break case catch continue do else elseif end
+         end_unwind_protect endfor endif endswitch endwhile for function endfunction global if otherwise
+         persistent return switch try until unwind_protect unwind_protect_cleanup while
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="octave">
+         <lexer name="Octave" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.m.octave</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="octave-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="octave-Default" />
+            <style name="Comment" class="octave-Comment" />
+            <style name="Command" class="octave-Command" />
+            <style name="Number" class="octave-Number" />
+            <style name="Keyword" class="octave-Keyword" />
+            <style name="String" class="octave-String" />
+            <style name="Operator" class="octave-Operator" />
+            <style name="Identifier" class="octave-Identifier" />
+            <style name="DoubleQuoteString" class="octave-DoubleQuoteString" />
+            <style name="GlobalDefault" class="octave-GlobalDefault" />
+            <style name="LineNumber" class="octave-LineNumber" />
+            <style name="BraceLight" class="octave-BraceLight" />
+            <style name="BraceBad" class="octave-BraceBad" />
+            <style name="ControlChar" class="octave-ControlChar" />
+            <style name="IndentGuide" class="octave-IndentGuide" />
+            <style name="CallTip" class="octave-CallTip" />
+            <style name="LastPredefined" class="octave-LastPredefined" />
+            <style name="Max" class="octave-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

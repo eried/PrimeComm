@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="f77-Default" inherit-style="Default" />
+      <style-class name="f77-Comment" inherit-style="Comment" />
+      <style-class name="f77-Number" inherit-style="Number" />
+      <style-class name="f77-String1" inherit-style="String1" />
+      <style-class name="f77-String2" inherit-style="String2" />
+      <style-class name="f77-StringEol" inherit-style="StringEol" />
+      <style-class name="f77-Operator" inherit-style="Operator" />
+      <style-class name="f77-Identifier" inherit-style="Identifier" />
+      <style-class name="f77-Word" inherit-style="Word" />
+      <style-class name="f77-Word2" inherit-style="Word2" />
+      <style-class name="f77-Word3" inherit-style="Word3" />
+      <style-class name="f77-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="f77-Operator2" inherit-style="Operator2" />
+      <style-class name="f77-Label" inherit-style="Label" />
+      <style-class name="f77-Continuation" inherit-style="Continuation" />
+      <style-class name="f77-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="f77-LineNumber" inherit-style="LineNumber" />
+      <style-class name="f77-BraceLight" inherit-style="BraceLight" />
+      <style-class name="f77-BraceBad" inherit-style="BraceBad" />
+      <style-class name="f77-ControlChar" inherit-style="ControlChar" />
+      <style-class name="f77-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="f77-CallTip" inherit-style="CallTip" />
+      <style-class name="f77-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="f77-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="f77-Primary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="f77-Intrinsic-functions" >
+      </keyword-class>
+      <keyword-class name="f77-Extended-and-user-defined-functions" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="f77">
+         <lexer name="F77" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.f *.for</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="f77-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="f77-Intrinsic-functions"/>
+            <keyword key="2" class="f77-Extended-and-user-defined-functions"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="f77-Default" />
+            <style name="Comment" class="f77-Comment" />
+            <style name="Number" class="f77-Number" />
+            <style name="String1" class="f77-String1" />
+            <style name="String2" class="f77-String2" />
+            <style name="StringEol" class="f77-StringEol" />
+            <style name="Operator" class="f77-Operator" />
+            <style name="Identifier" class="f77-Identifier" />
+            <style name="Word" class="f77-Word" />
+            <style name="Word2" class="f77-Word2" />
+            <style name="Word3" class="f77-Word3" />
+            <style name="Preprocessor" class="f77-Preprocessor" />
+            <style name="Operator2" class="f77-Operator2" />
+            <style name="Label" class="f77-Label" />
+            <style name="Continuation" class="f77-Continuation" />
+            <style name="GlobalDefault" class="f77-GlobalDefault" />
+            <style name="LineNumber" class="f77-LineNumber" />
+            <style name="BraceLight" class="f77-BraceLight" />
+            <style name="BraceBad" class="f77-BraceBad" />
+            <style name="ControlChar" class="f77-ControlChar" />
+            <style name="IndentGuide" class="f77-IndentGuide" />
+            <style name="CallTip" class="f77-CallTip" />
+            <style name="LastPredefined" class="f77-LastPredefined" />
+            <style name="Max" class="f77-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

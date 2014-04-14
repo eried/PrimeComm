@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="rc-Default" inherit-style="Default" />
+      <style-class name="rc-Comment" inherit-style="Comment" />
+      <style-class name="rc-CommentLine" inherit-style="CommentLine" />
+      <style-class name="rc-CommentDoc" inherit-style="CommentDoc" />
+      <style-class name="rc-Number" inherit-style="Number" />
+      <style-class name="rc-Word" inherit-style="Word" />
+      <style-class name="rc-String" inherit-style="String" />
+      <style-class name="rc-Character" inherit-style="Character" />
+      <style-class name="rc-Uuid" inherit-style="Uuid" />
+      <style-class name="rc-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="rc-Operator" inherit-style="Operator" />
+      <style-class name="rc-Identifier" inherit-style="Identifier" />
+      <style-class name="rc-StringEol" inherit-style="StringEol" />
+      <style-class name="rc-Verbatim" inherit-style="Verbatim" />
+      <style-class name="rc-Regex" inherit-style="Regex" />
+      <style-class name="rc-CommentLineDoc" inherit-style="CommentLineDoc" />
+      <style-class name="rc-Word2" inherit-style="Word2" />
+      <style-class name="rc-CommentDocKeyword" inherit-style="CommentDocKeyword" />
+      <style-class name="rc-CommentDocKeywordError" inherit-style="CommentDocKeywordError" />
+      <style-class name="rc-GlobalClass" inherit-style="GlobalClass" />
+      <style-class name="rc-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="rc-LineNumber" inherit-style="LineNumber" />
+      <style-class name="rc-BraceLight" inherit-style="BraceLight" />
+      <style-class name="rc-BraceBad" inherit-style="BraceBad" />
+      <style-class name="rc-ControlChar" inherit-style="ControlChar" />
+      <style-class name="rc-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="rc-CallTip" inherit-style="CallTip" />
+      <style-class name="rc-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="rc-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="rc-Primary-keywords-and-identifiers" >         
+         ACCELERATORS ALT AUTO3STATE AUTOCHECKBOX AUTORADIOBUTTON
+         BEGIN BITMAP BLOCK BUTTON CAPTION CHARACTERISTICS CHECKBOX CLASS
+         COMBOBOX CONTROL CTEXT CURSOR DEFPUSHBUTTON DIALOG DIALOGEX DISCARDABLE
+         EDITTEXT END EXSTYLE FONT GROUPBOX ICON LANGUAGE LISTBOX LTEXT
+         MENU MENUEX MENUITEM MESSAGETABLE POPUP
+         PUSHBUTTON RADIOBUTTON RCDATA RTEXT SCROLLBAR SEPARATOR SHIFT STATE3
+         STRINGTABLE STYLE TEXTINCLUDE VALUE VERSION VERSIONINFO VIRTKEY
+      </keyword-class>
+      <keyword-class name="rc-Secondary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="rc-Documentation-comment-keywords" >
+      </keyword-class>
+      <keyword-class name="rc-Unused" >
+      </keyword-class>
+      <keyword-class name="rc-Global-classes-and-typedefs" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="rc">
+         <lexer name="Cpp" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.rc *.rc2 *.dlg</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="rc-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="rc-Secondary-keywords-and-identifiers"/>
+            <keyword key="2" class="rc-Documentation-comment-keywords"/>
+            <keyword key="3" class="rc-Unused"/>
+            <keyword key="4" class="rc-Global-classes-and-typedefs"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="rc-Default" />
+            <style name="Comment" class="rc-Comment" />
+            <style name="CommentLine" class="rc-CommentLine" />
+            <style name="CommentDoc" class="rc-CommentDoc" />
+            <style name="Number" class="rc-Number" />
+            <style name="Word" class="rc-Word" />
+            <style name="String" class="rc-String" />
+            <style name="Character" class="rc-Character" />
+            <style name="Uuid" class="rc-Uuid" />
+            <style name="Preprocessor" class="rc-Preprocessor" />
+            <style name="Operator" class="rc-Operator" />
+            <style name="Identifier" class="rc-Identifier" />
+            <style name="StringEol" class="rc-StringEol" />
+            <style name="Verbatim" class="rc-Verbatim" />
+            <style name="Regex" class="rc-Regex" />
+            <style name="CommentLineDoc" class="rc-CommentLineDoc" />
+            <style name="Word2" class="rc-Word2" />
+            <style name="CommentDocKeyword" class="rc-CommentDocKeyword" />
+            <style name="CommentDocKeywordError" class="rc-CommentDocKeywordError" />
+            <style name="GlobalClass" class="rc-GlobalClass" />
+            <style name="GlobalDefault" class="rc-GlobalDefault" />
+            <style name="LineNumber" class="rc-LineNumber" />
+            <style name="BraceLight" class="rc-BraceLight" />
+            <style name="BraceBad" class="rc-BraceBad" />
+            <style name="ControlChar" class="rc-ControlChar" />
+            <style name="IndentGuide" class="rc-IndentGuide" />
+            <style name="CallTip" class="rc-CallTip" />
+            <style name="LastPredefined" class="rc-LastPredefined" />
+            <style name="Max" class="rc-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

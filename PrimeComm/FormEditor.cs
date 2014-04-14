@@ -6,7 +6,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using PrimeComm.Properties;
 using PrimeLib;
-using ScintillaNET;
 using System;
 using System.Drawing;
 using System.Drawing.Text;
@@ -14,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ScintillaNet;
 using WeifenLuo.WinFormsUI.Docking;
 using Clipboard = System.Windows.Forms.Clipboard;
 
@@ -133,7 +133,7 @@ namespace PrimeComm
             editor.Margins.Margin0.Width = (int) Settings.Default.EditorMargin0;
 
             // Word wrap
-            editor.LineWrapping.Mode = Settings.Default.EditorWordWrap ? LineWrappingMode.Word : LineWrappingMode.None;
+            editor.LineWrap.Mode = Settings.Default.EditorWordWrap ? WrapMode.Word : WrapMode.None;
         }
 
         private void OpenFile(string fileName)
@@ -271,19 +271,20 @@ namespace PrimeComm
             redoToolStripMenuItem.Enabled = editor.UndoRedo.CanRedo;
             toolStripButtonRedo.Enabled = editor.UndoRedo.CanRedo;
 
-            copyToolStripMenuItem.Enabled = editor.Clipboard.CanCopy;
-            toolStripButtonCopy.Enabled = editor.Clipboard.CanCopy;
+            var textSelected = editor.Selection.Length > 0;
+            var textNotEmpty = editor.TextLength > 0;
 
-            cutToolStripMenuItem.Enabled = editor.Clipboard.CanCut;
-            toolStripButtonCut.Enabled = editor.Clipboard.CanCut;
+            copyToolStripMenuItem.Enabled = textNotEmpty;
+            toolStripButtonCopy.Enabled = textNotEmpty;
+
+            cutToolStripMenuItem.Enabled = textNotEmpty;
+            toolStripButtonCut.Enabled = textNotEmpty;
 
             pasteToolStripMenuItem.Enabled = editor.Clipboard.CanPaste;
             toolStripButtonPaste.Enabled = editor.Clipboard.CanPaste;
 
             propertiesToolStripMenuItem.Enabled = !String.IsNullOrEmpty(_currentFile);
 
-            var textSelected = editor.Selection.Length > 0;
-            var textNotEmpty = editor.TextLength > 0;
             deleteToolStripMenuItem.Enabled = textSelected;
             commentSelectionToolStripMenuItem.Enabled = textNotEmpty;
             uncommentSelectionToolStripMenuItem.Enabled = textNotEmpty;
@@ -671,9 +672,9 @@ namespace PrimeComm
             else
             {
                 int selectionStart = editor.Selection.Start, selectionEnd = editor.Selection.End;
-                var first = editor.Lines.FirstVisibleIndex;
+                var first = editor.Lines.FirstVisible.Number;
                 editor.Text = String.Join(Environment.NewLine, code);
-                editor.Lines.FirstVisibleIndex = first;
+                editor.Lines.FirstVisible.Number = first;
                 editor.Selection.Start = Math.Min(selectionStart, editor.TextLength);
                 editor.Selection.End = Math.Min(selectionEnd, editor.TextLength);
                 editor.Refresh();

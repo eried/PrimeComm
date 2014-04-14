@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="lisp-Default" inherit-style="Default" />
+      <style-class name="lisp-Comment" inherit-style="Comment" />
+      <style-class name="lisp-Number" inherit-style="Number" />
+      <style-class name="lisp-Keyword" inherit-style="Keyword" />
+      <style-class name="lisp-KeywordKw" inherit-style="KeywordKw" />
+      <style-class name="lisp-Symbol" inherit-style="Symbol" />
+      <style-class name="lisp-String" inherit-style="String" />
+      <style-class name="lisp-StringEol" inherit-style="StringEol" />
+      <style-class name="lisp-Identifier" inherit-style="Identifier" />
+      <style-class name="lisp-Operator" inherit-style="Operator" />
+      <style-class name="lisp-Special" inherit-style="Special" />
+      <style-class name="lisp-MultiComment" inherit-style="MultiComment" />
+      <style-class name="lisp-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="lisp-LineNumber" inherit-style="LineNumber" />
+      <style-class name="lisp-BraceLight" inherit-style="BraceLight" />
+      <style-class name="lisp-BraceBad" inherit-style="BraceBad" />
+      <style-class name="lisp-ControlChar" inherit-style="ControlChar" />
+      <style-class name="lisp-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="lisp-CallTip" inherit-style="CallTip" />
+      <style-class name="lisp-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="lisp-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="lisp-" >
+      </keyword-class>
+      <keyword-class name="lisp-Keywords" >         
+         not defun + - * / = &gt; &lt; &gt;= &lt;= princ \
+         eval apply funcall quote identity function complement backquote lambda set setq setf \
+         defun defmacro gensym make symbol intern symbol name symbol value symbol plist get \
+         getf putprop remprop hash make array aref car cdr caar cadr cdar cddr caaar caadr cadar \
+         caddr cdaar cdadr cddar cdddr caaaar caaadr caadar caaddr cadaar cadadr caddar cadddr \
+         cdaaar cdaadr cdadar cdaddr cddaar cddadr cdddar cddddr cons list append reverse last nth \
+         nthcdr member assoc subst sublis nsubst  nsublis remove length list length \
+         mapc mapcar mapl maplist mapcan mapcon rplaca rplacd nconc delete atom symbolp numberp \
+         boundp null listp consp minusp zerop plusp evenp oddp eq eql equal cond case and or let l if prog \
+         prog1 prog2 progn go return do dolist dotimes catch throw error cerror break \
+         continue errset baktrace evalhook truncate float rem min max abs sin cos tan expt exp sqrt \
+         random logand logior logxor lognot bignums logeqv lognand lognor \
+         logorc2 logtest logbitp logcount integer length nil
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="lisp">
+         <lexer name="Lisp" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.lsp *.lisp</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="lisp-"/>
+            <keyword key="1" class="lisp-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="lisp-Default" />
+            <style name="Comment" class="lisp-Comment" />
+            <style name="Number" class="lisp-Number" />
+            <style name="Keyword" class="lisp-Keyword" />
+            <style name="KeywordKw" class="lisp-KeywordKw" />
+            <style name="Symbol" class="lisp-Symbol" />
+            <style name="String" class="lisp-String" />
+            <style name="StringEol" class="lisp-StringEol" />
+            <style name="Identifier" class="lisp-Identifier" />
+            <style name="Operator" class="lisp-Operator" />
+            <style name="Special" class="lisp-Special" />
+            <style name="MultiComment" class="lisp-MultiComment" />
+            <style name="GlobalDefault" class="lisp-GlobalDefault" />
+            <style name="LineNumber" class="lisp-LineNumber" />
+            <style name="BraceLight" class="lisp-BraceLight" />
+            <style name="BraceBad" class="lisp-BraceBad" />
+            <style name="ControlChar" class="lisp-ControlChar" />
+            <style name="IndentGuide" class="lisp-IndentGuide" />
+            <style name="CallTip" class="lisp-CallTip" />
+            <style name="LastPredefined" class="lisp-LastPredefined" />
+            <style name="Max" class="lisp-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

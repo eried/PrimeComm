@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="matlab-Default" inherit-style="Default" />
+      <style-class name="matlab-Comment" inherit-style="Comment" />
+      <style-class name="matlab-Command" inherit-style="Command" />
+      <style-class name="matlab-Number" inherit-style="Number" />
+      <style-class name="matlab-Keyword" inherit-style="Keyword" />
+      <style-class name="matlab-String" inherit-style="String" />
+      <style-class name="matlab-Operator" inherit-style="Operator" />
+      <style-class name="matlab-Identifier" inherit-style="Identifier" />
+      <style-class name="matlab-DoubleQuoteString" inherit-style="DoubleQuoteString" />
+      <style-class name="matlab-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="matlab-LineNumber" inherit-style="LineNumber" />
+      <style-class name="matlab-BraceLight" inherit-style="BraceLight" />
+      <style-class name="matlab-BraceBad" inherit-style="BraceBad" />
+      <style-class name="matlab-ControlChar" inherit-style="ControlChar" />
+      <style-class name="matlab-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="matlab-CallTip" inherit-style="CallTip" />
+      <style-class name="matlab-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="matlab-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="matlab-Keywords" >         
+         break case catch continue else elseif end for function
+         global if otherwise persistent return switch try while
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="matlab">
+         <lexer name="MatLab" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.m.matlab *.m *.m.octave</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="matlab-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="matlab-Default" />
+            <style name="Comment" class="matlab-Comment" />
+            <style name="Command" class="matlab-Command" />
+            <style name="Number" class="matlab-Number" />
+            <style name="Keyword" class="matlab-Keyword" />
+            <style name="String" class="matlab-String" />
+            <style name="Operator" class="matlab-Operator" />
+            <style name="Identifier" class="matlab-Identifier" />
+            <style name="DoubleQuoteString" class="matlab-DoubleQuoteString" />
+            <style name="GlobalDefault" class="matlab-GlobalDefault" />
+            <style name="LineNumber" class="matlab-LineNumber" />
+            <style name="BraceLight" class="matlab-BraceLight" />
+            <style name="BraceBad" class="matlab-BraceBad" />
+            <style name="ControlChar" class="matlab-ControlChar" />
+            <style name="IndentGuide" class="matlab-IndentGuide" />
+            <style name="CallTip" class="matlab-CallTip" />
+            <style name="LastPredefined" class="matlab-LastPredefined" />
+            <style name="Max" class="matlab-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

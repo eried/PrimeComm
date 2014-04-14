@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\..\Libraries\</OutDir>
+    <IntDir>.\Intermediate\x64\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>SciLexerx64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>Full</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\include;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;SCI_LEXER;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Intermediate\x64\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Intermediate\x64\SciLexer.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ObjectFileName>.\Intermediate\x64\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Intermediate\x64\</ProgramDataBaseFileName>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AssemblerOutput>
+      </AssemblerOutput>
+      <DisableSpecificWarnings>4267</DisableSpecificWarnings>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\../bin\SciLexer.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>..\..\Libraries\SciLexerx64.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\Libraries\SciLexerx64.dll</OutputFile>
+      <ImportLibrary>..\..\Libraries\SciLexerx64.lib</ImportLibrary>
+      <AdditionalDependencies>imm32.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AssemblyDebug>
+      </AssemblyDebug>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\AutoComplete.cxx" />
+    <ClCompile Include="..\src\CallTip.cxx" />
+    <ClCompile Include="..\src\CellBuffer.cxx" />
+    <ClCompile Include="..\src\CharClassify.cxx" />
+    <ClCompile Include="..\src\ContractionState.cxx" />
+    <ClCompile Include="..\src\Decoration.cxx" />
+    <ClCompile Include="..\src\Document.cxx" />
+    <ClCompile Include="..\src\DocumentAccessor.cxx" />
+    <ClCompile Include="..\src\Editor.cxx" />
+    <ClCompile Include="..\src\ExternalLexer.cxx" />
+    <ClCompile Include="..\src\Indicator.cxx" />
+    <ClCompile Include="..\src\KeyMap.cxx" />
+    <ClCompile Include="..\src\KeyWords.cxx" />
+    <ClCompile Include="..\src\Lexers\LexAbaqus.cxx" />
+    <ClCompile Include="..\src\Lexers\LexAda.cxx" />
+    <ClCompile Include="..\src\Lexers\LexAPDL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexAsm.cxx" />
+    <ClCompile Include="..\src\Lexers\LexAsn1.cxx" />
+    <ClCompile Include="..\src\Lexers\LexASY.cxx" />
+    <ClCompile Include="..\src\Lexers\LexAU3.cxx" />
+    <ClCompile Include="..\src\Lexers\LexAVE.cxx" />
+    <ClCompile Include="..\src\Lexers\LexBaan.cxx" />
+    <ClCompile Include="..\src\Lexers\LexBash.cxx" />
+    <ClCompile Include="..\src\Lexers\LexBasic.cxx" />
+    <ClCompile Include="..\src\Lexers\LexBullant.cxx" />
+    <ClCompile Include="..\src\Lexers\LexCaml.cxx" />
+    <ClCompile Include="..\src\Lexers\LexCLW.cxx" />
+    <ClCompile Include="..\src\Lexers\LexCmake.cxx" />
+    <ClCompile Include="..\src\Lexers\LexCOBOL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexConf.cxx" />
+    <ClCompile Include="..\src\Lexers\LexCPP.cxx" />
+    <ClCompile Include="..\src\Lexers\LexCrontab.cxx" />
+    <ClCompile Include="..\src\Lexers\LexCsound.cxx" />
+    <ClCompile Include="..\src\Lexers\LexCSS.cxx" />
+    <ClCompile Include="..\src\Lexers\LexD.cxx" />
+    <ClCompile Include="..\src\Lexers\LexEiffel.cxx" />
+    <ClCompile Include="..\src\Lexers\LexErlang.cxx" />
+    <ClCompile Include="..\src\Lexers\LexEScript.cxx" />
+    <ClCompile Include="..\src\Lexers\LexFlagship.cxx" />
+    <ClCompile Include="..\src\Lexers\LexForth.cxx" />
+    <ClCompile Include="..\src\Lexers\LexFortran.cxx" />
+    <ClCompile Include="..\src\Lexers\LexGAP.cxx" />
+    <ClCompile Include="..\src\Lexers\LexGui4Cli.cxx" />
+    <ClCompile Include="..\src\Lexers\LexHaskell.cxx" />
+    <ClCompile Include="..\src\Lexers\LexHTML.cxx" />
+    <ClCompile Include="..\src\Lexers\LexInno.cxx" />
+    <ClCompile Include="..\src\Lexers\LexKix.cxx" />
+    <ClCompile Include="..\src\Lexers\LexLisp.cxx" />
+    <ClCompile Include="..\src\Lexers\LexLout.cxx" />
+    <ClCompile Include="..\src\Lexers\LexLua.cxx" />
+    <ClCompile Include="..\src\Lexers\LexMagik.cxx" />
+    <ClCompile Include="..\src\Lexers\LexMarkdown.cxx" />
+    <ClCompile Include="..\src\Lexers\LexMatlab.cxx" />
+    <ClCompile Include="..\src\Lexers\LexMetapost.cxx" />
+    <ClCompile Include="..\src\Lexers\LexMMIXAL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexMPT.cxx" />
+    <ClCompile Include="..\src\Lexers\LexMSSQL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexMySQL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexNimrod.cxx" />
+    <ClCompile Include="..\src\Lexers\LexNsis.cxx" />
+    <ClCompile Include="..\src\Lexers\LexOpal.cxx" />
+    <ClCompile Include="..\src\Lexers\LexOthers.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPascal.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPB.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPerl.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPLM.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPOV.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPowerPro.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPowerShell.cxx" />
+    <ClCompile Include="..\src\Lexers\LexProgress.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPS.cxx" />
+    <ClCompile Include="..\src\Lexers\LexPython.cxx" />
+    <ClCompile Include="..\src\Lexers\LexR.cxx" />
+    <ClCompile Include="..\src\Lexers\LexRebol.cxx" />
+    <ClCompile Include="..\src\Lexers\LexRuby.cxx" />
+    <ClCompile Include="..\src\Lexers\LexScriptol.cxx" />
+    <ClCompile Include="..\src\Lexers\LexSmalltalk.cxx" />
+    <ClCompile Include="..\src\Lexers\LexSML.cxx" />
+    <ClCompile Include="..\src\Lexers\LexSorcus.cxx" />
+    <ClCompile Include="..\src\Lexers\LexSpecman.cxx" />
+    <ClCompile Include="..\src\Lexers\LexSpice.cxx" />
+    <ClCompile Include="..\src\Lexers\LexSQL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexTACL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexTADS3.cxx" />
+    <ClCompile Include="..\src\Lexers\LexTAL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexTCL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexTeX.cxx" />
+    <ClCompile Include="..\src\Lexers\LexVB.cxx" />
+    <ClCompile Include="..\src\Lexers\LexVerilog.cxx" />
+    <ClCompile Include="..\src\Lexers\LexVHDL.cxx" />
+    <ClCompile Include="..\src\Lexers\LexYAML.cxx" />
+    <ClCompile Include="..\src\LineMarker.cxx" />
+    <ClCompile Include="..\src\PerLine.cxx" />
+    <ClCompile Include="..\win32\PlatWin.cxx" />
+    <ClCompile Include="..\src\PositionCache.cxx" />
+    <ClCompile Include="..\src\PropSet.cxx" />
+    <ClCompile Include="..\src\RESearch.cxx" />
+    <ClCompile Include="..\src\RunStyles.cxx" />
+    <ClCompile Include="..\src\ScintillaBase.cxx" />
+    <ClCompile Include="..\win32\ScintillaWin.cxx" />
+    <ClCompile Include="..\src\Selection.cxx" />
+    <ClCompile Include="..\src\Style.cxx" />
+    <ClCompile Include="..\src\StyleContext.cxx" />
+    <ClCompile Include="..\src\UniConversion.cxx" />
+    <ClCompile Include="..\src\ViewStyle.cxx" />
+    <ClCompile Include="..\src\WindowAccessor.cxx" />
+    <ClCompile Include="..\src\XPM.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\win32\ScintRes.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">\Documents and Settings\Orvid\Desktop\scintilla\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Platform.h" />
+    <ClInclude Include="..\include\SciLexer.h" />
+    <ClInclude Include="..\include\Scintilla.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\win32\Margin.cur" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="bash-Default" inherit-style="Default" />
+      <style-class name="bash-Error" inherit-style="Error" />
+      <style-class name="bash-CommentLine" inherit-style="CommentLine" />
+      <style-class name="bash-Number" inherit-style="Number" />
+      <style-class name="bash-Word" inherit-style="Word" />
+      <style-class name="bash-String" inherit-style="String" />
+      <style-class name="bash-Character" inherit-style="Character" />
+      <style-class name="bash-Operator" inherit-style="Operator" />
+      <style-class name="bash-Identifier" inherit-style="Identifier" />
+      <style-class name="bash-Scalar" inherit-style="Scalar" />
+      <style-class name="bash-Parameter" inherit-style="Parameter" />
+      <style-class name="bash-BackTicks" inherit-style="BackTicks" />
+      <style-class name="bash-HereDelimiter" inherit-style="HereDelimiter" />
+      <style-class name="bash-HereQ" inherit-style="HereQ" />
+      <style-class name="bash-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="bash-LineNumber" inherit-style="LineNumber" />
+      <style-class name="bash-BraceLight" inherit-style="BraceLight" />
+      <style-class name="bash-BraceBad" inherit-style="BraceBad" />
+      <style-class name="bash-ControlChar" inherit-style="ControlChar" />
+      <style-class name="bash-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="bash-CallTip" inherit-style="CallTip" />
+      <style-class name="bash-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="bash-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="bash-Keywords" >         
+         alias
+         ar asa awk banner basename bash bc bdiff break
+         bunzip2 bzip2 cal calendar case cat cc cd chmod cksum
+         clear cmp col comm compress continue cp cpio crypt
+         csplit ctags cut date dc dd declare deroff dev df diff diff3
+         dircmp dirname do done du echo ed egrep elif else env
+         esac eval ex exec exit expand export expr false fc
+         fgrep fi file find fmt fold for function functions
+         getconf getopt getopts grep gres hash head help
+         history iconv id if in integer jobs join kill local lc
+         let line ln logname look ls m4 mail mailx make
+         man mkdir more mt mv newgrp nl nm nohup ntps od
+         pack paste patch pathchk pax pcat perl pg pr print
+         printf ps pwd read readonly red return rev rm rmdir
+         sed select set sh shift size sleep sort spell
+         split start stop strings strip stty sum suspend
+         sync tail tar tee test then time times touch tr
+         trap true tsort tty type typeset ulimit umask unalias
+         uname uncompress unexpand uniq unpack unset until
+         uudecode uuencode vi vim vpax wait wc whence which
+         while who wpaste wstart xargs zcat
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="bash">
+         <lexer name="Bash" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.sh *.bsh</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="bash-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="bash-Default" />
+            <style name="Error" class="bash-Error" />
+            <style name="CommentLine" class="bash-CommentLine" />
+            <style name="Number" class="bash-Number" />
+            <style name="Word" class="bash-Word" />
+            <style name="String" class="bash-String" />
+            <style name="Character" class="bash-Character" />
+            <style name="Operator" class="bash-Operator" />
+            <style name="Identifier" class="bash-Identifier" />
+            <style name="Scalar" class="bash-Scalar" />
+            <style name="Parameter" class="bash-Parameter" />
+            <style name="BackTicks" class="bash-BackTicks" />
+            <style name="HereDelimiter" class="bash-HereDelimiter" />
+            <style name="HereQ" class="bash-HereQ" />
+            <style name="GlobalDefault" class="bash-GlobalDefault" />
+            <style name="LineNumber" class="bash-LineNumber" />
+            <style name="BraceLight" class="bash-BraceLight" />
+            <style name="BraceBad" class="bash-BraceBad" />
+            <style name="ControlChar" class="bash-ControlChar" />
+            <style name="IndentGuide" class="bash-IndentGuide" />
+            <style name="CallTip" class="bash-CallTip" />
+            <style name="LastPredefined" class="bash-LastPredefined" />
+            <style name="Max" class="bash-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

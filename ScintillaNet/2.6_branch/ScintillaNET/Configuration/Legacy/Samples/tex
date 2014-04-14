@@ -1,0 +1,135 @@
+%       $Id: cover.tex,v 1.11 2002/11/24 21:42:36 plamen Exp $    
+
+\documentclass[a4paper,
+%draft,
+12pt]{cd-cover}
+\usepackage{calc}
+\usepackage{printlen}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{charter}
+\usepackage{pstricks,fancybox}
+\usepackage[tiling]{pst-fill}
+%\usepackage{niceframe}
+\usepackage[1]{pagesel}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\CDsleeveTopMargin}{0pt}
+\setlength{\CDsleeveMargin}{0pt}
+\newlength{\decosize}
+\setlength{\decosize}{12pt}
+\newcommand{\wb}[2]{\fontsize{#1}{#2}\usefont{U}{lpihm4}{m}{n}}
+
+% the (La)TeX logos for use with Times:
+\def\ptmTeX{T\kern-.1667em\lower.5ex\hbox{E}\kern-.075emX\@}
+%% \makeatletter
+%% \DeclareRobustCommand{\ptmLaTeX}{L\kern-.25em
+%%         {\setbox0\hbox{T}%
+%%          \vbox to\ht0{\hbox{%
+%%                             \csname S@\f@size\endcsname
+%%                             \fontsize\sf@size\z@
+%%                             \math@fontsfalse\selectfont
+%%                             A}%
+%%                       \vss}%
+%%         }%
+%%         \kern-.10em
+%%         \TeX}
+%% \makeatother
+%\let\LaTeX=\ptmLaTeX
+\let\TeX=\ptmTeX
+\selectfont
+\newlength{\rahmenb}
+\newsavebox{\myrahmen}
+
+
+\begin{document}
+\savebox{\myrahmen}[\width]{%
+  \begin{tabular}{@{}c@{}}%
+    \large Ausgewählte Arbeiten\\[1ex]
+    von\\
+    Plamen Tanovski
+  \end{tabular}%
+}
+\newcounter{hmal}
+\setcounter{hmal}{1+\widthof{\usebox{\myrahmen}}/\decosize}
+\newcounter{vmal}
+\setcounter{vmal}{2+\heightof{\usebox{\myrahmen}}/\decosize}
+\psboxfill{\small \TeX}
+\begin{sleevesheet}%
+\centering
+  \begin{pspicture}(12,12)
+                                % Außenrahmen
+    \psframe[linewidth=2pt,dimen=inner](1,1)(11,11)
+                                %Innenrahmen mit Füllung
+    \rput(1.4,1.4){%
+      \psframe[fillstyle=boxfill,fillsepy=1pt,fillcycley=3,fillloopaddx=12](9.2,9.2)}
+                                % Ecksymbole
+    {\wb{\decosize}{\decosize}
+      \uput[ur](1,1){W}
+      \uput[ul](11,1){X}
+      \uput[dr](1,11){U}
+      \uput[dl](11,11){V}}
+                                % Tafel
+    \rput(3.1,6){%
+      \newcounter{vv}\setcounter{vv}{\value{vmal}+2}
+      \newcounter{hh}\setcounter{hh}{\value{hmal}+2}
+      \psset{unit=\decosize}%
+      \psframe*[linecolor=white,dimen=inner,border=2pt](-0.1,-0.5)(\value{hh},\value{vv})
+      \wb{\decosize}{\decosize}%
+                                % unten links
+      \rput[Bl](0,0){g}%
+                                %unten links +1
+      \rput[Bl](1,1){K}
+                                %oben links +1
+%      \rput[Bl](1,\value{vmal}){I}
+                                % oben rechts +1
+%      \rput[Bl](\value{hmal},\value{vmal}){J}
+                                % mitte unten 
+      \multirput[Bl](1,0)(1,0){\value{hmal}}{4}%
+      \addtocounter{vmal}{1}%
+                                % mitte oben
+      \multirput[bl](1,\value{vmal})(1,0){\value{hmal}}{1}%
+                                % unten rechts +1
+      \rput[Bl](\value{hmal},1){L}
+      \stepcounter{hmal}%
+                                % unten rechts
+      \rput[Bl](\value{hmal},0){h}%
+      \addtocounter{vmal}{-1}%
+                                % mitte links
+      \multirput[Bl](0,1)(0,1){\value{vmal}}{7}%
+                                % mitte rechts 
+      \multirput[Bl](\value{hmal},1)(0,1){\value{vmal}}{8}
+      \stepcounter{vmal}%
+                                % oben links
+      \rput[Bl](0,\value{vmal}){e}
+                                % oben rechts
+      \rput[Bl](\value{hmal},\value{vmal}){f}
+                                % Text
+      \setcounter{hmal}{(\value{hmal}+2)/2}
+      \setcounter{vmal}{(\value{vmal}+2)/2}
+      \rput(\value{hmal},\value{vmal}){\usebox{\myrahmen}}
+    }
+  \end{pspicture}
+\newpage
+  \setlength{\decosize}{10pt}
+\psboxfill{%
+  \wb{\decosize}{\decosize}
+  \psset{unit=\decosize}
+  \begin{pspicture}(4,4)
+    \rput(0,3){MNMN}
+    \rput(0,2){OTSP}
+    \rput(0,1){MRQN}
+    \rput(0,0){OPOP}
+  \end{pspicture}%
+}
+%\psset{unit=3\decosize}
+\begin{pspicture}(13.7,12.3)
+  \psframe[fillloopadd=6,fillstyle=boxfill,linewidth=0](\columnwidth,12.3)
+\end{pspicture}    
+\end{sleevesheet}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

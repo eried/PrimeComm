@@ -1,0 +1,22 @@
+line one 
+
+! line two 
+! line three 
+line four 
+--- 1,4 --- 
+line one 
+! line two changed 
+line four 
++ line five
+
+
+This is a sample of the context diff output format (supply -- -c). Line two was modified, line three was deleted, and line five was added.
+
+
+
+From File
+
+
+
+To File
+

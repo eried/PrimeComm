@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="metapost-Default" inherit-style="Default" />
+      <style-class name="metapost-Special" inherit-style="Special" />
+      <style-class name="metapost-Group" inherit-style="Group" />
+      <style-class name="metapost-Symbol" inherit-style="Symbol" />
+      <style-class name="metapost-Command" inherit-style="Command" />
+      <style-class name="metapost-Text" inherit-style="Text" />
+      <style-class name="metapost-Extra" inherit-style="Extra" />
+      <style-class name="metapost-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="metapost-LineNumber" inherit-style="LineNumber" />
+      <style-class name="metapost-BraceLight" inherit-style="BraceLight" />
+      <style-class name="metapost-BraceBad" inherit-style="BraceBad" />
+      <style-class name="metapost-ControlChar" inherit-style="ControlChar" />
+      <style-class name="metapost-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="metapost-CallTip" inherit-style="CallTip" />
+      <style-class name="metapost-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="metapost-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="metapost-Metapost" >         
+         btex verbatimtex etex
+         charcode day linecap linejoin miterlimit month pausing
+         prologues showstopping time tracingcapsules tracingchoices
+         tracingcommands tracingequations tracinglostchars
+         tracingmacros tracingonline tracingoutput tracingrestores
+         tracingspecs tracingstats tracingtitles truecorners
+         warningcheck year
+         false nullpicture pencircle true
+         and angle arclength arctime ASCII bluepart boolean bot
+         char color cosd cycle decimal directiontime floor fontsize
+         greenpart hex infont intersectiontimes known length llcorner
+         lrcorner makepath makepen mexp mlog normaldeviate not
+         numeric oct odd or path pair pen penoffset picture point
+         postcontrol precontrol redpart reverse rotated scaled
+         shifted sind slanted sqrt str string subpath substring
+         transform transformed ulcorner uniformdeviate unknown
+         urcorner xpart xscaled xxpart xypart ypart yscaled yxpart
+         yypart zscaled
+         addto clip input interim let newinternal save setbounds
+         shipout show showdependencies showtoken showvariable
+         special
+         begingroup endgroup of curl tension and controls
+         reflectedabout rotatedaround interpath on off beginfig
+         endfig def vardef enddef epxr suffix text primary secondary
+         tertiary primarydef secondarydef tertiarydef top bottom
+         ulft urt llft lrt randomseed also contour doublepath
+         withcolor withpen dashed if else elseif fi for endfor forever exitif
+         forsuffixes downto upto step until
+         charlist extensible fontdimen headerbyte kern ligtable
+         boundarychar chardp charext charht charic charwd designsize
+         fontmaking charexists
+         cullit currenttransform gfcorners grayfont hround
+         imagerules lowres_fix nodisplays notransforms openit
+         displaying currentwindow screen_rows screen_cols
+         pixels_per_inch cull display openwindow numspecial
+         totalweight autorounding fillin proofing tracingpens
+         xoffset chardx granularity smoothing turningcheck yoffset
+         chardy hppp tracingedges vppp
+         extra_beginfig extra_endfig mpxbreak
+         end
+         ahangle ahlength bboxmargin defaultpen defaultscale
+         labeloffset background currentpen currentpicture cuttings
+         defaultfont extra_beginfig extra_endfig
+         beveled black blue bp butt cc cm dd ditto down epsilon
+         evenly fullcircle green halfcircle identity in infinity left
+         mitered mm origin pensquare pt quartercircle red right
+         rounded squared unitsquare up white withdots
+         abs bbox ceiling center cutafter cutbefore dir
+         directionpoint div dotprod intersectionpoint inverse mod lft
+         round rt unitvector whatever
+         cutdraw draw drawarrow drawdblarrow fill filldraw drawdot
+         loggingall pickup tracingall tracingnone undraw unfill
+         unfilldraw
+         buildcycle dashpattern decr dotlabel dotlabels drawoptions
+         incr label labels max min thelabel z
+         beginchar blacker capsule_end change_width
+         define_blacker_pixels define_corrected_pixels
+         define_good_x_pixels define_good_y_pixels
+         define_horizontal_corrected_pixels define_pixels
+         define_whole_blacker_pixels define_whole_pixels
+         define_whole_vertical_blacker_pixels
+         define_whole_vertical_pixels endchar extra_beginchar
+         extra_endchar extra_setup font_coding_scheme
+         font_extra_space
+      </keyword-class>
+      <keyword-class name="metapost-Metafun" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="metapost">
+         <lexer name="Metapost" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.mp *.mpx</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="metapost-Metapost"/>
+            <keyword key="1" class="metapost-Metafun"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="metapost-Default" />
+            <style name="Special" class="metapost-Special" />
+            <style name="Group" class="metapost-Group" />
+            <style name="Symbol" class="metapost-Symbol" />
+            <style name="Command" class="metapost-Command" />
+            <style name="Text" class="metapost-Text" />
+            <style name="Extra" class="metapost-Extra" />
+            <style name="GlobalDefault" class="metapost-GlobalDefault" />
+            <style name="LineNumber" class="metapost-LineNumber" />
+            <style name="BraceLight" class="metapost-BraceLight" />
+            <style name="BraceBad" class="metapost-BraceBad" />
+            <style name="ControlChar" class="metapost-ControlChar" />
+            <style name="IndentGuide" class="metapost-IndentGuide" />
+            <style name="CallTip" class="metapost-CallTip" />
+            <style name="LastPredefined" class="metapost-LastPredefined" />
+            <style name="Max" class="metapost-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

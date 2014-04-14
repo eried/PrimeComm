@@ -1,0 +1,13 @@
+#!/usr/local/bin/perl
+      while( <> )
+      {
+        s/'e/\@Char{eacute}/g;
+        s/`e/\@Char{egrave}/g;
+        s/`a/\@Char{agrave}/g;
+        s/`u/\@Char{ugrave}/g;
+        s/\^e/\@Char{ecircumflex}/g;
+        s/\^o/\@Char{ocircumflex}/g;
+        s/\^u/\@Char{ucircumflex}/g;
+        # etc
+        print;
+      }

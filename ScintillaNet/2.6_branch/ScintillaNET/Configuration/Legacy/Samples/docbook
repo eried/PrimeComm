@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE chapter PUBLIC '-//OASIS//DTD DocBook XML V4.1.2//EN'
+	                 'http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd'>
+<chapter>
+<title>How to setup SGML catalogs</title>
+
+<para>Many existing SGML tools are able to map public identifiers to
+files on your local file system. Mapping is specified in so called
+catalog file. List of catalog files to use is stored in environment
+variable <envar>SGML_CATALOG_FILES</envar>.</para>
+
+<para os="unix">On Unix systems you can set this variable by invoking
+command <command>export SGML_CATALOG_FILES=/usr/lib/catalog</command>
+on command line. If you want maintain value of the variable between
+sessions, place this command into startup file,
+e.g. <filename>.profile</filename>.</para>
+
+<para os="win">In Windows NT/2000 you can set environment variable by
+issuing command <menuchoice><guimenu>Start</guimenu>
+<guisubmenu>Settings</guisubmenu> <guisubmenu>Control
+Pannel</guisubmenu>
+<guimenuitem>System</guimenuitem></menuchoice>. Then select
+<guilabel>Advanced</guilabel> card in the dialog box and click on the
+<guibutton>Environment Variables...</guibutton> button. Using the
+<guibutton>New</guibutton> button you can add new environment variable
+into your system.</para>
+
+</chapter>

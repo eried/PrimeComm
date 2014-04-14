@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="lot-Default" inherit-style="Default" />
+      <style-class name="lot-Header" inherit-style="Header" />
+      <style-class name="lot-Break" inherit-style="Break" />
+      <style-class name="lot-Set" inherit-style="Set" />
+      <style-class name="lot-Pass" inherit-style="Pass" />
+      <style-class name="lot-Fail" inherit-style="Fail" />
+      <style-class name="lot-Abort" inherit-style="Abort" />
+      <style-class name="lot-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="lot-LineNumber" inherit-style="LineNumber" />
+      <style-class name="lot-BraceLight" inherit-style="BraceLight" />
+      <style-class name="lot-BraceBad" inherit-style="BraceBad" />
+      <style-class name="lot-ControlChar" inherit-style="ControlChar" />
+      <style-class name="lot-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="lot-CallTip" inherit-style="CallTip" />
+      <style-class name="lot-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="lot-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="lot-None" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="lot">
+         <lexer name="LOT" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.lot</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="lot-None"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="lot-Default" />
+            <style name="Header" class="lot-Header" />
+            <style name="Break" class="lot-Break" />
+            <style name="Set" class="lot-Set" />
+            <style name="Pass" class="lot-Pass" />
+            <style name="Fail" class="lot-Fail" />
+            <style name="Abort" class="lot-Abort" />
+            <style name="GlobalDefault" class="lot-GlobalDefault" />
+            <style name="LineNumber" class="lot-LineNumber" />
+            <style name="BraceLight" class="lot-BraceLight" />
+            <style name="BraceBad" class="lot-BraceBad" />
+            <style name="ControlChar" class="lot-ControlChar" />
+            <style name="IndentGuide" class="lot-IndentGuide" />
+            <style name="CallTip" class="lot-CallTip" />
+            <style name="LastPredefined" class="lot-LastPredefined" />
+            <style name="Max" class="lot-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

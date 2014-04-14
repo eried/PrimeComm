@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="mssql-Default" inherit-style="Default" />
+      <style-class name="mssql-Comment" inherit-style="Comment" />
+      <style-class name="mssql-LineComment" inherit-style="LineComment" />
+      <style-class name="mssql-Number" inherit-style="Number" />
+      <style-class name="mssql-String" inherit-style="String" />
+      <style-class name="mssql-Operator" inherit-style="Operator" />
+      <style-class name="mssql-Identifier" inherit-style="Identifier" />
+      <style-class name="mssql-Variable" inherit-style="Variable" />
+      <style-class name="mssql-ColumnName" inherit-style="ColumnName" />
+      <style-class name="mssql-Statement" inherit-style="Statement" />
+      <style-class name="mssql-Datatype" inherit-style="Datatype" />
+      <style-class name="mssql-SysTable" inherit-style="SysTable" />
+      <style-class name="mssql-GlobalVariable" inherit-style="GlobalVariable" />
+      <style-class name="mssql-Function" inherit-style="Function" />
+      <style-class name="mssql-StoredProcedure" inherit-style="StoredProcedure" />
+      <style-class name="mssql-DefaultPrefDatatype" inherit-style="DefaultPrefDatatype" />
+      <style-class name="mssql-ColumnName2" inherit-style="ColumnName2" />
+      <style-class name="mssql-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="mssql-LineNumber" inherit-style="LineNumber" />
+      <style-class name="mssql-BraceLight" inherit-style="BraceLight" />
+      <style-class name="mssql-BraceBad" inherit-style="BraceBad" />
+      <style-class name="mssql-ControlChar" inherit-style="ControlChar" />
+      <style-class name="mssql-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="mssql-CallTip" inherit-style="CallTip" />
+      <style-class name="mssql-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="mssql-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="mssql-Keywords" >         
+         absolute action add admin after aggregate
+         alias all allocate alter and any are array as asc
+         assertion at authorization
+         before begin binary bit blob boolean both breadth by
+         call cascade cascaded case cast catalog char character
+         check class clob close collate collation column commit
+         completion connect connection constraint constraints
+         constructor continue corresponding create cross cube current
+         current_date current_path current_role current_time current_timestamp
+         current_user cursor cycle
+         data date day deallocate dec decimal declare default
+         deferrable deferred delete depth deref desc describe descriptor
+         destroy destructor deterministic dictionary diagnostics disconnect
+         distinct domain double drop dynamic
+         each else end end-exec equals escape every except
+         exception exec execute external
+         false fetch first float for foreign found from free full
+         function
+         general get global go goto grant group grouping
+         having host hour
+         identity if ignore immediate in indicator initialize initially
+         inner inout input insert int integer intersect interval
+         into is isolation iterate
+         join
+         key
+         language large last lateral leading left less level like
+         limit local localtime localtimestamp locator
+         map match minute modifies modify module month
+         names national natural nchar nclob new next no none
+         not null numeric
+         object of off old on only open operation option
+         or order ordinality out outer output
+         pad parameter parameters partial path postfix precision prefix
+         preorder prepare preserve primary
+         prior privileges procedure public
+         read reads real recursive ref references referencing relative
+         restrict result return returns revoke right
+         role rollback rollup routine row rows
+         savepoint schema scroll scope search second section select
+         sequence session session_user set sets size smallint some| space
+         specific specifictype sql sqlexception sqlstate sqlwarning start
+         state statement static structure system_user
+         table temporary terminate than then time timestamp
+         timezone_hour timezone_minute to trailing transaction translation
+         treat trigger true
+         under union unique unknown
+         unnest update usage user using
+         value values varchar variable varying view
+         when whenever where with without work write
+         year
+         zone
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="mssql">
+         <lexer name="MSSQL" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.sql</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="mssql-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="mssql-Default" />
+            <style name="Comment" class="mssql-Comment" />
+            <style name="LineComment" class="mssql-LineComment" />
+            <style name="Number" class="mssql-Number" />
+            <style name="String" class="mssql-String" />
+            <style name="Operator" class="mssql-Operator" />
+            <style name="Identifier" class="mssql-Identifier" />
+            <style name="Variable" class="mssql-Variable" />
+            <style name="ColumnName" class="mssql-ColumnName" />
+            <style name="Statement" class="mssql-Statement" />
+            <style name="Datatype" class="mssql-Datatype" />
+            <style name="SysTable" class="mssql-SysTable" />
+            <style name="GlobalVariable" class="mssql-GlobalVariable" />
+            <style name="Function" class="mssql-Function" />
+            <style name="StoredProcedure" class="mssql-StoredProcedure" />
+            <style name="DefaultPrefDatatype" class="mssql-DefaultPrefDatatype" />
+            <style name="ColumnName2" class="mssql-ColumnName2" />
+            <style name="GlobalDefault" class="mssql-GlobalDefault" />
+            <style name="LineNumber" class="mssql-LineNumber" />
+            <style name="BraceLight" class="mssql-BraceLight" />
+            <style name="BraceBad" class="mssql-BraceBad" />
+            <style name="ControlChar" class="mssql-ControlChar" />
+            <style name="IndentGuide" class="mssql-IndentGuide" />
+            <style name="CallTip" class="mssql-CallTip" />
+            <style name="LastPredefined" class="mssql-LastPredefined" />
+            <style name="Max" class="mssql-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

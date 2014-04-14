@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="forth-Default" inherit-style="Default" />
+      <style-class name="forth-Comment" inherit-style="Comment" />
+      <style-class name="forth-CommentMl" inherit-style="CommentMl" />
+      <style-class name="forth-Identifier" inherit-style="Identifier" />
+      <style-class name="forth-Control" inherit-style="Control" />
+      <style-class name="forth-Keyword" inherit-style="Keyword" />
+      <style-class name="forth-DefWord" inherit-style="DefWord" />
+      <style-class name="forth-Preword1" inherit-style="Preword1" />
+      <style-class name="forth-Preword2" inherit-style="Preword2" />
+      <style-class name="forth-Number" inherit-style="Number" />
+      <style-class name="forth-String" inherit-style="String" />
+      <style-class name="forth-Locale" inherit-style="Locale" />
+      <style-class name="forth-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="forth-LineNumber" inherit-style="LineNumber" />
+      <style-class name="forth-BraceLight" inherit-style="BraceLight" />
+      <style-class name="forth-BraceBad" inherit-style="BraceBad" />
+      <style-class name="forth-ControlChar" inherit-style="ControlChar" />
+      <style-class name="forth-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="forth-CallTip" inherit-style="CallTip" />
+      <style-class name="forth-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="forth-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="forth-control-keywords" >
+      </keyword-class>
+      <keyword-class name="forth-keywords" >
+      </keyword-class>
+      <keyword-class name="forth-definition-words" >
+      </keyword-class>
+      <keyword-class name="forth-prewords-with-one-argument" >
+      </keyword-class>
+      <keyword-class name="forth-prewords-with-two-arguments" >
+      </keyword-class>
+      <keyword-class name="forth-string-definition-keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="forth">
+         <lexer name="Forth" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.forth</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="forth-control-keywords"/>
+            <keyword key="1" class="forth-keywords"/>
+            <keyword key="2" class="forth-definition-words"/>
+            <keyword key="3" class="forth-prewords-with-one-argument"/>
+            <keyword key="4" class="forth-prewords-with-two-arguments"/>
+            <keyword key="5" class="forth-string-definition-keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="forth-Default" />
+            <style name="Comment" class="forth-Comment" />
+            <style name="CommentMl" class="forth-CommentMl" />
+            <style name="Identifier" class="forth-Identifier" />
+            <style name="Control" class="forth-Control" />
+            <style name="Keyword" class="forth-Keyword" />
+            <style name="DefWord" class="forth-DefWord" />
+            <style name="Preword1" class="forth-Preword1" />
+            <style name="Preword2" class="forth-Preword2" />
+            <style name="Number" class="forth-Number" />
+            <style name="String" class="forth-String" />
+            <style name="Locale" class="forth-Locale" />
+            <style name="GlobalDefault" class="forth-GlobalDefault" />
+            <style name="LineNumber" class="forth-LineNumber" />
+            <style name="BraceLight" class="forth-BraceLight" />
+            <style name="BraceBad" class="forth-BraceBad" />
+            <style name="ControlChar" class="forth-ControlChar" />
+            <style name="IndentGuide" class="forth-IndentGuide" />
+            <style name="CallTip" class="forth-CallTip" />
+            <style name="LastPredefined" class="forth-LastPredefined" />
+            <style name="Max" class="forth-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

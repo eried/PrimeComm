@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="tcl-Default" inherit-style="Default" />
+      <style-class name="tcl-Comment" inherit-style="Comment" />
+      <style-class name="tcl-CommentLine" inherit-style="CommentLine" />
+      <style-class name="tcl-Number" inherit-style="Number" />
+      <style-class name="tcl-WordInQuote" inherit-style="WordInQuote" />
+      <style-class name="tcl-InQuote" inherit-style="InQuote" />
+      <style-class name="tcl-Operator" inherit-style="Operator" />
+      <style-class name="tcl-Identifier" inherit-style="Identifier" />
+      <style-class name="tcl-Substitution" inherit-style="Substitution" />
+      <style-class name="tcl-SubBrace" inherit-style="SubBrace" />
+      <style-class name="tcl-Modifier" inherit-style="Modifier" />
+      <style-class name="tcl-Expand" inherit-style="Expand" />
+      <style-class name="tcl-Word" inherit-style="Word" />
+      <style-class name="tcl-Word2" inherit-style="Word2" />
+      <style-class name="tcl-Word3" inherit-style="Word3" />
+      <style-class name="tcl-Word4" inherit-style="Word4" />
+      <style-class name="tcl-Word5" inherit-style="Word5" />
+      <style-class name="tcl-Word6" inherit-style="Word6" />
+      <style-class name="tcl-Word7" inherit-style="Word7" />
+      <style-class name="tcl-Word8" inherit-style="Word8" />
+      <style-class name="tcl-CommentBox" inherit-style="CommentBox" />
+      <style-class name="tcl-BlockComment" inherit-style="BlockComment" />
+      <style-class name="tcl-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="tcl-LineNumber" inherit-style="LineNumber" />
+      <style-class name="tcl-BraceLight" inherit-style="BraceLight" />
+      <style-class name="tcl-BraceBad" inherit-style="BraceBad" />
+      <style-class name="tcl-ControlChar" inherit-style="ControlChar" />
+      <style-class name="tcl-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="tcl-CallTip" inherit-style="CallTip" />
+      <style-class name="tcl-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="tcl-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="tcl-Primary-keywords-and-identifiers" >         
+         after append array auto_execok auto_import auto_load
+         auto_load_index auto_qualify beep binary break case catch cd clock
+         close concat continue dde default echo else elseif encoding eof
+         error eval exec exit expr fblocked fconfigure fcopy file
+         fileevent flush for foreach format gets glob global history if
+         incr info interp join lappend lindex linsert list llength load
+         lrange lreplace lsearch lsort namespace open package pid
+         pkg_mkIndex proc puts pwd read regexp regsub rename resource
+         return scan seek set socket source split string subst switch
+         tclLog tclMacPkgSearch tclPkgSetup tclPkgUnknown tell time
+         trace unknown unset update uplevel upvar variable vwait while
+         bell bind bindtags button canvas checkbutton console
+         destroy entry event focus font frame grab grid image label listbox menu
+         menubutton message pack place radiobutton raise scale scrollbar
+         text tk tkwait toplevel winfo wm
+         tkButtonDown tkButtonEnter tkButtonInvoke
+         tkButtonLeave tkButtonUp tkCancelRepeat tkCheckRadioInvoke tkDarken
+         tkEntryAutoScan 	tkEntryBackspace tkEntryButton1 tkEntryClosestGap
+         tkEntryInsert tkEntryKeySelect tkEntryMouseSelect tkEntryNextWord
+         tkEntryPaste tkEntryPreviousWord tkEntrySeeInsert tkEntrySetCursor
+         tkEntryTranspose tkEventMotifBindings tkFDGetFileTypes tkFirstMenu
+         tkFocusGroup_Destroy tkFocusGroup_In tkFocusGroup_Out tkFocusOK
+         tkListboxAutoScan tkListboxBeginExtend tkListboxBeginSelect
+         tkListboxBeginToggle tkListboxCancel tkListboxDataExtend
+         tkListboxExtendUpDown tkListboxMotion tkListboxSelectAll
+         tkListboxUpDown tkMbButtonUp tkMbEnter tkMbLeave tkMbMotion
+         tkMbPost tkMenuButtonDown tkMenuDownArrow tkMenuDup tkMenuEscape
+         tkMenuFind tkMenuFindName tkMenuFirstEntry tkMenuInvoke tkMenuLeave
+         tkMenuLeftArrow tkMenuMotion tkMenuNextEntry tkMenuNextMenu
+         tkMenuRightArrow tkMenuUnpost tkMenuUpArrow tkMessageBox
+         tkPostOverPoint tkRecolorTree tkRestoreOldGrab tkSaveGrabInfo
+         tkScaleActivate tkScaleButton2Down tkScaleButtonDown
+         tkScaleControlPress tkScaleDrag tkScaleEndDrag tkScaleIncrement
+         tkScreenChanged tkScrollButton2Down tkScrollButtonDown
+         tkScrollButtonUp tkScrollByPages tkScrollByUnits tkScrollDrag
+         tkScrollEndDrag tkScrollSelect tkScrollStartDrag tkScrollToPos
+         tkScrollTopBottom tkTabToWindow tkTearOffMenu tkTextAutoScan
+         tkTextButton1 tkTextClosestGap tkTextInsert tkTextKeyExtend
+         tkTextKeySelect tkTextNextPara tkTextNextPos tkTextNextWord
+         tkTextPaste tkTextPrevPara tkTextPrevPos tkTextResetAnchor
+         tkTextScrollPages tkTextSelectTo tkTextSetCursor tkTextTranspose
+         tkTextUpDownLine tkTraverseToMenu tkTraverseWithinMenu tk_bisque
+         tk_chooseColor tk_dialog tk_focusFollowsMouse tk_focusNext
+         tk_focusPrev tk_getOpenFile tk_getSaveFile tk_messageBox
+         tk_optionMenu tk_popup tk_setPalette tk_textCopy tk_textCut
+         tk_textPaste
+      </keyword-class>
+      <keyword-class name="tcl-Secondary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="tcl-Documentation-comment-keywords" >
+      </keyword-class>
+      <keyword-class name="tcl-Unused" >
+      </keyword-class>
+      <keyword-class name="tcl-Global-classes-and-typedefs" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="tcl">
+         <lexer name="TCL" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.tcl</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="tcl-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="tcl-Secondary-keywords-and-identifiers"/>
+            <keyword key="2" class="tcl-Documentation-comment-keywords"/>
+            <keyword key="3" class="tcl-Unused"/>
+            <keyword key="4" class="tcl-Global-classes-and-typedefs"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="tcl-Default" />
+            <style name="Comment" class="tcl-Comment" />
+            <style name="CommentLine" class="tcl-CommentLine" />
+            <style name="Number" class="tcl-Number" />
+            <style name="WordInQuote" class="tcl-WordInQuote" />
+            <style name="InQuote" class="tcl-InQuote" />
+            <style name="Operator" class="tcl-Operator" />
+            <style name="Identifier" class="tcl-Identifier" />
+            <style name="Substitution" class="tcl-Substitution" />
+            <style name="SubBrace" class="tcl-SubBrace" />
+            <style name="Modifier" class="tcl-Modifier" />
+            <style name="Expand" class="tcl-Expand" />
+            <style name="Word" class="tcl-Word" />
+            <style name="Word2" class="tcl-Word2" />
+            <style name="Word3" class="tcl-Word3" />
+            <style name="Word4" class="tcl-Word4" />
+            <style name="Word5" class="tcl-Word5" />
+            <style name="Word6" class="tcl-Word6" />
+            <style name="Word7" class="tcl-Word7" />
+            <style name="Word8" class="tcl-Word8" />
+            <style name="CommentBox" class="tcl-CommentBox" />
+            <style name="BlockComment" class="tcl-BlockComment" />
+            <style name="GlobalDefault" class="tcl-GlobalDefault" />
+            <style name="LineNumber" class="tcl-LineNumber" />
+            <style name="BraceLight" class="tcl-BraceLight" />
+            <style name="BraceBad" class="tcl-BraceBad" />
+            <style name="ControlChar" class="tcl-ControlChar" />
+            <style name="IndentGuide" class="tcl-IndentGuide" />
+            <style name="CallTip" class="tcl-CallTip" />
+            <style name="LastPredefined" class="tcl-LastPredefined" />
+            <style name="Max" class="tcl-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+  <Language Name="c">
+    <AutoComplete FillUpCharacters=".([" SingleLineAccept="True" IsCaseSensitive="False">
+      <List>
+        auto break case catch Complex continue default do else false for goto if Imaginary
+        inline register restrict return sizeof switch struct typedef union void volatile
+        while
+      </List>
+    </AutoComplete>
+
+
+    <Indentation TabWidth="4" SmartIndentType="cpp" />
+
+
+    <Lexer LexerName="cpp" LineCommentPrefix="/*" StreamCommentPrefix="/* " StreamCommentSuffix=" */" >
+      <Keywords List="0" Inherit="False">
+        inline register restrict return sizeof switch struct typedef union void volatile
+        while
+      </Keywords>
+      <Keywords List="1" Inherit="False">
+        Bool char const double enum extern float int long signed short static unsigned
+      </Keywords>
+    </Lexer>
+  </Language>
+</ScintillaNET> 

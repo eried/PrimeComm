@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="yaml-Default" inherit-style="Default" />
+      <style-class name="yaml-Comment" inherit-style="Comment" />
+      <style-class name="yaml-Identifier" inherit-style="Identifier" />
+      <style-class name="yaml-Keyword" inherit-style="Keyword" />
+      <style-class name="yaml-Number" inherit-style="Number" />
+      <style-class name="yaml-Reference" inherit-style="Reference" />
+      <style-class name="yaml-Document" inherit-style="Document" />
+      <style-class name="yaml-Text" inherit-style="Text" />
+      <style-class name="yaml-Error" inherit-style="Error" />
+      <style-class name="yaml-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="yaml-LineNumber" inherit-style="LineNumber" />
+      <style-class name="yaml-BraceLight" inherit-style="BraceLight" />
+      <style-class name="yaml-BraceBad" inherit-style="BraceBad" />
+      <style-class name="yaml-ControlChar" inherit-style="ControlChar" />
+      <style-class name="yaml-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="yaml-CallTip" inherit-style="CallTip" />
+      <style-class name="yaml-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="yaml-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="yaml-Keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="yaml">
+         <lexer name="YAML" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.yaml *.yml</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="yaml-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="yaml-Default" />
+            <style name="Comment" class="yaml-Comment" />
+            <style name="Identifier" class="yaml-Identifier" />
+            <style name="Keyword" class="yaml-Keyword" />
+            <style name="Number" class="yaml-Number" />
+            <style name="Reference" class="yaml-Reference" />
+            <style name="Document" class="yaml-Document" />
+            <style name="Text" class="yaml-Text" />
+            <style name="Error" class="yaml-Error" />
+            <style name="GlobalDefault" class="yaml-GlobalDefault" />
+            <style name="LineNumber" class="yaml-LineNumber" />
+            <style name="BraceLight" class="yaml-BraceLight" />
+            <style name="BraceBad" class="yaml-BraceBad" />
+            <style name="ControlChar" class="yaml-ControlChar" />
+            <style name="IndentGuide" class="yaml-IndentGuide" />
+            <style name="CallTip" class="yaml-CallTip" />
+            <style name="LastPredefined" class="yaml-LastPredefined" />
+            <style name="Max" class="yaml-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

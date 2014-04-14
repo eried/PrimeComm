@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="scheme-Default" inherit-style="Default" />
+      <style-class name="scheme-Comment" inherit-style="Comment" />
+      <style-class name="scheme-Number" inherit-style="Number" />
+      <style-class name="scheme-Keyword" inherit-style="Keyword" />
+      <style-class name="scheme-KeywordKw" inherit-style="KeywordKw" />
+      <style-class name="scheme-Symbol" inherit-style="Symbol" />
+      <style-class name="scheme-String" inherit-style="String" />
+      <style-class name="scheme-StringEol" inherit-style="StringEol" />
+      <style-class name="scheme-Identifier" inherit-style="Identifier" />
+      <style-class name="scheme-Operator" inherit-style="Operator" />
+      <style-class name="scheme-Special" inherit-style="Special" />
+      <style-class name="scheme-MultiComment" inherit-style="MultiComment" />
+      <style-class name="scheme-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="scheme-LineNumber" inherit-style="LineNumber" />
+      <style-class name="scheme-BraceLight" inherit-style="BraceLight" />
+      <style-class name="scheme-BraceBad" inherit-style="BraceBad" />
+      <style-class name="scheme-ControlChar" inherit-style="ControlChar" />
+      <style-class name="scheme-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="scheme-CallTip" inherit-style="CallTip" />
+      <style-class name="scheme-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="scheme-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="scheme-Keywords" >         
+         + - * / = &lt; &gt; &lt;= &gt;= =&gt;
+         abs acos and angle append apply asin assoc assoc assq assv atan
+         begin boolean?
+         caar cadr call-with-current-continuation call/cc
+         call-with-input-file call-with-output-file call-with-values
+         car cdr
+         caar cadr cdar cddr
+         caaar caadr cadar caddr cdaar cdadr cddar cdddr
+         caaaar caaadr caadar caaddr cadaar cadadr caddar cadddr
+         cdaaar cdaadr cdadar cdaddr cddaar cddadr cdddar cddddr
+         case ceiling char-&gt;integer
+         char-alphabetic? char-ci&lt;=? char-ci&lt;? char-ci=? char-ci&gt;=? char-ci&gt;?
+         char-downcase char-lower-case? char-numeric? char-ready?
+         char-upcase char-upper-case? char-whitespace?
+         char&lt;=? char&lt;? char=? char&gt;=? char&gt;? char?
+         close-input-port close-output-port complex? cond cons cos
+         current-input-port current-output-port
+         define define-syntax delay denominator display do dynamic-wind
+         else eof-object? eq? equal? eqv? eval even? exact-&gt;inexact exact?
+         exp expt
+         floor for-each force
+         gcd
+         if imag-part inexact-&gt;exact inexact? input-port? integer-&gt;char integer? interaction-environment
+         lambda lcm length let let* let-syntax letrec letrec-syntax
+         list list-&gt;string list-&gt;vector list-ref list-tail list? load log
+         magnitude make-polar make-rectangular make-string make-vector
+         map max member memq memv min modulo
+         negative? newline not null-environment null? number-&gt;string number? numerator
+         odd? open-input-file open-output-file or output-port?
+         pair? peek-char input-port? output-port? positive? procedure?
+         quasiquote quote quotient
+         rational? rationalize read read-char real-part real? remainder reverse round
+         scheme-report-environment set! set-car! set-cdr! sin sqrt string
+         string-&gt;list string-&gt;number string-&gt;symbol string-append
+         string-ci&lt;=? string-ci&lt;? string-ci=? string-ci&gt;=? string-ci&gt;?
+         string-copy string-fill! string-length string-ref string-set!
+         string&lt;=? string&lt;? string=? string&gt;=? string&gt;? string?
+         substring symbol-&gt;string symbol? syntax-rules
+         transcript-off transcript-on truncate
+         unquote unquote-splicing
+         values vector vector-&gt;list vector-fill! vector-length vector-ref vector-set! vector?
+         with-input-from-file with-output-to-file write write-char
+         zero?
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="scheme">
+         <lexer name="Lisp" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.scm *.smd *.ss</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="scheme-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="scheme-Default" />
+            <style name="Comment" class="scheme-Comment" />
+            <style name="Number" class="scheme-Number" />
+            <style name="Keyword" class="scheme-Keyword" />
+            <style name="KeywordKw" class="scheme-KeywordKw" />
+            <style name="Symbol" class="scheme-Symbol" />
+            <style name="String" class="scheme-String" />
+            <style name="StringEol" class="scheme-StringEol" />
+            <style name="Identifier" class="scheme-Identifier" />
+            <style name="Operator" class="scheme-Operator" />
+            <style name="Special" class="scheme-Special" />
+            <style name="MultiComment" class="scheme-MultiComment" />
+            <style name="GlobalDefault" class="scheme-GlobalDefault" />
+            <style name="LineNumber" class="scheme-LineNumber" />
+            <style name="BraceLight" class="scheme-BraceLight" />
+            <style name="BraceBad" class="scheme-BraceBad" />
+            <style name="ControlChar" class="scheme-ControlChar" />
+            <style name="IndentGuide" class="scheme-IndentGuide" />
+            <style name="CallTip" class="scheme-CallTip" />
+            <style name="LastPredefined" class="scheme-LastPredefined" />
+            <style name="Max" class="scheme-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

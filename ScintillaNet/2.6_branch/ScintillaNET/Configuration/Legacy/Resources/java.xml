@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="java-Default" inherit-style="Default" />
+      <style-class name="java-Comment" inherit-style="Comment" />
+      <style-class name="java-CommentLine" inherit-style="CommentLine" />
+      <style-class name="java-CommentDoc" inherit-style="CommentDoc" />
+      <style-class name="java-Number" inherit-style="Number" />
+      <style-class name="java-Word" inherit-style="Word" />
+      <style-class name="java-String" inherit-style="String" />
+      <style-class name="java-Character" inherit-style="Character" />
+      <style-class name="java-Uuid" inherit-style="Uuid" />
+      <style-class name="java-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="java-Operator" inherit-style="Operator" />
+      <style-class name="java-Identifier" inherit-style="Identifier" />
+      <style-class name="java-StringEol" inherit-style="StringEol" />
+      <style-class name="java-Verbatim" inherit-style="Verbatim" />
+      <style-class name="java-Regex" inherit-style="Regex" />
+      <style-class name="java-CommentLineDoc" inherit-style="CommentLineDoc" />
+      <style-class name="java-Word2" inherit-style="Word2" />
+      <style-class name="java-CommentDocKeyword" inherit-style="CommentDocKeyword" />
+      <style-class name="java-CommentDocKeywordError" inherit-style="CommentDocKeywordError" />
+      <style-class name="java-GlobalClass" inherit-style="GlobalClass" />
+      <style-class name="java-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="java-LineNumber" inherit-style="LineNumber" />
+      <style-class name="java-BraceLight" inherit-style="BraceLight" />
+      <style-class name="java-BraceBad" inherit-style="BraceBad" />
+      <style-class name="java-ControlChar" inherit-style="ControlChar" />
+      <style-class name="java-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="java-CallTip" inherit-style="CallTip" />
+      <style-class name="java-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="java-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="java-Primary-keywords-and-identifiers" >         
+         abstract assert boolean break byte case catch char class
+         const continue default do double else extends final finally float for future
+         generic goto if implements import inner instanceof int interface long
+         native new null outer package private protected public rest
+         return short static super switch synchronized this throw throws
+         transient try var void volatile while
+      </keyword-class>
+      <keyword-class name="java-Secondary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="java-Documentation-comment-keywords" >
+      </keyword-class>
+      <keyword-class name="java-Unused" >
+      </keyword-class>
+      <keyword-class name="java-Global-classes-and-typedefs" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="java">
+         <lexer name="Cpp" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.java *.jav</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="java-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="java-Secondary-keywords-and-identifiers"/>
+            <keyword key="2" class="java-Documentation-comment-keywords"/>
+            <keyword key="3" class="java-Unused"/>
+            <keyword key="4" class="java-Global-classes-and-typedefs"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="java-Default" />
+            <style name="Comment" class="java-Comment" />
+            <style name="CommentLine" class="java-CommentLine" />
+            <style name="CommentDoc" class="java-CommentDoc" />
+            <style name="Number" class="java-Number" />
+            <style name="Word" class="java-Word" />
+            <style name="String" class="java-String" />
+            <style name="Character" class="java-Character" />
+            <style name="Uuid" class="java-Uuid" />
+            <style name="Preprocessor" class="java-Preprocessor" />
+            <style name="Operator" class="java-Operator" />
+            <style name="Identifier" class="java-Identifier" />
+            <style name="StringEol" class="java-StringEol" />
+            <style name="Verbatim" class="java-Verbatim" />
+            <style name="Regex" class="java-Regex" />
+            <style name="CommentLineDoc" class="java-CommentLineDoc" />
+            <style name="Word2" class="java-Word2" />
+            <style name="CommentDocKeyword" class="java-CommentDocKeyword" />
+            <style name="CommentDocKeywordError" class="java-CommentDocKeywordError" />
+            <style name="GlobalClass" class="java-GlobalClass" />
+            <style name="GlobalDefault" class="java-GlobalDefault" />
+            <style name="LineNumber" class="java-LineNumber" />
+            <style name="BraceLight" class="java-BraceLight" />
+            <style name="BraceBad" class="java-BraceBad" />
+            <style name="ControlChar" class="java-ControlChar" />
+            <style name="IndentGuide" class="java-IndentGuide" />
+            <style name="CallTip" class="java-CallTip" />
+            <style name="LastPredefined" class="java-LastPredefined" />
+            <style name="Max" class="java-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

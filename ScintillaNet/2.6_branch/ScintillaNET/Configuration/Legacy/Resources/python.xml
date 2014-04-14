@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="python-Default" inherit-style="Default" />
+      <style-class name="python-CommentLine" inherit-style="CommentLine" />
+      <style-class name="python-Number" inherit-style="Number" />
+      <style-class name="python-String" inherit-style="String" />
+      <style-class name="python-Character" inherit-style="Character" />
+      <style-class name="python-Word" inherit-style="Word" />
+      <style-class name="python-Triple" inherit-style="Triple" />
+      <style-class name="python-TripleDouble" inherit-style="TripleDouble" />
+      <style-class name="python-ClassName" inherit-style="ClassName" />
+      <style-class name="python-DefName" inherit-style="DefName" />
+      <style-class name="python-Operator" inherit-style="Operator" />
+      <style-class name="python-Identifier" inherit-style="Identifier" />
+      <style-class name="python-CommentBlock" inherit-style="CommentBlock" />
+      <style-class name="python-StringEol" inherit-style="StringEol" />
+      <style-class name="python-Word2" inherit-style="Word2" />
+      <style-class name="python-Decorator" inherit-style="Decorator" />
+      <style-class name="python-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="python-LineNumber" inherit-style="LineNumber" />
+      <style-class name="python-BraceLight" inherit-style="BraceLight" />
+      <style-class name="python-BraceBad" inherit-style="BraceBad" />
+      <style-class name="python-ControlChar" inherit-style="ControlChar" />
+      <style-class name="python-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="python-CallTip" inherit-style="CallTip" />
+      <style-class name="python-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="python-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="python-Keywords" >         
+         and assert break class continue def del elif
+         else except exec finally for from global if import in is lambda None
+         not or pass print raise return try while yield
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="python">
+         <lexer name="Python" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.py *.pyw</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="python-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="python-Default" />
+            <style name="CommentLine" class="python-CommentLine" />
+            <style name="Number" class="python-Number" />
+            <style name="String" class="python-String" />
+            <style name="Character" class="python-Character" />
+            <style name="Word" class="python-Word" />
+            <style name="Triple" class="python-Triple" />
+            <style name="TripleDouble" class="python-TripleDouble" />
+            <style name="ClassName" class="python-ClassName" />
+            <style name="DefName" class="python-DefName" />
+            <style name="Operator" class="python-Operator" />
+            <style name="Identifier" class="python-Identifier" />
+            <style name="CommentBlock" class="python-CommentBlock" />
+            <style name="StringEol" class="python-StringEol" />
+            <style name="Word2" class="python-Word2" />
+            <style name="Decorator" class="python-Decorator" />
+            <style name="GlobalDefault" class="python-GlobalDefault" />
+            <style name="LineNumber" class="python-LineNumber" />
+            <style name="BraceLight" class="python-BraceLight" />
+            <style name="BraceBad" class="python-BraceBad" />
+            <style name="ControlChar" class="python-ControlChar" />
+            <style name="IndentGuide" class="python-IndentGuide" />
+            <style name="CallTip" class="python-CallTip" />
+            <style name="LastPredefined" class="python-LastPredefined" />
+            <style name="Max" class="python-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

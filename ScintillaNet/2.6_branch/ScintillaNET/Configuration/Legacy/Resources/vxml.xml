@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="vxml-Default" inherit-style="Default" />
+      <style-class name="vxml-Tag" inherit-style="Tag" />
+      <style-class name="vxml-TagUnknown" inherit-style="TagUnknown" />
+      <style-class name="vxml-Attribute" inherit-style="Attribute" />
+      <style-class name="vxml-AttributeUnknown" inherit-style="AttributeUnknown" />
+      <style-class name="vxml-Number" inherit-style="Number" />
+      <style-class name="vxml-DoubleString" inherit-style="DoubleString" />
+      <style-class name="vxml-SingleString" inherit-style="SingleString" />
+      <style-class name="vxml-Other" inherit-style="Other" />
+      <style-class name="vxml-Comment" inherit-style="Comment" />
+      <style-class name="vxml-Entity" inherit-style="Entity" />
+      <style-class name="vxml-TagEnd" inherit-style="TagEnd" />
+      <style-class name="vxml-XmlStart" inherit-style="XmlStart" />
+      <style-class name="vxml-XmlEnd" inherit-style="XmlEnd" />
+      <style-class name="vxml-Script" inherit-style="Script" />
+      <style-class name="vxml-Asp" inherit-style="Asp" />
+      <style-class name="vxml-AspAt" inherit-style="AspAt" />
+      <style-class name="vxml-CData" inherit-style="CData" />
+      <style-class name="vxml-Question" inherit-style="Question" />
+      <style-class name="vxml-Value" inherit-style="Value" />
+      <style-class name="vxml-XCComment" inherit-style="XCComment" />
+      <style-class name="vxml-SgmlDefault" inherit-style="SgmlDefault" />
+      <style-class name="vxml-SgmlCommand" inherit-style="SgmlCommand" />
+      <style-class name="vxml-SgmlSgml1stParameter" inherit-style="SgmlSgml1stParameter" />
+      <style-class name="vxml-SgmlDoubleString" inherit-style="SgmlDoubleString" />
+      <style-class name="vxml-SgmlSimpleString" inherit-style="SgmlSimpleString" />
+      <style-class name="vxml-SgmlError" inherit-style="SgmlError" />
+      <style-class name="vxml-SgmlSpecial" inherit-style="SgmlSpecial" />
+      <style-class name="vxml-SgmlEntity" inherit-style="SgmlEntity" />
+      <style-class name="vxml-SgmlComment" inherit-style="SgmlComment" />
+      <style-class name="vxml-SgmlSgml1stParameterComment" inherit-style="SgmlSgml1stParameterComment" />
+      <style-class name="vxml-SgmlBlockDefault" inherit-style="SgmlBlockDefault" />
+      <style-class name="vxml-JavaScriptStart" inherit-style="JavaScriptStart" />
+      <style-class name="vxml-JavaScriptDefault" inherit-style="JavaScriptDefault" />
+      <style-class name="vxml-JavaScriptComment" inherit-style="JavaScriptComment" />
+      <style-class name="vxml-JavaScriptCommentLine" inherit-style="JavaScriptCommentLine" />
+      <style-class name="vxml-JavaScriptCommentDoc" inherit-style="JavaScriptCommentDoc" />
+      <style-class name="vxml-JavaScriptNumber" inherit-style="JavaScriptNumber" />
+      <style-class name="vxml-JavaScriptWord" inherit-style="JavaScriptWord" />
+      <style-class name="vxml-JavaScriptKeyword" inherit-style="JavaScriptKeyword" />
+      <style-class name="vxml-JavaScriptDoubleString" inherit-style="JavaScriptDoubleString" />
+      <style-class name="vxml-JavaScriptSingleString" inherit-style="JavaScriptSingleString" />
+      <style-class name="vxml-JavaScriptSymbols" inherit-style="JavaScriptSymbols" />
+      <style-class name="vxml-JavaScriptStringEol" inherit-style="JavaScriptStringEol" />
+      <style-class name="vxml-JavaScriptRegex" inherit-style="JavaScriptRegex" />
+      <style-class name="vxml-AspJavaScriptStart" inherit-style="AspJavaScriptStart" />
+      <style-class name="vxml-AspJavaScriptDefault" inherit-style="AspJavaScriptDefault" />
+      <style-class name="vxml-AspJavaScriptComment" inherit-style="AspJavaScriptComment" />
+      <style-class name="vxml-AspJavaScriptCommentLine" inherit-style="AspJavaScriptCommentLine" />
+      <style-class name="vxml-AspJavaScriptCommentDoc" inherit-style="AspJavaScriptCommentDoc" />
+      <style-class name="vxml-AspJavaScriptNumber" inherit-style="AspJavaScriptNumber" />
+      <style-class name="vxml-AspJavaScriptWord" inherit-style="AspJavaScriptWord" />
+      <style-class name="vxml-AspJavaScriptKeyword" inherit-style="AspJavaScriptKeyword" />
+      <style-class name="vxml-AspJavaScriptDoubleString" inherit-style="AspJavaScriptDoubleString" />
+      <style-class name="vxml-AspJavaScriptSingleString" inherit-style="AspJavaScriptSingleString" />
+      <style-class name="vxml-AspJavaScriptSymbols" inherit-style="AspJavaScriptSymbols" />
+      <style-class name="vxml-AspJavaScriptStringEol" inherit-style="AspJavaScriptStringEol" />
+      <style-class name="vxml-AspJavaScriptRegex" inherit-style="AspJavaScriptRegex" />
+      <style-class name="vxml-VBScriptStart" inherit-style="VBScriptStart" />
+      <style-class name="vxml-VBScriptDefault" inherit-style="VBScriptDefault" />
+      <style-class name="vxml-VBScriptCommentLine" inherit-style="VBScriptCommentLine" />
+      <style-class name="vxml-VBScriptNumber" inherit-style="VBScriptNumber" />
+      <style-class name="vxml-VBScriptWord" inherit-style="VBScriptWord" />
+      <style-class name="vxml-VBScriptString" inherit-style="VBScriptString" />
+      <style-class name="vxml-VBScriptIdentifier" inherit-style="VBScriptIdentifier" />
+      <style-class name="vxml-VBScriptStringEol" inherit-style="VBScriptStringEol" />
+      <style-class name="vxml-AspVBScriptStart" inherit-style="AspVBScriptStart" />
+      <style-class name="vxml-AspVBScriptDefault" inherit-style="AspVBScriptDefault" />
+      <style-class name="vxml-AspVBScriptCommentLine" inherit-style="AspVBScriptCommentLine" />
+      <style-class name="vxml-AspVBScriptNumber" inherit-style="AspVBScriptNumber" />
+      <style-class name="vxml-AspVBScriptWord" inherit-style="AspVBScriptWord" />
+      <style-class name="vxml-AspVBScriptString" inherit-style="AspVBScriptString" />
+      <style-class name="vxml-AspVBScriptIdentifier" inherit-style="AspVBScriptIdentifier" />
+      <style-class name="vxml-AspVBScriptStringEol" inherit-style="AspVBScriptStringEol" />
+      <style-class name="vxml-PythonStart" inherit-style="PythonStart" />
+      <style-class name="vxml-PythonDefault" inherit-style="PythonDefault" />
+      <style-class name="vxml-PythonCommentLine" inherit-style="PythonCommentLine" />
+      <style-class name="vxml-PythonNumber" inherit-style="PythonNumber" />
+      <style-class name="vxml-PythonString" inherit-style="PythonString" />
+      <style-class name="vxml-PythonCharacter" inherit-style="PythonCharacter" />
+      <style-class name="vxml-PythonWord" inherit-style="PythonWord" />
+      <style-class name="vxml-PythonTriple" inherit-style="PythonTriple" />
+      <style-class name="vxml-PythonTripleDouble" inherit-style="PythonTripleDouble" />
+      <style-class name="vxml-PythonClassName" inherit-style="PythonClassName" />
+      <style-class name="vxml-PythonDefName" inherit-style="PythonDefName" />
+      <style-class name="vxml-PythonOperator" inherit-style="PythonOperator" />
+      <style-class name="vxml-PythonIdentifier" inherit-style="PythonIdentifier" />
+      <style-class name="vxml-PhpComplexVariable" inherit-style="PhpComplexVariable" />
+      <style-class name="vxml-AspPythonStart" inherit-style="AspPythonStart" />
+      <style-class name="vxml-AspPythonDefault" inherit-style="AspPythonDefault" />
+      <style-class name="vxml-AspPythonCommentLine" inherit-style="AspPythonCommentLine" />
+      <style-class name="vxml-AspPythonNumber" inherit-style="AspPythonNumber" />
+      <style-class name="vxml-AspPythonString" inherit-style="AspPythonString" />
+      <style-class name="vxml-AspPythonCharacter" inherit-style="AspPythonCharacter" />
+      <style-class name="vxml-AspPythonWord" inherit-style="AspPythonWord" />
+      <style-class name="vxml-AspPythonTriple" inherit-style="AspPythonTriple" />
+      <style-class name="vxml-AspPythonTripleDouble" inherit-style="AspPythonTripleDouble" />
+      <style-class name="vxml-AspPythonClassName" inherit-style="AspPythonClassName" />
+      <style-class name="vxml-AspPythonDefName" inherit-style="AspPythonDefName" />
+      <style-class name="vxml-AspPythonOperator" inherit-style="AspPythonOperator" />
+      <style-class name="vxml-AspPythonIdentifier" inherit-style="AspPythonIdentifier" />
+      <style-class name="vxml-PhpDefault" inherit-style="PhpDefault" />
+      <style-class name="vxml-PhpHString" inherit-style="PhpHString" />
+      <style-class name="vxml-PhpSimpleString" inherit-style="PhpSimpleString" />
+      <style-class name="vxml-PhpWord" inherit-style="PhpWord" />
+      <style-class name="vxml-PhpNumber" inherit-style="PhpNumber" />
+      <style-class name="vxml-PhpVariable" inherit-style="PhpVariable" />
+      <style-class name="vxml-PhpComment" inherit-style="PhpComment" />
+      <style-class name="vxml-PhpCommentLine" inherit-style="PhpCommentLine" />
+      <style-class name="vxml-PhpHstringVariable" inherit-style="PhpHstringVariable" />
+      <style-class name="vxml-PhpOperator" inherit-style="PhpOperator" />
+      <style-class name="vxml-ADefault" inherit-style="ADefault" />
+      <style-class name="vxml-AIdentifier" inherit-style="AIdentifier" />
+      <style-class name="vxml-AKeyword" inherit-style="AKeyword" />
+      <style-class name="vxml-ANumber" inherit-style="ANumber" />
+      <style-class name="vxml-AString" inherit-style="AString" />
+      <style-class name="vxml-ACharacter" inherit-style="ACharacter" />
+      <style-class name="vxml-AClass" inherit-style="AClass" />
+      <style-class name="vxml-AModule" inherit-style="AModule" />
+      <style-class name="vxml-ACapital" inherit-style="ACapital" />
+      <style-class name="vxml-AData" inherit-style="AData" />
+      <style-class name="vxml-AImport" inherit-style="AImport" />
+      <style-class name="vxml-AOperator" inherit-style="AOperator" />
+      <style-class name="vxml-AInstance" inherit-style="AInstance" />
+      <style-class name="vxml-ACommentline" inherit-style="ACommentline" />
+      <style-class name="vxml-ACommentblock" inherit-style="ACommentblock" />
+      <style-class name="vxml-ACommentblock2" inherit-style="ACommentblock2" />
+      <style-class name="vxml-ACommentblock3" inherit-style="ACommentblock3" />
+      <style-class name="vxml-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="vxml-LineNumber" inherit-style="LineNumber" />
+      <style-class name="vxml-BraceLight" inherit-style="BraceLight" />
+      <style-class name="vxml-BraceBad" inherit-style="BraceBad" />
+      <style-class name="vxml-ControlChar" inherit-style="ControlChar" />
+      <style-class name="vxml-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="vxml-CallTip" inherit-style="CallTip" />
+      <style-class name="vxml-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="vxml-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="vxml-HTML-elements-and-attributes" >         
+         assign audio block break catch choice clear disconnect else elseif \
+         emphasis enumerate error exit field filled form goto grammar help \
+         if initial link log menu meta noinput nomatch object option p paragraph \
+         param phoneme prompt property prosody record reprompt return s say-as \
+         script sentence subdialog submit throw transfer value var voice vxml
+         accept age alphabet anchor application base beep bridge category charset \
+         classid cond connecttimeout content contour count dest destexpr dtmf dtmfterm \
+         duration enctype event eventexpr expr expritem fetchtimeout finalsilence \
+         gender http-equiv id level maxage maxstale maxtime message messageexpr \
+         method mime modal mode name namelist next nextitem ph pitch range rate \
+         scope size sizeexpr skiplist slot src srcexpr sub time timeexpr timeout \
+         transferaudio type value variant version volume xml:lang public !doctype
+      </keyword-class>
+      <keyword-class name="vxml-JavaScript-keywords" >         
+         abstract boolean break byte case catch char class
+         const continue debugger default delete do double else enum export extends
+         final finally float for function goto if implements import in instanceof
+         int interface long native new package private protected public
+         return short static super switch synchronized this throw throws
+         transient try typeof var void volatile while with
+      </keyword-class>
+      <keyword-class name="vxml-VBScript-keywords" >
+      </keyword-class>
+      <keyword-class name="vxml-Python-keywords" >
+      </keyword-class>
+      <keyword-class name="vxml-PHP-keywords" >
+      </keyword-class>
+      <keyword-class name="vxml-SGML-and-DTD-keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="vxml">
+         <lexer name="HTML" style-bits="7"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.vxml</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="vxml-HTML-elements-and-attributes"/>
+            <keyword key="1" class="vxml-JavaScript-keywords"/>
+            <keyword key="2" class="vxml-VBScript-keywords"/>
+            <keyword key="3" class="vxml-Python-keywords"/>
+            <keyword key="4" class="vxml-PHP-keywords"/>
+            <keyword key="5" class="vxml-SGML-and-DTD-keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="vxml-Default" />
+            <style name="Tag" class="vxml-Tag" />
+            <style name="TagUnknown" class="vxml-TagUnknown" />
+            <style name="Attribute" class="vxml-Attribute" />
+            <style name="AttributeUnknown" class="vxml-AttributeUnknown" />
+            <style name="Number" class="vxml-Number" />
+            <style name="DoubleString" class="vxml-DoubleString" />
+            <style name="SingleString" class="vxml-SingleString" />
+            <style name="Other" class="vxml-Other" />
+            <style name="Comment" class="vxml-Comment" />
+            <style name="Entity" class="vxml-Entity" />
+            <style name="TagEnd" class="vxml-TagEnd" />
+            <style name="XmlStart" class="vxml-XmlStart" />
+            <style name="XmlEnd" class="vxml-XmlEnd" />
+            <style name="Script" class="vxml-Script" />
+            <style name="Asp" class="vxml-Asp" />
+            <style name="AspAt" class="vxml-AspAt" />
+            <style name="CData" class="vxml-CData" />
+            <style name="Question" class="vxml-Question" />
+            <style name="Value" class="vxml-Value" />
+            <style name="XCComment" class="vxml-XCComment" />
+            <style name="SgmlDefault" class="vxml-SgmlDefault" />
+            <style name="SgmlCommand" class="vxml-SgmlCommand" />
+            <style name="SgmlSgml1stParameter" class="vxml-SgmlSgml1stParameter" />
+            <style name="SgmlDoubleString" class="vxml-SgmlDoubleString" />
+            <style name="SgmlSimpleString" class="vxml-SgmlSimpleString" />
+            <style name="SgmlError" class="vxml-SgmlError" />
+            <style name="SgmlSpecial" class="vxml-SgmlSpecial" />
+            <style name="SgmlEntity" class="vxml-SgmlEntity" />
+            <style name="SgmlComment" class="vxml-SgmlComment" />
+            <style name="SgmlSgml1stParameterComment" class="vxml-SgmlSgml1stParameterComment" />
+            <style name="SgmlBlockDefault" class="vxml-SgmlBlockDefault" />
+            <style name="JavaScriptStart" class="vxml-JavaScriptStart" />
+            <style name="JavaScriptDefault" class="vxml-JavaScriptDefault" />
+            <style name="JavaScriptComment" class="vxml-JavaScriptComment" />
+            <style name="JavaScriptCommentLine" class="vxml-JavaScriptCommentLine" />
+            <style name="JavaScriptCommentDoc" class="vxml-JavaScriptCommentDoc" />
+            <style name="JavaScriptNumber" class="vxml-JavaScriptNumber" />
+            <style name="JavaScriptWord" class="vxml-JavaScriptWord" />
+            <style name="JavaScriptKeyword" class="vxml-JavaScriptKeyword" />
+            <style name="JavaScriptDoubleString" class="vxml-JavaScriptDoubleString" />
+            <style name="JavaScriptSingleString" class="vxml-JavaScriptSingleString" />
+            <style name="JavaScriptSymbols" class="vxml-JavaScriptSymbols" />
+            <style name="JavaScriptStringEol" class="vxml-JavaScriptStringEol" />
+            <style name="JavaScriptRegex" class="vxml-JavaScriptRegex" />
+            <style name="AspJavaScriptStart" class="vxml-AspJavaScriptStart" />
+            <style name="AspJavaScriptDefault" class="vxml-AspJavaScriptDefault" />
+            <style name="AspJavaScriptComment" class="vxml-AspJavaScriptComment" />
+            <style name="AspJavaScriptCommentLine" class="vxml-AspJavaScriptCommentLine" />
+            <style name="AspJavaScriptCommentDoc" class="vxml-AspJavaScriptCommentDoc" />
+            <style name="AspJavaScriptNumber" class="vxml-AspJavaScriptNumber" />
+            <style name="AspJavaScriptWord" class="vxml-AspJavaScriptWord" />
+            <style name="AspJavaScriptKeyword" class="vxml-AspJavaScriptKeyword" />
+            <style name="AspJavaScriptDoubleString" class="vxml-AspJavaScriptDoubleString" />
+            <style name="AspJavaScriptSingleString" class="vxml-AspJavaScriptSingleString" />
+            <style name="AspJavaScriptSymbols" class="vxml-AspJavaScriptSymbols" />
+            <style name="AspJavaScriptStringEol" class="vxml-AspJavaScriptStringEol" />
+            <style name="AspJavaScriptRegex" class="vxml-AspJavaScriptRegex" />
+            <style name="VBScriptStart" class="vxml-VBScriptStart" />
+            <style name="VBScriptDefault" class="vxml-VBScriptDefault" />
+            <style name="VBScriptCommentLine" class="vxml-VBScriptCommentLine" />
+            <style name="VBScriptNumber" class="vxml-VBScriptNumber" />
+            <style name="VBScriptWord" class="vxml-VBScriptWord" />
+            <style name="VBScriptString" class="vxml-VBScriptString" />
+            <style name="VBScriptIdentifier" class="vxml-VBScriptIdentifier" />
+            <style name="VBScriptStringEol" class="vxml-VBScriptStringEol" />
+            <style name="AspVBScriptStart" class="vxml-AspVBScriptStart" />
+            <style name="AspVBScriptDefault" class="vxml-AspVBScriptDefault" />
+            <style name="AspVBScriptCommentLine" class="vxml-AspVBScriptCommentLine" />
+            <style name="AspVBScriptNumber" class="vxml-AspVBScriptNumber" />
+            <style name="AspVBScriptWord" class="vxml-AspVBScriptWord" />
+            <style name="AspVBScriptString" class="vxml-AspVBScriptString" />
+            <style name="AspVBScriptIdentifier" class="vxml-AspVBScriptIdentifier" />
+            <style name="AspVBScriptStringEol" class="vxml-AspVBScriptStringEol" />
+            <style name="PythonStart" class="vxml-PythonStart" />
+            <style name="PythonDefault" class="vxml-PythonDefault" />
+            <style name="PythonCommentLine" class="vxml-PythonCommentLine" />
+            <style name="PythonNumber" class="vxml-PythonNumber" />
+            <style name="PythonString" class="vxml-PythonString" />
+            <style name="PythonCharacter" class="vxml-PythonCharacter" />
+            <style name="PythonWord" class="vxml-PythonWord" />
+            <style name="PythonTriple" class="vxml-PythonTriple" />
+            <style name="PythonTripleDouble" class="vxml-PythonTripleDouble" />
+            <style name="PythonClassName" class="vxml-PythonClassName" />
+            <style name="PythonDefName" class="vxml-PythonDefName" />
+            <style name="PythonOperator" class="vxml-PythonOperator" />
+            <style name="PythonIdentifier" class="vxml-PythonIdentifier" />
+            <style name="PhpComplexVariable" class="vxml-PhpComplexVariable" />
+            <style name="AspPythonStart" class="vxml-AspPythonStart" />
+            <style name="AspPythonDefault" class="vxml-AspPythonDefault" />
+            <style name="AspPythonCommentLine" class="vxml-AspPythonCommentLine" />
+            <style name="AspPythonNumber" class="vxml-AspPythonNumber" />
+            <style name="AspPythonString" class="vxml-AspPythonString" />
+            <style name="AspPythonCharacter" class="vxml-AspPythonCharacter" />
+            <style name="AspPythonWord" class="vxml-AspPythonWord" />
+            <style name="AspPythonTriple" class="vxml-AspPythonTriple" />
+            <style name="AspPythonTripleDouble" class="vxml-AspPythonTripleDouble" />
+            <style name="AspPythonClassName" class="vxml-AspPythonClassName" />
+            <style name="AspPythonDefName" class="vxml-AspPythonDefName" />
+            <style name="AspPythonOperator" class="vxml-AspPythonOperator" />
+            <style name="AspPythonIdentifier" class="vxml-AspPythonIdentifier" />
+            <style name="PhpDefault" class="vxml-PhpDefault" />
+            <style name="PhpHString" class="vxml-PhpHString" />
+            <style name="PhpSimpleString" class="vxml-PhpSimpleString" />
+            <style name="PhpWord" class="vxml-PhpWord" />
+            <style name="PhpNumber" class="vxml-PhpNumber" />
+            <style name="PhpVariable" class="vxml-PhpVariable" />
+            <style name="PhpComment" class="vxml-PhpComment" />
+            <style name="PhpCommentLine" class="vxml-PhpCommentLine" />
+            <style name="PhpHstringVariable" class="vxml-PhpHstringVariable" />
+            <style name="PhpOperator" class="vxml-PhpOperator" />
+            <style name="ADefault" class="vxml-ADefault" />
+            <style name="AIdentifier" class="vxml-AIdentifier" />
+            <style name="AKeyword" class="vxml-AKeyword" />
+            <style name="ANumber" class="vxml-ANumber" />
+            <style name="AString" class="vxml-AString" />
+            <style name="ACharacter" class="vxml-ACharacter" />
+            <style name="AClass" class="vxml-AClass" />
+            <style name="AModule" class="vxml-AModule" />
+            <style name="ACapital" class="vxml-ACapital" />
+            <style name="AData" class="vxml-AData" />
+            <style name="AImport" class="vxml-AImport" />
+            <style name="AOperator" class="vxml-AOperator" />
+            <style name="AInstance" class="vxml-AInstance" />
+            <style name="ACommentline" class="vxml-ACommentline" />
+            <style name="ACommentblock" class="vxml-ACommentblock" />
+            <style name="ACommentblock2" class="vxml-ACommentblock2" />
+            <style name="ACommentblock3" class="vxml-ACommentblock3" />
+            <style name="GlobalDefault" class="vxml-GlobalDefault" />
+            <style name="LineNumber" class="vxml-LineNumber" />
+            <style name="BraceLight" class="vxml-BraceLight" />
+            <style name="BraceBad" class="vxml-BraceBad" />
+            <style name="ControlChar" class="vxml-ControlChar" />
+            <style name="IndentGuide" class="vxml-IndentGuide" />
+            <style name="CallTip" class="vxml-CallTip" />
+            <style name="LastPredefined" class="vxml-LastPredefined" />
+            <style name="Max" class="vxml-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="sql-Default" inherit-style="Default" />
+      <style-class name="sql-Comment" inherit-style="Comment" />
+      <style-class name="sql-CommentLine" inherit-style="CommentLine" />
+      <style-class name="sql-CommentDoc" inherit-style="CommentDoc" />
+      <style-class name="sql-Number" inherit-style="Number" />
+      <style-class name="sql-Word" inherit-style="Word" />
+      <style-class name="sql-String" inherit-style="String" />
+      <style-class name="sql-Character" inherit-style="Character" />
+      <style-class name="sql-SqlPlus" inherit-style="SqlPlus" />
+      <style-class name="sql-SqlplusPrompt" inherit-style="SqlplusPrompt" />
+      <style-class name="sql-Operator" inherit-style="Operator" />
+      <style-class name="sql-Identifier" inherit-style="Identifier" />
+      <style-class name="sql-SqlplusComment" inherit-style="SqlplusComment" />
+      <style-class name="sql-CommentLineDoc" inherit-style="CommentLineDoc" />
+      <style-class name="sql-Word2" inherit-style="Word2" />
+      <style-class name="sql-CommentDocKeyword" inherit-style="CommentDocKeyword" />
+      <style-class name="sql-CommentDocKeywordError" inherit-style="CommentDocKeywordError" />
+      <style-class name="sql-User1" inherit-style="User1" />
+      <style-class name="sql-User2" inherit-style="User2" />
+      <style-class name="sql-User3" inherit-style="User3" />
+      <style-class name="sql-User4" inherit-style="User4" />
+      <style-class name="sql-QuotedIdentifier" inherit-style="QuotedIdentifier" />
+      <style-class name="sql-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="sql-LineNumber" inherit-style="LineNumber" />
+      <style-class name="sql-BraceLight" inherit-style="BraceLight" />
+      <style-class name="sql-BraceBad" inherit-style="BraceBad" />
+      <style-class name="sql-ControlChar" inherit-style="ControlChar" />
+      <style-class name="sql-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="sql-CallTip" inherit-style="CallTip" />
+      <style-class name="sql-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="sql-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="sql-Keywords" >         
+         absolute action add admin after aggregate
+         alias all allocate alter and any are array as asc
+         assertion at authorization
+         before begin binary bit blob boolean both breadth by
+         call cascade cascaded case cast catalog char character
+         check class clob close collate collation column commit
+         completion connect connection constraint constraints
+         constructor continue corresponding create cross cube current
+         current_date current_path current_role current_time current_timestamp
+         current_user cursor cycle
+         data date day deallocate dec decimal declare default
+         deferrable deferred delete depth deref desc describe descriptor
+         destroy destructor deterministic dictionary diagnostics disconnect
+         distinct domain double drop dynamic
+         each else end end-exec equals escape every except
+         exception exec execute external
+         false fetch first float for foreign found from free full
+         function
+         general get global go goto grant group grouping
+         having host hour
+         identity if ignore immediate in indicator initialize initially
+         inner inout input insert int integer intersect interval
+         into is isolation iterate
+         join
+         key
+         language large last lateral leading left less level like
+         limit local localtime localtimestamp locator
+         map match minute modifies modify module month
+         names national natural nchar nclob new next no none
+         not null numeric
+         object of off old on only open operation option
+         or order ordinality out outer output
+         pad parameter parameters partial path postfix precision prefix
+         preorder prepare preserve primary
+         prior privileges procedure public
+         read reads real recursive ref references referencing relative
+         restrict result return returns revoke right
+         role rollback rollup routine row rows
+         savepoint schema scroll scope search second section select
+         sequence session session_user set sets size smallint some| space
+         specific specifictype sql sqlexception sqlstate sqlwarning start
+         state statement static structure system_user
+         table temporary terminate than then time timestamp
+         timezone_hour timezone_minute to trailing transaction translation
+         treat trigger true
+         under union unique unknown
+         unnest update usage user using
+         value values varchar variable varying view
+         when whenever where with without work write
+         year
+         zone
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="sql">
+         <lexer name="SQL" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.sql</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="sql-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="sql-Default" />
+            <style name="Comment" class="sql-Comment" />
+            <style name="CommentLine" class="sql-CommentLine" />
+            <style name="CommentDoc" class="sql-CommentDoc" />
+            <style name="Number" class="sql-Number" />
+            <style name="Word" class="sql-Word" />
+            <style name="String" class="sql-String" />
+            <style name="Character" class="sql-Character" />
+            <style name="SqlPlus" class="sql-SqlPlus" />
+            <style name="SqlplusPrompt" class="sql-SqlplusPrompt" />
+            <style name="Operator" class="sql-Operator" />
+            <style name="Identifier" class="sql-Identifier" />
+            <style name="SqlplusComment" class="sql-SqlplusComment" />
+            <style name="CommentLineDoc" class="sql-CommentLineDoc" />
+            <style name="Word2" class="sql-Word2" />
+            <style name="CommentDocKeyword" class="sql-CommentDocKeyword" />
+            <style name="CommentDocKeywordError" class="sql-CommentDocKeywordError" />
+            <style name="User1" class="sql-User1" />
+            <style name="User2" class="sql-User2" />
+            <style name="User3" class="sql-User3" />
+            <style name="User4" class="sql-User4" />
+            <style name="QuotedIdentifier" class="sql-QuotedIdentifier" />
+            <style name="GlobalDefault" class="sql-GlobalDefault" />
+            <style name="LineNumber" class="sql-LineNumber" />
+            <style name="BraceLight" class="sql-BraceLight" />
+            <style name="BraceBad" class="sql-BraceBad" />
+            <style name="ControlChar" class="sql-ControlChar" />
+            <style name="IndentGuide" class="sql-IndentGuide" />
+            <style name="CallTip" class="sql-CallTip" />
+            <style name="LastPredefined" class="sql-LastPredefined" />
+            <style name="Max" class="sql-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="props-Default" inherit-style="Default" />
+      <style-class name="props-Comment" inherit-style="Comment" />
+      <style-class name="props-Section" inherit-style="Section" />
+      <style-class name="props-Assignment" inherit-style="Assignment" />
+      <style-class name="props-DefValue" inherit-style="DefValue" />
+      <style-class name="props-Key" inherit-style="Key" />
+      <style-class name="props-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="props-LineNumber" inherit-style="LineNumber" />
+      <style-class name="props-BraceLight" inherit-style="BraceLight" />
+      <style-class name="props-BraceBad" inherit-style="BraceBad" />
+      <style-class name="props-ControlChar" inherit-style="ControlChar" />
+      <style-class name="props-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="props-CallTip" inherit-style="CallTip" />
+      <style-class name="props-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="props-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="props-" >
+      </keyword-class>
+      <keyword-class name="props-Keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="props">
+         <lexer name="Properties" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.properties *.ini *.inf *.reg *.url *.cfg *.cnf *.aut *.iss</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="props-"/>
+            <keyword key="1" class="props-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="props-Default" />
+            <style name="Comment" class="props-Comment" />
+            <style name="Section" class="props-Section" />
+            <style name="Assignment" class="props-Assignment" />
+            <style name="DefValue" class="props-DefValue" />
+            <style name="Key" class="props-Key" />
+            <style name="GlobalDefault" class="props-GlobalDefault" />
+            <style name="LineNumber" class="props-LineNumber" />
+            <style name="BraceLight" class="props-BraceLight" />
+            <style name="BraceBad" class="props-BraceBad" />
+            <style name="ControlChar" class="props-ControlChar" />
+            <style name="IndentGuide" class="props-IndentGuide" />
+            <style name="CallTip" class="props-CallTip" />
+            <style name="LastPredefined" class="props-LastPredefined" />
+            <style name="Max" class="props-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

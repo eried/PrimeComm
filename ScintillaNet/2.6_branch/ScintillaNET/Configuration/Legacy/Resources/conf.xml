@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="conf-Default" inherit-style="Default" />
+      <style-class name="conf-Comment" inherit-style="Comment" />
+      <style-class name="conf-Number" inherit-style="Number" />
+      <style-class name="conf-Identifier" inherit-style="Identifier" />
+      <style-class name="conf-Extension" inherit-style="Extension" />
+      <style-class name="conf-Parameter" inherit-style="Parameter" />
+      <style-class name="conf-String" inherit-style="String" />
+      <style-class name="conf-Operator" inherit-style="Operator" />
+      <style-class name="conf-IP" inherit-style="IP" />
+      <style-class name="conf-Directive" inherit-style="Directive" />
+      <style-class name="conf-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="conf-LineNumber" inherit-style="LineNumber" />
+      <style-class name="conf-BraceLight" inherit-style="BraceLight" />
+      <style-class name="conf-BraceBad" inherit-style="BraceBad" />
+      <style-class name="conf-ControlChar" inherit-style="ControlChar" />
+      <style-class name="conf-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="conf-CallTip" inherit-style="CallTip" />
+      <style-class name="conf-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="conf-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="conf-Directives" >         
+         accessconfig accessfilename action addalt
+         addaltbyencoding addaltbytype addcharset
+         adddefaultcharset adddescription
+         addencoding addhandler addicon addiconbyencoding
+         addiconbytype addlanguage addmodule addmoduleinfo
+         addtype agentlog alias aliasmatch
+         allow allowconnect allowoverride anonymous
+         anonymous_authoritative anonymous_logemail anonymous_mustgiveemail
+         anonymous_nouserid anonymous_verifyemail authauthoritative
+         authdbauthoritative authdbgroupfile authdbmauthoritative
+         authdbmgroupfile authdbmgroupfile authdbuserfile authdbmuserfile
+         authdigestfile authgroupfile authname authtype
+         authuserfile bindaddress browsermatch browsermatchnocase
+         bs2000account cachedefaultexpire cachedirlength cachedirlevels
+         cacheforcecompletion cachegcinterval cachelastmodifiedfactor cachemaxexpire
+         cachenegotiateddocs cacheroot cachesize checkspelling
+         clearmodulelist contentdigest cookieexpires cookielog
+         cookielog cookietracking coredumpdirectory customlog
+         defaulticon defaultlanguage defaulttype define
+         deny directory directorymatch directoryindex
+         documentroot errordocument errorlog example
+         expiresactive expiresbytype expiresdefault extendedstatus
+         fancyindexing files filesmatch forcetype
+         group header headername hostnamelookups
+         identitycheck ifdefine ifmodule imapbase
+         imapdefault imapmenu include indexignore
+         indexoptions keepalive keepalivetimeout languagepriority
+         limit limitexcept limitrequestbody limitrequestfields
+         limitrequestfieldsize limitrequestline listen listenbacklog
+         loadfile loadmodule location locationmatch
+         lockfile logformat loglevel maxclients
+         maxkeepaliverequests maxrequestsperchild maxspareservers metadir
+         metafiles metasuffix mimemagicfile minspareservers
+         mmapfile namevirtualhost nocache options order
+         passenv pidfile port proxyblock proxydomain
+         proxypass proxypassreverse proxyreceivebuffersize proxyremote
+         proxyrequests proxyvia qsc readmename
+         redirect redirectmatch redirectpermanent redirecttemp
+         refererignore refererlog removehandler require
+         resourceconfig rewritebase rewritecond rewriteengine
+         rewritelock rewritelog rewriteloglevel rewritemap
+         rewriteoptions rewriterule rlimitcpu rlimitmem
+         rlimitnproc satisfy scoreboardfile script
+         scriptalias scriptaliasmatch scriptinterpretersource scriptlog
+         scriptlogbuffer scriptloglength sendbuffersize
+         serveradmin serveralias servername serverpath
+         serverroot serversignature servertokens servertype
+         setenv setenvif setenvifnocase sethandler
+         singlelisten startservers threadsperchild timeout
+         transferlog typesconfig unsetenv usecanonicalname
+         user userdir virtualhost virtualdocumentroot
+         virtualdocumentrootip virtualscriptalias virtualscriptaliasip
+         xbithack from all
+      </keyword-class>
+      <keyword-class name="conf-Parameters" >         
+         on off standalone inetd
+         force-response-1.0 downgrade-1.0 nokeepalive
+         indexes includes followsymlinks none
+         x-compress x-gzip
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="conf">
+         <lexer name="Conf" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.conf</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="conf-Directives"/>
+            <keyword key="1" class="conf-Parameters"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="conf-Default" />
+            <style name="Comment" class="conf-Comment" />
+            <style name="Number" class="conf-Number" />
+            <style name="Identifier" class="conf-Identifier" />
+            <style name="Extension" class="conf-Extension" />
+            <style name="Parameter" class="conf-Parameter" />
+            <style name="String" class="conf-String" />
+            <style name="Operator" class="conf-Operator" />
+            <style name="IP" class="conf-IP" />
+            <style name="Directive" class="conf-Directive" />
+            <style name="GlobalDefault" class="conf-GlobalDefault" />
+            <style name="LineNumber" class="conf-LineNumber" />
+            <style name="BraceLight" class="conf-BraceLight" />
+            <style name="BraceBad" class="conf-BraceBad" />
+            <style name="ControlChar" class="conf-ControlChar" />
+            <style name="IndentGuide" class="conf-IndentGuide" />
+            <style name="CallTip" class="conf-CallTip" />
+            <style name="LastPredefined" class="conf-LastPredefined" />
+            <style name="Max" class="conf-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

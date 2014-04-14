@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+  <Language Name="ruby">
+    
+    <AutoComplete FillUpCharacters=".([" SingleLineAccept="True" IsCaseSensitive="False">
+      <List>
+        =begin =end class def end else elsif when module case for do loop super initialize then begin while self break then return if rescue unless clear catch until require load alias attr_reader attr_accessor nil new true false or not in and
+      </List>
+    </AutoComplete>
+
+    <Indentation TabWidth="4" SmartIndentType="cpp" />
+
+    <Lexer LineCommentPrefix="#" StreamCommentPrefix="=begin" StreamCommentSuffix="=end" >
+      <Keywords List="0" Inherit="False">
+        =begin =end class def end else elsif when module case for do loop super initialize then begin while self break then return if rescue unless clear catch until require load alias attr_reader attr_accessor
+      </Keywords>
+      <Keywords List="1" Inherit="False">
+        nil new true false or not in and
+      </Keywords>
+    </Lexer>
+    
+    <Styles>
+      <Style Name="COMMENT	Block" ForeColor="Green" />
+      <Style Name="COMMENT" ForeColor="Green" />
+    </Styles>
+    
+  </Language>
+</ScintillaNET>

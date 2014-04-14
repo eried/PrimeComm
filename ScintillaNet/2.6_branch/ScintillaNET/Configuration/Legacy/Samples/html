@@ -1,0 +1,883 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML><HEAD><TITLE>Slashdot: News for nerds, stuff that matters</TITLE><LINK REL="top"       TITLE="News for nerds, stuff that matters" HREF="//slashdot.org/" >
+<LINK REL="search"    TITLE="Search Slashdot" HREF="//slashdot.org/search.pl">
+<LINK REL="alternate" TITLE="Slashdot RSS" HREF="//slashdot.org/index.rss" TYPE="application/rss+xml">
+<LINK REL="prev"      TITLE="Yesterday's News" HREF="//slashdot.org/index.pl?issue=20040531">
+<LINK REL="shortcut icon" HREF="/favicon.ico" TYPE="image/x-icon">
+</HEAD>
+<BODY BGCOLOR="#000000"
+	TEXT="#000000"
+	LINK="#006666" VLINK="#000000"
+	TOPMARGIN="0" LEFTMARGIN="0"
+	MARGINWIDTH="0" MARGINHEIGHT="0">
+
+
+
+
+<!-- Advertisement code. -->
+<CENTER>
+<script LANGUAGE="JAVASCRIPT">
+<!--
+document.write("<iframe style='{background-color: #FFFFFF }' type='content' id='1' name='pos1' SRC='http://ads.osdn.com/?ad_id=3469&alloc_id=8819&site_id=1&request_id=8949651' width='729' height='90' frameborder='0' border='0' MARGINWIDTH='0' MARGINHEIGHT='0' SCROLLING='no'></iframe>");
+//-->
+</SCRIPT>
+<noscript>
+<iframe style='{background-color: #FFFFFF }' id='1' type='content' name='pos1' SRC='http://ads.osdn.com/?ad_id=3469&alloc_id=8819&site_id=1&request_id=8949651' width='729' height='90' frameborder='0' border='0' MARGINWIDTH='0' MARGINHEIGHT='0' SCROLLING='no'></iframe>
+</noscript>
+
+</CENTER>
+<!-- end ad code -->
+
+
+<TABLE CELLPADDING="5" WIDTH="100%"><TR><TD>
+<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="99%" ALIGN="CENTER" BGCOLOR="#FFFFFF">
+	<TR VALIGN="MIDDLE">
+		<TD VALIGN="TOP" ALIGN="LEFT"><A HREF="//slashdot.org"><IMG SRC="//images.slashdot.org/title.gif" WIDTH="275" HEIGHT="72" ALT="Welcome to Slashdot" TITLE="Welcome to Slashdot" BORDER="0"></A></TD>
+			
+				<TD><A HREF="//slashdot.org/search.pl?topic=152"><IMG
+                SRC="//images.slashdot.org/topics/topicgraphics3.gif"
+                WIDTH="69" HEIGHT="62"
+                BORDER="0" ALT="Graphics" TITLE="Graphics"></A>
+</TD><TD><A HREF="//slashdot.org/search.pl?topic=102"><IMG
+                SRC="//images.slashdot.org/topics/topicsun.gif"
+                WIDTH="43" HEIGHT="43"
+                BORDER="0" ALT="Sun Microsystems" TITLE="Sun Microsystems"></A>
+</TD><TD><A HREF="//slashdot.org/search.pl?topic=186"><IMG
+                SRC="//images.slashdot.org/topics/topicentertainment.gif"
+                WIDTH="62" HEIGHT="44"
+                BORDER="0" ALT="Entertainment" TITLE="Entertainment"></A>
+</TD><TD><A HREF="//slashdot.org/search.pl?topic=185"><IMG
+                SRC="//images.slashdot.org/topics/topicsoftware.gif"
+                WIDTH="65" HEIGHT="65"
+                BORDER="0" ALT="Software" TITLE="Software"></A>
+</TD><TD><A HREF="//slashdot.org/search.pl?topic=111"><IMG
+                SRC="//images.slashdot.org/topics/topicspam.gif"
+                WIDTH="81" HEIGHT="64"
+                BORDER="0" ALT="Spam" TITLE="Spam"></A>
+</TD>
+			
+	</TR></TABLE>
+<TABLE WIDTH="99%" ALIGN="CENTER" CELLPADDING="0" CELLSPACING="0" BORDER="0" BGCOLOR="#FFFFFF">
+<TR>
+<TD VALIGN="top" ROWSPAN="3">
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="LEFT" width=100%>
+<TR>
+<TD>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="LEFT" width=100%>
+
+   <TR>
+      <TD bgcolor="#006666">
+      <A HREF="//slashdot.org/~His%20name%20cannot%20be%20s"><FONT color="#FFFFFF">&nbsp;His name c</FONT></A>
+      </TD>
+   </TR>
+   <TR>
+      <TD><NOBR>
+      <FONT size=2>
+      &nbsp;<A HREF="//slashdot.org/users.pl?op=edituser">Preferences</A><BR>
+      &nbsp;<A HREF="//slashdot.org/subscribe.pl">Subscribe</A><BR>
+      &nbsp;<A HREF="//slashdot.org/~His%20name%20cannot%20be%20s/journal/">Journal</A><BR>
+      &nbsp;<A HREF="//slashdot.org/my/logout">Logout</A><BR><BR>
+      </FONT>
+      </NOBR>
+      </TD>
+   </TR>
+
+   <TR>
+      <TD bgcolor="#006666"><FONT color="#FFFFFF">&nbsp;Sections</FONT></TD>
+   </TR>
+<TR><TD BGCOLOR=#CCCCCC><FONT SIZE="3">
+&nbsp;<B><A HREF="//slashdot.org">Main</A></B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//apache.slashdot.org">Apache</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//apple.slashdot.org">Apple</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//ask.slashdot.org">Askslashdot</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>2 more</B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//books.slashdot.org">Books</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//bsd.slashdot.org">BSD</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//developers.slashdot.org">Developers</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>5 more</B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//games.slashdot.org">Games</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>10 more</B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//interviews.slashdot.org">Interviews</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//science.slashdot.org">Science</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>1 more</B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//yro.slashdot.org">YRO</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>1 more</B></FONT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+   <TR>
+      <TD bgcolor="#006666"><FONT color="#FFFFFF">&nbsp;Help</FONT></TD>
+   </TR>
+   <TR>
+      <TD><NOBR><FONT size=2>
+      &nbsp;<A HREF="//slashdot.org/faq/">FAQ</A><BR>
+      &nbsp;<A HREF="http://sourceforge.net/tracker/?func=add&group_id=4421&atid=104421">Bugs</A><BR><BR>
+      </FONT></NOBR></TD>
+   </TR>
+   <TR>
+      <TD bgcolor="#006666"><FONT color="#FFFFFF">&nbsp;Stories</FONT></TD>
+   </TR>
+   <TR>
+      <TD><NOBR><FONT size=2>
+      &nbsp;<A HREF="//slashdot.org/search.pl">Old Stories</A><BR>
+      &nbsp;<A HREF="//polls.slashdot.org">Old Polls</A><BR> 
+      &nbsp;<A HREF="//slashdot.org/topics.shtml">Topics</A><BR> 
+      &nbsp;<A HREF="//slashdot.org/hof.shtml">Hall of Fame</A><BR> 
+      &nbsp;<A HREF="//slashdot.org/submit.pl">Submit Story</A><BR><BR>
+      </FONT></NOBR></TD>
+   </TR>
+   <TR>
+       <TD bgcolor="#006666">&nbsp;<A HREF="//slashdot.org/about.shtml"><FONT color="#FFFFFF">About</FONT></A></TD>
+   </TR>
+   <TR>
+       <TD><NOBR><FONT size=2>
+       &nbsp;<A HREF="//slashdot.org/supporters.shtml">Supporters</A><BR>
+       &nbsp;<A HREF="//slashdot.org/code.shtml">Code</A><BR>
+       &nbsp;<A HREF="//slashdot.org/awards.shtml">Awards</A><BR><BR>
+       </font></NOBR></TD>
+   </TR>
+   <TR>
+       <TD bgcolor="#006666"><FONT color="#FFFFFF">&nbsp;Services</FONT></TD>
+   </TR>
+   <TR>
+       <TD><NOBR><FONT size=2>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=f1e11bb33b295301768c6a3a7e506a76">Broadband</A><BR>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=ca012e7d966d8df8daa45eab7fb8ac16">Online Books</A><BR>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=5698263263f8466f3709fd92f355367f">PriceGrabber</A><BR>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=a27a66150282ba2c8d94d57fabaf3e58">Product News</A><BR>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=61cb6456ff2d4376bb13b2393e08a086">Tech Jobs</A><BR>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=262b39a2782c8959d284a5d6403c23f5">IT Research</A><BR>
+	<BR>
+       </FONT></NOBR></TD>
+   </TR>
+</TABLE>
+</TD>
+<TD>
+	<IMG SRC="//images.slashdot.org/pix.gif" WIDTH="5" HEIGHT="1" BORDER="0" ALT="">
+</TD>
+</TR>
+</TABLE>
+
+
+
+	</TD>
+
+	<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="100%" HEIGHT="1">Have you <B><A HREF="//slashdot.org/metamod.pl">Meta Moderated</A></B> recently?
+Regular Meta Moderators are more likely to get mod points.<BR>
+
+
+
+
+
+	
+
+
+
+The next Slashdot
+story will be ready soon, but
+<A HREF="//slashdot.org/subscribe.pl">subscribers</A>
+can beat the rush and
+<A HREF="//slashdot.org/faq/subscriptions.shtml#ss1600">see it early</A>!<P>
+
+
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//books.slashdot.org/"><FONT COLOR="#FFFFFF">Book Reviews</FONT></A>: GPU Gems</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=152">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicgraphics3.gif"
+			WIDTH="69" HEIGHT="62" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Graphics"
+			TITLE="Graphics"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Tuesday June 01, @12:10PM</B><BR>
+<FONT SIZE="2"><B>from the shiny dept.</B></FONT><BR>
+<A HREF="mailto:martin.ecker@liwest.at">Martin Ecker</A> writes <i>"Following other entrants in the successful series of graphics and game programming-related "Gems" books, Randima Fernando of NVIDIA has recently released <cite>GPU Gems - Programming Techniques, Tips, and Tricks for Real-Time Graphics</cite> through Addison- Wesley. As the title indicates, <cite>GPU Gems</cite> contains a collection of tips and tricks for real-time graphics programming with graphics processing units (GPUs) that are found on modern graphics adapters."</i> Read on for the rest of Ecker's review, and for a few more notes on the book.
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//books.slashdot.org/article.pl?sid=04/06/01/1120217&amp;mode=flat&amp;tid=152&amp;tid=185"><B>Read More...</B></A>
+
+ | 
+
+<A HREF="//books.slashdot.org/article.pl?sid=04/06/01/1120217&amp;mode=nocomment&amp;tid=152&amp;tid=185">9080 bytes in body</A>
+
+ | 
+<B><A HREF="//books.slashdot.org/article.pl?sid=04/06/01/1120217&amp;mode=flat&amp;tid=152&amp;tid=185&amp;threshold=2">12</A> of <A HREF="//books.slashdot.org/article.pl?sid=04/06/01/1120217&amp;mode=flat&amp;tid=152&amp;tid=185&amp;threshold=-1">32</A></B> comments
+ | 
+
+<A HREF="//books.slashdot.org/">books.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Sun Says Hardware Will Be Free</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=102">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicsun.gif"
+			WIDTH="43" HEIGHT="43" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Sun Microsystems"
+			TITLE="Sun Microsystems"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://slashdot.org/">michael</A>
+on Tuesday June 01, @11:29AM</B><BR>
+<FONT SIZE="2"><B>from the sun-hardware-overpriced-anyway dept.</B></FONT><BR>
+<A HREF="mailto:sdot@cheapcomplWELTYexdevices.com minus aut">ron_ivi</A> writes <i>"Reuters reports that Sun's President and COO thinks <A HREF="http://www.reuters.com/newsArticle.jhtml?type=technologyNews&amp;storyID=5304507">hardware will be free</a> and that people will pay for software subscriptions instead.  Reuters quotes Schwartz: 'In our world, you will subscribe to the software and the hardware is free.' 'Directionally, our expectation is that in fiscal 2005 you're going to see a rapid departure from selling hardware, software and services apart.' 'Bill Gates and I agree that within four to five years hardware will be free.'  We've recently read <A HREF="//slashdot.org/article.pl?sid=04/03/30/1346246&tid=109">here on<nobr> <wbr></nobr>/.</a> how Gates thinks hardware will be free."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1627236&amp;mode=flat&amp;tid=102&amp;tid=137&amp;tid=187"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1627236&amp;mode=flat&amp;tid=102&amp;tid=137&amp;tid=187&amp;threshold=2">244</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1627236&amp;mode=flat&amp;tid=102&amp;tid=137&amp;tid=187&amp;threshold=-1">447</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>The Thermochemical Joy of Cooking</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=186">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicentertainment.gif"
+			WIDTH="62" HEIGHT="44" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Entertainment"
+			TITLE="Entertainment"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://slashdot.org/">michael</A>
+on Tuesday June 01, @10:49AM</B><BR>
+<FONT SIZE="2"><B>from the crispy-on-the-outside dept.</B></FONT><BR>
+<A HREF="http://www.celsius1414.com/">daeley</A> writes <i>"Wired has a feature on Alton Brown, host of FoodNetwork's Good Eats and favorite chef of geek foodies everywhere: <A HREF="http://www.wired.com/wired/archive/12.06/cooking.html">The Thermochemical Joy of Cooking</a>.  AB has <A HREF="http://www.altonbrown.com/">his own website</a>, of course, and <A HREF="http://www.altonbrown.com/pages/rants.html">his own blog</a>, of course. (If you are familiar with Alton's distinctive delivery, you can hear his voice as you read. My only complaint is that he doesn't write anywhere near often enough.) He's also been <A HREF="//interviews.slashdot.org/article.pl?sid=02/09/12/1241242&tid=129">interviewed on Slashdot</a>.  From the Wired article: 'Brown, 41, is a culinary hacker, the poster boy for a movement that's coming to a boil in kitchens across America. The essence: Cooking is a science, not an art, informed by chemistry, physics, and biology. "Everything in food is science," Brown says. "The only subjective part is when you eat it."'"</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/165222&amp;mode=flat&amp;tid=186"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/165222&amp;mode=flat&amp;tid=186&amp;threshold=2">100</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/165222&amp;mode=flat&amp;tid=186&amp;threshold=-1">193</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Second quarter Open Source Awards announced</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=185">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicsoftware.gif"
+			WIDTH="65" HEIGHT="65" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Software"
+			TITLE="Software"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://cmdrtaco.net/">CmdrTaco</A>
+on Tuesday June 01, @10:08AM</B><BR>
+<FONT SIZE="2"><B>from the cough-up-some-cash dept.</B></FONT><BR>
+<A HREF="mailto:slashdot.jgc@org">JohnGrahamCumming</A> writes <i>"The <A HREF="http://www.opensource.org/">Open Source Initiative</a> has announced its Q2 award winners <A HREF="http://www.opensource.org/osa/awards.php">here</a>.  Three people/projects got $500 Merit Awards: Martin Pool for distcc, Tom Lord for GNU Arch and The GIMP.  OSI is currently looking for <A HREF="http://www.opensource.org/osa/nominations.php">nominations</a> for the Q3 awards to be announced at OSCON."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1454212&amp;mode=flat&amp;tid=185&amp;tid=98&amp;tid=99"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1454212&amp;mode=flat&amp;tid=185&amp;tid=98&amp;tid=99&amp;threshold=2">29</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1454212&amp;mode=flat&amp;tid=185&amp;tid=98&amp;tid=99&amp;threshold=-1">71</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>NYT on Spam Cops</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=111">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicspam.gif"
+			WIDTH="81" HEIGHT="64" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Spam"
+			TITLE="Spam"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://cmdrtaco.net/">CmdrTaco</A>
+on Tuesday June 01, @09:25AM</B><BR>
+<FONT SIZE="2"><B>from the game-is-on dept.</B></FONT><BR>
+<A HREF="http://yacoward AT yahoo DOT com">yet another coward</A> writes <i>"The New York Times reports on <A HREF="http://www.nytimes.com/2004/05/31/technology/31spam.html">new measures against spam</A>. (Sperm sample required, sorry ladies) Microsoft has increased efforts to track and prosecute spammers. Hotmail receives 2 billion (2 * 10^9) spam messages per day. In a twist of weirdness, the <A HREF="http://www.the-dma.org/">Direct Marketing Association</a> is funding investigators who cooperate with the <A HREF="http://www.fbi.gov/">FBI</a> on spam investigations. <A HREF="http://www.spamhaus.org/">Spamhaus</a> also gets a mention."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1427215&amp;mode=flat&amp;tid=111&amp;tid=126"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1427215&amp;mode=flat&amp;tid=111&amp;tid=126&amp;threshold=2">96</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1427215&amp;mode=flat&amp;tid=111&amp;tid=126&amp;threshold=-1">169</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Night Vision Goggles vs Pirates</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=97">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicmovies.gif"
+			WIDTH="50" HEIGHT="50" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Movies"
+			TITLE="Movies"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://cmdrtaco.net/">CmdrTaco</A>
+on Tuesday June 01, @08:53AM</B><BR>
+<FONT SIZE="2"><B>from the stylish-fashion-accesories dept.</B></FONT><BR>
+Cormorant writes <i>"It was reported in The Guardian that Warner Brothers has <A HREF="http://www.guardian.co.uk/uk_news/story/0,3604,1228203,00.html">sent night vision goggles to cinemas</A> across Britain for ushers to don and scan for camcorder pirates during the entire length of the movie [the new Harry Potter], along with watermarks and codes displayed on screen during the film. Mr Graham said "Video piracy is rife everywhere, and with the UK screening the film four days before the rest of the world, Warner was concerned the movie would end up on the internet. Warner sees the investment as negligible compared with the threat to the whole industry."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1424204&amp;mode=flat&amp;tid=188&amp;tid=97"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1424204&amp;mode=flat&amp;tid=188&amp;tid=97&amp;threshold=2">292</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1424204&amp;mode=flat&amp;tid=188&amp;tid=97&amp;threshold=-1">517</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>CNN Notices that WiFi is Insecure</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=193">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicwireless.gif"
+			WIDTH="37" HEIGHT="77" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Wireless Networking"
+			TITLE="Wireless Networking"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://cmdrtaco.net/">CmdrTaco</A>
+on Tuesday June 01, @08:21AM</B><BR>
+<FONT SIZE="2"><B>from the caught-with-your-pants-down dept.</B></FONT><BR>
+josh3736 writes <i>"From CNN comes an article that makes painstakingly obvious to the public what we already knew: <A HREF="http://www.cnn.com/2004/TECH/05/31/wi.fisecurity.ap/index.html">802.11 security is horrible</A>.  The article points out that nearly 40% of wireless network APs haven't even been changed from defaults and as many as 80% of home APs have encryption disabled.  The article goes on to say that '[t]o make matters worse, users who don't secure their networks are often the very people who don't keep their computers up to date with the latest security patches and antivirus software.'  It also accuses WiFi manufacturers of disabling security measures by default to make wireless easy to the lowest common denominator.  My favorite quote? 'Experts say that while Wi-Fi hardware makers have made initial setup easy, the enabling of security is anything but. Meanwhile, average users are no longer tech savvy.'  Which is to say that they at one point were?"</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1341235&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=172&amp;tid=193"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1341235&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=172&amp;tid=193&amp;threshold=2">198</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1341235&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=172&amp;tid=193&amp;threshold=-1">330</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Stallman vs Ken Brown</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=106">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topiclinux.gif"
+			WIDTH="60" HEIGHT="70" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Linux"
+			TITLE="Linux"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://cmdrtaco.net/">CmdrTaco</A>
+on Tuesday June 01, @07:51AM</B><BR>
+<FONT SIZE="2"><B>from the throw-down-the-gloves dept.</B></FONT><BR>
+An anonymous reader writes <i>"Richard Stallman has become <A HREF="http://www.linuxinsider.com/story/34069.html">the latest person to speak-out</a> about <A HREF="//slashdot.org/article.pl?sid=04/05/28/151257&tid=106">Ken Brown's "independent" study of Linux</a>, which accuses it of being a Minix/Unix rip-off. Stallman says Brown deliberately confused the Linux kernel vs the GNU project, although I suspect Brown simply didn't know enough to be able to differentiate between the two."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1332258&amp;mode=flat&amp;tid=106&amp;tid=185"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1332258&amp;mode=flat&amp;tid=106&amp;tid=185&amp;threshold=2">122</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1332258&amp;mode=flat&amp;tid=106&amp;tid=185&amp;threshold=-1">218</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Sony Exits US Handheld Market</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=100">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicpilot.gif"
+			WIDTH="55" HEIGHT="75" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Handhelds"
+			TITLE="Handhelds"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://cmdrtaco.net/">CmdrTaco</A>
+on Tuesday June 01, @07:17AM</B><BR>
+<FONT SIZE="2"><B>from the end-of-the-clie dept.</B></FONT><BR>
+10999 writes <i>"Today <A HREF="http://www.brighthand.com/">Brighthand</a> reports that <A HREF="http://www.brighthand.com/article/sayonara_clie">Sony will no longer develop and sell Clie handheld models to the United States market</a>.
+Most certainly that means no more Clies for Europe, too."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1227240&amp;mode=flat&amp;tid=100&amp;tid=137"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1227240&amp;mode=flat&amp;tid=100&amp;tid=137&amp;threshold=2">110</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1227240&amp;mode=flat&amp;tid=100&amp;tid=137&amp;threshold=-1">195</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>AMD's Socket 939, Athlon 64 FX-54 amd 64 3800+</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=137">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topichardware.gif"
+			WIDTH="57" HEIGHT="57" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Hardware"
+			TITLE="Hardware"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://cmdrtaco.net/">CmdrTaco</A>
+on Tuesday June 01, @06:53AM</B><BR>
+<FONT SIZE="2"><B>from the thats-a-lotta-digits dept.</B></FONT><BR>
+BudKnight writes <i>"It looks like AMD is launching four new desktop processors, a new core, and
+a new socket infrastructure today.
+<A HREF="http://www.hothardware.com/viewarticle.cfm?articleid=531&amp;cid=1">HotHardware has tested AMD's two new
+flagship processors</a>, the Athlon 64 FX-53 and the Athlon 64 3800+. The new
+FX-53 no longer needs registered memory to function and the 3800+ has only 512K
+of cache, but it gets an upgraded 128-bit memory controller. The usual
+suspects also have reviews posted as well -
+<A HREF="http://techreport.com/reviews/2004q2/athlon64-3800/index.x?pg=1">TechReport</a>,
+<A HREF="http://www.hardocp.com/article.html?art=NjI2">Hard|OCP</a>,
+<A HREF="http://www.beyond3d.com/reviews/amd/939/">Beyond3D</a> - more
+are sure to follow."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1214217&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=142&amp;tid=187"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1214217&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=142&amp;tid=187&amp;threshold=2">69</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1214217&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=142&amp;tid=187&amp;threshold=-1">126</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Colossus has been Rebuilt</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=93">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicencryption.gif"
+			WIDTH="80" HEIGHT="63" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Encryption"
+			TITLE="Encryption"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://cmdrtaco.net/">CmdrTaco</A>
+on Tuesday June 01, @06:22AM</B><BR>
+<FONT SIZE="2"><B>from the no-not-the-one-in-sardia dept.</B></FONT><BR>
+Max Driver writes <i>"In celebration of D-Day, "Colossus", one of the earliest electronic code-breaking machines, has been rebuilt after ten years of effort by computer conservationists. Colossus was used to break the <A HREF="http://www.codesandciphers.org.uk/lorenz/fish.htm">Lorenz cipher</a>. This story is being reported by the <A HREF="http://news.bbc.co.uk/1/hi/technology/3754887.stm">BBC</a>. Remarkably, the use of parallel processing (five tape channels) and short gate delay time (1.2 microseconds) allows the Colossus to match the speed of a modern PC."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/1153215&amp;mode=flat&amp;tid=126&amp;tid=172&amp;tid=93"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/1153215&amp;mode=flat&amp;tid=126&amp;tid=172&amp;tid=93&amp;threshold=2">100</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/1153215&amp;mode=flat&amp;tid=126&amp;tid=172&amp;tid=93&amp;threshold=-1">231</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Hacking the Linksys WRT54G</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=193">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicwireless.gif"
+			WIDTH="37" HEIGHT="77" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Wireless Networking"
+			TITLE="Wireless Networking"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Tuesday June 01, @05:42AM</B><BR>
+<FONT SIZE="2"><B>from the go-forth-and-multiply-them dept.</B></FONT><BR>
+<A HREF="http://www.gadgetdoc.com">knightrdr</A> writes <i>"Robert X. Cringely has posted an interesting <A HREF="http://www.pbs.org/cringely/pulpit/pulpit20040527.html">article on the PBS web site</a> about modifying the <A HREF="http://www.linksys.com/products/product.asp?prid=508&amp;scid=35">Linksys WRT54G</a> wireless G broadband router to build a wireless layer on top of the Internet. He argues that with as little as a $70 investment per node, the <A HREF="http://sveasoft.cyberemail.org/">Sveasoft WRT54G Firmware</a> could be the first in a line of many wireless devices to enable a giant leap forward for the Internet."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/06/01/0640250&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=193&amp;tid=215&amp;tid=95"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/06/01/0640250&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=193&amp;tid=215&amp;tid=95&amp;threshold=2">71</A> of <A HREF="//slashdot.org/article.pl?sid=04/06/01/0640250&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=193&amp;tid=215&amp;tid=95&amp;threshold=-1">161</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//science.slashdot.org/"><FONT COLOR="#FFFFFF">Science</FONT></A>: ESA Completes Important Step Toward Vega Launcher</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=160">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicspace.gif"
+			WIDTH="73" HEIGHT="59" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Space"
+			TITLE="Space"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Tuesday June 01, @02:32AM</B><BR>
+<FONT SIZE="2"><B>from the like-capsela dept.</B></FONT><BR>
+<A HREF="http://www.pkf107.no/">Sven-Erik</A> writes <i>"<A HREF="http://www.esa.int/">ESA</a> is <A HREF="http://www.esa.int/esaCP/SEMXU42VQUD_index_0.html">reporting</a> that 'An important step forward has just been made in the development of ESA&#146;s <A HREF="http://www.esa.int/SPECIALS/Launchers_Access_to_Space/SEMH3E67ESD_0.html">Vega launcher</a>. After several months' work at the Guiana Propellant Plant at <A HREF="http://www.esa.int/SPECIALS/Launchers_Europe_s_Spaceport/index.html">Europe&#146;s Spaceport</a> the inert casting of the main Vega motor has been successfully carried out.' The 30-meter tall Vega launcher will be capable of placing a 1.5 ton payload into polar orbit, and it is scheduled for its first launch in 2006 from Europe's Spaceport in French Guiana, where the Ariane 1 launch facilities are being adapted for its use. It will be a perfect complement to ESA's large <A HREF="http://www.esa.int/SPECIALS/Launchers_Access_to_Space/ASEVLU0TCNC_0.html">Ariane 5</a> and the medium-classed <A HREF="http://www.esa.int/SPECIALS/Launchers_Access_to_Space/SEMQ5P57ESD_0.html">Soyuz</a>."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//science.slashdot.org/article.pl?sid=04/05/31/2333255&amp;mode=flat&amp;tid=126&amp;tid=134&amp;tid=160"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//science.slashdot.org/article.pl?sid=04/05/31/2333255&amp;mode=flat&amp;tid=126&amp;tid=134&amp;tid=160&amp;threshold=2">74</A> of <A HREF="//science.slashdot.org/article.pl?sid=04/05/31/2333255&amp;mode=flat&amp;tid=126&amp;tid=134&amp;tid=160&amp;threshold=-1">129</A></B> comments
+ | 
+
+<A HREF="//science.slashdot.org/">science.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Robots That Serve Beyond The Vacuum</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=216">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicrobotics.gif"
+			WIDTH="40" HEIGHT="77" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Robotics"
+			TITLE="Robotics"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday May 31, @11:35PM</B><BR>
+<FONT SIZE="2"><B>from the alt-title-robots-that-don't-suck dept.</B></FONT><BR>
+<A HREF="http://www.mobilerobotics.org">Tim Brown of Mobile Robotics</A> writes <i>"While everyone has been debating the abilities of new robotic vacuum cleaners and their varying price tags, Siemens has quietly announced they have developed a 'Dressman' robot that will <A HREF="http://www.innovations-report.com/html/reports/process_engineering/report-29650.html">iron your clothes!</a> (my least favorite household chore).  Rumoured to be priced at US$1700 it seems expensive for an iron. But it appears that the Roomba's best work might be that it is ushering in a new era of innovation in home products. (Note very cool picture with the article.)"</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/05/31/2159238&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=216"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/05/31/2159238&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=216&amp;threshold=2">108</A> of <A HREF="//slashdot.org/article.pl?sid=04/05/31/2159238&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=216&amp;threshold=-1">237</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>OLED Displays Technology Primer and Forecasting</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+	<A HREF="//slashdot.org/search.pl?topic=196">
+		
+		<IMG
+			SRC="//images.slashdot.org/topics/topicmonitors.gif"
+			WIDTH="52" HEIGHT="53" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Displays"
+			TITLE="Displays"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday May 31, @08:42PM</B><BR>
+<FONT SIZE="2"><B>from the why-clarita-you're-positively-glowing dept.</B></FONT><BR>
+<A HREF="mailto:cdeboer@sc.rr.com">HawKe</A> writes <i>"OLEDs are <A HREF="http://www.audioholics.com/news/industry/kodak_OLED_materials_pr.htm">back in the news</a> and Audioholics reports on <A HREF="http://www.audioholics.com/techtips/specsformats/organic_OLEDs_1.htm">what makes the technology so special</a> as well as who leads the pack in currently shipping products, vaporware, and displays that are on the horizon. The crux of the matter is whether or not OLEDs, the "eco-friendly" choice, can outpace current LCD and plasma display advances. In order to enter and dominate the home theater and computer display markets, they must not only establish themselves, but also beat the leaders in price and performance."</i>
+
+
+
+
+
+
+	<P><!--#perl sub="sub { use Slash; print Slash::getAd(6, 0); }" --><P><B>(</B>
+
+<A HREF="//slashdot.org/article.pl?sid=04/05/31/2238208&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=196"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/article.pl?sid=04/05/31/2238208&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=196&amp;threshold=2">88</A> of <A HREF="//slashdot.org/article.pl?sid=04/05/31/2238208&amp;mode=flat&amp;tid=126&amp;tid=137&amp;tid=196&amp;threshold=-1">174</A></B> comments
+
+
+				<B>)</B></P>&lt;&nbsp; 
+
+<a href="//slashdot.org/index.pl?issue=20040531">Yesterday's News</a>
+
+ &nbsp;&gt;
+
+
+
+
+</FONT>
+</TD>
+
+<TD>
+       <IMG SRC="//images.slashdot.org/pix.gif" WIDTH="5" HEIGHT="1" BORDER="0" ALT=" ">
+</TD></TR>
+<TR><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+
+
+</TABLE>
+
+<TABLE WIDTH="99%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="CENTER" BGCOLOR="#FFFFFF">
+	<TR>
+		<TD COLSPAN="4" ALIGN="CENTER"><IMG SRC="//images.slashdot.org/greendot.gif" ALT="" WIDTH="100%" HEIGHT="1" VSPACE="5"></TD>
+	</TR>
+	<TR>
+		<TD ALIGN="CENTER">
+<FONT SIZE="2" FACE="arial,helvetica">
+
+  <FORM METHOD="GET" ACTION="//slashdot.org/search.pl">
+         <INPUT TYPE="TEXT" NAME="query" VALUE="" SIZE="20">
+        <INPUT TYPE="SUBMIT" VALUE="Search">
+  </FORM>
+
+  </FONT>
+</TD>
+		<TD BGCOLOR="#ffffff" WIDTH="25"> &nbsp; </TD>
+		<TD ALIGN="CENTER">
+
+<FONT SIZE="2" FACE="arial,helvetica"><I>Idiot glee  (?)</I></FONT>
+
+		</TD></TR>
+		<TR><TD ALIGN="CENTER" COLSPAN="4">
+			<FONT size=1 color="#006666" face="arial,helvetica">
+
+
+<!-- image audit code -->
+<script LANGUAGE="JAVASCRIPT">
+<!--
+now = new Date();
+tail = now.getTime();
+document.write("<IMG SRC='//images-aud.slashdot.org/pc.gif?l,");
+document.write(tail);
+document.write("' WIDTH=1 HEIGHT=1 BORDER=0 ALT=' '>");
+//-->
+</SCRIPT>
+<noscript>
+<IMG SRC='//images-aud.slashdot.org/pc.gif?l,267' WIDTH=1 HEIGHT=1 BORDER=0 ALT=' '>
+</noscript>
+<!-- end audit code -->
+
+
+ All trademarks and copyrights on this
+  page are owned by their respective owners.  Comments
+  are owned by the Poster.
+  The Rest &copy; 1997-2004 <A href="http://www.osdn.com/">OSDN</A>.
+</FONT>
+             </TD>
+			</TR></TABLE>
+
+<CENTER>
+	<FONT SIZE="2" COLOR="#006666"> [
+		<A HREF="//slashdot.org/"><FONT COLOR="#FFFFFF">home</FONT></A> |
+		<A HREF="//slashdot.org/awards.shtml"><FONT COLOR="#FFFFFF">awards</FONT></A> |
+		<A HREF="//slashdot.org/submit.pl"><FONT COLOR="#FFFFFF">contribute story</FONT></A> |
+		<A HREF="//slashdot.org/search.pl"><FONT COLOR="#FFFFFF">older articles</FONT></A> |
+		<A HREF="http://www.osdn.com/"><FONT COLOR="#FFFFFF">OSDN</FONT></A> |
+		<A HREF="http://www.osdn.com/advertising/"><FONT COLOR="#FFFFFF">advertise</FONT></A> |
+		<A HREF="http://selfserve.osdn.com/introduction.html"><FONT COLOR="#FFFFFF">self serve ad system</FONT></A> |
+		<A HREF="//slashdot.org/about.shtml"><FONT COLOR="#FFFFFF">about</FONT></A> |
+		<A HREF="http://www.osdn.com/terms.shtml"><FONT COLOR="#FFFFFF">terms of service</FONT></A> |
+		<A HREF="http://osdn.com/privacy.shtml"><FONT COLOR="#FFFFFF">privacy</FONT></A> |
+		<A HREF="//slashdot.org/faq/"><FONT COLOR="#FFFFFF">faq</FONT></A> |
+		<A HREF="//slashdot.org/index.rss"><FONT COLOR="#FFFFFF">rss</FONT></A> ]
+	</FONT>
+</CENTER>
+</TD></TR></TABLE>
+</BODY>
+</HTML>

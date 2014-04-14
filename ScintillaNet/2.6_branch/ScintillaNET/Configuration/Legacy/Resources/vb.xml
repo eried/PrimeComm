@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="vb-Default" inherit-style="Default" />
+      <style-class name="vb-Comment" inherit-style="Comment" />
+      <style-class name="vb-Number" inherit-style="Number" />
+      <style-class name="vb-Keyword" inherit-style="Keyword" />
+      <style-class name="vb-String" inherit-style="String" />
+      <style-class name="vb-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="vb-Operator" inherit-style="Operator" />
+      <style-class name="vb-Identifier" inherit-style="Identifier" />
+      <style-class name="vb-Date" inherit-style="Date" />
+      <style-class name="vb-StringEol" inherit-style="StringEol" />
+      <style-class name="vb-Keyword2" inherit-style="Keyword2" />
+      <style-class name="vb-Keyword3" inherit-style="Keyword3" />
+      <style-class name="vb-Keyword4" inherit-style="Keyword4" />
+      <style-class name="vb-Constant" inherit-style="Constant" />
+      <style-class name="vb-Asm" inherit-style="Asm" />
+      <style-class name="vb-Label" inherit-style="Label" />
+      <style-class name="vb-Error" inherit-style="Error" />
+      <style-class name="vb-HexNumber" inherit-style="HexNumber" />
+      <style-class name="vb-BinNumber" inherit-style="BinNumber" />
+      <style-class name="vb-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="vb-LineNumber" inherit-style="LineNumber" />
+      <style-class name="vb-BraceLight" inherit-style="BraceLight" />
+      <style-class name="vb-BraceBad" inherit-style="BraceBad" />
+      <style-class name="vb-ControlChar" inherit-style="ControlChar" />
+      <style-class name="vb-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="vb-CallTip" inherit-style="CallTip" />
+      <style-class name="vb-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="vb-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="vb-Keywords" >         
+         addhandler addressof andalso alias and ansi as assembly auto boolean
+         byref byte byval call case catch cbool cbyte cchar cdate cdec cdbl char cint class
+         clng cobj const cshort csng cstr ctype date decimal declare default delegate dim do double
+         each else elseif end enum erase error event exit false finally for friend function get
+         gettype goto  handles if implements imports in inherits integer interface is let lib like long
+         loop me mod module mustinherit mustoverride mybase myclass namespace new
+         next not nothing notinheritable notoverridable object on option optional or
+         orelse overloads overridable overrides paramarray preserve private property protected public
+         raiseevent readonly redim rem removehandler resume return select set shadows
+         shared short single static step stop string structure sub synclock then throw to true try
+         typeof unicode until variant when while with withevents writeonly xor
+      </keyword-class>
+      <keyword-class name="vb-User1" >
+      </keyword-class>
+      <keyword-class name="vb-User2" >
+      </keyword-class>
+      <keyword-class name="vb-User3" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="vb">
+         <lexer name="VB" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.vb *.bas *.frm *.cls *.ctl *.pag *.dsr *.dob</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="vb-Keywords"/>
+            <keyword key="1" class="vb-User1"/>
+            <keyword key="2" class="vb-User2"/>
+            <keyword key="3" class="vb-User3"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="vb-Default" />
+            <style name="Comment" class="vb-Comment" />
+            <style name="Number" class="vb-Number" />
+            <style name="Keyword" class="vb-Keyword" />
+            <style name="String" class="vb-String" />
+            <style name="Preprocessor" class="vb-Preprocessor" />
+            <style name="Operator" class="vb-Operator" />
+            <style name="Identifier" class="vb-Identifier" />
+            <style name="Date" class="vb-Date" />
+            <style name="StringEol" class="vb-StringEol" />
+            <style name="Keyword2" class="vb-Keyword2" />
+            <style name="Keyword3" class="vb-Keyword3" />
+            <style name="Keyword4" class="vb-Keyword4" />
+            <style name="Constant" class="vb-Constant" />
+            <style name="Asm" class="vb-Asm" />
+            <style name="Label" class="vb-Label" />
+            <style name="Error" class="vb-Error" />
+            <style name="HexNumber" class="vb-HexNumber" />
+            <style name="BinNumber" class="vb-BinNumber" />
+            <style name="GlobalDefault" class="vb-GlobalDefault" />
+            <style name="LineNumber" class="vb-LineNumber" />
+            <style name="BraceLight" class="vb-BraceLight" />
+            <style name="BraceBad" class="vb-BraceBad" />
+            <style name="ControlChar" class="vb-ControlChar" />
+            <style name="IndentGuide" class="vb-IndentGuide" />
+            <style name="CallTip" class="vb-CallTip" />
+            <style name="LastPredefined" class="vb-LastPredefined" />
+            <style name="Max" class="vb-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

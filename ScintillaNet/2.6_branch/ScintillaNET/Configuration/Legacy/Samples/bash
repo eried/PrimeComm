@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+
+if [ $# -ne 1 ]
+then
+        echo "one argument expected."
+        exit 1
+fi
+
+if [ -e "$1" ]
+then
+        source $1
+else
+        echo "ebuild file $1 not found."
+        exit 1
+fi
+
+export ORIGDIR=`pwd`
+export WORKDIR=${ORIGDIR}/work
+export SRCDIR=${WORKDIR}/${P}
+
+if [ -z "$DISTDIR" ]
+then
+        # set DISTDIR to /usr/src/distfiles if not already set
+        DISTDIR=/usr/src/distfiles
+fi
+export DISTDIR
+
+if [ -d ${WORKDIR} ]
+then    
+        # remove old work directory if it exists 
+        rm -rf ${WORKDIR}
+fi
+
+mkdir ${WORKDIR}
+cd ${WORKDIR}
+tar xzf ${DISTDIR}/${A}
+cd ${SRCDIR}
+./configure --prefix=/usr
+make

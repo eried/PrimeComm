@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="eiffel-Default" inherit-style="Default" />
+      <style-class name="eiffel-CommentLine" inherit-style="CommentLine" />
+      <style-class name="eiffel-Number" inherit-style="Number" />
+      <style-class name="eiffel-Word" inherit-style="Word" />
+      <style-class name="eiffel-String" inherit-style="String" />
+      <style-class name="eiffel-Character" inherit-style="Character" />
+      <style-class name="eiffel-Operator" inherit-style="Operator" />
+      <style-class name="eiffel-Identifier" inherit-style="Identifier" />
+      <style-class name="eiffel-StringEol" inherit-style="StringEol" />
+      <style-class name="eiffel-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="eiffel-LineNumber" inherit-style="LineNumber" />
+      <style-class name="eiffel-BraceLight" inherit-style="BraceLight" />
+      <style-class name="eiffel-BraceBad" inherit-style="BraceBad" />
+      <style-class name="eiffel-ControlChar" inherit-style="ControlChar" />
+      <style-class name="eiffel-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="eiffel-CallTip" inherit-style="CallTip" />
+      <style-class name="eiffel-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="eiffel-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="eiffel-Keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="eiffel">
+         <lexer name="Eiffel" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.e</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="eiffel-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="eiffel-Default" />
+            <style name="CommentLine" class="eiffel-CommentLine" />
+            <style name="Number" class="eiffel-Number" />
+            <style name="Word" class="eiffel-Word" />
+            <style name="String" class="eiffel-String" />
+            <style name="Character" class="eiffel-Character" />
+            <style name="Operator" class="eiffel-Operator" />
+            <style name="Identifier" class="eiffel-Identifier" />
+            <style name="StringEol" class="eiffel-StringEol" />
+            <style name="GlobalDefault" class="eiffel-GlobalDefault" />
+            <style name="LineNumber" class="eiffel-LineNumber" />
+            <style name="BraceLight" class="eiffel-BraceLight" />
+            <style name="BraceBad" class="eiffel-BraceBad" />
+            <style name="ControlChar" class="eiffel-ControlChar" />
+            <style name="IndentGuide" class="eiffel-IndentGuide" />
+            <style name="CallTip" class="eiffel-CallTip" />
+            <style name="LastPredefined" class="eiffel-LastPredefined" />
+            <style name="Max" class="eiffel-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

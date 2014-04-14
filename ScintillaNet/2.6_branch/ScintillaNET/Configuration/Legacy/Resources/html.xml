@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="html-Default" inherit-style="Default" />
+      <style-class name="html-Tag" inherit-style="Tag" />
+      <style-class name="html-TagUnknown" inherit-style="TagUnknown" />
+      <style-class name="html-Attribute" inherit-style="Attribute" />
+      <style-class name="html-AttributeUnknown" inherit-style="AttributeUnknown" />
+      <style-class name="html-Number" inherit-style="Number" />
+      <style-class name="html-DoubleString" inherit-style="DoubleString" />
+      <style-class name="html-SingleString" inherit-style="SingleString" />
+      <style-class name="html-Other" inherit-style="Other" />
+      <style-class name="html-Comment" inherit-style="Comment" />
+      <style-class name="html-Entity" inherit-style="Entity" />
+      <style-class name="html-TagEnd" inherit-style="TagEnd" />
+      <style-class name="html-XmlStart" inherit-style="XmlStart" />
+      <style-class name="html-XmlEnd" inherit-style="XmlEnd" />
+      <style-class name="html-Script" inherit-style="Script" />
+      <style-class name="html-Asp" inherit-style="Asp" />
+      <style-class name="html-AspAt" inherit-style="AspAt" />
+      <style-class name="html-CData" inherit-style="CData" />
+      <style-class name="html-Question" inherit-style="Question" />
+      <style-class name="html-Value" inherit-style="Value" />
+      <style-class name="html-XCComment" inherit-style="XCComment" />
+      <style-class name="html-SgmlDefault" inherit-style="SgmlDefault" />
+      <style-class name="html-SgmlCommand" inherit-style="SgmlCommand" />
+      <style-class name="html-SgmlSgml1stParameter" inherit-style="SgmlSgml1stParameter" />
+      <style-class name="html-SgmlDoubleString" inherit-style="SgmlDoubleString" />
+      <style-class name="html-SgmlSimpleString" inherit-style="SgmlSimpleString" />
+      <style-class name="html-SgmlError" inherit-style="SgmlError" />
+      <style-class name="html-SgmlSpecial" inherit-style="SgmlSpecial" />
+      <style-class name="html-SgmlEntity" inherit-style="SgmlEntity" />
+      <style-class name="html-SgmlComment" inherit-style="SgmlComment" />
+      <style-class name="html-SgmlSgml1stParameterComment" inherit-style="SgmlSgml1stParameterComment" />
+      <style-class name="html-SgmlBlockDefault" inherit-style="SgmlBlockDefault" />
+      <style-class name="html-JavaScriptStart" inherit-style="JavaScriptStart" />
+      <style-class name="html-JavaScriptDefault" inherit-style="JavaScriptDefault" />
+      <style-class name="html-JavaScriptComment" inherit-style="JavaScriptComment" />
+      <style-class name="html-JavaScriptCommentLine" inherit-style="JavaScriptCommentLine" />
+      <style-class name="html-JavaScriptCommentDoc" inherit-style="JavaScriptCommentDoc" />
+      <style-class name="html-JavaScriptNumber" inherit-style="JavaScriptNumber" />
+      <style-class name="html-JavaScriptWord" inherit-style="JavaScriptWord" />
+      <style-class name="html-JavaScriptKeyword" inherit-style="JavaScriptKeyword" />
+      <style-class name="html-JavaScriptDoubleString" inherit-style="JavaScriptDoubleString" />
+      <style-class name="html-JavaScriptSingleString" inherit-style="JavaScriptSingleString" />
+      <style-class name="html-JavaScriptSymbols" inherit-style="JavaScriptSymbols" />
+      <style-class name="html-JavaScriptStringEol" inherit-style="JavaScriptStringEol" />
+      <style-class name="html-JavaScriptRegex" inherit-style="JavaScriptRegex" />
+      <style-class name="html-AspJavaScriptStart" inherit-style="AspJavaScriptStart" />
+      <style-class name="html-AspJavaScriptDefault" inherit-style="AspJavaScriptDefault" />
+      <style-class name="html-AspJavaScriptComment" inherit-style="AspJavaScriptComment" />
+      <style-class name="html-AspJavaScriptCommentLine" inherit-style="AspJavaScriptCommentLine" />
+      <style-class name="html-AspJavaScriptCommentDoc" inherit-style="AspJavaScriptCommentDoc" />
+      <style-class name="html-AspJavaScriptNumber" inherit-style="AspJavaScriptNumber" />
+      <style-class name="html-AspJavaScriptWord" inherit-style="AspJavaScriptWord" />
+      <style-class name="html-AspJavaScriptKeyword" inherit-style="AspJavaScriptKeyword" />
+      <style-class name="html-AspJavaScriptDoubleString" inherit-style="AspJavaScriptDoubleString" />
+      <style-class name="html-AspJavaScriptSingleString" inherit-style="AspJavaScriptSingleString" />
+      <style-class name="html-AspJavaScriptSymbols" inherit-style="AspJavaScriptSymbols" />
+      <style-class name="html-AspJavaScriptStringEol" inherit-style="AspJavaScriptStringEol" />
+      <style-class name="html-AspJavaScriptRegex" inherit-style="AspJavaScriptRegex" />
+      <style-class name="html-VBScriptStart" inherit-style="VBScriptStart" />
+      <style-class name="html-VBScriptDefault" inherit-style="VBScriptDefault" />
+      <style-class name="html-VBScriptCommentLine" inherit-style="VBScriptCommentLine" />
+      <style-class name="html-VBScriptNumber" inherit-style="VBScriptNumber" />
+      <style-class name="html-VBScriptWord" inherit-style="VBScriptWord" />
+      <style-class name="html-VBScriptString" inherit-style="VBScriptString" />
+      <style-class name="html-VBScriptIdentifier" inherit-style="VBScriptIdentifier" />
+      <style-class name="html-VBScriptStringEol" inherit-style="VBScriptStringEol" />
+      <style-class name="html-AspVBScriptStart" inherit-style="AspVBScriptStart" />
+      <style-class name="html-AspVBScriptDefault" inherit-style="AspVBScriptDefault" />
+      <style-class name="html-AspVBScriptCommentLine" inherit-style="AspVBScriptCommentLine" />
+      <style-class name="html-AspVBScriptNumber" inherit-style="AspVBScriptNumber" />
+      <style-class name="html-AspVBScriptWord" inherit-style="AspVBScriptWord" />
+      <style-class name="html-AspVBScriptString" inherit-style="AspVBScriptString" />
+      <style-class name="html-AspVBScriptIdentifier" inherit-style="AspVBScriptIdentifier" />
+      <style-class name="html-AspVBScriptStringEol" inherit-style="AspVBScriptStringEol" />
+      <style-class name="html-PythonStart" inherit-style="PythonStart" />
+      <style-class name="html-PythonDefault" inherit-style="PythonDefault" />
+      <style-class name="html-PythonCommentLine" inherit-style="PythonCommentLine" />
+      <style-class name="html-PythonNumber" inherit-style="PythonNumber" />
+      <style-class name="html-PythonString" inherit-style="PythonString" />
+      <style-class name="html-PythonCharacter" inherit-style="PythonCharacter" />
+      <style-class name="html-PythonWord" inherit-style="PythonWord" />
+      <style-class name="html-PythonTriple" inherit-style="PythonTriple" />
+      <style-class name="html-PythonTripleDouble" inherit-style="PythonTripleDouble" />
+      <style-class name="html-PythonClassName" inherit-style="PythonClassName" />
+      <style-class name="html-PythonDefName" inherit-style="PythonDefName" />
+      <style-class name="html-PythonOperator" inherit-style="PythonOperator" />
+      <style-class name="html-PythonIdentifier" inherit-style="PythonIdentifier" />
+      <style-class name="html-PhpComplexVariable" inherit-style="PhpComplexVariable" />
+      <style-class name="html-AspPythonStart" inherit-style="AspPythonStart" />
+      <style-class name="html-AspPythonDefault" inherit-style="AspPythonDefault" />
+      <style-class name="html-AspPythonCommentLine" inherit-style="AspPythonCommentLine" />
+      <style-class name="html-AspPythonNumber" inherit-style="AspPythonNumber" />
+      <style-class name="html-AspPythonString" inherit-style="AspPythonString" />
+      <style-class name="html-AspPythonCharacter" inherit-style="AspPythonCharacter" />
+      <style-class name="html-AspPythonWord" inherit-style="AspPythonWord" />
+      <style-class name="html-AspPythonTriple" inherit-style="AspPythonTriple" />
+      <style-class name="html-AspPythonTripleDouble" inherit-style="AspPythonTripleDouble" />
+      <style-class name="html-AspPythonClassName" inherit-style="AspPythonClassName" />
+      <style-class name="html-AspPythonDefName" inherit-style="AspPythonDefName" />
+      <style-class name="html-AspPythonOperator" inherit-style="AspPythonOperator" />
+      <style-class name="html-AspPythonIdentifier" inherit-style="AspPythonIdentifier" />
+      <style-class name="html-PhpDefault" inherit-style="PhpDefault" />
+      <style-class name="html-PhpHString" inherit-style="PhpHString" />
+      <style-class name="html-PhpSimpleString" inherit-style="PhpSimpleString" />
+      <style-class name="html-PhpWord" inherit-style="PhpWord" />
+      <style-class name="html-PhpNumber" inherit-style="PhpNumber" />
+      <style-class name="html-PhpVariable" inherit-style="PhpVariable" />
+      <style-class name="html-PhpComment" inherit-style="PhpComment" />
+      <style-class name="html-PhpCommentLine" inherit-style="PhpCommentLine" />
+      <style-class name="html-PhpHstringVariable" inherit-style="PhpHstringVariable" />
+      <style-class name="html-PhpOperator" inherit-style="PhpOperator" />
+      <style-class name="html-ADefault" inherit-style="ADefault" />
+      <style-class name="html-AIdentifier" inherit-style="AIdentifier" />
+      <style-class name="html-AKeyword" inherit-style="AKeyword" />
+      <style-class name="html-ANumber" inherit-style="ANumber" />
+      <style-class name="html-AString" inherit-style="AString" />
+      <style-class name="html-ACharacter" inherit-style="ACharacter" />
+      <style-class name="html-AClass" inherit-style="AClass" />
+      <style-class name="html-AModule" inherit-style="AModule" />
+      <style-class name="html-ACapital" inherit-style="ACapital" />
+      <style-class name="html-AData" inherit-style="AData" />
+      <style-class name="html-AImport" inherit-style="AImport" />
+      <style-class name="html-AOperator" inherit-style="AOperator" />
+      <style-class name="html-AInstance" inherit-style="AInstance" />
+      <style-class name="html-ACommentline" inherit-style="ACommentline" />
+      <style-class name="html-ACommentblock" inherit-style="ACommentblock" />
+      <style-class name="html-ACommentblock2" inherit-style="ACommentblock2" />
+      <style-class name="html-ACommentblock3" inherit-style="ACommentblock3" />
+      <style-class name="html-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="html-LineNumber" inherit-style="LineNumber" />
+      <style-class name="html-BraceLight" inherit-style="BraceLight" />
+      <style-class name="html-BraceBad" inherit-style="BraceBad" />
+      <style-class name="html-ControlChar" inherit-style="ControlChar" />
+      <style-class name="html-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="html-CallTip" inherit-style="CallTip" />
+      <style-class name="html-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="html-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="html-HTML-elements-and-attributes" >         
+         a abbr acronym address applet area b base basefont
+         bdo big blockquote body br button caption center
+         cite code col colgroup dd del dfn dir div dl dt em
+         fieldset font form frame frameset h1 h2 h3 h4 h5 h6
+         head hr html i iframe img input ins isindex kbd label
+         legend li link map menu meta noframes noscript
+         object ol optgroup option p param pre q s samp
+         script select small span strike strong style sub sup
+         table tbody td textarea tfoot th thead title tr tt u ul
+         var xml xmlns
+         abbr accept-charset accept accesskey action align alink
+         alt archive axis background bgcolor border
+         cellpadding cellspacing char charoff charset checked cite
+         class classid clear codebase codetype color cols colspan
+         compact content coords
+         data datafld dataformatas datapagesize datasrc datetime
+         declare defer dir disabled enctype event
+         face for frame frameborder
+         headers height href hreflang hspace http-equiv
+         id ismap label lang language leftmargin link longdesc
+         marginwidth marginheight maxlength media method multiple
+         name nohref noresize noshade nowrap
+         object onblur onchange onclick ondblclick onfocus
+         onkeydown onkeypress onkeyup onload onmousedown
+         onmousemove onmouseover onmouseout onmouseup
+         onreset onselect onsubmit onunload
+         profile prompt readonly rel rev rows rowspan rules
+         scheme scope selected shape size span src standby start style
+         summary tabindex target text title topmargin type usemap
+         valign value valuetype version vlink vspace width
+         text password checkbox radio submit reset
+         file hidden image
+         public !doctype
+      </keyword-class>
+      <keyword-class name="html-JavaScript-keywords" >         
+         abstract boolean break byte case catch char class
+         const continue debugger default delete do double else enum export extends
+         final finally float for function goto if implements import in instanceof
+         int interface long native new package private protected public
+         return short static super switch synchronized this throw throws
+         transient try typeof var void volatile while with
+      </keyword-class>
+      <keyword-class name="html-VBScript-keywords" >         
+         and begin case call continue do each else elseif end erase
+         error event exit false for function get gosub goto if implement in load loop lset
+         me mid new next not nothing on or property raiseevent rem resume return rset
+         select set stop sub then to true unload until wend while with withevents
+         attribute alias as boolean byref byte byval const compare currency date declare dim double
+         enum explicit friend global integer let lib long module object option optional
+         preserve private property public redim single static string type variant
+      </keyword-class>
+      <keyword-class name="html-Python-keywords" >         
+         and assert break class continue def del elif
+         else except exec finally for from global if import in is lambda None
+         not or pass print raise return try while yield
+      </keyword-class>
+      <keyword-class name="html-PHP-keywords" >         
+         and argv as argc break case cfunction class continue declare default do
+         die echo else elseif empty enddeclare endfor endforeach endif endswitch
+         endwhile e_all e_parse e_error e_warning eval exit extends false for
+         foreach function global http_cookie_vars http_get_vars http_post_vars
+         http_post_files http_env_vars http_server_vars if include include_once
+         list new not null old_function or parent php_os php_self php_version
+         print require require_once return static switch stdclass this true var
+         xor virtual while __file__ __line__ __sleep __wakeup
+      </keyword-class>
+      <keyword-class name="html-SGML-and-DTD-keywords" >         
+         ELEMENT DOCTYPE ATTLIST ENTITY NOTATION
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="html">
+         <lexer name="HTML" style-bits="7"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.html *.htm *.asp *.shtml *.htd *.php3 *.phtml *.php *.htt *.cfm *.tpl *.dtd *.hta</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="html-HTML-elements-and-attributes"/>
+            <keyword key="1" class="html-JavaScript-keywords"/>
+            <keyword key="2" class="html-VBScript-keywords"/>
+            <keyword key="3" class="html-Python-keywords"/>
+            <keyword key="4" class="html-PHP-keywords"/>
+            <keyword key="5" class="html-SGML-and-DTD-keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="html-Default" />
+            <style name="Tag" class="html-Tag" />
+            <style name="TagUnknown" class="html-TagUnknown" />
+            <style name="Attribute" class="html-Attribute" />
+            <style name="AttributeUnknown" class="html-AttributeUnknown" />
+            <style name="Number" class="html-Number" />
+            <style name="DoubleString" class="html-DoubleString" />
+            <style name="SingleString" class="html-SingleString" />
+            <style name="Other" class="html-Other" />
+            <style name="Comment" class="html-Comment" />
+            <style name="Entity" class="html-Entity" />
+            <style name="TagEnd" class="html-TagEnd" />
+            <style name="XmlStart" class="html-XmlStart" />
+            <style name="XmlEnd" class="html-XmlEnd" />
+            <style name="Script" class="html-Script" />
+            <style name="Asp" class="html-Asp" />
+            <style name="AspAt" class="html-AspAt" />
+            <style name="CData" class="html-CData" />
+            <style name="Question" class="html-Question" />
+            <style name="Value" class="html-Value" />
+            <style name="XCComment" class="html-XCComment" />
+            <style name="SgmlDefault" class="html-SgmlDefault" />
+            <style name="SgmlCommand" class="html-SgmlCommand" />
+            <style name="SgmlSgml1stParameter" class="html-SgmlSgml1stParameter" />
+            <style name="SgmlDoubleString" class="html-SgmlDoubleString" />
+            <style name="SgmlSimpleString" class="html-SgmlSimpleString" />
+            <style name="SgmlError" class="html-SgmlError" />
+            <style name="SgmlSpecial" class="html-SgmlSpecial" />
+            <style name="SgmlEntity" class="html-SgmlEntity" />
+            <style name="SgmlComment" class="html-SgmlComment" />
+            <style name="SgmlSgml1stParameterComment" class="html-SgmlSgml1stParameterComment" />
+            <style name="SgmlBlockDefault" class="html-SgmlBlockDefault" />
+            <style name="JavaScriptStart" class="html-JavaScriptStart" />
+            <style name="JavaScriptDefault" class="html-JavaScriptDefault" />
+            <style name="JavaScriptComment" class="html-JavaScriptComment" />
+            <style name="JavaScriptCommentLine" class="html-JavaScriptCommentLine" />
+            <style name="JavaScriptCommentDoc" class="html-JavaScriptCommentDoc" />
+            <style name="JavaScriptNumber" class="html-JavaScriptNumber" />
+            <style name="JavaScriptWord" class="html-JavaScriptWord" />
+            <style name="JavaScriptKeyword" class="html-JavaScriptKeyword" />
+            <style name="JavaScriptDoubleString" class="html-JavaScriptDoubleString" />
+            <style name="JavaScriptSingleString" class="html-JavaScriptSingleString" />
+            <style name="JavaScriptSymbols" class="html-JavaScriptSymbols" />
+            <style name="JavaScriptStringEol" class="html-JavaScriptStringEol" />
+            <style name="JavaScriptRegex" class="html-JavaScriptRegex" />
+            <style name="AspJavaScriptStart" class="html-AspJavaScriptStart" />
+            <style name="AspJavaScriptDefault" class="html-AspJavaScriptDefault" />
+            <style name="AspJavaScriptComment" class="html-AspJavaScriptComment" />
+            <style name="AspJavaScriptCommentLine" class="html-AspJavaScriptCommentLine" />
+            <style name="AspJavaScriptCommentDoc" class="html-AspJavaScriptCommentDoc" />
+            <style name="AspJavaScriptNumber" class="html-AspJavaScriptNumber" />
+            <style name="AspJavaScriptWord" class="html-AspJavaScriptWord" />
+            <style name="AspJavaScriptKeyword" class="html-AspJavaScriptKeyword" />
+            <style name="AspJavaScriptDoubleString" class="html-AspJavaScriptDoubleString" />
+            <style name="AspJavaScriptSingleString" class="html-AspJavaScriptSingleString" />
+            <style name="AspJavaScriptSymbols" class="html-AspJavaScriptSymbols" />
+            <style name="AspJavaScriptStringEol" class="html-AspJavaScriptStringEol" />
+            <style name="AspJavaScriptRegex" class="html-AspJavaScriptRegex" />
+            <style name="VBScriptStart" class="html-VBScriptStart" />
+            <style name="VBScriptDefault" class="html-VBScriptDefault" />
+            <style name="VBScriptCommentLine" class="html-VBScriptCommentLine" />
+            <style name="VBScriptNumber" class="html-VBScriptNumber" />
+            <style name="VBScriptWord" class="html-VBScriptWord" />
+            <style name="VBScriptString" class="html-VBScriptString" />
+            <style name="VBScriptIdentifier" class="html-VBScriptIdentifier" />
+            <style name="VBScriptStringEol" class="html-VBScriptStringEol" />
+            <style name="AspVBScriptStart" class="html-AspVBScriptStart" />
+            <style name="AspVBScriptDefault" class="html-AspVBScriptDefault" />
+            <style name="AspVBScriptCommentLine" class="html-AspVBScriptCommentLine" />
+            <style name="AspVBScriptNumber" class="html-AspVBScriptNumber" />
+            <style name="AspVBScriptWord" class="html-AspVBScriptWord" />
+            <style name="AspVBScriptString" class="html-AspVBScriptString" />
+            <style name="AspVBScriptIdentifier" class="html-AspVBScriptIdentifier" />
+            <style name="AspVBScriptStringEol" class="html-AspVBScriptStringEol" />
+            <style name="PythonStart" class="html-PythonStart" />
+            <style name="PythonDefault" class="html-PythonDefault" />
+            <style name="PythonCommentLine" class="html-PythonCommentLine" />
+            <style name="PythonNumber" class="html-PythonNumber" />
+            <style name="PythonString" class="html-PythonString" />
+            <style name="PythonCharacter" class="html-PythonCharacter" />
+            <style name="PythonWord" class="html-PythonWord" />
+            <style name="PythonTriple" class="html-PythonTriple" />
+            <style name="PythonTripleDouble" class="html-PythonTripleDouble" />
+            <style name="PythonClassName" class="html-PythonClassName" />
+            <style name="PythonDefName" class="html-PythonDefName" />
+            <style name="PythonOperator" class="html-PythonOperator" />
+            <style name="PythonIdentifier" class="html-PythonIdentifier" />
+            <style name="PhpComplexVariable" class="html-PhpComplexVariable" />
+            <style name="AspPythonStart" class="html-AspPythonStart" />
+            <style name="AspPythonDefault" class="html-AspPythonDefault" />
+            <style name="AspPythonCommentLine" class="html-AspPythonCommentLine" />
+            <style name="AspPythonNumber" class="html-AspPythonNumber" />
+            <style name="AspPythonString" class="html-AspPythonString" />
+            <style name="AspPythonCharacter" class="html-AspPythonCharacter" />
+            <style name="AspPythonWord" class="html-AspPythonWord" />
+            <style name="AspPythonTriple" class="html-AspPythonTriple" />
+            <style name="AspPythonTripleDouble" class="html-AspPythonTripleDouble" />
+            <style name="AspPythonClassName" class="html-AspPythonClassName" />
+            <style name="AspPythonDefName" class="html-AspPythonDefName" />
+            <style name="AspPythonOperator" class="html-AspPythonOperator" />
+            <style name="AspPythonIdentifier" class="html-AspPythonIdentifier" />
+            <style name="PhpDefault" class="html-PhpDefault" />
+            <style name="PhpHString" class="html-PhpHString" />
+            <style name="PhpSimpleString" class="html-PhpSimpleString" />
+            <style name="PhpWord" class="html-PhpWord" />
+            <style name="PhpNumber" class="html-PhpNumber" />
+            <style name="PhpVariable" class="html-PhpVariable" />
+            <style name="PhpComment" class="html-PhpComment" />
+            <style name="PhpCommentLine" class="html-PhpCommentLine" />
+            <style name="PhpHstringVariable" class="html-PhpHstringVariable" />
+            <style name="PhpOperator" class="html-PhpOperator" />
+            <style name="ADefault" class="html-ADefault" />
+            <style name="AIdentifier" class="html-AIdentifier" />
+            <style name="AKeyword" class="html-AKeyword" />
+            <style name="ANumber" class="html-ANumber" />
+            <style name="AString" class="html-AString" />
+            <style name="ACharacter" class="html-ACharacter" />
+            <style name="AClass" class="html-AClass" />
+            <style name="AModule" class="html-AModule" />
+            <style name="ACapital" class="html-ACapital" />
+            <style name="AData" class="html-AData" />
+            <style name="AImport" class="html-AImport" />
+            <style name="AOperator" class="html-AOperator" />
+            <style name="AInstance" class="html-AInstance" />
+            <style name="ACommentline" class="html-ACommentline" />
+            <style name="ACommentblock" class="html-ACommentblock" />
+            <style name="ACommentblock2" class="html-ACommentblock2" />
+            <style name="ACommentblock3" class="html-ACommentblock3" />
+            <style name="GlobalDefault" class="html-GlobalDefault" />
+            <style name="LineNumber" class="html-LineNumber" />
+            <style name="BraceLight" class="html-BraceLight" />
+            <style name="BraceBad" class="html-BraceBad" />
+            <style name="ControlChar" class="html-ControlChar" />
+            <style name="IndentGuide" class="html-IndentGuide" />
+            <style name="CallTip" class="html-CallTip" />
+            <style name="LastPredefined" class="html-LastPredefined" />
+            <style name="Max" class="html-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

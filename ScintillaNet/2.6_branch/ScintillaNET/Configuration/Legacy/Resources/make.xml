@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="make-Default" inherit-style="Default" />
+      <style-class name="make-Comment" inherit-style="Comment" />
+      <style-class name="make-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="make-Identifier" inherit-style="Identifier" />
+      <style-class name="make-Operator" inherit-style="Operator" />
+      <style-class name="make-Target" inherit-style="Target" />
+      <style-class name="make-IDEol" inherit-style="IDEol" />
+      <style-class name="make-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="make-LineNumber" inherit-style="LineNumber" />
+      <style-class name="make-BraceLight" inherit-style="BraceLight" />
+      <style-class name="make-BraceBad" inherit-style="BraceBad" />
+      <style-class name="make-ControlChar" inherit-style="ControlChar" />
+      <style-class name="make-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="make-CallTip" inherit-style="CallTip" />
+      <style-class name="make-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="make-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="make-" >
+      </keyword-class>
+      <keyword-class name="make-Keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="make">
+         <lexer name="MakeFile" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> makefile Makefile *.mak configure*</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="make-"/>
+            <keyword key="1" class="make-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="make-Default" />
+            <style name="Comment" class="make-Comment" />
+            <style name="Preprocessor" class="make-Preprocessor" />
+            <style name="Identifier" class="make-Identifier" />
+            <style name="Operator" class="make-Operator" />
+            <style name="Target" class="make-Target" />
+            <style name="IDEol" class="make-IDEol" />
+            <style name="GlobalDefault" class="make-GlobalDefault" />
+            <style name="LineNumber" class="make-LineNumber" />
+            <style name="BraceLight" class="make-BraceLight" />
+            <style name="BraceBad" class="make-BraceBad" />
+            <style name="ControlChar" class="make-ControlChar" />
+            <style name="IndentGuide" class="make-IndentGuide" />
+            <style name="CallTip" class="make-CallTip" />
+            <style name="LastPredefined" class="make-LastPredefined" />
+            <style name="Max" class="make-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

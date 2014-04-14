@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="xml-Default" inherit-style="Default" />
+      <style-class name="xml-Tag" inherit-style="Tag" />
+      <style-class name="xml-TagUnknown" inherit-style="TagUnknown" />
+      <style-class name="xml-Attribute" inherit-style="Attribute" />
+      <style-class name="xml-AttributeUnknown" inherit-style="AttributeUnknown" />
+      <style-class name="xml-Number" inherit-style="Number" />
+      <style-class name="xml-DoubleString" inherit-style="DoubleString" />
+      <style-class name="xml-SingleString" inherit-style="SingleString" />
+      <style-class name="xml-Other" inherit-style="Other" />
+      <style-class name="xml-Comment" inherit-style="Comment" />
+      <style-class name="xml-Entity" inherit-style="Entity" />
+      <style-class name="xml-TagEnd" inherit-style="TagEnd" />
+      <style-class name="xml-XmlStart" inherit-style="XmlStart" />
+      <style-class name="xml-XmlEnd" inherit-style="XmlEnd" />
+      <style-class name="xml-Script" inherit-style="Script" />
+      <style-class name="xml-Asp" inherit-style="Asp" />
+      <style-class name="xml-AspAt" inherit-style="AspAt" />
+      <style-class name="xml-CData" inherit-style="CData" />
+      <style-class name="xml-Question" inherit-style="Question" />
+      <style-class name="xml-Value" inherit-style="Value" />
+      <style-class name="xml-XCComment" inherit-style="XCComment" />
+      <style-class name="xml-SgmlDefault" inherit-style="SgmlDefault" />
+      <style-class name="xml-SgmlCommand" inherit-style="SgmlCommand" />
+      <style-class name="xml-SgmlSgml1stParameter" inherit-style="SgmlSgml1stParameter" />
+      <style-class name="xml-SgmlDoubleString" inherit-style="SgmlDoubleString" />
+      <style-class name="xml-SgmlSimpleString" inherit-style="SgmlSimpleString" />
+      <style-class name="xml-SgmlError" inherit-style="SgmlError" />
+      <style-class name="xml-SgmlSpecial" inherit-style="SgmlSpecial" />
+      <style-class name="xml-SgmlEntity" inherit-style="SgmlEntity" />
+      <style-class name="xml-SgmlComment" inherit-style="SgmlComment" />
+      <style-class name="xml-SgmlSgml1stParameterComment" inherit-style="SgmlSgml1stParameterComment" />
+      <style-class name="xml-SgmlBlockDefault" inherit-style="SgmlBlockDefault" />
+      <style-class name="xml-JavaScriptStart" inherit-style="JavaScriptStart" />
+      <style-class name="xml-JavaScriptDefault" inherit-style="JavaScriptDefault" />
+      <style-class name="xml-JavaScriptComment" inherit-style="JavaScriptComment" />
+      <style-class name="xml-JavaScriptCommentLine" inherit-style="JavaScriptCommentLine" />
+      <style-class name="xml-JavaScriptCommentDoc" inherit-style="JavaScriptCommentDoc" />
+      <style-class name="xml-JavaScriptNumber" inherit-style="JavaScriptNumber" />
+      <style-class name="xml-JavaScriptWord" inherit-style="JavaScriptWord" />
+      <style-class name="xml-JavaScriptKeyword" inherit-style="JavaScriptKeyword" />
+      <style-class name="xml-JavaScriptDoubleString" inherit-style="JavaScriptDoubleString" />
+      <style-class name="xml-JavaScriptSingleString" inherit-style="JavaScriptSingleString" />
+      <style-class name="xml-JavaScriptSymbols" inherit-style="JavaScriptSymbols" />
+      <style-class name="xml-JavaScriptStringEol" inherit-style="JavaScriptStringEol" />
+      <style-class name="xml-JavaScriptRegex" inherit-style="JavaScriptRegex" />
+      <style-class name="xml-AspJavaScriptStart" inherit-style="AspJavaScriptStart" />
+      <style-class name="xml-AspJavaScriptDefault" inherit-style="AspJavaScriptDefault" />
+      <style-class name="xml-AspJavaScriptComment" inherit-style="AspJavaScriptComment" />
+      <style-class name="xml-AspJavaScriptCommentLine" inherit-style="AspJavaScriptCommentLine" />
+      <style-class name="xml-AspJavaScriptCommentDoc" inherit-style="AspJavaScriptCommentDoc" />
+      <style-class name="xml-AspJavaScriptNumber" inherit-style="AspJavaScriptNumber" />
+      <style-class name="xml-AspJavaScriptWord" inherit-style="AspJavaScriptWord" />
+      <style-class name="xml-AspJavaScriptKeyword" inherit-style="AspJavaScriptKeyword" />
+      <style-class name="xml-AspJavaScriptDoubleString" inherit-style="AspJavaScriptDoubleString" />
+      <style-class name="xml-AspJavaScriptSingleString" inherit-style="AspJavaScriptSingleString" />
+      <style-class name="xml-AspJavaScriptSymbols" inherit-style="AspJavaScriptSymbols" />
+      <style-class name="xml-AspJavaScriptStringEol" inherit-style="AspJavaScriptStringEol" />
+      <style-class name="xml-AspJavaScriptRegex" inherit-style="AspJavaScriptRegex" />
+      <style-class name="xml-VBScriptStart" inherit-style="VBScriptStart" />
+      <style-class name="xml-VBScriptDefault" inherit-style="VBScriptDefault" />
+      <style-class name="xml-VBScriptCommentLine" inherit-style="VBScriptCommentLine" />
+      <style-class name="xml-VBScriptNumber" inherit-style="VBScriptNumber" />
+      <style-class name="xml-VBScriptWord" inherit-style="VBScriptWord" />
+      <style-class name="xml-VBScriptString" inherit-style="VBScriptString" />
+      <style-class name="xml-VBScriptIdentifier" inherit-style="VBScriptIdentifier" />
+      <style-class name="xml-VBScriptStringEol" inherit-style="VBScriptStringEol" />
+      <style-class name="xml-AspVBScriptStart" inherit-style="AspVBScriptStart" />
+      <style-class name="xml-AspVBScriptDefault" inherit-style="AspVBScriptDefault" />
+      <style-class name="xml-AspVBScriptCommentLine" inherit-style="AspVBScriptCommentLine" />
+      <style-class name="xml-AspVBScriptNumber" inherit-style="AspVBScriptNumber" />
+      <style-class name="xml-AspVBScriptWord" inherit-style="AspVBScriptWord" />
+      <style-class name="xml-AspVBScriptString" inherit-style="AspVBScriptString" />
+      <style-class name="xml-AspVBScriptIdentifier" inherit-style="AspVBScriptIdentifier" />
+      <style-class name="xml-AspVBScriptStringEol" inherit-style="AspVBScriptStringEol" />
+      <style-class name="xml-PythonStart" inherit-style="PythonStart" />
+      <style-class name="xml-PythonDefault" inherit-style="PythonDefault" />
+      <style-class name="xml-PythonCommentLine" inherit-style="PythonCommentLine" />
+      <style-class name="xml-PythonNumber" inherit-style="PythonNumber" />
+      <style-class name="xml-PythonString" inherit-style="PythonString" />
+      <style-class name="xml-PythonCharacter" inherit-style="PythonCharacter" />
+      <style-class name="xml-PythonWord" inherit-style="PythonWord" />
+      <style-class name="xml-PythonTriple" inherit-style="PythonTriple" />
+      <style-class name="xml-PythonTripleDouble" inherit-style="PythonTripleDouble" />
+      <style-class name="xml-PythonClassName" inherit-style="PythonClassName" />
+      <style-class name="xml-PythonDefName" inherit-style="PythonDefName" />
+      <style-class name="xml-PythonOperator" inherit-style="PythonOperator" />
+      <style-class name="xml-PythonIdentifier" inherit-style="PythonIdentifier" />
+      <style-class name="xml-PhpComplexVariable" inherit-style="PhpComplexVariable" />
+      <style-class name="xml-AspPythonStart" inherit-style="AspPythonStart" />
+      <style-class name="xml-AspPythonDefault" inherit-style="AspPythonDefault" />
+      <style-class name="xml-AspPythonCommentLine" inherit-style="AspPythonCommentLine" />
+      <style-class name="xml-AspPythonNumber" inherit-style="AspPythonNumber" />
+      <style-class name="xml-AspPythonString" inherit-style="AspPythonString" />
+      <style-class name="xml-AspPythonCharacter" inherit-style="AspPythonCharacter" />
+      <style-class name="xml-AspPythonWord" inherit-style="AspPythonWord" />
+      <style-class name="xml-AspPythonTriple" inherit-style="AspPythonTriple" />
+      <style-class name="xml-AspPythonTripleDouble" inherit-style="AspPythonTripleDouble" />
+      <style-class name="xml-AspPythonClassName" inherit-style="AspPythonClassName" />
+      <style-class name="xml-AspPythonDefName" inherit-style="AspPythonDefName" />
+      <style-class name="xml-AspPythonOperator" inherit-style="AspPythonOperator" />
+      <style-class name="xml-AspPythonIdentifier" inherit-style="AspPythonIdentifier" />
+      <style-class name="xml-PhpDefault" inherit-style="PhpDefault" />
+      <style-class name="xml-PhpHString" inherit-style="PhpHString" />
+      <style-class name="xml-PhpSimpleString" inherit-style="PhpSimpleString" />
+      <style-class name="xml-PhpWord" inherit-style="PhpWord" />
+      <style-class name="xml-PhpNumber" inherit-style="PhpNumber" />
+      <style-class name="xml-PhpVariable" inherit-style="PhpVariable" />
+      <style-class name="xml-PhpComment" inherit-style="PhpComment" />
+      <style-class name="xml-PhpCommentLine" inherit-style="PhpCommentLine" />
+      <style-class name="xml-PhpHstringVariable" inherit-style="PhpHstringVariable" />
+      <style-class name="xml-PhpOperator" inherit-style="PhpOperator" />
+      <style-class name="xml-ADefault" inherit-style="ADefault" />
+      <style-class name="xml-AIdentifier" inherit-style="AIdentifier" />
+      <style-class name="xml-AKeyword" inherit-style="AKeyword" />
+      <style-class name="xml-ANumber" inherit-style="ANumber" />
+      <style-class name="xml-AString" inherit-style="AString" />
+      <style-class name="xml-ACharacter" inherit-style="ACharacter" />
+      <style-class name="xml-AClass" inherit-style="AClass" />
+      <style-class name="xml-AModule" inherit-style="AModule" />
+      <style-class name="xml-ACapital" inherit-style="ACapital" />
+      <style-class name="xml-AData" inherit-style="AData" />
+      <style-class name="xml-AImport" inherit-style="AImport" />
+      <style-class name="xml-AOperator" inherit-style="AOperator" />
+      <style-class name="xml-AInstance" inherit-style="AInstance" />
+      <style-class name="xml-ACommentline" inherit-style="ACommentline" />
+      <style-class name="xml-ACommentblock" inherit-style="ACommentblock" />
+      <style-class name="xml-ACommentblock2" inherit-style="ACommentblock2" />
+      <style-class name="xml-ACommentblock3" inherit-style="ACommentblock3" />
+      <style-class name="xml-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="xml-LineNumber" inherit-style="LineNumber" />
+      <style-class name="xml-BraceLight" inherit-style="BraceLight" />
+      <style-class name="xml-BraceBad" inherit-style="BraceBad" />
+      <style-class name="xml-ControlChar" inherit-style="ControlChar" />
+      <style-class name="xml-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="xml-CallTip" inherit-style="CallTip" />
+      <style-class name="xml-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="xml-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="xml-HTML-elements-and-attributes" >
+      </keyword-class>
+      <keyword-class name="xml-JavaScript-keywords" >         
+         abstract boolean break byte case catch char class
+         const continue debugger default delete do double else enum export extends
+         final finally float for function goto if implements import in instanceof
+         int interface long native new package private protected public
+         return short static super switch synchronized this throw throws
+         transient try typeof var void volatile while with
+      </keyword-class>
+      <keyword-class name="xml-VBScript-keywords" >         
+         and begin case call continue do each else elseif end erase
+         error event exit false for function get gosub goto if implement in load loop lset
+         me mid new next not nothing on or property raiseevent rem resume return rset
+         select set stop sub then to true unload until wend while with withevents
+         attribute alias as boolean byref byte byval const compare currency date declare dim double
+         enum explicit friend global integer let lib long module object option optional
+         preserve private property public redim single static string type variant
+      </keyword-class>
+      <keyword-class name="xml-Python-keywords" >
+      </keyword-class>
+      <keyword-class name="xml-PHP-keywords" >
+      </keyword-class>
+      <keyword-class name="xml-SGML-and-DTD-keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="xml">
+         <lexer name="XML" style-bits="7"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.xml *.xsl *.svg *.xul *.xsd *.dtd *.xslt *.axl *.xrc *.ant *.config *.build</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="xml-HTML-elements-and-attributes"/>
+            <keyword key="1" class="xml-JavaScript-keywords"/>
+            <keyword key="2" class="xml-VBScript-keywords"/>
+            <keyword key="3" class="xml-Python-keywords"/>
+            <keyword key="4" class="xml-PHP-keywords"/>
+            <keyword key="5" class="xml-SGML-and-DTD-keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="xml-Default" />
+            <style name="Tag" class="xml-Tag" />
+            <style name="TagUnknown" class="xml-TagUnknown" />
+            <style name="Attribute" class="xml-Attribute" />
+            <style name="AttributeUnknown" class="xml-AttributeUnknown" />
+            <style name="Number" class="xml-Number" />
+            <style name="DoubleString" class="xml-DoubleString" />
+            <style name="SingleString" class="xml-SingleString" />
+            <style name="Other" class="xml-Other" />
+            <style name="Comment" class="xml-Comment" />
+            <style name="Entity" class="xml-Entity" />
+            <style name="TagEnd" class="xml-TagEnd" />
+            <style name="XmlStart" class="xml-XmlStart" />
+            <style name="XmlEnd" class="xml-XmlEnd" />
+            <style name="Script" class="xml-Script" />
+            <style name="Asp" class="xml-Asp" />
+            <style name="AspAt" class="xml-AspAt" />
+            <style name="CData" class="xml-CData" />
+            <style name="Question" class="xml-Question" />
+            <style name="Value" class="xml-Value" />
+            <style name="XCComment" class="xml-XCComment" />
+            <style name="SgmlDefault" class="xml-SgmlDefault" />
+            <style name="SgmlCommand" class="xml-SgmlCommand" />
+            <style name="SgmlSgml1stParameter" class="xml-SgmlSgml1stParameter" />
+            <style name="SgmlDoubleString" class="xml-SgmlDoubleString" />
+            <style name="SgmlSimpleString" class="xml-SgmlSimpleString" />
+            <style name="SgmlError" class="xml-SgmlError" />
+            <style name="SgmlSpecial" class="xml-SgmlSpecial" />
+            <style name="SgmlEntity" class="xml-SgmlEntity" />
+            <style name="SgmlComment" class="xml-SgmlComment" />
+            <style name="SgmlSgml1stParameterComment" class="xml-SgmlSgml1stParameterComment" />
+            <style name="SgmlBlockDefault" class="xml-SgmlBlockDefault" />
+            <style name="JavaScriptStart" class="xml-JavaScriptStart" />
+            <style name="JavaScriptDefault" class="xml-JavaScriptDefault" />
+            <style name="JavaScriptComment" class="xml-JavaScriptComment" />
+            <style name="JavaScriptCommentLine" class="xml-JavaScriptCommentLine" />
+            <style name="JavaScriptCommentDoc" class="xml-JavaScriptCommentDoc" />
+            <style name="JavaScriptNumber" class="xml-JavaScriptNumber" />
+            <style name="JavaScriptWord" class="xml-JavaScriptWord" />
+            <style name="JavaScriptKeyword" class="xml-JavaScriptKeyword" />
+            <style name="JavaScriptDoubleString" class="xml-JavaScriptDoubleString" />
+            <style name="JavaScriptSingleString" class="xml-JavaScriptSingleString" />
+            <style name="JavaScriptSymbols" class="xml-JavaScriptSymbols" />
+            <style name="JavaScriptStringEol" class="xml-JavaScriptStringEol" />
+            <style name="JavaScriptRegex" class="xml-JavaScriptRegex" />
+            <style name="AspJavaScriptStart" class="xml-AspJavaScriptStart" />
+            <style name="AspJavaScriptDefault" class="xml-AspJavaScriptDefault" />
+            <style name="AspJavaScriptComment" class="xml-AspJavaScriptComment" />
+            <style name="AspJavaScriptCommentLine" class="xml-AspJavaScriptCommentLine" />
+            <style name="AspJavaScriptCommentDoc" class="xml-AspJavaScriptCommentDoc" />
+            <style name="AspJavaScriptNumber" class="xml-AspJavaScriptNumber" />
+            <style name="AspJavaScriptWord" class="xml-AspJavaScriptWord" />
+            <style name="AspJavaScriptKeyword" class="xml-AspJavaScriptKeyword" />
+            <style name="AspJavaScriptDoubleString" class="xml-AspJavaScriptDoubleString" />
+            <style name="AspJavaScriptSingleString" class="xml-AspJavaScriptSingleString" />
+            <style name="AspJavaScriptSymbols" class="xml-AspJavaScriptSymbols" />
+            <style name="AspJavaScriptStringEol" class="xml-AspJavaScriptStringEol" />
+            <style name="AspJavaScriptRegex" class="xml-AspJavaScriptRegex" />
+            <style name="VBScriptStart" class="xml-VBScriptStart" />
+            <style name="VBScriptDefault" class="xml-VBScriptDefault" />
+            <style name="VBScriptCommentLine" class="xml-VBScriptCommentLine" />
+            <style name="VBScriptNumber" class="xml-VBScriptNumber" />
+            <style name="VBScriptWord" class="xml-VBScriptWord" />
+            <style name="VBScriptString" class="xml-VBScriptString" />
+            <style name="VBScriptIdentifier" class="xml-VBScriptIdentifier" />
+            <style name="VBScriptStringEol" class="xml-VBScriptStringEol" />
+            <style name="AspVBScriptStart" class="xml-AspVBScriptStart" />
+            <style name="AspVBScriptDefault" class="xml-AspVBScriptDefault" />
+            <style name="AspVBScriptCommentLine" class="xml-AspVBScriptCommentLine" />
+            <style name="AspVBScriptNumber" class="xml-AspVBScriptNumber" />
+            <style name="AspVBScriptWord" class="xml-AspVBScriptWord" />
+            <style name="AspVBScriptString" class="xml-AspVBScriptString" />
+            <style name="AspVBScriptIdentifier" class="xml-AspVBScriptIdentifier" />
+            <style name="AspVBScriptStringEol" class="xml-AspVBScriptStringEol" />
+            <style name="PythonStart" class="xml-PythonStart" />
+            <style name="PythonDefault" class="xml-PythonDefault" />
+            <style name="PythonCommentLine" class="xml-PythonCommentLine" />
+            <style name="PythonNumber" class="xml-PythonNumber" />
+            <style name="PythonString" class="xml-PythonString" />
+            <style name="PythonCharacter" class="xml-PythonCharacter" />
+            <style name="PythonWord" class="xml-PythonWord" />
+            <style name="PythonTriple" class="xml-PythonTriple" />
+            <style name="PythonTripleDouble" class="xml-PythonTripleDouble" />
+            <style name="PythonClassName" class="xml-PythonClassName" />
+            <style name="PythonDefName" class="xml-PythonDefName" />
+            <style name="PythonOperator" class="xml-PythonOperator" />
+            <style name="PythonIdentifier" class="xml-PythonIdentifier" />
+            <style name="PhpComplexVariable" class="xml-PhpComplexVariable" />
+            <style name="AspPythonStart" class="xml-AspPythonStart" />
+            <style name="AspPythonDefault" class="xml-AspPythonDefault" />
+            <style name="AspPythonCommentLine" class="xml-AspPythonCommentLine" />
+            <style name="AspPythonNumber" class="xml-AspPythonNumber" />
+            <style name="AspPythonString" class="xml-AspPythonString" />
+            <style name="AspPythonCharacter" class="xml-AspPythonCharacter" />
+            <style name="AspPythonWord" class="xml-AspPythonWord" />
+            <style name="AspPythonTriple" class="xml-AspPythonTriple" />
+            <style name="AspPythonTripleDouble" class="xml-AspPythonTripleDouble" />
+            <style name="AspPythonClassName" class="xml-AspPythonClassName" />
+            <style name="AspPythonDefName" class="xml-AspPythonDefName" />
+            <style name="AspPythonOperator" class="xml-AspPythonOperator" />
+            <style name="AspPythonIdentifier" class="xml-AspPythonIdentifier" />
+            <style name="PhpDefault" class="xml-PhpDefault" />
+            <style name="PhpHString" class="xml-PhpHString" />
+            <style name="PhpSimpleString" class="xml-PhpSimpleString" />
+            <style name="PhpWord" class="xml-PhpWord" />
+            <style name="PhpNumber" class="xml-PhpNumber" />
+            <style name="PhpVariable" class="xml-PhpVariable" />
+            <style name="PhpComment" class="xml-PhpComment" />
+            <style name="PhpCommentLine" class="xml-PhpCommentLine" />
+            <style name="PhpHstringVariable" class="xml-PhpHstringVariable" />
+            <style name="PhpOperator" class="xml-PhpOperator" />
+            <style name="ADefault" class="xml-ADefault" />
+            <style name="AIdentifier" class="xml-AIdentifier" />
+            <style name="AKeyword" class="xml-AKeyword" />
+            <style name="ANumber" class="xml-ANumber" />
+            <style name="AString" class="xml-AString" />
+            <style name="ACharacter" class="xml-ACharacter" />
+            <style name="AClass" class="xml-AClass" />
+            <style name="AModule" class="xml-AModule" />
+            <style name="ACapital" class="xml-ACapital" />
+            <style name="AData" class="xml-AData" />
+            <style name="AImport" class="xml-AImport" />
+            <style name="AOperator" class="xml-AOperator" />
+            <style name="AInstance" class="xml-AInstance" />
+            <style name="ACommentline" class="xml-ACommentline" />
+            <style name="ACommentblock" class="xml-ACommentblock" />
+            <style name="ACommentblock2" class="xml-ACommentblock2" />
+            <style name="ACommentblock3" class="xml-ACommentblock3" />
+            <style name="GlobalDefault" class="xml-GlobalDefault" />
+            <style name="LineNumber" class="xml-LineNumber" />
+            <style name="BraceLight" class="xml-BraceLight" />
+            <style name="BraceBad" class="xml-BraceBad" />
+            <style name="ControlChar" class="xml-ControlChar" />
+            <style name="IndentGuide" class="xml-IndentGuide" />
+            <style name="CallTip" class="xml-CallTip" />
+            <style name="LastPredefined" class="xml-LastPredefined" />
+            <style name="Max" class="xml-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

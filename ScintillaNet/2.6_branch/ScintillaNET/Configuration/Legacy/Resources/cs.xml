@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="cs-Default" inherit-style="Default" />
+      <style-class name="cs-Comment" inherit-style="Comment" />
+      <style-class name="cs-CommentLine" inherit-style="CommentLine" />
+      <style-class name="cs-CommentDoc" inherit-style="CommentDoc" />
+      <style-class name="cs-Number" inherit-style="Number" />
+      <style-class name="cs-Word" inherit-style="Word" />
+      <style-class name="cs-String" inherit-style="String" />
+      <style-class name="cs-Character" inherit-style="Character" />
+      <style-class name="cs-Uuid" inherit-style="Uuid" />
+      <style-class name="cs-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="cs-Operator" inherit-style="Operator" />
+      <style-class name="cs-Identifier" inherit-style="Identifier" />
+      <style-class name="cs-StringEol" inherit-style="StringEol" />
+      <style-class name="cs-Verbatim" inherit-style="Verbatim" />
+      <style-class name="cs-Regex" inherit-style="Regex" />
+      <style-class name="cs-CommentLineDoc" inherit-style="CommentLineDoc" />
+      <style-class name="cs-Word2" inherit-style="Word2" />
+      <style-class name="cs-CommentDocKeyword" inherit-style="CommentDocKeyword" />
+      <style-class name="cs-CommentDocKeywordError" inherit-style="CommentDocKeywordError" />
+      <style-class name="cs-GlobalClass" inherit-style="GlobalClass" />
+      <style-class name="cs-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="cs-LineNumber" inherit-style="LineNumber" />
+      <style-class name="cs-BraceLight" inherit-style="BraceLight" />
+      <style-class name="cs-BraceBad" inherit-style="BraceBad" />
+      <style-class name="cs-ControlChar" inherit-style="ControlChar" />
+      <style-class name="cs-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="cs-CallTip" inherit-style="CallTip" />
+      <style-class name="cs-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="cs-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="cs-Primary-keywords-and-identifiers" >         
+         abstract as base bool break byte case catch char checked class
+         const continue decimal default delegate do double else enum
+         event explicit extern false finally fixed float for foreach goto if
+         implicit in int interface internal is lock long namespace new null
+         object operator out override params private protected public
+         readonly ref return sbyte sealed short sizeof stackalloc static
+         string struct switch this throw true try typeof uint ulong
+         unchecked unsafe ushort using virtual void while
+      </keyword-class>
+      <keyword-class name="cs-Secondary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="cs-Documentation-comment-keywords" >
+      </keyword-class>
+      <keyword-class name="cs-Unused" >
+      </keyword-class>
+      <keyword-class name="cs-Global-classes-and-typedefs" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="cs">
+         <lexer name="Cpp" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.cs</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="cs-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="cs-Secondary-keywords-and-identifiers"/>
+            <keyword key="2" class="cs-Documentation-comment-keywords"/>
+            <keyword key="3" class="cs-Unused"/>
+            <keyword key="4" class="cs-Global-classes-and-typedefs"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="cs-Default" />
+            <style name="Comment" class="cs-Comment" />
+            <style name="CommentLine" class="cs-CommentLine" />
+            <style name="CommentDoc" class="cs-CommentDoc" />
+            <style name="Number" class="cs-Number" />
+            <style name="Word" class="cs-Word" />
+            <style name="String" class="cs-String" />
+            <style name="Character" class="cs-Character" />
+            <style name="Uuid" class="cs-Uuid" />
+            <style name="Preprocessor" class="cs-Preprocessor" />
+            <style name="Operator" class="cs-Operator" />
+            <style name="Identifier" class="cs-Identifier" />
+            <style name="StringEol" class="cs-StringEol" />
+            <style name="Verbatim" class="cs-Verbatim" />
+            <style name="Regex" class="cs-Regex" />
+            <style name="CommentLineDoc" class="cs-CommentLineDoc" />
+            <style name="Word2" class="cs-Word2" />
+            <style name="CommentDocKeyword" class="cs-CommentDocKeyword" />
+            <style name="CommentDocKeywordError" class="cs-CommentDocKeywordError" />
+            <style name="GlobalClass" class="cs-GlobalClass" />
+            <style name="GlobalDefault" class="cs-GlobalDefault" />
+            <style name="LineNumber" class="cs-LineNumber" />
+            <style name="BraceLight" class="cs-BraceLight" />
+            <style name="BraceBad" class="cs-BraceBad" />
+            <style name="ControlChar" class="cs-ControlChar" />
+            <style name="IndentGuide" class="cs-IndentGuide" />
+            <style name="CallTip" class="cs-CallTip" />
+            <style name="LastPredefined" class="cs-LastPredefined" />
+            <style name="Max" class="cs-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,0 +1,89 @@
+;;; -*- Mode:Lisp; Package:ONTOLINGUA-USER; Syntax:COMMON-LISP; Base:10 -*- 
+
+(in-package "ONTOLINGUA-USER") 
+
+(define-theory vt-example (vt-domain) 
+  "An theory for demonstrating how to specify a design task. 
+It uses the VT-domain domain theory.") 
+
+(in-theory 'vt-example) 
+
+;;; This is an example specification of the input to a VT design agent. 
+
+(define-class EXAMPLE-ELEVATOR-TO-DESIGN (?e) 
+  "A class of elevators satisfying the given requirements,  
+which are stated as a constraint that assigns values to 
+some attributes." 
+  :iff-def 
+  (and (elevator ?e) 
+       (valid-component ?e) 
+       (has-constraint  
+         ?e 
+         (the-constraint '(and 
+                            (= (cabheight ?e) 96) 
+                            (= (maxcarcapacity ?e) 3000) 
+                            (= (cabintercomspec ?e) "no") 
+                            (= (cablanternspec ?e) "no") 
+                            (= (carphonespec ?e) "yes") 
+                            (= (carpositionindicatorspec ?e) "yes") 
+                            (= (dooropeningtype ?e) "side") 
+                            (= (doorspeedspec ?e) "double") 
+                            (= (floorheightspec  ?e) 165) 
+                            (= (hoistwaydepth ?e) 110) 
+                            (= (hoistwaytofrontmbeam ?e) 3) 
+                            (= (hoistwaywidth ?e) 90) 
+                            (= (mbeamsupportdistspec ?e) 118) 
+                            (= (mbeamsupporttypespec ?e) "pocket") 
+                            (= (machineroommbeamspec ?e) 16) 
+                            (= (openingheight ?e) 84) 
+                            (= (openingstrikesidespec ?e) "right") 
+                            (= (openinghoistwayleftspec ?e) 32) 
+                            (= (dooropenwidth ?e) 42) 
+                            (= (noofopenings ?e) 6) 
+                            (= (overheadspec ?e) 192) 
+                            (= (pitdepth ?e) 72) 
+                            (= (platformheightspec ?e) 84) 
+                            (= (platformwidthspec ?e) 70) 
+                            (= (elevatorspeed ?e) 250) 
+                            (= (travelspec ?e) 729)))))) 
+
+
+#| 
+The above descriptions prescribes the requirements that a particular 
+elevator design must meet.  Using this description a satisfactory 
+elevator design may be requested with a query.  In the following, 
+we use KQML query syntax: 
+
+;;; find one ?e that satifies the definition of 
+;;; example-elevator-to-design 
+
+ (ask-one :content (example-elevator-to-design ?e) 
+	  :aspect ?e 
+	  :language KIF 
+	  :ontology VT-DOMAIN 
+	  :reply-with REQUEST-10) 
+
+The following reply might sent by the design agent: 
+
+ (reply :content DESIGN-B7 
+	:in-reply-to REQUEST-10 
+	:language KIF 
+	:ontology VT-DOMAIN) 
+
+The attributes of DESIGN-B7 can then be found through additional 
+queries such as: 
+
+ (evaluate :content (cabwt DESIGN-B7) 
+	   :reply-with CAB-WEIGHT 
+	   :language KIF 
+	   :ontology VT-DOMAIN) 
+
+;;; cabwt is a slot of DESIGN-B7 that was computed by the design agent 
+
+|# 
+
+
+
+--------------------------------------------------------------------------------
+This Lisp-to-HTML translation was brought to you by 
+François Gerbaux and Tom Gruber

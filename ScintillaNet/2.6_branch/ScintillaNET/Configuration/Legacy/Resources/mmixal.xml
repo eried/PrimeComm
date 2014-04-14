@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="mmixal-LeadWS" inherit-style="LeadWS" />
+      <style-class name="mmixal-Comment" inherit-style="Comment" />
+      <style-class name="mmixal-Label" inherit-style="Label" />
+      <style-class name="mmixal-Opcode" inherit-style="Opcode" />
+      <style-class name="mmixal-OpcodePre" inherit-style="OpcodePre" />
+      <style-class name="mmixal-OpcodeValid" inherit-style="OpcodeValid" />
+      <style-class name="mmixal-OpcodeUnknown" inherit-style="OpcodeUnknown" />
+      <style-class name="mmixal-OpcodePost" inherit-style="OpcodePost" />
+      <style-class name="mmixal-Operands" inherit-style="Operands" />
+      <style-class name="mmixal-Number" inherit-style="Number" />
+      <style-class name="mmixal-Ref" inherit-style="Ref" />
+      <style-class name="mmixal-Char" inherit-style="Char" />
+      <style-class name="mmixal-String" inherit-style="String" />
+      <style-class name="mmixal-Register" inherit-style="Register" />
+      <style-class name="mmixal-Hex" inherit-style="Hex" />
+      <style-class name="mmixal-Operator" inherit-style="Operator" />
+      <style-class name="mmixal-Symbol" inherit-style="Symbol" />
+      <style-class name="mmixal-Include" inherit-style="Include" />
+      <style-class name="mmixal-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="mmixal-LineNumber" inherit-style="LineNumber" />
+      <style-class name="mmixal-BraceLight" inherit-style="BraceLight" />
+      <style-class name="mmixal-BraceBad" inherit-style="BraceBad" />
+      <style-class name="mmixal-ControlChar" inherit-style="ControlChar" />
+      <style-class name="mmixal-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="mmixal-CallTip" inherit-style="CallTip" />
+      <style-class name="mmixal-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="mmixal-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="mmixal-Operation-Codes" >         
+         2ADDU 4ADDU 8ADDU 16ADDU ADD ADDU AND ANDNH ANDNL ANDNMH ANDNML
+         BDIF BEV BN BNN BNP BNZ BOD BP BSPEC BYTE BZ CMP CMPU CSEV CSN CSNN CSNP CSNZ CSOD CSP CSWAP CSZ
+         DIV DIVU ESPEC EXPR FADD FCMP FCMPE FDIV FEQL FEQLE FIX FIXU FLOT FLOTU FMUL FREM FSQRT FSUB FUN FUNE
+         GET GETA GO GREG I_BIT INCH INCL INCMH INCML IS JMP LDA LDB LDBU LDHT LDO LDOU LDSF LDT LDTU LDUNC LDVTS LDW LDWU LOC LOCAL
+         MOR MUL MULU MUX MXOR NAND NEG NEGU NNIX NOR NXOR O_BIT OCTA ODIF OR ORH ORL ORMH ORML ORN
+         PBEV PBN PBNN PBNP PBNZ PBOD PBP PBZ POP PREFIX PREGO PRELD PREST PUSHGO PUSHJ PUT
+         RESUME SAVE SET SETH SETL SETMH SETML SFLOT SFLOTU SL SLU SR SRU
+         STB STBU STCO STHT STO STOU STSF STT STTU STUNC STW STWU SUB SUBU SWYM SYNC SYNCD TDIF TETRA TRAP TRIP UNSAVE
+         WDIF WYDEXOR ZSEV ZSN ZSNN ZSNP ZSNZ ZSOD ZSP ZSZ
+      </keyword-class>
+      <keyword-class name="mmixal-Special-Register" >         
+         rA rB rC rD rE rF rG rH rI rJ rK rL rM rN rO rP rQ rR rS rT rU rV rW rX rY rZ rBB rTT rWW rXX rYY rZZ
+      </keyword-class>
+      <keyword-class name="mmixal-Predefined-Symbols" >         
+         @ Text_Segment Data_Segment Pool_Segment Stack_Segment
+         StdErr StdIn StdOut
+         Fopen Fclose Fread Fwrite Fgets Fputs Fgetws Fputws Ftell Fseek
+         TextRead TextWrite BinaryRead BinaryWrite BinaryReadWrite
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="mmixal">
+         <lexer name="MMIXAL" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.mms</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="mmixal-Operation-Codes"/>
+            <keyword key="1" class="mmixal-Special-Register"/>
+            <keyword key="2" class="mmixal-Predefined-Symbols"/>
+         </use-keywords>
+         <use-styles>
+            <style name="LeadWS" class="mmixal-LeadWS" />
+            <style name="Comment" class="mmixal-Comment" />
+            <style name="Label" class="mmixal-Label" />
+            <style name="Opcode" class="mmixal-Opcode" />
+            <style name="OpcodePre" class="mmixal-OpcodePre" />
+            <style name="OpcodeValid" class="mmixal-OpcodeValid" />
+            <style name="OpcodeUnknown" class="mmixal-OpcodeUnknown" />
+            <style name="OpcodePost" class="mmixal-OpcodePost" />
+            <style name="Operands" class="mmixal-Operands" />
+            <style name="Number" class="mmixal-Number" />
+            <style name="Ref" class="mmixal-Ref" />
+            <style name="Char" class="mmixal-Char" />
+            <style name="String" class="mmixal-String" />
+            <style name="Register" class="mmixal-Register" />
+            <style name="Hex" class="mmixal-Hex" />
+            <style name="Operator" class="mmixal-Operator" />
+            <style name="Symbol" class="mmixal-Symbol" />
+            <style name="Include" class="mmixal-Include" />
+            <style name="GlobalDefault" class="mmixal-GlobalDefault" />
+            <style name="LineNumber" class="mmixal-LineNumber" />
+            <style name="BraceLight" class="mmixal-BraceLight" />
+            <style name="BraceBad" class="mmixal-BraceBad" />
+            <style name="ControlChar" class="mmixal-ControlChar" />
+            <style name="IndentGuide" class="mmixal-IndentGuide" />
+            <style name="CallTip" class="mmixal-CallTip" />
+            <style name="LastPredefined" class="mmixal-LastPredefined" />
+            <style name="Max" class="mmixal-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

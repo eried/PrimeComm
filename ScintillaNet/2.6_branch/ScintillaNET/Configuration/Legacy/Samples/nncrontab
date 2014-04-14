@@ -1,0 +1,11 @@
+#=================================================================
+#      SYSTEM ACTIVITY REPORTS
+#  8am-5pm activity reports every 20 mins during weekdays.
+#  activity reports every hour on Saturday and Sunday.
+#  6pm-7am activity reports every hour during weekdays.
+#  summary prepared at 18:05 every weekday.
+#=================================================================
+0,20,40 8-17 * * 1-5 /usr/lib/sa/sa1 1200 3 &
+0 * * * 0,6 /usr/lib/sa/sa1 &
+0 18-7 * * 1-5 /usr/lib/sa/sa1 &
+5 18 * * 1-5 /usr/lib/sa/sa2 -s 8:00 -e 18:01 -i 3600 -ubcwyaqvm &

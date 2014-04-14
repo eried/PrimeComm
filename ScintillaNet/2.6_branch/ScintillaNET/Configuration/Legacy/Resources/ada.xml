@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="ada-Default" inherit-style="Default" />
+      <style-class name="ada-Word" inherit-style="Word" />
+      <style-class name="ada-Identifier" inherit-style="Identifier" />
+      <style-class name="ada-Number" inherit-style="Number" />
+      <style-class name="ada-Delimiter" inherit-style="Delimiter" />
+      <style-class name="ada-Character" inherit-style="Character" />
+      <style-class name="ada-CharacterEol" inherit-style="CharacterEol" />
+      <style-class name="ada-String" inherit-style="String" />
+      <style-class name="ada-StringEol" inherit-style="StringEol" />
+      <style-class name="ada-Label" inherit-style="Label" />
+      <style-class name="ada-CommentLine" inherit-style="CommentLine" />
+      <style-class name="ada-Illegal" inherit-style="Illegal" />
+      <style-class name="ada-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="ada-LineNumber" inherit-style="LineNumber" />
+      <style-class name="ada-BraceLight" inherit-style="BraceLight" />
+      <style-class name="ada-BraceBad" inherit-style="BraceBad" />
+      <style-class name="ada-ControlChar" inherit-style="ControlChar" />
+      <style-class name="ada-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="ada-CallTip" inherit-style="CallTip" />
+      <style-class name="ada-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="ada-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="ada-Keywords" >         
+         abort abstract accept access aliased all array at begin body
+         case constant declare delay delta digits do else elsif end entry exception exit for
+         function generic goto if in is limited loop new null of others out package pragma
+         private procedure protected raise range record renames requeue return reverse
+         select separate subtype tagged task terminate then type until use when while with
+         abs and mod not or rem xor
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="ada">
+         <lexer name="Ada" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.ads *.adb</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="ada-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="ada-Default" />
+            <style name="Word" class="ada-Word" />
+            <style name="Identifier" class="ada-Identifier" />
+            <style name="Number" class="ada-Number" />
+            <style name="Delimiter" class="ada-Delimiter" />
+            <style name="Character" class="ada-Character" />
+            <style name="CharacterEol" class="ada-CharacterEol" />
+            <style name="String" class="ada-String" />
+            <style name="StringEol" class="ada-StringEol" />
+            <style name="Label" class="ada-Label" />
+            <style name="CommentLine" class="ada-CommentLine" />
+            <style name="Illegal" class="ada-Illegal" />
+            <style name="GlobalDefault" class="ada-GlobalDefault" />
+            <style name="LineNumber" class="ada-LineNumber" />
+            <style name="BraceLight" class="ada-BraceLight" />
+            <style name="BraceBad" class="ada-BraceBad" />
+            <style name="ControlChar" class="ada-ControlChar" />
+            <style name="IndentGuide" class="ada-IndentGuide" />
+            <style name="CallTip" class="ada-CallTip" />
+            <style name="LastPredefined" class="ada-LastPredefined" />
+            <style name="Max" class="ada-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

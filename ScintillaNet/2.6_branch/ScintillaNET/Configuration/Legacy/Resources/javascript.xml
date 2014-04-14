@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="javascript-Default" inherit-style="Default" />
+      <style-class name="javascript-Comment" inherit-style="Comment" />
+      <style-class name="javascript-CommentLine" inherit-style="CommentLine" />
+      <style-class name="javascript-CommentDoc" inherit-style="CommentDoc" />
+      <style-class name="javascript-Number" inherit-style="Number" />
+      <style-class name="javascript-Word" inherit-style="Word" />
+      <style-class name="javascript-String" inherit-style="String" />
+      <style-class name="javascript-Character" inherit-style="Character" />
+      <style-class name="javascript-Uuid" inherit-style="Uuid" />
+      <style-class name="javascript-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="javascript-Operator" inherit-style="Operator" />
+      <style-class name="javascript-Identifier" inherit-style="Identifier" />
+      <style-class name="javascript-StringEol" inherit-style="StringEol" />
+      <style-class name="javascript-Verbatim" inherit-style="Verbatim" />
+      <style-class name="javascript-Regex" inherit-style="Regex" />
+      <style-class name="javascript-CommentLineDoc" inherit-style="CommentLineDoc" />
+      <style-class name="javascript-Word2" inherit-style="Word2" />
+      <style-class name="javascript-CommentDocKeyword" inherit-style="CommentDocKeyword" />
+      <style-class name="javascript-CommentDocKeywordError" inherit-style="CommentDocKeywordError" />
+      <style-class name="javascript-GlobalClass" inherit-style="GlobalClass" />
+      <style-class name="javascript-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="javascript-LineNumber" inherit-style="LineNumber" />
+      <style-class name="javascript-BraceLight" inherit-style="BraceLight" />
+      <style-class name="javascript-BraceBad" inherit-style="BraceBad" />
+      <style-class name="javascript-ControlChar" inherit-style="ControlChar" />
+      <style-class name="javascript-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="javascript-CallTip" inherit-style="CallTip" />
+      <style-class name="javascript-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="javascript-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="javascript-Primary-keywords-and-identifiers" >         
+         abstract boolean break byte case catch char class
+         const continue debugger default delete do double else enum export extends
+         final finally float for function goto if implements import in instanceof
+         int interface long native new package private protected public
+         return short static super switch synchronized this throw throws
+         transient try typeof var void volatile while with
+      </keyword-class>
+      <keyword-class name="javascript-Secondary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="javascript-Documentation-comment-keywords" >
+      </keyword-class>
+      <keyword-class name="javascript-Unused" >
+      </keyword-class>
+      <keyword-class name="javascript-Global-classes-and-typedefs" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="javascript">
+         <lexer name="Cpp" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.js</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="javascript-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="javascript-Secondary-keywords-and-identifiers"/>
+            <keyword key="2" class="javascript-Documentation-comment-keywords"/>
+            <keyword key="3" class="javascript-Unused"/>
+            <keyword key="4" class="javascript-Global-classes-and-typedefs"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="javascript-Default" />
+            <style name="Comment" class="javascript-Comment" />
+            <style name="CommentLine" class="javascript-CommentLine" />
+            <style name="CommentDoc" class="javascript-CommentDoc" />
+            <style name="Number" class="javascript-Number" />
+            <style name="Word" class="javascript-Word" />
+            <style name="String" class="javascript-String" />
+            <style name="Character" class="javascript-Character" />
+            <style name="Uuid" class="javascript-Uuid" />
+            <style name="Preprocessor" class="javascript-Preprocessor" />
+            <style name="Operator" class="javascript-Operator" />
+            <style name="Identifier" class="javascript-Identifier" />
+            <style name="StringEol" class="javascript-StringEol" />
+            <style name="Verbatim" class="javascript-Verbatim" />
+            <style name="Regex" class="javascript-Regex" />
+            <style name="CommentLineDoc" class="javascript-CommentLineDoc" />
+            <style name="Word2" class="javascript-Word2" />
+            <style name="CommentDocKeyword" class="javascript-CommentDocKeyword" />
+            <style name="CommentDocKeywordError" class="javascript-CommentDocKeywordError" />
+            <style name="GlobalClass" class="javascript-GlobalClass" />
+            <style name="GlobalDefault" class="javascript-GlobalDefault" />
+            <style name="LineNumber" class="javascript-LineNumber" />
+            <style name="BraceLight" class="javascript-BraceLight" />
+            <style name="BraceBad" class="javascript-BraceBad" />
+            <style name="ControlChar" class="javascript-ControlChar" />
+            <style name="IndentGuide" class="javascript-IndentGuide" />
+            <style name="CallTip" class="javascript-CallTip" />
+            <style name="LastPredefined" class="javascript-LastPredefined" />
+            <style name="Max" class="javascript-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

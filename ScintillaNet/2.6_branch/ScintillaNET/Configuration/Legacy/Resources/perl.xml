@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="perl-Default" inherit-style="Default" />
+      <style-class name="perl-Error" inherit-style="Error" />
+      <style-class name="perl-CommentLine" inherit-style="CommentLine" />
+      <style-class name="perl-Pod" inherit-style="Pod" />
+      <style-class name="perl-Number" inherit-style="Number" />
+      <style-class name="perl-Word" inherit-style="Word" />
+      <style-class name="perl-String" inherit-style="String" />
+      <style-class name="perl-Character" inherit-style="Character" />
+      <style-class name="perl-Punctuation" inherit-style="Punctuation" />
+      <style-class name="perl-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="perl-Operator" inherit-style="Operator" />
+      <style-class name="perl-Identifier" inherit-style="Identifier" />
+      <style-class name="perl-Scalar" inherit-style="Scalar" />
+      <style-class name="perl-Array" inherit-style="Array" />
+      <style-class name="perl-Hash" inherit-style="Hash" />
+      <style-class name="perl-SymbolTable" inherit-style="SymbolTable" />
+      <style-class name="perl-VariableIndexer" inherit-style="VariableIndexer" />
+      <style-class name="perl-Regex" inherit-style="Regex" />
+      <style-class name="perl-RegularExpressionSubstitution" inherit-style="RegularExpressionSubstitution" />
+      <style-class name="perl-LongQuote" inherit-style="LongQuote" />
+      <style-class name="perl-BackTicks" inherit-style="BackTicks" />
+      <style-class name="perl-DataSection" inherit-style="DataSection" />
+      <style-class name="perl-HereDelimiter" inherit-style="HereDelimiter" />
+      <style-class name="perl-HereQ" inherit-style="HereQ" />
+      <style-class name="perl-HereQQ" inherit-style="HereQQ" />
+      <style-class name="perl-HereQX" inherit-style="HereQX" />
+      <style-class name="perl-StringQ" inherit-style="StringQ" />
+      <style-class name="perl-StringQQ" inherit-style="StringQQ" />
+      <style-class name="perl-StringQX" inherit-style="StringQX" />
+      <style-class name="perl-StringQR" inherit-style="StringQR" />
+      <style-class name="perl-StringQW" inherit-style="StringQW" />
+      <style-class name="perl-PodVerb" inherit-style="PodVerb" />
+      <style-class name="perl-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="perl-LineNumber" inherit-style="LineNumber" />
+      <style-class name="perl-BraceLight" inherit-style="BraceLight" />
+      <style-class name="perl-BraceBad" inherit-style="BraceBad" />
+      <style-class name="perl-ControlChar" inherit-style="ControlChar" />
+      <style-class name="perl-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="perl-CallTip" inherit-style="CallTip" />
+      <style-class name="perl-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="perl-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="perl-" >
+      </keyword-class>
+      <keyword-class name="perl-Keywords" >         
+         NULL __FILE__ __LINE__ __PACKAGE__ __DATA__ __END__ AUTOLOAD
+         BEGIN CORE DESTROY END EQ GE GT INIT LE LT NE CHECK abs accept
+         alarm and atan2 bind binmode bless caller chdir chmod chomp chop
+         chown chr chroot close closedir cmp connect continue cos crypt
+         dbmclose dbmopen defined delete die do dump each else elsif endgrent
+         endhostent endnetent endprotoent endpwent endservent eof eq eval
+         exec exists exit exp fcntl fileno flock for foreach fork format
+         formline ge getc getgrent getgrgid getgrnam gethostbyaddr gethostbyname
+         gethostent getlogin getnetbyaddr getnetbyname getnetent getpeername
+         getpgrp getppid getpriority getprotobyname getprotobynumber getprotoent
+         getpwent getpwnam getpwuid getservbyname getservbyport getservent
+         getsockname getsockopt glob gmtime goto grep gt hex if index
+         int ioctl join keys kill last lc lcfirst le length link listen
+         local localtime lock log lstat lt m map mkdir msgctl msgget msgrcv
+         msgsnd my ne next no not oct open opendir or ord our pack package
+         pipe pop pos print printf prototype push q qq qr quotemeta qu
+         qw qx rand read readdir readline readlink readpipe recv redo
+         ref rename require reset return reverse rewinddir rindex rmdir
+         s scalar seek seekdir select semctl semget semop send setgrent
+         sethostent setnetent setpgrp setpriority setprotoent setpwent
+         setservent setsockopt shift shmctl shmget shmread shmwrite shutdown
+         sin sleep socket socketpair sort splice split sprintf sqrt srand
+         stat study sub substr symlink syscall sysopen sysread sysseek
+         system syswrite tell telldir tie tied time times tr truncate
+         uc ucfirst umask undef unless unlink unpack unshift untie until
+         use utime values vec wait waitpid wantarray warn while write
+         x xor y
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="perl">
+         <lexer name="Perl" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.pl *.pm *.cgi *.pod</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="perl-"/>
+            <keyword key="1" class="perl-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="perl-Default" />
+            <style name="Error" class="perl-Error" />
+            <style name="CommentLine" class="perl-CommentLine" />
+            <style name="Pod" class="perl-Pod" />
+            <style name="Number" class="perl-Number" />
+            <style name="Word" class="perl-Word" />
+            <style name="String" class="perl-String" />
+            <style name="Character" class="perl-Character" />
+            <style name="Punctuation" class="perl-Punctuation" />
+            <style name="Preprocessor" class="perl-Preprocessor" />
+            <style name="Operator" class="perl-Operator" />
+            <style name="Identifier" class="perl-Identifier" />
+            <style name="Scalar" class="perl-Scalar" />
+            <style name="Array" class="perl-Array" />
+            <style name="Hash" class="perl-Hash" />
+            <style name="SymbolTable" class="perl-SymbolTable" />
+            <style name="VariableIndexer" class="perl-VariableIndexer" />
+            <style name="Regex" class="perl-Regex" />
+            <style name="RegularExpressionSubstitution" class="perl-RegularExpressionSubstitution" />
+            <style name="LongQuote" class="perl-LongQuote" />
+            <style name="BackTicks" class="perl-BackTicks" />
+            <style name="DataSection" class="perl-DataSection" />
+            <style name="HereDelimiter" class="perl-HereDelimiter" />
+            <style name="HereQ" class="perl-HereQ" />
+            <style name="HereQQ" class="perl-HereQQ" />
+            <style name="HereQX" class="perl-HereQX" />
+            <style name="StringQ" class="perl-StringQ" />
+            <style name="StringQQ" class="perl-StringQQ" />
+            <style name="StringQX" class="perl-StringQX" />
+            <style name="StringQR" class="perl-StringQR" />
+            <style name="StringQW" class="perl-StringQW" />
+            <style name="PodVerb" class="perl-PodVerb" />
+            <style name="GlobalDefault" class="perl-GlobalDefault" />
+            <style name="LineNumber" class="perl-LineNumber" />
+            <style name="BraceLight" class="perl-BraceLight" />
+            <style name="BraceBad" class="perl-BraceBad" />
+            <style name="ControlChar" class="perl-ControlChar" />
+            <style name="IndentGuide" class="perl-IndentGuide" />
+            <style name="CallTip" class="perl-CallTip" />
+            <style name="LastPredefined" class="perl-LastPredefined" />
+            <style name="Max" class="perl-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ScintillaNET</title>
+    <style type="text/css">
+        body
+        {
+            color: #30332D;
+            font-family: "Segoe UI", "Microsoft Sans Serif", Arial, Geneva, Sans-Serif;
+            font-size: 0.8em;
+            margin: 0;
+            padding: 1.1em;
+        }
+        
+        h1, h2, h3, h4, h5, h6
+        {
+            margin-bottom: 0.13em;
+        }
+        
+        p
+        {
+            margin-top: 0;
+        }
+        
+        a
+        {
+            color: #3E62A6;
+        }
+        
+        table
+        {
+            border: 0.1em solid #BBBBBB;
+            border-collapse: collapse;
+        }
+        
+        td, th, tr
+        {
+            border: 0.1em solid #BBBBBB;
+        }
+        
+        td, th
+        {
+            padding: 0.25em;
+        }
+    </style>
+</head>
+<body>
+    <h1>ScintillaNET</h1>
+    
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#Introduction">Introduction</a></li>
+        <li>
+            <a href="#Installation">Installation</a>
+            <ul>
+                <li><a href="#DownloadingAndUnzipping">Downloading and Unzipping</a></li>
+                <li><a href="#SearchPath">Configuring the Search Path</a></li>
+                <li><a href="#VisualStudioToolbox">Adding to the Visual Studio Toolbox</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#History">History</a>
+            <ul>
+                <li><a href="#Release22">Release 2.2</a></li>
+                <li><a href="#Release201">Release 2.0.1</a></li>
+                <li><a href="#Release20">Release 2.0</a></li>
+                <li><a href="#ReleaseV6b11Beta">Release V6-b1.1 Beta</a></li>
+                <li><a href="#ReleaseV6b1Beta">Release V6-b1 Beta</a></li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h2>Introduction<a name="Introduction"></a></h2>
+    <p>
+        ScintillaNET is a powerful text editing control for Windows Forms applications and a managed wrapper around the versatile <a href="http://www.scintilla.org/">Scintilla</a> Windows control.
+        Created with the developer in mind, the ScintllaNET API makes it simple to add advanced text editing and syntax highlighting to your application or IDE (Integrated Developer Environment).
+        In addition ScintillaNET adds features not found in other Scintilla wrappers such as Visual Studio style code snippets, integrated find and replace dialogs, true regular expression searches, multiple key-command bindings, and back/forward document navigation.
+    </p>
+    <p>
+        The ScintillaNET project is hosted on <a href="http://www.codeplex.com/">CodePlex</a> at the following URL: <a href="http://scintillanet.codeplex.com/">http://scintillanet.codeplex.com/</a>.
+        The most up-to-the-minute source code, binaries, and documentation can be found at that location.
+    </p>
+    <h2>Installation<a name="Installation"></a></h2>
+    <p>
+        The following guide is provided for users who wish to use the ScintillaNET control in their projects.
+    </p>
+    
+    <h3>Downloading and Unzipping<a name="DownloadingAndUnzipping"></a></h3>
+    <p>
+        The ScintillaNET team regularly publishes new releases as features are added and bugs are fixed.
+        These releases can easily be obtained from the ScintillaNET Downloads page on CodePlex.
+        Files are distributed in both binary and source versions and then zip compressed.
+    </p>
+    <ol>
+        <li>
+            Download the binaries recommended release package from the <a href="http://scintillanet.codeplex.com/">ScintillaNET</a> Downloads page by clicking the appropriate link and selecting <strong>I Agree</strong> from the license terms-of-use popup.
+            (Other releases and versions maybe be available but we encourage you to download the "binaries" version of the recommended release unless you have a specific reason not to).
+        </li>
+        <li>
+            Unzip the package using a third-party tool or by right-clicking on the file/icon in Windows Explorer and selecting <strong>Extract All...</strong> from the context menu and following the wizard.
+        </li>
+        <li>
+            Once unzipped you'll want to place the files in a location where they can easily be referenced by any of the projects you wish to use ScintillaNET with.
+            For the purposes of this guide, we'll assume that the target directory is C:\ScintillaNET.
+            <ul>
+                <li>
+                    If the previous steps were completed successfully you should have a folder on your computer with at least the files ScintillaNet.dll and SciLexer.dll.
+                    Other license files and documentation may be included as well.
+                </li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h3>Configuring the Search Path<a name="SearchPath"></a></h3>
+    <p>
+        Failing to configure the search path or doing it incorrectly trips-up many users.
+        ScintillaNET is a wrapper around an umanaged DLL and uses Platform Invoke (P-Invoke) calls from the managed ScintillaNet.dll to the native SciLexer.dll to perform its magic.
+        In order for that to work the SciLexer.dll must be in one of the places Windows uses to locate DLLs.
+        More information about the <a href="http://msdn.microsoft.com/en-us/library/7d83bc18.aspx">Search Path Used by Windows to Locate a DLL</a> can be found on the MSDN website.
+        Of the many ways that Windows can use to find the SciLexer.dll, the instructions below illustrate how to modify your PATH environmental variable.
+    </p>
+    <h4 style="margin-left:25px">64 bit Windows</h4>
+    <p style="margin-left:25px">
+        ScintillaNet now ships with an SciLexer compiled for 64bit: SciLexerx64.dll. 
+        ScintillaNet will load the appropriate version (at run time) based on the platform and 
+        and the process architecure of the host process. Note that Visual Studio itself is a 32bit
+        process so both dlls are required for design time support even when developing on a 
+        64bit version of Windows.</p>
+    <ol>
+        <li>
+            Right-click on the My Computer icon on the Desktop or in the Start Menu and select <strong>Properties</strong> from the context menu.
+        </li>
+        <li>
+            Select the <strong>Advanced</strong> tab.
+        </li>
+        <li>
+            Click the <strong>Environment Variables</strong> button.
+        </li>
+        <li>
+            Add the "C:\ScintillaNET" folder (assuming that is the location of the downloaded files, or substitute an alternate location) to the Path variable in the User Variables list.
+            <ol>
+                <li>
+                    If there is no Path variable in the User Variables list, add one by clicking <strong>New</strong> and inputing the value "Path" in the Variable Name field and "C:\ScintillaNET" in the Variable Value field.
+                </li>
+                <li>
+                    If there is already a Path variable in the User Variables list, select the Path variable and then click <strong>Edit</strong> to modify.
+                    Append "C:\ScintillaNET" to the end of the Variable Value field separating it from any previous value(s) with a semicolon.
+                </li>
+            </ol>
+        </li>
+        <li>
+            Close all open Visual Studio or Visual C# applications and restart them for the changes to take effect.
+        </li>
+    </ol>
+    
+    <h3>Adding to the Visual Studio Toolbox<a name="VisualStudioToolbox"></a></h3>
+    <p>
+        Adding the ScintillaNET control to the Visual Studio (or Visual C# Express Edition) toolbox makes adding it to one of your forms as easy as dragging and dropping.
+    </p>
+    <ol>
+        <li>
+            With the Windows Forms designer open in Visual Studio, right-click on the <strong>ToolBox</strong> window and select <strong>Choose Items...</strong> from the context menu.
+        </li>
+        <li>
+            From the Choose Toolbox Items dialog, select the <strong>.NET Framework Components</strong> tab and then click the <strong>Browse...</strong> button.
+        </li>
+        <li>
+            Navigate to the location of the ScintillaNet.dll file on your system ("C:\ScintillaNET\ScintillaNet.dll" in our example) and after selecting the file, click the <strong>Open</strong> button.
+        </li>
+        <li>
+            When the Open dialog closes, one or more ScintillaNET components will have been added to the list.
+        </li>
+        <li>
+            Ensure that the entry named "Scintilla" is checked and then click the <strong>OK</strong> button.
+            <ul>
+                <li>
+                    The Scintilla control should now be listed in the Toolbox. Simply drag it onto a form in the designer to begin using it.
+                </li>
+            </ul>
+        </li>
+    </ol>
+    <h3>Deployment</h3>
+    <p>When deploying your application the managed ScintillaNet.dll must be made available to the host application. Typically this means
+    having it in the same directory as the executable. GAC deployment and assembly binding can also work but is more complicated because
+    of the unmanaged dll dependencies. The ScintillaNet team recommends that you do NOT deploy SciLexer.dll and SciLexerx64.dll to a 
+    shared location like the Windows System directory. Instead deploy to a path private to your application, like the application's
+    installation directory.
+    </p>
+    <h2>History <a name="History"></a></h2>
+    <h3>Release 2.3 (In Development)</h3>
+    <p>
+        TBD
+    </p>
+    
+    <h3>Release 2.2<a name="Release22"></a></h3>
+    <p>
+        10/21/2009<br />
+        Chris Rickard
+    </p>
+    <p>
+        Primarily this is a bugfix release.
+        Only a couple new features are included and they are there because they fix/workaround an existing issue.
+    </p>
+    <h4>Breaking Changes</h4>
+    <ul>
+        <li>
+            All members and strings containing White<strong>S</strong>pace have been changed to White<strong>s</strong>pace.
+            Whitespace is the accepted spelling and is the spelling used by the .NET framework. (Ignore System.Xml.Schema.XmlSchemaWhiteSpace :)
+            Along the same lines INativeScintilla.GetViewWS() changed to INativeScintilla.GetViewWs().
+        </li>
+        <li>
+            Various members' access changed from public to private or internal.
+            In these cases it didn't make much sense to expose them publicly so in theory noone should be using them thus this won't break anyones code.
+        </li>
+        <li>
+            Most of the EventArg classes changed their properties to be read-only.
+            This is consistent with the style used by the .NET framework.
+            This may potentially break code, initialize all the variables in the constructor where appropriate.
+            If there is a legitimate need to set an EventArg property after construction I'll add it back in.
+        </li>
+        <li>
+            Markers and Lines.VisibleLines implementations were buggy and have been fixed.
+            If you were using them before and made workarounds to compensate for the buggy behavior this will most likely break it.
+        </li>
+        <li>
+            DwellEnd event changed from EventHandler to EventHandler&lt;ScintillaMouseEventArgs&gt;
+        </li>
+        <li>
+            In the static Utilities class PtrToStringUtf8 and MarshalStr have been removed and replaced IntPtrToString.
+        </li>
+    </ul>
+    <h4>New Features</h4>
+    <ul>
+        <li>
+            New property Caption sets the Win32 Window Text/Caption.
+            This was introduced to make an elegant workaround.
+            The Control.Text property is usually used but has proven to be problematic because of ScintillaNet's Text implementation.
+            Also we don't want to load a 100mb file in the document then have Windows try to echo this property, it adds a ton of unneeded overhead.
+            Caption now controls this completely, it defaults to the Scintilla control's Type Name (ScintillaNet.Scintilla unless subclassed) but can be changed.
+        </li>
+        <li>
+            UseWhitespaceForeColor/UseWhitespaceBackColor control wether or not the corresponding Whitespace colors are used or inherit from the default style.
+        </li>
+        <li>
+            Style class now has an indexer overload that takes a string.
+            The style names are specific to each lexer and can be found in the ScintillaNet project under Configuration/BuiltIn/LexerStyleNames.
+        </li>
+        <li>
+            SelectionForeColor/SelectionBackColor now supports the Transparent color.
+            When Transparent selection colors don't override styled text colors.
+            While this is inconsistent with other properties like WhitespaceForeColor that have a corresponding UseXXX property I think it's more intuitive and I may change the others in the future.
+            Note that only Transparent is supported, alpha values in any other color are ignored.
+        </li>
+    </ul>
+    <h4>Issues Fixed with this Release</h4>
+    <table>
+        <tr>
+            <th>Issue #</th>
+            <th>Title</th>
+        </tr>
+        <tr>
+            <td>11811</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=11811">ScintillaNet in MDIChild destroys after Hide() - WM_DESTROY</a>
+            </td>
+        </tr>
+        <tr>
+            <td>21730</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=21730">InsertSnippet</a>
+            </td>
+        </tr>
+        <tr>
+            <td>24622</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=24622">Some Fixes</a>
+            </td>
+        </tr>
+        <tr>
+            <td>20491</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=20491">Scintilla.Encoding Can Be Out-Of-Sync With Internal Scintilla Code Page</a>
+            </td>
+        </tr>
+        <tr>
+            <td>20097</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=20097">Dispose method throws Win32Exception</a>
+            </td>
+        </tr>
+        <tr>
+            <td>10105</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=10105">Drag Drop events are never fired</a>
+            </td>
+        </tr>
+        <tr>
+            <td>18351</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=18351">Possible bug on japanese OS</a>
+            </td>
+        </tr>
+        <tr>
+            <td>18281</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=18281">Throw OutOfMemoryException when open large file</a>
+            </td>
+        </tr>
+        <tr>
+            <td>21053</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=21053">TextChanged Event Should Behave Like Other Controls</a>
+            </td>
+        </tr>
+        <tr>
+            <td>18445</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=18445">Reset of 'transparency' for selection fore color</a>
+            </td>
+        </tr>
+        <tr>
+            <td>18554</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=18554">BindableCommand.WordPartLeft not mapped to keystroke</a>
+            </td>
+        </tr>
+        <tr>
+            <td>20397</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=20397">ConfigurationManager :: getCustomConfigPath uses wrong variable</a>
+            </td>
+        </tr>
+        <tr>
+            <td>21678</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=21678">VisibleLines broken</a>
+            </td>
+        </tr>
+        <tr>
+            <td>24777</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=24777">Default font "Arial" throws exception from PageInformation</a>
+            </td>
+        </tr>
+        <tr>
+            <td>21729</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=21729">PreviousActiveSnippetLink</a>
+            </td>
+        </tr>
+        <tr>
+            <td>24911</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=24911">Problems with Markers</a>
+            </td>
+        </tr>
+        <tr>
+            <td>17869</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=17869">SearchFlags ignored</a>
+            </td>
+        </tr>
+        <tr>
+            <td>18028</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=18028">DwellEnd event</a>
+            </td>
+        </tr>
+        <tr>
+            <td>18297</td>
+            <td>
+                <a href="http://scintillanet.codeplex.com/WorkItem/View.aspx?WorkItemId=18297">NullReferenceException</a>
+            </td>
+        </tr>
+    </table>
+    
+    <h3>Release 2.0.1<a name="Release201"></a></h3>
+    <p>
+        8/4/2008<br />
+        Chris Rickard
+    </p>
+    <p>
+        For ScintillaNET core this is primarily a maintenance release.
+        It is based off of changeset 34880 and includes a few bug fixes from the 2.0 release.
+    </p>
+    <p>
+        The big change with this release is that I've now included a setup file which should help new developers get started more easily.
+        It copies the SciLexer.dll to the system directory and creates the registry entries to list Scintilla in the list of available components for the VS Toolbox.
+    </p>
+    <p>
+        I'm not including the source in this release, please take the latest from the Source Code tab.
+    </p>
+    <p>
+        Download and run the MSI to have the installer set up your development environment.
+        <strong>NOTE</strong> if you already have SciLexer.dll in your system directory it will be overwritten with version 1.7.6, which is the latest Scintilla at the time of this release.<br />
+        <br />
+        OR<br />
+        <br />
+        Download the ZIP file if you want to do a manual installation, read the included readme.txt for instructions on how to set up your development environment.
+    </p>
+    
+    <h3>Release 2.0<a name="Release20"></a></h3>
+    <p>
+        2/16/2008<br />
+        Chris Rickard
+    </p>
+    <p>
+        This is the first release of ScintillaNET based off the 2.0 branch.
+        The entire API has been re-written and is <strong>not</strong> compatible with 1x versions.
+        All built in features of Scintilla are completely implemented with both a Scintilla like API (INativeScintilla) and an abstracted API that hides much of the flat API nature of Scintilla (Scintilla control).
+        Many common things that were difficult to do with ScintillaNET 1x are now made easier with the new API.
+        Also many new features that are not inherent with by Scintilla have been added. These include Print Preview, Find and Replace dialogs (with full regular expression support!), GoTo line dialog, document navigation, drop markers (like CodeRush), (Visual Studio-like) Code Snippets.
+    </p>
+    <p>
+        The majority of Scintilla's properties can be designed using the Windows Forms designer property grid.
+        This is probably the easiest way to get started with many of the features, as you get immediate feedback of changes.
+    </p>
+    <p>
+        Lastly a brand new configuration system has been created.
+        It uses a multiple layered configuration approach that is both very powerful and very easy to get started with.
+    </p>
+    <p>
+        Documentation is still non-existent.
+        I <strong>promise</strong> it will start trickling in.
+        For now the best way to learn is to open up the SCide example project and see what it does.
+    </p>
+    <p>
+        Read the readme.txt included in both downloads for instructions on how to get started in setting up your development environment.
+    </p>
+    
+    <h3>Release V6-b1.1 Beta<a name="ReleaseV6b11Beta"></a></h3>
+    <p>
+        3/11/2007
+    </p>
+    <p>
+        This release uses the DockPanel suite to implement a MDI interface.
+        It also supports the SciTE configuration file format, allowing syntax highlighting/folding support for most code formats.
+    </p>
+    <p>
+        There are still quite a few items in progress, but I thought it was a good time to give everyone a sample of what we've been working on.
+    </p>
+    
+    <h3>Release V6-b1 Beta<a name="ReleaseV6b1Beta"></a></h3>
+    <p>
+         1/30/2007
+    </p>
+    <p>
+        The v6-a1 was the first public CodePlex release and I feel we are way past due for another :D
+    </p>
+    <p>
+        Beta 1 mainly features a full basic Scintilla implementation and a good basic event system.
+    </p>
+    <p>
+        Higher level features included in this release are Smart Indenting and built in Find and Replace Controls/Dialogs for your enjoyment.
+        See Release notes for full details.
+    </p>
+    <p>
+        Sorry but no help yet.
+        *Maybe* by b2 I'll have gone through and added all the XML comments then use an SCDoc project to generate the reference chm.
+    </p>
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScintillaNET>
+  <Language Name="awk">
+    <AutoComplete FillUpCharacters=".([" SingleLineAccept="True" IsCaseSensitive="False">
+      <List>
+        $0 $1 $2 $3 $4 $5 $6 $7 $8 $9 fileman fs nf nr ofs ors ofmt print rs
+      </List>
+    </AutoComplete>
+
+
+    <Indentation TabWidth="4" SmartIndentType="cpp" />
+
+
+    <Lexer LexerName="cpp" LineCommentPrefix="#" StreamCommentPrefix="/* " StreamCommentSuffix=" */" >
+      <Keywords List="0" Inherit="False">
+        do double $0 $1 $2 $3 $4 $5 $6 $7 $8 $9 fileman fs nf nr ofs ors ofmt print printf rs
+      </Keywords>
+      <Keywords List="1" Inherit="False">
+        function return
+      </Keywords>
+    </Lexer>
+  </Language>
+</ScintillaNET> 

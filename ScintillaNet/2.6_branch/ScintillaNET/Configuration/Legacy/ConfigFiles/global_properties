@@ -1,0 +1,121 @@
+#==================  Global Variables ==================
+var.chars-accented=ŠšŒœŸÿÀàÁáÂâÃãÄäÅåÆæÇçÈèÉéÊêËëÌìÍíÎîÏïÐðÑñÒòÓóÔôÕõÖØøÙùÚúÛûÜüÝýÞþßö
+var.chars-alpha=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+var.chars-numeric=0123456789
+var.color-char=fore:#7F007F
+var.color-code-comment-box=fore:#007F00
+var.color-code-comment-doc=fore:#3F703F
+var.color-code-comment-line=fore:#007F00
+var.color-embedded-comment=back:#E0EEFF
+var.color-embedded-js=back:#F0F0FF
+var.color-error=fore:#FFFF00,back:#FF0000
+var.color-keyword=fore:#00007F
+var.color-notused=back:#FF0000
+var.color-number=fore:#007F7F
+var.color-operator=fore:#000000
+var.color-other-comment=fore:#007F00
+var.color-preproc=fore:#7F7F00
+var.color-string=fore:#7F007F
+var.color-text-comment=fore:#0000FF,back:#D0F0D0
+var.files-all=All Files (*.*)|*.*|
+var.files-source=*.cs;*.aspx.cs;*.html;*.htm
+var.font-base=font:Verdana,size:10
+var.font-code-comment-box=$(font-comment)
+var.font-code-comment-doc=$(font-comment)
+var.font-code-comment-line=$(font-comment)
+var.font-comment=font:Comic Sans MS,size:9
+var.font-embedded-base=font:Verdana,size:9
+var.font-embedded-comment=font:Comic Sans MS,size:8
+var.font-js=$(font-comment)
+var.font-monospace=font:Courier New,size:10
+var.font-small=font:Verdana,size:8
+var.font-text-comment=font:Verdana,size:9
+var.font-text=font:Times New Roman,size:11
+var.font-vbs=font:Lucida Sans Unicode,size:10
+
+
+
+#================== Editor settings ==================
+language-names=cs html
+open-filter=All Source|$(files-source)|$(files-all)
+default-file-ext=cs
+#---------------------------------------------------------------------------------------
+# Each item contains three parts: menu string | file extension | key
+# The only keys allowed currently are based on F-keys and alphabetic keys and look like
+# [Ctrl+][Shift+][Fn|a] such as F12 or Ctrl+Shift+D.
+# A '&' may be placed before a letter to be used as an accelerator. 
+#---------------------------------------------------------------------------------------
+menu-language=\
+C&#|cs||\
+&HTML|html||
+#---------------------------------------------------------------------------------------
+# Default extensions for each supported language in pattern -> extension:language,
+#---------------------------------------------------------------------------------------
+extension-languages=cs:cs,html:html,htm:html,asp:html,php:html
+
+
+
+#==================  Overridable global settings ==================
+global.lexer=cpp
+global.braces-check=1
+global.braces-sloppy=1
+global.buffered-draw=1
+global.caret-period=500
+global.caret-period=500
+global.character-set=204
+global.code-page=65001
+global.edge-color=#C0DCC0
+global.edge-column=200
+global.edge-mode=0
+global.fold-comment=1
+global.fold-compact=1
+global.fold-flags=16
+global.fold-on-open=0
+global.fold-preprocessor=1
+global.fold-symbols=1
+global.fold=1
+global.highlight-indentation-guides=1
+global.highlight-indentation-guides=1
+global.indent-automatic=1
+global.indent-closing=0
+global.indent-opening=0
+global.indent-size=8
+global.line-margin-width=4
+global.margin-width=16
+global.selection-alpha=30
+global.selection-back=#000000
+global.style.32=$(font-base)
+global.style.33=back:#C0C0C0,$(font-base)
+global.style.34=fore:#0000FF,bold
+global.style.35=fore:#FF0000,bold
+global.style.37=fore:#C0C0C0,back:#FFFFFF
+global.tabsize=8
+global.two-phase-draw=0
+global.use-palette=0
+global.use-tabs=1
+global.view-indentation-guides=1
+global.view-indentation-guides=1
+global.view-indentation-whitespace=1
+global.view-indentation-whitespace=1
+global.view-whitespace=0
+global.view-whitespace=0
+
+
+
+#==========================================================================
+#line.margin.visible=1
+#fold.margin.width=16
+#fold.margin.color=#FF0000
+#fold.margin.highlight.color=#0000FF
+#blank.margin.left=4
+#blank.margin.right=4
+#view.eol=1
+#control.char.symbol=.
+#caret.fore=#FF0000
+#caret.width=2
+#caret.line.back=#FFFED8
+#caret.line.back.alpha=63
+#selection.fore=#006000
+#tab.indents=0
+#backspace.unindents=0
+#indent.auto=1

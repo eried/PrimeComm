@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="verilog-Default" inherit-style="Default" />
+      <style-class name="verilog-Comment" inherit-style="Comment" />
+      <style-class name="verilog-CommentLine" inherit-style="CommentLine" />
+      <style-class name="verilog-CommentLineBang" inherit-style="CommentLineBang" />
+      <style-class name="verilog-Number" inherit-style="Number" />
+      <style-class name="verilog-Word" inherit-style="Word" />
+      <style-class name="verilog-String" inherit-style="String" />
+      <style-class name="verilog-Word2" inherit-style="Word2" />
+      <style-class name="verilog-Word3" inherit-style="Word3" />
+      <style-class name="verilog-Preprocessor" inherit-style="Preprocessor" />
+      <style-class name="verilog-Operator" inherit-style="Operator" />
+      <style-class name="verilog-Identifier" inherit-style="Identifier" />
+      <style-class name="verilog-StringEol" inherit-style="StringEol" />
+      <style-class name="verilog-User" inherit-style="User" />
+      <style-class name="verilog-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="verilog-LineNumber" inherit-style="LineNumber" />
+      <style-class name="verilog-BraceLight" inherit-style="BraceLight" />
+      <style-class name="verilog-BraceBad" inherit-style="BraceBad" />
+      <style-class name="verilog-ControlChar" inherit-style="ControlChar" />
+      <style-class name="verilog-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="verilog-CallTip" inherit-style="CallTip" />
+      <style-class name="verilog-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="verilog-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="verilog-Primary-keywords-and-identifiers" >         
+         always and assign begin
+         xbuf buf bufif0 bufif1 case casex casez cmos
+         default defparam else end endcase
+         endfunction endmodule endprimitive endspecify
+         endtable endtask event for force forever
+         fork function if initial inout input
+         integer join macromodule makefile module
+         nand negedge nmos nor not notif0 notif1
+         or output parameter pmos posedge primitive
+         pulldown pullup rcmos real realtime reg
+         repeat rnmos rpmos rtran rtranif0 rtranif1
+         signed specify specparam supply supply0 supply1 table
+         task time tran tranif0 tranif1 tri tri0
+         tri1 triand trior trireg vectored wait
+         wand while wire wor xnor xor
+      </keyword-class>
+      <keyword-class name="verilog-Secondary-keywords-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="verilog-System-Tasks" >         
+         $readmemb $readmemh $sreadmemb $sreadmemh $display $write $strobe $monitor $fdisplay $fwrite $fstrobe
+         $fmonitor $fopen $fclose $time $stime $realtime $scale $printtimescale $timeformat $stop $finish $save
+         $incsave $restart $input $log $nolog $key $nokey $scope $showscopes $showscopes $showvars $showvars
+         $countdrivers $list $monitoron $monitoroff $dumpon $dumpoff $dumpfile $dumplimit $dumpflush $dumpvars
+         $dumpall $reset $reset $reset $reset $reset $random $getpattern $rtoi $itor $realtobits $bitstoreal
+         $setup $hold $setuphold $period $width $skew $recovery
+      </keyword-class>
+      <keyword-class name="verilog-User-defined-tasks-and-identifiers" >
+      </keyword-class>
+      <keyword-class name="verilog-Unused" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="verilog">
+         <lexer name="Verilog" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.v *.vh</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="verilog-Primary-keywords-and-identifiers"/>
+            <keyword key="1" class="verilog-Secondary-keywords-and-identifiers"/>
+            <keyword key="2" class="verilog-System-Tasks"/>
+            <keyword key="3" class="verilog-User-defined-tasks-and-identifiers"/>
+            <keyword key="4" class="verilog-Unused"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="verilog-Default" />
+            <style name="Comment" class="verilog-Comment" />
+            <style name="CommentLine" class="verilog-CommentLine" />
+            <style name="CommentLineBang" class="verilog-CommentLineBang" />
+            <style name="Number" class="verilog-Number" />
+            <style name="Word" class="verilog-Word" />
+            <style name="String" class="verilog-String" />
+            <style name="Word2" class="verilog-Word2" />
+            <style name="Word3" class="verilog-Word3" />
+            <style name="Preprocessor" class="verilog-Preprocessor" />
+            <style name="Operator" class="verilog-Operator" />
+            <style name="Identifier" class="verilog-Identifier" />
+            <style name="StringEol" class="verilog-StringEol" />
+            <style name="User" class="verilog-User" />
+            <style name="GlobalDefault" class="verilog-GlobalDefault" />
+            <style name="LineNumber" class="verilog-LineNumber" />
+            <style name="BraceLight" class="verilog-BraceLight" />
+            <style name="BraceBad" class="verilog-BraceBad" />
+            <style name="ControlChar" class="verilog-ControlChar" />
+            <style name="IndentGuide" class="verilog-IndentGuide" />
+            <style name="CallTip" class="verilog-CallTip" />
+            <style name="LastPredefined" class="verilog-LastPredefined" />
+            <style name="Max" class="verilog-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

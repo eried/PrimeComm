@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="erlang-Default" inherit-style="Default" />
+      <style-class name="erlang-Comment" inherit-style="Comment" />
+      <style-class name="erlang-Variable" inherit-style="Variable" />
+      <style-class name="erlang-Number" inherit-style="Number" />
+      <style-class name="erlang-Keyword" inherit-style="Keyword" />
+      <style-class name="erlang-String" inherit-style="String" />
+      <style-class name="erlang-Operator" inherit-style="Operator" />
+      <style-class name="erlang-Atom" inherit-style="Atom" />
+      <style-class name="erlang-FunctionName" inherit-style="FunctionName" />
+      <style-class name="erlang-Character" inherit-style="Character" />
+      <style-class name="erlang-Macro" inherit-style="Macro" />
+      <style-class name="erlang-Record" inherit-style="Record" />
+      <style-class name="erlang-Separator" inherit-style="Separator" />
+      <style-class name="erlang-NodeName" inherit-style="NodeName" />
+      <style-class name="erlang-Unknown" inherit-style="Unknown" />
+      <style-class name="erlang-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="erlang-LineNumber" inherit-style="LineNumber" />
+      <style-class name="erlang-BraceLight" inherit-style="BraceLight" />
+      <style-class name="erlang-BraceBad" inherit-style="BraceBad" />
+      <style-class name="erlang-ControlChar" inherit-style="ControlChar" />
+      <style-class name="erlang-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="erlang-CallTip" inherit-style="CallTip" />
+      <style-class name="erlang-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="erlang-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="erlang-Keywords" >
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="erlang">
+         <lexer name="Erlang" style-bits="5"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.erl</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="erlang-Keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="erlang-Default" />
+            <style name="Comment" class="erlang-Comment" />
+            <style name="Variable" class="erlang-Variable" />
+            <style name="Number" class="erlang-Number" />
+            <style name="Keyword" class="erlang-Keyword" />
+            <style name="String" class="erlang-String" />
+            <style name="Operator" class="erlang-Operator" />
+            <style name="Atom" class="erlang-Atom" />
+            <style name="FunctionName" class="erlang-FunctionName" />
+            <style name="Character" class="erlang-Character" />
+            <style name="Macro" class="erlang-Macro" />
+            <style name="Record" class="erlang-Record" />
+            <style name="Separator" class="erlang-Separator" />
+            <style name="NodeName" class="erlang-NodeName" />
+            <style name="Unknown" class="erlang-Unknown" />
+            <style name="GlobalDefault" class="erlang-GlobalDefault" />
+            <style name="LineNumber" class="erlang-LineNumber" />
+            <style name="BraceLight" class="erlang-BraceLight" />
+            <style name="BraceBad" class="erlang-BraceBad" />
+            <style name="ControlChar" class="erlang-ControlChar" />
+            <style name="IndentGuide" class="erlang-IndentGuide" />
+            <style name="CallTip" class="erlang-CallTip" />
+            <style name="LastPredefined" class="erlang-LastPredefined" />
+            <style name="Max" class="erlang-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

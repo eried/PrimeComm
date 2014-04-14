@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scintilla xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<globals>
+<!-- #region "xml-globals" -->
+<!-- #endregion -->
+</globals>
+<style-classes>
+<!-- #region "xml-style-classes" -->
+      <style-class name="php-Default" inherit-style="Default" />
+      <style-class name="php-Tag" inherit-style="Tag" />
+      <style-class name="php-TagUnknown" inherit-style="TagUnknown" />
+      <style-class name="php-Attribute" inherit-style="Attribute" />
+      <style-class name="php-AttributeUnknown" inherit-style="AttributeUnknown" />
+      <style-class name="php-Number" inherit-style="Number" />
+      <style-class name="php-DoubleString" inherit-style="DoubleString" />
+      <style-class name="php-SingleString" inherit-style="SingleString" />
+      <style-class name="php-Other" inherit-style="Other" />
+      <style-class name="php-Comment" inherit-style="Comment" />
+      <style-class name="php-Entity" inherit-style="Entity" />
+      <style-class name="php-TagEnd" inherit-style="TagEnd" />
+      <style-class name="php-XmlStart" inherit-style="XmlStart" />
+      <style-class name="php-XmlEnd" inherit-style="XmlEnd" />
+      <style-class name="php-Script" inherit-style="Script" />
+      <style-class name="php-Asp" inherit-style="Asp" />
+      <style-class name="php-AspAt" inherit-style="AspAt" />
+      <style-class name="php-CData" inherit-style="CData" />
+      <style-class name="php-Question" inherit-style="Question" />
+      <style-class name="php-Value" inherit-style="Value" />
+      <style-class name="php-XCComment" inherit-style="XCComment" />
+      <style-class name="php-SgmlDefault" inherit-style="SgmlDefault" />
+      <style-class name="php-SgmlCommand" inherit-style="SgmlCommand" />
+      <style-class name="php-SgmlSgml1stParameter" inherit-style="SgmlSgml1stParameter" />
+      <style-class name="php-SgmlDoubleString" inherit-style="SgmlDoubleString" />
+      <style-class name="php-SgmlSimpleString" inherit-style="SgmlSimpleString" />
+      <style-class name="php-SgmlError" inherit-style="SgmlError" />
+      <style-class name="php-SgmlSpecial" inherit-style="SgmlSpecial" />
+      <style-class name="php-SgmlEntity" inherit-style="SgmlEntity" />
+      <style-class name="php-SgmlComment" inherit-style="SgmlComment" />
+      <style-class name="php-SgmlSgml1stParameterComment" inherit-style="SgmlSgml1stParameterComment" />
+      <style-class name="php-SgmlBlockDefault" inherit-style="SgmlBlockDefault" />
+      <style-class name="php-JavaScriptStart" inherit-style="JavaScriptStart" />
+      <style-class name="php-JavaScriptDefault" inherit-style="JavaScriptDefault" />
+      <style-class name="php-JavaScriptComment" inherit-style="JavaScriptComment" />
+      <style-class name="php-JavaScriptCommentLine" inherit-style="JavaScriptCommentLine" />
+      <style-class name="php-JavaScriptCommentDoc" inherit-style="JavaScriptCommentDoc" />
+      <style-class name="php-JavaScriptNumber" inherit-style="JavaScriptNumber" />
+      <style-class name="php-JavaScriptWord" inherit-style="JavaScriptWord" />
+      <style-class name="php-JavaScriptKeyword" inherit-style="JavaScriptKeyword" />
+      <style-class name="php-JavaScriptDoubleString" inherit-style="JavaScriptDoubleString" />
+      <style-class name="php-JavaScriptSingleString" inherit-style="JavaScriptSingleString" />
+      <style-class name="php-JavaScriptSymbols" inherit-style="JavaScriptSymbols" />
+      <style-class name="php-JavaScriptStringEol" inherit-style="JavaScriptStringEol" />
+      <style-class name="php-JavaScriptRegex" inherit-style="JavaScriptRegex" />
+      <style-class name="php-AspJavaScriptStart" inherit-style="AspJavaScriptStart" />
+      <style-class name="php-AspJavaScriptDefault" inherit-style="AspJavaScriptDefault" />
+      <style-class name="php-AspJavaScriptComment" inherit-style="AspJavaScriptComment" />
+      <style-class name="php-AspJavaScriptCommentLine" inherit-style="AspJavaScriptCommentLine" />
+      <style-class name="php-AspJavaScriptCommentDoc" inherit-style="AspJavaScriptCommentDoc" />
+      <style-class name="php-AspJavaScriptNumber" inherit-style="AspJavaScriptNumber" />
+      <style-class name="php-AspJavaScriptWord" inherit-style="AspJavaScriptWord" />
+      <style-class name="php-AspJavaScriptKeyword" inherit-style="AspJavaScriptKeyword" />
+      <style-class name="php-AspJavaScriptDoubleString" inherit-style="AspJavaScriptDoubleString" />
+      <style-class name="php-AspJavaScriptSingleString" inherit-style="AspJavaScriptSingleString" />
+      <style-class name="php-AspJavaScriptSymbols" inherit-style="AspJavaScriptSymbols" />
+      <style-class name="php-AspJavaScriptStringEol" inherit-style="AspJavaScriptStringEol" />
+      <style-class name="php-AspJavaScriptRegex" inherit-style="AspJavaScriptRegex" />
+      <style-class name="php-VBScriptStart" inherit-style="VBScriptStart" />
+      <style-class name="php-VBScriptDefault" inherit-style="VBScriptDefault" />
+      <style-class name="php-VBScriptCommentLine" inherit-style="VBScriptCommentLine" />
+      <style-class name="php-VBScriptNumber" inherit-style="VBScriptNumber" />
+      <style-class name="php-VBScriptWord" inherit-style="VBScriptWord" />
+      <style-class name="php-VBScriptString" inherit-style="VBScriptString" />
+      <style-class name="php-VBScriptIdentifier" inherit-style="VBScriptIdentifier" />
+      <style-class name="php-VBScriptStringEol" inherit-style="VBScriptStringEol" />
+      <style-class name="php-AspVBScriptStart" inherit-style="AspVBScriptStart" />
+      <style-class name="php-AspVBScriptDefault" inherit-style="AspVBScriptDefault" />
+      <style-class name="php-AspVBScriptCommentLine" inherit-style="AspVBScriptCommentLine" />
+      <style-class name="php-AspVBScriptNumber" inherit-style="AspVBScriptNumber" />
+      <style-class name="php-AspVBScriptWord" inherit-style="AspVBScriptWord" />
+      <style-class name="php-AspVBScriptString" inherit-style="AspVBScriptString" />
+      <style-class name="php-AspVBScriptIdentifier" inherit-style="AspVBScriptIdentifier" />
+      <style-class name="php-AspVBScriptStringEol" inherit-style="AspVBScriptStringEol" />
+      <style-class name="php-PythonStart" inherit-style="PythonStart" />
+      <style-class name="php-PythonDefault" inherit-style="PythonDefault" />
+      <style-class name="php-PythonCommentLine" inherit-style="PythonCommentLine" />
+      <style-class name="php-PythonNumber" inherit-style="PythonNumber" />
+      <style-class name="php-PythonString" inherit-style="PythonString" />
+      <style-class name="php-PythonCharacter" inherit-style="PythonCharacter" />
+      <style-class name="php-PythonWord" inherit-style="PythonWord" />
+      <style-class name="php-PythonTriple" inherit-style="PythonTriple" />
+      <style-class name="php-PythonTripleDouble" inherit-style="PythonTripleDouble" />
+      <style-class name="php-PythonClassName" inherit-style="PythonClassName" />
+      <style-class name="php-PythonDefName" inherit-style="PythonDefName" />
+      <style-class name="php-PythonOperator" inherit-style="PythonOperator" />
+      <style-class name="php-PythonIdentifier" inherit-style="PythonIdentifier" />
+      <style-class name="php-PhpComplexVariable" inherit-style="PhpComplexVariable" />
+      <style-class name="php-AspPythonStart" inherit-style="AspPythonStart" />
+      <style-class name="php-AspPythonDefault" inherit-style="AspPythonDefault" />
+      <style-class name="php-AspPythonCommentLine" inherit-style="AspPythonCommentLine" />
+      <style-class name="php-AspPythonNumber" inherit-style="AspPythonNumber" />
+      <style-class name="php-AspPythonString" inherit-style="AspPythonString" />
+      <style-class name="php-AspPythonCharacter" inherit-style="AspPythonCharacter" />
+      <style-class name="php-AspPythonWord" inherit-style="AspPythonWord" />
+      <style-class name="php-AspPythonTriple" inherit-style="AspPythonTriple" />
+      <style-class name="php-AspPythonTripleDouble" inherit-style="AspPythonTripleDouble" />
+      <style-class name="php-AspPythonClassName" inherit-style="AspPythonClassName" />
+      <style-class name="php-AspPythonDefName" inherit-style="AspPythonDefName" />
+      <style-class name="php-AspPythonOperator" inherit-style="AspPythonOperator" />
+      <style-class name="php-AspPythonIdentifier" inherit-style="AspPythonIdentifier" />
+      <style-class name="php-PhpDefault" inherit-style="PhpDefault" />
+      <style-class name="php-PhpHString" inherit-style="PhpHString" />
+      <style-class name="php-PhpSimpleString" inherit-style="PhpSimpleString" />
+      <style-class name="php-PhpWord" inherit-style="PhpWord" />
+      <style-class name="php-PhpNumber" inherit-style="PhpNumber" />
+      <style-class name="php-PhpVariable" inherit-style="PhpVariable" />
+      <style-class name="php-PhpComment" inherit-style="PhpComment" />
+      <style-class name="php-PhpCommentLine" inherit-style="PhpCommentLine" />
+      <style-class name="php-PhpHstringVariable" inherit-style="PhpHstringVariable" />
+      <style-class name="php-PhpOperator" inherit-style="PhpOperator" />
+      <style-class name="php-ADefault" inherit-style="ADefault" />
+      <style-class name="php-AIdentifier" inherit-style="AIdentifier" />
+      <style-class name="php-AKeyword" inherit-style="AKeyword" />
+      <style-class name="php-ANumber" inherit-style="ANumber" />
+      <style-class name="php-AString" inherit-style="AString" />
+      <style-class name="php-ACharacter" inherit-style="ACharacter" />
+      <style-class name="php-AClass" inherit-style="AClass" />
+      <style-class name="php-AModule" inherit-style="AModule" />
+      <style-class name="php-ACapital" inherit-style="ACapital" />
+      <style-class name="php-AData" inherit-style="AData" />
+      <style-class name="php-AImport" inherit-style="AImport" />
+      <style-class name="php-AOperator" inherit-style="AOperator" />
+      <style-class name="php-AInstance" inherit-style="AInstance" />
+      <style-class name="php-ACommentline" inherit-style="ACommentline" />
+      <style-class name="php-ACommentblock" inherit-style="ACommentblock" />
+      <style-class name="php-ACommentblock2" inherit-style="ACommentblock2" />
+      <style-class name="php-ACommentblock3" inherit-style="ACommentblock3" />
+      <style-class name="php-GlobalDefault" inherit-style="GlobalDefault" />
+      <style-class name="php-LineNumber" inherit-style="LineNumber" />
+      <style-class name="php-BraceLight" inherit-style="BraceLight" />
+      <style-class name="php-BraceBad" inherit-style="BraceBad" />
+      <style-class name="php-ControlChar" inherit-style="ControlChar" />
+      <style-class name="php-IndentGuide" inherit-style="IndentGuide" />
+      <style-class name="php-CallTip" inherit-style="CallTip" />
+      <style-class name="php-LastPredefined" inherit-style="LastPredefined" />
+      <style-class name="php-Max" inherit-style="Max" />
+<!-- #endregion -->
+</style-classes>
+<keyword-classes>
+<!--  #region "xml-keyword-classes" -->
+      <keyword-class name="php-HTML-elements-and-attributes" >         
+         a abbr acronym address applet area b base basefont
+         bdo big blockquote body br button caption center
+         cite code col colgroup dd del dfn dir div dl dt em
+         fieldset font form frame frameset h1 h2 h3 h4 h5 h6
+         head hr html i iframe img input ins isindex kbd label
+         legend li link map menu meta noframes noscript
+         object ol optgroup option p param pre q s samp
+         script select small span strike strong style sub sup
+         table tbody td textarea tfoot th thead title tr tt u ul
+         var xml xmlns
+         abbr accept-charset accept accesskey action align alink
+         alt archive axis background bgcolor border
+         cellpadding cellspacing char charoff charset checked cite
+         class classid clear codebase codetype color cols colspan
+         compact content coords
+         data datafld dataformatas datapagesize datasrc datetime
+         declare defer dir disabled enctype event
+         face for frame frameborder
+         headers height href hreflang hspace http-equiv
+         id ismap label lang language leftmargin link longdesc
+         marginwidth marginheight maxlength media method multiple
+         name nohref noresize noshade nowrap
+         object onblur onchange onclick ondblclick onfocus
+         onkeydown onkeypress onkeyup onload onmousedown
+         onmousemove onmouseover onmouseout onmouseup
+         onreset onselect onsubmit onunload
+         profile prompt readonly rel rev rows rowspan rules
+         scheme scope selected shape size span src standby start style
+         summary tabindex target text title topmargin type usemap
+         valign value valuetype version vlink vspace width
+         text password checkbox radio submit reset
+         file hidden image
+         public !doctype
+      </keyword-class>
+      <keyword-class name="php-JavaScript-keywords" >         
+         abstract boolean break byte case catch char class
+         const continue debugger default delete do double else enum export extends
+         final finally float for function goto if implements import in instanceof
+         int interface long native new package private protected public
+         return short static super switch synchronized this throw throws
+         transient try typeof var void volatile while with
+      </keyword-class>
+      <keyword-class name="php-VBScript-keywords" >         
+         and begin case call continue do each else elseif end erase
+         error event exit false for function get gosub goto if implement in load loop lset
+         me mid new next not nothing on or property raiseevent rem resume return rset
+         select set stop sub then to true unload until wend while with withevents
+         attribute alias as boolean byref byte byval const compare currency date declare dim double
+         enum explicit friend global integer let lib long module object option optional
+         preserve private property public redim single static string type variant
+      </keyword-class>
+      <keyword-class name="php-Python-keywords" >         
+         and assert break class continue def del elif
+         else except exec finally for from global if import in is lambda None
+         not or pass print raise return try while yield
+      </keyword-class>
+      <keyword-class name="php-PHP-keywords" >         
+         and argv as argc break case cfunction class continue declare default do
+         die echo else elseif empty enddeclare endfor endforeach endif endswitch
+         endwhile e_all e_parse e_error e_warning eval exit extends false for
+         foreach function global http_cookie_vars http_get_vars http_post_vars
+         http_post_files http_env_vars http_server_vars if include include_once
+         list new not null old_function or parent php_os php_self php_version
+         print require require_once return static switch stdclass this true var
+         xor virtual while __file__ __line__ __sleep __wakeup
+      </keyword-class>
+      <keyword-class name="php-SGML-and-DTD-keywords" >         
+         ELEMENT DOCTYPE ATTLIST ENTITY NOTATION
+      </keyword-class>
+<!-- #endregion -->
+</keyword-classes>
+<languages>
+<!-- #region "xml-languages" -->
+      <language name="php">
+         <lexer name="PHP" style-bits="7"/>
+          <editor-style caret-fore="default-caret-fore" selection-fore="default-selection-fore" selection-back="default-selection-back" />
+          <character-class inherit="alphanumeric" ></character-class>
+         <file-extensions> *.php3 *.phtml *.php</file-extensions>
+         <use-keywords>
+            <keyword key="0" class="php-HTML-elements-and-attributes"/>
+            <keyword key="1" class="php-JavaScript-keywords"/>
+            <keyword key="2" class="php-VBScript-keywords"/>
+            <keyword key="3" class="php-Python-keywords"/>
+            <keyword key="4" class="php-PHP-keywords"/>
+            <keyword key="5" class="php-SGML-and-DTD-keywords"/>
+         </use-keywords>
+         <use-styles>
+            <style name="Default" class="php-Default" />
+            <style name="Tag" class="php-Tag" />
+            <style name="TagUnknown" class="php-TagUnknown" />
+            <style name="Attribute" class="php-Attribute" />
+            <style name="AttributeUnknown" class="php-AttributeUnknown" />
+            <style name="Number" class="php-Number" />
+            <style name="DoubleString" class="php-DoubleString" />
+            <style name="SingleString" class="php-SingleString" />
+            <style name="Other" class="php-Other" />
+            <style name="Comment" class="php-Comment" />
+            <style name="Entity" class="php-Entity" />
+            <style name="TagEnd" class="php-TagEnd" />
+            <style name="XmlStart" class="php-XmlStart" />
+            <style name="XmlEnd" class="php-XmlEnd" />
+            <style name="Script" class="php-Script" />
+            <style name="Asp" class="php-Asp" />
+            <style name="AspAt" class="php-AspAt" />
+            <style name="CData" class="php-CData" />
+            <style name="Question" class="php-Question" />
+            <style name="Value" class="php-Value" />
+            <style name="XCComment" class="php-XCComment" />
+            <style name="SgmlDefault" class="php-SgmlDefault" />
+            <style name="SgmlCommand" class="php-SgmlCommand" />
+            <style name="SgmlSgml1stParameter" class="php-SgmlSgml1stParameter" />
+            <style name="SgmlDoubleString" class="php-SgmlDoubleString" />
+            <style name="SgmlSimpleString" class="php-SgmlSimpleString" />
+            <style name="SgmlError" class="php-SgmlError" />
+            <style name="SgmlSpecial" class="php-SgmlSpecial" />
+            <style name="SgmlEntity" class="php-SgmlEntity" />
+            <style name="SgmlComment" class="php-SgmlComment" />
+            <style name="SgmlSgml1stParameterComment" class="php-SgmlSgml1stParameterComment" />
+            <style name="SgmlBlockDefault" class="php-SgmlBlockDefault" />
+            <style name="JavaScriptStart" class="php-JavaScriptStart" />
+            <style name="JavaScriptDefault" class="php-JavaScriptDefault" />
+            <style name="JavaScriptComment" class="php-JavaScriptComment" />
+            <style name="JavaScriptCommentLine" class="php-JavaScriptCommentLine" />
+            <style name="JavaScriptCommentDoc" class="php-JavaScriptCommentDoc" />
+            <style name="JavaScriptNumber" class="php-JavaScriptNumber" />
+            <style name="JavaScriptWord" class="php-JavaScriptWord" />
+            <style name="JavaScriptKeyword" class="php-JavaScriptKeyword" />
+            <style name="JavaScriptDoubleString" class="php-JavaScriptDoubleString" />
+            <style name="JavaScriptSingleString" class="php-JavaScriptSingleString" />
+            <style name="JavaScriptSymbols" class="php-JavaScriptSymbols" />
+            <style name="JavaScriptStringEol" class="php-JavaScriptStringEol" />
+            <style name="JavaScriptRegex" class="php-JavaScriptRegex" />
+            <style name="AspJavaScriptStart" class="php-AspJavaScriptStart" />
+            <style name="AspJavaScriptDefault" class="php-AspJavaScriptDefault" />
+            <style name="AspJavaScriptComment" class="php-AspJavaScriptComment" />
+            <style name="AspJavaScriptCommentLine" class="php-AspJavaScriptCommentLine" />
+            <style name="AspJavaScriptCommentDoc" class="php-AspJavaScriptCommentDoc" />
+            <style name="AspJavaScriptNumber" class="php-AspJavaScriptNumber" />
+            <style name="AspJavaScriptWord" class="php-AspJavaScriptWord" />
+            <style name="AspJavaScriptKeyword" class="php-AspJavaScriptKeyword" />
+            <style name="AspJavaScriptDoubleString" class="php-AspJavaScriptDoubleString" />
+            <style name="AspJavaScriptSingleString" class="php-AspJavaScriptSingleString" />
+            <style name="AspJavaScriptSymbols" class="php-AspJavaScriptSymbols" />
+            <style name="AspJavaScriptStringEol" class="php-AspJavaScriptStringEol" />
+            <style name="AspJavaScriptRegex" class="php-AspJavaScriptRegex" />
+            <style name="VBScriptStart" class="php-VBScriptStart" />
+            <style name="VBScriptDefault" class="php-VBScriptDefault" />
+            <style name="VBScriptCommentLine" class="php-VBScriptCommentLine" />
+            <style name="VBScriptNumber" class="php-VBScriptNumber" />
+            <style name="VBScriptWord" class="php-VBScriptWord" />
+            <style name="VBScriptString" class="php-VBScriptString" />
+            <style name="VBScriptIdentifier" class="php-VBScriptIdentifier" />
+            <style name="VBScriptStringEol" class="php-VBScriptStringEol" />
+            <style name="AspVBScriptStart" class="php-AspVBScriptStart" />
+            <style name="AspVBScriptDefault" class="php-AspVBScriptDefault" />
+            <style name="AspVBScriptCommentLine" class="php-AspVBScriptCommentLine" />
+            <style name="AspVBScriptNumber" class="php-AspVBScriptNumber" />
+            <style name="AspVBScriptWord" class="php-AspVBScriptWord" />
+            <style name="AspVBScriptString" class="php-AspVBScriptString" />
+            <style name="AspVBScriptIdentifier" class="php-AspVBScriptIdentifier" />
+            <style name="AspVBScriptStringEol" class="php-AspVBScriptStringEol" />
+            <style name="PythonStart" class="php-PythonStart" />
+            <style name="PythonDefault" class="php-PythonDefault" />
+            <style name="PythonCommentLine" class="php-PythonCommentLine" />
+            <style name="PythonNumber" class="php-PythonNumber" />
+            <style name="PythonString" class="php-PythonString" />
+            <style name="PythonCharacter" class="php-PythonCharacter" />
+            <style name="PythonWord" class="php-PythonWord" />
+            <style name="PythonTriple" class="php-PythonTriple" />
+            <style name="PythonTripleDouble" class="php-PythonTripleDouble" />
+            <style name="PythonClassName" class="php-PythonClassName" />
+            <style name="PythonDefName" class="php-PythonDefName" />
+            <style name="PythonOperator" class="php-PythonOperator" />
+            <style name="PythonIdentifier" class="php-PythonIdentifier" />
+            <style name="PhpComplexVariable" class="php-PhpComplexVariable" />
+            <style name="AspPythonStart" class="php-AspPythonStart" />
+            <style name="AspPythonDefault" class="php-AspPythonDefault" />
+            <style name="AspPythonCommentLine" class="php-AspPythonCommentLine" />
+            <style name="AspPythonNumber" class="php-AspPythonNumber" />
+            <style name="AspPythonString" class="php-AspPythonString" />
+            <style name="AspPythonCharacter" class="php-AspPythonCharacter" />
+            <style name="AspPythonWord" class="php-AspPythonWord" />
+            <style name="AspPythonTriple" class="php-AspPythonTriple" />
+            <style name="AspPythonTripleDouble" class="php-AspPythonTripleDouble" />
+            <style name="AspPythonClassName" class="php-AspPythonClassName" />
+            <style name="AspPythonDefName" class="php-AspPythonDefName" />
+            <style name="AspPythonOperator" class="php-AspPythonOperator" />
+            <style name="AspPythonIdentifier" class="php-AspPythonIdentifier" />
+            <style name="PhpDefault" class="php-PhpDefault" />
+            <style name="PhpHString" class="php-PhpHString" />
+            <style name="PhpSimpleString" class="php-PhpSimpleString" />
+            <style name="PhpWord" class="php-PhpWord" />
+            <style name="PhpNumber" class="php-PhpNumber" />
+            <style name="PhpVariable" class="php-PhpVariable" />
+            <style name="PhpComment" class="php-PhpComment" />
+            <style name="PhpCommentLine" class="php-PhpCommentLine" />
+            <style name="PhpHstringVariable" class="php-PhpHstringVariable" />
+            <style name="PhpOperator" class="php-PhpOperator" />
+            <style name="ADefault" class="php-ADefault" />
+            <style name="AIdentifier" class="php-AIdentifier" />
+            <style name="AKeyword" class="php-AKeyword" />
+            <style name="ANumber" class="php-ANumber" />
+            <style name="AString" class="php-AString" />
+            <style name="ACharacter" class="php-ACharacter" />
+            <style name="AClass" class="php-AClass" />
+            <style name="AModule" class="php-AModule" />
+            <style name="ACapital" class="php-ACapital" />
+            <style name="AData" class="php-AData" />
+            <style name="AImport" class="php-AImport" />
+            <style name="AOperator" class="php-AOperator" />
+            <style name="AInstance" class="php-AInstance" />
+            <style name="ACommentline" class="php-ACommentline" />
+            <style name="ACommentblock" class="php-ACommentblock" />
+            <style name="ACommentblock2" class="php-ACommentblock2" />
+            <style name="ACommentblock3" class="php-ACommentblock3" />
+            <style name="GlobalDefault" class="php-GlobalDefault" />
+            <style name="LineNumber" class="php-LineNumber" />
+            <style name="BraceLight" class="php-BraceLight" />
+            <style name="BraceBad" class="php-BraceBad" />
+            <style name="ControlChar" class="php-ControlChar" />
+            <style name="IndentGuide" class="php-IndentGuide" />
+            <style name="CallTip" class="php-CallTip" />
+            <style name="LastPredefined" class="php-LastPredefined" />
+            <style name="Max" class="php-Max" />
+         </use-styles>
+
+      </language>
+<!-- #endregion -->
+</languages>
+</Scintilla>

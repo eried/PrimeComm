@@ -1,0 +1,501 @@
+\documentclass{article}
+\title{The Basics: Twenty-Seven Problems}
+\author{Keone Hon}
+\date{}
+\setlength{\parindent}{0pt}
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+
+\begin{document}
+\maketitle
+
+\section{Problems}
+\label{sec:Problems}
+
+\begin{enumerate}
+
+\item The measure of an angle is $3$ times the measure of its complement.  Find the measure of the angle in degrees.
+
+\item Three calculus books weigh as much as two geometry books.  Seven geometry books weigh as much as nine algebra books.  Six trigonometry books weigh as much as eleven calculus books.  How many algebra books weigh as much as $21$ trigonometry books?
+
+\item Notice that the product of the digits of $124$ is $8$.  For many other three-digit positive integers is the product of the digits equal to $8$?
+
+\item Steven takes his favorite number and adds $7$, multiplies the resulting number by $6$, squares the resulting number, and divides by $9$.  The final result of these operations is $16$.  Given that Steven's favorite number is not $5$, what is his favorite number?
+
+\item Given that $a$, $b$, and $c$ are all positive, and that $ab = 21$, $ac = 18$, and $bc = 42$, find $a + b + c$.
+
+\item If $\displaystyle \frac{x}{4y} = \frac{y}{4z}$, find the value of $3y^4 - 3(xz)^2 + 3$.  
+
+\item Given the sequence $2, 4, 6, 10, 16, 26, \ldots,$ find the $12$th term.
+
+\item Bill will be $x$ years old in the year $x^2$.  If Bill was born between $1900$ and $2000$, in what year was he born?
+
+\item Five fair coins are tossed.  What is the probability that exactly two heads and three tails turn up?  Express your answer as a decimal.
+
+\item Define a ``strange number'' to be a number where each digit (other than the
+leftmost two) is equal to the sum of the two digits to the left.  For
+instance, $11235$ is a strange number because $2 = 1 + 1, 3 = 1 + 2,$ and $5 =  2
++ 3$.  How many four-digit strange numbers are there?
+
+\item Blues, Inc. sells jeans at the following prices: $\$15$ per pair if you buy
+$1-10$ pairs, $\$13$ per pair if you buy $11-40$ pairs, $\$10$ if you buy $41-70$ pairs,
+and $\$8$ per pair if you buy $71$ or more pairs.  For how many values of $n$ is it
+cheaper to buy a number of pairs greater than $n$ than it is to buy exactly $n$
+pairs?
+
+\item For what value of $k$ will the equation $x^3 - 9x^2 + kx$ have exactly two solutions?
+
+\item In a group of $200$ students, $170$ are taking history, $190$ are taking math, $160$ are taking english, and $135$ are taking art.  What is the minimum number of students that must be taking all four of these classes?
+
+\item Find the smallest value of $x$ that satisfies $\sqrt{x^2 - 3x} + \sqrt{x^2 - 1} = 2$.
+
+\item At a cookie shop, four different kinds of cookies are sold: chocolate chip, macaroon, peanut butter, and white chocolate.  In how many different ways can a person choose eight cookies?  (Assume that the shop has an ample supply of each variety of cookie.)
+
+\item The number $\sqrt{8 - 2 \sqrt{15}}$ can be expressed in the form $\sqrt{x} - \sqrt{y}$, where $x$ and $y$ are positive integers.  Find $2x+y$.
+
+\item Bob is throwing turtles at a dartboard with two regions.  If he hits the smaller region, he gets $15$ points; if he hits the larger region, he gets $7$ points.  What is the largest score that Bob cannot get?
+
+\item A tennis tournament starts out with $140$ players.  Each game is played between two players; at the end of the game, the winner advances and the loser is knocked out.  There are no ties.  If the tournament has a minimum number of byes, how many games must be played to determine a single winner?
+
+\item How many positive integers less than or equal to 1000 are multiples of 2 or 3?
+
+\item Find $x^2 + y^2 + z^2$ if
+\begin{eqnarray*}
+x + y + z = 3 \\
+2x - y + z = 5 \\
+3x + 2y - z = 16
+\end{eqnarray*}
+
+\item Find the length of the longest median of a triangle with sides of length $4$, $7$, and $9$.  
+
+\item If $\displaystyle x + \frac{1}{x} = 8$, find the value of $\displaystyle x^4 + \frac{1}{x^4}$.
+
+\item If the prime factorization of positive integer $N$ is ${2}^{4} \cdot {3}^{9} \cdot {11}^{121}$, then how many positive integer factors does $N$ have?
+
+\item If $2^{16x^2 - 4x + 7} = 16^{x^2 + 2x + 1}$, what is $x$?  
+
+\item For certain integers $n$, $n^2 - 3n - 126$ is a perfect square.   What is the sum of all distinct possible values of $n$?
+
+\item The function $f(x)$ is a cubic polynomial of the form $ax^3 + bx^2 + cx + d$.  Given that $f(0) = 7, f(1) = 10, f(2) = 15,$ and $f(3) = 28$, find $a + 2b + 3c + 4d$.
+
+\item Suppose that $f(x) = 1^3 + 2^3 + \ldots + x^3$ and $g(x) = 1 + 2 + \ldots + x$.  Compute the value of $\displaystyle \frac{f(1)}{g(1)} + \frac{f(2)}{g(2)} + \ldots + \frac{f(99)}{g(99)}$.
+
+\end{enumerate}
+
+\section{Solutions}
+\label{sec:Solutions}
+
+\begin{enumerate}
+\item \textbf{Problem:} The measure of an angle is $3$ times the measure of its complement.  Find the measure of the angle in degrees. \\ 
+
+\textbf{Solution:} Let $x$ equal the measure of the angle and $y$ equal the measure of its complement.  Since $x$ and $y$ are complementary, $x + y = 90$.  Also, since the angle's measure is $3$ times that of its complement, $x = 3y$.  Substituting $3y$ for $x$, we get $3y + y = 90$, so $4y = 90$ or $y = 22.5$.  Finally, $x = 3y = 3 \cdot 22.5 = \mathbf{67.5}$.
+
+\item \textbf{Problem:} Three calculus books weigh as much as two geometry books.  Seven geometry books weigh as much as nine algebra books.  Six trigonometry books weigh as much as eleven calculus books.  How many algebra books weigh as much as $21$ trigonometry books? \\
+
+\textbf{Solution:} Letting $C$ represent the weight of each calculus book, $G$ represent the weight of each geometry book, $A$ represent the weight of each algebra book, and $T$ represent the weight of each trigonometry book, we can turn the given statements into math equations: \\
+\begin{eqnarray*}
+3C &=& 2G \\
+7G &=& 9A \\
+6T &=& 11C
+\end{eqnarray*}
+Solving each equation for one variable or the other, we get: \\
+\begin{eqnarray*}
+C &=& \frac{2}{3} \cdot G \\
+G &=& \frac{9}{7} \cdot A \\
+C &=& \frac{6}{11} \cdot T
+\end{eqnarray*}
+Then, subsituting $\frac{9}{7} A$ for $G$ into the first equation, we get $C = \frac{2}{3} \cdot \frac{9}{7} A = \frac{6}{7} A$.  But we also found that $C = \frac{6}{11} T$.  Therefore $\frac{6}{7} A =  \frac{6}{11} T$, from which it follows that $11A = 7T$.  Multiplying both sides by 3 yields $33A = 21T$, so \textbf{33} algebra books have the same weight as 21 trigonometry books.
+
+\item \textbf{Problem:} Notice that the product of the digits of $124$ is $8$.  For many other three-digit positive integers is the product of the digits equal to $8$? \\
+
+\textbf{Solution:} We look for triples of numbers that multiply to 8.  The triples are: \\
+$(1,1,8)$ since $1 \cdot 1 \cdot 8 = 8$ \\ 
+$(1,2,4)$ since $1 \cdot 2 \cdot 4 = 8$ \\
+$(2,2,2)$ since $2 \cdot 2 \cdot 2 = 8$ \\
+
+There are $3$ ways to arrange $(1,1,8)$: $118, 181, 811$. \\
+There are $6$ ways to arrange $(1,2,4)$: $124, 142, 214, 241, 412, 421$ \\
+There is only one way to arrange $(2,2,2)$: $222$ \\
+
+In all, there are $6+3+1 = 10$ ways of arranging one of the three triples that multiply to $8$.  Therefore there are $10$ numbers with a product of digits equal to $8$.  But we were asked for numbers \textit{other} than $124$; therefore, there are only $\mathbf{9}$ numbers with the desired property.
+
+\item \textbf{Problem:} Steven takes his favorite number and adds $7$, multiplies the resulting number by $6$, squares the resulting number, and divides by $9$.  The final result of these operations is $16$.  Given that Steven's favorite number is not $5$, what is his favorite number? \\
+
+\textbf{Solution:} Let $x$ represent Steven's favorite number.  Then \\
+$\displaystyle \frac{[6(x+7)]^2}{9} = 16$. \\
+$[6(x+7)]^2 = 144$ \\
+$6(x+7) = \pm 12$ \\
+$x+7 = 2$ or $x + 7 = -2$ \\
+$x = 9$ or $x = 5$. But we were told that $x$ is not $5$.  Thus, $x = \mathbf{9}$.
+
+
+\item \textbf{Problem:} Given that $a$, $b$, and $c$ are all positive, and that $ab = 21$, $ac = 18$, and $bc = 42$, find $a + b + c$. \\
+
+\textbf{Solution:} Since $ab = 21$ and $ac = 18$, $\displaystyle \frac{c}{b} = \frac{(ac)}{(ab)} = \frac{18}{21} = \frac{6}{7}$. Multiplying the equations $\displaystyle \frac{c}{b} = \frac{6}{7}$ and $bc = 42$, we obtain $c^2 = 36$, so $c = \pm 6$.  But $c$ is positive, so $c = 6$.  Substituting this into $ac = 18$, we get $6a = 18$, so $a = 3$.  Substituting $c = 6$ into $bc = 42$, we get $6b = 42$, so $b = 7$.  Thus $a + b + c = 3 + 7 + 6 = \mathbf{16}$.
+
+\item \textbf{Problem:} If $\displaystyle \frac{x}{4y} = \frac{y}{4z}$, find the value of $3y^4 - 3(xz)^2 + 3$.  \\
+
+\textbf{Solution:} Multiplying both sides of $\displaystyle \frac{x}{4y} = \frac{y}{4z}$ by $4yz$ yields
+$xz = y^2$. \\
+
+Substituting $y^2$ in for $xz$, $3y^4 - 3(xz)^2 + 3$ becomes \\
+$3y^4 - 3(y^2)^2 + 3 = 3y^4 - 3y^4 + 3 = \mathbf{3}$.
+
+
+\item \textbf{Problem:} Given the sequence $2, 4, 6, 10, 16, 26, \ldots,$ find the $12$th term. \\
+
+\textbf{Solution:} Notice that each term after the $3$rd term is equal to the sum of the previous two terms.  Thus, the $7$th term is $16 + 26 = 42$, the $8$th term is $26 + 42 = 68$, the $9$th term is $42 + 68 = 110$, the $10$th term is $68 + 110 = 178$, the $11$th term is $110 + 178 = 288$, and the $12$th term is $178 + 288 = \mathbf{466}$.
+
+
+\item \textbf{Problem:} Bill will be $x$ years old in the year $x^2$.  If Bill was born between $1900$ and $2000$, in what year was he born? \\
+
+\textbf{Solution:} Since Bill will be $x$ years old in the year $x^2$, he was 0 (that is, he was born) in the year $x^2 - x$.  We are given that $1900 < x^2 - x < 2000$.  Trying a few values of $x$, we find that when $x = 44$, $x^2 - x = 1892$, when $x = 45, x^2 - x = 1980$, when $x = 46, x^2 - x = 2070$, and so on.  Since only when $x = 45$ is Bill's birth year between $1900$ and $2000$, we conclude that $x = 45$, so his birth year was $\mathbf{1980}$.
+
+\item \textbf{Problem:} Five fair coins are tossed.  What is the probability that exactly two heads and three tails turn up?  Express your answer as a decimal. \\
+
+\textbf{Solution:} If five heads are tossed, there are $2^5 = 32$ outcomes.  The number of outcomes with $0, 1, 2, 3, 4,$ and $5$ heads correspond to the 5th row of pascal's triangle: $1, 5, 10, 10, 5, 1$, respectively.  That is, there is $1$ way to get $0$ heads, there are $5$ ways to get $1$ head, there are $10$ ways to get $2$ heads, and so on.  Since there are $10$ ways to get $2$ heads, the probability of getting exactly $2$ heads is $\frac{10}{32} = \mathbf{\frac{5}{16}}$.  
+
+\item \textbf{Problem:} Define a ``strange number'' to be a number where each digit (other than the
+leftmost two) is equal to the sum of the two digits to the left.  For
+instance, $11235$ is a strange number because $2 = 1 + 1$, $3 = 1 + 2$, and $5 =  2
++ 3$.  How many four-digit strange numbers are there? \\
+
+\textbf{Solution:} Suppose the first two digits are $(a)$ and $(b)$.  Then the third digit is
+$(a+b)$ and the fourth digit is $(a+2b)$.  Clearly, the values of $a$ and $b$ determine
+the rest of the number.  So we only need to choose values for the first two
+numbers, then evaluate the rest.  For instance, if $a = 1$ and $b = 0$, then
+$(a+b) = 1$ and $a+2b) = 1$; hence, $1011$ is a ``strange number''.  If $a = 1$ and $b
+= 1$, then $(a+b) = 2$ and $(a+2b) = 3$; hence, $1123$ is a ``strange number''.
+Using the same process, we conclude that the following are all ``strange
+numbers'': 1011, 1123, 1235, 1347, 1459, 2022, 2135, 2246, 2358, 3033, 3145, 3257, 3369, 4044, 4156, 4268, 5055, 5167, 5279, 6066, 6178, 7077, 7189, 8088, 9099.  In all, there are $\mathbf{25}$ $4$-digit ``strange numbers''.
+
+\item \textbf{Problem:} Blues, Inc. sells jeans at the following prices: $\$15$ per pair if you buy
+$1-10$ pairs, $\$13$ per pair if you buy $11-40$ pairs, $\$10$ if you buy $41-70$ pairs,
+and $\$8$ per pair if you buy $71$ or more pairs.  For how many values of $n$ is it
+cheaper to buy a number of pairs greater than $n$ than it is to buy exactly $n$
+pairs? \\
+
+\textbf{Solution:} \\
+1 pair costs $\$15$ \\
+2 pairs costs $\$30$ \\
+\ldots \\
+9 pairs costs $\$135$ \\
+10 pairs costs $\$150$ \\
+
+But for 11 pairs, it only costs $\$13$ per pair, so \\
+11 pairs costs $\$143$ \\
+12 pairs costs $\$156$ \\
+\ldots  \\
+31 pairs costs $\$403$ \\
+32 pairs costs $\$416$ \\
+\ldots  \\
+40 pairs costs $\$520$ \\
+
+But for 41 pairs, it only costs $\$10$ per pair, so \\
+41 pairs costs $\$410$ \\
+\ldots  \\
+56 pairs costs $\$560$ \\
+57 pairs costs $\$570$ \\
+\ldots  \\
+70 pairs costs $\$700$ \\
+
+For 71 pairs, it costs only $\$8$ per pair, so \\
+71 pairs costs $\$568$ \\
+\ldots \\
+100 pairs costs $\$800$ \\
+
+Clearly, it costs more to buy $10$ pairs than it does for $11$, so we have found
+$1$ value for $n$.  Similarly, it costs more to buy $32, 33, \ldots, 40$ pairs than
+it does to buy $41$, so we have found 9 more values for $n$.  Finally, it costs
+more to buy $57, 58, \ldots, 70$ pairs than it does to buy 71, so we have found
+$14$ more values for $n$.  In all, there are $1 + 9 + 14 = \mathbf{24}$ values of $n$.
+
+
+\item \textbf{Problem:} For what value(s) of $k$ will the equation $x^3 - 9x^2 + kx$ have exactly two solutions? \\
+
+\textbf{Solution:} Factoring the $x$ out of $x^3 - 9x^2 + kx=0$, we obtain $x(x^2 - 9x + k)=0$ \\
+
+One solution is $x=0$.  So $x^2 - 9x + k = 0$ must contribute one more solution.  This will only happen if $x^2 - 9x + k$ is a perfect square, or if one of the roots of $x^2 - 9x + k = 0$ is also $0$.  In the latter case, one root will be $0$ only if another $x$ can be factored out, which can only take place if $k=0$.  So one value of $k$ is $0$.  The the former case, since a perfect square is of the form $a^2 + 2ab + b^2$, we have \\
+
+$a^2 = x^2$ \\ 
+$2ab = -9x$ \\
+$b^2 = k$ \\
+
+Since $a^2 = x^2, x = a$.  \\
+Substituting $a = x$ into $2ab = -9x$, we find that $b = -\frac{9}{2}$.  $k = b^2 = \frac{81}{4}$.  In all, $k = \mathbf{0}$ or $\displaystyle \mathbf{\frac{81}{4}}$
+
+\item \textbf{Problem:} In a group of $200$ students, $170$ are taking history, $190$ are taking math, $160$ are taking english, and $135$ are taking art.  What is the minimum number of students that must be taking all four of these classes? \\
+
+\textbf{Solution:} In the ``worst-case scenario'', as many students as possible are taking three, but not four, classes.  Since $170$ are taking history, $30$ aren't; since $190$ are taking math, $10$ aren't; since $160$ are taking english, $40$ aren't; and since 135 are taking art, 65 aren't.  Thus, at most $30 + 10 + 40 + 65 = 145$ aren't taking exactly one class; in this case, the other $200 - 145 = \mathbf{55}$ must be taking all four classes.  
+
+\item \textbf{Problem:} Find the smallest value of $x$ that satisfies $\sqrt{x^2 - 3x} + \sqrt{x^2 - 1} = 2$. \\
+
+\textbf{Solution:} 
+Subtracting $\sqrt{x^2 - 1}$ from both sides, we get \\
+\begin{eqnarray*}
+\sqrt{x^2 - 3x} &=& 2 - \sqrt{x^2 - 1} \\
+x^2 - 3x &=& 4 - 4\sqrt{x^2 - 1} + (\sqrt{x^2 - 1})^2 \\
+x^2 - 3x &=& 4 - 4\sqrt{x^2 - 1} + x^2 - 1 \\
+4\sqrt{x^2 - 1} &=& 3 + 3x \\
+16(x^2 - 1) &=& 9 + 18x + 9x^2 \\
+16x^2 - 16 &=& 9 + 18x + 9x^2 \\
+7x^2 - 18x - 25 &=& 0 \\
+7x^2 + 7x - 25x - 25 &=& 0 \\
+7x(x+1) - 25(x+1) &=& 0 \\
+(7x-25)(x+1) &=& 0 \\
+x = 25/7 \quad \textrm{or} \quad -1.  
+\end{eqnarray*}
+The smallest value is $x = \mathbf{-1}$.
+
+\item \textbf{Problem:} At a cookie shop, four different kinds of cookies are sold: chocolate chip, macaroon, peanut butter, and white chocolate.  In how many different ways can a person choose eight cookies?  (Assume that the shop has an ample supply of each variety of cookie.)
+
+\textbf{Solution:} Imagine we have 8 sticks, and we're going to put them in different piles according to how many cookies of each type Pedro buys.  The first pile corresponds to the number of chocolate cookies, the second corresponds to the number of macaroons, etc.  So 3 cookies in the first pile, 0 in the second, 2 in the third, and 3 in the fourth corresponds to 3 chocolate, 0 macaroon, 2 peanut butter, and 3 white chocolate.  We can express any set of cookies that Pedro buys in this fashion.
+
+Now, suppose we separate the piles with dividers.  We'll need 3 dividers, since we need to separate chocolate from macaroon, macaroon from peanut butter, and peanut butter from white chocolate.  Thus, the 3, 0, 2, 3 cookie example that we had before could be expressed as:
+
+$* * * | | * * | * * *$
+
+Where each $*$ represents a cookie and each $|$ represents a divider.
+
+We have 11 objects (8 cookies and 3 dividers), and they can be arranged in any order; each order corresponds to a different set of cookies.  For example the order
+
+$ | | | * * * * * * * *$
+
+means that we have 8 white chocolate cookies, while the order
+
+$ | * * | * * * * * * |$
+
+means that we have 0 chocolate, 2 macaroons, 6 peanut butter, and 0 white chocolate cookies.
+
+So all we need to do is find the number of ways to arrange the 11 objects, or alternatively, the number of ways to pick which 3 of the 11 objects will be the dividers.  This is $\displaystyle {11\choose 3} = \frac{11!}{8!3!} = \mathbf{165}$.
+
+\item \textbf{Problem:} The number $\sqrt{8 - 2 \sqrt{15}}$ can be expressed in the form $\sqrt{x} - \sqrt{y}$, where $x$ and $y$ are positive integers.  Find $2x+y$. \\
+
+\textbf{Solution:} 
+\begin{eqnarray*}
+\sqrt{8 - 2 \sqrt{15}} &=& \sqrt{5 - 2\sqrt{15} + 3} \\
+&=& \sqrt{(\sqrt{5})^2 - 2\sqrt{5} \sqrt{3} + (\sqrt{3})^2}  \\
+&=& \sqrt{(\sqrt{5} - \sqrt{3})^2} \\
+&=& \sqrt{5} - \sqrt{3}.  
+\end{eqnarray*}
+
+So $x = 5$ and $y = 3$; $2x + y = \mathbf{13}$.
+
+\item \textbf{Problem:} Bob is throwing turtles at a dartboard with two regions.  If he hits the smaller region, he gets $15$ points; if he hits the larger region, he gets $7$ points.  What is the largest score that Bob cannot get? \\
+
+\textbf{Solution 1:} Bob can get the following scores: 7, 14, 15, 21, 22, 28, 29, 30, 35, 36, 37, 42, 43, 44, 45, 49, 50, 51, 52, 56, 57, 58, 59, 60, 63, 64, 65, 66, 67, 70, 71, 72, 73, 74, 75, 77, 78, 79, 80, 81, 82, 84, 85, 86, 87, 88, 89, 90, 91, \ldots  \\
+
+After 84, all numbers are possible, so the last non-possible score is $\mathbf{83}$. \\
+
+\textbf{Solution 2:} The numbers $7, 14, 21, 28, \ldots$ are all achievable by getting a number of $7$s.  We can get certain other numbers by substituting a $15$ for two $7$s, which will net one more point (for exmaple, when we have $4$ $7$s = $28$, we can substitute two of those $7$s for a $15$ to get $29$, or we can substitute four of the $7$s for $2$ $15$s to get $30$.)  Thus, after the number $14$, we can net $1$ point, after $28$, we can net $2$, after $42$, we can net $3$, and so on.  After $70$, we can net $5$, which means that we can get any number of points between $1$ and $5$ more than a multiple of $7$.  This includes all numbers except $76$ and $83$, which are $6$ more than a multiple of $7$. \\
+
+Then, after $84$, we can net $6$, which means that we can get any number of points between $1$ and $6$ more than a multiple of $7$.  But this includes all numbers, since any number is either a multiple of $7$ or $1, 2, 3, 4, 5$, or $6$ more than a multiple of $7$.  Thus after $84$, we can get all numbers.  Thus the last non-possible score must be $\mathbf{83}$. \\
+
+\textbf{Solution 3:} The answer may be obtained by using the following formula: 
+\[G = ab - a - b\]
+where $G$ is the greatest non-possible sum that can be achieved by adding multiples of $a$ and $b$, and $a$ and $b$ are relatively prime integers.  In this case, since $a = 15$ and $b = 7$, the greatest non-possible score is $15 \cdot 7 - 15 - 7 = \mathbf{83}$.
+
+
+\item \textbf{Problem:} A tennis tournament starts out with $140$ players.  Each game is played between two players; at the end of the game, the winner advances and the loser is knocked out.  There are no ties.  If the tournament has a minimum number of byes, how many games must be played to determine a single winner? \\
+
+\textbf{Solution:} Here is a case where the solution is shorter than the problem!  Since we started with $140$ players, exactly $139$ players must be eliminated to declare one winner. But each game eliminates one player. Thus, $\mathbf{139}$ games must be played.
+
+\item \textbf{Problem:} How many positive integers less than or equal to $1000$ are multiples of $2$ or $3$? \\
+
+\textbf{Solution:} First of all, how many positive integers less than or equal to 1000 are multiples of 2?  The numbers are $2, 4, \ldots 1000$, that is, $500$ numbers.   Now, how many positive integers less than or equal to $1000$ are multiples of $3$?  The numbers $3, 6, \ldots 999$ are, that is, $333$ numbers.  So at first glance, it seems like there are $500 + 333 = 833$ numbers.  However, we've counted some numbers twice.  For instance, $6$ was counted in both the multiples-of-two and the multiples-of-three list.  In fact, all multiples of both $2$ and $3$ - that is, multiples of $2 \cdot 3 = 6$ - have been counted twice.  These numbers are $6, 12, 18, \ldots 996$, that is, $166$ numbers.  Since we've counted $166$ numbers twice, we need to subtract them off once to leave only one copy of them.  $833 - 166 = \mathbf{667}$ numbers.
+
+\item \textbf{Problem:} Find $x^2 + y^2 + z^2$ if
+\begin{eqnarray}
+x + y + z = 3 \\
+2x - y + z = 5 \\
+3x + 2y - z = 16
+\end{eqnarray}
+
+\textbf{Solution:}
+
+Adding $(1)$ and $(2)$ together yields $3x + 2z = 8$ \\
+
+Adding $2 \cdot (2)$ and $(3)$ together yields $7x + z = 26$.  Multiplying this by $2$ yields $14x + 2z = 52$. \\
+
+So now we have
+\begin{eqnarray}
+14x + 2z = 52 \\
+3x + 2z = 8
+\end{eqnarray}
+
+Subtracting (5) from (4) yields $11x = 44$, so $x = 4$.  Plugging this into $3x + 2z = 8$, we have $3 \cdot 4 + 2z = 8$, so $2z = -4$, so $z = -2$.  Finally, plugging these values of $x$ and $z$ into $x + y + z = 3$ yields $4 + y + -2 = 3$, so $y = 1$.  Thus, $x^2 + y^2 + z^2 = 4^2 + 1^2 + (-2)^2 = 16 + 1 + 4 = \mathbf{21}$.  
+
+\item \textbf{Problem:} Find the length of the longest median of a triangle with sides of length $4$, $7$, and $9$.  \\
+
+\textbf{Solution:} Let the triangle have vertices $A, B,$ and $C$, with $AB = 4$, $AC = 7$, and $BC = 9$.  The longest median will be the median to the shortest side.  Thus, we wish to find the length of the line from C to the midpoint of AB, which we will call $M$.  (Since $M$ is the midpoint of $AB$, $AM = MB = 2$.) \\
+
+Now extend $CM$ past point $M$ to another point D so that $DM = CM$.   Since $AM = BM$ and $CM = DM$, the diagonals of quadrilateral ACBD bisect each other.  This means that ACBD is a parallelogram.  Since opposite sides of a parallelogram are equal, $BD = CA = 7$ and $AD = CB = 9$. \\
+
+Finally, we use the following property of a parallelogram: the sum of the squares of the diagonals are equal to the sum of the squares of the four sides.  In math terms, this means that $AB^2 + CD ^2 = AD^2 + DB^2 + BC^2 + CA^2$.  Plugging in the values that we know ($AB = 4, AD = 9, DB = 7, BC = 9, CA = 7$), we get the following equation: \\
+\begin{eqnarray*}
+4^2 + CD^2 &=& 9^2 + 7^2 + 9^2 + 7^2 \\
+16 + CD^2 &=& 260 \\
+CD^2 &=& 244 \\
+CD &=& \sqrt{244} = 2\sqrt{61}
+\end{eqnarray*}
+Since $M$ is the midpoint of $CD$, $CM = \frac{CD}{2} = 1/2 \cdot 2 \sqrt{61} = \mathbf{\sqrt{61}}$.
+
+
+\item \textbf{Problem:} If $\displaystyle x + \frac{1}{x} = 8$, find the value of $\displaystyle x^4 + \frac{1}{x^4}$.
+
+\textbf{Solution:} Squaring both sides of the equation $x + \frac{1}{x} = 8$ yields \\
+\begin{eqnarray*}
+x^2 + 2\cdot x \cdot \frac{1}{x} + \left(\frac{1}{x} \right)^2 &=& 64 \\
+x^2 + 2 + \frac{1}{x^2} &=& 64 \\
+x^2 + \frac{1}{x^2} &=& 62
+\end{eqnarray*}
+
+Squaring both sides of this equation yields
+\begin{eqnarray*}
+(x^2)^2 + 2 \cdot x^2 \cdot \frac{1}{x^2} + \left(\frac{1}{x^2} \right)^2 &=& 3844 \\
+x^4 + 2 + 1/x^4 &=& 3844 \\
+x^4 + 1/x^4 &=& \mathbf{3842}
+\end{eqnarray*}
+
+
+\item \textbf{Problem:} If the prime factorization of positive integer $N$ is ${2}^{4} \cdot {3}^{9} \cdot {11}^{121}$, then how many positive integer factors does $N$ have?
+
+\textbf{Solution:} If a number has a prime factorization of $a^A \cdot b^B \cdot c^C \cdot d^D \cdots$, then it has $(A+1)(B+1)(C+1) \ldots$ factors.  
+
+Since N has the factorization $2^4 \cdot 3^9 \cdot 11^{121}$, it has $(4+1)(9+1)(121+1) = 5 \cdot 10 \cdot 122 = \mathbf{6100}$ factors.
+
+\item \textbf{Problem:} If $2^{16x^2 - 4x + 7} = 16^{x^2 + 2x + 1}$, what is $x$?  \\
+
+\textbf{Solution:} 
+\begin{eqnarray*}
+2^{16x^2 - 4x + 7} &=& (2^4)^{x^2 + 2x + 1} \\
+2^{16x^2 - 4x + 7} &=& 2^{4(x^2 + 2x + 1)} \\
+2^{16x^2 - 4x + 7} &=& 2^{4x^2 + 8x + 4} \\
+16x^2 - 4x + 7 &=& 4x^2 + 8x + 4 \\
+12x^2 - 12x + 3 &=& 0 \\
+x^2 - x + \frac{1}{4} &=& 0 \\
+(x-\frac{1}{2})(x-\frac{1}{2}) &=& 0 \\
+(x-\frac{1}{2})^2 &=& 0 \\
+(x - \frac{1}{2}) &=& 0 \\
+x &=& \mathbf{\frac{1}{2}}
+\end{eqnarray*}.
+
+
+\item \textbf{Problem:} For certain integers $n$, $n^2 - 3n - 126$ is a perfect square.   What is the sum of all distinct possible values of $n$? \\
+
+\textbf{Solution:} Since $n^2 - 3n - 126$ is a perfect square, we can say that $n^2 - 3n - 126 = k^2$ for some integer k.  Multiplying this equation by four, we get
+\[4n^2 - 12n - 504 = 4k^2\]
+
+Replacing $-504$ with $9-513$, since the two are equal, we get
+\begin{eqnarray*}
+(2n)^2 - 12n + (9-513) &=& 4k^2 \\
+(2n)^2 - 2(2n)(3) + 3^2 - 513 &=& 4k^2
+\end{eqnarray*}
+
+The first three terms on the left side are of the form $a^2 - 2ab + b^2$, where $a = 2n$ and $b = 3$.  Remembering that $a^2 - 2ab + b^2 = (a-b)^2$, we get
+\begin{eqnarray*}
+(2n - 3)^2 - 513 &=& 4k^2 \\
+(2n - 3)^2 - 4k^2 - 513 &=& 0 \\
+(2n - 3)^2 - (2k)^2 &=& 513
+\end{eqnarray*}
+
+Now, the left hand side is of the form $a^2 - b^2$, which factors to $(a+b)(a-b)$.  Hence, we can rewrite the equation as
+\[(2n - 3 + 2k)(2n - 3 - 2k) = 513\] \\
+$n$ and $k$ are both integers, so $2n - 3 + 2k$ and $2n - 3 - 2k$ are both integers as well.  So we just need to find pairs of integers whose product is $513$. \\
+
+$513 = 3^3 \cdot 19$, so $513$'s factors are {$1,3,9,19,27,57,171,513$}.  Pairs of integers whose product is 513 are $(1,513), (3,171), (9,57), (19,27), (-1,-513),$ $(-3,-171), (-9,-57), (-19,-27),$ and all ordered pairs with the two values switched around (for instance, $(513,1)$). \\
+
+Say we have a pair of positive integers $(x,y)$ whose product is $513$.  Then 
+\[2n - 3 + 2k = x\] and \[2n - 3 - 2k = y\]
+
+Adding these two equations together, we get
+\begin{eqnarray*}
+4n - 6 &=& x + y \\
+4n &=& x + y + 6
+\displaystyle n = \frac{x+y+6}{4} \\
+\end{eqnarray*}
+
+Now, we just substitute $x$ and $y$ for each ordered pair that we found above. \\
+
+For (1,513), $n = (1+513+6)/4 = 130$ \\
+For (3,171), $n = (3+171+6)/4 = 45$ \\
+For (9,57), $n = (9+57+6)/4 = 18$ \\ 
+For (19,27), $n = (19+27+6)/4 = 13$ \\
+For (-1,-513), $n = (-1-513+6)/4 = -127$ \\
+For (-3, -171), $n = (-3-171+6)/4 = -42$ \\
+For (-9, -57), $n = (-9-57 +6)/4 = -15$ \\
+For (-19, -27), $n = (-19-27+6)/4 = -10$ \\
+
+$130 + 45 + 18 + 13 - 127 - 42 - 15 - 10 = 12$.  This is our answer.
+
+
+\item \textbf{Problem:} The function $f(x)$ is a cubic polynomial of the form $ax^3 + bx^2 + cx + d$.  Given that $f(0) = 7, f(1) = 10, f(2) = 15,$ and $f(3) = 28$, find $a + 2b + 3c + 4d$. \\
+
+\textbf{Solution:} Since $f(0) = 7$,
+\begin{eqnarray*}
+7 &=& a(0)^3 + b(0)^2 + c(0) + d \\
+7 &=& d
+\end{eqnarray*}
+Since $f(1) = 10$,
+\begin{eqnarray*}
+10 &=& a(1)^3 + b(1)^2 + c(1) + d \\
+10 &=& a + b + c + 7 \\
+3 &=& a + b + c
+\end{eqnarray*}
+Since $f(2) = 15$,
+\begin{eqnarray*}
+15 &=& a(2)^3 + b(2)^2 + c(2) + d \\
+15 &=& 8a + 4b + 2c + 7 \\
+8 &=& 8a + 4b + 2c
+\end{eqnarray*}
+Since $f(3) = 28$,
+\begin{eqnarray*}
+28 &=& a(3)^3 + b(3)^2 + c(3) + d \\
+28 &=& 27a + 9b + 3c + 7 \\
+21 &=& 27a + 9b + 3c
+\end{eqnarray*}
+Now we have a system of equations:
+\begin{eqnarray}
+a + b + c = 3 \\
+8a + 4b + 2c = 8 \\
+27a + 9b + 3c = 21
+\end{eqnarray}
+Multiplying (6) by two and subtracting it from (7), we get $6a + 2b = 2$, or $b = 1 - 3a$. \\
+Multiplying (6) by three and subtracting it from (8), we get $24a + 6b = 12$. \\
+
+Substituting $1 - 3a$ for $b$, we get:
+\begin{eqnarray*}
+24a + 6(1 - 3a) &=& 12 \\
+24a + 6 - 18a &=& 12 \\
+6a &=& 6 \\
+a &=& 1 \\ \\
+b &=& 1 - 3a = 1-3 \cdot 1 = -2 \\ \\
+a + b + c &=& 3 \\ 
+1 + -2 + c &=& 3 \\
+c &=& 4
+\end{eqnarray*}
+So we have $a = 1$, $b = -2$, $c = 4$, and $d = 7$.  So $a + 2b + 3c + 4d = \textbf{37}$
+
+
+\item \textbf{Problem:} Suppose that $f(x) = 1^3 + 2^3 + \ldots + x^3$ and $g(x) = 1 + 2 + \ldots + x$.  Compute the value of $\displaystyle \frac{f(1)}{g(1)} + \frac{f(2)}{g(2)} + \ldots + \frac{f(99)}{g(99)}$.
+
+\textbf{Solution:} Notice that
+\begin{eqnarray*}
+\displaystyle 1 + 2 + \ldots + x &=& \frac{x(x+1)}{2} \\
+1^2 + 2^2 + \ldots + x^2 &=& \frac{x(x+1)(2x+1)}{6} \\
+1^3 + 2^3 + \ldots + x^3 &=& \frac{x^2 (x+1)^2}{4}
+\end{eqnarray*}
+
+So $\displaystyle \frac{f(x)}{g(x)} = \frac{(x(x+1)/2)^2}{x(x+1)/2} = x(x+1)/2 = \frac{x^2 + x}{2}$. \\
+
+\begin{eqnarray*}
+\displaystyle \frac{f(1)}{g(1)} + \frac{f(2)}{g(2)} + \ldots + \frac{f(99)}{g(99)} &=& \frac{1^2 + 1}{2} + \frac{2^2 + 2}{2} + \frac{3^2 + 3}{2} + \ldots + \frac{99^2 + 99}{2} \\
+&=& \frac{1^2 + 1 + 2^2 + 2 + 3^2 + 3 + \ldots + 99^2 + 99}{2}  \\
+&=& \frac{(1^2 + 2^2 + ... + 99^2) + (1 + 2 + ... + 99)}{2}  \\
+&=& \frac{1}{2} \cdot {\frac{99(99+1)(2 \cdot 99+1)}{6} + \frac{99(99+1)}{2}} \\
+&=& \frac{328350 + 4950}{2} \\
+&=& \mathbf{166650}.  
+\end{eqnarray*}
+
+\end{enumerate}
+\end{document}
