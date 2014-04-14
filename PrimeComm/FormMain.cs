@@ -745,17 +745,15 @@ namespace PrimeComm
 
         private void FormMain_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetFormats().Any(f => f == "FileDrop"))
-            {
-                e.Effect = sender == buttonSend ? DragDropEffects.Move:  DragDropEffects.Copy;
-            }
+            if (e.Data.GetFormats().Any(f => f == Resources.DropDataFormat))
+                e.Effect = (sender == buttonSend && IsDeviceConnected) ? DragDropEffects.Move : DragDropEffects.Copy;
         }
 
         private void FormMain_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("FileDrop"))
+            if (e.Data.GetDataPresent(Resources.DropDataFormat))
             {
-                var f = e.Data.GetData("FileDrop") as string[];
+                var f = e.Data.GetData(Resources.DropDataFormat) as string[];
 
                 if (f == null) return;
                 var shouldOpen = true;

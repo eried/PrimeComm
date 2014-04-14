@@ -171,7 +171,7 @@
       <Project>{6fc49e68-59b2-4749-95bb-7eb1fcf62867}</Project>
       <Name>PrimeSkin</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ScintillaNet\2.6_branch\ScintillaNET\ScintillaNET.csproj">
+    <ProjectReference Include="..\ScintillaNet\2.6\ScintillaNET\ScintillaNET.csproj">
       <Project>{f9b6dabd-bbc1-4638-8ce6-a5c9506bfdcb}</Project>
       <Name>ScintillaNET</Name>
     </ProjectReference>
