@@ -70,7 +70,9 @@ namespace ScintillaNET
             _bindingSourceReplace.ResetBindings(false);
             cboFindR.SelectedIndex = 0;
             cboFindF.SelectedIndex = 0;
-            cboReplace.SelectedIndex = 0;
+
+            if(cboReplace.Items.Count >0)
+                cboReplace.SelectedIndex = 0;
         }
 
 
