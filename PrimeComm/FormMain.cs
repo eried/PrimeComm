@@ -612,18 +612,18 @@ namespace PrimeComm
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (CheckIfThereIsActiveEditors())
+            var editors = CountActiveEditors();
+            if (editors>0)
             {
-                if (
-                    MessageBox.Show("There are active editors. Do you want to exit and lose all the changes?",
+                if (MessageBox.Show("There "+(editors==1?"is one active editor":"are "+editors+" active editors")+". Do you want to exit and lose all the changes?",
                         "Close " + Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
                     e.Cancel = true;
             }
         }
 
-        private bool CheckIfThereIsActiveEditors()
+        private int CountActiveEditors()
         {
-            return Editors != null && Editors.Any(n => n != null && !n.IsDisposed && !n.IsClosed);
+            return Editors == null ? 0 : Editors.Count(n => n != null && !n.IsDisposed && !n.IsClosed);
         }
 
         private void newFromTemplateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -645,17 +645,22 @@ namespace PrimeComm
             OpenFile(e.ClickedItem.Tag as string);
         }
 
-        internal void CheckEditorStates()
+        internal void CheckEditorStates(bool isClosing=false)
         {
             try
             {
-                if (CheckIfThereIsActiveEditors())
+                switch (CountActiveEditors())
                 {
-                    if (WindowState != FormWindowState.Minimized && Settings.Default.EditorMinimizesPrimeComm)
-                        WindowState = FormWindowState.Minimized;
+                    case 1:
+                        if (!isClosing && WindowState != FormWindowState.Minimized && Settings.Default.EditorMinimizesPrimeComm)
+                            WindowState = FormWindowState.Minimized;
+                        break;
+
+                    case 0:
+                        if (WindowState == FormWindowState.Minimized && Settings.Default.EditorRestoresPrimeComm)
+                            RestoreWindow();
+                        break;
                 }
-                else if (WindowState == FormWindowState.Minimized && Settings.Default.EditorRestoresPrimeComm)
-                    RestoreWindow();
             }
             catch
             {
