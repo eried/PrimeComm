@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,14 +19,14 @@ namespace PrimeComm
         private readonly string _commands;
         private readonly List<ReferenceDefinition> _reference;
 
-        public FormHelpWindow(string commands = null, FontFamily fontFamily = null)
+        public FormHelpWindow(string commands = null, FontCollection fontCollection = null)
         {
             _commands = commands;
 
             InitializeComponent();
 
-            if (fontFamily != null)
-                textBoxHelp.Font = new Font(fontFamily, (int)Settings.Default.EditorFontSize);
+            if (fontCollection != null && fontCollection.Families.Length > 0)
+                textBoxHelp.Font = new Font(fontCollection.Families[0], (int)Settings.Default.EditorFontSize);
 
             _reference = new List<ReferenceDefinition>();
         }
