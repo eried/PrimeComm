@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Windows.Forms;
+using PrimeComm.Properties;
 
 namespace PrimeComm
 {
     class CharmapGrid : Panel
     {
+        private FontCollection _fontCollection;
         private char _firstCellChar;
         private char _selectedChar;
+        private int _fontSize;
 
         public CharmapGrid()
         {
@@ -19,6 +23,15 @@ namespace PrimeComm
             FirstCellChar = (char)32;
             MouseClick += CharmapGrid_MouseClick;
             MouseMove += CharmapGrid_MouseClick;
+        }
+
+        public void SetFontCollection(FontCollection fontCollection)
+        {
+            if (fontCollection != null && fontCollection.Families.Length > 0)
+            {
+                _fontCollection = fontCollection;
+                _fontSize = (int)Settings.Default.EditorFontSize;
+            }
         }
 
         void CharmapGrid_MouseClick(object sender, MouseEventArgs e)
@@ -45,6 +58,7 @@ namespace PrimeComm
             e.Graphics.FillRectangle(Brushes.White, e.ClipRectangle);
 
             var chr = FirstCellChar;
+            var fontInstance = _fontCollection==null?Font:new Font(_fontCollection.Families[0], _fontSize);
 
             for (var y = 0; y < Rows; y++)
             {
@@ -65,8 +79,8 @@ namespace PrimeComm
                         e.Graphics.FillRectangle(SystemBrushes.Highlight, rect);
                     }
 
-                    var m = e.Graphics.MeasureString("" + (chr), Font);
-                    e.Graphics.DrawString("" + (chr++), Font, isSelected ? SystemBrushes.HighlightText: SystemBrushes.ControlText, rect.Left + (rect.Width- m.Width)/2, rect.Top + (rect.Height-Font.Height)/2);
+                    var m = e.Graphics.MeasureString("" + (chr), fontInstance);
+                    e.Graphics.DrawString("" + (chr++), fontInstance, isSelected ? SystemBrushes.HighlightText: SystemBrushes.ControlText, rect.Left + (rect.Width- m.Width)/2, rect.Top + (rect.Height-fontInstance.Height)/2);
 
                     if(x < Columns -1)
                         e.Graphics.DrawLine(linePen, rect.Right, rect.Top, rect.Right, rect.Bottom);
