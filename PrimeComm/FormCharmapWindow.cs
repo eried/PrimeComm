@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Drawing;
-using PrimeComm.Properties;
+using System.Drawing.Text;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PrimeComm
@@ -9,14 +8,12 @@ namespace PrimeComm
     {
         private readonly FormEditor _parent;
 
-        public FormCharmapWindow(FormEditor parent, FontFamily fontFamily)
+        public FormCharmapWindow(FormEditor parent, FontCollection fontCollection)
         {
             _parent = parent;
             InitializeComponent();
 
-            if (fontFamily != null)
-                charmap.Font = new Font(fontFamily, (int) Settings.Default.EditorFontSize);
-
+            charmap.SetFontCollection(fontCollection);
             charmap.SelectedChar = (char)0;
             charmap.CellCountChanged += charmap_CellCountChanged;
             charmap.SelectedCharChanged += charmap_SelectedCharChanged;
