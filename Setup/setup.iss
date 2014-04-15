@@ -108,7 +108,7 @@ end;
 [Run]
 ;Filename: "{app}\drivers\DriverHelper.exe"; Tasks: installdrivers
 ;Filename: "{app}\erw\SetPath.exe"; Parameters: "-a ""{app}\hardware\tools\avr\bin"" -r hardware\tools\avr\bin"; Flags: RunMinimized
-Filename: "{app}\PrimeComm.exe"; Flags: postinstall; Description: "Open PrimeComm after closing the setup"
+Filename: "{app}\PrimeComm.exe"; Flags: postinstall nowait; Description: "Open PrimeComm after closing the setup"
 
 [UninstallRun]
 ;Filename: {app}\erw\SetPath.exe; Parameters: "-r hardware\tools\avr\bin"; Flags: RunHidden; 
