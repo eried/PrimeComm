@@ -75,9 +75,19 @@ namespace PrimeComm
             _charmapWindow.Show(dockPanel, DockState.DockBottomAutoHide);
 
             // Adding the help
-            _helpWindow = new FormHelpWindow(Resources.commands, CurrentFontFamily);
+            _helpWindow = new FormHelpWindow(CommandsFile, CurrentFontFamily);
             _helpWindow.Show(dockPanel, DockState.DockBottomAutoHide);
             _helpWindow.ReferenceLoaded += (o, args) => SearchReference(true);
+        }
+
+        public static string CommandsFile
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_commandsFile) && File.Exists(Resources.ReferenceFile))
+                    _commandsFile = File.ReadAllText(Resources.ReferenceFile);
+                return _commandsFile;
+            }
         }
 
         public FontFamily CurrentFontFamily
@@ -811,6 +821,7 @@ namespace PrimeComm
             APPCOMMAND_PASTE = 38, WM_SYSKEYDOWN = 0x0104, WM_SYSKEYUP = 0x0105, WM_COMMAND =0x0111;
         const string processName = "HPPrime";
         private Random _random = new Random();
+        private static string _commandsFile;
 
         public void SendCommandToEmulator(String command)
         {
