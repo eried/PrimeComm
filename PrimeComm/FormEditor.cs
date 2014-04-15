@@ -71,11 +71,11 @@ namespace PrimeComm
             dockPanel.DockRightPortion = 0.3;
 
             // Adding the charmap
-            _charmapWindow = new FormCharmapWindow(this, CurrentFontFamily);
+            _charmapWindow = new FormCharmapWindow(this, _fontCollection);
             _charmapWindow.Show(dockPanel, DockState.DockBottomAutoHide);
 
             // Adding the help
-            _helpWindow = new FormHelpWindow(CommandsFile, CurrentFontFamily);
+            _helpWindow = new FormHelpWindow(CommandsFile, _fontCollection);
             _helpWindow.Show(dockPanel, DockState.DockBottomAutoHide);
             _helpWindow.ReferenceLoaded += (o, args) => SearchReference(true);
         }
@@ -85,18 +85,8 @@ namespace PrimeComm
             get
             {
                 if (String.IsNullOrEmpty(_commandsFile) && File.Exists(Resources.ReferenceFile))
-                    _commandsFile = File.ReadAllText(Resources.ReferenceFile);
+                    _commandsFile = File.ReadAllText(Resources.ReferenceFile, Encoding.Default);
                 return _commandsFile;
-            }
-        }
-
-        public FontFamily CurrentFontFamily
-        {
-            get
-            {
-                return _fontCollection != null && _fontCollection.Families.Any()
-                    ? _fontCollection.Families[0]
-                    : SystemFonts.DefaultFont.FontFamily;
             }
         }
 
@@ -417,6 +407,7 @@ namespace PrimeComm
         {
             int caretPos;
             var s = " " + editor.GetCurrentLine(out caretPos) + " ";
+            caretPos = Math.Min(caretPos, s.Length - 1);
 
             do
             {
@@ -485,7 +476,7 @@ namespace PrimeComm
             else
             {
                 IsClosed = true;
-                _parent.CheckEditorStates();
+                _parent.CheckEditorStates(true);
             }
         }
 
@@ -673,9 +664,9 @@ namespace PrimeComm
             else
             {
                 int selectionStart = editor.Selection.Start, selectionEnd = editor.Selection.End;
-                var first = editor.Lines.FirstVisible.Number;
+                var first = editor.Lines.FirstVisibleIndex;
                 editor.Text = String.Join(Environment.NewLine, code);
-                editor.Lines.FirstVisible.Number = first;
+                editor.Lines.FirstVisibleIndex = first;
                 editor.Selection.Start = Math.Min(selectionStart, editor.TextLength);
                 editor.Selection.End = Math.Min(selectionEnd, editor.TextLength);
                 editor.Refresh();
