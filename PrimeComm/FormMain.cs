@@ -149,7 +149,7 @@ namespace PrimeComm
 
                 buttonReceive.Enabled = IsDeviceConnected && !IsBusy;
                 buttonReceive.Text = _receivingData? "&Cancel" : "&Receive";
-                receiveToolStripMenuItem.Enabled = buttonReceive.Enabled;
+                receiveToolStripMenuItem.Enabled = buttonReceive.Enabled && !_receivingData;
                 cancelReceiveToolStripMenuItem.Enabled = _receivingData;
 
                 var canSend = IsDeviceConnected && !IsBusy;
