@@ -424,7 +424,7 @@ namespace PrimeComm
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         private void convertFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -797,7 +797,7 @@ namespace PrimeComm
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         private void notifyIconMain_MouseUp(object sender, MouseEventArgs e)
