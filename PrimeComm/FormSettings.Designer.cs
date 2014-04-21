@@ -93,6 +93,7 @@
             this.textBoxCommands = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageAdvanced = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControlPreferences.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -205,7 +206,7 @@
             // linkLabelClearWarnings
             // 
             this.linkLabelClearWarnings.AutoSize = true;
-            this.linkLabelClearWarnings.Location = new System.Drawing.Point(88, 349);
+            this.linkLabelClearWarnings.Location = new System.Drawing.Point(88, 343);
             this.linkLabelClearWarnings.Name = "linkLabelClearWarnings";
             this.linkLabelClearWarnings.Size = new System.Drawing.Size(74, 15);
             this.linkLabelClearWarnings.TabIndex = 3;
@@ -261,7 +262,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(18, 334);
+            this.label1.Location = new System.Drawing.Point(18, 328);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(355, 30);
             this.label1.TabIndex = 2;
@@ -533,6 +534,7 @@
             // 
             // tabPageProgram
             // 
+            this.tabPageProgram.Controls.Add(this.label10);
             this.tabPageProgram.Controls.Add(this.groupBox2);
             this.tabPageProgram.Location = new System.Drawing.Point(4, 24);
             this.tabPageProgram.Name = "tabPageProgram";
@@ -870,6 +872,15 @@
             this.tabPageAdvanced.Text = "Advanced";
             this.tabPageAdvanced.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(18, 328);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(355, 53);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "All the options in this section are applied exclusively to the programs sent to t" +
+    "he device or exported to a folder, not to the code saved from the editor.";
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -989,5 +1000,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownLeftMargin;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBoxConvertTabsToSpaces;
+        private System.Windows.Forms.Label label10;
     }
 }

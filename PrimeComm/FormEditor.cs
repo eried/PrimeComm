@@ -1,20 +1,17 @@
 ﻿
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Xml;
 using PrimeComm.Properties;
 using PrimeLib;
+using ScintillaNET;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
-using ScintillaNET;
 using WeifenLuo.WinFormsUI.Docking;
 using Clipboard = System.Windows.Forms.Clipboard;
 
@@ -92,15 +89,6 @@ namespace PrimeComm
 
         private void LoadEditorSettings()
         {
-            // Editor configuration
-            /*if (File.Exists("hpppl.xml"))
-            {
-                var iniParser
-                var config = new Configuration(XmlReader.Create("hpppl.xml"), "hpppl");
-                editor.ConfigurationManager.Configure(config);
-                editor.ConfigurationManager.Language = "hpppl";
-            }*/
-
             //scintillaEditor.Snippets.List.Add(new Snippet("if", "IF THEN END"));
             //scintillaEditor.Snippets.IsEnabled = true;
 
@@ -128,7 +116,35 @@ namespace PrimeComm
             }
 
             // Editor font colors
-            //editor.Styles[editor.Lexing.StyleNameMap["LINENUMBER"]].ForeColor = Color.Azure;
+            if (File.Exists("PrimePad.ini"))
+            {
+                var config = new IniParser("PrimePad.ini");
+
+                editor.Lexing.Lexer = Lexer.CppNoCase;
+
+                for (var i = 0; i < 2; i++)
+                {
+                    var tmp = config.GetSetting("lexing", "keywords"+i);
+
+                    if (tmp != null)
+                        editor.Lexing.Keywords[i] = tmp;
+                }
+
+
+                foreach (var s in editor.Lexing.StyleNameMap.Keys)
+                {
+                    var c = config.GetSetting("styles", s + "_ForeColor", Color.Empty);
+                    if (c != Color.Empty)
+                        editor.Styles[s].ForeColor = c;
+
+                    c = config.GetSetting<Color>("styles", s + "_BackColor", Color.Empty);
+                    if (c != Color.Empty)
+                        editor.Styles[s].BackColor = c;
+                }
+            }
+
+
+            // Other options
             editor.Indentation.IndentWidth = (int) Settings.Default.EditorIndentationSize;
             editor.Indentation.TabWidth = (int) Settings.Default.EditorIndentationTabWidth;
             editor.Indentation.UseTabs = !Settings.Default.EditorIndentationUseSpacesAsDefault;
