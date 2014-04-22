@@ -49,10 +49,10 @@ namespace PrimeHelp
 
         private void backgroundWorkerLoad_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            ResetCommandList();
+            ResetHelpList();
         }
 
-        private void ResetCommandList()
+        private void ResetHelpList()
         {
             listBoxTerms.SuspendDrawing();
             listBoxTerms.Items.Clear();
@@ -102,7 +102,7 @@ namespace PrimeHelp
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                searchString = searchString.ToLower();
+                searchString = searchString.Trim().ToLower();
 
                 // Start with
                 foreach (var r in _help.Where(r => r.Command.StartsWith(searchString, StringComparison.OrdinalIgnoreCase)).Where(r => !results.ContainsKey(r.Command)))
@@ -133,7 +133,7 @@ namespace PrimeHelp
             e.Result = results;
         }
 
-        private void AppendResults(Dictionary<String, ReferenceDefinition> results)
+        private void ShowHelpResults(Dictionary<String, ReferenceDefinition> results)
         {
             if (results == null) return;
 
@@ -150,10 +150,10 @@ namespace PrimeHelp
         {
             var r = e.Result as Dictionary<String, ReferenceDefinition>;
 
-            if (r.Count == 0)
-                ResetCommandList();
+            if (r.Count == 0 && textBoxSearch.Text.Trim().Length == 0)
+                ResetHelpList();
             else
-                AppendResults(r);
+                ShowHelpResults(r);
         }
 
         private void listBoxTerms_DrawItem(object sender, DrawItemEventArgs e)
