@@ -1051,5 +1051,10 @@ namespace PrimeComm
 
             UpdateGui();*/
         }
+
+        private void commandReferenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Resources.PrimeHelpPath);
+        }
     }
 }

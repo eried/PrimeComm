@@ -232,4 +232,7 @@
   <data name="ReferenceFile" xml:space="preserve">
     <value>reference.csv</value>
   </data>
+  <data name="PrimeHelpPath" xml:space="preserve">
+    <value>PrimeHelp.exe</value>
+  </data>
 </root>

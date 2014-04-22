@@ -805,5 +805,10 @@ namespace PrimeComm
             if(e.Button == MouseButtons.Left)
                 RestoreWindow();
         }
+
+        private void commandReferenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Resources.PrimeHelpPath);
+        }
     }
 }

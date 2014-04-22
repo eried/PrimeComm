@@ -129,6 +129,7 @@ namespace PrimeComm
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonSendToDevice = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSendToVirtual = new System.Windows.Forms.ToolStripButton();
+            this.commandReferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -749,6 +750,7 @@ namespace PrimeComm
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.commandReferenceToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -759,7 +761,7 @@ namespace PrimeComm
             this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -954,6 +956,14 @@ namespace PrimeComm
             this.toolStripButtonSendToVirtual.Text = "Send to Virtual HP Prime working folder (F10)";
             this.toolStripButtonSendToVirtual.Click += new System.EventHandler(this.sendToVirtualToolStripMenuItem_Click);
             // 
+            // commandReferenceToolStripMenuItem
+            // 
+            this.commandReferenceToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.help;
+            this.commandReferenceToolStripMenuItem.Name = "commandReferenceToolStripMenuItem";
+            this.commandReferenceToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.commandReferenceToolStripMenuItem.Text = "Command reference";
+            this.commandReferenceToolStripMenuItem.Click += new System.EventHandler(this.commandReferenceToolStripMenuItem_Click);
+            // 
             // FormEditor
             // 
             this.AllowDrop = true;
@@ -1070,5 +1080,6 @@ namespace PrimeComm
         private System.Windows.Forms.ToolStripButton toolStripButtonRestoreName;
         private System.Windows.Forms.ToolStripMenuItem newFromTemplateToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveAsTemplateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem commandReferenceToolStripMenuItem;
     }
 }

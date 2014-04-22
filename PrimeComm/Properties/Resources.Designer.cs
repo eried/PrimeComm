@@ -227,6 +227,15 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PrimeHelp.exe.
+        /// </summary>
+        internal static string PrimeHelpPath {
+            get {
+                return ResourceManager.GetString("PrimeHelpPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap primerpl {

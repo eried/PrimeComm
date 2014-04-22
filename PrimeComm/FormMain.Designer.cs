@@ -87,6 +87,7 @@
             this.newToolStripMenuItemopenToolStripMenuItemContextual = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItemContextual = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSend = new wyDay.Controls.SplitButton();
+            this.commandReferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.automaticUpdater)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
@@ -440,7 +441,7 @@
             // 
             this.primeSkinToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.primeskin;
             this.primeSkinToolStripMenuItem.Name = "primeSkinToolStripMenuItem";
-            this.primeSkinToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.primeSkinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.primeSkinToolStripMenuItem.Text = "PrimeSkin";
             this.primeSkinToolStripMenuItem.Click += new System.EventHandler(this.primeSkinToolStripMenuItem_Click);
             // 
@@ -448,7 +449,7 @@
             // 
             this.primeRPLToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.primerpl;
             this.primeRPLToolStripMenuItem.Name = "primeRPLToolStripMenuItem";
-            this.primeRPLToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.primeRPLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.primeRPLToolStripMenuItem.Text = "PrimeRPL";
             this.primeRPLToolStripMenuItem.Visible = false;
             this.primeRPLToolStripMenuItem.Click += new System.EventHandler(this.primeRPLToolStripMenuItem_Click);
@@ -456,6 +457,7 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.commandReferenceToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -466,7 +468,7 @@
             this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -482,19 +484,19 @@
             this.restoreToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStripNotificationIcon.Name = "contextMenuStripNotificationIcon";
-            this.contextMenuStripNotificationIcon.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStripNotificationIcon.Size = new System.Drawing.Size(114, 48);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.restoreToolStripMenuItem.Text = "&Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -568,6 +570,14 @@
             this.buttonSend.Click += new System.EventHandler(this.buttonOpenSend_Click);
             this.buttonSend.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
             this.buttonSend.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
+            // 
+            // commandReferenceToolStripMenuItem
+            // 
+            this.commandReferenceToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.help;
+            this.commandReferenceToolStripMenuItem.Name = "commandReferenceToolStripMenuItem";
+            this.commandReferenceToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.commandReferenceToolStripMenuItem.Text = "Command reference";
+            this.commandReferenceToolStripMenuItem.Click += new System.EventHandler(this.commandReferenceToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -664,6 +674,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripNotificationIcon;
         private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem commandReferenceToolStripMenuItem;
     }
 }
 
