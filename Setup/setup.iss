@@ -41,6 +41,7 @@ Source: "files\*"; DestDir: "{app}"; Flags: ignoreversion createallsubdirs recur
 [Icons]
 Name: "{group}\PrimeComm"; Filename: "{app}\PrimeComm.exe"
 Name: "{group}\PrimeSkin"; Filename: "{app}\PrimeSkin.exe"
+Name: "{group}\PrimeHelp"; Filename: "{app}\PrimeHelp.exe"; HotKey: "Ctrl+Alt+."
 Name: "{group}\PrimeCmd"; Filename: "{app}\PrimeCmd.exe"; Parameters: "--wait"
 Name: "{userdesktop}\PrimeComm"; Filename: "{app}\PrimeComm.exe"; Tasks: desktopicon
 
