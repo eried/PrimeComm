@@ -63,7 +63,7 @@
             this.listBoxTerms.TabIndex = 1;
             this.listBoxTerms.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxTerms_DrawItem);
             this.listBoxTerms.SelectedValueChanged += new System.EventHandler(this.listBoxTerms_SelectedValueChanged);
-            this.listBoxTerms.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listBoxTerms_KeyUp);
+            this.listBoxTerms.KeyUp += new System.Windows.Forms.KeyEventHandler(this.control_KeyUp);
             // 
             // textBoxView
             // 
@@ -77,7 +77,7 @@
             this.textBoxView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxView.Size = new System.Drawing.Size(427, 471);
             this.textBoxView.TabIndex = 2;
-            this.textBoxView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listBoxTerms_KeyUp);
+            this.textBoxView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.control_KeyUp);
             // 
             // backgroundWorkerLoad
             // 

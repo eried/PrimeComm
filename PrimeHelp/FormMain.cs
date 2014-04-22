@@ -1,7 +1,7 @@
-﻿using System;
+﻿using PrimeHelp.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -9,21 +9,19 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using PrimeHelp.Properties;
 
 namespace PrimeHelp
 {
     public partial class FormMain : Form
     {
-        private readonly List<ReferenceDefinition> _reference;
-        private bool _searchAgain;
+        private readonly List<ReferenceDefinition> _help;
 
         public FormMain()
         {
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             InitializeComponent();
 
-            _reference = new List<ReferenceDefinition>();
+            _help = new List<ReferenceDefinition>();
 
             if(File.Exists(Resources.ReferenceFile))
                 backgroundWorkerLoad.RunWorkerAsync(File.ReadAllText(Resources.ReferenceFile, Encoding.Default));
@@ -38,16 +36,14 @@ namespace PrimeHelp
 
                 var t = new List<String>();
                 while (r.ReadRow(t))
-                {
                     if (t.Count > 1)
                     {
                         if (String.IsNullOrEmpty(t[0]))
                             break;
-                        _reference.Add(new ReferenceDefinition { Command = t[0], Description = t[1] });
+                        _help.Add(new ReferenceDefinition { Command = t[0], Description = t[1] });
                     }
                     else
                         break;
-                }
             }
         }
 
@@ -61,7 +57,7 @@ namespace PrimeHelp
             listBoxTerms.SuspendDrawing();
             listBoxTerms.Items.Clear();
 
-            foreach (var r in _reference)
+            foreach (var r in _help)
             {
                 r.Bold = false;
                 r.Italic = false;
@@ -87,8 +83,6 @@ namespace PrimeHelp
 
         private void timerSearch_Tick(object sender, EventArgs e)
         {
-            _searchAgain = true;
-
             if (backgroundWorkerSearch.IsBusy)
             {
                 if(!backgroundWorkerSearch.CancellationPending)
@@ -109,43 +103,30 @@ namespace PrimeHelp
             if (!String.IsNullOrEmpty(searchString))
             {
                 searchString = searchString.ToLower();
-                //backgroundWorkerSearch.ReportProgress(0);
 
                 // Start with
-                foreach (var r in _reference)
+                foreach (var r in _help.Where(r => r.Command.StartsWith(searchString, StringComparison.OrdinalIgnoreCase)).Where(r => !results.ContainsKey(r.Command)))
                 {
-                    if (r.Command.StartsWith(searchString, StringComparison.OrdinalIgnoreCase))
-                        if (!results.ContainsKey(r.Command))
-                        {
-                            r.Bold = true;
-                            r.Italic = false;
-                            results.Add(r.Command, r);
-                        }
+                    r.Bold = true;
+                    r.Italic = false;
+                    results.Add(r.Command, r);
                 }
 
                 // Contains
-                foreach (var r in _reference)
+                foreach (var r in _help.Where(r => r.Command.ToLower().Contains(searchString)).Where(r => !results.ContainsKey(r.Command)))
                 {
-                    if (r.Command.ToLower().Contains(searchString))
-                        if (!results.ContainsKey(r.Command))
-                        {
-                            r.Bold = false;
-                            r.Italic = false;
-                            results.Add(r.Command, r);
-                        }
+                    r.Bold = false;
+                    r.Italic = false;
+                    results.Add(r.Command, r);
                 }
 
                 // Content
                 if(searchString.Length > 1)
-                    foreach (var r in _reference)
+                    foreach (var r in _help.Where(r => r.Description.ToLower().Contains(searchString)).Where(r => !results.ContainsKey(r.Command)))
                     {
-                        if (r.Description.ToLower().Contains(searchString))
-                            if (!results.ContainsKey(r.Command))
-                            {
-                                r.Bold = false;
-                                r.Italic = true;
-                                results.Add(r.Command, r);
-                            }
+                        r.Bold = false;
+                        r.Italic = true;
+                        results.Add(r.Command, r);
                     }
             }
 
@@ -157,9 +138,11 @@ namespace PrimeHelp
             if (results == null) return;
 
             listBoxTerms.SuspendDrawing();
+
             listBoxTerms.Items.Clear();
             foreach (var r in results)
                 listBoxTerms.Items.Add(r.Value);
+
             listBoxTerms.ResumeDrawing();
         }
 
@@ -170,9 +153,7 @@ namespace PrimeHelp
             if (r.Count == 0)
                 ResetCommandList();
             else
-            {
                 AppendResults(r);
-            }
         }
 
         private void listBoxTerms_DrawItem(object sender, DrawItemEventArgs e)
@@ -183,23 +164,19 @@ namespace PrimeHelp
             if (s != null)
             {
                 var style = FontStyle.Regular;
+                if (s.Bold) style |= FontStyle.Bold;
+                if (s.Italic) style |= FontStyle.Italic;
 
-                if (s.Bold)
-                    style |= FontStyle.Bold;
-
-                if (s.Italic)
-                    style |= FontStyle.Italic;
-
-                e.Graphics.DrawString(s.ToString(), new Font(Font.FontFamily, Font.Size, style), Brushes.Black, e.Bounds);
+                e.Graphics.DrawString(s.Command, new Font(Font.FontFamily, Font.Size, style), Brushes.Black, e.Bounds);
             }
             e.DrawFocusRectangle();
         }
 
         private void textBoxSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            switch (e.KeyValue)
+            switch (e.KeyValue) // Up and down arrows, plus enter
             {
-                case 40:
+                case 40: 
                 case 38:
                 case 13:
                     if (listBoxTerms.Items.Count > 0)
@@ -211,13 +188,12 @@ namespace PrimeHelp
             }
         }
 
-        private void listBoxTerms_KeyUp(object sender, KeyEventArgs e)
+        private void control_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == 13)
-            {
-                textBoxSearch.SelectAll();
-                textBoxSearch.Select();
-            }
+            if (e.KeyValue != 13) return;
+
+            textBoxSearch.SelectAll();
+            textBoxSearch.Select();
         }
     }
 
