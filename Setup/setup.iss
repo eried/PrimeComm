@@ -43,7 +43,7 @@ Name: "{group}\PrimeComm"; Filename: "{app}\PrimeComm.exe"; Comment: "Editor/con
 Name: "{group}\PrimeSkin"; Filename: "{app}\PrimeSkin.exe"; Comment: "Skin editor for the Virtual HP Prime Calculator emulator"
 Name: "{group}\PrimeHelp"; Filename: "{app}\PrimeHelp.exe"; Comment: "Quick Prime Calculator command reference"; HotKey: "Ctrl+Alt+."
 Name: "{group}\PrimeCmd"; Filename: "{app}\PrimeCmd.exe"; Parameters: "--wait"
-Name: "{userdesktop}\PrimeComm"; Filename: "{app}\PrimeComm.exe"; IconFilename: "Editor/converter/manager for the Prime Calculator"; Tasks: desktopicon
+Name: "{userdesktop}\PrimeComm"; Filename: "{app}\PrimeComm.exe"; Comment: "Editor/converter/manager for the Prime Calculator"; Tasks: desktopicon
 
 ;[Registry]
 ;Root: HKCR; SubKey: xapfile\shell\open\; ValueType: string; ValueName: command; ValueData: "{app}\wp7-deploy.exe"; Flags: UninsDeleteKey; Tasks: xapfiletype;
