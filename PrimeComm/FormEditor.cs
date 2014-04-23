@@ -1056,5 +1056,10 @@ namespace PrimeComm
         {
             Process.Start(Resources.PrimeHelpPath);
         }
+
+        private void homepageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Resources.HomepageUrl);
+        }
     }
 }

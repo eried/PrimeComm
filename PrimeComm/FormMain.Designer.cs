@@ -72,6 +72,9 @@
             this.primeSkinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.primeRPLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commandReferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogProgram = new System.Windows.Forms.OpenFileDialog();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
@@ -87,7 +90,6 @@
             this.newToolStripMenuItemopenToolStripMenuItemContextual = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItemContextual = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSend = new wyDay.Controls.SplitButton();
-            this.commandReferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.automaticUpdater)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatus)).BeginInit();
@@ -458,17 +460,40 @@
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.commandReferenceToolStripMenuItem,
+            this.homepageToolStripMenuItem,
+            this.toolStripMenuItem3,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
+            // commandReferenceToolStripMenuItem
+            // 
+            this.commandReferenceToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.help;
+            this.commandReferenceToolStripMenuItem.Name = "commandReferenceToolStripMenuItem";
+            this.commandReferenceToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.commandReferenceToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.commandReferenceToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.commandReferenceToolStripMenuItem.Text = "&Command reference";
+            this.commandReferenceToolStripMenuItem.Click += new System.EventHandler(this.commandReferenceToolStripMenuItem_Click);
+            // 
+            // homepageToolStripMenuItem
+            // 
+            this.homepageToolStripMenuItem.Name = "homepageToolStripMenuItem";
+            this.homepageToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.homepageToolStripMenuItem.Text = "&Homepage";
+            this.homepageToolStripMenuItem.Click += new System.EventHandler(this.homepageToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(199, 6);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.info;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -571,14 +596,6 @@
             this.buttonSend.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
             this.buttonSend.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             // 
-            // commandReferenceToolStripMenuItem
-            // 
-            this.commandReferenceToolStripMenuItem.Image = global::PrimeComm.Properties.Resources.help;
-            this.commandReferenceToolStripMenuItem.Name = "commandReferenceToolStripMenuItem";
-            this.commandReferenceToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.commandReferenceToolStripMenuItem.Text = "Command reference";
-            this.commandReferenceToolStripMenuItem.Click += new System.EventHandler(this.commandReferenceToolStripMenuItem_Click);
-            // 
             // FormMain
             // 
             this.AllowDrop = true;
@@ -675,6 +692,8 @@
         private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commandReferenceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem homepageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
     }
 }
 

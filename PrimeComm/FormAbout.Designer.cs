@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAbout));
             this.buttonClose = new System.Windows.Forms.Button();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelWebsite = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,16 +61,13 @@
             this.buttonClose.Text = "&Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             // 
-            // linkLabel3
+            // linkLabelWebsite
             // 
-            this.linkLabel3.Location = new System.Drawing.Point(16, 65);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(429, 26);
-            this.linkLabel3.TabIndex = 1;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "http://ried.cl/proyecto/utilidad-para-intercambiar-archivos-con-la-hp-prime-prime" +
-    "comm";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenLink_LinkClicked);
+            this.linkLabelWebsite.Location = new System.Drawing.Point(16, 65);
+            this.linkLabelWebsite.Name = "linkLabelWebsite";
+            this.linkLabelWebsite.Size = new System.Drawing.Size(429, 26);
+            this.linkLabelWebsite.TabIndex = 1;
+            this.linkLabelWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenLink_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -157,7 +154,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.linkLabel3);
+            this.tabPage1.Controls.Add(this.linkLabelWebsite);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.linkLabel2);
             this.tabPage1.Controls.Add(this.label2);
@@ -236,7 +233,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabelWebsite;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;

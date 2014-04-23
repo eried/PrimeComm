@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using PrimeComm.Properties;
 
 namespace PrimeComm
 {
@@ -19,6 +20,8 @@ namespace PrimeComm
 
             var v = Assembly.GetExecutingAssembly().GetName().Version;
             Text = String.Format("About {0} v{1} b{2}", Application.ProductName, v.ToString(2), v.Build);
+
+            linkLabelWebsite.Text = Resources.HomepageUrl;
         }
 
         private void linkLabelOpenLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

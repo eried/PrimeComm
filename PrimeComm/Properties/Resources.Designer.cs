@@ -208,6 +208,15 @@ namespace PrimeComm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://ried.cl/proyecto/utilidad-para-intercambiar-archivos-con-la-hp-prime-primecomm.
+        /// </summary>
+        internal static string HomepageUrl {
+            get {
+                return ResourceManager.GetString("HomepageUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap info {

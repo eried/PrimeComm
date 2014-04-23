@@ -235,4 +235,7 @@
   <data name="PrimeHelpPath" xml:space="preserve">
     <value>PrimeHelp.exe</value>
   </data>
+  <data name="HomepageUrl" xml:space="preserve">
+    <value>http://ried.cl/proyecto/utilidad-para-intercambiar-archivos-con-la-hp-prime-primecomm</value>
+  </data>
 </root>
