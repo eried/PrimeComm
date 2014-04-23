@@ -40,8 +40,8 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(13, 13);
-            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSearch.Location = new System.Drawing.Point(14, 13);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(241, 25);
             this.textBoxSearch.TabIndex = 0;
@@ -56,8 +56,8 @@
             this.listBoxTerms.FormattingEnabled = true;
             this.listBoxTerms.IntegralHeight = false;
             this.listBoxTerms.ItemHeight = 18;
-            this.listBoxTerms.Location = new System.Drawing.Point(13, 46);
-            this.listBoxTerms.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxTerms.Location = new System.Drawing.Point(14, 46);
+            this.listBoxTerms.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listBoxTerms.Name = "listBoxTerms";
             this.listBoxTerms.Size = new System.Drawing.Size(241, 438);
             this.listBoxTerms.TabIndex = 1;
@@ -70,12 +70,12 @@
             this.textBoxView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxView.Location = new System.Drawing.Point(262, 13);
-            this.textBoxView.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxView.Location = new System.Drawing.Point(265, 13);
+            this.textBoxView.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBoxView.Multiline = true;
             this.textBoxView.Name = "textBoxView";
             this.textBoxView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxView.Size = new System.Drawing.Size(427, 471);
+            this.textBoxView.Size = new System.Drawing.Size(423, 471);
             this.textBoxView.TabIndex = 2;
             this.textBoxView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.control_KeyUp);
             // 
@@ -104,7 +104,7 @@
             this.Controls.Add(this.textBoxSearch);
             this.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PrimeHelp";
