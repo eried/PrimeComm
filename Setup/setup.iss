@@ -23,10 +23,10 @@ Compression=lzma2/ultra64
 SolidCompression=true
 DisableProgramGroupPage=yes
 ChangesAssociations=true
-InternalCompressLevel=Fast
 UsePreviousAppDir=false
 ChangesEnvironment=true
 ShowLanguageDialog=no
+UninstallDisplayIcon={uninstallexe}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
