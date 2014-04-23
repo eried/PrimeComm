@@ -159,17 +159,21 @@ namespace PrimeHelp
         private void listBoxTerms_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
-            var s = listBoxTerms.Items[e.Index] as ReferenceDefinition;
 
-            if (s != null)
+            if (e.Index >= 0)
             {
+                var s = (ReferenceDefinition) listBoxTerms.Items[e.Index];
+
                 var style = FontStyle.Regular;
                 if (s.Bold) style |= FontStyle.Bold;
                 if (s.Italic) style |= FontStyle.Italic;
 
-                e.Graphics.DrawString(s.Command, new Font(Font.FontFamily, Font.Size, style), Brushes.Black, e.Bounds);
+                e.Graphics.DrawString(s.Command, new Font(Font.FontFamily, Font.Size, style), Brushes.Black,
+                    e.Bounds);
             }
-            e.DrawFocusRectangle();
+
+            if(listBoxTerms.Items.Count > 0)
+                e.DrawFocusRectangle();
         }
 
         private void textBoxSearch_KeyUp(object sender, KeyEventArgs e)
@@ -182,7 +186,9 @@ namespace PrimeHelp
                     if (listBoxTerms.Items.Count > 0)
                     {
                         listBoxTerms.Select();
-                        listBoxTerms.SelectedIndex = 0;
+
+                        if(listBoxTerms.SelectedIndex==-1)
+                            listBoxTerms.SelectedIndex = 0;
                     }
                     break;
             }

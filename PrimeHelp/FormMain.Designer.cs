@@ -74,6 +74,7 @@
             this.textBoxView.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBoxView.Multiline = true;
             this.textBoxView.Name = "textBoxView";
+            this.textBoxView.ReadOnly = true;
             this.textBoxView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxView.Size = new System.Drawing.Size(423, 471);
             this.textBoxView.TabIndex = 2;
@@ -86,6 +87,7 @@
             // 
             // timerSearch
             // 
+            this.timerSearch.Interval = 200;
             this.timerSearch.Tick += new System.EventHandler(this.timerSearch_Tick);
             // 
             // backgroundWorkerSearch
