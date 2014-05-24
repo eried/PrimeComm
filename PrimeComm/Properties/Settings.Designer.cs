@@ -493,5 +493,17 @@ namespace PrimeComm.Properties {
                 this["ConvertTabsToSpaces"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EditorSkipLoadingPrimePadIni {
+            get {
+                return ((bool)(this["EditorSkipLoadingPrimePadIni"]));
+            }
+            set {
+                this["EditorSkipLoadingPrimePadIni"] = value;
+            }
+        }
     }
 }

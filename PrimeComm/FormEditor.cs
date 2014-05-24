@@ -116,7 +116,7 @@ namespace PrimeComm
             }
 
             // Editor font colors
-            if (File.Exists("PrimePad.ini"))
+            if (!Settings.Default.EditorSkipLoadingPrimePadIni && File.Exists("PrimePad.ini"))
             {
                 var config = new IniParser("PrimePad.ini");
 
