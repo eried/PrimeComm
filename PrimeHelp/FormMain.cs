@@ -176,6 +176,15 @@ namespace PrimeHelp
                 e.DrawFocusRectangle();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys e)
+        {
+            if (e != Keys.Escape) return base.ProcessCmdKey(ref msg, e);
+
+            // Exit otherwise
+            Close();
+            return true;
+        }
+
         private void textBoxSearch_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyValue) // Up and down arrows, plus enter
