@@ -10,8 +10,6 @@ namespace PrimeSkin
     [Serializable]
     public class VirtualScreen : VirtualComponent
     {
-        private Rectangle _rectangle;
-
         public VirtualScreen()
         {
             Type = ComponentType.Screen;
