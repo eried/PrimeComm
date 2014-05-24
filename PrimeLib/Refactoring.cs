@@ -285,11 +285,19 @@ namespace PrimeLib
         }
     }
 
+    /// <summary>
+    /// Represent a block of code with an open sentence, body and closing sentence
+    /// </summary>
     public class CodeBlock
     {
         private readonly Regex _blockOpen, _blockClose;
         private static Regex _regexComments;
 
+        /// <summary>
+        /// Initializes a block of code
+        /// </summary>
+        /// <param name="blockOpen">Text or regular expression</param>
+        /// <param name="blockClose">Text or regular expression</param>
         public CodeBlock(string blockOpen, string blockClose = @"\sEND[\s;]")
         {
             const string s = @"\s"; // Space or line ending
@@ -298,6 +306,9 @@ namespace PrimeLib
             _blockClose = new Regex(blockClose.Contains('\\') ? blockClose : (s + blockClose + o), RegexOptions.IgnoreCase);
         }
 
+        /// <summary>
+        /// Current line
+        /// </summary>
         public int Line { get; set; }
 
         internal int MatchesOpen(string p)

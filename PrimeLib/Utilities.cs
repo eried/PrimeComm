@@ -200,6 +200,7 @@ namespace PrimeLib
         /// <param name="maxWidth">Canvas width</param>
         /// <param name="maxHeight">Canvas height</param>
         /// <param name="returnIncludesCanvas">If the returned image should include the canvas padding</param>
+        /// <param name="settings">Settings for resizing</param>
         /// <returns>Resized image</returns>
         public static Bitmap ResizeImage(Image image, int maxWidth, int maxHeight, bool returnIncludesCanvas=true, PrimeParameters settings = null)
         {
