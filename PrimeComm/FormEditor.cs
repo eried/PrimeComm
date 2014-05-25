@@ -929,7 +929,7 @@ namespace PrimeComm
                                     SendKeyToWindow(emulator, IntPtr.Zero, c);
                             }
 
-                            /*bool keyUp = true, keyDown = true;
+                            bool keyUp = true, keyDown = true;
                             if (key.EndsWith("_up"))
                             {
                                 keyDown = false;
@@ -939,10 +939,11 @@ namespace PrimeComm
                             {
                                 keyUp = false;
                                 key = key.Substring(0, key.Length - 5);
-                            }*/
+                            }
+
                             Keys pressedKey;
                             if (Enum.TryParse(key, out pressedKey))
-                                SendKeyToWindow(emulator, (IntPtr) pressedKey, char.MinValue);
+                                SendKeyToWindow(emulator, (IntPtr) pressedKey, char.MinValue, keyUp, keyDown);
                             break;
                     }
                 }
@@ -964,7 +965,7 @@ namespace PrimeComm
             }
         }
 
-        private static void SendKeyToWindow(IntPtr emulator, IntPtr key, char character)
+        private static void SendKeyToWindow(IntPtr emulator, IntPtr key, char character, bool keyDown=true, bool keyUp=true)
         {
             if (key == IntPtr.Zero)
             {
@@ -973,9 +974,14 @@ namespace PrimeComm
             }
             else
             {
-                PostMessage(emulator, WM_KEYDOWN, key, IntPtr.Zero);
-                Thread.Sleep(1);
-                PostMessage(emulator, WM_KEYUP, key, IntPtr.Zero);
+                if (keyDown)
+                {
+                    PostMessage(emulator, WM_KEYDOWN, key, IntPtr.Zero);
+                    Thread.Sleep(1);
+                }
+                
+                if(keyUp)
+                    PostMessage(emulator, WM_KEYUP, key, IntPtr.Zero);
             }
         }
 
