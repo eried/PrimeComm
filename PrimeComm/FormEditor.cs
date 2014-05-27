@@ -975,11 +975,10 @@ namespace PrimeComm
             else
             {
                 if (keyDown)
-                {
                     PostMessage(emulator, WM_KEYDOWN, key, IntPtr.Zero);
-                    Thread.Sleep(1);
-                }
-                
+
+                Thread.Sleep(1);
+
                 if(keyUp)
                     PostMessage(emulator, WM_KEYUP, key, IntPtr.Zero);
             }
