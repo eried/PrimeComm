@@ -285,11 +285,7 @@ namespace PrimeSkin
 
         private void ChangeBorder(bool findBorder=false)
         {
-            if (findBorder)
-                _currentSkin.FindBorder(true);
-            else
-                _currentSkin.FindBorder(false);
-
+            _currentSkin.FindBorder(findBorder);
             _currentSkin.Refresh();
             SomethingChanged();
         }

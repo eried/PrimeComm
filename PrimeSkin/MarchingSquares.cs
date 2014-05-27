@@ -30,7 +30,7 @@ namespace PrimeSkin
             var perimeterStart = FindStartPoint();
 
             // Return the list of points
-            var p = WalkPerimeter(perimeterStart.X, perimeterStart.Y);
+            var p = WalkPerimeter(perimeterStart.X, perimeterStart.Y); // TODO: Add an inner border option
 
             return (optimized ? OptimizePointsInLine(p):p).ToArray();
 
@@ -40,7 +40,7 @@ namespace PrimeSkin
         /// This optimizes the points that are in line
         /// </summary>
         /// <param name="points">Input points</param>
-        private static List<Point> OptimizePointsInLine(List<Point> points)
+        private static List<Point> OptimizePointsInLine(IList<Point> points)
         {
             if(points.Count == 0)
                 return null;
