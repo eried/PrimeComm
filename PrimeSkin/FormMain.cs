@@ -464,12 +464,12 @@ namespace PrimeSkin
 
         private void allComponentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkBoxViewAll.Checked = true;
+            checkBoxViewAll.CheckState = CheckState.Checked;
         }
 
         private void hideAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkBoxViewAll.Checked = false;
+            checkBoxViewAll.CheckState = CheckState.Unchecked;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
