@@ -44,9 +44,10 @@
             this.checkBoxViewAll = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBoxViewRegions = new System.Windows.Forms.CheckBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.buttonSave = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -71,12 +72,11 @@
             this.removeTheLastRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBoxProperties.SuspendLayout();
             this.groupBoxView.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSkin
@@ -243,18 +243,18 @@
             this.checkBoxViewRegions.UseVisualStyleBackColor = true;
             this.checkBoxViewRegions.CheckedChanged += new System.EventHandler(this.checkBoxView_CheckedChanged);
             // 
-            // menuStrip1
+            // menuStripMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(724, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(724, 24);
+            this.menuStripMain.TabIndex = 5;
+            this.menuStripMain.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -277,6 +277,11 @@
             this.buttonLoad.Size = new System.Drawing.Size(155, 22);
             this.buttonLoad.Text = "&Open...";
             this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 6);
             // 
             // buttonSave
             // 
@@ -326,7 +331,7 @@
             this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.buttonUndo_Click);
             // 
@@ -335,27 +340,27 @@
             this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(282, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.buttonRedo_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(279, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(263, 6);
             // 
             // buttonBackground
             // 
             this.buttonBackground.Image = ((System.Drawing.Image)(resources.GetObject("buttonBackground.Image")));
             this.buttonBackground.Name = "buttonBackground";
-            this.buttonBackground.Size = new System.Drawing.Size(282, 22);
+            this.buttonBackground.Size = new System.Drawing.Size(266, 22);
             this.buttonBackground.Text = "&Change skin image...";
             this.buttonBackground.Click += new System.EventHandler(this.buttonBackground_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(279, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(263, 6);
             // 
             // buttonBorderFind
             // 
@@ -408,7 +413,7 @@
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(201, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(205, 6);
             // 
             // keysToolStripMenuItem
             // 
@@ -437,7 +442,7 @@
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(201, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(205, 6);
             // 
             // addANewRegionToolStripMenuItem
             // 
@@ -452,7 +457,7 @@
             // 
             this.removeTheLastRegionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("removeTheLastRegionToolStripMenuItem.Image")));
             this.removeTheLastRegionToolStripMenuItem.Name = "removeTheLastRegionToolStripMenuItem";
-            this.removeTheLastRegionToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.removeTheLastRegionToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.removeTheLastRegionToolStripMenuItem.Text = "&Remove the last region...";
             this.removeTheLastRegionToolStripMenuItem.Click += new System.EventHandler(this.removeTheLastRegionToolStripMenuItem_Click);
             // 
@@ -469,14 +474,9 @@
             this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 6);
             // 
             // FormMain
             // 
@@ -486,9 +486,9 @@
             this.Controls.Add(this.groupBoxView);
             this.Controls.Add(this.groupBoxProperties);
             this.Controls.Add(this.panelSkin);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStripMain;
             this.MinimumSize = new System.Drawing.Size(580, 480);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -499,8 +499,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -522,7 +522,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabelRegionAdd;
         private System.Windows.Forms.LinkLabel linkLabelRegionRemove;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buttonLoad;
         private System.Windows.Forms.ToolStripMenuItem buttonSave;

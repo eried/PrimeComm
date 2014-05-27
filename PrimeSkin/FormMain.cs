@@ -44,10 +44,10 @@ namespace PrimeSkin
             keysToolStripMenuItem.Enabled = isSkinLoaded;
             screenToolStripMenuItem.Enabled = isSkinLoaded;
             regionsToolStripMenuItem.Enabled = isSkinLoaded;
-            allComponentsToolStripMenuItem.Enabled = isSkinLoaded;
-            hideAllToolStripMenuItem.Enabled = isSkinLoaded;
-            addANewRegionToolStripMenuItem.Enabled = isSkinLoaded;
-            removeTheLastRegionToolStripMenuItem.Enabled = isSkinLoaded;
+            allComponentsToolStripMenuItem.Enabled &= isSkinLoaded;
+            hideAllToolStripMenuItem.Enabled &= isSkinLoaded;
+            addANewRegionToolStripMenuItem.Enabled &= isSkinLoaded;
+            removeTheLastRegionToolStripMenuItem.Enabled &= isSkinLoaded;
 
             UpdateUndoRedoMenu();
 
@@ -366,9 +366,11 @@ namespace PrimeSkin
 
             checkBoxViewAll.CheckedChanged -= checkBoxViewAll_CheckedChanged;
 
-            checkBoxViewAll.CheckState = r.Count == 0
-                ? CheckState.Unchecked
+            checkBoxViewAll.CheckState = r.Count == 0 ? CheckState.Unchecked
                 : (r.Count == 3 ? CheckState.Checked : CheckState.Indeterminate);
+
+            allComponentsToolStripMenuItem.Enabled = checkBoxViewAll.CheckState != CheckState.Checked;
+            hideAllToolStripMenuItem.Enabled = checkBoxViewAll.CheckState != CheckState.Unchecked;
 
             checkBoxViewAll.CheckedChanged += checkBoxViewAll_CheckedChanged;
 
@@ -419,12 +421,19 @@ namespace PrimeSkin
 
             if (r == null) return;
 
-            if (MessageBox.Show("This will remove the last region '" + r + "'. Do you want to continue?",
-                "Remove region", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (r.Id == 0)
             {
-                _currentSkin.RemoveMaximizedRegion(true);
-                SomethingChanged();
-                UpdateView();
+                MessageBox.Show("Last region can't be removed");
+            }
+            else
+            {
+                if (MessageBox.Show("This will remove the last region '" + r + "'. Do you want to continue?",
+                    "Remove region", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    _currentSkin.RemoveMaximizedRegion(true);
+                    SomethingChanged();
+                    UpdateView();
+                }
             }
         }
 
