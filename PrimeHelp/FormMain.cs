@@ -32,7 +32,7 @@ namespace PrimeHelp
             using (var r = new CsvFileReader(new MemoryStream(Encoding.UTF8.GetBytes(e.Argument as string ?? "")),
                 EmptyLineBehavior.EndOfFile))
             {
-                r.Delimiter = ';';
+                r.Delimiter = '\t';
 
                 var t = new List<String>();
                 while (r.ReadRow(t))
@@ -209,6 +209,11 @@ namespace PrimeHelp
 
             textBoxSearch.SelectAll();
             textBoxSearch.Select();
+        }
+
+        private void listBoxTerms_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            e.ItemHeight = ((ListBox) sender).Font.Height;
         }
     }
 

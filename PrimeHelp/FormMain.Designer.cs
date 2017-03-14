@@ -43,7 +43,7 @@
             this.textBoxSearch.Location = new System.Drawing.Point(14, 13);
             this.textBoxSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(241, 25);
+            this.textBoxSearch.Size = new System.Drawing.Size(381, 38);
             this.textBoxSearch.TabIndex = 0;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             this.textBoxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_KeyUp);
@@ -53,15 +53,15 @@
             this.listBoxTerms.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxTerms.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.listBoxTerms.FormattingEnabled = true;
             this.listBoxTerms.IntegralHeight = false;
-            this.listBoxTerms.ItemHeight = 18;
-            this.listBoxTerms.Location = new System.Drawing.Point(14, 46);
+            this.listBoxTerms.ItemHeight = 31;
+            this.listBoxTerms.Location = new System.Drawing.Point(14, 59);
             this.listBoxTerms.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listBoxTerms.Name = "listBoxTerms";
-            this.listBoxTerms.Size = new System.Drawing.Size(241, 438);
+            this.listBoxTerms.Size = new System.Drawing.Size(381, 664);
             this.listBoxTerms.TabIndex = 1;
             this.listBoxTerms.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxTerms_DrawItem);
+            this.listBoxTerms.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.listBoxTerms_MeasureItem);
             this.listBoxTerms.SelectedValueChanged += new System.EventHandler(this.listBoxTerms_SelectedValueChanged);
             this.listBoxTerms.KeyUp += new System.Windows.Forms.KeyEventHandler(this.control_KeyUp);
             // 
@@ -70,13 +70,13 @@
             this.textBoxView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxView.Location = new System.Drawing.Point(265, 13);
+            this.textBoxView.Location = new System.Drawing.Point(405, 13);
             this.textBoxView.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBoxView.Multiline = true;
             this.textBoxView.Name = "textBoxView";
             this.textBoxView.ReadOnly = true;
             this.textBoxView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxView.Size = new System.Drawing.Size(423, 471);
+            this.textBoxView.Size = new System.Drawing.Size(757, 710);
             this.textBoxView.TabIndex = 2;
             this.textBoxView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.control_KeyUp);
             // 
@@ -98,9 +98,9 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 497);
+            this.ClientSize = new System.Drawing.Size(1176, 736);
             this.Controls.Add(this.textBoxView);
             this.Controls.Add(this.listBoxTerms);
             this.Controls.Add(this.textBoxSearch);
