@@ -20,6 +20,8 @@ namespace PrimeMon
             InitializeComponent();
 
             Environment.CurrentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+
+            // Detect if there is a reference app
             if (File.Exists(referenceName))
                 buttonReference.Visible = true;
         }
@@ -27,18 +29,13 @@ namespace PrimeMon
         private void labelDragHere_DragEnter(object sender, DragEventArgs e)
         {
             foreach (var f in (String[])e.Data.GetData("FileName"))
-            {
                 if (Path.GetExtension(f).ToLower() == ".hpprgm")
-                {
                     e.Effect = DragDropEffects.All;
-                }
-            }
         }
 
         private void labelDragHere_DragDrop(object sender, DragEventArgs e)
         {
             foreach (var f in (String[]) e.Data.GetData("FileName"))
-            {
                 if (Path.GetExtension(f).ToLower() == ".hpprgm")
                 {
                     currentFile = f;
@@ -49,7 +46,6 @@ namespace PrimeMon
                     buttonEdit.Enabled = true;
                     break;
                 }
-            }
         }
 
         private void fileSystemWatcherMonitor_Changed(object sender, FileSystemEventArgs e)
@@ -63,9 +59,6 @@ namespace PrimeMon
 
         [DllImport("user32.dll")]
         static extern bool SetForegroundWindow(IntPtr hWnd);
-
-        const uint WM_KEYDOWN = 0x100, WM_KEYUP = 0x0101, WM_CHAR = 0x0102, WM_PASTE = 0x0302, WM_APPCOMMAND = 0x0319,
-            APPCOMMAND_PASTE = 38, WM_SYSKEYDOWN = 0x0104, WM_SYSKEYUP = 0x0105, WM_COMMAND = 0x0111;
 
         private void checkBoxTopMost_CheckedChanged(object sender, EventArgs e)
         {
