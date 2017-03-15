@@ -67,6 +67,11 @@ namespace PrimeMon
         const uint WM_KEYDOWN = 0x100, WM_KEYUP = 0x0101, WM_CHAR = 0x0102, WM_PASTE = 0x0302, WM_APPCOMMAND = 0x0319,
             APPCOMMAND_PASTE = 38, WM_SYSKEYDOWN = 0x0104, WM_SYSKEYUP = 0x0105, WM_COMMAND = 0x0111;
 
+        private void checkBoxTopMost_CheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = checkBoxTopMost.Checked;
+        }
+
         private void checkBoxStep2Edit_CheckedChanged(object sender, EventArgs e)
         {
             checkBoxStep3Escape.Enabled = checkBoxStep2Edit.Checked;
