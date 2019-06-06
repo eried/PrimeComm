@@ -1,8 +1,9 @@
+**NOTE:** This project does not work on a modern firmware. The whole HP Prime communication protocol changed and I have no plans to update anything.
+
 PrimeComm
 =========
 
-Small application/library suite to send and receive HP Prime Calculator files. Built reverse engineering the device. Calculator Hacking needs Pepsi, wanna help? :D<br>
-[<img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LTJTUX8WPHPNW)
+Small application/library suite to send and receive HP Prime Calculator files. Built reverse engineering the device. 
 
 PrimeComm
 ---------
